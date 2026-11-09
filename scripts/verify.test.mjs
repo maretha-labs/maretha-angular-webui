@@ -19,7 +19,11 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const commands = (mode) => checksFor(mode).map((check) => check.command);
 
 /** Steps the workflow needs that no local mode runs. */
-const CI_ONLY = new Set(['npm ci', 'npm run verify:release']);
+const CI_ONLY = new Set([
+	'npm ci',
+	'sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0',
+	'npm run verify:release',
+]);
 
 describe('verification modes', () => {
 	it('are customization, upstream and release, each including the one before it', () => {
