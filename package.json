@@ -121,7 +121,7 @@
     "marked": "^17.0.6",
     "ng2-charts": "^10.0.0",
     "ngx-autosize": "^2.0.4",
-    "ngx-bootstrap": "^21.2.0",
+    "ngx-bootstrap": "^22.0.0",
     "ngx-doc-viewer": "^14.0.0",
     "ngx-drag-to-select": "^5.0.1",
     "ngx-extended-pdf-viewer": "^25.6.4",
