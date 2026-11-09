@@ -38,6 +38,9 @@ jobs:
         with:
           chrome-version: stable
           install-dependencies: true
+      - name: Allow Chrome's sandbox on the Ubuntu runner
+        # The runner restricts unprivileged user namespaces, which the sandbox needs.
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 
       - name: Install locked dependencies
         run: npm ci
@@ -302,6 +305,9 @@ jobs:
         with:
           chrome-version: stable
           install-dependencies: true
+      - name: Allow Chrome's sandbox on the Ubuntu runner
+        # The runner restricts unprivileged user namespaces, which the sandbox needs.
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
       - run: npm ci
       - name: Every check of the release mode, then the release files and their digests
         env:
