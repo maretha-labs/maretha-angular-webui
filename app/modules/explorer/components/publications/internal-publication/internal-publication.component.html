@@ -1,0 +1,88 @@
+@if (editorForm) {
+	<form
+		(ngSubmit)="saveChanges()"
+		[formGroup]="editorForm"
+		class="d-flex flex-column align-items-center px-2"
+		novalidate
+	>
+		<div class="form-group mb-3 w-100">
+			<label class="menu-header required" for="publication-location">{{
+				'app.modules.internal-publication.location-6f2163' | webuiMessage: 'Location'
+			}}</label>
+			<ng-select
+				labelForId="publication-location"
+				[items]="locations$ | async"
+				[nxAutofocus]="true"
+				class="ng-select-sm ng-select-discreet"
+				[class.is-invalid]="isControlInvalid('location')"
+				formControlName="location"
+				[addTag]="false"
+				[clearable]="false"
+				[loading]="loading"
+				[typeahead]="searchTerm$"
+				[nxSuggestionLimits]="limits()"
+				bindLabel="title"
+				bindValue="uid"
+				(focus)="fetchEntries($event)"
+			>
+				<ng-template ng-option-tmp let-location="item" let-index="index" let-search="searchTerm">
+					<div class="ng-value-label">
+						<div class="text-capitalize">{{ location.title }}</div>
+						<small class="opacity-50">{{ location.path }}</small>
+					</div>
+				</ng-template>
+			</ng-select>
+			<div class="invalid-feedback">
+				{{
+					'app.modules.internal-publication.please-specify-the-target-location-1e3753'
+						| webuiMessage: 'Please specify the target location.'
+				}}
+			</div>
+		</div>
+		<div class="form-group w-100 mb-3">
+			<label class="menu-header" for="publication-rendition">{{
+				'publication.rendition' | webuiMessage: 'Rendition'
+			}}</label>
+			<ng-select
+				[items]="renditions"
+				labelForId="publication-rendition"
+				class="ng-select-sm ng-select-discreet"
+				formControlName="rendition"
+				[clearable]="false"
+				bindLabel="label"
+				bindValue="key"
+			>
+			</ng-select>
+		</div>
+		<div class="form-group w-100">
+			<div class="form-check form-switch">
+				<input
+					class="form-check-input"
+					type="checkbox"
+					role="switch"
+					id="overrideExistingPublications"
+					formControlName="overrideExistingPublications"
+				/>
+				<label class="form-check-label" for="overrideExistingPublications">{{
+					'app.modules.internal-publication.override-existing-publications-25d559'
+						| webuiMessage: 'Override existing publications'
+				}}</label>
+			</div>
+		</div>
+		<div class="btn-group w-100 mt-2">
+			<button
+				type="submit"
+				class="btn btn-secondary"
+				[disabled]="editorForm.invalid || editorForm.pristine || working"
+			>
+				<fa-icon [fixedWidth]="true" icon="check-double"></fa-icon>
+
+				{{ 'publication.publish' | webuiMessage: 'Publish' }}
+			</button>
+		</div>
+	</form>
+}
+
+@if (error) {
+	<p role="alert">{{ error }}</p>
+}

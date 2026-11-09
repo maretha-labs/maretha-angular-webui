@@ -1,0 +1,95 @@
+// The shared confirmation: one surface with an optional icon badge, the question and optional
+// supporting text, then two equal-height buttons at the bottom right. The default button is
+// filled; the other stays a visible outline button, never plain text. The DOM keeps the close,
+// decline, confirm keyboard order; only the visual order of the two buttons changes.
+:host {
+	display: block;
+	padding: 24px 24px 20px;
+}
+.nx-confirmation {
+	display: flex;
+	align-items: flex-start;
+	gap: 16px;
+}
+.nx-confirmation__icon {
+	display: inline-flex;
+	flex: none;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: color-mix(in srgb, var(--nuxeo-primary-color, #0057d9) 12%, transparent);
+	color: var(--nuxeo-primary-color, #0057d9);
+	--webui-icon-size: 22px;
+}
+.nx-confirmation__text {
+	flex: 1;
+	min-width: 0;
+}
+// A one-line question sits centred on the 40px badge.
+.nx-confirmation__icon + .nx-confirmation__text {
+	padding-block-start: 8px;
+}
+h2 {
+	margin: 0;
+	font-size: 1.0625rem;
+	font-weight: 600;
+	line-height: 1.45;
+	color: inherit;
+	overflow-wrap: anywhere;
+}
+p {
+	margin: 6px 0 0;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	color: color-mix(in srgb, currentColor 78%, transparent);
+}
+.btn-close {
+	flex: none;
+	width: 32px;
+	height: 32px;
+	margin-block-start: -6px;
+	margin-inline-end: -8px;
+	padding: 0;
+	background-size: 12px;
+	border-radius: 4px;
+}
+.nx-confirmation__actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+	margin-block-start: 24px;
+}
+.nx-confirmation__actions button {
+	min-width: 96px;
+	height: 36px;
+	padding: 0 16px;
+	border: 1px solid var(--nuxeo-border, #c9ced6);
+	border-radius: 4px;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	font-size: 0.875rem;
+	font-weight: 600;
+	line-height: 1;
+	cursor: pointer;
+	transition:
+		background-color 0.12s,
+		filter 0.12s;
+}
+.nx-confirmation__actions button:not(.nx-confirmation__default):hover {
+	background: color-mix(in srgb, currentColor 6%, transparent);
+}
+.nx-confirmation__actions .nx-confirmation__default {
+	border-color: var(--maretha-style-color-primary-dark-15, #0057d9);
+	background: var(--maretha-style-color-primary-dark-15, #0057d9);
+	color: #fff;
+}
+.nx-confirmation__actions .nx-confirmation__default:hover {
+	filter: brightness(0.92);
+}
+.nx-confirmation__actions button:focus-visible {
+	outline: 2px solid var(--nuxeo-primary-color, #0057d9);
+	outline-offset: 2px;
+}

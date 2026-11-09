@@ -1,0 +1,18 @@
+<div
+	class="form-file p-0"
+	[class.file-over]="fileOver"
+	[nxDragAndDrop]="allowDragAndDrop && !disabled"
+	(filesDragged)="filesDragged($event)"
+	(filesDropped)="filesDropped($event)"
+>
+	<input
+		#fileInput
+		type="file"
+		[attr.multiple]="multiple ? '' : null"
+		[attr.accept]="allowedMimeTypes.join(',') || null"
+		class="form-file-input"
+		(change)="fileInputChanged($event)"
+		[disabled]="disabled"
+	/>
+	<nx-webui-slot name="FILE_UPLOAD_ACTIONS" [context]="uploadContext" />
+</div>

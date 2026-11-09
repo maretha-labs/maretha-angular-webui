@@ -1,0 +1,1634 @@
+{
+  "locale": "ar",
+  "reviewStatus": "Assistant-authored; independent native-speaker review pending.",
+  "entries": {
+    "widgets.datepicker.open": {
+      "source": "Open calendar",
+      "translation": "فتح التقويم"
+    },
+    "widgets.datepicker.placeholder": {
+      "source": "mm/dd/yyyy",
+      "translation": "dd/mm/yyyy"
+    },
+    "app.state.this-browser-could-not-display-the-file-downl-0b935c": {
+      "source": "This browser could not display the file. Download it to use another viewer.",
+      "translation": "تعذّر على هذا المتصفح عرض الملف. نزّله لاستخدام عارض آخر."
+    },
+    "app.state.preview-is-unavailable-check-access-or-server-160777": {
+      "source": "Preview is unavailable. Check access or server conversion support, or download the file.",
+      "translation": "المعاينة غير متاحة. تحقّق من صلاحية الوصول أو دعم التحويل على الخادم، أو نزّل الملف."
+    },
+    "app.state.unable-to-refresh-the-search-results-2e29d4": {
+      "source": "Unable to refresh the search results.",
+      "translation": "تعذّر تحديث نتائج البحث."
+    },
+    "app.state.unable-to-refresh-the-document-d06b97": {
+      "source": "Unable to refresh the document.",
+      "translation": "تعذّر تحديث المستند."
+    },
+    "app.state.the-accepted-job-is-still-pending-retry-its-s-4eb054": {
+      "source": "The accepted job is still pending. Retry its status or abort it.",
+      "translation": "لا تزال المهمة المقبولة قيد الانتظار. أعد محاولة الاستعلام عن حالتها أو أوقفها."
+    },
+    "app.state.the-search-scope-changed-review-and-confirm-a-cfc692": {
+      "source": "The search scope changed. Review and confirm again.",
+      "translation": "تغيّر نطاق البحث. راجع الاختيار وأكّده مجددًا."
+    },
+    "app.state.the-submission-outcome-is-unknown-do-not-subm-d63d25": {
+      "source": "The submission outcome is unknown. Do not submit it again.",
+      "translation": "نتيجة الإرسال غير معروفة. لا تُرسله مجددًا."
+    },
+    "app.state.the-bulk-runaction-endpoint-was-not-found-che-7e29bd": {
+      "source": "The Bulk.RunAction endpoint was not found. Check the server or proxy configuration before using query-wide actions.",
+      "translation": "لم يُعثر على نقطة الوصول Bulk.RunAction. تحقّق من إعدادات الخادم أو الوكيل قبل استخدام الإجراءات التي تشمل جميع نتائج الاستعلام."
+    },
+    "app.state.the-job-was-accepted-but-status-could-not-be-210342": {
+      "source": "The job was accepted but status could not be read.",
+      "translation": "تم قبول المهمة، لكن تعذّرت قراءة حالتها."
+    },
+    "app.state.unable-to-start-the-query-metadata-update-c12746": {
+      "source": "Unable to start the query metadata update.",
+      "translation": "تعذّر بدء تحديث البيانات الوصفية لنتائج الاستعلام."
+    },
+    "app.state.the-job-status-is-still-unavailable-7d9210": {
+      "source": "The job status is still unavailable.",
+      "translation": "لا تزال حالة المهمة غير متاحة."
+    },
+    "app.state.abort-requested-452edb": {
+      "source": "Abort requested.",
+      "translation": "تم طلب الإيقاف."
+    },
+    "app.state.the-server-could-not-abort-this-job-db90a8": {
+      "source": "The server could not abort this job.",
+      "translation": "تعذّر على الخادم إيقاف هذه المهمة."
+    },
+    "app.state.directory-choices-could-not-be-loaded-retry-b-5c648e": {
+      "source": "Directory choices could not be loaded. Retry before changing a directory field.",
+      "translation": "تعذّر تحميل خيارات الدليل. أعد المحاولة قبل تغيير حقل من حقول الدليل."
+    },
+    "app.state.the-accepted-job-is-still-pending-retry-its-s-25239c": {
+      "source": "The accepted job is still pending. Retry its status instead.",
+      "translation": "لا تزال المهمة المقبولة قيد الانتظار. أعد محاولة الاستعلام عن حالتها بدلًا من ذلك."
+    },
+    "app.state.unable-to-start-the-query-trash-action-cfabb0": {
+      "source": "Unable to start the query trash action.",
+      "translation": "تعذّر بدء إجراء سلة المهملات لنتائج الاستعلام."
+    },
+    "app.state.csv-export-failed-retry-the-export-8c140a": {
+      "source": "CSV export failed. Retry the export.",
+      "translation": "فشل تصدير CSV. أعد محاولة التصدير."
+    },
+    "app.state.cancellation-could-not-be-confirmed-retry-can-e54119": {
+      "source": "Cancellation could not be confirmed. Retry cancellation.",
+      "translation": "تعذّر تأكيد الإلغاء. أعد محاولة الإلغاء."
+    },
+    "app.state.cancellation-could-not-be-confirmed-retry-can-5d2070": {
+      "source": "Cancellation could not be confirmed. Retry cancellation if available.",
+      "translation": "تعذّر تأكيد الإلغاء. أعد محاولة الإلغاء إذا كان متاحًا."
+    },
+    "app.state.unable-to-load-versions-please-try-again-e20f81": {
+      "source": "Unable to load versions. Please try again.",
+      "translation": "تعذّر تحميل النسخ. أعد المحاولة."
+    },
+    "app.state.the-action-failed-check-permissions-and-retry-5e8cad": {
+      "source": "The action failed. Check permissions and retry.",
+      "translation": "فشل الإجراء. تحقّق من الصلاحيات ثم أعد المحاولة."
+    },
+    "app.state.copy-the-selected-link-using-your-keyboard-17309d": {
+      "source": "Copy the selected link using your keyboard.",
+      "translation": "انسخ الرابط المحدد باستخدام لوحة المفاتيح."
+    },
+    "app.state.the-lock-could-not-be-removed-retry-after-che-55fe38": {
+      "source": "The lock could not be removed. Retry after checking your permissions.",
+      "translation": "تعذّرت إزالة القفل. تحقّق من صلاحياتك ثم أعد المحاولة."
+    },
+    "app.state.publications-could-not-be-loaded-4e082f": {
+      "source": "Publications could not be loaded.",
+      "translation": "تعذّر تحميل المنشورات."
+    },
+    "app.state.more-publications-could-not-be-loaded-86eb10": {
+      "source": "More publications could not be loaded.",
+      "translation": "تعذّر تحميل المزيد من المنشورات."
+    },
+    "app.state.some-publications-remain-nuxeo-only-removes-p-81b56e": {
+      "source": "Some publications remain. Nuxeo only removes publications you are allowed to delete.",
+      "translation": "لا تزال بعض المنشورات موجودة. يزيل Nuxeo المنشورات التي يحق لك حذفها فقط."
+    },
+    "app.state.publications-removed-e98c00": {
+      "source": "Publications removed.",
+      "translation": "تمت إزالة المنشورات."
+    },
+    "app.state.the-publication-action-failed-verify-your-per-8ec829": {
+      "source": "The publication action failed. Verify your permissions and retry.",
+      "translation": "فشل إجراء النشر. تحقّق من صلاحياتك ثم أعد المحاولة."
+    },
+    "app.state.trash-could-not-be-loaded-b3ca80": {
+      "source": "Trash could not be loaded.",
+      "translation": "تعذّر تحميل سلة المهملات."
+    },
+    "app.state.fullscreen-is-unavailable-in-this-browser-aaff2c": {
+      "source": "Fullscreen is unavailable in this browser.",
+      "translation": "ملء الشاشة غير متاح في هذا المتصفح."
+    },
+    "app.state.no-browser-preview-is-available-this-image-ne-279e76": {
+      "source": "No browser preview is available. This image needs server conversion before it can be viewed.",
+      "translation": "لا تتوفر معاينة في المتصفح. تتطلب هذه الصورة تحويلًا على الخادم قبل عرضها."
+    },
+    "app.state.preview-is-unavailable-for-this-image-downloa-62a90e": {
+      "source": "Preview is unavailable for this image. Download the file to view it.",
+      "translation": "المعاينة غير متاحة لهذه الصورة. نزّل الملف لعرضه."
+    },
+    "app.state.the-selected-documents-could-not-be-moved-to-240f2c": {
+      "source": "The selected documents could not be moved to trash. Check permissions and retry.",
+      "translation": "تعذّر نقل المستندات المحددة إلى سلة المهملات. تحقّق من الصلاحيات ثم أعد المحاولة."
+    },
+    "app.state.the-selected-documents-could-not-be-removed-f-94e7f8": {
+      "source": "The selected documents could not be removed from this collection. Refresh and retry.",
+      "translation": "تعذّرت إزالة المستندات المحددة من هذه المجموعة. حدّث الصفحة ثم أعد المحاولة."
+    },
+    "app.state.the-documents-could-not-be-reordered-refresh-0e0bf7": {
+      "source": "The documents could not be reordered. Refresh and retry.",
+      "translation": "تعذّرت إعادة ترتيب المستندات. حدّث الصفحة ثم أعد المحاولة."
+    },
+    "app.state.-value-content-could-not-be-loaded-check-your-2ea53d": {
+      "source": "{value0} content could not be loaded. Check your access and retry.",
+      "translation": "تعذّر تحميل محتوى {value0}. تحقّق من صلاحية وصولك ثم أعد المحاولة."
+    },
+    "app.state.destinations-could-not-be-loaded-retry-the-se-50a24a": {
+      "source": "Destinations could not be loaded. Retry the search.",
+      "translation": "تعذّر تحميل الوجهات. أعد محاولة البحث."
+    },
+    "app.state.permissions-could-not-be-loaded-de0c27": {
+      "source": "Permissions could not be loaded.",
+      "translation": "تعذّر تحميل الصلاحيات."
+    },
+    "app.state.select-a-user-or-group-or-enter-a-valid-exter-87778b": {
+      "source": "Select a user or group, or enter a valid external email.",
+      "translation": "اختر مستخدمًا أو مجموعة، أو أدخل عنوان بريد إلكتروني خارجيًا صالحًا."
+    },
+    "app.state.enter-a-valid-permission-time-frame-b2ebc5": {
+      "source": "Enter a valid permission time frame.",
+      "translation": "أدخل فترة زمنية صالحة للصلاحية."
+    },
+    "app.state.permissions-updated-2674b9": {
+      "source": "Permissions updated.",
+      "translation": "تم تحديث الصلاحيات."
+    },
+    "app.state.trash-could-not-be-emptied-04df71": {
+      "source": "Trash could not be emptied.",
+      "translation": "تعذّر إفراغ سلة المهملات."
+    },
+    "app.state.unable-to-check-whether-this-version-can-be-r-dc052f": {
+      "source": "Unable to check whether this version can be restored.",
+      "translation": "تعذّر التحقق من إمكانية استعادة هذه النسخة."
+    },
+    "app.state.this-version-can-no-longer-be-restored-246e03": {
+      "source": "This version can no longer be restored.",
+      "translation": "لم يعد من الممكن استعادة هذه النسخة."
+    },
+    "app.state.the-version-could-not-be-restored-2faf1c": {
+      "source": "The version could not be restored.",
+      "translation": "تعذّرت استعادة النسخة."
+    },
+    "app.state.search-failed-check-the-filters-and-retry-f73bdd": {
+      "source": "Search failed. Check the filters and retry.",
+      "translation": "فشل البحث. تحقّق من عوامل التصفية ثم أعد المحاولة."
+    },
+    "app.state.enter-an-nxql-query-22e2ac": {
+      "source": "Enter an NXQL query.",
+      "translation": "أدخل استعلام NXQL."
+    },
+    "app.state.enter-an-absolute-repository-path-d6ebeb": {
+      "source": "Enter an absolute repository path.",
+      "translation": "أدخل مسارًا مطلقًا في المستودع."
+    },
+    "app.state.enter-a-valid-expiration-date-2183d9": {
+      "source": "Enter a valid expiration date.",
+      "translation": "أدخل تاريخ انتهاء صلاحية صالحًا."
+    },
+    "app.state.unable-to-load-saved-searches-ac687d": {
+      "source": "Unable to load saved searches.",
+      "translation": "تعذّر تحميل عمليات البحث المحفوظة."
+    },
+    "app.state.search-saved-681246": {
+      "source": "Search saved.",
+      "translation": "تم حفظ البحث."
+    },
+    "app.state.unable-to-save-this-search-265779": {
+      "source": "Unable to save this search.",
+      "translation": "تعذّر حفظ هذا البحث."
+    },
+    "app.state.unable-to-delete-this-search-4ba973": {
+      "source": "Unable to delete this search.",
+      "translation": "تعذّر حذف هذا البحث."
+    },
+    "app.state.search-failed-check-the-query-permissions-and-48df75": {
+      "source": "Search failed. Check the query, permissions and availability of this search provider, then retry.",
+      "translation": "فشل البحث. تحقّق من الاستعلام والصلاحيات وتوفر موفّر البحث هذا، ثم أعد المحاولة."
+    },
+    "app.state.metadata-layout-policy-could-not-be-saved-17476f": {
+      "source": "Metadata layout policy could not be saved.",
+      "translation": "تعذّر حفظ سياسة تخطيط البيانات الوصفية."
+    },
+    "app.state.the-version-was-created-but-the-refreshed-doc-8e261a": {
+      "source": "The version was created, but the refreshed document could not be loaded. Please reload.",
+      "translation": "تم إنشاء النسخة، لكن تعذّر تحميل المستند المحدّث. أعد التحميل."
+    },
+    "app.state.the-version-could-not-be-created-please-try-a-71fe33": {
+      "source": "The version could not be created. Please try again.",
+      "translation": "تعذّر إنشاء النسخة. أعد المحاولة."
+    },
+    "app.state.saved-but-the-refreshed-document-could-not-be-8ca637": {
+      "source": "Saved, but the refreshed document could not be loaded. Please reload.",
+      "translation": "تم الحفظ، لكن تعذّر تحميل المستند المحدّث. أعد التحميل."
+    },
+    "app.state.the-attachments-could-not-be-saved-please-try-5a9bdd": {
+      "source": "The attachments could not be saved. Please try again.",
+      "translation": "تعذّر حفظ المرفقات. أعد المحاولة."
+    },
+    "app.state.the-attachment-could-not-be-removed-please-tr-0846e5": {
+      "source": "The attachment could not be removed. Please try again.",
+      "translation": "تعذّرت إزالة المرفق. أعد المحاولة."
+    },
+    "app.state.saved-value-79e8db": {
+      "source": "Saved {value0}.",
+      "translation": "تم حفظ {value0}."
+    },
+    "app.state.unable-to-save-this-search-check-your-permiss-a7bdca": {
+      "source": "Unable to save this search. Check your permissions and retry.",
+      "translation": "تعذّر حفظ هذا البحث. تحقّق من صلاحياتك ثم أعد المحاولة."
+    },
+    "app.state.updated-value-064850": {
+      "source": "Updated {value0}.",
+      "translation": "تم تحديث {value0}."
+    },
+    "app.state.unable-to-update-this-search-check-your-permi-a85910": {
+      "source": "Unable to update this search. Check your permissions and retry.",
+      "translation": "تعذّر تحديث هذا البحث. تحقّق من صلاحياتك ثم أعد المحاولة."
+    },
+    "app.state.enter-one-user-or-group-name-without-line-bre-88f55c": {
+      "source": "Enter one user or group name without line breaks.",
+      "translation": "أدخل اسم مستخدم أو مجموعة واحدًا دون فواصل أسطر."
+    },
+    "app.state.granted-read-access-to-value-740215": {
+      "source": "Granted Read access to {value0}.",
+      "translation": "تم منح صلاحية القراءة لـ {value0}."
+    },
+    "app.state.unable-to-share-this-search-you-need-permissi-ef6a3e": {
+      "source": "Unable to share this search. You need permission to manage it.",
+      "translation": "تعذّرت مشاركة هذا البحث. تحتاج إلى صلاحية إدارته."
+    },
+    "app.state.this-saved-search-has-invalid-parameters-b85643": {
+      "source": "This saved search has invalid parameters.",
+      "translation": "يحتوي هذا البحث المحفوظ على معلمات غير صالحة."
+    },
+    "app.state.restored-value-b065a7": {
+      "source": "Restored {value0}.",
+      "translation": "تمت استعادة {value0}."
+    },
+    "app.state.deleted-value-93c1b6": {
+      "source": "Deleted {value0}.",
+      "translation": "تم حذف {value0}."
+    },
+    "app.state.unable-to-delete-this-search-check-your-permi-4ab2af": {
+      "source": "Unable to delete this search. Check your permissions and retry.",
+      "translation": "تعذّر حذف هذا البحث. تحقّق من صلاحياتك ثم أعد المحاولة."
+    },
+    "app.state.the-start-date-must-be-before-the-end-date-88c4c0": {
+      "source": "The start date must be before the end date.",
+      "translation": "يجب أن يسبق تاريخ البدء تاريخ الانتهاء."
+    },
+    "app.state.analytics-could-not-be-loaded-check-your-conn-b46033": {
+      "source": "Analytics could not be loaded. Check your connection and permissions, then retry.",
+      "translation": "تعذّر تحميل التحليلات. تحقّق من اتصالك وصلاحياتك ثم أعد المحاولة."
+    },
+    "app.state.document-distribution-could-not-be-loaded-sel-02b1b2": {
+      "source": "Document distribution could not be loaded. Select a smaller scope or check the search index.",
+      "translation": "تعذّر تحميل توزيع المستندات. اختر نطاقًا أصغر أو تحقّق من فهرس البحث."
+    },
+    "app.state.enter-valid-audit-dates-e5ac7d": {
+      "source": "Enter valid audit dates.",
+      "translation": "أدخل تواريخ صالحة للتدقيق."
+    },
+    "app.state.the-start-date-must-be-before-or-on-the-end-d-53a541": {
+      "source": "The start date must be before or on the end date.",
+      "translation": "يجب أن يسبق تاريخ البدء تاريخ الانتهاء أو يوافقه."
+    },
+    "app.state.only-an-administrator-can-add-a-user-to-the-a-ee74ba": {
+      "source": "Only an administrator can add a user to the administrators group.",
+      "translation": "لا يمكن إضافة مستخدم إلى مجموعة المسؤولين إلا بواسطة مسؤول."
+    },
+    "app.state.invitation-queued-for-value-5bdcfd": {
+      "source": "Invitation queued for {value0}.",
+      "translation": "تم إدراج الدعوة إلى {value0} في قائمة الانتظار."
+    },
+    "app.state.-value-value-created-051fd5": {
+      "source": "{value0} {value1} created.",
+      "translation": "تم إنشاء {value0} {value1}."
+    },
+    "app.state.unable-to-load-the-current-account-details-re-244ab4": {
+      "source": "Unable to load the current account details. Retry to edit.",
+      "translation": "تعذّر تحميل تفاصيل الحساب الحالي. أعد المحاولة للتعديل."
+    },
+    "app.state.unable-to-load-users-and-groups-5ae278": {
+      "source": "Unable to load users and groups.",
+      "translation": "تعذّر تحميل المستخدمين والمجموعات."
+    },
+    "app.state.unable-to-load-value-value-6ba643": {
+      "source": "Unable to load {value0} {value1}.",
+      "translation": "تعذّر تحميل {value0} {value1}."
+    },
+    "app.state.metadata-could-not-be-saved-refresh-the-docum-c4fa8b": {
+      "source": "Metadata could not be saved. Refresh the document and try again.",
+      "translation": "تعذّر حفظ البيانات الوصفية. حدّث المستند ثم أعد المحاولة."
+    },
+    "app.state.import-is-disabled-for-value-93eee7": {
+      "source": "Import is disabled for {value0}.",
+      "translation": "الاستيراد معطّل لـ {value0}."
+    },
+    "app.state.the-import-could-not-be-started-4aad57": {
+      "source": "The import could not be started.",
+      "translation": "تعذّر بدء الاستيراد."
+    },
+    "app.state.the-custom-document-layout-must-declare-a-lay-f73b3d": {
+      "source": "The custom document layout must declare a layoutContext input.",
+      "translation": "يجب أن يصرّح تخطيط المستند المخصص بمدخل layoutContext."
+    },
+    "app.state.this-document-type-does-not-support-a-main-fi-c08948": {
+      "source": "This document type does not support a main file. Choose another type.",
+      "translation": "لا يدعم هذا النوع من المستندات ملفًا رئيسيًا. اختر نوعًا آخر."
+    },
+    "app.state.document-type-information-could-not-be-loaded-877c5c": {
+      "source": "Document type information could not be loaded.",
+      "translation": "تعذّر تحميل معلومات نوع المستند."
+    },
+    "app.state.publication-failed-verify-the-target-permissi-84fc63": {
+      "source": "Publication failed. Verify the target permissions and try again.",
+      "translation": "فشل النشر. تحقّق من صلاحيات الوجهة ثم أعد المحاولة."
+    },
+    "app.state.suggestions-are-unavailable-you-can-still-add-859857": {
+      "source": "Suggestions are unavailable. You can still add a new tag.",
+      "translation": "الاقتراحات غير متاحة. لا يزال بإمكانك إضافة وسم جديد."
+    },
+    "app.state.no-matching-images-on-this-page-load-more-ima-9fbfd6": {
+      "source": "No matching images on this page. Load more images to continue.",
+      "translation": "لا توجد صور مطابقة في هذه الصفحة. حمّل المزيد من الصور للمتابعة."
+    },
+    "app.state.no-matching-images-found-e070cd": {
+      "source": "No matching images found.",
+      "translation": "لم يُعثر على صور مطابقة."
+    },
+    "app.state.images-could-not-be-loaded-please-try-again-9f030e": {
+      "source": "Images could not be loaded. Please try again.",
+      "translation": "تعذّر تحميل الصور. أعد المحاولة."
+    },
+    "app.state.enter-a-youtube-or-vimeo-https-video-url-6cc690": {
+      "source": "Enter a YouTube or Vimeo HTTPS video URL.",
+      "translation": "أدخل رابط فيديو HTTPS من YouTube أو Vimeo."
+    },
+    "app.state.enter-an-https-http-or-email-link-50abcc": {
+      "source": "Enter an https, http or email link.",
+      "translation": "أدخل رابط https أو http أو بريد إلكتروني."
+    },
+    "app.notices.do-you-wish-to-create-a-snapshot-of-the-curre-3baa59": {
+      "source": "Do you wish to create a snapshot of the current document before restoring it to a previous version?",
+      "translation": "هل تريد إنشاء لقطة للمستند الحالي قبل استعادته إلى إصدار سابق؟"
+    },
+    "app.notices.discard-your-unsaved-changes-f117f1": {
+      "source": "Discard your unsaved changes?",
+      "translation": "هل تريد تجاهل التغييرات غير المحفوظة؟"
+    },
+    "app.notices.discard-this-permission-change-2d35fc": {
+      "source": "Discard this permission change?",
+      "translation": "هل تريد تجاهل هذا التغيير في الأذونات؟"
+    },
+    "app.notices.delete-the-value-permission-for-value-ca37da": {
+      "source": "Delete the {value0} permission for {value1}?",
+      "translation": "هل تريد حذف الإذن {value0} الممنوح لـ {value1}؟"
+    },
+    "app.notices.discard-unsaved-directory-entry-changes-146cb0": {
+      "source": "Discard unsaved directory entry changes?",
+      "translation": "هل تريد تجاهل التغييرات غير المحفوظة في إدخال الدليل؟"
+    },
+    "app.notices.delete-saved-search-value-61ad3f": {
+      "source": "Delete saved search “{value0}”?",
+      "translation": "هل تريد حذف البحث المحفوظ «{value0}»؟"
+    },
+    "app.state.history-could-not-be-loaded-check-your-access-ae2d65": {
+      "source": "History could not be loaded. Check your access and try again.",
+      "translation": "تعذّر تحميل السجل. تحقّق من صلاحية وصولك وأعد المحاولة."
+    },
+    "app.state.permissions-could-not-be-loaded-check-your-ac-abce21": {
+      "source": "Permissions could not be loaded. Check your access and try again.",
+      "translation": "تعذّر تحميل الأذونات. تحقّق من صلاحية وصولك وأعد المحاولة."
+    },
+    "app.state.the-permission-change-could-not-be-completed-ec522e": {
+      "source": "The permission change could not be completed. Refresh and try again.",
+      "translation": "تعذّر إكمال تغيير الإذن. حدّث الصفحة وأعد المحاولة."
+    },
+    "app.state.uploading-file-value-9d01a9": {
+      "source": "Uploading file \"{value0}\"",
+      "translation": "جارٍ رفع الملف «{value0}»"
+    },
+    "app.state.creating-document-value-e8c827": {
+      "source": "Creating document \"{value0}\"",
+      "translation": "جارٍ إنشاء المستند «{value0}»"
+    },
+    "app.state.collection-membership-could-not-be-updated-b86ce5": {
+      "source": "Collection membership could not be updated.",
+      "translation": "تعذّر تحديث عضوية المجموعة."
+    },
+    "app.state.tags-could-not-be-updated-3e7d4f": {
+      "source": "Tags could not be updated.",
+      "translation": "تعذّر تحديث الوسوم."
+    },
+    "app.state.this-task-action-is-no-longer-available-87150c": {
+      "source": "This task action is no longer available.",
+      "translation": "لم يعد هذا الإجراء متاحًا للمهمة."
+    },
+    "app.state.unable-to-refresh-this-task-6c7927": {
+      "source": "Unable to refresh this task.",
+      "translation": "تعذّر تحديث هذه المهمة."
+    },
+    "app.state.this-workflow-can-no-longer-be-abandoned-6f4699": {
+      "source": "This workflow can no longer be abandoned.",
+      "translation": "لم يعد من الممكن إلغاء سير العمل هذا."
+    },
+    "app.state.unable-to-refresh-this-workflow-72164e": {
+      "source": "Unable to refresh this workflow.",
+      "translation": "تعذّر تحديث سير العمل هذا."
+    },
+    "app.state.unable-to-save-this-workflow-change-f3bddb": {
+      "source": "Unable to save this workflow change.",
+      "translation": "تعذّر حفظ هذا التغيير في سير العمل."
+    },
+    "app.state.this-task-can-no-longer-be-changed-a6f145": {
+      "source": "This task can no longer be changed.",
+      "translation": "لم يعد من الممكن تغيير هذه المهمة."
+    },
+    "app.labels.consult-content-b1dac7": {
+      "source": "Consult content",
+      "translation": "عرض المحتوى"
+    },
+    "app.labels.comment-documents-22011f": {
+      "source": "Comment documents",
+      "translation": "التعليق على المستندات"
+    },
+    "app.labels.tag-documents-9a3dfd": {
+      "source": "Tag documents",
+      "translation": "إضافة وسوم إلى المستندات"
+    },
+    "app.labels.collect-content-8507cf": {
+      "source": "Collect content",
+      "translation": "إضافة المحتوى إلى المجموعات"
+    },
+    "app.labels.follow-content-897c1c": {
+      "source": "Follow content",
+      "translation": "متابعة المحتوى"
+    },
+    "app.labels.edit-documents-c06bd9": {
+      "source": "Edit documents",
+      "translation": "تحرير المستندات"
+    },
+    "app.labels.add-remove-relations-36d72f": {
+      "source": "Add / remove relations",
+      "translation": "إضافة علاقات أو إزالتها"
+    },
+    "app.labels.start-a-workflow-6c6b2d": {
+      "source": "Start a workflow",
+      "translation": "بدء سير عمل"
+    },
+    "app.labels.delete-documents-7e7d03": {
+      "source": "Delete documents",
+      "translation": "حذف المستندات"
+    },
+    "app.labels.read-actions-0b2cef": {
+      "source": "+ Read actions",
+      "translation": "+ إجراءات القراءة"
+    },
+    "app.labels.manage-permissions-2630ba": {
+      "source": "Manage permissions",
+      "translation": "إدارة الأذونات"
+    },
+    "app.labels.set-alerts-to-other-users-729faa": {
+      "source": "Set alerts to other users",
+      "translation": "تعيين تنبيهات لمستخدمين آخرين"
+    },
+    "app.labels.apply-a-preset-look-on-documents-75f209": {
+      "source": "Apply a preset look on documents",
+      "translation": "تطبيق مظهر مُعدّ مسبقًا على المستندات"
+    },
+    "app.labels.manage-deleted-documents-0b23a2": {
+      "source": "Manage deleted documents",
+      "translation": "إدارة المستندات المحذوفة"
+    },
+    "app.labels.define-publication-targets-63dcd6": {
+      "source": "Define publication targets",
+      "translation": "تحديد وجهات النشر"
+    },
+    "app.labels.edit-actions-a06a00": {
+      "source": "+ Edit actions",
+      "translation": "+ إجراءات التحرير"
+    },
+    "app.labels.permissions-for-people-outside-the-organizati-f93d74": {
+      "source": "1. Permissions for people outside the organization",
+      "translation": "١. أذونات الأشخاص من خارج المؤسسة"
+    },
+    "app.labels.permissions-specific-to-this-document-a162dc": {
+      "source": "2. Permissions specific to this document",
+      "translation": "٢. الأذونات الخاصة بهذا المستند"
+    },
+    "app.labels.permissions-inherited-from-the-parent-folder-3600b6": {
+      "source": "3. Permissions inherited from the parent folder",
+      "translation": "٣. الأذونات الموروثة من المجلد الأب"
+    },
+    "app.labels.add-a-new-permission-ddb3e4": {
+      "source": "Add a new permission",
+      "translation": "إضافة إذن جديد"
+    },
+    "app.labels.sharing-to-external-users-does-not-create-new-eca5e2": {
+      "source": "Sharing to external users does not create new user accounts, instead external users are provided a link to access this document.",
+      "translation": "لا تؤدي المشاركة مع مستخدمين خارجيين إلى إنشاء حسابات مستخدمين جديدة، بل يُزوَّد المستخدمون الخارجيون برابط للوصول إلى هذا المستند."
+    },
+    "app.labels.enable-permission-inheritance-6da961": {
+      "source": "Enable permission inheritance",
+      "translation": "تفعيل وراثة الأذونات"
+    },
+    "app.labels.disable-permission-inheritance-946455": {
+      "source": "Disable permission inheritance",
+      "translation": "تعطيل وراثة الأذونات"
+    },
+    "app.labels.unknown-principal-edd139": {
+      "source": "Unknown principal",
+      "translation": "مستخدم أو مجموعة غير معروفين"
+    },
+    "app.labels.pending-331551": {
+      "source": "Pending",
+      "translation": "قيد الانتظار"
+    },
+    "app.labels.checking-destination-885a56": {
+      "source": "Checking destination",
+      "translation": "جارٍ التحقق من الوجهة"
+    },
+    "app.labels.reading-text-10c504": {
+      "source": "Reading text",
+      "translation": "جارٍ قراءة النص"
+    },
+    "app.labels.needs-attention-c1ebc7": {
+      "source": "Needs attention",
+      "translation": "يحتاج إلى انتباه"
+    },
+    "app.labels.outcome-unknown-164557": {
+      "source": "Outcome unknown",
+      "translation": "النتيجة غير معروفة"
+    },
+    "app.labels.strikethrough-9aabbc": {
+      "source": "Strikethrough",
+      "translation": "يتوسطه خط"
+    },
+    "app.labels.block-quote-cb1946": {
+      "source": "Block quote",
+      "translation": "اقتباس كتلي"
+    },
+    "app.labels.date-taken-a2f4fe": {
+      "source": "Date taken",
+      "translation": "تاريخ الالتقاط"
+    },
+    "app.labels.horizontal-resolution-cc9eae": {
+      "source": "Horizontal resolution",
+      "translation": "الدقة الأفقية"
+    },
+    "app.labels.vertical-resolution-415b15": {
+      "source": "Vertical resolution",
+      "translation": "الدقة الرأسية"
+    },
+    "app.labels.you-can-either-manually-select-files-or-drag--ced9be": {
+      "source": "You can either manually select files or drag them over",
+      "translation": "يمكنك تحديد الملفات يدويًا أو سحبها إلى هنا"
+    },
+    "app.toolbar.edit-selection": {
+      "source": "Edit selection",
+      "translation": "تحرير التحديد"
+    },
+    "app.toolbar.clipboard": {
+      "source": "Copy to clipboard",
+      "translation": "نسخ إلى الحافظة"
+    },
+    "app.toolbar.trash": {
+      "source": "Move to trash",
+      "translation": "نقل إلى سلة المهملات"
+    },
+    "app.toolbar.versions": {
+      "source": "Versions",
+      "translation": "الإصدارات"
+    },
+    "app.toolbar.workflow": {
+      "source": "Start a workflow",
+      "translation": "بدء سير عمل"
+    },
+    "dialog.deleteTitle": {
+      "source": "Deletion confirmation",
+      "translation": "تأكيد الحذف"
+    },
+    "dialog.keep": {
+      "source": "No, keep it",
+      "translation": "لا، احتفظ به"
+    },
+    "dialog.delete": {
+      "source": "Yes, delete it",
+      "translation": "نعم، احذفه"
+    },
+    "dialog.revoke": {
+      "source": "Yes, revoke it",
+      "translation": "نعم، أبطله"
+    },
+    "selection.partial": {
+      "source": "{count, plural, one {Only # document was selected.} other {Only # documents were selected.}} {reason, select, invalid {The search provider returned an invalid result page.} empty {The search provider reported another page without returning documents.} duplicate {The search provider repeated documents instead of advancing to a new page.} limit {The selection stopped after {pages, number} pages.} other {The search provider did not advance to a new page.}} You can run an action on this partial selection or retry.",
+      "translation": "{count, plural, zero {لم يتم تحديد أي مستند.} one {تم تحديد مستند واحد فقط.} two {تم تحديد مستندين فقط.} few {تم تحديد # مستندات فقط.} many {تم تحديد # مستندًا فقط.} other {تم تحديد # مستند فقط.}} {reason, select, invalid {أعاد موفّر البحث صفحة نتائج غير صالحة.} empty {أشار موفّر البحث إلى وجود صفحة أخرى دون إرجاع مستندات.} duplicate {كرّر موفّر البحث المستندات بدلًا من الانتقال إلى صفحة جديدة.} limit {توقّف التحديد بعد {pages, number} من الصفحات.} other {لم ينتقل موفّر البحث إلى صفحة جديدة.}} يمكنك تنفيذ إجراء على هذا التحديد الجزئي أو إعادة المحاولة."
+    },
+    "selection.capped": {
+      "source": "{count, plural, one {Selected the first # matching document.} other {Selected the first # matching documents.}} Refine the filters before running an action on more results.",
+      "translation": "{count, plural, zero {لم يتم تحديد أي مستند مطابق.} one {تم تحديد أول مستند مطابق.} two {تم تحديد أول مستندين مطابقين.} few {تم تحديد أول # مستندات مطابقة.} many {تم تحديد أول # مستندًا مطابقًا.} other {تم تحديد أول # مستند مطابق.}} ضيّق نطاق عوامل التصفية قبل تنفيذ إجراء على مزيد من النتائج."
+    },
+    "selection.complete": {
+      "source": "{count, plural, one {Selected the matching document.} other {Selected all # matching documents.}}",
+      "translation": "{count, plural, zero {لم يتم تحديد أي مستند مطابق.} one {تم تحديد المستند المطابق.} two {تم تحديد المستندين المطابقين.} few {تم تحديد جميع المستندات المطابقة وعددها #.} many {تم تحديد جميع المستندات المطابقة وعددها #.} other {تم تحديد جميع المستندات المطابقة وعددها #.}}"
+    },
+    "selection.failed": {
+      "source": "{count, plural, one {Only # document was selected before the query failed.} other {Only # documents were selected before the query failed.}} You can run an action on this partial selection or retry.",
+      "translation": "{count, plural, zero {لم يتم تحديد أي مستند قبل فشل الاستعلام.} one {تم تحديد مستند واحد فقط قبل فشل الاستعلام.} two {تم تحديد مستندين فقط قبل فشل الاستعلام.} few {تم تحديد # مستندات فقط قبل فشل الاستعلام.} many {تم تحديد # مستندًا فقط قبل فشل الاستعلام.} other {تم تحديد # مستند فقط قبل فشل الاستعلام.}} يمكنك تنفيذ إجراء على هذا التحديد الجزئي أو إعادة المحاولة."
+    },
+    "selection.stopped": {
+      "source": "{count, plural, one {Selection stopped after # document.} other {Selection stopped after # documents.}}",
+      "translation": "{count, plural, zero {توقّف التحديد قبل تحديد أي مستند.} one {توقّف التحديد بعد مستند واحد.} two {توقّف التحديد بعد مستندين.} few {توقّف التحديد بعد # مستندات.} many {توقّف التحديد بعد # مستندًا.} other {توقّف التحديد بعد # مستند.}}"
+    },
+    "selection.selecting": {
+      "source": "Selecting matching documents… {count, number} selected.",
+      "translation": "جارٍ تحديد المستندات المطابقة… تم تحديد {count, number}."
+    },
+    "query.progress": {
+      "source": "{state, select, SCHEDULED {Scheduled} RUNNING {Running} COMPLETED {Completed} ABORTED {Aborted} PARTIAL {Partially completed} FAILED {Failed} ERROR {Error} other {{state}}}: {processed, number} processed, {failed, number} failed.",
+      "translation": "{state, select, SCHEDULED {مجدول} RUNNING {قيد التنفيذ} COMPLETED {مكتمل} ABORTED {أُلغي} PARTIAL {مكتمل جزئيًا} FAILED {فشل} ERROR {خطأ} other {{state}}}: تمت معالجة {processed, number}، وفشل {failed, number}."
+    },
+    "query.restoreAll": {
+      "source": "Restore all matching",
+      "translation": "استعادة جميع المستندات المطابقة"
+    },
+    "query.trashAll": {
+      "source": "Trash all matching",
+      "translation": "نقل جميع المستندات المطابقة إلى سلة المهملات"
+    },
+    "principals.deleteConfirm": {
+      "source": "{kind, select, user {Are you sure you wish to delete this user?} group {Are you sure you wish to delete this group?} other {Are you sure you wish to delete this entry?}}",
+      "translation": "{kind, select, user {هل أنت متأكد من رغبتك في حذف هذا المستخدم؟} group {هل أنت متأكد من رغبتك في حذف هذه المجموعة؟} other {هل أنت متأكد من رغبتك في حذف هذا الإدخال؟}}"
+    },
+    "cloud.confirm.provider": {
+      "source": "Are you sure you wish to delete this OAuth2 service provider: “{name}”?",
+      "translation": "هل أنت متأكد من رغبتك في حذف موفّر خدمة OAuth2 هذا: «{name}»؟"
+    },
+    "cloud.confirm.client": {
+      "source": "Are you sure you wish to delete this OAuth2 client: “{name}”?",
+      "translation": "هل أنت متأكد من رغبتك في حذف عميل OAuth2 هذا: «{name}»؟"
+    },
+    "cloud.confirm.token": {
+      "source": "Are you sure you wish to revoke this cloud application token: “{name}”?",
+      "translation": "هل أنت متأكد من رغبتك في إبطال رمز تطبيق السحابة هذا: «{name}»؟"
+    },
+    "cloud.confirm.account": {
+      "source": "Are you sure you wish to delete this cloud account: “{name}”?",
+      "translation": "هل أنت متأكد من رغبتك في حذف حساب السحابة هذا: «{name}»؟"
+    },
+    "asset.select": {
+      "source": "Select {title}",
+      "translation": "تحديد {title}"
+    },
+    "asset.action": {
+      "source": "{action, select, deselect {Deselect {title}} select {Select {title}} other {Open {title}}}",
+      "translation": "{action, select, deselect {إلغاء تحديد {title}} select {تحديد {title}} other {فتح {title}}}"
+    },
+    "app.state.folders-could-not-be-loaded-check-your-access-4b610d": {
+      "source": "Folders could not be loaded. Check your access and retry.",
+      "translation": "تعذّر تحميل المجلدات. تحقّق من صلاحية وصولك وأعد المحاولة."
+    },
+    "app.state.this-administration-page-could-not-be-opened-218a4c": {
+      "source": "This administration page could not be opened. Try again.",
+      "translation": "تعذّر فتح صفحة الإدارة هذه. أعد المحاولة."
+    },
+    "app.state.the-document-could-not-be-opened-try-again-36410b": {
+      "source": "The document could not be opened. Try again.",
+      "translation": "تعذّر فتح المستند. أعد المحاولة."
+    },
+    "app.state.the-documents-were-saved-but-the-current-loca-c6e66d": {
+      "source": "The documents were saved, but the current location could not be refreshed.",
+      "translation": "تم حفظ المستندات، لكن تعذّر تحديث الموقع الحالي."
+    },
+    "app.state.navigation-cancelled-your-collection-is-still-055691": {
+      "source": "Navigation cancelled. Your collection is still available.",
+      "translation": "أُلغي الانتقال. ما زالت مجموعتك متاحة."
+    },
+    "app.state.this-document-could-not-be-opened-try-again-2db5fc": {
+      "source": "This document could not be opened. Try again.",
+      "translation": "تعذّر فتح هذا المستند. أعد المحاولة."
+    },
+    "app.state.this-document-is-no-longer-available-in-the-c-21585e": {
+      "source": "This document is no longer available in the collection.",
+      "translation": "لم يعد هذا المستند متاحًا في المجموعة."
+    },
+    "app.state.favorites-could-not-be-loaded-check-your-conn-8618b2": {
+      "source": "Favorites could not be loaded. Check your connection and retry.",
+      "translation": "تعذّر تحميل المفضّلة. تحقّق من اتصالك وأعد المحاولة."
+    },
+    "app.state.navigation-cancelled-your-favorites-are-still-706c48": {
+      "source": "Navigation cancelled. Your favorites are still available.",
+      "translation": "أُلغي الانتقال. ما زالت مفضّلتك متاحة."
+    },
+    "app.state.the-favorite-was-removed-but-its-updated-list-f1c05b": {
+      "source": "The favorite was removed, but its updated list could not be loaded. Please retry.",
+      "translation": "أُزيل العنصر من المفضّلة، لكن تعذّر تحميل القائمة المحدّثة. يرجى إعادة المحاولة."
+    },
+    "app.state.the-document-could-not-be-removed-from-favori-4afef1": {
+      "source": "The document could not be removed from favorites. Please retry.",
+      "translation": "تعذّرت إزالة المستند من المفضّلة. يرجى إعادة المحاولة."
+    },
+    "app.state.your-personal-workspace-could-not-be-loaded-c-101b54": {
+      "source": "Your personal workspace could not be loaded. Check your access and retry.",
+      "translation": "تعذّر تحميل مساحة عملك الشخصية. تحقّق من صلاحية وصولك وأعد المحاولة."
+    },
+    "app.state.save-or-discard-changes-in-the-open-drawer-be-7e7abf": {
+      "source": "Save or discard changes in the open drawer before leaving.",
+      "translation": "احفظ التغييرات في اللوحة المفتوحة أو تجاهلها قبل المغادرة."
+    },
+    "app.runtime.display-settings.pick-a-sort-option-e53804": {
+      "source": "Pick a sort option...",
+      "translation": "اختر طريقة ترتيب..."
+    },
+    "app.runtime.blob-preview.document-preview-7d76d8": {
+      "source": "Document preview",
+      "translation": "معاينة المستند"
+    },
+    "app.runtime.base-editor.saving-document-d06e6b": {
+      "source": "Saving document…",
+      "translation": "جارٍ حفظ المستند…"
+    },
+    "app.runtime.document-type-editor.no-editor-is-currently-available-for-this--6d1647": {
+      "source": "No editor is currently available for this document type!",
+      "translation": "لا يتوفّر حاليًا محرّر لهذا النوع من المستندات!"
+    },
+    "app.runtime.domain-editor.create-domain-8cd2df": {
+      "source": "Create domain",
+      "translation": "إنشاء نطاق"
+    },
+    "app.runtime.image-renderer.image-preview-66403a": {
+      "source": "Image preview",
+      "translation": "معاينة الصورة"
+    },
+    "app.runtime.picturebook-content-layout.document-thumbnail-e00a5b": {
+      "source": "Document thumbnail",
+      "translation": "صورة مصغّرة للمستند"
+    },
+    "app.settingsShared.favorites-7a1f2a": {
+      "source": "Favorites",
+      "translation": "المفضّلة"
+    },
+    "app.settingsShared.expanded-select-true-collapse-title-other-expan-22e5c6": {
+      "source": "{expanded, select, true {Collapse {title}} other {Expand {title}}}",
+      "translation": "{expanded, select, true {طيّ {title}} other {توسيع {title}}}"
+    },
+    "app.settingsShared.count-plural-one-you-have-pending-task-other-yo-82d0f1": {
+      "source": "{count, plural, one {You have # pending task} other {You have # pending tasks}}",
+      "translation": "{count, plural, zero {ليس لديك أي مهمة معلّقة} one {لديك مهمة واحدة معلّقة} two {لديك مهمتان معلّقتان} few {لديك # مهام معلّقة} many {لديك # مهمة معلّقة} other {لديك # مهمة معلّقة}}"
+    },
+    "app.settingsShared.view-members-of-title-7b9c23": {
+      "source": "View members of {title}",
+      "translation": "عرض أعضاء {title}"
+    },
+    "app.settingsShared.user-group-identifier-id-e1c575": {
+      "source": "User group identifier: {id}",
+      "translation": "معرّف مجموعة المستخدمين: {id}"
+    },
+    "app.settingsShared.actions-for-group-name-1dc425": {
+      "source": "Actions for group {name}",
+      "translation": "إجراءات المجموعة {name}"
+    },
+    "app.settingsShared.actions-for-user-name-c5458d": {
+      "source": "Actions for user {name}",
+      "translation": "إجراءات المستخدم {name}"
+    },
+    "app.settingsShared.detach-from-group-name-a16a06": {
+      "source": "Detach from group {name}",
+      "translation": "إزالة من المجموعة {name}"
+    },
+    "app.settingsShared.kind-select-users-user-pages-other-group-pages-605ea0": {
+      "source": "{kind, select, users {User pages} other {Group pages}}",
+      "translation": "{kind, select, users {صفحات المستخدمين} other {صفحات المجموعات}}"
+    },
+    "app.settingsShared.remove-rule-number-number-8707d6": {
+      "source": "Remove rule {number, number}",
+      "translation": "إزالة القاعدة {number, number}"
+    },
+    "app.settingsShared.users-number-users-groups-number-groups-ec7116": {
+      "source": "{users, number} users · {groups, number} groups",
+      "translation": "عدد المستخدمين: {users, number} · عدد المجموعات: {groups, number}"
+    },
+    "app.settingsShared.seconds-number-precision-integer-seconds-d3070d": {
+      "source": "{seconds, number, ::precision-integer} seconds",
+      "translation": "بالثواني: {seconds, number, ::precision-integer}"
+    },
+    "app.settingsShared.count-plural-one-audit-record-other-audit-recor-82d2ca": {
+      "source": "{count, plural, one {# audit record} other {# audit records}}",
+      "translation": "{count, plural, zero {لا توجد سجلات تدقيق} one {سجل تدقيق واحد} two {سجلا تدقيق} few {# سجلات تدقيق} many {# سجل تدقيق} other {# سجل تدقيق}}"
+    },
+    "app.settingsShared.field-select-eventid-sort-by-action-eventdate-s-679936": {
+      "source": "{field, select, eventId {Sort by action} eventDate {Sort by date} principalName {Sort by user} other {Sort by category}}{sort, select, ASC {, sorted ascending} DESC {, sorted descending} other {}}",
+      "translation": "{field, select, eventId {ترتيب حسب الإجراء} eventDate {ترتيب حسب التاريخ} principalName {ترتيب حسب المستخدم} other {ترتيب حسب الفئة}}{sort, select, ASC {، مرتّب تصاعديًا} DESC {، مرتّب تنازليًا} other {}}"
+    },
+    "app.settingsShared.audit-records-are-unavailable-your-server-must-e-b42176": {
+      "source": "Audit records are unavailable. Your server must expose the Audit.QueryWithPageProvider automation endpoint.",
+      "translation": "سجلات التدقيق غير متاحة. يجب أن يوفّر خادمك نقطة نهاية الأتمتة Audit.QueryWithPageProvider."
+    },
+    "app.settingsShared.action-select-create-the-entry-could-not-be-cre-16ce3e": {
+      "source": "{action, select, create {The entry could not be created.} other {The entry could not be updated.}}",
+      "translation": "{action, select, create {تعذّر إنشاء الإدخال.} other {تعذّر تحديث الإدخال.}}"
+    },
+    "app.settingsShared.directories-could-not-be-loaded-retry-the-reques-42d3cc": {
+      "source": "Directories could not be loaded. Retry the request.",
+      "translation": "تعذّر تحميل الأدلة. أعد محاولة الطلب."
+    },
+    "app.settingsShared.an-entry-id-and-a-valid-parent-are-needed-484ae9": {
+      "source": "An entry ID and a valid parent are needed.",
+      "translation": "يلزم معرّف إدخال وعنصر أب صالح."
+    },
+    "app.settingsShared.the-entry-could-not-be-deleted-it-may-be-referen-e2289b": {
+      "source": "The entry could not be deleted. It may be referenced.",
+      "translation": "تعذّر حذف الإدخال. قد توجد مراجع إليه."
+    },
+    "app.settingsShared.directory-entries-could-not-be-loaded-retry-the-031629": {
+      "source": "Directory entries could not be loaded. Retry the request.",
+      "translation": "تعذّر تحميل إدخالات الدليل. أعد محاولة الطلب."
+    },
+    "app.settingsShared.manual-b0b9fe": {
+      "source": "Manual",
+      "translation": "يدوي"
+    },
+    "app.settingsShared.immediate-ed6cb0": {
+      "source": "Immediate",
+      "translation": "فوري"
+    },
+    "app.settingsShared.based-on-events-b7ab69": {
+      "source": "Based on events",
+      "translation": "استنادًا إلى الأحداث"
+    },
+    "app.settingsShared.based-on-a-document-s-field-6b32a5": {
+      "source": "Based on a document's field",
+      "translation": "استنادًا إلى حقل في المستند"
+    },
+    "app.settingsShared.unable-to-send-the-invitation-check-the-values-a-3bf881": {
+      "source": "Unable to send the invitation. Check the values and retry.",
+      "translation": "تعذّر إرسال الدعوة. تحقّق من القيم وأعد المحاولة."
+    },
+    "app.settingsShared.kind-select-group-unable-to-save-the-group-chec-03378d": {
+      "source": "{kind, select, group {Unable to save the group. Check the values and retry.} other {Unable to save the user. Check the values and retry.}}",
+      "translation": "{kind, select, group {تعذّر حفظ المجموعة. تحقّق من القيم وأعد المحاولة.} other {تعذّر حفظ المستخدم. تحقّق من القيم وأعد المحاولة.}}"
+    },
+    "app.settingsShared.kind-select-group-group-id-created-other-user-i-225abd": {
+      "source": "{kind, select, group {Group {id} created.} other {User {id} created.}}",
+      "translation": "{kind, select, group {تم إنشاء المجموعة {id}.} other {تم إنشاء المستخدم {id}.}}"
+    },
+    "app.settingsShared.operation-select-copy-the-documents-could-not-b-ea6d40": {
+      "source": "{operation, select, Copy {The documents could not be copied. Check the destination and try again.} other {The documents could not be moved. Check the destination and try again.}}",
+      "translation": "{operation, select, Copy {تعذّر نسخ المستندات. تحقّق من الوجهة وأعد المحاولة.} other {تعذّر نقل المستندات. تحقّق من الوجهة وأعد المحاولة.}}"
+    },
+    "app.settingsShared.kind-select-group-unable-to-delete-group-id-che-3e6542": {
+      "source": "{kind, select, group {Unable to delete group {id}. Check permissions and retry.} other {Unable to delete user {id}. Check permissions and retry.}}",
+      "translation": "{kind, select, group {تعذّر حذف المجموعة {id}. تحقّق من الأذونات وأعد المحاولة.} other {تعذّر حذف المستخدم {id}. تحقّق من الأذونات وأعد المحاولة.}}"
+    },
+    "app.settingsShared.unable-to-add-user-to-group-check-permissions-an-d17955": {
+      "source": "Unable to add {user} to {group}. Check permissions and retry.",
+      "translation": "تعذّرت إضافة {user} إلى {group}. تحقّق من الأذونات وأعد المحاولة."
+    },
+    "app.settingsShared.unable-to-remove-user-from-group-check-permissio-e15a69": {
+      "source": "Unable to remove {user} from {group}. Check permissions and retry.",
+      "translation": "تعذّرت إزالة {user} من {group}. تحقّق من الأذونات وأعد المحاولة."
+    },
+    "app.settingsShared.kind-select-group-unable-to-load-group-id-other-8eaf44": {
+      "source": "{kind, select, group {Unable to load group {id}.} other {Unable to load user {id}.}}",
+      "translation": "{kind, select, group {تعذّر تحميل المجموعة {id}.} other {تعذّر تحميل المستخدم {id}.}}"
+    },
+    "app.settingsShared.unable-to-load-this-directory-page-8ae94c": {
+      "source": "Unable to load this directory page.",
+      "translation": "تعذّر تحميل صفحة الدليل هذه."
+    },
+    "app.settingsShared.unable-to-load-group-members-retry-a1725f": {
+      "source": "Unable to load group members. Retry.",
+      "translation": "تعذّر تحميل أعضاء المجموعة. أعد المحاولة."
+    },
+    "app.settingsShared.actorknown-select-true-actor-other-unknown-task-2940b7": {
+      "source": "{actorKnown, select, true {{actor}} other {Unknown}} · {taskKnown, select, true {{task}} other {Task}}",
+      "translation": "{actorKnown, select, true {{actor}} other {غير معروف}} · {taskKnown, select, true {{task}} other {مهمة}}"
+    },
+    "app.settingsShared.no-result-c6008b": {
+      "source": "No result",
+      "translation": "لا توجد نتيجة"
+    },
+    "app.settingsShared.less-than-181ad0": {
+      "source": "Less than 50",
+      "translation": "أقل من ٥٠"
+    },
+    "app.settingsShared.to-d5b660": {
+      "source": "51 to 200",
+      "translation": "من ٥١ إلى ٢٠٠"
+    },
+    "app.settingsShared.to-6b2752": {
+      "source": "201 to 1000",
+      "translation": "من ٢٠١ إلى ١٠٠٠"
+    },
+    "app.settingsShared.more-than-016b89": {
+      "source": "More than 1000",
+      "translation": "أكثر من ١٠٠٠"
+    },
+    "app.settingsShared.page-794f70": {
+      "source": "Page 2",
+      "translation": "الصفحة ٢"
+    },
+    "app.settingsShared.pages-to-b3c307": {
+      "source": "Pages 3 to 5",
+      "translation": "الصفحات من ٣ إلى ٥"
+    },
+    "app.settingsShared.pages-to-ef2bc9": {
+      "source": "Pages 6 to 10",
+      "translation": "الصفحات من ٦ إلى ١٠"
+    },
+    "app.settingsShared.after-pages-8280ea": {
+      "source": "After 10 pages",
+      "translation": "بعد ١٠ صفحات"
+    },
+    "app.settingsShared.events-8d14f6": {
+      "source": "Events",
+      "translation": "الأحداث"
+    },
+    "app.settingsShared.apple-quicktime-91e566": {
+      "source": "Apple Quicktime",
+      "translation": "Apple Quicktime"
+    },
+    "app.settingsShared.excel-xlsx-9e97de": {
+      "source": "Excel (xlsx)",
+      "translation": "Excel (xlsx)"
+    },
+    "app.settingsShared.google-docs-507e98": {
+      "source": "Google Docs",
+      "translation": "مستندات Google"
+    },
+    "app.settingsShared.google-drive-file-5a492f": {
+      "source": "Google Drive file",
+      "translation": "ملف Google Drive"
+    },
+    "app.settingsShared.google-drive-folder-edd32e": {
+      "source": "Google Drive folder",
+      "translation": "مجلد Google Drive"
+    },
+    "app.settingsShared.google-earth-kml-54b869": {
+      "source": "Google Earth (kml)",
+      "translation": "Google Earth (kml)"
+    },
+    "app.settingsShared.google-earth-kmz-72018f": {
+      "source": "Google Earth (kmz)",
+      "translation": "Google Earth (kmz)"
+    },
+    "app.settingsShared.google-form-44f53b": {
+      "source": "Google Form",
+      "translation": "نموذج Google"
+    },
+    "app.settingsShared.google-fusion-tables-d830eb": {
+      "source": "Google Fusion Tables",
+      "translation": "Google Fusion Tables"
+    },
+    "app.settingsShared.google-presentation-ba3a6a": {
+      "source": "Google Presentation",
+      "translation": "عرض تقديمي من Google"
+    },
+    "app.settingsShared.google-sites-66df01": {
+      "source": "Google Sites",
+      "translation": "مواقع Google"
+    },
+    "app.settingsShared.google-spreadsheet-6fa70d": {
+      "source": "Google Spreadsheet",
+      "translation": "جدول بيانات Google"
+    },
+    "app.settingsShared.one-note-8ff8b1": {
+      "source": "One Note",
+      "translation": "One Note"
+    },
+    "app.settingsShared.opendocument-chart-b5745c": {
+      "source": "OpenDocument Chart",
+      "translation": "مخطط OpenDocument"
+    },
+    "app.settingsShared.opendocument-chart-template-d1aa7c": {
+      "source": "OpenDocument Chart Template",
+      "translation": "قالب مخطط OpenDocument"
+    },
+    "app.settingsShared.opendocument-database-232000": {
+      "source": "OpenDocument Database",
+      "translation": "قاعدة بيانات OpenDocument"
+    },
+    "app.settingsShared.opendocument-formula-caaf5b": {
+      "source": "OpenDocument Formula",
+      "translation": "صيغة OpenDocument"
+    },
+    "app.settingsShared.opendocument-formula-template-0402ec": {
+      "source": "OpenDocument Formula Template",
+      "translation": "قالب صيغة OpenDocument"
+    },
+    "app.settingsShared.opendocument-graphics-90a2b0": {
+      "source": "OpenDocument Graphics",
+      "translation": "رسومات OpenDocument"
+    },
+    "app.settingsShared.opendocument-graphics-template-5b39a6": {
+      "source": "OpenDocument Graphics Template",
+      "translation": "قالب رسومات OpenDocument"
+    },
+    "app.settingsShared.opendocument-image-b43b24": {
+      "source": "OpenDocument Image",
+      "translation": "صورة OpenDocument"
+    },
+    "app.settingsShared.opendocument-image-template-c847f7": {
+      "source": "OpenDocument Image Template",
+      "translation": "قالب صورة OpenDocument"
+    },
+    "app.settingsShared.opendocument-presentation-4af4e0": {
+      "source": "OpenDocument Presentation",
+      "translation": "عرض تقديمي OpenDocument"
+    },
+    "app.settingsShared.opendocument-presentation-template-ef2503": {
+      "source": "OpenDocument Presentation Template",
+      "translation": "قالب عرض تقديمي OpenDocument"
+    },
+    "app.settingsShared.opendocument-spreadsheet-5bdb19": {
+      "source": "OpenDocument Spreadsheet",
+      "translation": "جدول بيانات OpenDocument"
+    },
+    "app.settingsShared.opendocument-spreadsheet-template-e114bc": {
+      "source": "OpenDocument Spreadsheet Template",
+      "translation": "قالب جدول بيانات OpenDocument"
+    },
+    "app.settingsShared.opendocument-text-a531cc": {
+      "source": "OpenDocument Text",
+      "translation": "نص OpenDocument"
+    },
+    "app.settingsShared.opendocument-text-master-d3002f": {
+      "source": "OpenDocument Text Master",
+      "translation": "مستند رئيسي OpenDocument"
+    },
+    "app.settingsShared.opendocument-text-template-9f2401": {
+      "source": "OpenDocument Text Template",
+      "translation": "قالب نص OpenDocument"
+    },
+    "app.settingsShared.opendocument-text-web-0ad7be": {
+      "source": "OpenDocument Text Web",
+      "translation": "صفحة ويب OpenDocument"
+    },
+    "app.settingsShared.plain-text-7b5cb3": {
+      "source": "Plain Text",
+      "translation": "نص عادي"
+    },
+    "app.settingsShared.word-template-9cb39c": {
+      "source": "Word Template",
+      "translation": "قالب Word"
+    },
+    "app.settingsShared.folders-could-not-be-loaded-retry-to-continue-477df1": {
+      "source": "Folders could not be loaded. Retry to continue.",
+      "translation": "تعذّر تحميل المجلدات. أعد المحاولة للمتابعة."
+    },
+    "app.settingsShared.collections-could-not-be-loaded-retry-the-reques-26a407": {
+      "source": "Collections could not be loaded. Retry the request.",
+      "translation": "تعذّر تحميل المجموعات. أعد محاولة الطلب."
+    },
+    "app.settingsShared.permission-to-update-this-collection-has-changed-a57520": {
+      "source": "Permission to update this collection has changed.",
+      "translation": "تغيّر الإذن بتحديث هذه المجموعة."
+    },
+    "app.settingsShared.the-member-could-not-be-removed-retry-the-reques-0d79fc": {
+      "source": "The member could not be removed. Retry the request.",
+      "translation": "تعذّرت إزالة العضو. أعد محاولة الطلب."
+    },
+    "app.errors.the-streaming-session-has-ended-sign-in--b8ce91": {
+      "source": "The streaming session has ended. Sign in again.",
+      "translation": "انتهت جلسة البث. سجّل الدخول مجددًا."
+    },
+    "app.errors.invalid-archive-preparation-identifier--05b584": {
+      "source": "Invalid archive preparation identifier.",
+      "translation": "معرّف إعداد الأرشيف غير صالح."
+    },
+    "app.errors.the-server-returned-an-invalid-archive-p-ed80c0": {
+      "source": "The server returned an invalid archive preparation status.",
+      "translation": "أعاد الخادم حالة غير صالحة لإعداد الأرشيف."
+    },
+    "app.errors.the-streaming-grant-changed-identity--a45585": {
+      "source": "The streaming grant changed identity.",
+      "translation": "تغيّرت هوية تصريح البث."
+    },
+    "app.errors.streaming-requires-this-application-and--eb55ea": {
+      "source": "Streaming requires this application and Nuxeo on the same HTTPS origin.",
+      "translation": "يتطلّب البث وجود هذا التطبيق وNuxeo على أصل HTTPS نفسه."
+    },
+    "app.errors.the-server-returned-an-invalid-streaming-e61825": {
+      "source": "The server returned an invalid streaming grant.",
+      "translation": "أعاد الخادم تصريح بث غير صالح."
+    },
+    "app.errors.the-server-returned-an-invalid-streaming-4129b2": {
+      "source": "The server returned an invalid streaming URL.",
+      "translation": "أعاد الخادم عنوان URL غير صالح للبث."
+    },
+    "app.errors.select-up-to-1-000-valid-documents-from--fe7e4f": {
+      "source": "Select up to 1,000 valid documents from one repository.",
+      "translation": "حدّد ما يصل إلى ١٠٠٠ مستند صالح من مستودع واحد."
+    },
+    "app.errors.a-complete-query-scope-is-required--5d108b": {
+      "source": "A complete query scope is required.",
+      "translation": "يلزم نطاق استعلام كامل."
+    },
+    "app.errors.download-cancelled--79310f": {
+      "source": "Download cancelled.",
+      "translation": "أُلغي التنزيل."
+    },
+    "app.errors.the-server-did-not-expose-the-download-s-0012f8": {
+      "source": "The server did not expose the download status URL. Allow the Location response header in the Nuxeo CORS configuration.",
+      "translation": "لم يوفّر الخادم عنوان URL لحالة التنزيل. اسمح برأس الاستجابة Location في إعدادات CORS في Nuxeo."
+    },
+    "app.errors.no-csv-export-was-returned--e3fe3f": {
+      "source": "No CSV export was returned.",
+      "translation": "لم تتم إعادة أي تصدير بتنسيق CSV."
+    },
+    "app.errors.no-downloadable-content-was-returned--65d092": {
+      "source": "No downloadable content was returned.",
+      "translation": "لم تتم إعادة أي محتوى قابل للتنزيل."
+    },
+    "app.errors.unexpected-nested-csv-result-url--5767cf": {
+      "source": "Unexpected nested CSV result URL.",
+      "translation": "عنوان URL متداخل غير متوقّع لنتيجة CSV."
+    },
+    "app.errors.the-csv-export-stopped-or-completed-with-8f40bd": {
+      "source": "The CSV export stopped or completed with errors.",
+      "translation": "توقّف تصدير CSV أو اكتمل مع أخطاء."
+    },
+    "app.errors.missing-export-status-url--3dd5ac": {
+      "source": "Missing export status URL.",
+      "translation": "عنوان URL لحالة التصدير مفقود."
+    },
+    "app.errors.missing-download-status-url--6d57df": {
+      "source": "Missing download status URL.",
+      "translation": "عنوان URL لحالة التنزيل مفقود."
+    },
+    "app.errors.the-server-could-not-prepare-the-selecte-6673f4": {
+      "source": "The server could not prepare the selected files.",
+      "translation": "تعذّر على الخادم إعداد الملفات المحددة."
+    },
+    "app.errors.invalid-download-status-url--e4b0a6": {
+      "source": "Invalid download status URL.",
+      "translation": "عنوان URL لحالة التنزيل غير صالح."
+    },
+    "app.errors.this-folder-can-no-longer-be-reordered-r-171dd8": {
+      "source": "This folder can no longer be reordered. Refresh and check permissions.",
+      "translation": "لم يعد من الممكن إعادة ترتيب هذا المجلد. حدّث الصفحة وتحقّق من الأذونات."
+    },
+    "app.errors.the-folder-changed-before-reordering--9b771d": {
+      "source": "The folder changed before reordering.",
+      "translation": "تغيّر المجلد قبل إعادة الترتيب."
+    },
+    "app.errors.the-folder-contents-changed-refresh-befo-9737ec": {
+      "source": "The folder contents changed. Refresh before reordering.",
+      "translation": "تغيّرت محتويات المجلد. حدّث الصفحة قبل إعادة الترتيب."
+    },
+    "app.errors.the-folder-order-changed-while-loading-r-75a30d": {
+      "source": "The folder order changed while loading. Refresh and retry.",
+      "translation": "تغيّر ترتيب المجلد أثناء التحميل. حدّث الصفحة وأعد المحاولة."
+    },
+    "app.errors.the-complete-sibling-order-is-unavailabl-0938f8": {
+      "source": "The complete sibling order is unavailable. Refresh before reordering.",
+      "translation": "الترتيب الكامل للعناصر الشقيقة غير متاح. حدّث الصفحة قبل إعادة الترتيب."
+    },
+    "app.errors.the-server-returned-an-incomplete-siblin-03bf2e": {
+      "source": "The server returned an incomplete sibling page.",
+      "translation": "أعاد الخادم صفحة غير مكتملة من العناصر الشقيقة."
+    },
+    "app.errors.a-selected-document-moved-or-is-unavaila-b98287": {
+      "source": "A selected document moved or is unavailable. Refresh the selection.",
+      "translation": "نُقل أحد المستندات المحددة أو لم يعد متاحًا. حدّث التحديد."
+    },
+    "app.errors.the-displayed-order-is-stale-refresh-the-97f922": {
+      "source": "The displayed order is stale. Refresh the folder before reordering.",
+      "translation": "الترتيب المعروض قديم. حدّث المجلد قبل إعادة الترتيب."
+    },
+    "app.errors.reordering-failed-or-its-outcome-is-unkn-857931": {
+      "source": "Reordering failed or its outcome is unknown. Refresh the folder before retrying.",
+      "translation": "فشلت إعادة الترتيب أو أن نتيجتها غير معروفة. حدّث المجلد قبل إعادة المحاولة."
+    },
+    "app.errors.permission-to-empty-this-trash-has-chang-9c8d9d": {
+      "source": "Permission to empty this trash has changed.",
+      "translation": "تغيّر الإذن بإفراغ سلة المهملات هذه."
+    },
+    "workflow.participantsRequired": {
+      "source": "Participants are required.",
+      "translation": "يجب تحديد المشاركين."
+    },
+    "workflow.participantsAndEndRequired": {
+      "source": "Participants and end date are required.",
+      "translation": "يجب تحديد المشاركين وتاريخ الانتهاء."
+    },
+    "workflow.initiatedBy": {
+      "source": "Workflow initiated by {name}",
+      "translation": "بدأ {name} سير العمل"
+    },
+    "metadata.typeLoadFailed": {
+      "source": "Document type information could not be loaded. Retry or close this dialog.",
+      "translation": "تعذّر تحميل معلومات نوع المستند. أعد المحاولة أو أغلق مربع الحوار هذا."
+    },
+    "metadata.loadFailed": {
+      "source": "Metadata settings could not be loaded. Retry to display metadata.",
+      "translation": "تعذّر تحميل إعدادات البيانات الوصفية. أعد المحاولة لعرض البيانات الوصفية."
+    },
+    "metadata.conflict": {
+      "source": "Settings changed on the server. Reload before saving.",
+      "translation": "تغيّرت الإعدادات على الخادم. أعد التحميل قبل الحفظ."
+    },
+    "metadata.saveFailed": {
+      "source": "Could not save metadata settings.",
+      "translation": "تعذّر حفظ إعدادات البيانات الوصفية."
+    },
+    "permissions.inheritanceAction": {
+      "source": "{action, select, unblock {Unblock permissions inherited from upper levels} other {Block permissions inherited from upper levels}}",
+      "translation": "{action, select, unblock {إلغاء حظر الأذونات الموروثة من المستويات الأعلى} other {حظر الأذونات الموروثة من المستويات الأعلى}}"
+    },
+    "permissions.editFor": {
+      "source": "Edit permission for {name}",
+      "translation": "تحرير الإذن الممنوح لـ {name}"
+    },
+    "permissions.notifyNamed": {
+      "source": "Notify {name}",
+      "translation": "إشعار {name}"
+    },
+    "permissions.deleteFor": {
+      "source": "Delete permission for {name}",
+      "translation": "حذف الإذن الممنوح لـ {name}"
+    },
+    "selection.repository": {
+      "source": "The selected documents must belong to the current repository.",
+      "translation": "يجب أن تنتمي المستندات المحددة إلى المستودع الحالي."
+    },
+    "download.preparationStopped": {
+      "source": "{state, select, consumed {This archive download was already started.} cancelled {Archive preparation was cancelled.} expired {Archive preparation expired.} other {Archive preparation failed.}} Regenerate the ZIP to try again.",
+      "translation": "{state, select, consumed {بدأ تنزيل هذا الأرشيف بالفعل.} cancelled {أُلغي إعداد الأرشيف.} expired {انتهت مهلة إعداد الأرشيف.} other {فشل إعداد الأرشيف.}} أعد إنشاء ملف ZIP للمحاولة مجددًا."
+    },
+    "download.unsupportedFormat": {
+      "source": "The server returned an unsupported export format ({format, select, unknown {unknown} other {{format}}}).",
+      "translation": "أعاد الخادم تنسيق تصدير غير مدعوم ({format, select, unknown {غير معروف} other {{format}}})."
+    },
+    "download.noZip": {
+      "source": "The server did not return a ZIP download.",
+      "translation": "لم يُعد الخادم تنزيلًا بتنسيق ZIP."
+    },
+    "download.unconfirmed": {
+      "source": "Archive preparation could not be confirmed. Retry status or regenerate the ZIP.",
+      "translation": "تعذّر تأكيد إعداد الأرشيف. أعد محاولة التحقق من الحالة أو أعد إنشاء ملف ZIP."
+    },
+    "editor.creationIncomplete": {
+      "source": "Your document was created. Some remaining steps failed; retry finishing this document without creating another copy.",
+      "translation": "تم إنشاء مستندك. فشلت بعض الخطوات المتبقية؛ أعد محاولة إكمال هذا المستند دون إنشاء نسخة أخرى."
+    },
+    "editor.saveFailed": {
+      "source": "The document could not be saved. Your changes are still available.",
+      "translation": "تعذّر حفظ المستند. ما زالت تغييراتك متاحة."
+    },
+    "editor.changed": {
+      "source": "This document changed. Reload it before saving again.",
+      "translation": "تغيّر هذا المستند. أعد تحميله قبل الحفظ مجددًا."
+    },
+    "editor.retrySave": {
+      "source": "Unable to save the document. Your changes have been kept; try again.",
+      "translation": "تعذّر حفظ المستند. تم الاحتفاظ بتغييراتك؛ أعد المحاولة."
+    },
+    "picture.colorSpace": {
+      "source": "Color space",
+      "translation": "فضاء اللون"
+    },
+    "picture.bitDepth": {
+      "source": "Bit depth",
+      "translation": "عمق البت"
+    },
+    "content.named": {
+      "source": "{type} content",
+      "translation": "محتوى {type}"
+    },
+    "content.resultControls": {
+      "source": "{type} result controls",
+      "translation": "عناصر التحكم في نتائج {type}"
+    },
+    "content.filter": {
+      "source": "Filter {type} content",
+      "translation": "تصفية محتوى {type}"
+    },
+    "content.previewType": {
+      "source": "{type} preview",
+      "translation": "معاينة {type}"
+    },
+    "publication.failedRetry": {
+      "source": "Publication failed. Completed documents will not be retried. If the connection was interrupted, check the destination before retrying the current document.",
+      "translation": "فشل النشر. لن تتم إعادة محاولة المستندات المكتملة. إذا انقطع الاتصال، فتحقّق من الوجهة قبل إعادة محاولة المستند الحالي."
+    },
+    "trash.actionFailed": {
+      "source": "The trash action failed. Check permissions and retry.",
+      "translation": "فشل إجراء سلة المهملات. تحقّق من الأذونات وأعد المحاولة."
+    },
+    "eventCategory.eventWorkflowCategory": {
+      "source": "Workflow",
+      "translation": "سير العمل"
+    },
+    "history.loadFailed": {
+      "source": "Document history could not be loaded. Check your connection and permissions, then retry.",
+      "translation": "تعذّر تحميل سجل المستند. تحقّق من اتصالك والأذونات، ثم أعد المحاولة."
+    },
+    "action.removeNamed": {
+      "source": "Remove {name}",
+      "translation": "إزالة {name}"
+    },
+    "action.downloadNamed": {
+      "source": "Download {name}",
+      "translation": "تنزيل {name}"
+    },
+    "action.insertNamed": {
+      "source": "Insert {name}",
+      "translation": "إدراج {name}"
+    },
+    "action.viewNamed": {
+      "source": "View {name}",
+      "translation": "عرض {name}"
+    },
+    "permission.changeFailed": {
+      "source": "The permission change failed. Check the selected user and your access.",
+      "translation": "فشل تغيير الإذن. تحقّق من المستخدم المحدد وصلاحية وصولك."
+    },
+    "create.typeFromFiles": {
+      "source": "Create {type} from files",
+      "translation": "إنشاء {type} من ملفات"
+    },
+    "collection.removeNamed": {
+      "source": "Remove from {name}",
+      "translation": "إزالة من {name}"
+    },
+    "comparison.useBaseline": {
+      "source": "Use {name} as comparison baseline",
+      "translation": "استخدام {name} كأساس للمقارنة"
+    },
+    "comparison.useVersionBaseline": {
+      "source": "Use version {version} as comparison baseline",
+      "translation": "استخدام الإصدار {version} كأساس للمقارنة"
+    },
+    "media.seekSeconds": {
+      "source": "Seek to {seconds, number} seconds",
+      "translation": "الانتقال إلى الموضع بالثواني: {seconds, number}"
+    },
+    "lifecycle.approved": {
+      "source": "Approved",
+      "translation": "معتمَد"
+    },
+    "app.viewer.embeddedVideo": {
+      "source": "Embedded video",
+      "translation": "فيديو مضمن"
+    },
+    "app.viewer.mediaPlaybackFailed": {
+      "source": "This media could not be played. Check access or refresh the document to try again.",
+      "translation": "تعذّر تشغيل هذا المحتوى الإعلامي. تحقّق من صلاحية الوصول أو حدّث المستند لإعادة المحاولة."
+    },
+    "app.viewer.streamingExpired": {
+      "source": "The streaming grant expired.",
+      "translation": "انتهت صلاحية تصريح البث."
+    },
+    "app.viewer.streamingUnavailable": {
+      "source": "Streaming is unavailable. Refresh the document to try again.",
+      "translation": "البث غير متاح. حدّث المستند لإعادة المحاولة."
+    },
+    "app.viewer.comparisonMissing": {
+      "source": "— missing —",
+      "translation": "— مفقود —"
+    },
+    "app.viewer.comparisonEmpty": {
+      "source": "— empty —",
+      "translation": "— فارغ —"
+    },
+    "app.viewer.unnamedFile": {
+      "source": "unnamed file",
+      "translation": "ملف بلا اسم"
+    },
+    "app.viewer.comparisonEmptyList": {
+      "source": "— empty list —",
+      "translation": "— قائمة فارغة —"
+    },
+    "app.viewer.comparisonEmptyObject": {
+      "source": "— empty object —",
+      "translation": "— كائن فارغ —"
+    },
+    "app.viewer.comparisonAddition": {
+      "source": "addition",
+      "translation": "إضافة"
+    },
+    "app.viewer.comparisonDeletion": {
+      "source": "deletion",
+      "translation": "حذف"
+    },
+    "app.viewer.comparisonModification": {
+      "source": "modification",
+      "translation": "تعديل"
+    },
+    "app.viewer.comparisonUnchanged": {
+      "source": "unchanged",
+      "translation": "دون تغيير"
+    },
+    "app.viewer.documentType": {
+      "source": "Document type",
+      "translation": "نوع المستند"
+    },
+    "app.viewer.state": {
+      "source": "State",
+      "translation": "الحالة"
+    },
+    "app.viewer.isModified": {
+      "source": "Is modified",
+      "translation": "تم تعديله"
+    },
+    "clipboard.cannotPaste": {
+      "source": "Cannot paste",
+      "translation": "لا يمكن اللصق"
+    },
+    "app.modules.common.unavailable": {
+      "source": "Unavailable",
+      "translation": "غير متاح"
+    },
+    "app.settingsShared.retentionRules": {
+      "source": "Retention Rules",
+      "translation": "قواعد الاحتفاظ"
+    },
+    "app.settingsShared.metadataLayouts": {
+      "source": "Metadata layouts",
+      "translation": "تخطيطات البيانات الوصفية"
+    },
+    "editor.typeHeading": {
+      "source": "{action, select, create {Create {type}} other {Edit {type}}}",
+      "translation": "{action, select, create {إنشاء {type}} other {تحرير {type}}}"
+    },
+    "create.newDocument": {
+      "source": "New document",
+      "translation": "مستند جديد"
+    },
+    "app.errors.save-the-file-before-streaming-or-downlo-e2e304": {
+      "source": "Save the file before streaming or downloading it.",
+      "translation": "احفظ الملف قبل بثّه أو تنزيله."
+    },
+    "app.errors.the-saved-file-could-not-be-identified-u-ab5c25": {
+      "source": "The saved file could not be identified uniquely. Refresh the document and try again.",
+      "translation": "تعذّر تحديد الملف المحفوظ بشكل فريد. حدّث المستند وأعد المحاولة."
+    },
+    "app.errors.the-saved-file-has-no-repository--d67912": {
+      "source": "The saved file has no repository.",
+      "translation": "ليس للملف المحفوظ مستودع."
+    },
+    "app.errors.the-document-has-changed-refresh-and-try-955ef4": {
+      "source": "The document has changed. Refresh and try again.",
+      "translation": "تغيّر المستند. حدّث الصفحة وأعد المحاولة."
+    },
+    "app.errors.permission-to-manage-access-has-changed--8759b9": {
+      "source": "Permission to manage access has changed.",
+      "translation": "تغيّر الإذن بإدارة الوصول."
+    },
+    "app.errors.the-selected-permission-is-no-longer-ava-ba220e": {
+      "source": "The selected permission is no longer available.",
+      "translation": "لم يعد الإذن المحدد متاحًا."
+    },
+    "app.errors.this-permission-has-changed-refresh-and--167160": {
+      "source": "This permission has changed. Refresh and try again.",
+      "translation": "تغيّر هذا الإذن. حدّث الصفحة وأعد المحاولة."
+    },
+    "metadata.saveRetry": {
+      "source": "Metadata could not be saved. Your changes have been kept; try again.",
+      "translation": "تعذّر حفظ البيانات الوصفية. تم الاحتفاظ بتغييراتك؛ أعد المحاولة."
+    },
+    "app.viewer.metadataRights": {
+      "source": "Rights",
+      "translation": "الحقوق"
+    },
+    "app.viewer.metadataSource": {
+      "source": "Source",
+      "translation": "المصدر"
+    },
+    "app.viewer.metadataLanguage": {
+      "source": "Language",
+      "translation": "اللغة"
+    },
+    "app.viewer.metadataPublisher": {
+      "source": "Publisher",
+      "translation": "الناشر"
+    },
+    "app.viewer.metadataIssued": {
+      "source": "Issued",
+      "translation": "تاريخ الإصدار"
+    },
+    "app.viewer.metadataValid": {
+      "source": "Valid",
+      "translation": "الصلاحية"
+    },
+    "app.gateway.changeToken": {
+      "source": "A change token is required to save safely.",
+      "translation": "يلزم رمز تغيير للحفظ بأمان."
+    },
+    "app.gateway.createTarget": {
+      "source": "A parent and valid document name are required.",
+      "translation": "يلزم موقع أصل واسم مستند صالح."
+    },
+    "app.gateway.uploadBatch": {
+      "source": "The server did not return an upload batch.",
+      "translation": "لم يُرجع الخادم دفعة تحميل."
+    },
+    "app.gateway.directoryTooLarge": {
+      "source": "The directory has more than 1000 selectable entries. Refine it before bulk editing.",
+      "translation": "يحتوي القاموس على أكثر من 1000 إدخال قابل للاختيار. ضيّق نطاقه قبل التحرير الجماعي."
+    },
+    "app.gateway.directoryLimit": {
+      "source": "The directory reached the 1000-entry bulk choice limit. Refine it before bulk editing.",
+      "translation": "بلغ القاموس حد 1000 خيار للتحرير الجماعي. ضيّق نطاقه قبل التحرير."
+    },
+    "app.gateway.directoryRepeated": {
+      "source": "The directory response repeated a page before lookup completed.",
+      "translation": "كررت استجابة القاموس صفحة قبل اكتمال البحث."
+    },
+    "app.gateway.directoryTruncated": {
+      "source": "The directory response was truncated before all entries were searched.",
+      "translation": "اقتُطعت استجابة القاموس قبل البحث في جميع الإدخالات."
+    },
+    "app.gateway.directoryPages": {
+      "source": "The directory lookup exceeded its 100-page safety limit.",
+      "translation": "تجاوز البحث في القاموس حد الأمان البالغ 100 صفحة."
+    },
+    "metadata.adminOnly": {
+      "source": "Only administrators can change metadata settings.",
+      "translation": "يمكن للمسؤولين فقط تغيير إعدادات البيانات الوصفية."
+    },
+    "metadata.changedBeforeSave": {
+      "source": "Another administrator changed these settings. Reload before saving.",
+      "translation": "غيّر مسؤول آخر هذه الإعدادات. أعد تحميلها قبل الحفظ."
+    },
+    "metadata.preferencesFailed": {
+      "source": "Your browser could not save these preferences.",
+      "translation": "تعذّر على متصفحك حفظ هذه التفضيلات."
+    },
+    "metadata.invalidPolicy": {
+      "source": "Unsupported metadata policy format.",
+      "translation": "تنسيق سياسة البيانات الوصفية غير مدعوم."
+    },
+    "metadata.invalidRule": {
+      "source": "Each rule needs a document type, schema, valid access, and user/group IDs.",
+      "translation": "تتطلب كل قاعدة نوع مستند ومخططًا وصلاحية وصول صالحة ومعرّفات مستخدمين أو مجموعات."
+    },
+    "metadata.cannotEdit": {
+      "source": "You cannot edit {property} in this metadata layout.",
+      "translation": "لا يمكنك تعديل {property} في تخطيط البيانات الوصفية هذا."
+    },
+    "publication.internal": {
+      "source": "Internal publication",
+      "translation": "النشر الداخلي"
+    },
+    "collectionRemoveAction.tooltip": {
+      "source": "Remove from collection",
+      "translation": "إزالة من المجموعة"
+    },
+    "maretha.export.pdf": {
+      "source": "Export PDF",
+      "translation": "تصدير PDF"
+    },
+    "maretha.export.xml": {
+      "source": "Export XML",
+      "translation": "تصدير XML"
+    },
+    "maretha.export.zip": {
+      "source": "Export ZIP",
+      "translation": "تصدير ZIP"
+    },
+    "documentTrashAction.tooltip": {
+      "source": "Move to trash",
+      "translation": "نقل إلى سلة المهملات"
+    },
+    "publishButton.tooltip": {
+      "source": "Publish document",
+      "translation": "نشر المستند"
+    },
+    "app.columns.format": {
+      "source": "Format",
+      "translation": "التنسيق"
+    },
+    "command.retry": {
+      "source": "Retry",
+      "translation": "إعادة المحاولة"
+    },
+    "label.loadMore": {
+      "source": "Load more",
+      "translation": "تحميل المزيد"
+    }
+  }
+}

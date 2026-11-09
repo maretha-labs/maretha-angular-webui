@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://maretha.io/schemas/contract" xmlns:contract="http://maretha.io/schemas/contract">
+ <xs:element name="counterparty" type="xs:string"/>
+ <xs:element name="amount" type="xs:double"/>
+ <xs:element name="effectiveDate" type="xs:dateTime"/>
+ <xs:element name="active" type="xs:boolean" default="false"/>
+</xs:schema>

@@ -1,0 +1,189 @@
+@if (editorForm) {
+	<form [formGroup]="editorForm" class="d-flex flex-column align-items-center px-2" novalidate>
+		<div class="form-group mb-3 w-100">
+			<div class="menu-header required">
+				{{ 'authenticationTokensManagement.permission' | webuiMessage: 'Permission' }}
+			</div>
+			<ng-select
+				[items]="userVisiblePermissions"
+				[nxAutofocus]="true"
+				class="ng-select-sm ng-select-discreet"
+				formControlName="permission"
+			>
+				<ng-template ng-option-tmp let-permission="item" let-index="index" let-search="searchTerm">
+					<h5>{{ permission.label }}</h5>
+					<div class="row small opacity-50">
+						<div class="col-6">
+							<span class="text-uppercase border-bottom">{{
+								'app.modules.document-permission-editor.in-workspaces-92d93a'
+									| webuiMessage: 'In Workspaces'
+							}}</span>
+							<ul class="list-unstyled mb-0">
+								@for (action of permission.actions.workspaces; track action) {
+									<li>{{ action }}</li>
+								}
+							</ul>
+						</div>
+						<div class="col-6">
+							<span class="text-uppercase border-bottom">{{
+								'app.modules.document-permission-editor.in-sections-44fef9'
+									| webuiMessage: 'In Sections'
+							}}</span>
+							<ul class="list-unstyled mb-0">
+								@for (action of permission.actions.sections; track action) {
+									<li>{{ action }}</li>
+								}
+							</ul>
+						</div>
+					</div>
+				</ng-template>
+			</ng-select>
+			<div class="invalid-feedback">
+				{{
+					'app.modules.document-permission-editor.please-specify-the-permission-2ccb71'
+						| webuiMessage: 'Please specify the permission.'
+				}}
+			</div>
+		</div>
+		<div class="form-group w-100 mb-3">
+			@if (shared) {
+				<div class="menu-header required">
+					{{
+						'app.modules.document-permission-editor.email-address-e869de'
+							| webuiMessage: 'Email address'
+					}}
+				</div>
+			}
+			@if (!shared) {
+				<div class="menu-header required">
+					{{
+						'app.modules.document-permission-editor.user-group-e46734' | webuiMessage: 'User/Group'
+					}}
+				</div>
+			}
+			<input
+				type="username"
+				class="form-control"
+				[class.is-invalid]="isControlInvalid('externalUser')"
+				[placeholder]="
+					shared
+						? ('app.modules.document-permission-editor.email-address-804fc3'
+							| webuiMessage: 'Email address...')
+						: ('app.modules.document-permission-editor.user-or-group-f01b8e'
+							| webuiMessage: 'User or group...')
+				"
+				formControlName="username"
+			/>
+		</div>
+		<ng-container formGroupName="timeframe">
+			@if (!shared) {
+				<div class="form-group w-100 mb-2">
+					<div class="form-check form-switch">
+						<input
+							class="form-check-input"
+							type="checkbox"
+							role="switch"
+							id="permanent"
+							formControlName="permanent"
+						/>
+						<label class="form-check-label" for="permanent">{{
+							'app.modules.document-permission-editor.make-this-permanent-0c8930'
+								| webuiMessage: 'Make this permanent'
+						}}</label>
+					</div>
+				</div>
+			}
+			@if (shared || !editorForm.get(['timeframe', 'permanent'])?.value) {
+				<div class="form-group mb-3 w-100">
+					<div class="menu-header" [class.required]="shared">
+						{{
+							'app.modules.document-permission-editor.effectiveness-timeframe-c240e8'
+								| webuiMessage: 'Effectiveness timeframe'
+						}}
+					</div>
+					<div class="d-flex align-items-center">
+						<div class="flex-grow-1">
+							<input
+								type="text"
+								class="form-control"
+								[attr.placeholder]="
+									'app.modules.document-permission-editor.from-5fcc39' | webuiMessage: 'From...'
+								"
+								formControlName="from"
+								[nxAutofocus]="!shared"
+								bsDatepicker
+								[bsConfig]="{ containerClass: 'slim-edge theme-dark-blue' }"
+								container=".popover"
+							/>
+						</div>
+						<span class="mx-2">→</span>
+						<div class="flex-grow-1">
+							<input
+								type="text"
+								class="form-control"
+								[attr.placeholder]="
+									'app.modules.document-permission-editor.until-6b49cd' | webuiMessage: 'Until...'
+								"
+								formControlName="until"
+								bsDatepicker
+								[bsConfig]="{ containerClass: 'slim-edge theme-dark-blue' }"
+								container=".popover"
+							/>
+						</div>
+					</div>
+				</div>
+			}
+		</ng-container>
+		<ng-container formGroupName="notification">
+			@if (!shared) {
+				<div class="form-group w-100">
+					<div class="form-check form-switch">
+						<input
+							class="form-check-input"
+							type="checkbox"
+							role="switch"
+							id="sendNotification"
+							formControlName="sendNotification"
+						/>
+						<label class="form-check-label" for="sendNotification">{{
+							'app.modules.document-permission-editor.send-a-notification-email-5188fd'
+								| webuiMessage: 'Send a notification email'
+						}}</label>
+					</div>
+				</div>
+			}
+			@if (editorForm.get(['notification', 'sendNotification'])?.value || shared) {
+				<div class="form-group w-100 mb-3">
+					<div class="menu-header required">
+						{{ 'app.modules.document-permission-editor.message-96912a' | webuiMessage: 'Message' }}
+					</div>
+					<textarea
+						class="form-control"
+						formControlName="message"
+						autosize
+						[maxRows]="10"
+						[nxAutofocus]="
+							!shared || editorForm.get(['notification', 'sendNotification'])?.dirty === true
+						"
+					>
+					</textarea>
+				</div>
+			}
+		</ng-container>
+		<div class="btn-group w-100 mt-2">
+			<button
+				(click)="saveChanges()"
+				type="sumbit"
+				class="btn btn-secondary"
+				[disabled]="editorForm.invalid || editorForm.pristine"
+			>
+				<fa-icon [fixedWidth]="true" icon="check-double"></fa-icon>
+
+				{{
+					'app.modules.document-permission-editor.save-changes-38725d'
+						| webuiMessage: 'Save changes'
+				}}
+			</button>
+		</div>
+	</form>
+}

@@ -1,0 +1,597 @@
+@if (queueActive()) {
+	<nx-search-queue />
+} @else if (parentSearchForm) {
+	<form
+		class="nx-search-pane"
+		[class.nx-search-pane--default]="currentPageProviderKey === 'default_search'"
+		[class.disabled]="loading"
+		[formGroup]="parentSearchForm"
+	>
+		<div class="stock-search-heading">
+			<div class="stock-search-heading__picker">
+				<label for="default-saved-search">{{
+					'searchForm.searchFilters' | webuiMessage: 'Search Filters'
+				}}</label>
+				<ng-select
+					class="stock-saved-search-select"
+					labelForId="default-saved-search"
+					[items]="savedSearches ?? []"
+					bindLabel="title"
+					bindValue="id"
+					[ngModel]="selectedSavedSearch?.id ?? null"
+					[ngModelOptions]="{ standalone: true }"
+					[clearable]="true"
+					[searchable]="true"
+					[placeholder]="
+						'searchForm.searchFilters.placeholder' | webuiMessage: 'Select a saved search'
+					"
+					[attr.aria-label]="
+						'searchForm.searchFilters.placeholder' | webuiMessage: 'Select a saved search'
+					"
+					(ngModelChange)="selectSavedSearch($event)"
+				/>
+			</div>
+			<button
+				class="stock-search-heading__queue"
+				type="button"
+				(click)="openQueue()"
+				[attr.aria-label]="'searchForm.displayQueueView' | webuiMessage: 'Switch to Queue View'"
+			>
+				<nx-webui-icon name="nuxeo:view-list" />
+			</button>
+		</div>
+		<!-- Page Provider selector -->
+		@if (pageProviders[currentPageProviderKey!] && currentPageProviderKey !== 'default_search') {
+			<div class="nx-search-pane__provider">
+				<div class="nx-search-pane__section-title">
+					{{ 'search.optionsPageProvider' | translate }}
+				</div>
+				<div dropdown class="w-100" role="group" container="body" placement="bottom left">
+					<button
+						dropdownToggle
+						class="btn btn-sm btn-outline-secondary w-100 text-start d-flex align-items-center justify-content-between"
+					>
+						<span>
+							<fa-icon icon="sliders" [fixedWidth]="true" class="me-1"></fa-icon>
+							{{
+								'pageProviders.' + pageProviders[currentPageProviderKey!].key + '.label' | translate
+							}}
+						</span>
+						<fa-icon icon="chevron-down" size="xs"></fa-icon>
+					</button>
+					<ul *dropdownMenu class="dropdown-menu w-100" role="menu">
+						@for (searchProvider of pageProviders | keyvalue; track searchProvider.key) {
+							@if ($any(searchProvider.value).userSelectable) {
+								<li role="menuitem">
+									<button
+										(click)="useSearchProvider(searchProvider.key)"
+										class="dropdown-item"
+										[class.active]="searchProvider.key === currentPageProviderKey"
+									>
+										{{ 'pageProviders.' + $any(searchProvider.key) + '.label' | translate }}
+									</button>
+								</li>
+							}
+						}
+					</ul>
+				</div>
+			</div>
+		}
+		@if (
+			pageProviders[currentPageProviderKey!] &&
+			pageProviders[currentPageProviderKey!].key !== 'nxql_search' &&
+			currentPageProviderKey !== 'default_search'
+		) {
+			<!-- Search Fields (stacked vertically) -->
+			<div class="nx-search-pane__section" formGroupName="searchFields">
+				<div class="nx-search-pane__section-title">{{ 'search.searchFields' | translate }}</div>
+				@for (field of fields | keyvalue; track field.key; let first = $first; let index = $index) {
+					@if (field.value.visible) {
+						<div class="nx-search-pane__field">
+							<label for="field-{{ field.key }}" class="nx-search-pane__label">
+								@if (field.key === 'ecm_collections') {
+									{{ 'defaultSearch.collections' | translate }}
+								} @else if (field.key === 'ecm_tags') {
+									{{ 'defaultSearch.tags' | translate }}
+								} @else {
+									{{
+										'pageProviders.' + currentPageProviderKey + '.fields.' + field.key | translate
+									}}
+								}
+							</label>
+							@if (field.value.type === 'string') {
+								<input
+									id="field-{{ field.key }}"
+									class="form-control form-control-sm"
+									type="search"
+									[nxAutofocus]="searchPaneOpen && first"
+									[nxAutofocusDelay]="400"
+									[formControlName]="field.key"
+									(keydown.enter)="$event.preventDefault(); search()"
+								/>
+							}
+							@if (field.value.type === 'collection') {
+								<ng-select
+									labelForId="field-{{ field.key }}"
+									[items]="collections"
+									[formControlName]="field.key"
+									[multiple]="true"
+									bindLabel="title"
+									bindValue="uid"
+									[placeholder]="'defaultSearch.collections.placeholder' | translate"
+									appendTo="body"
+									class="ng-select-sm"
+								/>
+							}
+							@if (field.value.type === 'tag') {
+								<ng-select
+									labelForId="field-{{ field.key }}"
+									[items]="tagSuggestions"
+									[formControlName]="field.key"
+									[multiple]="true"
+									bindLabel="label"
+									bindValue="id"
+									[typeahead]="tagInput$"
+									[nxSuggestionLimits]="tagLimits()"
+									[loading]="tagsLoading"
+									[placeholder]="'defaultSearch.tags.placeholder' | translate"
+									appendTo="body"
+									class="ng-select-sm"
+								/>
+							}
+						</div>
+					}
+				}
+			</div>
+			<!-- Custom Filters (collapsible sections) -->
+			<div class="nx-search-pane__section" formGroupName="customFilters">
+				@for (customFilter of customFilters | keyvalue; track customFilter.key) {
+					<div class="nx-search-pane__filter">
+						@if (
+							customFilter.value.type === 'range' ||
+							customFilter.value.type === 'date_range' ||
+							customFilter.value.type === 'terms'
+						) {
+							<div class="w-100">
+								<label for="field-{{ customFilter.key }}" class="nx-search-pane__label">
+									{{
+										'pageProviders.' +
+											currentPageProviderKey +
+											'.aggregations.' +
+											customFilter.key +
+											'.label' | translate
+									}}
+								</label>
+								<ng-select
+									labelForId="field-{{ customFilter.key }}"
+									[items]="customFilter.value.buckets"
+									[formControlName]="customFilter.key"
+									[multiple]="true"
+									clearAllText=""
+									[closeOnSelect]="false"
+									appendTo="body"
+									bindValue="key"
+									class="ng-select-sm flex-grow-1"
+								>
+									<ng-template
+										ng-option-tmp
+										let-bucket="item"
+										let-index="index"
+										let-search="searchTerm"
+										let-item="item$"
+									>
+										<span class="ng-value-label position-relative text-capitalize">
+											<input class="form-check-input" type="checkbox" [checked]="item.selected" />
+											@if (customFilter.value.type === 'terms') {
+												{{ bucket.key }}
+											}
+											@if (customFilter.value.type !== 'terms') {
+												{{
+													'pageProviders.' +
+														currentPageProviderKey +
+														'.aggregations.' +
+														customFilter.key +
+														'.buckets.' +
+														bucket.key | translate
+												}}
+											}
+											@if (bucket.docCount) {
+												<sup class="nx-search-pane__count">
+													{{ bucket.docCount }}
+												</sup>
+											}
+										</span>
+									</ng-template>
+									<ng-template ng-label-tmp let-item="item">
+										<span class="ng-value-label text-capitalize">{{ item.key | translate }}</span>
+									</ng-template>
+									<ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
+										@for (item of items | slice: 0 : 1; track item) {
+											<div class="ng-value">
+												<span class="ng-value-label text-capitalize">
+													{{ $any(item).key | translate }}
+												</span>
+												<span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true"
+													>×</span
+												>
+											</div>
+										}
+										@if (items.length > 1) {
+											<div class="ng-value">
+												<span class="ng-value-label">{{
+													'selection.more'
+														| webuiMessage: '{count, number} more…' : { count: items.length - 1 }
+												}}</span>
+											</div>
+										}
+									</ng-template>
+								</ng-select>
+							</div>
+						}
+					</div>
+				}
+			</div>
+			<!-- Quick Filters -->
+			<div class="nx-search-pane__section" formGroupName="quickFilters">
+				<div class="nx-search-pane__section-title">{{ 'search.quickFilters' | translate }}</div>
+				<div class="nx-search-pane__pills">
+					@for (quickFilter of quickFilters | keyvalue; track quickFilter.key) {
+						<button
+							[formControlName]="quickFilter.key"
+							btnCheckbox
+							role="button"
+							class="nx-filter-pill"
+							[class.active]="parentSearchForm.get(['quickFilters', quickFilter.key])!.value"
+						>
+							{{ quickFilterLabel(quickFilter.key) }}
+						</button>
+					}
+				</div>
+			</div>
+			<!-- Location scope -->
+			<div class="nx-search-pane__section">
+				<div class="nx-search-pane__option">
+					<div class="form-check form-switch">
+						<input
+							class="form-check-input"
+							type="checkbox"
+							formControlName="local"
+							id="searchLocalOnly"
+							[attr.disabled]="
+								pageProviders[currentPageProviderKey!]?.key === 'nxql_search' ? '' : null
+							"
+						/>
+						<label class="form-check-label" for="searchLocalOnly">
+							{{
+								'app.modules.search-pane.search-current-location-913fe1'
+									| webuiMessage: 'Search current location'
+							}}
+						</label>
+					</div>
+				</div>
+			</div>
+		}
+
+		@if (
+			currentPageProviderKey === 'default_search' &&
+			parentSearchForm.get(['searchFields', 'ecm_fulltext'])
+		) {
+			<div class="stock-search-fields">
+				<div formGroupName="searchFields">
+					<label for="core-fulltext">{{
+						'defaultSearch.fullText' | webuiMessage: 'Full Text'
+					}}</label
+					><input
+						id="core-fulltext"
+						type="search"
+						formControlName="ecm_fulltext"
+						[nxAutofocus]="searchPaneOpen"
+						[nxAutofocusDelay]="400"
+						[placeholder]="
+							'defaultSearch.fullText.placeholder' | webuiMessage: 'Search for something…'
+						"
+						(keydown.enter)="$event.preventDefault(); search()"
+					/>
+				</div>
+				@for (key of coreFacets; track key; let first = $first) {
+					<details class="stock-facet">
+						<summary>{{ coreFacetLabel(key) }}</summary>
+						<div class="stock-facet-options">
+							@for (bucket of coreBuckets(key); track bucket.key) {
+								<label
+									><input
+										type="checkbox"
+										[checked]="coreFacetSelected(key, bucket.key)"
+										(change)="toggleCoreFacet(key, bucket.key)"
+									/><span>{{ bucket.label }} ({{ bucket.count }})</span></label
+								>
+							} @empty {
+								<p class="stock-facet-empty">
+									{{ 'checkboxAggregation.noResults' | webuiMessage: 'No available results' }}
+								</p>
+							}
+						</div>
+					</details>
+					@if (first) {
+						<div formGroupName="customFilters">
+							@if (parentSearchForm.get(['customFilters', 'dc_creator_agg'])) {
+								<label for="core-authors">{{
+									'defaultSearch.authors' | webuiMessage: 'Authors'
+								}}</label
+								><ng-select
+									[items]="coreBuckets('dc_creator_agg')"
+									labelForId="core-authors"
+									nxSuggestionEscape
+									formControlName="dc_creator_agg"
+									[multiple]="true"
+									bindLabel="label"
+									bindValue="key"
+									[placeholder]="'defaultSearch.authors.placeholder' | translate"
+									appendTo="body"
+								/>
+							}
+						</div>
+						<div formGroupName="searchFields">
+							<label for="core-collections">{{
+								'defaultSearch.collections' | webuiMessage: 'Collections'
+							}}</label
+							><ng-select
+								[items]="collections"
+								labelForId="core-collections"
+								nxSuggestionEscape
+								formControlName="ecm_collections"
+								[multiple]="true"
+								bindLabel="title"
+								bindValue="uid"
+								[placeholder]="'defaultSearch.collections.placeholder' | translate"
+								appendTo="body"
+							/>
+							<label for="core-tags">{{ 'defaultSearch.tags' | webuiMessage: 'Tags' }}</label
+							><ng-select
+								[items]="tagSuggestions"
+								labelForId="core-tags"
+								nxSuggestionEscape
+								formControlName="ecm_tags"
+								[multiple]="true"
+								bindLabel="label"
+								bindValue="id"
+								[typeahead]="tagInput$"
+								[nxSuggestionLimits]="tagLimits()"
+								[loading]="tagsLoading"
+								[placeholder]="'defaultSearch.tags.placeholder' | translate"
+								appendTo="body"
+							/>
+						</div>
+					}
+				}
+			</div>
+		}
+		<!-- NXQL Search mode -->
+		@if (
+			pageProviders[currentPageProviderKey!] &&
+			pageProviders[currentPageProviderKey!].key === 'nxql_search'
+		) {
+			<div class="nx-search-pane__section nx-search-pane__nxql">
+				<label class="nx-search-pane__label" for="search-query-params">
+					{{ 'pageProviders.nxql_search.queryParams' | translate }}
+				</label>
+				<div class="nx-search-pane__nxql-editor">
+					<div class="input-group">
+						<div class="btn-group flex-grow-1">
+							<textarea
+								#textarea
+								id="search-query-params"
+								class="form-control border-primary"
+								[nxAutofocus]="true"
+								formControlName="queryParams"
+								spellcheck="false"
+								(scroll)="syncQueryParamsScroll($event)"
+								(keydown)="checkQueryParamsTab($event)"
+								(input)="syncQueryParamsValue()"
+							>
+							</textarea>
+							<pre #pre aria-hidden="true">
+                <code #queryParams class="language-sql"></code>
+              </pre>
+						</div>
+						<button
+							(click)="runNxqlQuery()"
+							class="btn btn-primary"
+							[tooltip]="
+								'app.modules.search-pane.execute-this-nxql-query-ecd564'
+									| webuiMessage: 'Execute this NXQL query'
+							"
+							placement="left"
+						>
+							<fa-icon icon="play" size="lg"></fa-icon>
+						</button>
+					</div>
+				</div>
+			</div>
+		}
+		<!-- Options section -->
+		@if (currentPageProviderKey) {
+			<div class="nx-search-pane__section nx-search-pane__options">
+				@if (currentPageProviderKey !== 'default_search') {
+					<div class="form-check form-switch auto-search-toggle">
+						<input
+							id="nx-search-auto"
+							class="form-check-input"
+							type="checkbox"
+							role="switch"
+							[(ngModel)]="autoSearch"
+							[ngModelOptions]="{ standalone: true }"
+						/>
+						<label class="form-check-label" for="nx-search-auto">{{
+							'searchForm.auto' | webuiMessage: 'Auto-search'
+						}}</label>
+					</div>
+				}
+				<div class="d-flex gap-2">
+					<button
+						[hidden]="autoSearch && currentPageProviderKey === 'default_search'"
+						(click)="search()"
+						type="button"
+						class="btn btn-primary flex-grow-1"
+						[disabled]="pageProviders[currentPageProviderKey!]?.key === 'nxql_search'"
+					>
+						{{ 'app.modules.search-pane.search-f11f42' | webuiMessage: 'Search' }}
+					</button>
+					<button
+						(click)="clearForm()"
+						type="button"
+						class="btn btn-outline-primary flex-grow-1 stock-reset"
+						[disabled]="
+							(currentPageProviderKey !== 'default_search' && parentSearchForm.pristine) ||
+							pageProviders[currentPageProviderKey!]?.key === 'nxql_search'
+						"
+					>
+						@if (currentPageProviderKey !== 'default_search') {
+							<fa-icon [fixedWidth]="true" icon="eraser" class="me-1"></fa-icon>
+						}
+
+						{{ 'app.modules.search-pane.reset-47b365' | webuiMessage: 'Reset' }}
+					</button>
+				</div>
+			</div>
+		}
+	</form>
+	<dialog
+		#saveDialog
+		class="saved-search-dialog"
+		(cancel)="$event.preventDefault(); closeSavedSearchDialog()"
+	>
+		<form [formGroup]="savedSearchesForm" (ngSubmit)="saveSearch()">
+			<h2>{{ 'searchForm.savePopup.heading' | webuiMessage: 'Save Search' }}</h2>
+			<label for="saved-search-title">{{
+				'searchForm.savePopup.label' | webuiMessage: 'Enter a name for your saved search.'
+			}}</label>
+			<input
+				id="saved-search-title"
+				type="text"
+				formControlName="title"
+				[nxAutofocus]="savedSearchDialog === 'save'"
+			/>
+			@if (savedSearchesForm.get('title')?.hasError('pattern')) {
+				<p role="alert">
+					{{
+						'searchForm.savePopup.error'
+							| webuiMessage: "You cannot use the character '/' in the name"
+					}}
+				</p>
+			}
+			@if (savedSearchError) {
+				<p role="alert">{{ savedSearchError }}</p>
+			}
+			<div class="saved-search-dialog__buttons">
+				<button type="button" class="secondary" (click)="closeSavedSearchDialog()">
+					{{ 'command.cancel' | webuiMessage: 'Cancel' }}
+				</button>
+				<button
+					type="submit"
+					class="primary"
+					[disabled]="savedSearchesForm.invalid || savingSavedSearch"
+				>
+					{{ 'command.save' | webuiMessage: 'Save' }}
+				</button>
+			</div>
+		</form>
+	</dialog>
+	<dialog
+		#renameDialog
+		class="saved-search-dialog"
+		(cancel)="$event.preventDefault(); closeSavedSearchDialog()"
+	>
+		<form [formGroup]="savedSearchesForm" (ngSubmit)="renameSavedSearch()">
+			<h2>{{ 'searchForm.renamePopup.heading' | webuiMessage: 'Rename Saved Search' }}</h2>
+			<label for="saved-search-rename">{{
+				'searchForm.renamePopup.label' | webuiMessage: 'Enter a new name for your saved search.'
+			}}</label>
+			<input
+				id="saved-search-rename"
+				type="text"
+				formControlName="title"
+				[nxAutofocus]="savedSearchDialog === 'rename'"
+			/>
+			@if (savedSearchError) {
+				<p role="alert">{{ savedSearchError }}</p>
+			}
+			<div class="saved-search-dialog__buttons">
+				<button type="button" class="secondary" (click)="closeSavedSearchDialog()">
+					{{ 'command.cancel' | webuiMessage: 'Cancel' }}
+				</button>
+				<button
+					type="submit"
+					class="primary"
+					[disabled]="savedSearchesForm.invalid || savingSavedSearch"
+				>
+					{{ 'command.save' | webuiMessage: 'Save' }}
+				</button>
+			</div>
+		</form>
+	</dialog>
+	<dialog
+		#shareDialog
+		class="saved-search-dialog"
+		(cancel)="$event.preventDefault(); closeSavedSearchDialog()"
+	>
+		<h2>{{ 'searchForm.shared.heading' | webuiMessage: 'Share Saved Search' }}</h2>
+		<label for="saved-search-share">{{
+			'app.modules.search-pane.user-or-group-to-share-with-b0a54e'
+				| webuiMessage: 'User or group to share with'
+		}}</label>
+		<input
+			id="saved-search-share"
+			type="text"
+			[(ngModel)]="sharePrincipal"
+			[ngModelOptions]="{ standalone: true }"
+			[nxAutofocus]="savedSearchDialog === 'share'"
+			[attr.placeholder]="
+				'app.modules.search-pane.user-or-group-eb65ae' | webuiMessage: 'User or group'
+			"
+		/>
+		<label class="saved-search-dialog__check"
+			><input type="checkbox" [(ngModel)]="shareNotify" [ngModelOptions]="{ standalone: true }" />
+			{{ 'app.modules.search-pane.notify-4c7367' | webuiMessage: 'Notify' }}</label
+		>
+		@if (savedSearchError) {
+			<p role="alert">{{ savedSearchError }}</p>
+		}
+		<div class="saved-search-dialog__buttons">
+			<button type="button" class="secondary" (click)="closeSavedSearchDialog()">
+				{{ 'command.close' | webuiMessage: 'Close' }}
+			</button>
+			<button
+				type="button"
+				class="primary"
+				[disabled]="savingSavedSearch || !sharePrincipal.trim()"
+				(click)="shareSavedSearch()"
+			>
+				{{ 'app.modules.search-pane.share-56e599' | webuiMessage: 'Share' }}
+			</button>
+		</div>
+	</dialog>
+	<dialog
+		#deleteDialog
+		class="saved-search-dialog"
+		(cancel)="$event.preventDefault(); closeSavedSearchDialog()"
+	>
+		<h2>{{ 'searchForm.delete.heading' | webuiMessage: 'Delete Search?' }}</h2>
+		@if (savedSearchError) {
+			<p role="alert">{{ savedSearchError }}</p>
+		}
+		<div class="saved-search-dialog__buttons">
+			<button type="button" class="secondary" (click)="closeSavedSearchDialog()">
+				{{ 'label.no' | webuiMessage: 'No' }}
+			</button>
+			<button
+				type="button"
+				class="primary"
+				[disabled]="savingSavedSearch || !selectedSavedSearch"
+				(click)="selectedSavedSearch && deleteSavedSearch(selectedSavedSearch)"
+			>
+				{{ 'label.yes' | webuiMessage: 'Yes' }}
+			</button>
+		</div>
+	</dialog>
+}

@@ -1,0 +1,22 @@
+<!-- Stock error page: the page header bar, then a card holding nuxeo-error (code, label, address, message). -->
+<header class="nx-not-found__header"></header>
+<div class="nx-not-found__card">
+	<section class="nx-not-found__error" aria-labelledby="nx-not-found-label">
+		<p class="nx-not-found__code">{{ code }}</p>
+		<h1 id="nx-not-found-label" class="nx-not-found__label">
+			@if (code === 403) {
+				{{ 'error.403' | webuiMessage: 'Permission Denied' }}
+			} @else {
+				{{ 'error.404' | webuiMessage: 'Not Found' }}
+			}
+		</h1>
+		@if (error().address) {
+			<p class="nx-not-found__address">{{ error().address }}</p>
+		}
+		@if (error().document) {
+			<p class="nx-not-found__message">
+				{{ 'browse.error' | webuiMessage: 'Could not load document.' }}
+			</p>
+		}
+	</section>
+</div>

@@ -1,0 +1,69 @@
+:host {
+	--progress: 0;
+	position: relative;
+}
+
+.square-box {
+	position: absolute;
+	inset-block-start: -7px;
+	inset-inline-start: -8px;
+	width: calc(100% + 12px);
+	overflow: hidden;
+	display: block;
+	pointer-events: none;
+	z-index: 1;
+}
+
+.square-box:before {
+	content: '';
+	display: block;
+	padding-block-start: 100%;
+}
+
+.pie-wrapper {
+	position: absolute;
+	inset-block-start: 0;
+	inset-inline-start: 0;
+	inset-inline-end: 0;
+	inset-block-end: 0;
+
+	.pie {
+		height: 100%;
+		width: 100%;
+		// Clip left hand side of the pie
+		clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+		inset-inline-start: 0;
+		position: absolute;
+		inset-block-start: 0;
+
+		.half-circle {
+			height: 100%;
+			width: 100%;
+			border: 4px solid tomato;
+			border-radius: 50%;
+			// Clip right hand side of the pie
+			clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+			inset-inline-start: 0;
+			position: absolute;
+			inset-block-start: 0;
+		}
+
+		.left-side {
+			transform: rotate(calc(var(--progress) * 3.6deg));
+			// transition: transform .3s ease-in-out;
+		}
+
+		.right-side {
+			display: none;
+		}
+
+		&.over-fifty {
+			clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+			.right-side {
+				transform: rotate(180deg);
+				display: block;
+			}
+		}
+	}
+}

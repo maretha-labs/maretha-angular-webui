@@ -1,0 +1,42 @@
+<div class="nx-confirmation">
+	@if (icon) {
+		<span class="nx-confirmation__icon" aria-hidden="true"><nx-webui-icon [name]="icon" /></span>
+	}
+	<div class="nx-confirmation__text">
+		<h2 [id]="titleId">{{ titleText }}</h2>
+		@if (messageKey) {
+			<p>{{ messageText }}</p>
+		} @else if (message) {
+			<p [innerHtml]="message"></p>
+		}
+	</div>
+	@if (dismissable) {
+		<button
+			type="button"
+			class="btn-close"
+			[attr.aria-label]="closeText"
+			(click)="close()"
+		></button>
+	}
+</div>
+
+@if (dismissable) {
+	<div class="nx-confirmation__actions">
+		<button
+			type="button"
+			[class.nx-confirmation__default]="!defaultButtonConfirm"
+			[ngStyle]="{ order: defaultButtonConfirm ? 1 : 2 }"
+			(click)="close()"
+		>
+			{{ declineText }}
+		</button>
+		<button
+			type="button"
+			[class.nx-confirmation__default]="defaultButtonConfirm"
+			[ngStyle]="{ order: defaultButtonConfirm ? 2 : 1 }"
+			(click)="close(true)"
+		>
+			{{ confirmText }}
+		</button>
+	</div>
+}

@@ -1,0 +1,100 @@
+<div class="modal-header">
+	<h4 class="modal-title pull-left">
+		{{ 'app.modules.cloud-account-editor.edit-account-ed8f5f' | webuiMessage: 'Edit account' }}
+	</h4>
+
+	<button
+		type="button"
+		class="close btn-close pull-right"
+		[attr.aria-label]="'app.modules.cloud-account-editor.close-6bc13c' | webuiMessage: 'Close'"
+		(click)="close()"
+	>
+		<span aria-hidden="true" class="visually-hidden">&times;</span>
+	</button>
+</div>
+
+@if (editorForm) {
+	<div class="modal-body" [formGroup]="editorForm">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="form-floating mb-3">
+					<input
+						type="text"
+						class="form-control"
+						id="nuxeoLogin"
+						[attr.placeholder]="
+							'app.modules.cloud-account-editor.nuxeo-login-c1a1ab' | webuiMessage: 'Nuxeo login'
+						"
+						formControlName="nuxeoLogin"
+					/>
+					<label for="nuxeoLogin">{{
+						'app.modules.cloud-account-editor.nuxeo-login-c1a1ab' | webuiMessage: 'Nuxeo login'
+					}}</label>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-floating required mb-3">
+					<input
+						type="text"
+						class="form-control"
+						id="serviceLogin"
+						[attr.placeholder]="
+							'app.modules.cloud-account-editor.service-login-2ec977'
+								| webuiMessage: 'Service login'
+						"
+						formControlName="serviceLogin"
+						[nxAutofocus]="true"
+						[nxAutofocusDelay]="400"
+					/>
+					<label for="serviceLogin">{{
+						'app.modules.cloud-account-editor.service-login-2ec977' | webuiMessage: 'Service login'
+					}}</label>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="form-floating required mb-3">
+					<input
+						type="text"
+						class="form-control"
+						id="creationDate"
+						[attr.placeholder]="
+							'app.modules.cloud-account-editor.creation-date-b646bb'
+								| webuiMessage: 'Creation date'
+						"
+						formControlName="creationDate"
+						bsDatepicker
+						container=".popover"
+						[bsConfig]="{ isAnimated: true, adaptivePosition: true }"
+					/>
+					<label for="creationDate">{{
+						'app.modules.cloud-account-editor.creation-date-b646bb' | webuiMessage: 'Creation date'
+					}}</label>
+				</div>
+			</div>
+		</div>
+	</div>
+}
+
+<div class="modal-footer flex-nowrap p-0">
+	<button
+		(click)="close()"
+		type="button"
+		class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"
+	>
+		{{
+			'app.modules.cloud-account-editor.close-without-saving-305dbe'
+				| webuiMessage: 'Close without saving'
+		}}
+	</button>
+
+	<button
+		(click)="saveChanges()"
+		type="button"
+		[disabled]="editorForm?.pristine || editorForm?.invalid"
+		class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0"
+	>
+		<strong>{{
+			'app.modules.cloud-account-editor.save-changes-9ad120' | webuiMessage: 'Save changes'
+		}}</strong>
+	</button>
+</div>

@@ -1,0 +1,978 @@
+{
+  "format": 1,
+  "polymerRevision": "e0ccb86615c692a3a60c557d363d4ce32f91c686",
+  "contributions": [
+    {
+      "slot": "ADMINISTRATION_MENU",
+      "polymer": "adminAnalyticsMenuItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.admin.analytics"]
+    },
+    {
+      "slot": "ADMINISTRATION_MENU",
+      "polymer": "adminUserManagementMenuItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.admin.users"]
+    },
+    {
+      "slot": "ADMINISTRATION_MENU",
+      "polymer": "adminVocabManagementMenuItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.admin.directories"]
+    },
+    {
+      "slot": "ADMINISTRATION_MENU",
+      "polymer": "adminAuditMenuItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.admin.audit"]
+    },
+    {
+      "slot": "ADMINISTRATION_MENU",
+      "polymer": "adminCloudServicesMenuItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.admin.cloud"]
+    },
+    {
+      "slot": "ADMINISTRATION_MENU",
+      "polymer": "adminNxqlSearchMenuItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.admin.nxql"]
+    },
+    {
+      "slot": "ADMINISTRATION_PAGES",
+      "polymer": "adminAnalyticsPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.admin.analytics"]
+    },
+    {
+      "slot": "ADMINISTRATION_PAGES",
+      "polymer": "adminUserManagementPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.admin.users"]
+    },
+    {
+      "slot": "ADMINISTRATION_PAGES",
+      "polymer": "adminVocabManagementPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.admin.directories"]
+    },
+    {
+      "slot": "ADMINISTRATION_PAGES",
+      "polymer": "adminAuditPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.admin.audit"]
+    },
+    {
+      "slot": "ADMINISTRATION_PAGES",
+      "polymer": "adminCloudServicesPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.admin.cloud"]
+    },
+    {
+      "slot": "ADMINISTRATION_PAGES",
+      "polymer": "adminNxqlSearchPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.admin.nxql"]
+    },
+    {
+      "slot": "ANALYTICS_ITEMS",
+      "polymer": "analyticsDocumentDistributionItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.analytics.distribution"]
+    },
+    {
+      "slot": "ANALYTICS_ITEMS",
+      "polymer": "analyticsRepositoryItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.analytics.repository"]
+    },
+    {
+      "slot": "ANALYTICS_ITEMS",
+      "polymer": "analyticsSearchItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.analytics.search"]
+    },
+    {
+      "slot": "ANALYTICS_ITEMS",
+      "polymer": "analyticsWorkflowItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.analytics.workflow"]
+    },
+    {
+      "slot": "ANALYTICS_PAGES",
+      "polymer": "analyticsDocumentDistributionPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.analytics.distribution"]
+    },
+    {
+      "slot": "ANALYTICS_PAGES",
+      "polymer": "analyticsRepositoryPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.analytics.repository"]
+    },
+    {
+      "slot": "ANALYTICS_PAGES",
+      "polymer": "analyticsSearchPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.analytics.search"]
+    },
+    {
+      "slot": "ANALYTICS_PAGES",
+      "polymer": "analyticsWorkflowPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.analytics.workflow"]
+    },
+    {
+      "slot": "BLOB_ACTIONS",
+      "polymer": "driveEditButton",
+      "origin": "nuxeo-drive",
+      "status": "addon",
+      "angular": [],
+      "note": "Polymer add-on nuxeo-drive; this repository ships no equivalent."
+    },
+    {
+      "slot": "BLOB_ACTIONS",
+      "polymer": "wopiLink",
+      "origin": "nuxeo-wopi",
+      "status": "addon",
+      "angular": [],
+      "note": "Polymer add-on nuxeo-wopi; this repository ships no equivalent."
+    },
+    {
+      "slot": "BLOB_ACTIONS",
+      "polymer": "previewBlobAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.blob.preview"]
+    },
+    {
+      "slot": "BLOB_ACTIONS",
+      "polymer": "downloadBlobAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.blob.download"]
+    },
+    {
+      "slot": "BLOB_ACTIONS",
+      "polymer": "replaceBlobAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.blob.replace"]
+    },
+    {
+      "slot": "BLOB_ACTIONS",
+      "polymer": "deleteBlobAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.blob.remove"]
+    },
+    {
+      "slot": "BLOB_ACTIONS",
+      "polymer": "blobAppLinks",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.blob.app-links"]
+    },
+    {
+      "slot": "COLLECTION_ACTIONS",
+      "polymer": "removeCollectionAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.toolbar.remove-collection"]
+    },
+    {
+      "slot": "COLLECTION_ACTIONS",
+      "polymer": "downloadSelectionAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.selection.download"]
+    },
+    {
+      "slot": "COLLECTION_ACTIONS",
+      "polymer": "addToClipboardSelectionAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.toolbar.clipboard"]
+    },
+    {
+      "slot": "COLLECTION_ACTIONS",
+      "polymer": "publishSelectionAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.selection.publish"]
+    },
+    {
+      "slot": "CREATE_POPUP_ITEMS",
+      "polymer": "csvDocumentCreatePopup",
+      "origin": "nuxeo-csv",
+      "status": "addon",
+      "angular": [],
+      "note": "Polymer add-on nuxeo-csv; this repository ships no equivalent."
+    },
+    {
+      "slot": "CREATE_POPUP_ITEMS",
+      "polymer": "documentCreateItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.create.types"]
+    },
+    {
+      "slot": "CREATE_POPUP_ITEMS",
+      "polymer": "documentImportItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.create.import"]
+    },
+    {
+      "slot": "CREATE_POPUP_PAGES",
+      "polymer": "csvDocumentCreatePopup",
+      "origin": "nuxeo-csv",
+      "status": "addon",
+      "angular": [],
+      "note": "Polymer add-on nuxeo-csv; this repository ships no equivalent."
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "shareDocumentAction",
+      "origin": "easyshare",
+      "status": "addon",
+      "angular": [],
+      "note": "Polymer add-on easyshare; this repository ships no equivalent."
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "driveSyncToggleButton",
+      "origin": "nuxeo-drive",
+      "status": "addon",
+      "angular": [],
+      "note": "Polymer add-on nuxeo-drive; this repository ships no equivalent."
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "driveUploadButton",
+      "origin": "nuxeo-drive",
+      "status": "addon",
+      "angular": [],
+      "note": "Polymer add-on nuxeo-drive; this repository ships no equivalent."
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "syncEmailAction",
+      "origin": "nuxeo-imap-connector",
+      "status": "addon",
+      "angular": [],
+      "note": "Polymer add-on nuxeo-imap-connector; this repository ships no equivalent."
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "templateDeleteAction",
+      "origin": "nuxeo-template-rendering",
+      "status": "addon",
+      "angular": [],
+      "note": "Polymer add-on nuxeo-template-rendering; this repository ships no equivalent."
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "templateRenderAction",
+      "origin": "nuxeo-template-rendering",
+      "status": "addon",
+      "angular": [],
+      "note": "Polymer add-on nuxeo-template-rendering; this repository ships no equivalent."
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "editDocumentAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.edit"]
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "deleteDocumentAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.trash", "maretha.document.purge"],
+      "note": "Polymer's delete button trashes or permanently deletes; Angular has one command for each."
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "addToColDocumentAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.collect"]
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "favoriteToggleDocumentAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.favorite"]
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "shareDocumentAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.share"]
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "publishDocumentAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.publish", "maretha.document.standard-publish"],
+      "note": "Angular splits publishing by document surface."
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "notificationDocumentAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.notifications"]
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "clipboardToggleDocumentAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.clipboard"]
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "lockToggleDocumentAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.lock"]
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "downloadDocumentAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.download", "maretha.document.download-folder"],
+      "note": "Angular splits document and folder download."
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "exportDocumentAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.pdf", "maretha.document.xml", "maretha.document.zip"],
+      "note": "Polymer's export dialog is three Angular export commands."
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "workflowDocumentAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.toolbar.workflow"]
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "polymer": "diffVersionsAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.compare-versions"],
+      "note": "Shown beside Edit in the standard document header only, for a document with a version label."
+    },
+    {
+      "slot": "DOCUMENT_CREATE_ACTIONS",
+      "polymer": "defaultDocumentCreateActions",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.create.open"]
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_ITEMS",
+      "polymer": "templateRenderingDocumentViewItems",
+      "origin": "nuxeo-template-rendering",
+      "status": "addon",
+      "angular": [],
+      "note": "Polymer add-on nuxeo-template-rendering; this repository ships no equivalent."
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_ITEMS",
+      "polymer": "documentViewItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.content"]
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_ITEMS",
+      "polymer": "documentPermissionsItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.permissions", "maretha.document.standard-permissions"]
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_ITEMS",
+      "polymer": "documentHistoryItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.history", "maretha.document.standard-history"]
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_ITEMS",
+      "polymer": "documentPublicationItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.publication", "maretha.document.standard-publication"]
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_ITEMS",
+      "polymer": "documentTrashItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.trash", "maretha.document.standard-trash"]
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_PAGES",
+      "polymer": "templateRenderingDocumentViewPages",
+      "origin": "nuxeo-template-rendering",
+      "status": "addon",
+      "angular": [],
+      "note": "Polymer add-on nuxeo-template-rendering; this repository ships no equivalent."
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_PAGES",
+      "polymer": "pictureDocumentViewPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.content"],
+      "note": "Angular selects the Picture page inside the content view, not as a separate page contribution."
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_PAGES",
+      "polymer": "documentViewPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.content"]
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_PAGES",
+      "polymer": "documentCollapsiblePage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.content"],
+      "note": "Angular selects the folderish page inside the content view, not as a separate page contribution."
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_PAGES",
+      "polymer": "documentPermissionsPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.permissions", "maretha.document.standard-permissions"]
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_PAGES",
+      "polymer": "documentHistoryPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.history", "maretha.document.standard-history"]
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_PAGES",
+      "polymer": "documentPublicationPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.publication", "maretha.document.standard-publication"]
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_PAGES",
+      "polymer": "documentTrashPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.document.trash", "maretha.document.standard-trash"]
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "polymer": "browseDrawerItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.tree"]
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "polymer": "recentsDrawerItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.recents"]
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "polymer": "defaultSearchMenuButton",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.search"]
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "polymer": "expiredSearchMenuButton",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.expired"]
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "polymer": "damSearchMenuButtons",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.assets"]
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "polymer": "tasksDrawerItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.tasks"]
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "polymer": "favoritesDrawerItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.favorites"]
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "polymer": "collectionsDrawerItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.collections"]
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "polymer": "personalWorkspaceDrawerItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.personal-workspace"]
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "polymer": "clipboardDrawerItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.clipboard"]
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "polymer": "trashMenuButton",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.trash"]
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "polymer": "browseDrawerPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.tree"]
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "polymer": "recentsDrawerPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.recents"]
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "polymer": "defaultSearchMenuPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.search"]
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "polymer": "expiredSearchMenuPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.expired"]
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "polymer": "damSearchMenuButtons",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.assets"]
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "polymer": "tasksDrawerPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.tasks"]
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "polymer": "favoritesDrawerPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.favorites"]
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "polymer": "collectionsDrawerPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.collections"]
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "polymer": "personalWorkspaceDrawerPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.personal-workspace"]
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "polymer": "clipboardDrawerPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.clipboard"]
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "polymer": "trashMenuPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.drawer.trash"]
+    },
+    {
+      "slot": "FILE_UPLOAD_ACTIONS",
+      "polymer": "liveConnectBoxImportActions",
+      "origin": "nuxeo-liveconnect",
+      "status": "addon",
+      "angular": [],
+      "note": "Polymer add-on nuxeo-liveconnect; this repository ships no equivalent."
+    },
+    {
+      "slot": "FILE_UPLOAD_ACTIONS",
+      "polymer": "liveConnectGoogleDriveImportActions",
+      "origin": "nuxeo-liveconnect",
+      "status": "addon",
+      "angular": [],
+      "note": "Polymer add-on nuxeo-liveconnect; this repository ships no equivalent."
+    },
+    {
+      "slot": "PAGES",
+      "polymer": "drivePage",
+      "origin": "nuxeo-drive",
+      "status": "addon",
+      "angular": [],
+      "note": "Polymer add-on nuxeo-drive; this repository ships no equivalent."
+    },
+    {
+      "slot": "PAGES",
+      "polymer": "authorizedAppsUserPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.page.user-authorized-apps"]
+    },
+    {
+      "slot": "PAGES",
+      "polymer": "cloudServicesUserPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.page.user-cloud-services"]
+    },
+    {
+      "slot": "PUBLISH_ITEMS",
+      "polymer": "internalPublishItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.publish.section"]
+    },
+    {
+      "slot": "PUBLISH_PAGES",
+      "polymer": "internalPublishPage",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.publish.section"]
+    },
+    {
+      "slot": "RESULTS_ACTIONS",
+      "polymer": "csvExportSelectionAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.results.csv-export"]
+    },
+    {
+      "slot": "RESULTS_ACTIONS",
+      "polymer": "spreadsheetButton",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.results.spreadsheet"],
+      "note": "Enabled by default, unlike Polymer. AG Grid Community replaces Handsontable; user and document reference fields are read-only."
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "polymer": "driveDownloadSelectionAction",
+      "origin": "nuxeo-drive",
+      "status": "addon",
+      "angular": [],
+      "note": "Polymer add-on nuxeo-drive; this repository ships no equivalent."
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "polymer": "orderSelectionActions",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.toolbar.move-up", "maretha.toolbar.move-down"]
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "polymer": "downloadSelectionAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.selection.download"]
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "polymer": "addToCollectionSelectionAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.toolbar.collect"]
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "polymer": "addToClipboardSelectionAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.toolbar.clipboard"]
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "polymer": "publishSelectionAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.selection.publish"]
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "polymer": "deleteSelectionAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.toolbar.trash"]
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "polymer": "bulkEditResultsAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.toolbar.edit-selection"]
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "polymer": "diffDocumentAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.toolbar.compare"]
+    },
+    {
+      "slot": "THEMES",
+      "polymer": "defaultTheme",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.theme.default"]
+    },
+    {
+      "slot": "THEMES",
+      "polymer": "darkTheme",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.theme.dark"]
+    },
+    {
+      "slot": "THEMES",
+      "polymer": "kawaiiTheme",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.theme.kawaii"]
+    },
+    {
+      "slot": "THEMES",
+      "polymer": "lightTheme",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.theme.light"]
+    },
+    {
+      "slot": "TRASH_RESULTS_SELECTION_ACTIONS",
+      "polymer": "untrashSelectionAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.trash.restore"]
+    },
+    {
+      "slot": "TRASH_RESULTS_SELECTION_ACTIONS",
+      "polymer": "hardDeleteSelectionAction",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.trash.purge"]
+    },
+    {
+      "slot": "USER_MENU",
+      "polymer": "drivePageLink",
+      "origin": "nuxeo-drive",
+      "status": "addon",
+      "angular": [],
+      "note": "Polymer add-on nuxeo-drive; this repository ships no equivalent."
+    },
+    {
+      "slot": "USER_MENU",
+      "polymer": "profileUserMenuItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.user.profile"]
+    },
+    {
+      "slot": "USER_MENU",
+      "polymer": "authorizedAppsUserMenuItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.user.authorized-applications"]
+    },
+    {
+      "slot": "USER_MENU",
+      "polymer": "cloudServicesUserMenuItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.user.cloud-services"]
+    },
+    {
+      "slot": "USER_MENU",
+      "polymer": "themesUserMenuItem",
+      "origin": "core",
+      "status": "mapped",
+      "angular": ["maretha.user.themes"]
+    }
+  ],
+  "searches": [
+    {
+      "polymer": "assets",
+      "status": "mapped",
+      "angular": [
+        {
+          "slot": "DRAWER_PAGES",
+          "id": "maretha.drawer.assets"
+        },
+        {
+          "slot": "PAGES",
+          "id": "maretha.page.assets"
+        }
+      ]
+    },
+    {
+      "polymer": "default",
+      "status": "mapped",
+      "angular": [
+        {
+          "slot": "DRAWER_PAGES",
+          "id": "maretha.drawer.search"
+        }
+      ]
+    },
+    {
+      "polymer": "document_picker",
+      "status": "internal",
+      "angular": [],
+      "note": "The rich-text note editor's document link picker queries the `document_picker` page provider directly; it is not a contribution."
+    },
+    {
+      "polymer": "expired",
+      "status": "mapped",
+      "angular": [
+        {
+          "slot": "DRAWER_PAGES",
+          "id": "maretha.drawer.expired"
+        },
+        {
+          "slot": "PAGES",
+          "id": "maretha.page.expired"
+        }
+      ]
+    },
+    {
+      "polymer": "nxql",
+      "status": "mapped",
+      "angular": [
+        {
+          "slot": "ADMINISTRATION_PAGES",
+          "id": "maretha.admin.nxql"
+        }
+      ]
+    },
+    {
+      "polymer": "trash",
+      "status": "mapped",
+      "angular": [
+        {
+          "slot": "DRAWER_PAGES",
+          "id": "maretha.drawer.trash"
+        },
+        {
+          "slot": "PAGES",
+          "id": "maretha.page.trash"
+        }
+      ]
+    }
+  ],
+  "surfaces": [
+    {
+      "surface": "Search forms and results",
+      "inventory": "searches",
+      "status": "waived",
+      "angular": "The built-in searches are contributions, mapped below. The SDK has no search-form layout registry.",
+      "guidance": "Port a custom Polymer search as `DRAWER_ITEMS` and `DRAWER_PAGES` (or `PAGES`) contributions under `custom/` whose component queries `/api/v1/search/pp/<provider>/execute`."
+    },
+    {
+      "surface": "Workflow task layouts",
+      "inventory": "workflowLayouts",
+      "status": "supported",
+      "angular": "`provideWorkflowLayout({ id, taskKey, component, priority })`. Every Polymer task layout has a default at priority -100.",
+      "guidance": "Register a custom task layout with `provideWorkflowLayout`. `taskKey` is the task's layout resource name without the `nuxeo-` prefix, or its `task<hex>` node ID, lowercased. A priority above -100 replaces a default."
+    },
+    {
+      "surface": "Themes",
+      "inventory": "themes",
+      "status": "supported",
+      "angular": "`THEMES` contributions (`defineWebUiTheme`). Every Polymer theme is a default.",
+      "guidance": "Generate a theme with `npm run new:contribution -- --slot THEMES`. Its tokens use the Polymer `--nuxeo-*` variable names."
+    },
+    {
+      "surface": "Page providers",
+      "inventory": "pageProviders",
+      "status": "server",
+      "angular": "Server page providers keep their names; the Angular UI queries them over REST.",
+      "guidance": "Page provider definitions are server contributions (Studio or XML) and need no UI migration. A component under `custom/` queries one through `/api/v1/search/pp/<name>/execute`."
+    },
+    {
+      "surface": "Custom elements",
+      "inventory": null,
+      "status": "waived",
+      "angular": "Polymer elements do not run in the Angular UI.",
+      "guidance": "Rewrite each element as an Angular component under `custom/` and register it as a slot contribution, document layout, page or workflow layout (`npm run new:contribution`, `npm run new:layout`)."
+    }
+  ]
+}

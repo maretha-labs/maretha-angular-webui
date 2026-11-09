@@ -1,0 +1,38 @@
+<div class="nx-admin" [class.nx-admin--drawer-open]="drawerOpen()">
+	<button
+		#mobileToggle
+		type="button"
+		class="nx-admin__mobile-toggle"
+		(click)="toggleMobileNavigation()"
+		(keydown.escape)="mobileNavigationOpen() && toggleMobileNavigation()"
+		[attr.aria-expanded]="mobileNavigationOpen()"
+		aria-controls="nx-sidebar-drawer"
+		[attr.aria-label]="
+			mobileNavigationOpen()
+				? ('app.modules.settings.close-administration-navigation-fb0022'
+					| webuiMessage: 'Close administration navigation')
+				: ('app.modules.settings.open-administration-navigation-d9a095'
+					| webuiMessage: 'Open administration navigation')
+		"
+	>
+		<span class="nx-admin__mobile-toggle-icon" aria-hidden="true"></span
+		><span class="visually-hidden">{{
+			'app.modules.settings.administration-171b5e' | webuiMessage: 'Administration'
+		}}</span>
+	</button>
+	<div class="nx-admin__tabs">
+		<nx-paired-views
+			itemSlot="ADMINISTRATION_MENU"
+			pageSlot="ADMINISTRATION_PAGES"
+			[label]="'app.modules.settings.administration-171b5e' | webuiMessage: 'Administration'"
+			orientation="vertical"
+			presentation="administration"
+			navigationParameter="admin"
+			[navigationVisible]="false"
+			[navigationPath]="navigationPath"
+			[context]="context()"
+			[selectedView]="selected()"
+			(viewChange)="changed($event)"
+		/>
+	</div>
+</div>

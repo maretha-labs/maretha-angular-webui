@@ -1,0 +1,7 @@
+{
+  "format": 1,
+  "package": "@maretha/webui-sdk",
+  "version": "0.1.0",
+  "sha256": "f1d2dbadcf9d6332432319763c76c7a61d2c611c1afcebce289f8904c1c96033",
+  "description": "Frozen local SDK build kept as the upgrade-rehearsal baseline, taken after runtime UI configuration and editor integrations were removed. This is a local compatibility baseline, not a published release. Replace only when advancing the reviewed compatibility baseline."
+}

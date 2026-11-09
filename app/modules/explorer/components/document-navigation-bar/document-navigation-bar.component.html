@@ -1,0 +1,152 @@
+@if (uid) {
+	@if (compact) {
+		<div class="document-identity">
+			@if (documentTypeIconUrl(document); as iconUrl) {
+				<img class="document-identity__icon" [src]="iconUrl" alt="" />
+			} @else {
+				<nx-webui-icon class="document-identity__icon" [name]="documentTypeIcon(document)" />
+			}
+			<div class="document-identity__text">
+				<h1 [title]="document?.title">{{ document?.title }}</h1>
+				<nav
+					[attr.aria-label]="
+						'app.modules.document-navigation-bar.document-location-016fb0'
+							| webuiMessage: 'Document location'
+					"
+					#ancestorsNav
+				>
+					<ol>
+						@if (collapsedBreadcrumbs > 0) {
+							<li><span class="breadcrumb-ellipsis">...</span></li>
+						}
+						@for (breadcrumb of visibleAncestors(); track breadcrumb.uid) {
+							<li>
+								<a [routerLink]="breadcrumb | documentLink" [title]="breadcrumb.title">{{
+									breadcrumb.title
+								}}</a>
+							</li>
+						}
+					</ol>
+				</nav>
+			</div>
+		</div>
+	} @else {
+		<div class="nav-scroller">
+			<nav
+				class="nav nav-underline container-fluid small pe-0"
+				[attr.aria-label]="
+					'app.modules.document-navigation-bar.secondary-navigation-b9e96b'
+						| webuiMessage: 'Secondary navigation'
+				"
+			>
+				<div class="address-bar">
+					@if (browserRouteActive && searchPaneOpenForCurrentLocation) {
+						<ol
+							@horizontalInOutAnimation
+							class="breadcrumb ellipsis"
+							[class.w-100]="documentInputPath"
+						>
+							@if (documentBrowserRouteActive) {
+								@if (!documentInputPath) {
+									@for (
+										breadcrumb of breadcrumbs;
+										track breadcrumb;
+										let index = $index;
+										let count = $count
+									) {
+										<li class="breadcrumb-item">
+											@if (count > 1 && index < count - 1) {
+												<a [routerLink]="breadcrumb | documentLink">
+													{{ breadcrumb.title }}
+												</a>
+											}
+											@if (count === 1 || index === count - 1) {
+												<button
+													type="button"
+													(click)="showDocumentPathInput($event)"
+													class="btn btn-link p-0 border-0 text-body text-decoration-none"
+													[attr.aria-label]="
+														'app.modules.document-navigation-bar.edit-document-path-774d5a'
+															| webuiMessage: 'Edit document path'
+													"
+												>
+													{{ breadcrumb.title }}
+													<fa-icon icon="pencil" size="xs"></fa-icon>
+												</button>
+											}
+										</li>
+									}
+								}
+								@if (documentInputPath) {
+									<li class="breadcrumb-item">
+										<input
+											type="text"
+											[(ngModel)]="documentInputPath"
+											class="form-control form-control-sm d-inline-block"
+											[nxAutofocus]="!!documentInputPath"
+											[nxClickOutside]="!!documentInputPath"
+											(nxClickedOutside)="documentInputPath = ''"
+											(keydown)="goToPath($event, documentInputPath)"
+										/>
+									</li>
+								}
+							}
+							@if (!documentBrowserRouteActive) {
+								<li class="breadcrumb-item text-body">
+									{{
+										'app.modules.document-navigation-bar.collections-7967ee'
+											| webuiMessage: 'Collections'
+									}}
+								</li>
+								<li class="breadcrumb-item text-body">
+									<span>
+										{{ document?.title }}
+									</span>
+								</li>
+							}
+						</ol>
+					}
+					<span class="flex-grow-1"></span>
+				</div>
+			</nav>
+		</div>
+	}
+
+	<ng-template #exportMenu let-doc="doc" let-show="show">
+		@if (show && (doc.ng.exportUrlForPdf || doc.ng.exportUrlForXml || doc.ng.exportUrlForZip)) {
+			<li class="divider dropdown-header">
+				{{ 'app.modules.document-navigation-bar.export-as-df44df' | webuiMessage: 'Export as' }}
+			</li>
+			<!-- Export as -->
+			<ul class="list-unstyled d-flex list-export">
+				@if (doc.ng.exportUrlForPdf) {
+					<li class="flex-grow-1" role="menuitem">
+						<button (click)="exportAsPdf(doc)" class="dropdown-item">
+							<fa-icon [fixedWidth]="true" icon="file-pdf"></fa-icon>
+
+							{{ 'app.modules.document-navigation-bar.pdf-ec3812' | webuiMessage: 'PDF' }}
+						</button>
+					</li>
+				}
+				@if (doc.ng.exportUrlForXml) {
+					<li class="flex-grow-1 border-start" role="menuitem">
+						<button (click)="exportAsXml(doc)" class="dropdown-item">
+							<fa-icon [fixedWidth]="true" icon="file-code"></fa-icon>
+
+							{{ 'mimetype.text/xml' | webuiMessage: 'XML' }}
+						</button>
+					</li>
+				}
+				@if (doc.ng.exportUrlForZip) {
+					<li class="flex-grow-1 border-start" role="menuitem">
+						<button (click)="exportAsZip(doc)" class="dropdown-item">
+							<fa-icon [fixedWidth]="true" icon="file-zipper"></fa-icon>
+
+							{{ 'app.modules.document-navigation-bar.zip-45b8b4' | webuiMessage: 'ZIP' }}
+						</button>
+					</li>
+				}
+			</ul>
+		}
+	</ng-template>
+}

@@ -1,0 +1,16 @@
+<ul class="list-inline">
+	@for (language of languages; track language) {
+		<li class="list-inline-item">
+			<button
+				[disabled]="currentLanguage() === language.key"
+				(click)="changeLanguage(language.key)"
+				class="btn btn-link"
+				[tooltip]="language.label"
+				[attr.lang]="language.key"
+				dir="auto"
+			>
+				{{ language.label }}
+			</button>
+		</li>
+	}
+</ul>

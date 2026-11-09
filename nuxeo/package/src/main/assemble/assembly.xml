@@ -1,0 +1,29 @@
+<project name="maretha-angular-webui-package" default="build" xmlns:artifact="urn:nuxeo-artifact">
+  <taskdef resource="org/nuxeo/build/artifact/antlib.xml" uri="urn:nuxeo-artifact" />
+
+  <!-- The package holds exactly the two bundles; everything they use at runtime is part of
+       the Nuxeo platform. -->
+  <target name="build" description="Build ${maven.project.name}">
+    <property name="outdir" value="${maven.project.build.directory}" />
+    <artifact:nuxeo-expand groupPrefixes="io.maretha" />
+    <delete failonerror="false" dir="${outdir}/package" />
+    <copy todir="${outdir}/package">
+      <fileset dir="src/main/resources" />
+      <filterset>
+        <filter token="VERSION" value="${maven.project.version}" />
+      </filterset>
+    </copy>
+    <copy todir="${outdir}/package/install/bundles">
+      <artifact:set>
+        <includes>
+          <artifact groupId="io.maretha" artifactId="maretha-angular-webui-ui" />
+          <artifact groupId="io.maretha" artifactId="maretha-angular-webui-server" />
+        </includes>
+      </artifact:set>
+    </copy>
+    <zip destfile="${outdir}/${maven.project.artifactId}-${maven.project.version}.zip"
+      basedir="${outdir}/package" />
+    <artifact:attach file="${outdir}/${maven.project.artifactId}-${maven.project.version}.zip"
+      type="zip" />
+  </target>
+</project>

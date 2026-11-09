@@ -1,0 +1,177 @@
+<div class="modal-header">
+	<h4 class="modal-title pull-left">
+		{{
+			'documentEditors.bulkCreate.title'
+				| translate: { documentType: documentType | lowercase }
+				| translateCut: 0
+		}}
+		<u>{{
+			'documentEditors.bulkCreate.title'
+				| translate: { documentType: documentType | lowercase }
+				| translateCut: 1
+		}}</u>
+		{{
+			'documentEditors.bulkCreate.title'
+				| translate: { documentType: documentType | lowercase }
+				| translateCut: 2
+		}}
+	</h4>
+
+	<button
+		(click)="close()"
+		[disabled]="working"
+		type="button"
+		class="close btn-close pull-right"
+		[attr.aria-label]="'app.modules.generic-type-bulk-create.close-4773c2' | webuiMessage: 'Close'"
+	>
+		<span aria-hidden="true" class="visually-hidden">&times;</span>
+	</button>
+</div>
+
+@if (loading) {
+	<p class="p-3" role="status">
+		{{
+			'app.modules.generic-type-bulk-create.loading-document-type-da9d0f'
+				| webuiMessage: 'Loading document type…'
+		}}
+	</p>
+}
+@if (editorForm) {
+	<form
+		[attr.inert]="batch.started() ? '' : null"
+		class="modal-body"
+		[formGroup]="editorForm"
+		novalidate
+	>
+		<alert class="alert alert-info small" type="info" class="small">
+			{{
+				'documentEditors.bulkCreate.note'
+					| translate: { documentType: documentType | lowercase }
+					| translateCut: 0
+			}}
+			<u>{{
+				'documentEditors.bulkCreate.note'
+					| translate: { documentType: documentType | lowercase }
+					| translateCut: 1
+			}}</u>
+			{{
+				'documentEditors.bulkCreate.note'
+					| translate: { documentType: documentType | lowercase }
+					| translateCut: 2
+			}}
+		</alert>
+		<div class="row">
+			<!-- File upload -->
+			@if (canUpload) {
+				<div class="col-12 mb-3">
+					<nx-document-attachments
+						[attachments]="files!"
+						[multiple]="true"
+						[id]="'attachments'"
+						[allowedMimeTypes]="allowedMimeTypes"
+						(attachmentsUpdated)="attachmentsUpdated($event)"
+						[label]="
+							'app.modules.generic-type-bulk-create.uploaded-files-0ecc41'
+								| webuiMessage: 'Uploaded files'
+						"
+					>
+					</nx-document-attachments>
+				</div>
+			}
+			<!-- Description -->
+			<div class="col-12 mb-3">
+				<div class="form-floating">
+					<textarea
+						class="form-control"
+						[ngClass]="getValidationClassName('dc:description')"
+						id="description"
+						[attr.placeholder]="
+							'app.modules.generic-type-bulk-create.description-0016e1'
+								| webuiMessage: 'Description'
+						"
+						formControlName="dc:description"
+					></textarea>
+					<label for="description">{{
+						'app.modules.generic-type-bulk-create.description-0016e1' | webuiMessage: 'Description'
+					}}</label>
+				</div>
+			</div>
+			@if (isNoteImport) {
+				<div class="col-12 mb-3">
+					<label class="form-label" for="noteMimeType">{{
+						'app.modules.generic-type-bulk-create.format-cd8604' | webuiMessage: 'Format'
+					}}</label>
+					<select class="form-select" id="noteMimeType" formControlName="note:mime_type">
+						<option [ngValue]="null">
+							{{
+								'app.modules.generic-type-bulk-create.detect-from-file-plain-text-fallback-138400'
+									| webuiMessage: 'Detect from file (plain text fallback)'
+							}}
+						</option>
+						<option value="text/html">{{ 'mimetype.text/html' | webuiMessage: 'HTML' }}</option>
+						<option value="text/plain">{{ 'mimetype.text/plain' | webuiMessage: 'Text' }}</option>
+						<option value="text/xml">{{ 'mimetype.text/xml' | webuiMessage: 'XML' }}</option>
+						<option value="text/x-web-markdown">
+							{{ 'mimetype.text/x-web-markdown' | webuiMessage: 'Markdown' }}
+						</option>
+					</select>
+				</div>
+			}
+			@if (usesDefaultImportProfile) {
+				<div class="col-12">
+					<nx-nature-subjects-coverage-expiration
+						formControlName="natureSubjectsCoverageExpiration"
+					>
+					</nx-nature-subjects-coverage-expiration>
+				</div>
+			}
+		</div>
+	</form>
+}
+
+@if (error) {
+	<p role="alert" class="p-3">{{ error }}</p>
+	@if (!editorForm) {
+		<button
+			type="button"
+			class="btn btn-outline-secondary m-3"
+			[disabled]="loading"
+			(click)="loadMetadata()"
+		>
+			{{ 'app.modules.generic-type-bulk-create.retry-bb92d2' | webuiMessage: 'Retry' }}
+		</button>
+	}
+}
+<nx-bulk-creation-results [batch]="batch" />
+@if (editorForm) {
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-secondary" [disabled]="working" (click)="close()">
+			{{
+				batch.complete()
+					? ('app.modules.generic-type-bulk-create.done-b09b22' | webuiMessage: 'Done')
+					: ('app.modules.generic-type-bulk-create.close-4773c2' | webuiMessage: 'Close')
+			}}
+		</button>
+		@if (!batch.complete()) {
+			<button
+				type="button"
+				class="btn btn-primary"
+				[disabled]="
+					working ||
+					editorForm.invalid ||
+					(!batch.started() && editorForm.pristine) ||
+					(batch.started() && !batch.retryable())
+				"
+				(click)="saveChanges()"
+			>
+				{{
+					batch.started()
+						? ('app.modules.generic-type-bulk-create.retry-unfinished-files-102904'
+							| webuiMessage: 'Retry unfinished files')
+						: ('app.modules.generic-type-bulk-create.create-documents-19d407'
+							| webuiMessage: 'Create documents')
+				}}
+			</button>
+		}
+	</div>
+}

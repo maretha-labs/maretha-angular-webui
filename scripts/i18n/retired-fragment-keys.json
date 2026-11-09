@@ -1,0 +1,32 @@
+{
+  "reason": "Replaced by whole translated messages or removed debug template content; no active template references.",
+  "keys": [
+    "app.modules.document-info.dev-8ed980",
+    "app.modules.document-info-panel.document-info-panel-works-5f76af",
+    "app.modules.workflow-info.you-have-initiated-the-5c8e58",
+    "app.modules.workflow-info.workflow-for-this-document-should-you-wish-4901d7",
+    "app.modules.workflow-info.as-part-of-this-document-s-f34797",
+    "app.modules.workflow-info.workflow-you-ve-been-designated-to-56e74b",
+    "app.modules.workflow-info.the-eef643",
+    "app.modules.workflow-info.task-due-3b32f8",
+    "app.modules.retention-rule-log.retention-rule-log-works-4b9b50",
+    "app.modules.retention-rules.the-retention-period-starts-based-on-the-d-e00c07",
+    "app.modules.retention-rules.and-lasts-for-5101d9",
+    "app.modules.users-and-groups.assign-a-user-to-a-group-by-dragging-the-u-2ebb63",
+    "app.modules.users-and-groups.expanded-76b3dc",
+    "app.modules.users-and-groups.user-group-fbedc3",
+    "app.modules.input-dialog.input-dialog-works-19dd02",
+    "app.state.-value-value-processed-value-7baed8",
+    "app.state.selecting-matching-documents-value-selected-a2573e",
+    "app.state.only-value-documents-were-selected-value-you-80caf7",
+    "app.state.selected-the-first-value-matching-documents-r-c1d664",
+    "app.state.selected-all-value-matching-documents-3c2eb8",
+    "app.state.only-value-documents-were-selected-before-the-d3bd5d",
+    "app.state.selection-stopped-after-value-documents-ffe5ba",
+    "app.state.only-value-documents-were-selected-value-you-3f93f8",
+    "app.state.selected-the-first-value-matching-documents-r-52302a",
+    "app.state.only-value-documents-were-selected-before-the-683057",
+    "app.modules.retention-rule-editor.startingpointvalue-a31dfc",
+    "app.state.-value-completed-documents-will-not-be-retrie-f333a9"
+  ]
+}

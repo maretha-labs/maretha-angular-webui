@@ -1,0 +1,53 @@
+.list-group {
+	max-height: 33vh;
+	overflow: auto;
+}
+
+.list-group-item {
+	input[type='checkbox'] {
+		inset-inline-start: 0.75rem;
+		inset-block-start: 0.75rem;
+		transform: none;
+
+		+ label {
+			padding: 0.5rem 2.25rem;
+		}
+
+		&:checked + label {
+			box-shadow: none;
+		}
+	}
+
+	.btn-toggle {
+		position: absolute;
+		inset-inline-end: 0.25rem;
+		inset-block-start: 0;
+	}
+
+	label {
+		font-weight: bold;
+	}
+}
+
+.table {
+	margin-block-end: 0.25rem;
+	margin-inline-start: -1.5rem;
+	width: calc(100% + 3rem);
+	box-shadow: none;
+
+	> :not(:first-child) {
+		border-block-start: none;
+	}
+}
+
+// On the profile page, keep a gutter from the navigation rail and clear the mobile toggle.
+:host-context(nx-profile-page) {
+	display: block;
+	padding-inline: 16px;
+}
+
+@media (max-width: 720px) {
+	:host-context(nx-profile-page) {
+		padding-block-start: 24px;
+	}
+}

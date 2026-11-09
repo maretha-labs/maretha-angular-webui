@@ -1,0 +1,6 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": { "outDir": "../../out-tsc/i18n", "types": [] },
+  "files": ["main.ts", "../../polyfills.ts"],
+  "include": ["../../**/*.d.ts"]
+}

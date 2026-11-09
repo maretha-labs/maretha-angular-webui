@@ -1,0 +1,122 @@
+// Rule editor (.rule-body) styles for MetadataPolicyComponent. A separate stylesheet keeps
+// each file within the per-stylesheet size budget.
+.rule-body {
+	border: 0;
+	border-top: 1px solid var(--nuxeo-border);
+	margin: 0;
+	min-width: 0;
+	padding: 0 24px;
+}
+.rule-section {
+	padding: 22px 0;
+}
+.rule-section + .rule-section {
+	border-top: 1px solid var(--nuxeo-border);
+}
+h4 {
+	font-size: 13px;
+	font-weight: 600;
+	margin: 0 0 6px;
+}
+.rule-section > p {
+	font-size: 12px;
+	margin-bottom: 16px;
+}
+.form-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+}
+.field {
+	min-width: 0;
+	display: grid;
+	gap: 7px;
+	align-content: start;
+}
+.field label {
+	margin: 0;
+	font-size: 12px;
+	font-weight: 500;
+}
+.field small {
+	font-size: 11px;
+	color: var(--bs-secondary-color);
+}
+.optional {
+	font-size: 11px;
+	color: var(--bs-secondary-color);
+	font-weight: 400;
+	margin-inline-start: 6px;
+}
+.match-field {
+	margin-top: 16px;
+	max-width: 440px;
+}
+select {
+	min-height: 36px;
+	border-radius: 4px;
+	padding: 6px 10px;
+	border: 1px solid var(--nuxeo-border);
+	color: inherit;
+	background: var(--nuxeo-box, #fff);
+	font-size: 12px;
+	width: 100%;
+}
+.access-options {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+	margin-top: 14px;
+}
+.access-option {
+	text-align: start;
+	border: 1px solid var(--nuxeo-border);
+	background: var(--nuxeo-box, #fff);
+	color: inherit;
+	border-radius: 4px;
+	padding: 12px;
+}
+.access-option strong {
+	display: block;
+	font-size: 13px;
+	font-weight: 600;
+}
+.access-option span {
+	display: block;
+	margin-top: 5px;
+	font-size: 11px;
+	color: var(--bs-secondary-color);
+}
+.access-option.selected {
+	border-color: var(--nuxeo-primary-color, #06f);
+	background: color-mix(in srgb, var(--nuxeo-primary-color, #06f) 4%, var(--nuxeo-box, #fff));
+}
+.fields-picker {
+	margin-top: 18px;
+}
+:host ::ng-deep ng-select .ng-select-container {
+	border-color: var(--nuxeo-border, #dce0e5);
+	background: var(--nuxeo-box, #fff);
+	color: inherit;
+	font-size: 13px;
+	border-radius: 4px;
+	min-height: 36px;
+}
+:host ::ng-deep ng-select .ng-dropdown-panel {
+	border: 1px solid var(--nuxeo-border, #dce0e5);
+	box-shadow: 0 5px 16px #00000012;
+	font-size: 13px;
+}
+:host ::ng-deep ng-select .ng-value {
+	font-size: 12px;
+}
+@media (max-width: 650px) {
+	.form-grid,
+	.access-options {
+		grid-template-columns: 1fr;
+		gap: 14px;
+	}
+	.rule-body {
+		padding: 0 16px;
+	}
+}

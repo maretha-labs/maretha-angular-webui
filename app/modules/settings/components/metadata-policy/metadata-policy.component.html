@@ -1,0 +1,459 @@
+<section class="policy-page">
+	<header class="policy-header">
+		<div>
+			<h2>
+				{{
+					'app.modules.metadata-policy.metadata-access-rules-bd96f2'
+						| webuiMessage: 'Metadata access rules'
+				}}
+			</h2>
+			<p>
+				{{
+					'app.modules.metadata-policy.choose-which-metadata-people-can-see-and-e-5951bb'
+						| webuiMessage
+							: 'Choose which metadata people can see and edit, by document type and schema.'
+				}}
+			</p>
+		</div>
+		@if (administrator()) {
+			<div class="save-actions">
+				<span class="save-status" role="status">{{
+					saving()
+						? ('app.modules.users-and-groups.saving-changes-3a4931'
+							| webuiMessage: 'Saving changes…')
+						: dirty()
+							? ('app.modules.metadata-policy.unsaved-changes-59eed5'
+								| webuiMessage: 'Unsaved changes')
+							: saved()
+								? ('app.modules.metadata-policy.changes-saved-173028'
+									| webuiMessage: 'Changes saved')
+								: ''
+				}}</span>
+				<button
+					type="button"
+					class="button"
+					(click)="revert()"
+					[disabled]="!dirty() || loading() || saving()"
+				>
+					{{
+						'app.modules.metadata-policy.discard-changes-6da815' | webuiMessage: 'Discard changes'
+					}}
+				</button>
+				<button
+					type="button"
+					class="button button--primary"
+					(click)="save()"
+					[disabled]="!dirty() || loading() || saving()"
+				>
+					{{
+						saving()
+							? ('sdk.layout.saving' | webuiMessage: 'Saving…')
+							: ('app.modules.metadata-policy.save-changes-3e4f48' | webuiMessage: 'Save changes')
+					}}
+				</button>
+			</div>
+		}
+	</header>
+	<div class="policy-notice">
+		<span class="info-icon" aria-hidden="true">{{
+			'app.modules.metadata-policy.i-c68a5b' | webuiMessage: 'i'
+		}}</span>
+		<p>
+			{{
+				'app.modules.metadata-policy.these-rules-customize-the-interface-nuxeo--356045'
+					| webuiMessage
+						: 'These rules customize the interface. Nuxeo permissions still control access to documents.\n			Administrators retain full visibility.'
+			}}
+		</p>
+	</div>
+	@if (!administrator()) {
+		<p class="feedback" role="status">
+			{{
+				'app.modules.metadata-policy.only-administrators-can-change-metadata-la-0f9e24'
+					| webuiMessage: 'Only administrators can change metadata layouts.'
+			}}
+		</p>
+	}
+	@if (error()) {
+		<div class="feedback feedback--error" role="alert">
+			{{ error() }}
+			<button class="button" (click)="reload()" [disabled]="saving() || loading()">
+				{{ 'app.modules.metadata-policy.retry-dc2510' | webuiMessage: 'Retry' }}
+			</button>
+		</div>
+	}
+	@if (saveError()) {
+		<p class="feedback feedback--error" role="alert">{{ saveError() }}</p>
+	}
+	@if (loading()) {
+		<div class="empty-state" role="status">
+			{{
+				'app.modules.metadata-policy.loading-metadata-rules-c57e91'
+					| webuiMessage: 'Loading metadata rules…'
+			}}
+		</div>
+	} @else if (administrator()) {
+		<div class="rules-heading">
+			<h3>
+				{{ 'app.modules.metadata-policy.rules-d6c53d' | webuiMessage: 'Rules' }}
+				<span class="count">{{ rules().length | webuiNumber }}</span>
+			</h3>
+			@if (rules().length) {
+				<button type="button" class="button" (click)="add()" [disabled]="saving()">
+					<span aria-hidden="true">＋</span>
+					{{ 'app.modules.metadata-policy.add-rule-ce6294' | webuiMessage: 'Add rule' }}
+				</button>
+			}
+		</div>
+		@if (!rules().length) {
+			<div class="empty-state">
+				<svg
+					class="empty-icon"
+					viewBox="0 0 32 32"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="1.5"
+					aria-hidden="true"
+				>
+					<path d="M5 8h22M5 16h22M5 24h22" />
+					<rect x="10" y="5" width="5" height="6" rx="1" />
+					<rect x="20" y="13" width="5" height="6" rx="1" />
+					<rect x="8" y="21" width="5" height="6" rx="1" />
+				</svg>
+				<h3>
+					{{
+						'app.modules.metadata-policy.no-custom-rules-yet-091d8b'
+							| webuiMessage: 'No custom rules yet'
+					}}
+				</h3>
+				<p>
+					{{
+						'app.modules.metadata-policy.start-with-a-document-type-choose-its-meta-22c9c3'
+							| webuiMessage
+								: 'Start with a document type, choose its metadata, then decide who can view or edit it.'
+					}}
+				</p>
+				<button type="button" class="button button--primary" (click)="add()" [disabled]="saving()">
+					{{
+						'app.modules.metadata-policy.create-your-first-rule-8efa92'
+							| webuiMessage: 'Create your first rule'
+					}}
+				</button>
+				<small>{{
+					'app.modules.metadata-policy.default-behavior-applies-until-you-save-a--538921'
+						| webuiMessage: 'Default behavior applies until you save a rule.'
+				}}</small>
+			</div>
+		}
+		<div class="rules-list">
+			@for (rule of rules(); track rule.id; let index = $index) {
+				<article class="rule-card" [class.rule-card--expanded]="expandedRule() === rule.id">
+					<header class="rule-header">
+						<button
+							type="button"
+							class="rule-toggle"
+							[attr.aria-expanded]="expandedRule() === rule.id"
+							[attr.aria-controls]="'rule-body-' + rule.id"
+							(click)="expandedRule.set(expandedRule() === rule.id ? null : rule.id)"
+						>
+							<span class="chevron" aria-hidden="true">{{
+								expandedRule() === rule.id ? '⌄' : '›'
+							}}</span>
+							<span
+								><strong
+									>{{
+										rule.documentType === '*'
+											? ('app.modules.metadata-policy.all-document-types-dd432c'
+												| webuiMessage: 'All document types')
+											: rule.documentType
+									}}
+									<span class="separator">/</span>
+									{{
+										rule.schema === '*'
+											? ('app.modules.metadata-policy.all-schemas-49b90b'
+												| webuiMessage: 'All schemas')
+											: rule.schema
+									}}</strong
+								><small>{{
+									!rule.subjects.users.length && !rule.subjects.groups.length
+										? ('app.modules.metadata-policy.everyone-56869f' | webuiMessage: 'Everyone')
+										: ('app.settingsShared.users-number-users-groups-number-groups-ec7116'
+											| webuiMessage
+												: '{users, number} users · {groups, number} groups'
+												: {
+														users: rule.subjects.users.length,
+														groups: rule.subjects.groups.length,
+												  })
+								}}</small></span
+							>
+						</button>
+						<span class="access-badge" [attr.data-access]="rule.access">{{
+							rule.access === 'write'
+								? ('app.modules.metadata-policy.editable-e43e43' | webuiMessage: 'Editable')
+								: rule.access === 'read'
+									? ('app.modules.metadata-policy.read-only-732595' | webuiMessage: 'Read only')
+									: ('app.modules.metadata-policy.hidden-edf5f5' | webuiMessage: 'Hidden')
+						}}</span>
+						<button
+							type="button"
+							class="remove-rule"
+							[attr.aria-label]="
+								'app.settingsShared.remove-rule-number-number-8707d6'
+									| webuiMessage: 'Remove rule {number, number}' : { number: index + 1 }
+							"
+							(click)="remove(index)"
+							[disabled]="saving()"
+						>
+							{{ 'app.modules.metadata-policy.remove-d03630' | webuiMessage: 'Remove' }}
+						</button>
+					</header>
+					@if (expandedRule() === rule.id) {
+						<fieldset class="rule-body" [id]="'rule-body-' + rule.id" [disabled]="saving()">
+							<legend class="visually-hidden">
+								{{
+									'metadata.editRule'
+										| webuiMessage: 'Edit rule {number, number}' : { number: index + 1 }
+								}}
+							</legend>
+							<section class="rule-section">
+								<h4>
+									{{
+										'app.modules.metadata-policy.metadata-scope-e8d7be'
+											| webuiMessage: 'Metadata scope'
+									}}
+								</h4>
+								<p>
+									{{
+										'app.modules.metadata-policy.choose-where-this-rule-applies-8afbf4'
+											| webuiMessage: 'Choose where this rule applies.'
+									}}
+								</p>
+								<div class="form-grid">
+									<div class="field">
+										<label [for]="'type-' + rule.id">{{
+											'pageProviders.retention_search.aggregations.doc_type_agg.label'
+												| webuiMessage: 'Document type'
+										}}</label
+										><ng-select
+											[labelForId]="'type-' + rule.id"
+											[ngModel]="rule.documentType"
+											(ngModelChange)="setDocumentType(index, $event)"
+											[clearable]="false"
+											[addTag]="createChoice"
+											[disabled]="saving()"
+											><ng-option value="*">{{
+												'app.modules.metadata-policy.all-document-types-dd432c'
+													| webuiMessage: 'All document types'
+											}}</ng-option>
+											@for (type of documentTypes(); track type) {
+												<ng-option [value]="type">{{ type }}</ng-option>
+											}
+										</ng-select>
+									</div>
+									<div class="field">
+										<label [for]="'schema-' + rule.id">{{
+											'app.modules.metadata-policy.schema-18906d' | webuiMessage: 'Schema'
+										}}</label
+										><ng-select
+											[labelForId]="'schema-' + rule.id"
+											[ngModel]="rule.schema"
+											(ngModelChange)="update(index, { schema: $event || '*' })"
+											[clearable]="false"
+											[addTag]="createChoice"
+											[disabled]="saving()"
+										>
+											@for (schema of schemaChoices(rule.documentType); track schema) {
+												<ng-option [value]="schema">{{
+													schema === '*'
+														? ('app.modules.metadata-policy.all-schemas-49b90b'
+															| webuiMessage: 'All schemas')
+														: schema
+												}}</ng-option>
+											}
+										</ng-select>
+									</div>
+								</div>
+							</section>
+							<section class="rule-section">
+								<h4>
+									{{
+										'app.modules.metadata-policy.who-it-applies-to-0ba36d'
+											| webuiMessage: 'Who it applies to'
+									}}
+								</h4>
+								<p>
+									{{
+										'app.modules.metadata-policy.leave-both-lists-empty-to-apply-to-everyon-a4f0b8'
+											| webuiMessage: 'Leave both lists empty to apply to everyone.'
+									}}
+								</p>
+								<div class="form-grid">
+									<div class="field">
+										<label [for]="'users-' + rule.id">{{
+											'app.modules.metadata-policy.users-413c24' | webuiMessage: 'Users'
+										}}</label
+										><ng-select
+											[labelForId]="'users-' + rule.id"
+											[items]="users()"
+											[multiple]="true"
+											[addTag]="createChoice"
+											[ngModel]="rule.subjects.users"
+											(ngModelChange)="setSubjects(index, 'users', $event)"
+											[disabled]="saving()"
+											[attr.placeholder]="
+												'app.modules.metadata-policy.search-or-enter-a-user-id-959a22'
+													| webuiMessage: 'Search or enter a user ID'
+											"
+										/>
+									</div>
+									<div class="field">
+										<label [for]="'groups-' + rule.id">{{
+											'app.modules.metadata-policy.groups-db10f7' | webuiMessage: 'Groups'
+										}}</label
+										><ng-select
+											[labelForId]="'groups-' + rule.id"
+											[items]="groups()"
+											[multiple]="true"
+											[addTag]="createChoice"
+											[ngModel]="rule.subjects.groups"
+											(ngModelChange)="setSubjects(index, 'groups', $event)"
+											[disabled]="saving()"
+											[attr.placeholder]="
+												'app.modules.metadata-policy.search-or-enter-a-group-id-87caa3'
+													| webuiMessage: 'Search or enter a group ID'
+											"
+										/>
+									</div>
+								</div>
+								@if (rule.subjects.users.length && rule.subjects.groups.length) {
+									<div class="field match-field">
+										<label [for]="'match-' + rule.id">{{
+											'app.modules.metadata-policy.match-people-in-93ab4c'
+												| webuiMessage: 'Match people in'
+										}}</label
+										><select
+											[id]="'match-' + rule.id"
+											[ngModel]="rule.subjects.match"
+											(ngModelChange)="
+												update(index, { subjects: { ...rule.subjects, match: $event } })
+											"
+										>
+											<option value="any">
+												{{
+													'app.modules.metadata-policy.either-list-users-or-group-members-861bd6'
+														| webuiMessage: 'Either list — users OR group members'
+												}}
+											</option>
+											<option value="all">
+												{{
+													'app.modules.metadata-policy.both-lists-users-who-also-belong-to-a-grou-f9aef9'
+														| webuiMessage: 'Both lists — users who also belong to a group'
+												}}
+											</option>
+										</select>
+									</div>
+								}
+							</section>
+							<section class="rule-section">
+								<h4>
+									{{
+										'app.modules.metadata-policy.what-they-can-do-f9a070'
+											| webuiMessage: 'What they can do'
+									}}
+								</h4>
+								<div
+									class="access-options"
+									role="group"
+									[attr.aria-label]="
+										'app.modules.metadata-policy.metadata-access-29d75f'
+											| webuiMessage: 'Metadata access'
+									"
+								>
+									@for (access of ['read', 'write', 'hidden']; track access) {
+										<button
+											type="button"
+											class="access-option"
+											[class.selected]="rule.access === access"
+											[attr.aria-pressed]="rule.access === access"
+											(click)="update(index, { access: $any(access) })"
+										>
+											<strong>{{
+												access === 'read'
+													? ('app.modules.metadata-policy.read-only-732595'
+														| webuiMessage: 'Read only')
+													: access === 'write'
+														? ('app.modules.metadata-policy.editable-e43e43'
+															| webuiMessage: 'Editable')
+														: ('app.modules.metadata-policy.hidden-edf5f5' | webuiMessage: 'Hidden')
+											}}</strong
+											><span>{{
+												access === 'read'
+													? ('app.modules.metadata-policy.view-values-without-editing-78c08a'
+														| webuiMessage: 'View values without editing')
+													: access === 'write'
+														? ('app.modules.metadata-policy.view-and-edit-values-8eb418'
+															| webuiMessage: 'View and edit values')
+														: ('app.modules.metadata-policy.hide-metadata-from-view-4b99bd'
+															| webuiMessage: 'Hide metadata from view')
+											}}</span>
+										</button>
+									}
+								</div>
+								@if (rule.access !== 'hidden') {
+									<div class="field fields-picker">
+										<label [for]="'fields-' + rule.id"
+											>{{
+												'app.modules.metadata-policy.visible-fields-b03150'
+													| webuiMessage: 'Visible fields'
+											}}
+											<span class="optional">{{
+												'app.modules.metadata-policy.optional-679941' | webuiMessage: 'Optional'
+											}}</span></label
+										><ng-select
+											[labelForId]="'fields-' + rule.id"
+											[items]="fieldChoices(rule.documentType)"
+											[multiple]="true"
+											[addTag]="createChoice"
+											[ngModel]="rule.fields || []"
+											(ngModelChange)="setFields(index, $event)"
+											[disabled]="saving()"
+											[attr.placeholder]="
+												'app.modules.metadata-policy.all-fields-in-the-selected-schema-aa327f'
+													| webuiMessage: 'All fields in the selected schema'
+											"
+										/><small>{{
+											'app.modules.metadata-policy.leave-empty-for-all-fields-when-you-select-008eee'
+												| webuiMessage
+													: 'Leave empty for all fields. When you select fields, other fields in this\n											scope are hidden.'
+										}}</small>
+									</div>
+								}
+							</section>
+						</fieldset>
+					}
+				</article>
+			}
+		</div>
+		<details class="policy-help">
+			<summary>
+				{{ 'app.modules.metadata-policy.how-rules-work-e134bd' | webuiMessage: 'How rules work' }}
+			</summary>
+			<div>
+				<p>
+					{{
+						'app.modules.metadata-policy.a-matching-user-rule-takes-precedence-over-10d4fe'
+							| webuiMessage
+								: 'A matching user rule takes precedence over group rules. Within that scope, specific\n					document types and schemas take precedence over general rules. Ties use the most\n					restrictive access.'
+					}}
+				</p>
+				<p>
+					{{
+						'app.modules.metadata-policy.editing-also-requires-document-write-permi-1a3786'
+							| webuiMessage
+								: 'Editing also requires document write permission. Generated fields remain read-only. With\n					no matching rule, Dublin Core fields are editable and other schemas are read-only, subject\n					to document permissions.'
+					}}
+				</p>
+			</div>
+		</details>
+	}
+</section>

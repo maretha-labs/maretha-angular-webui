@@ -1,0 +1,573 @@
+{
+  "scope": "Assistant review of English-equal legacy entries; not an independent native-speaker review. Countries/units and legitimate shared spellings can be unchanged without being untranslated.",
+  "locales": {
+    "es": {
+      "pageProviders.nxql_search.label": {
+        "value": "NXQL",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "directories.continent.asia": {
+        "value": "Asia",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Albania": {
+        "value": "Albania",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Andorra": {
+        "value": "Andorra",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Angola": {
+        "value": "Angola",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Argentina": {
+        "value": "Argentina",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Armenia": {
+        "value": "Armenia",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Aruba": {
+        "value": "Aruba",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Australia": {
+        "value": "Australia",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Austria": {
+        "value": "Austria",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Bahamas": {
+        "value": "Bahamas",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Barbados": {
+        "value": "Barbados",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Bolivia": {
+        "value": "Bolivia",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Bulgaria": {
+        "value": "Bulgaria",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Burkina_Faso": {
+        "value": "Burkina Faso",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Burundi": {
+        "value": "Burundi",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Chad": {
+        "value": "Chad",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Chile": {
+        "value": "Chile",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.China": {
+        "value": "China",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Colombia": {
+        "value": "Colombia",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Costa_Rica": {
+        "value": "Costa Rica",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Cuba": {
+        "value": "Cuba",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Dominica": {
+        "value": "Dominica",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Ecuador": {
+        "value": "Ecuador",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.El_Salvador": {
+        "value": "El Salvador",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Eritrea": {
+        "value": "Eritrea",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Estonia": {
+        "value": "Estonia",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Gambia": {
+        "value": "Gambia",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Georgia": {
+        "value": "Georgia",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Ghana": {
+        "value": "Ghana",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Gibraltar": {
+        "value": "Gibraltar",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Guam": {
+        "value": "Guam",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Guatemala": {
+        "value": "Guatemala",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Guinea": {
+        "value": "Guinea",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Guyana": {
+        "value": "Guyana",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Honduras": {
+        "value": "Honduras",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.India": {
+        "value": "India",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Indonesia": {
+        "value": "Indonesia",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Israel": {
+        "value": "Israel",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Jamaica": {
+        "value": "Jamaica",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Jersey": {
+        "value": "Jersey",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Kiribati": {
+        "value": "Kiribati",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Kuwait": {
+        "value": "Kuwait",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Liberia": {
+        "value": "Liberia",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Liechtenstein": {
+        "value": "Liechtenstein",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Madagascar": {
+        "value": "Madagascar",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Mali": {
+        "value": "Mali",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Malta": {
+        "value": "Malta",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Mauritania": {
+        "value": "Mauritania",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Mayotte": {
+        "value": "Mayotte",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Micronesia": {
+        "value": "Micronesia",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Mongolia": {
+        "value": "Mongolia",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Montenegro": {
+        "value": "Montenegro",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Montserrat": {
+        "value": "Montserrat",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Mozambique": {
+        "value": "Mozambique",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Namibia": {
+        "value": "Namibia",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Nauru": {
+        "value": "Nauru",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Nepal": {
+        "value": "Nepal",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Nicaragua": {
+        "value": "Nicaragua",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Nigeria": {
+        "value": "Nigeria",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Niue": {
+        "value": "Niue",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Paraguay": {
+        "value": "Paraguay",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Portugal": {
+        "value": "Portugal",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Puerto_Rico": {
+        "value": "Puerto Rico",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Samoa": {
+        "value": "Samoa",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.San_Marino": {
+        "value": "San Marino",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Senegal": {
+        "value": "Senegal",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Serbia": {
+        "value": "Serbia",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Seychelles": {
+        "value": "Seychelles",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Somalia": {
+        "value": "Somalia",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Sri_Lanka": {
+        "value": "Sri Lanka",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Tanzania": {
+        "value": "Tanzania",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Togo": {
+        "value": "Togo",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Tonga": {
+        "value": "Tonga",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Tuvalu": {
+        "value": "Tuvalu",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Uganda": {
+        "value": "Uganda",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Uruguay": {
+        "value": "Uruguay",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Vanuatu": {
+        "value": "Vanuatu",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Venezuela": {
+        "value": "Venezuela",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Yemen": {
+        "value": "Yemen",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.country.Zambia": {
+        "value": "Zambia",
+        "reason": "geographical name has the same conventional spelling"
+      },
+      "directories.nature.fax": {
+        "value": "Fax",
+        "reason": "accepted native-language spelling shared with English"
+      },
+      "general.fileSize.bytes": {
+        "value": "Bytes",
+        "reason": "accepted native-language spelling shared with English"
+      },
+      "general.fileSize.kb": {
+        "value": "KB",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "general.fileSize.mb": {
+        "value": "MB",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "general.fileSize.gb": {
+        "value": "GB",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "general.fileSize.tb": {
+        "value": "TB",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "general.fileSize.pb": {
+        "value": "PB",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "general.fileSize.eb": {
+        "value": "EB",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "general.fileSize.zb": {
+        "value": "ZB",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "general.fileSize.yb": {
+        "value": "YB",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "app.modules.document-navigation-bar.pdf-ec3812": {
+        "value": "PDF",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "app.modules.document-navigation-bar.zip-45b8b4": {
+        "value": "ZIP",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "app.modules.note-richtext-editor.normal-ffd063": {
+        "value": "Normal",
+        "reason": "accepted native-language spelling shared with English"
+      },
+      "app.modules.note-richtext-editor.a-776e45": {
+        "value": "A",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "app.modules.note-richtext-editor.https-www-youtube-com-watch-v-fcedf3": {
+        "value": "https://www.youtube.com/watch?v=…",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "app.modules.note-richtext-editor.https-2dc83c": {
+        "value": "https://",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "app.modules.video-renderer.fps-c3b44a": {
+        "value": "FPS",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "app.modules.analytics.default-domain-workspaces-b068de": {
+        "value": "/default-domain/workspaces/",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "app.modules.metadata-policy.i-c68a5b": {
+        "value": "i",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "app.modules.metadata-policy.editable-e43e43": {
+        "value": "Editable",
+        "reason": "accepted native-language spelling shared with English"
+      },
+      "app.modules.vocabularies.no-2256cf": {
+        "value": "No",
+        "reason": "accepted native-language spelling shared with English"
+      },
+      "app.modules.selection-publication-page.original-fb0e10": {
+        "value": "Original",
+        "reason": "accepted native-language spelling shared with English"
+      },
+      "app.services.documents.error-title": {
+        "value": "Error",
+        "reason": "accepted native-language spelling shared with English"
+      },
+      "app.services.http.error-title": {
+        "value": "Error",
+        "reason": "accepted native-language spelling shared with English"
+      },
+      "app.notices.error-54a0e8": {
+        "value": "Error",
+        "reason": "accepted native-language spelling shared with English"
+      },
+      "app.search.facet-value": {
+        "value": "{label}: {value}",
+        "reason": "Locale-neutral punctuation joins named parameters; the facet label is localized by its explicit descriptor and the customer value remains literal."
+      },
+      "app.settingsShared.manual-b0b9fe": {
+        "value": "Manual",
+        "reason": "Legitimate Spanish word with the same spelling as English."
+      },
+      "app.settingsShared.excel-xlsx-9e97de": {
+        "value": "Excel (xlsx)",
+        "reason": "Product or file-format proper name; the name remains unchanged."
+      },
+      "app.settingsShared.google-docs-507e98": {
+        "value": "Google Docs",
+        "reason": "Product or file-format proper name; the name remains unchanged."
+      },
+      "app.settingsShared.google-earth-kml-54b869": {
+        "value": "Google Earth (kml)",
+        "reason": "Product or file-format proper name; the name remains unchanged."
+      },
+      "app.settingsShared.google-earth-kmz-72018f": {
+        "value": "Google Earth (kmz)",
+        "reason": "Product or file-format proper name; the name remains unchanged."
+      },
+      "app.settingsShared.google-fusion-tables-d830eb": {
+        "value": "Google Fusion Tables",
+        "reason": "Product or file-format proper name; the name remains unchanged."
+      },
+      "app.settingsShared.google-sites-66df01": {
+        "value": "Google Sites",
+        "reason": "Product or file-format proper name; the name remains unchanged."
+      },
+      "validation.nested": {
+        "value": "{field}: {error}",
+        "reason": "parameter-only formatting; customer values remain literal"
+      },
+      "analytics.milliseconds": {
+        "value": "{value, number} ms",
+        "reason": "parameter-only formatting; customer values remain literal"
+      },
+      "common.no": {
+        "value": "No",
+        "reason": "Legitimate Spanish word with the same spelling as English."
+      }
+    },
+    "ar": {
+      "general.fileSize.kb": {
+        "value": "KB",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "general.fileSize.mb": {
+        "value": "MB",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "general.fileSize.gb": {
+        "value": "GB",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "general.fileSize.tb": {
+        "value": "TB",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "general.fileSize.pb": {
+        "value": "PB",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "general.fileSize.eb": {
+        "value": "EB",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "general.fileSize.zb": {
+        "value": "ZB",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "general.fileSize.yb": {
+        "value": "YB",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "pageProviders.nxql_search.label": {
+        "value": "NXQL",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "app.modules.document-navigation-bar.zip-45b8b4": {
+        "value": "ZIP",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "app.modules.note-richtext-editor.a-776e45": {
+        "value": "A",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "app.modules.note-richtext-editor.https-www-youtube-com-watch-v-fcedf3": {
+        "value": "https://www.youtube.com/watch?v=…",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "app.modules.note-richtext-editor.https-2dc83c": {
+        "value": "https://",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "app.modules.video-renderer.fps-c3b44a": {
+        "value": "FPS",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "app.modules.analytics.default-domain-workspaces-b068de": {
+        "value": "/default-domain/workspaces/",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "app.modules.metadata-policy.i-c68a5b": {
+        "value": "i",
+        "reason": "technical unit, protocol, URL, path, or fixed editor symbol"
+      },
+      "app.search.facet-value": {
+        "value": "{label}: {value}",
+        "reason": "Locale-neutral punctuation joins named parameters; the facet label is localized by its explicit descriptor and the customer value remains literal."
+      },
+      "app.settingsShared.apple-quicktime-91e566": {
+        "value": "Apple Quicktime",
+        "reason": "Product or file-format proper name; the name remains unchanged."
+      },
+      "app.settingsShared.excel-xlsx-9e97de": {
+        "value": "Excel (xlsx)",
+        "reason": "Product or file-format proper name; the name remains unchanged."
+      },
+      "app.settingsShared.google-earth-kml-54b869": {
+        "value": "Google Earth (kml)",
+        "reason": "Product or file-format proper name; the name remains unchanged."
+      },
+      "app.settingsShared.google-earth-kmz-72018f": {
+        "value": "Google Earth (kmz)",
+        "reason": "Product or file-format proper name; the name remains unchanged."
+      },
+      "app.settingsShared.google-fusion-tables-d830eb": {
+        "value": "Google Fusion Tables",
+        "reason": "Product or file-format proper name; the name remains unchanged."
+      },
+      "app.settingsShared.one-note-8ff8b1": {
+        "value": "One Note",
+        "reason": "Product or file-format proper name; the name remains unchanged."
+      },
+      "validation.nested": {
+        "value": "{field}: {error}",
+        "reason": "parameter-only formatting; customer values remain literal"
+      }
+    }
+  }
+}

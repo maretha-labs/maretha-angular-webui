@@ -1,0 +1,133 @@
+@if (clipboardDocuments.length) {
+	<div class="small text-muted px-4 pb-1">
+		<fa-icon icon="turn-down" flip="horizontal" transform="down-6"></fa-icon>
+		{{ 'clipboard.selectSource' | translate | translateCut: 0 }}
+		<a
+			href="javascript:void(0)"
+			(click)="selectAll()"
+			[tooltip]="'clipboard.selectAll' | translate"
+			>{{ 'clipboard.selectSource' | translate | translateCut: 1 }}</a
+		>
+		{{ 'clipboard.selectSource' | translate | translateCut: 2 }}
+	</div>
+}
+
+<div class="list-group-container">
+	<nx-results-projection
+		hostId="clipboard"
+		mode="table"
+		[rows]="clipboardDocuments"
+		[columns]="columns"
+		[selection]="selectedDocumentIds"
+		(selectionChange)="projectionSelectionChange($event)"
+	>
+		<ng-template nxResultsTemplate="cell:title" let-row="row">
+			<nx-document-icon-and-title
+				[document]="$any(row)"
+				[disabled]="
+					!$any(row).ng.canBrowse || destinationUid === $any(row).uid || !$any(row).canPaste
+				"
+				[compact]="true"
+			/>
+		</ng-template>
+		<ng-template nxResultsTemplate="cell:status" let-row="row">
+			@if (!$any(row).canPaste) {
+				<span
+					class="text-warning"
+					[tooltip]="
+						'app.modules.clipboard.you-cannot-paste-this-document-in-this-loc-eb6acf'
+							| webuiMessage: 'You cannot paste this document in this location'
+					"
+				>
+					<fa-icon icon="exclamation-triangle" size="lg"></fa-icon>
+				</span>
+			}
+		</ng-template>
+	</nx-results-projection>
+	@if (!clipboardDocuments.length) {
+		<div class="list-group-item list-group-item-light px-2 py-0">
+			<small>{{
+				'app.modules.clipboard.there-are-no-items-in-the-clipboard-b77d17'
+					| webuiMessage: 'There are no items in the clipboard.'
+			}}</small>
+		</div>
+	}
+</div>
+
+@if (clipboardDocuments.length) {
+	<div class="list-group list-group-horizontal mt-2 px-2">
+		@if (selectedDocuments.length) {
+			<button
+				@horizontalInOutAnimation
+				[disabled]="!canPasteAllSelectedDocuments"
+				(click)="copy()"
+				class="list-group-item list-group-item-action p-0 text-center"
+				[ngClass]="canPasteAllSelectedDocuments ? 'text-bg-primary' : 'disabled'"
+				[tooltip]="
+					'app.modules.clipboard.copy-the-selected-documents-to-the-current-ed255a'
+						| webuiMessage: 'Copy the selected documents to the current location'
+				"
+				[delay]="500"
+				container="body"
+			>
+				<div class="px-4 py-2">
+					<fa-icon [fixedWidth]="true" icon="paste"></fa-icon>
+				</div>
+			</button>
+		}
+		@if (selectedDocuments.length) {
+			<button
+				@horizontalInOutAnimation
+				[disabled]="!canPasteAllSelectedDocuments"
+				(click)="move()"
+				class="list-group-item list-group-item-action p-0 text-center"
+				[ngClass]="canPasteAllSelectedDocuments ? 'text-primary border-primary' : 'disabled'"
+				[tooltip]="
+					'app.modules.clipboard.move-the-selected-documents-to-the-current-36d71d'
+						| webuiMessage: 'Move the selected documents to the current location'
+				"
+				[delay]="500"
+				container="body"
+			>
+				<div class="px-4 py-2">
+					<fa-icon [fixedWidth]="true" icon="scissors"></fa-icon>
+				</div>
+			</button>
+		}
+		@if (selectedDocuments.length) {
+			<button
+				@horizontalInOutAnimation
+				(click)="removeFromClipboard()"
+				class="list-group-item list-group-item-action text-primary border-primary p-0 text-center"
+				[tooltip]="
+					'app.modules.clipboard.remove-the-selected-documents-from-the-cli-ea7dcc'
+						| webuiMessage: 'Remove the selected documents from the clipboard'
+				"
+				[delay]="500"
+				container="body"
+			>
+				<div class="px-4 py-2">
+					<fa-icon [fixedWidth]="true" icon="times" size="lg"></fa-icon>
+				</div>
+			</button>
+		}
+		<button
+			(click)="clearClipboard()"
+			class="list-group-item list-group-item-action p-0 text-center d-flex justify-content-center align-items-center border-primary text-primary"
+			[class.no-text]="selectedDocuments.length"
+			[tooltip]="
+				'app.modules.clipboard.remove-all-documents-from-clipboard-974976'
+					| webuiMessage: 'Remove all documents from clipboard'
+			"
+			[delay]="500"
+			container="body"
+		>
+			<div class="px-4 py-2 d-flex justify-content-center align-items-center">
+				<fa-icon [fixedWidth]="true" icon="eraser"></fa-icon>
+				<div class="text">
+					{{ 'app.modules.clipboard.clear-clipboard-f3a9fb' | webuiMessage: 'Clear clipboard' }}
+				</div>
+			</div>
+		</button>
+	</div>
+}

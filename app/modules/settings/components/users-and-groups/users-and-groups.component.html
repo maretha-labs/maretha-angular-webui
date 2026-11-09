@@ -1,0 +1,752 @@
+<div class="nx-admin-page users-and-groups" [class.directory-landing]="!selectedType && !creating">
+	<h1 class="visually-hidden">
+		{{ 'app.modules.users-and-groups.users-groups-6ea071' | webuiMessage: 'Users & Groups' }}
+	</h1>
+	@if (selectedType) {
+		<div class="selection-navigation">
+			<button class="btn btn-link" (click)="clearSelection()">
+				{{
+					'app.modules.users-and-groups.all-users-and-groups-eb23d6'
+						| webuiMessage: 'All users and groups'
+				}}
+			</button>
+		</div>
+	}
+	@if (creating) {
+		<section class="inline-editor">
+			<nx-user-and-group-editor
+				[embedded]="true"
+				[isUserGroup]="creating === 'group'"
+				(closed)="creating = null"
+				(saved)="created()"
+			/>
+		</section>
+	} @else {
+		<div class="directory-toolbar">
+			<div class="directory-search">
+				<label for="admin-directory-search" class="visually-hidden">{{
+					'userGroupSearch.search.placeholder' | webuiMessage: 'Search for users and groups'
+				}}</label>
+				<input
+					id="admin-directory-search"
+					type="search"
+					[value]="directoryQuery"
+					[placeholder]="
+						'userGroupSearch.search.placeholder' | webuiMessage: 'Search for users and groups'
+					"
+					[disabled]="actionBusy"
+					(input)="searchDirectory($any($event.target).value)"
+				/>
+			</div>
+			<div dropdown class="new-menu">
+				<button dropdownToggle type="button" class="btn btn-primary">
+					<nx-webui-icon name="nuxeo:add" />{{ 'command.new' | webuiMessage: 'New' }}
+				</button>
+				<ul *dropdownMenu class="dropdown-menu dropdown-menu-end">
+					<li>
+						<button type="button" class="dropdown-item" (click)="showEditor(false)">
+							<nx-webui-icon name="nuxeo:user" />{{ 'userManagement.user' | webuiMessage: 'User' }}
+						</button>
+					</li>
+					<li>
+						<button type="button" class="dropdown-item" (click)="showEditor(true)">
+							<nx-webui-icon name="nuxeo:group" />{{
+								'userManagement.group' | webuiMessage: 'Group'
+							}}
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		@if (!selectedType) {
+			<section class="directory-table">
+				<h2>
+					<nx-webui-icon name="nuxeo:recent" />{{
+						(directoryQuery.trim()
+							? 'userManagement.searchResults'
+							: 'userGroupLatest.recentlyCreated'
+						)
+							| webuiMessage
+								: (directoryQuery.trim() ? 'Search Results' : 'Recently Created Users and Groups')
+					}}
+				</h2>
+				<table>
+					<colgroup>
+						<col />
+						<col />
+						<col />
+						<col class="refresh-column" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th
+								scope="col"
+								[attr.aria-sort]="directoryQuery.trim() ? null : directorySortDirection('name')"
+							>
+								@if (!directoryQuery.trim()) {
+									<button type="button" class="sort-button" (click)="sortDirectory('name')">
+										{{ 'userGroupLatest.name' | webuiMessage: 'Name' }}
+										<nx-webui-icon
+											[class.sort-inactive]="directorySortDirection('name') === 'none'"
+											[name]="
+												directorySortDirection('name') === 'descending'
+													? 'icons:arrow-downward'
+													: 'icons:arrow-upward'
+											"
+										/>
+										@if (directorySort.length > 1 && directorySortDirection('name') !== 'none') {
+											<span class="sort-priority">{{
+												directorySortPriority('name') | webuiNumber
+											}}</span>
+										}
+									</button>
+								} @else {
+									{{ 'userGroupLatest.name' | webuiMessage: 'Name' }}
+								}
+							</th>
+							<th
+								scope="col"
+								[attr.aria-sort]="directoryQuery.trim() ? null : directorySortDirection('id')"
+							>
+								@if (!directoryQuery.trim()) {
+									<button type="button" class="sort-button" (click)="sortDirectory('id')">
+										{{ 'userGroupLatest.identifier' | webuiMessage: 'Identifier' }}
+										<nx-webui-icon
+											[class.sort-inactive]="directorySortDirection('id') === 'none'"
+											[name]="
+												directorySortDirection('id') === 'descending'
+													? 'icons:arrow-downward'
+													: 'icons:arrow-upward'
+											"
+										/>
+										@if (directorySort.length > 1 && directorySortDirection('id') !== 'none') {
+											<span class="sort-priority">{{
+												directorySortPriority('id') | webuiNumber
+											}}</span>
+										}
+									</button>
+								} @else {
+									{{ 'userGroupLatest.identifier' | webuiMessage: 'Identifier' }}
+								}
+							</th>
+							<th
+								scope="col"
+								[attr.aria-sort]="directoryQuery.trim() ? null : directorySortDirection('email')"
+							>
+								@if (!directoryQuery.trim()) {
+									<button type="button" class="sort-button" (click)="sortDirectory('email')">
+										{{ 'label.directories.nature.email' | webuiMessage: 'Email' }}
+										<nx-webui-icon
+											[class.sort-inactive]="directorySortDirection('email') === 'none'"
+											[name]="
+												directorySortDirection('email') === 'descending'
+													? 'icons:arrow-downward'
+													: 'icons:arrow-upward'
+											"
+										/>
+										@if (directorySort.length > 1 && directorySortDirection('email') !== 'none') {
+											<span class="sort-priority">{{
+												directorySortPriority('email') | webuiNumber
+											}}</span>
+										}
+									</button>
+								} @else {
+									{{ 'label.directories.nature.email' | webuiMessage: 'Email' }}
+								}
+							</th>
+							<th>
+								<button
+									type="button"
+									class="refresh-button"
+									[disabled]="pages.users.loading || pages.groups.loading"
+									(click)="getUsersAndGroups()"
+									[attr.aria-label]="'command.refresh' | webuiMessage: 'Refresh'"
+								>
+									<nx-webui-icon name="nuxeo:refresh" />
+								</button>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						@for (row of directoryRows(); track row.kind + row.id) {
+							<tr
+								(click)="openDirectoryRow(row)"
+								(keydown.enter)="$event.target === $event.currentTarget && openDirectoryRow(row)"
+							>
+								<td>
+									<button
+										type="button"
+										class="principal-action"
+										(click)="$event.stopPropagation(); openDirectoryRow(row)"
+									>
+										@if (row.kind === 'user') {
+											<nx-user-tag [user]="row" [disabled]="true" />
+										} @else {
+											<span class="principal-tag"
+												><nx-webui-icon name="nuxeo:group" />{{ row.name }}</span
+											>
+										}
+									</button>
+								</td>
+								<td>{{ row.id }}</td>
+								<td>{{ row.email }}</td>
+								<td></td>
+							</tr>
+						}
+						@if (!directoryRows().length && !pages.users.loading && !pages.groups.loading) {
+							<tr>
+								<td colspan="4">
+									{{
+										'userGroupLatest.emptyRecentUserOrGroup' | webuiMessage: 'No users or groups.'
+									}}
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+				@if (directoryQuery.trim()) {
+					<div class="search-paging">
+						@for (kind of directoryKinds; track kind) {
+							<div>
+								{{
+									kind === 'users'
+										? ('userManagement.users' | webuiMessage: 'Users')
+										: ('userManagement.groups' | webuiMessage: 'Groups')
+								}}
+								<button
+									type="button"
+									class="btn btn-link"
+									[disabled]="pages[kind].loading || pages[kind].pageIndex === 0"
+									(click)="changePage(kind, pages[kind].pageIndex - 1)"
+								>
+									‹</button
+								>{{ pages[kind].pageIndex + 1
+								}}<button
+									type="button"
+									class="btn btn-link"
+									[disabled]="pages[kind].loading || !pages[kind].hasNext"
+									(click)="changePage(kind, pages[kind].pageIndex + 1)"
+								>
+									›
+								</button>
+							</div>
+						}
+					</div>
+				}
+			</section>
+		}
+
+		@if (selectionLoading) {
+			<!-- Keep quoted ICU braces intact: Prettier misreads them as Angular interpolation endings. -->
+			<!-- prettier-ignore -->
+			<p role="status" class="px-3">
+			{{ 'principals.loading' | webuiMessage:'{kind, select, users {Loading users…} groups {Loading groups…} user {Loading user…} group {Loading group…} other {Loading…}}': {kind: (selectedType)} }}
+		</p>
+		}
+		@if (selectionError || directoryError) {
+			<p role="alert" class="px-3 text-danger">{{ selectionError || directoryError }}</p>
+		}
+		@if (actionBusy) {
+			<p role="status" class="px-3">
+				{{ 'app.modules.users-and-groups.saving-changes-3a4931' | webuiMessage: 'Saving changes…' }}
+			</p>
+		}
+		@if (actionError) {
+			<p role="alert" class="px-3 text-danger">{{ actionError }}</p>
+		}
+		<div
+			cdkDropListGroup
+			[hidden]="!selectedType"
+			class="row row-cols-1 g-4 p-3"
+			[class.row-cols-md-2]="!selectedType || !!selectedId"
+		>
+			<div class="col" [hidden]="selectedType === 'user' && !selectedId">
+				<div class="card h-100">
+					<div class="card-header d-flex justify-content-between align-items-center">
+						<span>{{ 'app.modules.users-and-groups.groups-a87294' | webuiMessage: 'Groups' }}</span>
+
+						<div class="btn-group btn-group-sm" role="group">
+							<button
+								(click)="showEditor(true)"
+								class="btn btn-link px-0"
+								[tooltip]="
+									'app.modules.users-and-groups.add-a-new-group-ef054c'
+										| webuiMessage: 'Add a new group'
+								"
+								[attr.aria-label]="
+									'app.modules.users-and-groups.add-a-new-group-ef054c'
+										| webuiMessage: 'Add a new group'
+								"
+							>
+								<fa-icon [fixedWidth]="true" icon="plus-circle" size="lg"></fa-icon>
+							</button>
+						</div>
+					</div>
+
+					<div class="card-body">
+						<ul class="list-group list-group-flush">
+							@for (group of userGroups; track trackByFn(group)) {
+								<li
+									class="list-group-item list-group-item-action"
+									[class.expanded]="group.expanded"
+								>
+									<button
+										class="btn btn-toggle w-100 text-start"
+										(click)="toggleGroup(group)"
+										[attr.aria-expanded]="!!group.expanded"
+									>
+										<span
+											[tooltip]="
+												'app.settingsShared.user-group-identifier-id-e1c575'
+													| webuiMessage: 'User group identifier: {id}' : { id: group.id }
+											"
+										>
+											<fa-icon icon="users" size="sm" class="me-1"></fa-icon>
+											{{ group.name }}
+										</span>
+										<fa-icon icon="angle-left" class="float-end"></fa-icon>
+									</button>
+									<div
+										class="user-group-members small text-muted clearfix"
+										[attr.inert]="group.expanded ? null : ''"
+										[attr.aria-hidden]="!group.expanded"
+									>
+										<div class="accordion-content">
+											<div class="btn-toolbar justify-content-between mb-3" role="toolbar">
+												<div class="btn-group btn-group-sm">
+													<button (click)="showEditor(true, group)" class="btn btn-link px-0">
+														<fa-icon [fixedWidth]="true" icon="pencil"></fa-icon>
+
+														{{
+															'app.modules.users-and-groups.edit-this-group-801528'
+																| webuiMessage: 'Edit this group'
+														}}
+													</button>
+												</div>
+												<div
+													class="btn-group btn-group-sm"
+													role="group"
+													dropdown
+													#dropdownMenu="bs-dropdown"
+													placement="bottom right"
+													container="body"
+												>
+													<button
+														[id]="'button-item-group-' + group.id + '-actions'"
+														[attr.aria-label]="
+															'app.settingsShared.actions-for-group-name-1dc425'
+																| webuiMessage: 'Actions for group {name}' : { name: group.name }
+														"
+														class="btn btn-link px-0"
+														dropdownToggle
+														[attr.aria-controls]="'dropdown-item-group-' + group.id + '-actions'"
+													>
+														<fa-icon [fixedWidth]="true" icon="ellipsis-v"></fa-icon>
+													</button>
+													<ul
+														[id]="'dropdown-item-group-' + group.id + '-actions'"
+														*dropdownMenu
+														class="dropdown-menu dropdown-menu-right"
+														role="menu"
+														[attr.aria-labelledby]="'button-item-group-' + group.id + '-actions'"
+													>
+														<li role="menuitem">
+															<button (click)="showPermissions(true, group)" class="dropdown-item">
+																<fa-icon [fixedWidth]="true" icon="shield-halved"></fa-icon>
+
+																{{
+																	'app.modules.users-and-groups.view-permissions-1212f0'
+																		| webuiMessage: 'View permissions'
+																}}
+															</button>
+														</li>
+														<li class="dropdown-divider"></li>
+														<li role="menuitem">
+															<button
+																[disabled]="actionBusy || pendingDelete"
+																(click)="deleteUserOrGroup(true, group)"
+																class="dropdown-item"
+															>
+																<fa-icon [fixedWidth]="true" icon="trash"></fa-icon>
+
+																{{
+																	'app.modules.users-and-groups.delete-this-group-a07d8c'
+																		| webuiMessage: 'Delete this group'
+																}}
+															</button>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<div
+												cdkDropList
+												cdkDropListSortingDisabled
+												[cdkDropListData]="group.users"
+												[cdkDropListEnterPredicate]="canAttachUserToGroup"
+												(cdkDropListDropped)="attachUserToGroup($event, group)"
+												class="d-flex flex-wrap align-items-center"
+											>
+												<div class="w-100 mb-2">
+													<label [for]="'member-users-' + group.id" class="form-label">{{
+														'app.modules.users-and-groups.user-members-6a3728'
+															| webuiMessage: 'User members'
+													}}</label>
+													<input
+														[id]="'member-users-' + group.id"
+														type="search"
+														class="form-control form-control-sm"
+														[value]="pages.memberUsers.query"
+														[disabled]="actionBusy"
+														(input)="searchMembers('memberUsers', $any($event.target).value)"
+														[attr.placeholder]="
+															'app.modules.users-and-groups.filter-user-members-3c0465'
+																| webuiMessage: 'Filter user members'
+														"
+													/>
+												</div>
+												@for (
+													user of group.expanded ? pages.memberUsers.entries : [];
+													track trackByFn(user)
+												) {
+													<span class="badge bg-dark border pe-4 me-1 mb-1">
+														<fa-icon icon="user" class="me-1"></fa-icon>
+														{{ user.name || user }}
+														<button
+															[disabled]="actionBusy || pendingDelete"
+															(click)="detachUserFromGroup(user.id, group.id)"
+															[tooltip]="
+																'app.modules.users-and-groups.remove-this-member-93c028'
+																	| webuiMessage: 'Remove this member'
+															"
+														>
+															×
+														</button>
+													</span>
+												}
+												<div class="w-100">
+													<ng-container
+														*ngTemplateOutlet="pageControls; context: { $implicit: 'memberUsers' }"
+													/>
+												</div>
+												<div class="w-100 mt-2 mb-2">
+													<label [for]="'member-groups-' + group.id" class="form-label">{{
+														'app.modules.users-and-groups.group-members-cda1e8'
+															| webuiMessage: 'Group members'
+													}}</label>
+													<input
+														[id]="'member-groups-' + group.id"
+														type="search"
+														class="form-control form-control-sm"
+														[value]="pages.memberGroups.query"
+														[disabled]="actionBusy"
+														(input)="searchMembers('memberGroups', $any($event.target).value)"
+														[attr.placeholder]="
+															'app.modules.users-and-groups.filter-group-members-44123e'
+																| webuiMessage: 'Filter group members'
+														"
+													/>
+												</div>
+												@for (
+													member of group.expanded ? pages.memberGroups.entries : [];
+													track member.id
+												) {
+													<button
+														type="button"
+														class="badge bg-dark border me-1 mb-1"
+														(click)="toggleGroup(member)"
+													>
+														<fa-icon icon="users" class="me-1"></fa-icon
+														>{{ member.name || member.id }}
+													</button>
+												}
+												<div class="w-100">
+													<ng-container
+														*ngTemplateOutlet="pageControls; context: { $implicit: 'memberGroups' }"
+													/>
+												</div>
+												@if (
+													!pages.memberUsers.loading &&
+													!pages.memberGroups.loading &&
+													!pages.memberUsers.error &&
+													!pages.memberGroups.error &&
+													!pages.memberUsers.entries.length &&
+													!pages.memberGroups.entries.length
+												) {
+													<div class="no-data">
+														{{
+															'app.modules.users-and-groups.no-members-match-the-current-filters-7a3e73'
+																| webuiMessage: 'No members match the current filters.'
+														}}
+													</div>
+												}
+											</div>
+										</div>
+									</div>
+								</li>
+							}
+						</ul>
+
+						<ng-container *ngTemplateOutlet="pageControls; context: { $implicit: 'groups' }" />
+						@if (!pages.groups.loading && !pages.groups.error && !userGroups.length) {
+							<span class="p-2">{{
+								'app.modules.users-and-groups.there-are-no-user-groups-to-display-3020eb'
+									| webuiMessage: 'There are no user groups to display.'
+							}}</span>
+						}
+					</div>
+
+					@if (userGroups.length) {
+						<div class="card-footer text-muted small">
+							<fa-icon icon="info-circle"></fa-icon>
+
+							{{
+								'app.modules.users-and-groups.expand-any-user-group-to-show-its-members-5b2d31'
+									| webuiMessage: 'Expand any user group to show its members.'
+							}}
+						</div>
+					}
+				</div>
+			</div>
+
+			<div class="col" [hidden]="selectedType === 'group' && !selectedId">
+				<div class="card h-100">
+					<div class="card-header d-flex justify-content-between align-items-center">
+						<span>{{ 'app.modules.users-and-groups.users-fb312e' | webuiMessage: 'Users' }}</span>
+
+						<div class="btn-group btn-group-sm" role="group">
+							<button
+								(click)="showEditor(false)"
+								class="btn btn-link px-0"
+								[tooltip]="
+									'app.modules.users-and-groups.add-a-new-user-247b06'
+										| webuiMessage: 'Add a new user'
+								"
+								[attr.aria-label]="
+									'app.modules.users-and-groups.add-a-new-user-247b06'
+										| webuiMessage: 'Add a new user'
+								"
+							>
+								<fa-icon [fixedWidth]="true" icon="plus-circle" size="lg"></fa-icon>
+							</button>
+						</div>
+					</div>
+
+					<div class="card-body">
+						<ul
+							cdkDropList
+							cdkDropListSortingDisabled
+							[cdkDropListData]="users"
+							class="list-group list-group-flush"
+						>
+							@for (user of users; track trackByFn(user)) {
+								<li class="list-group-item list-group-item-action" [class.expanded]="user.expanded">
+									<button
+										class="btn btn-toggle w-100 text-start"
+										(click)="toggleUser(user)"
+										[attr.aria-expanded]="!!user.expanded"
+									>
+										<span>
+											<fa-icon icon="user" size="sm" class="me-1"></fa-icon>
+											{{ user.name }}
+										</span>
+										<fa-icon icon="angle-left" class="float-end"></fa-icon>
+										<div
+											cdkDrag
+											[cdkDragDisabled]="actionBusy || pendingDelete"
+											[cdkDragData]="user"
+											cdkDragBoundary=".users-and-groups"
+										>
+											<div *cdkDragPreview class="badge bg-dark border">
+												<fa-icon icon="user" size="sm" class="me-1"></fa-icon>
+												{{ user.name }}
+											</div>
+											<div *cdkDragPlaceholder class="badge bg-dark border">
+												<fa-icon icon="user" size="sm" class="me-1"></fa-icon>
+												{{ user.name }}
+											</div>
+										</div>
+									</button>
+									<div
+										class="user-groups small text-muted"
+										[attr.inert]="user.expanded ? null : ''"
+										[attr.aria-hidden]="!user.expanded"
+									>
+										<div class="accordion-content">
+											<div class="btn-toolbar justify-content-between mb-3" role="toolbar">
+												<div class="btn-group btn-group-sm">
+													<button (click)="showEditor(false, user)" class="btn btn-link px-0">
+														<fa-icon [fixedWidth]="true" icon="pencil"></fa-icon>
+
+														{{
+															'app.modules.users-and-groups.edit-this-user-6b36e3'
+																| webuiMessage: 'Edit this user'
+														}}
+													</button>
+												</div>
+												<div
+													class="btn-group btn-group-sm"
+													role="group"
+													dropdown
+													#dropdownMenu="bs-dropdown"
+													placement="bottom right"
+													container="body"
+												>
+													<button
+														[id]="'button-item-user-' + user.id + '-actions'"
+														[attr.aria-label]="
+															'app.settingsShared.actions-for-user-name-c5458d'
+																| webuiMessage: 'Actions for user {name}' : { name: user.name }
+														"
+														class="btn btn-link px-0"
+														dropdownToggle
+														[attr.aria-controls]="'dropdown-item-user-' + user.id + '-actions'"
+													>
+														<fa-icon [fixedWidth]="true" icon="ellipsis-v"></fa-icon>
+													</button>
+													<ul
+														[id]="'dropdown-item-user-' + user.id + '-actions'"
+														*dropdownMenu
+														class="dropdown-menu dropdown-menu-right"
+														role="menu"
+														[attr.aria-labelledby]="'button-item-user-' + user.id + '-actions'"
+													>
+														<li role="menuitem">
+															<button (click)="showPermissions(false, user)" class="dropdown-item">
+																<fa-icon [fixedWidth]="true" icon="shield-halved"></fa-icon>
+
+																{{
+																	'app.modules.users-and-groups.view-permissions-1212f0'
+																		| webuiMessage: 'View permissions'
+																}}
+															</button>
+														</li>
+														<li class="dropdown-divider"></li>
+														<li role="menuitem">
+															<button
+																[disabled]="actionBusy || pendingDelete"
+																(click)="deleteUserOrGroup(false, user)"
+																class="dropdown-item"
+															>
+																<fa-icon [fixedWidth]="true" icon="trash"></fa-icon>
+
+																{{
+																	'app.modules.users-and-groups.delete-this-user-88d18b'
+																		| webuiMessage: 'Delete this user'
+																}}
+															</button>
+														</li>
+													</ul>
+												</div>
+											</div>
+											@if (user.groups && !user.groups.length) {
+												<div class="no-data">
+													{{
+														'app.modules.users-and-groups.this-user-is-not-part-of-any-group-yet-e63cdd'
+															| webuiMessage: 'This user is not part of any group yet.'
+													}}
+												</div>
+											}
+											@for (group of user.groups; track trackByFn(group)) {
+												<span class="badge bg-dark border pe-4">
+													<fa-icon icon="users" class="me-1"></fa-icon>
+													{{ group.name || group }}
+													<button
+														[disabled]="actionBusy || pendingDelete"
+														(click)="detachUserFromGroup(user.id, group.id)"
+														[tooltip]="
+															'app.modules.users-and-groups.detach-from-this-group-4947d3'
+																| webuiMessage: 'Detach from this group'
+														"
+														[attr.aria-label]="
+															'app.settingsShared.detach-from-group-name-a16a06'
+																| webuiMessage
+																	: 'Detach from group {name}'
+																	: { name: group.name || group.id }
+														"
+													>
+														×
+													</button>
+												</span>
+											}
+										</div>
+									</div>
+								</li>
+							}
+						</ul>
+
+						<ng-container *ngTemplateOutlet="pageControls; context: { $implicit: 'users' }" />
+						@if (!pages.users.loading && !pages.users.error && !users.length) {
+							<span class="p-2">{{
+								'app.modules.users-and-groups.there-are-no-users-to-display-2b6385'
+									| webuiMessage: 'There are no users to display.'
+							}}</span>
+						}
+					</div>
+
+					@if (userGroups.length && users.length) {
+						<div class="card-footer text-muted small">
+							<fa-icon icon="info-circle"></fa-icon>
+
+							{{
+								'principals.dragToGroup'
+									| webuiMessage
+										: 'Assign a user to a group by dragging the user onto an expanded user group.'
+							}}
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+	}
+</div>
+
+<ng-template #pageControls let-kind>
+	@if (page(kind).loading) {
+		<p role="status" class="my-2">
+			{{ 'app.modules.users-and-groups.loading-189714' | webuiMessage: 'Loading…' }}
+		</p>
+	}
+	@if (page(kind).error) {
+		<p role="alert" class="text-danger my-2">
+			{{ pageError(kind) }}
+			<button
+				type="button"
+				class="btn btn-link btn-sm"
+				(click)="changePage(kind, page(kind).pageIndex)"
+			>
+				{{ 'app.modules.users-and-groups.retry-0938b3' | webuiMessage: 'Retry' }}
+			</button>
+		</p>
+	}
+	@if (page(kind).pageIndex > 0 || page(kind).hasNext) {
+		<nav
+			class="d-flex align-items-center gap-2 my-2"
+			[attr.aria-label]="
+				'app.settingsShared.kind-select-users-user-pages-other-group-pages-605ea0'
+					| webuiMessage: '{kind, select, users {User pages} other {Group pages}}' : { kind: kind }
+			"
+		>
+			<button
+				type="button"
+				class="btn btn-outline-secondary btn-sm"
+				[disabled]="page(kind).loading || actionBusy || page(kind).pageIndex === 0"
+				(click)="changePage(kind, page(kind).pageIndex - 1)"
+			>
+				{{ 'app.modules.users-and-groups.previous-b47147' | webuiMessage: 'Previous' }}
+			</button>
+			<span
+				>{{ 'pagination.position' | webuiMessage:'{known, select, true {Page {page, number} of {total, number}}
+				other {Page {page, number}}}': {known: (page(kind).numberOfPages !== null), page:
+				(page(kind).pageIndex + 1), total: (page(kind).numberOfPages ?? 0)} }}
+			</span>
+			<button
+				type="button"
+				class="btn btn-outline-secondary btn-sm"
+				[disabled]="page(kind).loading || actionBusy || !page(kind).hasNext"
+				(click)="changePage(kind, page(kind).pageIndex + 1)"
+			>
+				{{ 'app.modules.users-and-groups.next-c6a5d5' | webuiMessage: 'Next' }}
+			</button>
+		</nav>
+	}
+</ng-template>

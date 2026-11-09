@@ -1,0 +1,9 @@
+{
+  "entity-type": "oauth2Client",
+  "name": "Maretha Angular WebUI Development",
+  "id": "maretha-angular-webui-dev",
+  "secret": "",
+  "redirectURIs": ["http://localhost:4200/#"],
+  "isAutoGrant": false,
+  "isEnabled": true
+}

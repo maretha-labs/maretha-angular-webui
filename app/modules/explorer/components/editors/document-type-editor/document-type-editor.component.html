@@ -1,0 +1,39 @@
+@if (initialized && useBinaryEditor) {
+	<nx-binary-editor
+		[add]="data.add"
+		[parentDocument]="data.parentDocument"
+		[documentType]="documentType"
+		[documentSchemas]="documentSchemas"
+		[documents]="data.documents ?? []"
+		[files]="data.files"
+	/>
+} @else if (initialized) {
+	@if (layoutDisabled) {
+		<div class="alert alert-secondary mb-0">
+			{{
+				'app.modules.document-type-editor.this-document-layout-is-disabled-e8352e'
+					| webuiMessage: 'This document layout is disabled.'
+			}}
+		</div>
+	} @else {
+		<ng-template #container></ng-template>
+
+		@if (!componentRef) {
+			<div class="alert alert-warning mb-0">
+				{{
+					layoutError ||
+						('app.runtime.document-type-editor.no-editor-is-currently-available-for-this--6d1647'
+							| webuiMessage: 'No editor is currently available for this document type!')
+				}}
+			</div>
+		}
+	}
+} @else {
+	<nx-editor-metadata-status
+		[documentType]="documentType"
+		[loading]="metadata.loading()"
+		[error]="metadata.error()"
+		(retry)="loadMetadata()"
+		(closed)="closeLoading()"
+	/>
+}

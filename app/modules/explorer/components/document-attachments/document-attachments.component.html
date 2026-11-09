@@ -1,0 +1,135 @@
+<div
+	#additionalAttachments
+	class="card"
+	[nxDragAndDrop]="!disabled"
+	(filesDragged)="filesDragged($event, additionalAttachments)"
+	(filesDropped)="filesDropped($event)"
+>
+	<div class="card-header d-flex align-items-center pe-2">
+		@if (label) {
+			{{ label }}
+		}
+		@if (!label) {
+			{{
+				multiple
+					? ('documentEditors.documentAttachments.additionalAttachments'
+						| translate: { fileCount: attachmentsCount })
+					: ('documentEditors.documentAttachments.mainFile' | translate)
+			}}
+		}
+		@if (multiple && attachmentsCount) {
+			<span class="badge bg-light text-muted border mx-1">{{ attachmentsSize | fileSize }}</span>
+			<span class="flex-grow-1"></span>
+			@if (!disabled) {
+				<div class="btn-group btn-group-sm" role="group">
+					<button class="btn btn-hidden">
+						<fa-icon [fixedWidth]="true" icon="retweet"></fa-icon>
+					</button>
+					<div
+						class="btn-group btn-group-sm"
+						role="group"
+						dropdown
+						placement="bottom right"
+						container="body"
+					>
+						<button
+							dropdownToggle
+							[id]="'button-attachments-actions'"
+							[attr.aria-controls]="'dropdown-attachments-actions'"
+							class="btn btn-link text-dark"
+							[disabled]="disabled"
+						>
+							<fa-icon [fixedWidth]="true" icon="ellipsis-v"></fa-icon>
+						</button>
+						<ul
+							[id]="'dropdown-attachments-actions'"
+							*dropdownMenu
+							class="dropdown-menu dropdown-menu-right"
+							role="menu"
+							[attr.aria-labelledby]="'button-attachments-actions'"
+						>
+							<li role="menuitem">
+								<button (click)="removeAllAdditionalAttachments()" class="dropdown-item">
+									<fa-icon [fixedWidth]="true" icon="trash"></fa-icon>
+
+									{{
+										'app.modules.document-attachments.remove-all-attachments-c80f70'
+											| webuiMessage: 'Remove all attachments'
+									}}
+								</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			}
+		}
+	</div>
+
+	<ul class="list-group list-group-flush scrollable p-0">
+		@for (attachment of attachments; track attachment) {
+			<ng-container
+				*ngTemplateOutlet="
+					attachmentTemplate;
+					context: {
+						attachment: attachment,
+						fileName: attachment?.name,
+						fileSize: attachment?.size || attachment?.length,
+						exists: attachment?.digest,
+					}
+				"
+			>
+			</ng-container>
+		}
+	</ul>
+
+	@if (!disabled && (multiple || !attachmentsCount)) {
+		<nx-file-upload
+			[id]="id"
+			className="card-footer text-center"
+			[allowedMimeTypes]="allowedMimeTypes"
+			[multiple]="multiple"
+			(update)="attachFiles($event)"
+			[allowDragAndDrop]="false"
+			[disabled]="disabled"
+		>
+			<ng-template nxPlaceholderTemplate>
+				<div
+					class="text-start d-flex btn btn-outline-secondary border-0 border-radius-inherit text-decoration-none"
+				>
+					<span class="flex-grow-1">{{
+						multiple
+							? ('app.modules.document-attachments.add-files-b6082d' | webuiMessage: 'Add files')
+							: ('app.modules.document-attachments.add-a-file-b2d533' | webuiMessage: 'Add a file')
+					}}</span>
+					<fa-icon icon="plus-circle" class="me-1"></fa-icon>
+				</div>
+			</ng-template>
+		</nx-file-upload>
+	}
+
+	@if (disabled && (multiple || !attachmentsCount)) {
+		<small class="opacity-75 px-3 py-2">
+			{{
+				'app.modules.document-attachments.there-are-no-files-to-show-b87766'
+					| webuiMessage: 'There are no files to show.'
+			}}
+		</small>
+	}
+</div>
+
+<ng-template
+	#attachmentTemplate
+	let-attachment="attachment"
+	let-fileName="fileName"
+	let-fileSize="fileSize"
+	let-exists="exists"
+>
+	<li
+		class="list-group-item mx-1 mb-1 small d-flex align-items-center"
+		[ngClass]="exists ? 'list-group-item-secondary' : 'list-group-item-primary'"
+	>
+		<span class="text-truncate flex-grow-1">{{ fileName }}</span>
+		<span class="badge bg-light text-muted border">{{ fileSize | fileSize }}</span>
+		<nx-webui-slot name="BLOB_ACTIONS" [context]="blobContext(attachment)" />
+	</li>
+</ng-template>

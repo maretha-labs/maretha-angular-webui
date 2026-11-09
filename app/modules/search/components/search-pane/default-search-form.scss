@@ -1,0 +1,237 @@
+// The default form owns the saved-search heading and paper-widget geometry.
+.nx-search-pane--default {
+	min-height: 0;
+	overflow: hidden;
+	font-size: 13px;
+	line-height: 20px;
+	letter-spacing: 0.16px;
+}
+.stock-search-heading {
+	display: flex;
+	align-items: center;
+	flex: 0 0 53px;
+	min-height: 53px;
+	border-bottom: 1px solid var(--nuxeo-border, #e3e3e3);
+}
+.stock-search-heading__picker {
+	flex: 1;
+	min-width: 0;
+	align-self: flex-start;
+	padding-inline: 16px 4px;
+	label {
+		display: block;
+		margin: 0;
+		font-size: 13px;
+		font-weight: 400;
+		line-height: 20px;
+		opacity: 0.9;
+	}
+}
+.stock-search-heading__queue {
+	align-self: stretch;
+	flex: 0 0 60px;
+	width: 60px;
+	padding: 16px;
+	border: 0;
+	border-inline-start: 1px solid var(--nuxeo-border, #e3e3e3);
+	background: transparent;
+	color: inherit;
+	&:hover {
+		background: var(--nuxeo-button-primary, var(--nuxeo-primary-color));
+		color: var(--nuxeo-button-primary-text, #fff);
+	}
+}
+.stock-search-fields {
+	padding: 8px 16px;
+	flex: 1;
+	min-height: 0;
+	overflow: auto;
+}
+.stock-search-fields label {
+	display: block;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 20px;
+	margin: 0;
+	opacity: 0.9;
+}
+.stock-search-fields input[type='search'] {
+	box-sizing: border-box;
+	width: 100%;
+	height: 26px;
+	border: 0;
+	border-bottom: 1px solid var(--nuxeo-text-default, #3a3a54);
+	border-radius: 0;
+	padding: 0;
+	background: transparent;
+	color: inherit;
+	font-size: 16px;
+	line-height: 24px;
+	margin: 5px 0 24px;
+	&::placeholder {
+		color: inherit;
+		opacity: 1;
+	}
+	&:focus {
+		outline: none;
+		border-bottom: 2px solid var(--nuxeo-primary-color, #06f);
+	}
+}
+.stock-facet {
+	margin-bottom: 16px;
+}
+.stock-facet summary {
+	cursor: pointer;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	list-style: none;
+}
+.stock-facet summary::after {
+	content: '';
+	width: 7px;
+	height: 7px;
+	margin-inline-end: 7px;
+	border-inline-end: 2px solid currentColor;
+	border-block-end: 2px solid currentColor;
+	transform: rotate(45deg) translateY(-2px);
+}
+.stock-facet[open] summary::after {
+	transform: rotate(225deg) translate(-2px, -2px);
+}
+.stock-facet-options label {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 4px 0 0;
+	line-height: 18px;
+	opacity: 1;
+}
+.stock-facet-options input[type='checkbox'] {
+	appearance: none;
+	position: relative;
+	flex: 0 0 18px;
+	width: 18px;
+	height: 18px;
+	margin: 0;
+	border: 2px solid var(--nuxeo-text-default, #3a3a54);
+	border-radius: 2px;
+	background: transparent;
+	cursor: pointer;
+	&:checked {
+		border-color: var(--nuxeo-primary-color, #06f);
+		background: var(--nuxeo-primary-color, #06f);
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			width: 5px;
+			height: 10px;
+			margin: auto;
+			border: solid #fff;
+			border-width: 0 2px 2px 0;
+			transform: translateY(-1px) rotate(45deg);
+		}
+	}
+	&:focus-visible {
+		outline: 2px solid var(--nuxeo-primary-color, #06f);
+		outline-offset: 2px;
+	}
+}
+.stock-facet-empty {
+	margin: 4px 0 0;
+	font-size: 13px;
+	line-height: 20px;
+}
+.stock-search-fields ::ng-deep .ng-select {
+	margin-bottom: 24px;
+	.ng-select-container {
+		border: 0;
+		border-bottom: 1px solid var(--nuxeo-text-default, #3a3a54);
+		border-radius: 0;
+		background: transparent;
+		min-height: 31px;
+		box-shadow: none;
+	}
+	.ng-value-container {
+		padding: 0;
+	}
+	&.ng-select-multiple .ng-select-container .ng-value-container .ng-placeholder {
+		top: 0;
+		padding: 0;
+		color: var(--nuxeo-text-light, #606978);
+	}
+	&.ng-select-focused .ng-select-container {
+		border-bottom: 2px solid var(--nuxeo-primary-color, #06f);
+	}
+}
+.nx-search-pane--default ::ng-deep .ng-select {
+	.ng-arrow-wrapper {
+		width: 24px;
+		padding: 0;
+	}
+	.ng-arrow {
+		border-top-color: var(--nuxeo-text-default, #3a3a54);
+	}
+	&.ng-select-opened .ng-arrow {
+		border-top-color: transparent;
+		border-bottom-color: var(--nuxeo-text-default, #3a3a54);
+	}
+}
+.nx-search-pane--default .nx-search-pane__options {
+	flex: 0 0 66px;
+	padding: 13px;
+	border: 0;
+	> div {
+		width: 100%;
+	}
+	.stock-reset {
+		min-height: 40px;
+		padding: 8px 16px;
+		border: 1px solid var(--nuxeo-primary-color);
+		background: transparent;
+		color: var(--nuxeo-primary-color);
+		font-size: 13px;
+		font-weight: 600;
+	}
+}
+
+// Saved-search picker in the drawer heading: underline style, chip for the selection, as stock.
+.stock-saved-search-select {
+	flex: 1;
+	min-width: 0;
+	::ng-deep .ng-select-container {
+		height: 31px;
+		min-height: 31px;
+		border: 0;
+		border-bottom: 1px solid var(--nuxeo-text-default, #3a3a54);
+		border-radius: 0;
+		background: transparent;
+		box-shadow: none !important;
+	}
+	::ng-deep .ng-value-container {
+		padding-inline-start: 0;
+	}
+	::ng-deep .ng-input {
+		top: 0 !important;
+		padding-inline-start: 0 !important;
+	}
+	::ng-deep .ng-select-container .ng-value-container .ng-placeholder {
+		color: var(--nuxeo-text-light, #666);
+	}
+	::ng-deep .ng-has-value .ng-value {
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		padding: 1px 8px;
+		border-radius: 12px;
+		background: rgba(0, 0, 0, 0.06);
+		font-size: 13px;
+	}
+	::ng-deep .ng-clear-wrapper {
+		color: var(--nuxeo-text-default);
+	}
+}

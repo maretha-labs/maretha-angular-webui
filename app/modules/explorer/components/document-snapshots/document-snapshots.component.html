@@ -1,0 +1,218 @@
+@if (projection('versions.actions'); as projection) {
+	@if (!projection.disabled && projection.component) {
+		<ng-container
+			[ngComponentOutlet]="projection.component"
+			[ngComponentOutletInputs]="{ projectionContext: projectionContext() }"
+		/>
+	}
+} @else if (compact && canCreateVersion && document.isCheckedOut) {
+	<button type="button" class="create-version" (click)="versionDialog.showModal()">
+		{{ 'versions.create' | webuiMessage: 'Create Version' }}
+	</button>
+	<dialog #versionDialog>
+		<h2>
+			{{
+				'documentCreateVersion.title'
+					| webuiMessage
+						: 'Create Version for {0} - Version {1}.{2}'
+						: document.title
+						: document.properties?.['uid:major_version'] ?? 0
+						: document.properties?.['uid:minor_version'] ?? 0
+			}}
+		</h2>
+		<label
+			><input
+				type="radio"
+				name="versionKind"
+				value="minor"
+				[(ngModel)]="versionKind"
+				[disabled]="versionSaving"
+			/>{{
+				'version.minor' | webuiMessage: '{version} — Minor version' : { version: nextMinorVersion }
+			}}</label
+		>
+		<label
+			><input
+				type="radio"
+				name="versionKind"
+				value="major"
+				[(ngModel)]="versionKind"
+				[disabled]="versionSaving"
+			/>{{
+				'version.major' | webuiMessage: '{version} — Major version' : { version: nextMajorVersion }
+			}}</label
+		>
+		@if (versionError) {
+			<p role="alert">{{ versionError }}</p>
+		}
+		<footer>
+			<button type="button" [disabled]="versionSaving" (click)="versionDialog.close()">
+				{{ 'command.cancel' | webuiMessage: 'Cancel' }}</button
+			><button
+				type="button"
+				[disabled]="versionSaving"
+				(click)="createCompactVersion(versionDialog)"
+			>
+				{{ 'versions.create' | webuiMessage: 'Create Version' }}
+			</button>
+		</footer>
+	</dialog>
+} @else if (compact && versionLabel(document) === '0.0') {
+	<span>{{ 'versions.unversioned' | webuiMessage: 'Unversioned' }}</span>
+} @else if (!compact && document.ng.canCreateSnapshot && canCreateVersion) {
+	<ul class="list-group list-group-flush mb-2">
+		<li class="list-group-item d-flex justify-content-between align-items-center px-2 py-0 mt-0">
+			<div class="btn-group flex-grow-1" dropdown placement="bottom right" container="body">
+				<button
+					(click)="createSnapshot()"
+					type="button"
+					class="btn btn-outline-secondary flex-grow-1 d-flex align-items-center"
+				>
+					<h5 class="my-2">
+						<fa-icon icon="camera-retro"></fa-icon>
+						<b class="ms-1">{{ document.ng.nextMinorVersion }}</b>
+					</h5>
+					<span class="ms-3">{{
+						'app.modules.document-snapshots.create-a-new-minor-snapshot-e5de17'
+							| webuiMessage: 'Create a new minor snapshot'
+					}}</span>
+				</button>
+				<button
+					id="button-split"
+					type="button"
+					dropdownToggle
+					class="btn btn-outline-secondary flex-grow-0 dropdown-toggle dropdown-toggle-split"
+					aria-controls="dropdown-split"
+				>
+					<span class="caret"></span>
+					<span class="sr-only visually-hidden"></span>
+				</button>
+				<ul
+					id="dropdown-split"
+					*dropdownMenu
+					class="dropdown-menu dropdown-menu-right"
+					role="menu"
+					aria-labelledby="button-split"
+				>
+					<li role="menuitem">
+						<button (click)="createSnapshot(true)" class="dropdown-item">
+							<fa-icon icon="camera-retro"></fa-icon>
+							<b class="ms-1">{{ document.ng.nextMajorVersion }}</b>
+							<span class="ms-1">{{
+								'app.modules.document-snapshots.create-a-new-major-snapshot-0db8bf'
+									| webuiMessage: 'Create a new major snapshot'
+							}}</span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+}
+
+@if (projection('versions.items'); as projection) {
+	@if (!projection.disabled && projection.component) {
+		<ng-container
+			[ngComponentOutlet]="projection.component"
+			[ngComponentOutletInputs]="{ projectionContext: projectionContext() }"
+		/>
+	}
+} @else if (compact && document.ng.snapshots?.length) {
+	<div class="compact-versions">
+		@for (snapshot of document.ng.snapshots; track snapshot.uid) {
+			<button type="button" (click)="loadSnapshot(snapshot)">
+				<span>{{ versionLabel(snapshot) }}</span>
+				<small>{{
+					'document.modifiedBy'
+						| webuiMessage
+							: 'Last modified {date} by {user}'
+							: {
+									date: (snapshot.properties?.['dc:modified'] || snapshot.lastModified | timeago),
+									user: versionAuthor(snapshot),
+							  }
+				}}</small>
+			</button>
+		}
+	</div>
+} @else if (document.ng.snapshots?.length) {
+	<ul class="list-group list-group-flush mx-2">
+		@for (
+			snapshot of document.ng.snapshots;
+			track trackByFn(index, snapshot);
+			let index = $index;
+			let count = $count
+		) {
+			<li
+				class="list-group-item d-flex justify-content-between align-items-center p-3 rounded"
+				[ngClass]="
+					document.ng.version === snapshot.ng.version ? 'disabled' : 'list-group-item-action'
+				"
+			>
+				<h5 class="fw-bolder mb-0">
+					<fa-icon icon="camera-retro"></fa-icon>
+					{{ versionLabel(snapshot) }}
+				</h5>
+				<div class="small opacity-75 px-3">
+					{{
+						'document.modifiedBy'
+							| webuiMessage
+								: 'Last modified {date} by {user}'
+								: { date: (snapshot.lastModified | timeago), user: snapshot.ng.lastModifiedBy }
+					}}
+					@if (document.ng.version === snapshot.ng.version) {
+						<div class="text-primary">
+							{{
+								'app.modules.document-snapshots.this-is-the-displayed-version-996a56'
+									| webuiMessage: 'This is the displayed version'
+							}}
+						</div>
+					}
+				</div>
+				<span class="flex-grow-1"></span>
+				<div class="btn-group btn-group-sm">
+					@if (document.ng.version !== snapshot.ng.version) {
+						<button
+							(click)="loadSnapshot(snapshot)"
+							class="btn btn-link text-dark py-1"
+							[tooltip]="
+								'app.modules.document-snapshots.see-how-the-document-looked-like-when-this-09cbcf'
+									| webuiMessage: 'See how the document looked like when this snapshot was taken'
+							"
+						>
+							<fa-icon icon="eye"></fa-icon>
+						</button>
+					}
+					@if (document.ng.version !== snapshot.ng.version) {
+						<button
+							(click)="compareToSnapshot(snapshot)"
+							class="btn btn-link text-dark py-1"
+							[tooltip]="
+								'app.modules.document-snapshots.compare-the-displayed-version-against-this-a1b12e'
+									| webuiMessage: 'Compare the displayed version against this one'
+							"
+						>
+							<fa-icon icon="code-compare"></fa-icon>
+						</button>
+					}
+					@if (
+						canRestoreVersion &&
+						((originalDocument && originalDocument.ng.version !== snapshot.ng.version) ||
+							(!originalDocument && document.ng.version !== snapshot.ng.version))
+					) {
+						<button
+							(click)="restoreSnapshot(snapshot)"
+							class="btn btn-link text-dark py-1"
+							[tooltip]="
+								'app.modules.document-snapshots.restore-the-document-to-how-it-looked-like-b824fd'
+									| webuiMessage
+										: 'Restore the document to how it looked like when this snapshot was taken'
+							"
+						>
+							<fa-icon icon="rotate-left"></fa-icon>
+						</button>
+					}
+				</div>
+			</li>
+		}
+	</ul>
+}

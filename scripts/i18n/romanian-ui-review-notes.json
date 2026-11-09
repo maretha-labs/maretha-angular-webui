@@ -1,0 +1,23 @@
+{
+  "scope": "Assistant-authored Romanian UI translations; not independently linguistically reviewed.",
+  "intentionally_unchanged": {
+    "app.components.tasks-page.document-55ac8b": "Document",
+    "app.components.tasks-page.document": "Document",
+    "app.modules.binary-editor.document-63ddb8": "document",
+    "app.modules.generic-editor.document-f378d0": "document",
+    "app.modules.generic-type-bulk-create.format-cd8604": "Format",
+    "app.modules.note-editor.document-5bc54b": "document",
+    "app.modules.note-editor.format-784891": "Format",
+    "app.modules.standard-content-editor.format-0c0c5d": "Format",
+    "app.modules.standard-content-import.format-213a92": "Format",
+    "app.modules.note-richtext-editor.normal-ffd063": "Normal",
+    "app.modules.selection-publication-page.original-fb0e10": "Original",
+    "app.modules.standard-content-layout.format-f33b6e": "Format",
+    "app.modules.audit.document-e8ecfa": "Document",
+    "app.modules.threed-renderer.format-209791": "Format",
+    "app.modules.video-renderer.format-93ef1f": "Format",
+    "app.modules.content-management.prefix-858c09": "Prefix",
+    "validation.nested": "{field}: {error}"
+  },
+  "keys": 878
+}

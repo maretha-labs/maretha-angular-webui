@@ -1,0 +1,294 @@
+// Shared declared layouts for RepositorySearchComponent. A separate stylesheet keeps each file
+// within the per-stylesheet size budget.
+// Results only: a search's filters live in its drawer (stock), never in a page column.
+:host(.stock-layout) {
+	display: grid;
+	position: relative;
+	flex: 1;
+	grid-template-columns: minmax(0, 1fr);
+	grid-template-rows: 64px minmax(0, 1fr);
+	padding: 0;
+	min-width: 0;
+	overflow: hidden;
+	.search-workspace--stock {
+		display: contents;
+	}
+	.search-heading {
+		grid-column: 1;
+		grid-row: 1;
+		margin: 0;
+		padding-block: 0;
+		padding-inline: 20px 72px;
+		gap: 12px;
+		flex-wrap: nowrap;
+		border-bottom: 1px solid var(--nuxeo-border, #ddd);
+		background: var(--nuxeo-box, #fff);
+		h1 {
+			font-size: 16px;
+			white-space: nowrap;
+		}
+	}
+	.search-heading__actions {
+		margin-inline-start: auto;
+	}
+	.search-heading__actions > button {
+		background: var(--nuxeo-primary-color, #06f);
+		color: #fff;
+		border-color: transparent;
+		white-space: nowrap;
+	}
+	.search-results-panel {
+		grid-column: 1;
+		grid-row: 2;
+		min-height: 0;
+		min-width: 0;
+		padding: 20px;
+		overflow: auto;
+	}
+	.results-toolbar {
+		min-height: 40px;
+		margin-bottom: 20px;
+	}
+	.results-toolbar__count {
+		font-weight: 400;
+		white-space: nowrap;
+	}
+}
+// Stock nuxeo-justified-grid: tiles abut; each tile's 2px border draws the gutter.
+// Stock nuxeo-results geometry (Expired, Assets, Trash): a 53px header titled at 13px from 16px in,
+// 16px gutters, the 13px count 28px under the header and the sort bar under the count row.
+:host(.stock-layout) {
+	grid-template-rows: 53px minmax(0, 1fr);
+	.search-heading {
+		padding-inline: 16px 64px;
+		h1 {
+			font-size: 13px;
+			font-weight: 400;
+			line-height: 20px;
+			letter-spacing: 0.16px;
+		}
+	}
+	.search-results-panel {
+		padding: 17px 16px 16px;
+	}
+	.results-toolbar {
+		margin-bottom: 13px;
+	}
+	.results-toolbar__count {
+		font-size: 13px;
+		line-height: 20px;
+	}
+}
+:host(.stock-layout) ::ng-deep .nx-results-projection__cards:not(.nx-results-projection__grid) {
+	// Stock list cards own their spacing; do not add the projection's generic row gap.
+	gap: 0;
+}
+// Asset tiles start 16px under the count row (no sort bar: the justified grid sorts nothing).
+:host(.justified-grid) .results-toolbar {
+	margin-bottom: 16px;
+}
+:host(.justified-grid) ::ng-deep .nx-results-projection__grid-row {
+	--nx-results-grid-row-display: flex;
+	--nx-results-grid-gap: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0;
+}
+@media (max-width: 800px) {
+	:host(.stock-layout) {
+		.search-heading {
+			padding-inline-start: 8px;
+		}
+		.search-heading h1 {
+			font-size: 14px;
+		}
+		.results-toolbar {
+			flex-direction: row;
+			align-items: center;
+		}
+	}
+}
+// Below 720px the shell's navigation toggle covers the top-left corner.
+@media (max-width: 720px) {
+	:host(.stock-layout) .search-heading {
+		padding-inline-start: 56px;
+	}
+}
+
+// The drawer's own instance (Assets, Expired, Trash): only the filter form, filling the drawer.
+:host(.drawer-only) {
+	display: block;
+	overflow: auto;
+	padding: 0;
+	height: 100%;
+}
+:host(.drawer-only) .search-heading,
+:host(.drawer-only) .search-results-panel {
+	display: none;
+}
+:host(.drawer-only) .search-workspace {
+	display: block;
+	// The filters card fills the drawer so its actions sit at the bottom (stock search form).
+	height: 100%;
+}
+:host(.drawer-only) .filters-card {
+	display: flex;
+	position: static;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	border: 0;
+	box-shadow: none;
+}
+
+// Inline forms live under their enclosing page's heading. Keep form and results in one
+// scrolling column; the stock results-only grid reserves a heading row that is absent here.
+:host(.inline-form) {
+	display: block;
+	padding: 17px 16px 16px;
+	overflow: auto;
+	font-size: 13px;
+	line-height: 1.54;
+	.search-workspace {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 16px;
+		--nx-results-projection-grid-height: max(300px, calc(100vh - 130px));
+	}
+	.search-results-panel {
+		grid-column: auto;
+		grid-row: auto;
+		padding: 0;
+		overflow: visible;
+	}
+	.results-toolbar {
+		min-height: 40px;
+		margin-bottom: 16px;
+	}
+	.result-controls .mode-group {
+		gap: 4px;
+	}
+	.result-controls .mode-button {
+		width: 2.5em;
+		height: 2.5em;
+		padding: 0.4em;
+		border: 1px solid transparent;
+		font: inherit;
+		--webui-icon-size: 100%;
+	}
+	.search-results-view {
+		position: relative;
+	}
+	nx-results-projection {
+		display: block;
+	}
+	.search-results-view__settings {
+		position: absolute;
+		top: 15.25px;
+		inset-inline-end: 0;
+		z-index: 4;
+		color: var(--nuxeo-text-light, #606978);
+	}
+}
+
+// The inline stock table uses the same 13px scale and selection controls as nuxeo-data-table.
+:host(.inline-form) ::ng-deep {
+	.ag-root-wrapper {
+		border: 2px solid transparent;
+		border-block: 0;
+		border-radius: 0;
+		font-size: 13px;
+	}
+	.ag-header-cell {
+		font-size: 13px;
+		font-weight: 600;
+		color: var(--nuxeo-text-light, #606978);
+		padding-inline: 24px;
+	}
+	nx-default-search-column-header .column-label {
+		display: grid;
+		grid-template-columns: minmax(70px, 1fr) 48px;
+		max-width: 168px;
+		justify-content: start;
+	}
+	nx-default-search-column-header .column-label nx-webui-icon {
+		margin-inline: 12px;
+	}
+	.ag-cell {
+		display: flex;
+		align-items: center;
+		padding-inline: 24px;
+		font-size: 13px;
+	}
+	nx-ag-grid-projection-cell {
+		display: flex;
+		align-items: center;
+		min-width: 0;
+		width: 100%;
+	}
+	.ag-cell[col-id='__selection'],
+	.ag-header-cell[col-id='__selection'] {
+		justify-content: center;
+		padding-inline: 0;
+	}
+	.ag-pinned-left-header,
+	.ag-pinned-right-header,
+	.ag-cell-last-left-pinned,
+	.ag-cell-first-right-pinned,
+	.ag-pinned-left-cols-container,
+	.ag-pinned-right-cols-container {
+		border-inline: 0;
+	}
+	nx-ag-grid-projection-checkbox,
+	nx-ag-grid-projection-select-all {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	nx-ag-grid-projection-checkbox input,
+	nx-ag-grid-projection-select-all input {
+		box-sizing: border-box;
+		position: relative;
+		appearance: none;
+		width: 22px;
+		height: 22px;
+		margin: 0;
+		border: 2px solid var(--nuxeo-text-default, #3a3a54);
+		border-radius: 0;
+		background: transparent;
+		cursor: pointer;
+	}
+	nx-ag-grid-projection-checkbox input:checked,
+	nx-ag-grid-projection-select-all input:checked,
+	nx-ag-grid-projection-select-all input:indeterminate {
+		border-color: var(--nuxeo-primary-color);
+		background: var(--nuxeo-primary-color);
+	}
+	nx-ag-grid-projection-checkbox input:checked::after,
+	nx-ag-grid-projection-select-all input:checked::after {
+		content: '';
+		position: absolute;
+		width: 10px;
+		height: 5px;
+		top: 4px;
+		left: 3px;
+		border-left: 2px solid white;
+		border-bottom: 2px solid white;
+		transform: rotate(-45deg);
+	}
+	nx-ag-grid-projection-select-all input:indeterminate::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		width: 10px;
+		height: 2px;
+		margin: auto;
+		background: white;
+	}
+	.search-results-view__settings button {
+		width: 19.5px;
+		height: 19.5px;
+		padding: 0;
+		--webui-icon-size: 19.5px;
+	}
+}

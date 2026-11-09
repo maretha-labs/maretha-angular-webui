@@ -1,0 +1,79 @@
+// Stock nuxeo-document-info-bar (.bar, .item, a.viewGraph, iron-icon) with paper-button.primary.
+:host {
+	display: block;
+	font-size: 13px;
+	line-height: 20px;
+	letter-spacing: 0.16px;
+}
+
+.bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 8px;
+	margin-bottom: 16px;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.04);
+	background-color: var(--nuxeo-box);
+	color: var(--nuxeo-text-default);
+}
+
+.bar.task {
+	background: black;
+	color: white;
+}
+
+.item {
+	display: flex;
+	flex: 1;
+	flex-basis: 0.000000001px;
+	align-items: center;
+	min-width: 0;
+}
+
+.icon {
+	width: 1.5em;
+	height: 24px;
+	margin: 0 0.5em;
+}
+
+.view-graph {
+	margin: 0 1em 0 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: var(--nuxeo-link-color, inherit);
+	font: inherit;
+	letter-spacing: inherit;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.view-graph:hover {
+	color: var(--nuxeo-link-hover-color, inherit);
+}
+
+.primary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	min-width: 96px;
+	min-height: 40px;
+	margin: 0;
+	padding: 8px 16px;
+	border: 1px solid var(--nuxeo-primary-color, #0066ff);
+	border-radius: 0.1em;
+	color: var(--nuxeo-button-primary-text, #fff);
+	background-color: var(--nuxeo-button-primary, #0066ff);
+	font-family: var(--nuxeo-app-font);
+	font-size: 13px;
+	font-weight: 600;
+	text-transform: capitalize;
+	cursor: pointer;
+}
+
+.primary:hover,
+.primary:focus-visible {
+	border-color: var(--nuxeo-button-primary-focus, #1f28bf);
+	background-color: var(--nuxeo-button-primary-focus, #1f28bf);
+}

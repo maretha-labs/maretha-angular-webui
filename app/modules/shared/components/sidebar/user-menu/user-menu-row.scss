@@ -1,0 +1,51 @@
+:host {
+	display: block;
+	width: 100%;
+	min-width: 0;
+	color: var(--nuxeo-drawer-text, var(--nuxeo-text-default, #333));
+}
+
+.menu-row {
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 12px 16px;
+	min-height: 48px;
+	border: 0;
+	border-radius: 24px;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	text-align: start;
+	overflow-wrap: anywhere;
+	cursor: pointer;
+}
+
+.menu-row.active,
+.menu-row:hover:not(:disabled),
+.menu-row:focus-visible {
+	background: var(--nuxeo-container-hover, var(--nuxeo-page-background, #f7f7f7));
+}
+
+.menu-row:focus-visible {
+	outline: 2px solid var(--nuxeo-primary-color, #0066ff);
+	outline-offset: -2px;
+}
+
+.menu-row:disabled {
+	color: var(--nuxeo-text-muted, #666);
+	cursor: default;
+	opacity: 0.6;
+}
+
+.menu-row[aria-current='true'] {
+	font-weight: 600;
+	opacity: 1;
+}
+
+.language-label {
+	margin: 0;
+	padding: 1.3em 1.3em 0.4em;
+	color: inherit;
+	font-size: 0.875em;
+}

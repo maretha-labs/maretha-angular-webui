@@ -1,0 +1,106 @@
+.modal-title {
+	color: var(--nuxeo-text-default, var(--bs-body-color, #3a3a54));
+	min-inline-size: 0;
+	overflow-wrap: anywhere;
+}
+
+.btn-close {
+	--bs-btn-close-color: var(--nuxeo-text-default, var(--bs-body-color, #3a3a54));
+	--bs-btn-close-opacity: 1;
+	--bs-btn-close-hover-opacity: 1;
+	--bs-btn-close-focus-opacity: 1;
+	position: relative;
+	box-sizing: border-box;
+	inline-size: 32px;
+	block-size: 32px;
+	flex: 0 0 32px;
+	color: var(--nuxeo-text-default, var(--bs-body-color, #3a3a54));
+	background: none;
+	filter: none;
+	opacity: 1;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		inset-block-start: 50%;
+		inset-inline-start: 25%;
+		inline-size: 50%;
+		border-block-start: 2px solid currentColor;
+		transform: rotate(45deg);
+	}
+
+	&::after {
+		transform: rotate(-45deg);
+	}
+
+	&:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 2px;
+		box-shadow: none;
+	}
+}
+
+.modal-footer {
+	color: var(--nuxeo-text-default, var(--bs-body-color));
+	background-color: var(--nuxeo-box, var(--bs-body-bg, #fff));
+}
+
+.modal-footer > .btn {
+	flex: 1 1 12ch;
+	min-inline-size: 0;
+	max-inline-size: 100%;
+	white-space: normal;
+	overflow-wrap: anywhere;
+	color: var(--nuxeo-text-default, var(--bs-body-color));
+	transition: none;
+
+	&[aria-disabled='true'] {
+		--bs-btn-disabled-color: var(--nuxeo-text-default, var(--bs-body-color));
+		--bs-btn-disabled-opacity: 1;
+		color: var(--nuxeo-text-default, var(--bs-body-color));
+		opacity: 1;
+		border-block-end: 2px dashed currentColor;
+		cursor: not-allowed;
+	}
+}
+
+/* Primary actions keep the button palette; the footer text color above is for link buttons. */
+.modal-footer > .btn-primary,
+.modal-footer > .btn-primary[aria-disabled='true'] {
+	color: var(--nuxeo-button-primary-text, #fff);
+}
+
+@media (forced-colors: active) {
+	.modal-footer {
+		color: CanvasText;
+		background-color: Canvas;
+	}
+
+	.modal-footer > .btn,
+	.modal-footer > .btn[aria-disabled='true'] {
+		color: ButtonText;
+		background-color: ButtonFace;
+		border-color: ButtonText;
+	}
+
+	.btn-close {
+		color: ButtonText;
+		border: 1px solid ButtonText;
+
+		&:focus-visible {
+			outline-color: Highlight;
+		}
+	}
+}
+
+.save-error {
+	padding: 16px;
+	background: var(--nuxeo-box, #fff);
+	border-inline-start: 3px solid var(--nuxeo-error-text, #b00020);
+}
+
+.save-status {
+	padding: 16px;
+	margin: 0;
+}

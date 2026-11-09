@@ -1,0 +1,10 @@
+<ng-template #container></ng-template>
+
+@if (!componentRef) {
+	<div class="alert alert-warning mb-0">
+		{{
+			'app.modules.document-type-viewer.no-viewer-is-currently-available-for-this--88cd23'
+				| webuiMessage: 'No viewer is currently available for this document type!'
+		}}
+	</div>
+}

@@ -1,0 +1,58 @@
+<div [formGroup]="formGroup" class="row">
+	<div class="col-12 mb-3">
+		<nx-users-and-groups-picker
+			formControlName="participants"
+			id="participants"
+			[label]="
+				'app.modules.serial-wf-choose-participants-task.participants-298d26'
+					| webuiMessage: 'Participants'
+			"
+			[multiple]="true"
+			[nxAutofocus]="true"
+			[nxAutofocusDelay]="400"
+			[required]="true"
+		>
+		</nx-users-and-groups-picker>
+	</div>
+	<div class="col-12 mb-3">
+		<div class="form-floating">
+			<textarea
+				formControlName="comment"
+				class="form-control"
+				[ngClass]="getValidationClassName('comment')"
+				autosize
+			>
+			</textarea>
+			<label for="comment">{{
+				'app.modules.serial-wf-choose-participants-task.comment-31fb34' | webuiMessage: 'Comment'
+			}}</label>
+		</div>
+	</div>
+	<div class="col-12 mb-3">
+		<div class="form-floating">
+			<select
+				id="validationOrReview"
+				class="form-select"
+				[ngClass]="getValidationClassName('validationOrReview')"
+				formControlName="validationOrReview"
+			>
+				<option value="simpleReview">
+					{{
+						'app.modules.serial-wf-choose-participants-task.simple-review-370c82'
+							| webuiMessage: 'Simple review'
+					}}
+				</option>
+				<option value="validation">
+					{{
+						'app.modules.serial-wf-choose-participants-task.validation-09f8a5'
+							| webuiMessage: 'Validation'
+					}}
+				</option>
+			</select>
+			<label for="validationOrReview">{{
+				'app.modules.serial-wf-choose-participants-task.review-type-dc01c4'
+					| webuiMessage: 'Review type'
+			}}</label>
+		</div>
+	</div>
+</div>

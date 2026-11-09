@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Maretha Contract development fixture
+Bundle-SymbolicName: io.maretha.webui.contract.fixture
+Bundle-Version: 0.1.0
+Nuxeo-Component: OSGI-INF/contract.xml
+

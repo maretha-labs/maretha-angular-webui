@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<fragment version="1">
+  <install>
+    <unzip from="${bundle.fileName}" to="/">
+      <include>nuxeo.war/**</include>
+    </unzip>
+  </install>
+  <!-- The application is served to signed-in users. -->
+  <extension target="web#STD-AUTH-FILTER">
+    <filter-mapping>
+      <filter-name>NuxeoAuthenticationFilter</filter-name>
+      <url-pattern>/ng/*</url-pattern>
+      <dispatcher>REQUEST</dispatcher>
+      <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+  </extension>
+  <!-- The router uses URL paths, so deep links to its top-level routes get the application
+       shell; static assets and API routes keep their normal handling. scripts/nuxeo-package.mjs
+       checks the list against app/app-routing.module.ts. -->
+  <extension target="rewrite#RULE">
+    RewriteRule ^/ng/(admin|browse|dashboard|diff|page|profile|search|settings|tasks|themes|unauthorized|user-authorized-apps|user-cloud-services)(/.*)?$ /ng/index.html [L,E=ORIGINAL_PATH:%{REQUEST_PATH}]
+  </extension>
+</fragment>

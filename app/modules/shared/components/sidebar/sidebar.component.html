@@ -1,0 +1,206 @@
+<!-- Mobile navigation exposes the same contributed items as the desktop rail. -->
+@if (userInfo()) {
+	<nav
+		class="nx-mobile-navigation"
+		[class.nx-mobile-toggle--settings-route]="isRouteActive('/settings')"
+		[attr.aria-label]="
+			'app.modules.sidebar.application-navigation-6004e0' | webuiMessage: 'Application navigation'
+		"
+	>
+		<button
+			class="nx-mobile-toggle"
+			[class.nx-mobile-toggle--open]="mobileNavigationOpen() || drawerOpen()"
+			(click)="toggleMobileNavigation($event)"
+			(keydown.escape)="closeNavigation($event)"
+			[attr.aria-label]="
+				'app.modules.sidebar.main-navigation-3f69d6' | webuiMessage: 'Main navigation'
+			"
+			aria-controls="nx-primary-navigation"
+			[attr.aria-expanded]="mobileNavigationOpen() || drawerOpen()"
+		>
+			<fa-icon icon="bars" [fixedWidth]="true"></fa-icon>
+		</button>
+	</nav>
+}
+
+@if (userInfo()) {
+	<aside
+		[attr.aria-label]="
+			'app.modules.sidebar.application-navigation-6004e0' | webuiMessage: 'Application navigation'
+		"
+		class="nx-sidebar"
+		tabindex="-1"
+		id="nx-primary-navigation"
+		[class.mobile-open]="mobileNavigationOpen() || drawerOpen()"
+		(keydown.escape)="closeNavigation($event)"
+	>
+		<!-- Logo -->
+		<button
+			type="button"
+			[attr.aria-label]="'home.dashboard' | webuiMessage: 'Dashboard'"
+			class="nx-sidebar__logo"
+			(click)="onSidebarClick('home')"
+			data-maretha-navigation-action="home"
+			data-maretha-navigation-target="sidebar"
+		>
+			<img
+				src="assets/images/logo.png"
+				[attr.alt]="'themes.default' | webuiMessage: 'Nuxeo'"
+				class="nx-sidebar__logo-img"
+			/>
+		</button>
+		<!-- Top navigation icons -->
+		<nav
+			class="nx-sidebar__nav"
+			[attr.aria-label]="
+				'app.modules.sidebar.main-navigation-3f69d6' | webuiMessage: 'Main navigation'
+			"
+		>
+			@for (item of drawerItems(); track item.key) {
+				<nx-contribution-outlet
+					class="drawer-item"
+					[contribution]="item"
+					[context]="drawerContext()"
+				/>
+			}
+		</nav>
+		<!-- Bottom icons -->
+		<nav
+			class="nx-sidebar__nav nx-sidebar__nav--bottom"
+			[attr.aria-label]="
+				'app.modules.sidebar.account-and-administration-917406'
+					| webuiMessage: 'Account and administration'
+			"
+		>
+			@if (canAccessAdministration()) {
+				<button
+					class="nx-sidebar__item"
+					[class.active]="activeTab() === 'administration' && drawerOpen()"
+					(click)="navigateToSettings()"
+					[attr.aria-label]="
+						'app.modules.sidebar.administration-6a4b44' | webuiMessage: 'Administration'
+					"
+					aria-controls="nx-sidebar-drawer"
+					[attr.aria-expanded]="activeTab() === 'administration' && drawerOpen()"
+					[nxRailTooltip]="
+						'app.settingsShared.administration-4b42c6' | webuiMessage: 'Administration'
+					"
+					data-maretha-navigation-action="settings"
+					data-maretha-navigation-target="sidebar"
+				>
+					<nx-webui-icon name="nuxeo-navigation:admin" />
+				</button>
+			}
+			<button
+				class="nx-sidebar__item"
+				[class.active]="activeTab() === 'profile' && drawerOpen()"
+				(click)="onSidebarClick('profile', $event)"
+				(keydown.escape)="closeUserMenu($event)"
+				[attr.aria-label]="'app.modules.sidebar.user-menu-b6f323' | webuiMessage: 'User menu'"
+				aria-controls="nx-sidebar-drawer"
+				[attr.aria-expanded]="activeTab() === 'profile' && drawerOpen()"
+				[nxRailTooltip]="userMenuContext().user?.displayName"
+				data-maretha-navigation-action="account"
+				data-maretha-navigation-target="sidebar"
+			>
+				<nx-webui-icon name="nuxeo-navigation:user-settings" />
+			</button>
+		</nav>
+	</aside>
+}
+
+<!-- Drawer panel -->
+@if (userInfo()) {
+	<div
+		class="nx-drawer"
+		tabindex="-1"
+		role="region"
+		[attr.aria-label]="
+			'app.modules.sidebar.navigation-details-7876a4' | webuiMessage: 'Navigation details'
+		"
+		id="nx-sidebar-drawer"
+		[attr.inert]="drawerOpen() ? null : ''"
+		[attr.aria-hidden]="!drawerOpen()"
+		(keydown.escape)="closeNavigation($event)"
+		[class.open]="drawerOpen()"
+	>
+		@if (activeTab() !== 'profile') {
+			<button
+				class="nx-mobile-drawer-close"
+				type="button"
+				(click)="closeNavigation()"
+				[attr.aria-label]="
+					'app.modules.sidebar.close-navigation-8845ce' | webuiMessage: 'Close navigation'
+				"
+			>
+				×
+			</button>
+		}
+		@if (drawerDepartureMessage()) {
+			<p role="status" class="drawer-departure-message">{{ drawerDepartureMessage() }}</p>
+		}
+		@for (entry of renderedDrawerPages(); track entry.renderKey) {
+			<div
+				class="drawer-retained-page"
+				[hidden]="!entry.active"
+				[attr.inert]="entry.active ? null : ''"
+			>
+				<nx-contribution-outlet
+					#drawerOutlet
+					class="drawer-page page"
+					[contribution]="entry.page"
+					[context]="entry.context"
+				/>
+			</div>
+		}
+		@switch (activeTab()) {
+			@case ('administration') {
+				@if (canAccessAdministration()) {
+					<nx-administration-drawer />
+				}
+			}
+			<!-- Profile drawer -->
+			@case ('profile') {
+				<div class="nx-drawer__header nx-user-menu-header">
+					<h6>{{ userMenuContext().user?.displayName }}</h6>
+					<button
+						type="button"
+						class="nx-user-menu-close"
+						[attr.aria-label]="'shell.closeUserMenu' | webuiMessage: 'Close user menu'"
+						(click)="closeUserMenu()"
+					>
+						×
+					</button>
+				</div>
+				<nav
+					class="nx-drawer__content"
+					[attr.aria-label]="'app.modules.sidebar.user-menu-b6f323' | webuiMessage: 'User menu'"
+				>
+					<nx-webui-slot name="USER_MENU" layout="stack" [context]="userMenuContext()" />
+				</nav>
+			}
+		}
+	</div>
+}
+
+<!-- Drawer edge toggle — outside drawer to avoid overflow:hidden clipping -->
+@if (userInfo() && drawerOpen()) {
+	<nav
+		tabindex="-1"
+		(keydown.escape)="closeNavigation($event)"
+		[attr.aria-label]="
+			'app.modules.sidebar.drawer-controls-6ebb60' | webuiMessage: 'Drawer controls'
+		"
+	>
+		<nx-drawer-resize-handle />
+		<button
+			class="nx-drawer-edge-toggle"
+			(click)="closeNavigation()"
+			[attr.aria-label]="
+				'app.modules.sidebar.close-navigation-8845ce' | webuiMessage: 'Close navigation'
+			"
+		>
+			<fa-icon icon="chevron-left" size="xs"></fa-icon>
+		</button>
+	</nav>
+}

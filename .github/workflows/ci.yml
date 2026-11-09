@@ -1,0 +1,319 @@
+name: Runtime CI
+
+on:
+  pull_request:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: runtime-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Runtime checks
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      NG_BUILD_MAX_WORKERS: 2
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Set up headless Chrome
+        id: chrome
+        uses: browser-actions/setup-chrome@48483d551c22a1fe6154c6a195ccc6d5773dc8c4 # v2
+        with:
+          chrome-version: stable
+          install-dependencies: true
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Core manifest
+        run: npm run verify:core-manifest
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Formatting
+        run: npm run format:check
+
+      - name: Typecheck application and tests
+        run: npm run typecheck
+
+      - name: Compile every test application's Angular templates
+        run: npm run verify:test-apps
+
+      - name: Projection template contract
+        run: npm run verify:results-projection-template-context
+
+      - name: Translation catalogs and reviewed source coverage
+        run: npm run verify:i18n
+
+      - name: Translation guard self-tests
+        run: npm run verify:i18n-guards
+
+      - name: Coverage guard self-tests
+        run: npm run verify:coverage-guard
+
+      - name: Customer zone boundaries, generators and core manifest
+        run: npm run verify:custom-guards
+
+      - name: Contribution gate decision module and runner
+        run: node --test .github/contribution-gate/gate.test.mjs .github/contribution-gate/run.test.mjs
+
+      - name: Generated customer code compiles and lints, deliberate regressions
+        run: npm run verify:custom-scaffold
+
+      - name: Example customization lints, compiles and passes its specs in a fresh worktree
+        env:
+          CHROME_BIN: ${{ steps.chrome.outputs.chrome-path }}
+        run: npm run verify:examples
+
+      - name: Polymer contribution map and parity document
+        run: npm run verify:polymer-parity
+
+      - name: Agent slot catalog
+        run: npm run verify:slot-catalog
+
+      - name: Public tree
+        run: npm run verify:public-tree
+
+      - name: Nuxeo package versions, deep-link routes and assembly
+        run: npm run verify:nuxeo-package
+
+      - name: Unit tests with coverage
+        env:
+          CHROME_BIN: ${{ steps.chrome.outputs.chrome-path }}
+        run: npm run test:coverage
+
+      - name: Coverage ratchet and exclusion inventory
+        env:
+          COVERAGE_BASE_REF: ${{ github.event.pull_request.base.sha }}
+        run: npm run verify:coverage
+
+      - name: Transfer budgets, cleanup and deliberate regressions
+        env:
+          CHROME_BIN: ${{ steps.chrome.outputs.chrome-path }}
+        run: npm run verify:transfer-check-failures
+
+      - name: Production build
+        run: npm run build:prod
+
+      - name: Nuxeo package assembles from the production build (UI bundle only, not kept)
+        run: node scripts/nuxeo-package.mjs --no-build --ui-only
+
+      - name: Licences of production dependencies and vendored files
+        run: npm run verify:licenses -- --dist dist/maretha-angular-webui
+
+      - name: Build and pack SDK
+        run: npm run pack:sdk
+
+      - name: Release identity of the SDK archive and the Nuxeo package
+        run: npm run verify:release-identity
+
+      - name: Public SDK API
+        run: npm run verify:sdk-api
+
+      - name: Contribution identities
+        run: npm run verify:sdk-ids
+
+      - name: Packaged SDK consumer
+        run: npm run verify:sdk-consumer
+
+      - name: SDK upgrade rehearsal
+        run: npm run verify:sdk-upgrade
+
+      - name: Retain verification reports
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: runtime-verification
+          path: |
+            dist/verification/
+            coverage/maretha-angular-webui/
+          if-no-files-found: warn
+
+  compiled-search:
+    name: Compiled searches with synthetic Nuxeo responses
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      NG_BUILD_MAX_WORKERS: 2
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Set up headless Chrome
+        id: chrome
+        uses: browser-actions/setup-chrome@48483d551c22a1fe6154c6a195ccc6d5773dc8c4
+        with:
+          chrome-version: stable
+          install-dependencies: true
+      - run: npm ci
+      - name: Typecheck the independent search harness
+        run: npx tsc --noEmit -p e2e/compiled-search/tsconfig.json
+      - name: Search authoring and rendered results
+        env:
+          CHROME_BIN: ${{ steps.chrome.outputs.chrome-path }}
+        run: npm run test:e2e:compiled-search
+      - name: Production fixture exclusion guard regressions
+        run: node --test scripts/verify-compiled-search-production.test.mjs
+      - name: Verify the fixture is absent from optimized production output
+        run: npm run verify:compiled-search-production
+      - name: Retain compiled search verification
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: compiled-search-verification
+          path: |
+            dist/verification/compiled-search/test-results/
+            dist/verification/compiled-search/browser-results.json
+            dist/verification/compiled-search/production-exclusion.json
+          if-no-files-found: warn
+
+  accessibility:
+    name: Accessibility scans and keyboard paths
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NG_BUILD_MAX_WORKERS: 2
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Set up headless Chrome
+        id: chrome
+        uses: browser-actions/setup-chrome@48483d551c22a1fe6154c6a195ccc6d5773dc8c4
+        with:
+          chrome-version: stable
+          install-dependencies: true
+      - run: npm ci
+      - name: Generate development pseudo-language catalog
+        run: node scripts/i18n/pseudo.mjs
+      - name: Typecheck browser checks
+        run: npx tsc --noEmit -p e2e/tsconfig.json
+      - name: Scanner exceptions and local request boundary guards
+        run: npm run verify:a11y-guards
+      - name: Axe and IBM Equal Access scans
+        env:
+          CHROME_BIN: ${{ steps.chrome.outputs.chrome-path }}
+        run: npm run test:a11y
+      - name: Capture base and candidate theme comparisons
+        if: ${{ !cancelled() && github.event_name == 'pull_request' }}
+        env:
+          CHROME_BIN: ${{ steps.chrome.outputs.chrome-path }}
+          THEME_COMPARISON_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: node e2e/a11y/theme-comparison.mjs
+      - name: Retain accessibility results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: accessibility-verification
+          path: dist/verification/a11y/
+          if-no-files-found: warn
+
+  internationalization:
+    name: Languages, Arabic direction and pseudo-language browser checks
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NG_BUILD_MAX_WORKERS: 2
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Set up headless Chrome
+        id: chrome
+        uses: browser-actions/setup-chrome@48483d551c22a1fe6154c6a195ccc6d5773dc8c4
+        with:
+          chrome-version: stable
+          install-dependencies: true
+      - run: npm ci
+      - name: Generate development pseudo-language catalog
+        run: node scripts/i18n/pseudo.mjs
+      - name: Typecheck browser checks
+        run: npx tsc --noEmit -p e2e/tsconfig.json
+      - name: Verify all locales and both themes
+        env:
+          CHROME_BIN: ${{ steps.chrome.outputs.chrome-path }}
+        run: npm run test:i18n
+      - name: Retain internationalization results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: internationalization-verification
+          path: dist/verification/i18n/
+          if-no-files-found: warn
+
+  release:
+    name: Release files and attestation
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+      artifact-metadata: write
+    env:
+      NG_BUILD_MAX_WORKERS: 2
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Set up headless Chrome
+        id: chrome
+        uses: browser-actions/setup-chrome@48483d551c22a1fe6154c6a195ccc6d5773dc8c4 # v2
+        with:
+          chrome-version: stable
+          install-dependencies: true
+      - run: npm ci
+      - name: Every check of the release mode, then the release files and their digests
+        env:
+          CHROME_BIN: ${{ steps.chrome.outputs.chrome-path }}
+        run: npm run verify:release
+      - name: Retain the release files
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: release-files
+          path: dist/release/
+          if-no-files-found: error
+      - name: Attest the release files (build provenance)
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4.2.2
+        with:
+          subject-checksums: dist/release/sha256sums

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<fragment version="1">
+  <extension target="web#SERVLET">
+    <servlet>
+      <servlet-name>io.maretha.maretha-angular-webui.server.delivery</servlet-name>
+      <servlet-class>io.maretha.webui.server.DeliveryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>io.maretha.maretha-angular-webui.server.delivery</servlet-name>
+      <url-pattern>/maretha-ui-maretha-angular-webui-delivery/v1/*</url-pattern>
+    </servlet-mapping>
+  </extension>
+  <extension target="web#STD-AUTH-FILTER">
+    <filter-mapping>
+      <filter-name>NuxeoAuthenticationFilter</filter-name>
+      <url-pattern>/maretha-ui-maretha-angular-webui-delivery/v1/*</url-pattern>
+      <dispatcher>REQUEST</dispatcher>
+      <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+  </extension>
+</fragment>

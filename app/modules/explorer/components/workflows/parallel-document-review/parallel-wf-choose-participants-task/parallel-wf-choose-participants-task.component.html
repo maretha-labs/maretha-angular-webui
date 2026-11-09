@@ -1,0 +1,51 @@
+<div [formGroup]="formGroup" class="row">
+	<div class="col-12 mb-3">
+		<nx-users-and-groups-picker
+			formControlName="participants"
+			id="participants"
+			[label]="
+				'app.modules.parallel-wf-choose-participants-task.participants-4b84b3'
+					| webuiMessage: 'Participants'
+			"
+			[multiple]="true"
+			[nxAutofocus]="true"
+			[nxAutofocusDelay]="400"
+		>
+		</nx-users-and-groups-picker>
+	</div>
+	<div class="col-12 mb-3">
+		<div class="form-floating">
+			<textarea
+				formControlName="comment"
+				class="form-control"
+				[ngClass]="getValidationClassName('comment')"
+				autosize
+			>
+			</textarea>
+			<label for="comment">{{
+				'app.modules.parallel-wf-choose-participants-task.comment-1a427e' | webuiMessage: 'Comment'
+			}}</label>
+		</div>
+	</div>
+	<div class="col-12 mb-3">
+		<div class="form-floating required">
+			<input
+				type="text"
+				class="form-control"
+				id="end_date"
+				[attr.placeholder]="
+					'app.modules.parallel-wf-choose-participants-task.end-date-eb1790'
+						| webuiMessage: 'End date'
+				"
+				[ngClass]="getValidationClassName('end_date')"
+				formControlName="end_date"
+				bsDatepicker
+				[bsConfig]="{ containerClass: 'slim-edge theme-dark-blue' }"
+			/>
+			<label for="end_date">{{
+				'app.modules.parallel-wf-choose-participants-task.end-date-eb1790'
+					| webuiMessage: 'End date'
+			}}</label>
+		</div>
+	</div>
+</div>

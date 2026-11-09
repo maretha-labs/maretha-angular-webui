@@ -1,0 +1,392 @@
+@if (document) {
+	<div class="document-layout" [class.metadata-hidden]="metadataHidden">
+		<main class="content-column">
+			@if (mayReadContent && document.type === 'Note') {
+				<section
+					class="content-card note-card"
+					[attr.aria-label]="
+						'app.modules.standard-content-layout.note-73b51c' | webuiMessage: 'Note'
+					"
+				>
+					@if (canEdit && !editing) {
+						<button
+							class="icon-button note-edit"
+							type="button"
+							(click)="beginEdit()"
+							[attr.aria-label]="
+								isHtml
+									? ('app.modules.standard-content-layout.edit-html-source-55ee59'
+										| webuiMessage: 'Edit HTML source')
+									: ('app.modules.standard-content-layout.edit-note-f221e4'
+										| webuiMessage: 'Edit note')
+							"
+							[title]="
+								isHtml
+									? ('app.modules.standard-content-layout.edit-html-source-55ee59'
+										| webuiMessage: 'Edit HTML source')
+									: ('app.modules.standard-content-layout.edit-note-f221e4'
+										| webuiMessage: 'Edit note')
+							"
+						>
+							<nx-webui-icon name="nuxeo:edit" />
+						</button>
+					}
+					@if (editing) {
+						@if (isHtml) {
+							<div class="note-mode">
+								<button
+									type="button"
+									[disabled]="saving"
+									(click)="sourceMode = !sourceMode"
+									[attr.aria-pressed]="sourceMode"
+								>
+									{{
+										sourceMode
+											? ('app.modules.standard-content-layout.visual-editor-640327'
+												| webuiMessage: 'Visual editor')
+											: ('app.modules.standard-content-layout.html-source-d0ca4b'
+												| webuiMessage: 'HTML source')
+									}}
+								</button>
+							</div>
+						}
+						@if (isHtml && !sourceMode) {
+							<nx-note-richtext-editor
+								[(value)]="draft"
+								[disabled]="saving || !canEdit"
+								[placeholder]="
+									'app.modules.standard-content-layout.write-your-note-here-0584dc'
+										| webuiMessage: 'Write your note here'
+								"
+							/>
+						} @else {
+							<textarea
+								[attr.aria-label]="
+									'app.modules.standard-content-layout.note-content-faf20b'
+										| webuiMessage: 'Note content'
+								"
+								[(ngModel)]="draft"
+								[disabled]="saving"
+								[attr.placeholder]="
+									'app.modules.standard-content-layout.write-your-note-here-0584dc'
+										| webuiMessage: 'Write your note here'
+								"
+							></textarea>
+						}
+						<div class="note-actions">
+							<button type="button" (click)="cancelEdit()" [disabled]="saving">
+								{{
+									'app.modules.standard-content-layout.cancel-9eb0de' | webuiMessage: 'Cancel'
+								}}</button
+							><button
+								type="button"
+								class="primary"
+								(click)="saveNote()"
+								[disabled]="saving || !canEdit"
+							>
+								{{
+									saving
+										? ('sdk.layout.saving' | webuiMessage: 'Saving…')
+										: ('app.modules.standard-content-layout.save-be43c4' | webuiMessage: 'Save')
+								}}
+							</button>
+						</div>
+					} @else if (isHtml) {
+						<div class="note-html" nxNoteContentLocale [innerHTML]="draft | noteHtml"></div>
+					} @else if (isMarkdown) {
+						<markdown [data]="draft" />
+					} @else {
+						<pre class="note-text">{{ draft }}</pre>
+					}
+				</section>
+			} @else if (mayReadContent) {
+				<section
+					class="content-card media-card"
+					[attr.aria-label]="
+						'content.previewType' | webuiMessage: '{type} preview' : { type: document.type }
+					"
+				>
+					<div class="media-preview" [class.audio-preview]="document.type === 'Audio'">
+						@if (blob?.data) {
+							@if (document.type === 'Video') {
+								<video
+									[nxStreamMedia]="previewBlob"
+									[streamDocument]="document"
+									(streamError)="mediaError = $event"
+									(streamReady)="mediaError = ''"
+									#player
+									[poster]="thumbnail"
+									controls
+									controlsList="nodownload"
+									playsinline
+									preload="metadata"
+									[attr.aria-label]="
+										'app.modules.standard-content-layout.video-player-1a1014'
+											| webuiMessage: 'Video player'
+									"
+								></video>
+								@if (storyboard.length) {
+									<div
+										class="storyboard"
+										[attr.aria-label]="
+											'app.modules.standard-content-layout.video-storyboard-4d811f'
+												| webuiMessage: 'Video storyboard'
+										"
+									>
+										@for (frame of storyboard; track $index) {
+											<button
+												type="button"
+												(click)="seek(player, frame.timecode)"
+												[attr.aria-label]="
+													'media.seekSeconds'
+														| webuiMessage
+															: 'Seek to {seconds, number} seconds'
+															: { seconds: frame.timecode }
+												"
+											>
+												<img
+													nxLazyLoad
+													[src]="frame.content?.viewUrl || frame.content?.data"
+													alt=""
+												/>
+											</button>
+										}
+									</div>
+								}
+							} @else {
+								<audio
+									[nxStreamMedia]="blob"
+									[streamDocument]="document"
+									(streamError)="mediaError = $event"
+									(streamReady)="mediaError = ''"
+									controls
+									preload="metadata"
+									[attr.aria-label]="
+										'app.modules.standard-content-layout.audio-player-942539'
+											| webuiMessage: 'Audio player'
+									"
+								></audio>
+							}
+						} @else if (thumbnail) {
+							<img nxLazyLoad class="empty-preview" [src]="thumbnail" alt="" />
+						}
+					</div>
+					@if (blob?.data) {
+						<div class="blob-row">
+							<button type="button" class="download-link" (click)="download($event, blob)">
+								{{ blob.name }}</button
+							><span>{{ blob.length | fileSize }}</span
+							><nx-webui-slot name="BLOB_ACTIONS" [context]="blobActions" />
+						</div>
+						@if (confirmRemove) {
+							<div
+								class="remove-confirmation"
+								role="group"
+								[attr.aria-label]="
+									'app.modules.standard-content-layout.remove-file-confirmation-707cea'
+										| webuiMessage: 'Remove file confirmation'
+								"
+							>
+								<span>{{
+									'app.modules.standard-content-layout.remove-the-attached-file-172d95'
+										| webuiMessage: 'Remove the attached file?'
+								}}</span
+								><button type="button" [disabled]="saving" (click)="confirmRemove = false">
+									{{
+										'app.modules.standard-content-layout.cancel-9eb0de' | webuiMessage: 'Cancel'
+									}}</button
+								><button type="button" [disabled]="saving" (click)="removeBlob()">
+									{{ 'app.modules.standard-content-layout.remove-11de9f' | webuiMessage: 'Remove' }}
+								</button>
+							</div>
+						}
+					} @else if (canEdit) {
+						<label class="upload"
+							>{{
+								saving
+									? ('app.modules.standard-content-layout.uploading-97ce35'
+										| webuiMessage: 'Uploading…')
+									: ('app.modules.standard-content-layout.click-to-upload-a-file-ce0a3b'
+										| webuiMessage: 'Click to upload a file')
+							}}<input
+								type="file"
+								[accept]="document.type === 'Audio' ? 'audio/*' : 'video/*'"
+								[disabled]="saving"
+								(change)="upload($event)"
+						/></label>
+					}
+				</section>
+				@if (document.type === 'Video') {
+					<section
+						class="content-card video-info"
+						[attr.aria-label]="
+							'app.modules.standard-content-layout.video-information-e0d6d4'
+								| webuiMessage: 'Video information'
+						"
+					>
+						<dl>
+							<div>
+								<dt>
+									{{ 'app.modules.standard-content-layout.format-f33b6e' | webuiMessage: 'Format' }}
+								</dt>
+								<dd>{{ videoInfo?.format }}</dd>
+							</div>
+							<div>
+								<dt>{{ 'videoViewLayout.duration' | webuiMessage: 'Duration' }}</dt>
+								<dd>{{ videoInfo?.duration | webuiNumber }}</dd>
+							</div>
+							<div>
+								<dt>{{ 'videoViewLayout.width' | webuiMessage: 'Width' }}</dt>
+								<dd>{{ videoInfo?.width | webuiNumber }}</dd>
+							</div>
+							<div>
+								<dt>{{ 'videoViewLayout.height' | webuiMessage: 'Height' }}</dt>
+								<dd>{{ videoInfo?.height | webuiNumber }}</dd>
+							</div>
+							<div>
+								<dt>
+									{{
+										'app.modules.standard-content-layout.frame-rate-a9cf28'
+											| webuiMessage: 'Frame rate'
+									}}
+								</dt>
+								<dd>{{ videoInfo?.frameRate | webuiNumber }}</dd>
+							</div>
+						</dl>
+					</section>
+					<section
+						class="content-card conversions"
+						[attr.aria-label]="
+							'app.modules.standard-content-layout.video-conversions-73fd4a'
+								| webuiMessage: 'Video conversions'
+						"
+					>
+						<h3>
+							{{
+								'app.modules.standard-content-layout.video-conversions-73fd4a'
+									| webuiMessage: 'Video conversions'
+							}}
+						</h3>
+						@for (conversion of conversions; track $index) {
+							<div class="conversion">
+								<strong>{{ conversion.name }}</strong
+								><span
+									>{{ conversion.info?.width | webuiNumber }} ×
+									{{ conversion.info?.height | webuiNumber }}</span
+								><span>{{ conversion.content.length | fileSize }}</span
+								><button
+									type="button"
+									class="download-link"
+									(click)="download($event, conversion.content)"
+									[attr.aria-label]="
+										'action.downloadNamed'
+											| webuiMessage: 'Download {name}' : { name: conversion.name }
+									"
+								>
+									<nx-webui-icon name="nuxeo:download" />
+								</button>
+							</div>
+						}
+					</section>
+				}
+			}
+			@if (mediaError) {
+				<p role="alert">{{ mediaError }}</p>
+			}
+			@if (error) {
+				<p class="save-error" role="alert">{{ error }}</p>
+			}
+		</main>
+		<aside
+			[hidden]="metadataHidden"
+			[attr.aria-label]="
+				'app.modules.standard-content-layout.document-details-de920b'
+					| webuiMessage: 'Document details'
+			"
+		>
+			<header class="metadata-heading">
+				<button
+					type="button"
+					class="icon-button"
+					[attr.aria-label]="
+						'app.modules.standard-content-layout.hide-metadata-f27738'
+							| webuiMessage: 'Hide metadata'
+					"
+					(click)="toggleMetadata()"
+				>
+					<nx-webui-icon name="nuxeo:details" />
+				</button>
+			</header>
+			<nx-document-details-panel
+				[document]="document"
+				[noEdit]="noEdit || layoutContext?.noEdit === true"
+			/>
+		</aside>
+		<dialog #versionsDialog aria-labelledby="create-version-title">
+			<h2 id="create-version-title">
+				{{
+					'version.createFor'
+						| webuiMessage: 'Create version for {title}' : { title: document.title }
+				}}
+			</h2>
+			<label
+				><input
+					type="radio"
+					name="versionKind"
+					value="minor"
+					[(ngModel)]="versionKind"
+					[disabled]="versionSaving"
+				/>
+				{{
+					'version.minor'
+						| webuiMessage: '{version} — Minor version' : { version: nextMinorVersion }
+				}}</label
+			>
+			<label
+				><input
+					type="radio"
+					name="versionKind"
+					value="major"
+					[(ngModel)]="versionKind"
+					[disabled]="versionSaving"
+				/>
+				{{
+					'version.major'
+						| webuiMessage: '{version} — Major version' : { version: nextMajorVersion }
+				}}</label
+			>
+			@if (versionError) {
+				<p role="alert">{{ versionError }}</p>
+			}
+			<div class="note-actions">
+				<button type="button" [disabled]="versionSaving" (click)="versionsDialog.close()">
+					{{ 'app.modules.standard-content-layout.cancel-9eb0de' | webuiMessage: 'Cancel' }}</button
+				><button
+					type="button"
+					class="primary"
+					[disabled]="versionSaving"
+					(click)="createVersion(versionsDialog)"
+				>
+					{{
+						versionSaving
+							? ('app.modules.standard-content-layout.creating-6b4ee2' | webuiMessage: 'Creating…')
+							: ('app.modules.standard-content-layout.create-version-b32ae0'
+								| webuiMessage: 'Create Version')
+					}}
+				</button>
+			</div>
+		</dialog>
+		@if (metadataHidden) {
+			<button
+				type="button"
+				class="icon-button show-metadata"
+				[attr.aria-label]="
+					'app.modules.standard-content-layout.show-metadata-23569d' | webuiMessage: 'Show metadata'
+				"
+				(click)="toggleMetadata()"
+			>
+				<nx-webui-icon name="nuxeo:details" />
+			</button>
+		}
+	</div>
+}

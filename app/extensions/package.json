@@ -1,0 +1,32 @@
+{
+  "name": "@maretha/webui-sdk",
+  "version": "1.0.0",
+  "description": "Angular 21 contribution contracts, registry and hosts for Maretha WebUI",
+  "license": "Apache-2.0 AND BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maretha-labs/maretha-angular-webui.git",
+    "directory": "app/extensions"
+  },
+  "homepage": "https://github.com/maretha-labs/maretha-angular-webui#readme",
+  "bugs": {
+    "url": "https://github.com/maretha-labs/maretha-angular-webui/issues"
+  },
+  "sideEffects": false,
+  "peerDependencies": {
+    "@angular/common": "^21.2.0",
+    "@angular/cdk": "^21.2.0",
+    "@angular/core": "^21.2.0",
+    "@angular/forms": "^21.2.0",
+    "@angular/router": "^21.2.0",
+    "ag-grid-angular": "^36.2.0",
+    "ag-grid-community": "^36.2.0",
+    "rxjs": "^7.5.0"
+  },
+  "dependencies": {
+    "fast-deep-equal": "^3.1.3",
+    "tslib": "^2.3.0",
+    "@ag-grid-community/locale": "36.2.0",
+    "intl-messageformat": "10.7.18"
+  }
+}

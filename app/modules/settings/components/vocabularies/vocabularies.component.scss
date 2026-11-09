@@ -1,0 +1,296 @@
+.nx-vocabularies {
+	padding: 16px;
+	color: var(--nuxeo-text-default);
+
+	&__actions,
+	> nav {
+		display: flex;
+		align-items: end;
+		gap: 12px;
+		margin-bottom: 16px;
+	}
+
+	&__actions {
+		justify-content: flex-end;
+		margin-block: 13px;
+	}
+
+	&__add,
+	&__icon-action {
+		border: 0;
+		background: transparent;
+		color: var(--nuxeo-primary-color);
+		font: inherit;
+		border-radius: 2px;
+	}
+
+	&__add {
+		min-height: 40px;
+		padding: 8px 16px;
+		font-weight: 600;
+	}
+
+	&__icon-action {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		padding: 8px;
+		color: var(--nuxeo-text-default);
+		--webui-icon-size: 24px;
+	}
+
+	button:disabled {
+		opacity: 0.4;
+		cursor: default;
+	}
+
+	button:focus-visible {
+		outline: 2px solid var(--nuxeo-primary-color);
+		outline-offset: 2px;
+	}
+
+	> header {
+		display: block;
+		padding: 16px;
+		margin-bottom: 24px;
+		background: var(--nuxeo-box);
+		box-shadow: var(--maretha-style-shadow-card);
+	}
+
+	> header label {
+		display: grid;
+		gap: 5px;
+		font-size: 0.85rem;
+		font-weight: 600;
+	}
+
+	> header button {
+		display: none;
+	}
+
+	select,
+	input {
+		min-height: 34px;
+		border: 0;
+		border-bottom: 1px solid var(--nuxeo-text-default);
+		border-radius: 0;
+		padding: 5px 0;
+		background: transparent;
+		color: var(--nuxeo-text-default);
+	}
+
+	.table {
+		margin: 0;
+		background: var(--nuxeo-box);
+		border: 1px solid var(--nuxeo-border);
+
+		th {
+			font-size: 13px;
+			font-weight: 700;
+			letter-spacing: 0.02em;
+			text-transform: none;
+			color: var(--nuxeo-text-default);
+		}
+
+		th,
+		td {
+			padding: 15px 26px;
+			border-color: var(--nuxeo-border);
+			vertical-align: middle;
+		}
+
+		td button + button {
+			margin-inline-start: 8px;
+		}
+	}
+
+	&__backdrop {
+		position: fixed;
+		inset: 0;
+		z-index: 1080;
+		display: grid;
+		place-items: center;
+		padding: 24px;
+		background: rgba(0, 0, 0, 0.6);
+	}
+
+	&__dialog {
+		width: min(480px, 100%);
+		max-height: calc(100dvh - 48px);
+		overflow: auto;
+		padding: 0;
+		background: var(--nuxeo-box);
+		border: 0;
+		border-radius: 0;
+		box-shadow:
+			0 16px 24px 2px rgba(0, 0, 0, 0.14),
+			0 6px 30px 5px rgba(0, 0, 0, 0.12),
+			0 8px 10px -5px rgba(0, 0, 0, 0.4);
+		font-size: 13px;
+		line-height: 1.54;
+
+		fieldset {
+			display: grid;
+			gap: 16px;
+			border: 0;
+			padding: 0;
+			margin: 0;
+		}
+
+		h2 {
+			margin: 24px 0 0;
+			padding-inline: 24px;
+			font-size: 2.15em;
+			font-weight: 400;
+			line-height: 36.01px;
+		}
+
+		label {
+			display: grid;
+			gap: 5px;
+			font-size: 13px;
+			font-weight: 400;
+			padding-block-end: 8px;
+			line-height: 20.02px;
+		}
+
+		input:not([type='checkbox']),
+		select {
+			width: 100%;
+			min-height: 25px;
+			height: 25px;
+			margin-bottom: 1px;
+			padding: 0;
+			font-size: 16px;
+			line-height: 24px;
+			border-bottom-width: 1px;
+			border-bottom-color: var(--nuxeo-text-default);
+			outline: none;
+			&:focus {
+				height: 26px;
+				margin-bottom: 0;
+				border-bottom-width: 2px;
+				border-bottom-color: var(--nuxeo-primary-color);
+			}
+		}
+
+		.nx-vocabularies__switch-field {
+			gap: 0;
+			padding: 0;
+		}
+
+		input[type='checkbox'] {
+			appearance: none;
+			position: relative;
+			width: 38px;
+			height: 22px;
+			min-height: 0;
+			padding: 0;
+			margin: 0;
+			border: 0;
+			cursor: pointer;
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+				inset-inline-start: 1px;
+				background: var(--nuxeo-text-disabled, #6c6f7c);
+			}
+			&::before {
+				top: 4px;
+				width: 36px;
+				height: 14px;
+				border-radius: 8px;
+				opacity: 0.4;
+			}
+			&::after {
+				top: 1px;
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+			}
+			&:checked::before,
+			&:checked::after {
+				background: var(--nuxeo-primary-color);
+			}
+			&:checked::after {
+				inset-inline-start: 17px;
+			}
+			&:focus-visible {
+				outline: 2px solid var(--nuxeo-primary-color);
+				outline-offset: 3px;
+			}
+			&:disabled {
+				opacity: 0.4;
+				cursor: default;
+			}
+		}
+	}
+
+	&__editor-body {
+		margin: 16px 24px 0;
+	}
+
+	&__required {
+		color: var(--nuxeo-error-color, #de350b);
+		margin-inline-start: 4px;
+	}
+
+	&__dialog--confirm {
+		width: min(400px, 100%);
+		padding: 24px;
+		h2 {
+			margin: 0 0 8px;
+			padding: 0;
+		}
+	}
+
+	&__editor-actions {
+		display: flex;
+		justify-content: space-between;
+		gap: 8px;
+		margin-top: 16px;
+		padding: 8px 16px 8px 24px;
+		button {
+			min-width: 96px;
+			height: 40px;
+			padding: 8px 16px;
+			border: 1px solid var(--nuxeo-primary-color);
+			border-radius: 2px;
+			font: inherit;
+			font-weight: 600;
+		}
+	}
+
+	&__cancel {
+		color: var(--nuxeo-primary-color);
+		background: transparent;
+	}
+
+	&__save {
+		color: white;
+		background: var(--nuxeo-primary-color);
+	}
+}
+
+@media (max-width: 540px) {
+	.nx-vocabularies {
+		padding: 12px;
+
+		> header {
+			align-items: stretch;
+			flex-direction: column;
+		}
+
+		&__backdrop {
+			padding: 12px;
+		}
+
+		&__dialog {
+			max-height: calc(100dvh - 24px);
+		}
+	}
+}

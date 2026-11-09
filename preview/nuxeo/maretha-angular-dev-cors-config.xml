@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<component name="io.maretha.webui.local.cors">
+  <require>org.nuxeo.ecm.platform.ui.web.cors</require>
+  <extension target="org.nuxeo.ecm.platform.web.common.requestcontroller.service.RequestControllerService" point="corsConfig">
+    <corsConfig name="maretha-angular-local"
+      allowOrigin="http://localhost:4200"
+      allowSubdomains="false"
+      supportsCredentials="false"
+      supportedMethods="GET,HEAD,POST,PUT,PATCH,DELETE,OPTIONS"
+      supportedHeaders="*"
+      exposedHeaders="Location,Content-Disposition,Content-Length,Content-Range,Accept-Ranges"
+      maxAge="60">
+      <pattern>/nuxeo/.*</pattern>
+    </corsConfig>
+  </extension>
+</component>

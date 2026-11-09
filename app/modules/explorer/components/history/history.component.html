@@ -1,0 +1,24 @@
+<div class="list-group-container">
+	<nx-results-projection
+		mode="table"
+		[rows]="documentHistory()"
+		[columns]="columns"
+		[selectionEnabled]="false"
+	>
+		<ng-template nxResultsTemplate="cell:title" let-row="row">
+			<nx-document-icon-and-title
+				[document]="row"
+				[disabled]="row.uid === uid()"
+				[compact]="true"
+			/>
+		</ng-template>
+	</nx-results-projection>
+</div>
+
+<div class="p-2 pb-0">
+	<button (click)="clearHistory()" class="btn btn-outline-primary text-center w-100">
+		<fa-icon [fixedWidth]="true" icon="eraser"></fa-icon>
+
+		{{ 'app.modules.history.clear-history-5edc22' | webuiMessage: 'Clear history' }}
+	</button>
+</div>

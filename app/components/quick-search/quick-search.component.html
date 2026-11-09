@@ -1,0 +1,139 @@
+<button
+	class="search-toggle"
+	type="button"
+	[attr.aria-label]="'pickerSearch.title' | webuiMessage: 'Quick Search'"
+	[attr.aria-expanded]="open()"
+	aria-haspopup="dialog"
+	(click)="show()"
+>
+	<nx-webui-icon name="nuxeo:search" />
+</button>
+@if (open()) {
+	<dialog
+		#dialog
+		role="dialog"
+		[attr.aria-label]="'pickerSearch.title' | webuiMessage: 'Quick Search'"
+		(cancel)="$event.preventDefault(); close()"
+		(keydown)="keys($event)"
+		(click)="$event.target === dialog && close()"
+	>
+		<div class="search-bar">
+			<input
+				#searchInput
+				type="search"
+				autocomplete="off"
+				[value]="term()"
+				[attr.aria-label]="
+					'suggester.label' | webuiMessage: 'Search for documents, users, or groups...'
+				"
+				[placeholder]="
+					'suggester.label' | webuiMessage: 'Search for documents, users, or groups...'
+				"
+				(input)="update(searchInput.value)"
+			/>
+			@if (term()) {
+				<button
+					class="clear"
+					type="button"
+					[attr.aria-label]="'suggester.clearSearch' | webuiMessage: 'Clear search'"
+					(click)="clear()"
+				>
+					×
+				</button>
+			}
+			<button
+				class="search-toggle close"
+				type="button"
+				[attr.aria-label]="
+					'app.components.quick-search.close-quick-search-13a285'
+						| webuiMessage: 'Close Quick Search'
+				"
+				(click)="close()"
+			>
+				<nx-webui-icon name="nuxeo:search" />
+			</button>
+		</div>
+		<div class="results">
+			@if (loading()) {
+				<p role="status">
+					{{ 'app.components.quick-search.searching-9c5b46' | webuiMessage: 'Searching…' }}
+				</p>
+			}
+			@if (error()) {
+				<p role="alert">
+					{{ error() }}
+					<button type="button" (click)="retry()">
+						{{ 'app.components.quick-search.retry-bb789f' | webuiMessage: 'Retry' }}
+					</button>
+				</p>
+			}
+			@if (term().trim() && !loading() && !error() && !items().length && !commandCount()) {
+				<p role="status">
+					{{
+						'app.components.quick-search.no-results-found-63260b'
+							| webuiMessage: 'No results found.'
+					}}
+				</p>
+			}
+			<div
+				role="listbox"
+				[attr.aria-label]="
+					'app.components.quick-search.search-results-98c442' | webuiMessage: 'Search results'
+				"
+				[attr.aria-busy]="loading()"
+			>
+				@for (item of items(); track item.type + ':' + item.repository + ':' + item.id) {
+					<a
+						class="result"
+						[href]="destination(item)"
+						role="option"
+						[attr.aria-selected]="activeId() === item.type + ':' + item.id"
+						(focus)="activeId.set(item.type + ':' + item.id)"
+						(blur)="activeId.set('')"
+						data-search-result
+						[attr.aria-disabled]="navigating()"
+						(click)="activateLink($event, item)"
+					>
+						@if (item.thumbnail) {
+							<img [src]="item.thumbnail" alt="" />
+						} @else {
+							<nx-webui-icon
+								[name]="
+									item.type === 'document'
+										? 'nuxeo:asset'
+										: item.type === 'user'
+											? 'nuxeo:user'
+											: 'nuxeo:group'
+								"
+							/>
+						}
+						<span class="details"
+							><span class="label">{{ item.label }}</span
+							><small>{{ destination(item) }}</small>
+							@for (highlight of item.highlightFields ?? []; track $index) {
+								<span class="highlight"
+									><span class="highlight-field">{{
+										'searchResults.highlight.field.' + highlight.field
+											| webuiMessage: highlight.field
+									}}</span>
+									@for (segment of highlight.segments; track $index) {
+										<span>
+											@for (chunk of segment; track $index) {
+												@if (chunk.matched) {
+													<em>{{ chunk.text }}</em>
+												} @else {
+													{{ chunk.text }}
+												}
+											}
+										</span>
+									}
+								</span>
+							}
+						</span>
+					</a>
+				}
+				<nx-webui-slot name="QUICK_SEARCH_ACTIONS" layout="stack" [context]="commandContext()" />
+			</div>
+		</div>
+	</dialog>
+}

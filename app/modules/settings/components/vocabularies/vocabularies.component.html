@@ -1,0 +1,267 @@
+<section class="nx-vocabularies">
+	<header>
+		<label
+			>{{ 'app.modules.vocabularies.vocabulary-748809' | webuiMessage: 'Vocabulary' }}
+			<select
+				[ngModel]="selected"
+				(ngModelChange)="selectDirectory($event)"
+				[disabled]="busy || catalogLoading"
+			>
+				<option value="">
+					{{
+						'app.modules.vocabularies.select-a-vocabulary-256030'
+							| webuiMessage: 'Select a vocabulary'
+					}}
+				</option>
+				@for (directory of directories; track directory.name) {
+					<option [value]="directory.name">{{ directory.name }}</option>
+				}
+			</select></label
+		><button
+			class="btn btn-outline-secondary"
+			(click)="refresh()"
+			[disabled]="loading || catalogLoading || busy"
+		>
+			{{ 'app.modules.vocabularies.retry-c83dbb' | webuiMessage: 'Retry' }}
+		</button>
+	</header>
+	@if (loading || catalogLoading) {
+		<p role="status">{{ 'app.modules.vocabularies.loading-a8b66a' | webuiMessage: 'Loading…' }}</p>
+	}
+	@if (error) {
+		<p role="alert">{{ error }}</p>
+	}
+	@if (selected) {
+		<div class="nx-vocabularies__actions">
+			<button
+				type="button"
+				class="nx-vocabularies__add"
+				(click)="create($event)"
+				[disabled]="!canMutate()"
+			>
+				+ {{ 'vocabularyManagement.addEntry' | webuiMessage: 'Add Entry' }}
+			</button>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					@for (column of columns(); track column) {
+						<th>{{ 'vocabularyManagement.edit.' + column | webuiMessage: columnLabel(column) }}</th>
+					}
+					<th>{{ 'app.modules.vocabularies.actions-e7048e' | webuiMessage: 'Actions' }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (entry of entries; track entry.id) {
+					<tr>
+						@for (column of columns(); track column) {
+							<td>
+								{{
+									column === 'obsolete'
+										? +$any(entry.properties[column]) > 0
+											? ('app.modules.vocabularies.yes-ff114f' | webuiMessage: 'Yes')
+											: ('app.modules.vocabularies.no-2256cf' | webuiMessage: 'No')
+										: entry.properties[column]
+								}}
+							</td>
+						}
+						<td>
+							<button
+								type="button"
+								class="nx-vocabularies__icon-action"
+								(click)="edit(entry, $event)"
+								[disabled]="!canMutate()"
+								[attr.aria-label]="'vocabularyManagement.editEntry' | webuiMessage: 'Edit Entry'"
+								[title]="'vocabularyManagement.editEntry' | webuiMessage: 'Edit Entry'"
+							>
+								<nx-webui-icon name="nuxeo:edit" /></button
+							><button
+								type="button"
+								class="nx-vocabularies__icon-action"
+								(click)="requestDelete(entry, $event)"
+								[disabled]="!canMutate()"
+								[attr.aria-label]="
+									'vocabularyManagement.deleteEntry' | webuiMessage: 'Delete Entry'
+								"
+								[title]="'vocabularyManagement.deleteEntry' | webuiMessage: 'Delete Entry'"
+							>
+								<nx-webui-icon name="nuxeo:delete" />
+							</button>
+						</td>
+					</tr>
+				}
+				@if (!loading && entries.length === 0) {
+					<tr>
+						<td [attr.colspan]="columns().length + 1">
+							{{ 'app.modules.vocabularies.no-entries-8cd961' | webuiMessage: 'No entries.' }}
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+		<nav>
+			<button (click)="previous()" [disabled]="page === 0 || loading">
+				{{ 'app.modules.vocabularies.previous-43d317' | webuiMessage: 'Previous' }}</button
+			><button (click)="next()" [disabled]="!hasNextPage || loading">
+				{{ 'app.modules.vocabularies.next-dc78ee' | webuiMessage: 'Next' }}
+			</button>
+		</nav>
+	}
+	@if (editing; as entry) {
+		<div class="nx-vocabularies__backdrop">
+			<div
+				class="nx-vocabularies__dialog"
+				role="dialog"
+				aria-modal="true"
+				aria-labelledby="nx-vocabulary-editor-title"
+				(keydown)="handleDialogKeydown($event)"
+			>
+				<h2 id="nx-vocabulary-editor-title">
+					{{
+						isNew
+							? ('vocabularyManagement.popup.addEntry' | webuiMessage: 'Add Vocabulary Entry')
+							: ('vocabularyManagement.popup.editEntry' | webuiMessage: 'Edit Vocabulary Entry')
+					}}
+				</h2>
+				<div class="nx-vocabularies__editor-body">
+					@if (layout(); as layout) {
+						<ng-container
+							*ngComponentOutlet="layout.component; inputs: { context: layoutContext() }"
+						/>
+					} @else {
+						<fieldset [disabled]="!canMutate()">
+							@if (needsParent()) {
+								<label
+									>{{ 'vocabularyManagement.edit.parent' | webuiMessage: 'Parent' }}
+									<select
+										name="parent"
+										[(ngModel)]="entry.properties['parent']"
+										(ngModelChange)="markDirty()"
+										[required]="parentRequired()"
+									>
+										<option value="">
+											{{
+												'app.modules.vocabularies.select-parent-73527c'
+													| webuiMessage: 'Select parent'
+											}}
+										</option>
+										@for (parent of parentOptions(); track parent.id) {
+											<option [value]="parent.properties['id']">
+												{{
+													parent.properties['label'] ||
+														parent.properties['label_en'] ||
+														parent.properties['id']
+												}}
+											</option>
+										}
+									</select></label
+								>
+							}
+							<label>
+								<span
+									>{{ 'vocabularyManagement.edit.id' | webuiMessage: 'ID'
+									}}<span class="nx-vocabularies__required" aria-hidden="true">*</span></span
+								>
+								<input
+									name="id"
+									[(ngModel)]="entry.properties['id']"
+									(ngModelChange)="markDirty()"
+									[readonly]="!isNew"
+									required
+							/></label>
+							@if (schema().includes('l10n')) {
+								<label
+									>{{
+										'app.modules.vocabularies.english-label-856b69' | webuiMessage: 'English label'
+									}}
+									<input
+										name="label_en"
+										[(ngModel)]="entry.properties['label_en']"
+										(ngModelChange)="markDirty()" /></label
+								><label
+									>{{
+										'app.modules.vocabularies.french-label-3cdc0b' | webuiMessage: 'French label'
+									}}
+									<input
+										name="label_fr"
+										[(ngModel)]="entry.properties['label_fr']"
+										(ngModelChange)="markDirty()"
+								/></label>
+							} @else {
+								<label
+									>{{ 'vocabularyManagement.edit.label' | webuiMessage: 'Label' }}
+									<input
+										name="label"
+										[(ngModel)]="entry.properties['label']"
+										(ngModelChange)="markDirty()"
+								/></label>
+							}
+							<label class="nx-vocabularies__switch-field">
+								{{ 'vocabularyManagement.edit.obsolete' | webuiMessage: 'Obsolete' }}
+								<input
+									type="checkbox"
+									role="switch"
+									name="obsolete"
+									[ngModel]="+$any(entry.properties['obsolete']) > 0"
+									(ngModelChange)="entry.properties['obsolete'] = $event ? 1 : 0; markDirty()"
+								/> </label
+							><label
+								>{{ 'vocabularyManagement.edit.ordering' | webuiMessage: 'Ordering' }}
+								<input
+									type="number"
+									name="ordering"
+									[(ngModel)]="entry.properties['ordering']"
+									(ngModelChange)="markDirty()"
+							/></label>
+						</fieldset>
+					}
+				</div>
+				<div class="nx-vocabularies__editor-actions">
+					<button
+						class="nx-vocabularies__cancel"
+						data-dialog-initial
+						type="button"
+						(click)="cancel()"
+						[disabled]="busy"
+					>
+						{{ 'command.cancel' | webuiMessage: 'Cancel' }}</button
+					><button
+						class="nx-vocabularies__save"
+						data-testid="directory-save"
+						type="button"
+						(click)="save()"
+						[disabled]="!canMutate()"
+					>
+						{{ 'command.save' | webuiMessage: 'Save' }}
+					</button>
+				</div>
+			</div>
+		</div>
+	}
+	@if (deleteTarget; as target) {
+		<div class="nx-vocabularies__backdrop">
+			<div
+				class="nx-vocabularies__dialog nx-vocabularies__dialog--confirm"
+				role="dialog"
+				aria-modal="true"
+				aria-labelledby="nx-vocabulary-delete-title"
+				(keydown)="handleDialogKeydown($event, true)"
+			>
+				<h2 id="nx-vocabulary-delete-title">
+					{{ 'app.modules.vocabularies.delete-entry-679cf9' | webuiMessage: 'Delete entry' }}
+				</h2>
+				<p>
+					{{
+						'vocabulary.deleteConfirm'
+							| webuiMessage: 'Delete {id}?' : { id: target.properties['id'] }
+					}}
+				</p>
+				<button data-dialog-initial (click)="cancelDelete()" [disabled]="busy">
+					{{ 'app.modules.vocabularies.cancel-9bb10d' | webuiMessage: 'Cancel' }}</button
+				><button (click)="confirmDelete()" [disabled]="busy">
+					{{ 'app.modules.vocabularies.delete-355662' | webuiMessage: 'Delete' }}
+				</button>
+			</div>
+		</div>
+	}
+</section>

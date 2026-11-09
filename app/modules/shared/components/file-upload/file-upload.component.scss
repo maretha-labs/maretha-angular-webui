@@ -1,0 +1,60 @@
+@import '../../../../../styles/variables';
+
+.form-file {
+	position: relative;
+	width: 100%;
+	border-radius: 0 0 var(--bs-btn-border-radius) var(--bs-btn-border-radius);
+
+	&::after {
+		content: '';
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.2s ease-in-out;
+		inset-block-start: -0.5rem;
+		inset-inline-start: -0.5rem;
+		inset-inline-end: -0.5rem;
+		inset-block-end: -0.5rem;
+		border-radius: 0.3rem;
+		background-color: rgba(var(--nuxeo-primary-rgb, #{$primary-rgb}), 0.1);
+	}
+
+	&.file-over::after {
+		border: 3px dashed var(--nuxeo-primary-color, #{$primary});
+		opacity: 1;
+	}
+
+	.form-file-input {
+		width: 0;
+		height: 0;
+		opacity: 0;
+		visibility: hidden;
+		position: absolute;
+
+		&:not(:disabled) ~ .form-file-label {
+			cursor: pointer;
+		}
+
+		&:not(:placeholder-shown) ~ .form-file-label {
+			display: block;
+			background-color: transparent;
+			background-clip: padding-box;
+			z-index: 1;
+			height: 100%;
+
+			&::after {
+				content: '';
+				position: absolute;
+				inset-block-start: 0;
+				inset-inline-start: 0;
+				inset-inline-end: 0;
+				inset-block-end: 0;
+			}
+		}
+	}
+
+	.form-file-label::after,
+	.form-file-input:lang(en) ~ .form-file-label::after {
+		content: none;
+	}
+}

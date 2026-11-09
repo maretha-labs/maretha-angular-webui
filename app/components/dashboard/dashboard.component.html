@@ -1,0 +1,141 @@
+<h1 id="dashboard-heading" class="dashboard-header">
+	{{ 'home.dashboard' | webuiMessage: 'Dashboard' }}
+</h1>
+<section class="nx-dashboard" [attr.aria-label]="'home.dashboard' | webuiMessage: 'Dashboard'">
+	@for (card of documentCards; track card.id) {
+		<section
+			class="dashboard-card"
+			[style.order]="card.order"
+			[attr.aria-labelledby]="card.id + '-heading'"
+			[attr.aria-busy]="card.loading"
+		>
+			<h2 [id]="card.id + '-heading'">
+				<nx-webui-icon [name]="card.icon" />{{ card.labelKey | webuiMessage: card.label }}
+			</h2>
+			<div class="card-body">
+				@if (card.id === 'tasks') {
+					@if (tasksLoading) {
+						<p role="status">{{ 'label.loading' | webuiMessage: 'Loading…' }}</p>
+					} @else if (hasWorkflowTasks) {
+						@for (task of workflowTasks; track task.id) {
+							<button class="task" type="button" (click)="navigateToTask(task)">
+								<strong>{{ task.name | webuiMessage: task.name }}</strong>
+								@if (task.targetDocumentIds?.[0]?.title; as documentTitle) {
+									<span class="task-document-title">{{ documentTitle }}</span>
+								}
+								@if (task.dueDate) {
+									<span
+										>{{ 'tasksList.dueDate' | webuiMessage: 'Due date' }}
+										{{ task.dueDate | timeago }}</span
+									>
+								}
+								@if (task.workflowModelName) {
+									<span>{{ task.workflowModelName | webuiMessage: task.workflowModelName }}</span>
+								}
+							</button>
+						}
+					} @else if (tasksError) {
+						<p role="alert">
+							{{
+								'app.components.dashboard.unable-to-load-tasks-d875ae'
+									| webuiMessage: 'Unable to load tasks.'
+							}}
+						</p>
+					} @else {
+						<p class="empty">
+							{{
+								'tasksList.noTasks'
+									| webuiMessage: "You don't have any tasks to process at the moment."
+							}}
+						</p>
+					}
+				} @else {
+					@if (card.loading && !card.documents.length) {
+						<p class="empty" role="status">{{ 'label.loading' | webuiMessage: 'Loading…' }}</p>
+					}
+					<nx-results-projection
+						#projection
+						class="dashboard-document-grid"
+						[rows]="card.documents"
+						[columns]="documentColumnsFor(card.id)"
+						mode="table"
+						[readOnly]="true"
+						[selectionEnabled]="false"
+						[rowActivation]="true"
+						[rowActivationDisabled]="card.loading"
+						[loading]="card.loading"
+						(rowActivated)="navigateToDocument($event)"
+						[hostId]="'dashboard-' + card.id"
+					>
+						<ng-template nxResultsHostTemplate="default">
+							<nx-dashboard-document-table
+								[projection]="projection"
+								[context]="projection.hostContext()"
+								[caption]="card.captionKey | webuiMessage: card.label"
+							/>
+						</ng-template>
+						<ng-template nxResultsTemplate="cell:title" let-row="row">
+							<div class="document-title">
+								@if (thumbnailUrl(row); as thumbnail) {
+									<img
+										[src]="thumbnail"
+										alt=""
+										(error)="$any($event.target).style.visibility = 'hidden'"
+									/>
+								} @else {
+									<nx-webui-icon name="nuxeo:asset" />
+								}
+								<a
+									[routerLink]="card.loading ? null : (row | documentLink)"
+									[attr.aria-disabled]="card.loading ? true : null"
+									tabindex="-1"
+									data-nx-results-interactive
+									[title]="row.title"
+									>{{ row.title }}</a
+								>
+							</div>
+						</ng-template>
+						<ng-template nxResultsTemplate="cell:type" let-row="row">
+							<span class="type-tag">{{ row.type }}</span>
+						</ng-template>
+						<ng-template nxResultsTemplate="cell:lastViewed" let-row="row">
+							<span [title]="lastViewed(row) | date: 'medium'">{{
+								lastViewed(row) | timeago
+							}}</span>
+						</ng-template>
+						<ng-template nxResultsTemplate="cell:modified" let-row="row">
+							<span [title]="modified(row) | date: 'medium'">{{ modified(row) | timeago }}</span>
+						</ng-template>
+						<ng-template nxResultsTemplate="cell:lastContributor" let-row="row">
+							<nx-user-tag [user]="$any(row).properties?.['dc:lastContributor']" />
+						</ng-template>
+						<ng-template nxResultsHostTemplate="empty">
+							<p class="empty">
+								@if (card.loading) {
+									<span role="status">{{ 'label.loading' | webuiMessage: 'Loading…' }}</span>
+								} @else if (card.id === 'edited' && editedError) {
+									<span role="alert">{{
+										'app.components.dashboard.unable-to-load-recently-edited-documents-ca4f3d'
+											| webuiMessage: 'Unable to load recently edited documents.'
+									}}</span>
+								} @else if (card.id === 'recent' && recentError) {
+									<span role="alert">{{
+										'app.components.dashboard.unable-to-load-recently-viewed-documents-d4bff0'
+											| webuiMessage: 'Unable to load recently viewed documents.'
+									}}</span>
+								} @else if (card.id === 'favorites' && favoritesError) {
+									<span role="alert">{{
+										'app.components.dashboard.unable-to-load-favorite-documents-93218c'
+											| webuiMessage: 'Unable to load favorite documents.'
+									}}</span>
+								} @else {
+									{{ card.emptyKey | webuiMessage: card.empty }}
+								}
+							</p>
+						</ng-template>
+					</nx-results-projection>
+				}
+			</div>
+		</section>
+	}
+</section>

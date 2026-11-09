@@ -1,0 +1,2096 @@
+{
+  "format": 1,
+  "source": "https://github.com/nuxeo/nuxeo-web-ui",
+  "revision": "e0ccb86615c692a3a60c557d363d4ce32f91c686",
+  "license": "Apache-2.0",
+  "sharedModel": {
+    "fields": ["user"],
+    "file": "elements/nuxeo-app.js",
+    "line": 1182
+  },
+  "hosts": [
+    {
+      "slot": "ADMINISTRATION_MENU",
+      "model": "[[actionContext]]",
+      "fields": [
+        "actionContext",
+        "clipboard",
+        "clipboardDocCount",
+        "currentTask",
+        "document",
+        "routeParams",
+        "taskCount",
+        "user",
+        "userWorkspace"
+      ],
+      "file": "elements/nuxeo-app.js",
+      "line": 482
+    },
+    {
+      "slot": "ADMINISTRATION_PAGES",
+      "model": "[[actionContext]]",
+      "fields": ["routeParams", "user"],
+      "file": "elements/nuxeo-admin.html",
+      "line": 28
+    },
+    {
+      "slot": "ANALYTICS_ITEMS",
+      "model": null,
+      "fields": [],
+      "file": "elements/nuxeo-admin/nuxeo-analytics.js",
+      "line": 53
+    },
+    {
+      "slot": "ANALYTICS_PAGES",
+      "model": null,
+      "fields": [],
+      "file": "elements/nuxeo-admin/nuxeo-analytics.js",
+      "line": 59
+    },
+    {
+      "slot": "BLOB_ACTIONS",
+      "model": "[[actionContext]]",
+      "fields": ["blob", "document", "user", "xpath"],
+      "file": "elements/nuxeo-document-blob/nuxeo-document-blob.js",
+      "line": 87
+    },
+    {
+      "slot": "COLLECTION_ACTIONS",
+      "model": "[[actionContext]]",
+      "fields": ["collection", "items", "selectedItems", "selection"],
+      "file": "addons/easyshare/document/easysharefolder/nuxeo-easysharefolder-view-layout.html",
+      "line": 55
+    },
+    {
+      "slot": "COLLECTION_ACTIONS",
+      "model": "[[actionContext]]",
+      "fields": ["collection", "items", "selectedItems", "selection"],
+      "file": "elements/document/collection/nuxeo-collection-view-layout.html",
+      "line": 57
+    },
+    {
+      "slot": "COLLECTION_ACTIONS",
+      "model": "[[actionContext]]",
+      "fields": ["collection", "items", "selectedItems", "selection"],
+      "file": "elements/document/favorites/nuxeo-favorites-view-layout.html",
+      "line": 55
+    },
+    {
+      "slot": "CREATE_POPUP_ITEMS",
+      "model": "[[importContext]]",
+      "fields": ["i18n", "parent"],
+      "file": "elements/nuxeo-document-create-popup/nuxeo-document-create-popup.js",
+      "line": 92
+    },
+    {
+      "slot": "CREATE_POPUP_PAGES",
+      "model": "[[importContext]]",
+      "fields": ["i18n", "parent"],
+      "file": "elements/nuxeo-document-create-popup/nuxeo-document-create-popup.js",
+      "line": 96
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "model": "[[actionContext]]",
+      "fields": ["clipboard", "document"],
+      "file": "elements/nuxeo-browser.html",
+      "line": 68
+    },
+    {
+      "slot": "DOCUMENT_CREATE_ACTIONS",
+      "model": "[[actionContext]]",
+      "fields": ["hostVisible", "subtypes"],
+      "file": "elements/nuxeo-document-create-button/nuxeo-document-create-button.js",
+      "line": 87
+    },
+    {
+      "slot": "DOCUMENT_INFO_BAR",
+      "model": "[[_actionContext]]",
+      "fields": ["document"],
+      "file": "elements/nuxeo-document-info-bar/nuxeo-document-info-bar.js",
+      "line": 182
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_ITEMS",
+      "model": "[[viewsContext]]",
+      "fields": ["document"],
+      "file": "elements/nuxeo-browser.html",
+      "line": 83
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_PAGES",
+      "model": "[[viewsContext]]",
+      "fields": ["document"],
+      "file": "elements/nuxeo-browser.html",
+      "line": 89
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "model": "[[actionContext]]",
+      "fields": [
+        "actionContext",
+        "clipboard",
+        "clipboardDocCount",
+        "currentTask",
+        "document",
+        "routeParams",
+        "taskCount",
+        "user",
+        "userWorkspace"
+      ],
+      "file": "elements/nuxeo-app.js",
+      "line": 448
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "model": "[[actionContext]]",
+      "fields": [
+        "actionContext",
+        "clipboard",
+        "clipboardDocCount",
+        "currentTask",
+        "document",
+        "routeParams",
+        "taskCount",
+        "user",
+        "userWorkspace"
+      ],
+      "file": "elements/nuxeo-app.js",
+      "line": 474
+    },
+    {
+      "slot": "FILE_UPLOAD_ACTIONS",
+      "model": null,
+      "fields": [],
+      "file": "elements/document/nuxeo-document-import.js",
+      "line": 426
+    },
+    {
+      "slot": "FILE_UPLOAD_ACTIONS",
+      "model": null,
+      "fields": [],
+      "file": "elements/document/nuxeo-document-import.js",
+      "line": 499
+    },
+    {
+      "slot": "FILE_UPLOAD_ACTIONS",
+      "model": null,
+      "fields": [],
+      "file": "elements/nuxeo-dropzone/nuxeo-dropzone.js",
+      "line": 229
+    },
+    {
+      "slot": "PAGES",
+      "model": "[[actionContext]]",
+      "fields": [
+        "actionContext",
+        "clipboard",
+        "clipboardDocCount",
+        "currentTask",
+        "document",
+        "routeParams",
+        "taskCount",
+        "user",
+        "userWorkspace"
+      ],
+      "file": "elements/nuxeo-app.js",
+      "line": 523
+    },
+    {
+      "slot": "PUBLISH_ITEMS",
+      "model": "[[publishContext]]",
+      "fields": ["document", "documents", "i18n", "selection"],
+      "file": "elements/nuxeo-publication/nuxeo-publish-button.js",
+      "line": 84
+    },
+    {
+      "slot": "PUBLISH_PAGES",
+      "model": "[[publishContext]]",
+      "fields": ["document", "documents", "i18n", "selection"],
+      "file": "elements/nuxeo-publication/nuxeo-publish-button.js",
+      "line": 88
+    },
+    {
+      "slot": "RESULTS_ACTIONS",
+      "model": "[[actionContext]]",
+      "fields": [
+        "baseUrl",
+        "columns",
+        "displayMode",
+        "document",
+        "items",
+        "nxProvider",
+        "selectedItems",
+        "selection"
+      ],
+      "file": "elements/nuxeo-results/nuxeo-results.js",
+      "line": 217
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "model": "[[actionContext]]",
+      "fields": [
+        "baseUrl",
+        "columns",
+        "displayMode",
+        "document",
+        "items",
+        "nxProvider",
+        "selectedItems",
+        "selection"
+      ],
+      "file": "elements/nuxeo-results/nuxeo-results.js",
+      "line": 198
+    },
+    {
+      "slot": "THEMES",
+      "model": null,
+      "fields": [],
+      "file": "elements/nuxeo-themes.html",
+      "line": 51
+    },
+    {
+      "slot": "TRASH_RESULTS_SELECTION_ACTIONS",
+      "model": "[[actionContext]]",
+      "fields": [
+        "baseUrl",
+        "columns",
+        "displayMode",
+        "document",
+        "items",
+        "nxProvider",
+        "selectedItems",
+        "selection"
+      ],
+      "file": "elements/nuxeo-results/nuxeo-document-trash-content.js",
+      "line": 121
+    },
+    {
+      "slot": "TRASH_RESULTS_SELECTION_ACTIONS",
+      "model": "[[actionContext]]",
+      "fields": [
+        "baseUrl",
+        "columns",
+        "displayMode",
+        "document",
+        "items",
+        "nxProvider",
+        "selectedItems",
+        "selection"
+      ],
+      "file": "elements/search/trash/nuxeo-trash-search-results.html",
+      "line": 39
+    },
+    {
+      "slot": "USER_MENU",
+      "model": "[[actionContext]]",
+      "fields": [
+        "actionContext",
+        "clipboard",
+        "clipboardDocCount",
+        "currentTask",
+        "document",
+        "routeParams",
+        "taskCount",
+        "user",
+        "userWorkspace"
+      ],
+      "file": "elements/nuxeo-app.js",
+      "line": 492
+    }
+  ],
+  "contributions": [
+    {
+      "slot": "ADMINISTRATION_MENU",
+      "name": "adminAnalyticsMenuItem",
+      "order": 10,
+      "filter": {
+        "expression": "user.isAdministrator"
+      },
+      "element": "nuxeo-menu-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 3
+    },
+    {
+      "slot": "ADMINISTRATION_MENU",
+      "name": "adminUserManagementMenuItem",
+      "order": 20,
+      "filter": {},
+      "element": "nuxeo-menu-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 22
+    },
+    {
+      "slot": "ADMINISTRATION_MENU",
+      "name": "adminVocabManagementMenuItem",
+      "order": 30,
+      "filter": {},
+      "element": "nuxeo-menu-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 41
+    },
+    {
+      "slot": "ADMINISTRATION_MENU",
+      "name": "adminAuditMenuItem",
+      "order": 40,
+      "filter": {
+        "expression": "user.isAdministrator"
+      },
+      "element": "nuxeo-menu-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 56
+    },
+    {
+      "slot": "ADMINISTRATION_MENU",
+      "name": "adminCloudServicesMenuItem",
+      "order": 50,
+      "filter": {
+        "expression": "user.isAdministrator"
+      },
+      "element": "nuxeo-menu-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 75
+    },
+    {
+      "slot": "ADMINISTRATION_MENU",
+      "name": "adminNxqlSearchMenuItem",
+      "order": 60,
+      "filter": {},
+      "element": "nuxeo-menu-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 98
+    },
+    {
+      "slot": "ADMINISTRATION_PAGES",
+      "name": "adminAnalyticsPage",
+      "order": null,
+      "filter": {
+        "expression": "user.isAdministrator"
+      },
+      "element": "nuxeo-analytics",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 12
+    },
+    {
+      "slot": "ADMINISTRATION_PAGES",
+      "name": "adminUserManagementPage",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-user-group-management-page",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 31
+    },
+    {
+      "slot": "ADMINISTRATION_PAGES",
+      "name": "adminVocabManagementPage",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-vocabulary-management",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 50
+    },
+    {
+      "slot": "ADMINISTRATION_PAGES",
+      "name": "adminAuditPage",
+      "order": null,
+      "filter": {
+        "expression": "user.isAdministrator"
+      },
+      "element": "nuxeo-audit",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 65
+    },
+    {
+      "slot": "ADMINISTRATION_PAGES",
+      "name": "adminCloudServicesPage",
+      "order": null,
+      "filter": {
+        "expression": "user.isAdministrator"
+      },
+      "element": "nuxeo-cloud-services",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 88
+    },
+    {
+      "slot": "ADMINISTRATION_PAGES",
+      "name": "adminNxqlSearchPage",
+      "order": 60,
+      "filter": {},
+      "element": "nuxeo-search-page",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 103
+    },
+    {
+      "slot": "ANALYTICS_ITEMS",
+      "name": "analyticsDocumentDistributionItem",
+      "order": 10,
+      "filter": {},
+      "element": "nuxeo-page-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 122
+    },
+    {
+      "slot": "ANALYTICS_ITEMS",
+      "name": "analyticsRepositoryItem",
+      "order": 20,
+      "filter": {},
+      "element": "nuxeo-page-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 133
+    },
+    {
+      "slot": "ANALYTICS_ITEMS",
+      "name": "analyticsSearchItem",
+      "order": 30,
+      "filter": {},
+      "element": "nuxeo-page-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 144
+    },
+    {
+      "slot": "ANALYTICS_ITEMS",
+      "name": "analyticsWorkflowItem",
+      "order": 40,
+      "filter": {},
+      "element": "nuxeo-page-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 155
+    },
+    {
+      "slot": "ANALYTICS_PAGES",
+      "name": "analyticsDocumentDistributionPage",
+      "order": 10,
+      "filter": {},
+      "element": "nuxeo-distribution-analytics",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 127
+    },
+    {
+      "slot": "ANALYTICS_PAGES",
+      "name": "analyticsRepositoryPage",
+      "order": 20,
+      "filter": {},
+      "element": "nuxeo-repository-analytics",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 138
+    },
+    {
+      "slot": "ANALYTICS_PAGES",
+      "name": "analyticsSearchPage",
+      "order": 30,
+      "filter": {},
+      "element": "nuxeo-search-analytics",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 149
+    },
+    {
+      "slot": "ANALYTICS_PAGES",
+      "name": "analyticsWorkflowPage",
+      "order": 40,
+      "filter": {},
+      "element": "nuxeo-workflow-analytics",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 160
+    },
+    {
+      "slot": "BLOB_ACTIONS",
+      "name": "driveEditButton",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-drive-edit-button",
+      "origin": "nuxeo-drive",
+      "file": "addons/nuxeo-drive/nuxeo-drive.html",
+      "line": 33
+    },
+    {
+      "slot": "BLOB_ACTIONS",
+      "name": "wopiLink",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-wopi-link",
+      "origin": "nuxeo-wopi",
+      "file": "addons/nuxeo-wopi/nuxeo-wopi.html",
+      "line": 18
+    },
+    {
+      "slot": "BLOB_ACTIONS",
+      "name": "previewBlobAction",
+      "order": 20,
+      "filter": {},
+      "element": "nuxeo-preview-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 168
+    },
+    {
+      "slot": "BLOB_ACTIONS",
+      "name": "downloadBlobAction",
+      "order": 30,
+      "filter": {},
+      "element": "nuxeo-download-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 174
+    },
+    {
+      "slot": "BLOB_ACTIONS",
+      "name": "replaceBlobAction",
+      "order": 35,
+      "filter": {},
+      "element": "nuxeo-replace-blob-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 180
+    },
+    {
+      "slot": "BLOB_ACTIONS",
+      "name": "deleteBlobAction",
+      "order": 40,
+      "filter": {},
+      "element": "nuxeo-delete-blob-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 186
+    },
+    {
+      "slot": "BLOB_ACTIONS",
+      "name": "blobAppLinks",
+      "order": 50,
+      "filter": {},
+      "element": "nuxeo-link-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 192
+    },
+    {
+      "slot": "COLLECTION_ACTIONS",
+      "name": "removeCollectionAction",
+      "order": 10,
+      "filter": {},
+      "element": "nuxeo-collection-remove-action",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 207
+    },
+    {
+      "slot": "COLLECTION_ACTIONS",
+      "name": "downloadSelectionAction",
+      "order": 15,
+      "filter": {},
+      "element": "nuxeo-download-documents-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 214
+    },
+    {
+      "slot": "COLLECTION_ACTIONS",
+      "name": "addToClipboardSelectionAction",
+      "order": 20,
+      "filter": {},
+      "element": "nuxeo-clipboard-documents-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 220
+    },
+    {
+      "slot": "COLLECTION_ACTIONS",
+      "name": "publishSelectionAction",
+      "order": 25,
+      "filter": {},
+      "element": "nuxeo-publish-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 226
+    },
+    {
+      "slot": "CREATE_POPUP_ITEMS",
+      "name": "csvDocumentCreatePopup",
+      "order": 30,
+      "filter": {},
+      "element": "paper-tab",
+      "origin": "nuxeo-csv",
+      "file": "addons/nuxeo-csv/nuxeo-csv.html",
+      "line": 18
+    },
+    {
+      "slot": "CREATE_POPUP_ITEMS",
+      "name": "documentCreateItem",
+      "order": 10,
+      "filter": {},
+      "element": "paper-tab",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 343
+    },
+    {
+      "slot": "CREATE_POPUP_ITEMS",
+      "name": "documentImportItem",
+      "order": 20,
+      "filter": {},
+      "element": "paper-tab",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 349
+    },
+    {
+      "slot": "CREATE_POPUP_PAGES",
+      "name": "csvDocumentCreatePopup",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-document-import-csv",
+      "origin": "nuxeo-csv",
+      "file": "addons/nuxeo-csv/nuxeo-csv.html",
+      "line": 24
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "shareDocumentAction",
+      "order": 40,
+      "priority": 10,
+      "filter": {},
+      "element": "nuxeo-easyshare-share-link",
+      "origin": "easyshare",
+      "file": "addons/easyshare/easyshare.html",
+      "line": 18
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "driveSyncToggleButton",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-drive-sync-toggle-button",
+      "origin": "nuxeo-drive",
+      "file": "addons/nuxeo-drive/nuxeo-drive.html",
+      "line": 20
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "driveUploadButton",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-drive-upload-button",
+      "origin": "nuxeo-drive",
+      "file": "addons/nuxeo-drive/nuxeo-drive.html",
+      "line": 26
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "syncEmailAction",
+      "order": null,
+      "filter": {
+        "type": "MailFolder",
+        "permission": "ReadWrite"
+      },
+      "element": "nuxeo-mail-sync-button",
+      "origin": "nuxeo-imap-connector",
+      "file": "addons/nuxeo-imap-connector/nuxeo-imap-connector.html",
+      "line": 17
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "templateDeleteAction",
+      "order": null,
+      "filter": {
+        "facet": "Template"
+      },
+      "element": "nuxeo-delete-template-button",
+      "origin": "nuxeo-template-rendering",
+      "file": "addons/nuxeo-template-rendering/nuxeo-template-rendering.html",
+      "line": 17
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "templateRenderAction",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-render-template-button",
+      "origin": "nuxeo-template-rendering",
+      "file": "addons/nuxeo-template-rendering/nuxeo-template-rendering.html",
+      "line": 27
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "editDocumentAction",
+      "order": 10,
+      "filter": {},
+      "element": "nuxeo-document-edit-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 234
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "deleteDocumentAction",
+      "order": 15,
+      "filter": {},
+      "element": "nuxeo-delete-document-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 240
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "addToColDocumentAction",
+      "order": 20,
+      "filter": {},
+      "element": "nuxeo-add-to-collection-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 246
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "favoriteToggleDocumentAction",
+      "order": 30,
+      "filter": {},
+      "element": "nuxeo-favorites-toggle-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 252
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "shareDocumentAction",
+      "order": 40,
+      "filter": {},
+      "element": "nuxeo-share-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 258
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "publishDocumentAction",
+      "order": 45,
+      "filter": {},
+      "element": "nuxeo-publish-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 264
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "notificationDocumentAction",
+      "order": 50,
+      "filter": {},
+      "element": "nuxeo-notifications-toggle-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 270
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "clipboardToggleDocumentAction",
+      "order": 60,
+      "filter": {
+        "expression": "this.isCollectionMember(document) || document.facets.includes('Collection')"
+      },
+      "element": "nuxeo-clipboard-toggle-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 276
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "lockToggleDocumentAction",
+      "order": 70,
+      "filter": {
+        "expression": "document.facets.indexOf('Folderish') === -1"
+      },
+      "element": "nuxeo-lock-toggle-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 292
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "downloadDocumentAction",
+      "order": 90,
+      "filter": {
+        "expression": "(document.facets.indexOf('Folderish') !== -1\n                                                   || document.facets.indexOf('Collection') !== -1)\n                                                   && document.contextParameters\n                                                   && document.contextParameters.hasContent"
+      },
+      "element": "nuxeo-download-documents-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 302
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "exportDocumentAction",
+      "order": 100,
+      "filter": {},
+      "element": "nuxeo-export-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 318
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "workflowDocumentAction",
+      "order": 110,
+      "filter": {},
+      "element": "nuxeo-workflow-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 324
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "name": "diffVersionsAction",
+      "order": 10,
+      "filter": {},
+      "element": "nuxeo-versions-diff-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 794
+    },
+    {
+      "slot": "DOCUMENT_CREATE_ACTIONS",
+      "name": "defaultDocumentCreateActions",
+      "order": 10,
+      "filter": {},
+      "element": "nuxeo-document-create-shortcuts",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 332
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_ITEMS",
+      "name": "templateRenderingDocumentViewItems",
+      "order": 40,
+      "filter": {
+        "facet": "Template"
+      },
+      "element": "nuxeo-page-item",
+      "origin": "nuxeo-template-rendering",
+      "file": "addons/nuxeo-template-rendering/nuxeo-template-rendering.html",
+      "line": 37
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_ITEMS",
+      "name": "documentViewItem",
+      "order": 10,
+      "filter": {},
+      "element": "nuxeo-page-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 357
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_ITEMS",
+      "name": "documentPermissionsItem",
+      "order": 20,
+      "filter": {
+        "expression": "!document.isVersion"
+      },
+      "element": "nuxeo-page-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 397
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_ITEMS",
+      "name": "documentHistoryItem",
+      "order": 30,
+      "filter": {},
+      "element": "nuxeo-page-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 416
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_ITEMS",
+      "name": "documentPublicationItem",
+      "order": 40,
+      "filter": {
+        "expression": "!this.isProxy(document) && this.hasFacet(document, 'Publishable')"
+      },
+      "element": "nuxeo-page-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 427
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_ITEMS",
+      "name": "documentTrashItem",
+      "order": 50,
+      "filter": {
+        "facet": "Folderish"
+      },
+      "element": "nuxeo-page-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 452
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_PAGES",
+      "name": "templateRenderingDocumentViewPages",
+      "order": null,
+      "filter": {
+        "facet": "Template"
+      },
+      "element": "nuxeo-template-rendering-page",
+      "origin": "nuxeo-template-rendering",
+      "file": "addons/nuxeo-template-rendering/nuxeo-template-rendering.html",
+      "line": 47
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_PAGES",
+      "name": "pictureDocumentViewPage",
+      "order": 5,
+      "filter": {
+        "facet": "Picture"
+      },
+      "element": "nuxeo-picture-document-page",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 363
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_PAGES",
+      "name": "documentViewPage",
+      "order": 10,
+      "filter": {
+        "expression": "document.facets.indexOf('Folderish') === -1\n                                                   && document.facets.indexOf('Collection') === -1"
+      },
+      "element": "nuxeo-document-page",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 373
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_PAGES",
+      "name": "documentCollapsiblePage",
+      "order": 10,
+      "filter": {
+        "facet": "Folderish,Collection"
+      },
+      "element": "nuxeo-collapsible-document-page",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 387
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_PAGES",
+      "name": "documentPermissionsPage",
+      "order": 20,
+      "filter": {},
+      "element": "nuxeo-document-permissions",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 406
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_PAGES",
+      "name": "documentHistoryPage",
+      "order": 30,
+      "filter": {},
+      "element": "nuxeo-audit-search",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 421
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_PAGES",
+      "name": "documentPublicationPage",
+      "order": 40,
+      "filter": {
+        "expression": "!this.isProxy(document) && this.hasFacet(document, 'Publishable')"
+      },
+      "element": "nuxeo-document-publications",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 439
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_PAGES",
+      "name": "documentTrashPage",
+      "order": 50,
+      "filter": {
+        "facet": "Folderish"
+      },
+      "element": "nuxeo-document-trash-content",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 462
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "name": "browseDrawerItem",
+      "order": 10,
+      "filter": {},
+      "element": "nuxeo-menu-icon",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 475
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "name": "recentsDrawerItem",
+      "order": 20,
+      "filter": {},
+      "element": "nuxeo-menu-icon",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 491
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "name": "defaultSearchMenuButton",
+      "order": 30,
+      "filter": {},
+      "element": "nuxeo-menu-icon",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 507
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "name": "expiredSearchMenuButton",
+      "order": 40,
+      "filter": {},
+      "element": "nuxeo-menu-icon",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 523
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "name": "damSearchMenuButtons",
+      "order": 45,
+      "filter": {},
+      "element": "nuxeo-menu-icon",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 542
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "name": "tasksDrawerItem",
+      "order": 50,
+      "filter": {},
+      "element": "nuxeo-menu-icon",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 561
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "name": "favoritesDrawerItem",
+      "order": 60,
+      "filter": {},
+      "element": "nuxeo-menu-icon",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 578
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "name": "collectionsDrawerItem",
+      "order": 70,
+      "filter": {},
+      "element": "nuxeo-menu-icon",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 589
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "name": "personalWorkspaceDrawerItem",
+      "order": 80,
+      "filter": {},
+      "element": "nuxeo-menu-icon",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 600
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "name": "clipboardDrawerItem",
+      "order": 90,
+      "filter": {},
+      "element": "nuxeo-menu-icon",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 616
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "name": "trashMenuButton",
+      "order": 100,
+      "filter": {},
+      "element": "nuxeo-menu-icon",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 632
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "name": "browseDrawerPage",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-document-tree",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 480
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "name": "recentsDrawerPage",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-recent-documents",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 496
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "name": "defaultSearchMenuPage",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-search-form",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 512
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "name": "expiredSearchMenuPage",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-search-form",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 528
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "name": "damSearchMenuButtons",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-search-form",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 548
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "name": "tasksDrawerPage",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-tasks-drawer",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 572
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "name": "favoritesDrawerPage",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-favorites",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 583
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "name": "collectionsDrawerPage",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-collections",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 594
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "name": "personalWorkspaceDrawerPage",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-document-tree",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 605
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "name": "clipboardDrawerPage",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-clipboard",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 626
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "name": "trashMenuPage",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-search-form",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 637
+    },
+    {
+      "slot": "FILE_UPLOAD_ACTIONS",
+      "name": "liveConnectBoxImportActions",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-liveconnect-box-link",
+      "origin": "nuxeo-liveconnect",
+      "file": "addons/nuxeo-liveconnect/nuxeo-liveconnect-box.html",
+      "line": 19
+    },
+    {
+      "slot": "FILE_UPLOAD_ACTIONS",
+      "name": "liveConnectGoogleDriveImportActions",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-liveconnect-google-drive-link",
+      "origin": "nuxeo-liveconnect",
+      "file": "addons/nuxeo-liveconnect/nuxeo-liveconnect-google-drive.html",
+      "line": 19
+    },
+    {
+      "slot": "PAGES",
+      "name": "drivePage",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-drive-page",
+      "origin": "nuxeo-drive",
+      "file": "addons/nuxeo-drive/nuxeo-drive.html",
+      "line": 47
+    },
+    {
+      "slot": "PAGES",
+      "name": "authorizedAppsUserPage",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-user-authorized-apps",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 759
+    },
+    {
+      "slot": "PAGES",
+      "name": "cloudServicesUserPage",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-user-cloud-services",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 774
+    },
+    {
+      "slot": "PUBLISH_ITEMS",
+      "name": "internalPublishItem",
+      "order": 10,
+      "filter": {},
+      "element": "paper-tab",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 802
+    },
+    {
+      "slot": "PUBLISH_PAGES",
+      "name": "internalPublishPage",
+      "order": 10,
+      "filter": {},
+      "element": "nuxeo-internal-publish",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 808
+    },
+    {
+      "slot": "RESULTS_ACTIONS",
+      "name": "csvExportSelectionAction",
+      "order": -100,
+      "filter": {},
+      "element": "nuxeo-csv-export-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 817
+    },
+    {
+      "slot": "RESULTS_ACTIONS",
+      "name": "spreadsheetButton",
+      "order": -150,
+      "disabled": true,
+      "filter": {},
+      "element": "nuxeo-spreadsheet-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 825
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "name": "driveDownloadSelectionAction",
+      "order": 6,
+      "filter": {},
+      "element": "nuxeo-drive-download-button",
+      "origin": "nuxeo-drive",
+      "file": "addons/nuxeo-drive/nuxeo-drive.html",
+      "line": 54
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "name": "orderSelectionActions",
+      "order": -50,
+      "filter": {
+        "facet": "Orderable"
+      },
+      "element": "nuxeo-move-documents-up-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 651
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "name": "downloadSelectionAction",
+      "order": 5,
+      "filter": {},
+      "element": "nuxeo-download-documents-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 664
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "name": "addToCollectionSelectionAction",
+      "order": 10,
+      "filter": {},
+      "element": "nuxeo-add-to-collection-documents-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 670
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "name": "addToClipboardSelectionAction",
+      "order": 20,
+      "filter": {},
+      "element": "nuxeo-clipboard-documents-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 676
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "name": "publishSelectionAction",
+      "order": 25,
+      "filter": {},
+      "element": "nuxeo-publish-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 682
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "name": "deleteSelectionAction",
+      "order": 30,
+      "filter": {},
+      "element": "nuxeo-delete-documents-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 688
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "name": "bulkEditResultsAction",
+      "order": 10,
+      "disabled": true,
+      "filter": {},
+      "element": "nuxeo-edit-documents-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 710
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "name": "diffDocumentAction",
+      "order": 10,
+      "filter": {},
+      "element": "nuxeo-document-diff-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 788
+    },
+    {
+      "slot": "THEMES",
+      "name": "defaultTheme",
+      "order": 10,
+      "filter": {},
+      "element": "nuxeo-theme",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 718
+    },
+    {
+      "slot": "THEMES",
+      "name": "darkTheme",
+      "order": 20,
+      "filter": {},
+      "element": "nuxeo-theme",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 724
+    },
+    {
+      "slot": "THEMES",
+      "name": "kawaiiTheme",
+      "order": 30,
+      "filter": {},
+      "element": "nuxeo-theme",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 730
+    },
+    {
+      "slot": "THEMES",
+      "name": "lightTheme",
+      "order": 40,
+      "filter": {},
+      "element": "nuxeo-theme",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 736
+    },
+    {
+      "slot": "TRASH_RESULTS_SELECTION_ACTIONS",
+      "name": "untrashSelectionAction",
+      "order": 10,
+      "filter": {},
+      "element": "nuxeo-untrash-documents-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 696
+    },
+    {
+      "slot": "TRASH_RESULTS_SELECTION_ACTIONS",
+      "name": "hardDeleteSelectionAction",
+      "order": 20,
+      "filter": {},
+      "element": "nuxeo-delete-documents-button",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 702
+    },
+    {
+      "slot": "USER_MENU",
+      "name": "drivePageLink",
+      "order": null,
+      "filter": {},
+      "element": "nuxeo-menu-item",
+      "origin": "nuxeo-drive",
+      "file": "addons/nuxeo-drive/nuxeo-drive.html",
+      "line": 40
+    },
+    {
+      "slot": "USER_MENU",
+      "name": "profileUserMenuItem",
+      "order": 10,
+      "filter": {},
+      "element": "nuxeo-menu-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 744
+    },
+    {
+      "slot": "USER_MENU",
+      "name": "authorizedAppsUserMenuItem",
+      "order": 20,
+      "filter": {},
+      "element": "nuxeo-menu-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 750
+    },
+    {
+      "slot": "USER_MENU",
+      "name": "cloudServicesUserMenuItem",
+      "order": 30,
+      "filter": {},
+      "element": "nuxeo-menu-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 765
+    },
+    {
+      "slot": "USER_MENU",
+      "name": "themesUserMenuItem",
+      "order": 40,
+      "filter": {},
+      "element": "nuxeo-menu-item",
+      "origin": "core",
+      "file": "elements/nuxeo-web-ui-bundle.html",
+      "line": 780
+    }
+  ],
+  "layouts": [
+    {
+      "type": "audio",
+      "mode": "create",
+      "file": "elements/document/audio/nuxeo-audio-create-layout.html"
+    },
+    {
+      "type": "audio",
+      "mode": "edit",
+      "file": "elements/document/audio/nuxeo-audio-edit-layout.html"
+    },
+    {
+      "type": "audio",
+      "mode": "import",
+      "file": "elements/document/audio/nuxeo-audio-import-layout.html"
+    },
+    {
+      "type": "audio",
+      "mode": "metadata",
+      "file": "elements/document/audio/nuxeo-audio-metadata-layout.html"
+    },
+    {
+      "type": "audio",
+      "mode": "view",
+      "file": "elements/document/audio/nuxeo-audio-view-layout.html"
+    },
+    {
+      "type": "collection",
+      "mode": "create",
+      "file": "elements/document/collection/nuxeo-collection-create-layout.html"
+    },
+    {
+      "type": "collection",
+      "mode": "edit",
+      "file": "elements/document/collection/nuxeo-collection-edit-layout.html"
+    },
+    {
+      "type": "collection",
+      "mode": "metadata",
+      "file": "elements/document/collection/nuxeo-collection-metadata-layout.html"
+    },
+    {
+      "type": "collection",
+      "mode": "view",
+      "file": "elements/document/collection/nuxeo-collection-view-layout.html"
+    },
+    {
+      "type": "collections",
+      "mode": "create",
+      "file": "elements/document/collections/nuxeo-collections-create-layout.html"
+    },
+    {
+      "type": "collections",
+      "mode": "edit",
+      "file": "elements/document/collections/nuxeo-collections-edit-layout.html"
+    },
+    {
+      "type": "collections",
+      "mode": "metadata",
+      "file": "elements/document/collections/nuxeo-collections-metadata-layout.html"
+    },
+    {
+      "type": "collections",
+      "mode": "view",
+      "file": "elements/document/collections/nuxeo-collections-view-layout.html"
+    },
+    {
+      "type": "domain",
+      "mode": "create",
+      "file": "elements/document/domain/nuxeo-domain-create-layout.html"
+    },
+    {
+      "type": "domain",
+      "mode": "edit",
+      "file": "elements/document/domain/nuxeo-domain-edit-layout.html"
+    },
+    {
+      "type": "domain",
+      "mode": "metadata",
+      "file": "elements/document/domain/nuxeo-domain-metadata-layout.html"
+    },
+    {
+      "type": "domain",
+      "mode": "view",
+      "file": "elements/document/domain/nuxeo-domain-view-layout.html"
+    },
+    {
+      "type": "favorites",
+      "mode": "edit",
+      "file": "elements/document/favorites/nuxeo-favorites-edit-layout.html"
+    },
+    {
+      "type": "favorites",
+      "mode": "metadata",
+      "file": "elements/document/favorites/nuxeo-favorites-metadata-layout.html"
+    },
+    {
+      "type": "favorites",
+      "mode": "view",
+      "file": "elements/document/favorites/nuxeo-favorites-view-layout.html"
+    },
+    {
+      "type": "file",
+      "mode": "create",
+      "file": "elements/document/file/nuxeo-file-create-layout.html"
+    },
+    {
+      "type": "file",
+      "mode": "edit",
+      "file": "elements/document/file/nuxeo-file-edit-layout.html"
+    },
+    {
+      "type": "file",
+      "mode": "import",
+      "file": "elements/document/file/nuxeo-file-import-layout.html"
+    },
+    {
+      "type": "file",
+      "mode": "metadata",
+      "file": "elements/document/file/nuxeo-file-metadata-layout.html"
+    },
+    {
+      "type": "file",
+      "mode": "view",
+      "file": "elements/document/file/nuxeo-file-view-layout.html"
+    },
+    {
+      "type": "folder",
+      "mode": "create",
+      "file": "elements/document/folder/nuxeo-folder-create-layout.html"
+    },
+    {
+      "type": "folder",
+      "mode": "edit",
+      "file": "elements/document/folder/nuxeo-folder-edit-layout.html"
+    },
+    {
+      "type": "folder",
+      "mode": "metadata",
+      "file": "elements/document/folder/nuxeo-folder-metadata-layout.html"
+    },
+    {
+      "type": "folder",
+      "mode": "view",
+      "file": "elements/document/folder/nuxeo-folder-view-layout.html"
+    },
+    {
+      "type": "note",
+      "mode": "create",
+      "file": "elements/document/note/nuxeo-note-create-layout.html"
+    },
+    {
+      "type": "note",
+      "mode": "edit",
+      "file": "elements/document/note/nuxeo-note-edit-layout.html"
+    },
+    {
+      "type": "note",
+      "mode": "import",
+      "file": "elements/document/note/nuxeo-note-import-layout.html"
+    },
+    {
+      "type": "note",
+      "mode": "metadata",
+      "file": "elements/document/note/nuxeo-note-metadata-layout.html"
+    },
+    {
+      "type": "note",
+      "mode": "view",
+      "file": "elements/document/note/nuxeo-note-view-layout.html"
+    },
+    {
+      "type": "orderedfolder",
+      "mode": "create",
+      "file": "elements/document/orderedfolder/nuxeo-orderedfolder-create-layout.html"
+    },
+    {
+      "type": "orderedfolder",
+      "mode": "edit",
+      "file": "elements/document/orderedfolder/nuxeo-orderedfolder-edit-layout.html"
+    },
+    {
+      "type": "orderedfolder",
+      "mode": "metadata",
+      "file": "elements/document/orderedfolder/nuxeo-orderedfolder-metadata-layout.html"
+    },
+    {
+      "type": "orderedfolder",
+      "mode": "view",
+      "file": "elements/document/orderedfolder/nuxeo-orderedfolder-view-layout.html"
+    },
+    {
+      "type": "picture",
+      "mode": "create",
+      "file": "elements/document/picture/nuxeo-picture-create-layout.html"
+    },
+    {
+      "type": "picture",
+      "mode": "edit",
+      "file": "elements/document/picture/nuxeo-picture-edit-layout.html"
+    },
+    {
+      "type": "picture",
+      "mode": "import",
+      "file": "elements/document/picture/nuxeo-picture-import-layout.html"
+    },
+    {
+      "type": "picture",
+      "mode": "metadata",
+      "file": "elements/document/picture/nuxeo-picture-metadata-layout.html"
+    },
+    {
+      "type": "picture",
+      "mode": "view",
+      "file": "elements/document/picture/nuxeo-picture-view-layout.html"
+    },
+    {
+      "type": "picturebook",
+      "mode": "edit",
+      "file": "elements/document/picturebook/nuxeo-picturebook-edit-layout.html"
+    },
+    {
+      "type": "picturebook",
+      "mode": "metadata",
+      "file": "elements/document/picturebook/nuxeo-picturebook-metadata-layout.html"
+    },
+    {
+      "type": "picturebook",
+      "mode": "view",
+      "file": "elements/document/picturebook/nuxeo-picturebook-view-layout.html"
+    },
+    {
+      "type": "root",
+      "mode": "edit",
+      "file": "elements/document/root/nuxeo-root-edit-layout.html"
+    },
+    {
+      "type": "root",
+      "mode": "metadata",
+      "file": "elements/document/root/nuxeo-root-metadata-layout.html"
+    },
+    {
+      "type": "root",
+      "mode": "view",
+      "file": "elements/document/root/nuxeo-root-view-layout.html"
+    },
+    {
+      "type": "section",
+      "mode": "create",
+      "file": "elements/document/section/nuxeo-section-create-layout.html"
+    },
+    {
+      "type": "section",
+      "mode": "edit",
+      "file": "elements/document/section/nuxeo-section-edit-layout.html"
+    },
+    {
+      "type": "section",
+      "mode": "metadata",
+      "file": "elements/document/section/nuxeo-section-metadata-layout.html"
+    },
+    {
+      "type": "section",
+      "mode": "view",
+      "file": "elements/document/section/nuxeo-section-view-layout.html"
+    },
+    {
+      "type": "sectionroot",
+      "mode": "edit",
+      "file": "elements/document/sectionroot/nuxeo-sectionroot-edit-layout.html"
+    },
+    {
+      "type": "sectionroot",
+      "mode": "metadata",
+      "file": "elements/document/sectionroot/nuxeo-sectionroot-metadata-layout.html"
+    },
+    {
+      "type": "sectionroot",
+      "mode": "view",
+      "file": "elements/document/sectionroot/nuxeo-sectionroot-view-layout.html"
+    },
+    {
+      "type": "template",
+      "mode": "edit",
+      "file": "elements/document/template/nuxeo-template-edit-layout.html"
+    },
+    {
+      "type": "templateroot",
+      "mode": "edit",
+      "file": "elements/document/templateroot/nuxeo-templateroot-edit-layout.html"
+    },
+    {
+      "type": "templateroot",
+      "mode": "metadata",
+      "file": "elements/document/templateroot/nuxeo-templateroot-metadata-layout.html"
+    },
+    {
+      "type": "templateroot",
+      "mode": "view",
+      "file": "elements/document/templateroot/nuxeo-templateroot-view-layout.html"
+    },
+    {
+      "type": "userworkspacesroot",
+      "mode": "edit",
+      "file": "elements/document/userworkspacesroot/nuxeo-userworkspacesroot-edit-layout.html"
+    },
+    {
+      "type": "userworkspacesroot",
+      "mode": "metadata",
+      "file": "elements/document/userworkspacesroot/nuxeo-userworkspacesroot-metadata-layout.html"
+    },
+    {
+      "type": "userworkspacesroot",
+      "mode": "view",
+      "file": "elements/document/userworkspacesroot/nuxeo-userworkspacesroot-view-layout.html"
+    },
+    {
+      "type": "video",
+      "mode": "create",
+      "file": "elements/document/video/nuxeo-video-create-layout.html"
+    },
+    {
+      "type": "video",
+      "mode": "edit",
+      "file": "elements/document/video/nuxeo-video-edit-layout.html"
+    },
+    {
+      "type": "video",
+      "mode": "import",
+      "file": "elements/document/video/nuxeo-video-import-layout.html"
+    },
+    {
+      "type": "video",
+      "mode": "metadata",
+      "file": "elements/document/video/nuxeo-video-metadata-layout.html"
+    },
+    {
+      "type": "video",
+      "mode": "view",
+      "file": "elements/document/video/nuxeo-video-view-layout.html"
+    },
+    {
+      "type": "workspace",
+      "mode": "create",
+      "file": "elements/document/workspace/nuxeo-workspace-create-layout.html"
+    },
+    {
+      "type": "workspace",
+      "mode": "edit",
+      "file": "elements/document/workspace/nuxeo-workspace-edit-layout.html"
+    },
+    {
+      "type": "workspace",
+      "mode": "metadata",
+      "file": "elements/document/workspace/nuxeo-workspace-metadata-layout.html"
+    },
+    {
+      "type": "workspace",
+      "mode": "view",
+      "file": "elements/document/workspace/nuxeo-workspace-view-layout.html"
+    },
+    {
+      "type": "workspaceroot",
+      "mode": "create",
+      "file": "elements/document/workspaceroot/nuxeo-workspaceroot-create-layout.html"
+    },
+    {
+      "type": "workspaceroot",
+      "mode": "edit",
+      "file": "elements/document/workspaceroot/nuxeo-workspaceroot-edit-layout.html"
+    },
+    {
+      "type": "workspaceroot",
+      "mode": "metadata",
+      "file": "elements/document/workspaceroot/nuxeo-workspaceroot-metadata-layout.html"
+    },
+    {
+      "type": "workspaceroot",
+      "mode": "view",
+      "file": "elements/document/workspaceroot/nuxeo-workspaceroot-view-layout.html"
+    }
+  ],
+  "searches": [
+    {
+      "name": "assets",
+      "form": "elements/search/assets/nuxeo-assets-search-form.html",
+      "results": "elements/search/assets/nuxeo-assets-search-results.html"
+    },
+    {
+      "name": "default",
+      "form": "elements/search/default/nuxeo-default-search-form.html",
+      "results": "elements/search/default/nuxeo-default-search-results.html"
+    },
+    {
+      "name": "document_picker",
+      "form": "elements/search/document_picker/nuxeo-document_picker-search-form.html",
+      "results": "elements/search/document_picker/nuxeo-document_picker-search-results.html"
+    },
+    {
+      "name": "expired",
+      "form": "elements/search/expired/nuxeo-expired-search-form.html",
+      "results": "elements/search/expired/nuxeo-expired-search-results.html"
+    },
+    {
+      "name": "nxql",
+      "form": "elements/search/nxql/nuxeo-nxql-search-form.html",
+      "results": "elements/search/nxql/nuxeo-nxql-search-results.html"
+    },
+    {
+      "name": "trash",
+      "form": "elements/search/trash/nuxeo-trash-search-form.html",
+      "results": "elements/search/trash/nuxeo-trash-search-results.html"
+    }
+  ],
+  "workflowLayouts": [
+    {
+      "model": "paralleldocumentreview",
+      "task": "task2169",
+      "file": "elements/workflow/paralleldocumentreview/nuxeo-task2169-layout.html"
+    },
+    {
+      "model": "paralleldocumentreview",
+      "task": "task2556",
+      "file": "elements/workflow/paralleldocumentreview/nuxeo-task2556-layout.html"
+    },
+    {
+      "model": "paralleldocumentreview",
+      "task": "task328d",
+      "file": "elements/workflow/paralleldocumentreview/nuxeo-task328d-layout.html"
+    },
+    {
+      "model": "serialdocumentreview",
+      "task": "task38e",
+      "file": "elements/workflow/serialdocumentreview/nuxeo-task38e-layout.html"
+    },
+    {
+      "model": "serialdocumentreview",
+      "task": "task542",
+      "file": "elements/workflow/serialdocumentreview/nuxeo-task542-layout.html"
+    },
+    {
+      "model": "serialdocumentreview",
+      "task": "task6d8",
+      "file": "elements/workflow/serialdocumentreview/nuxeo-task6d8-layout.html"
+    }
+  ],
+  "themes": [
+    {
+      "name": "dark",
+      "file": "themes/dark/theme.html"
+    },
+    {
+      "name": "default",
+      "file": "themes/default/theme.html"
+    },
+    {
+      "name": "kawaii",
+      "file": "themes/kawaii/theme.html"
+    },
+    {
+      "name": "light",
+      "file": "themes/light/theme.html"
+    }
+  ],
+  "pageProviders": [
+    {
+      "name": "advanced_document_content",
+      "origins": ["core", "nuxeo-imap-connector"],
+      "files": [
+        "addons/nuxeo-imap-connector/document/mailfolder/nuxeo-mailfolder-view-layout.html",
+        "elements/document/picturebook/nuxeo-picturebook-view-layout.html",
+        "elements/nuxeo-web-ui-bundle.html"
+      ]
+    },
+    {
+      "name": "assets_search",
+      "origins": ["core"],
+      "files": ["elements/nuxeo-web-ui-bundle.html"]
+    },
+    {
+      "name": "default_content_collection",
+      "origins": ["core", "easyshare"],
+      "files": [
+        "addons/easyshare/document/easysharefolder/nuxeo-easysharefolder-view-layout.html",
+        "elements/document/collection/nuxeo-collection-view-layout.html",
+        "elements/document/favorites/nuxeo-favorites-view-layout.html",
+        "elements/nuxeo-collections/nuxeo-collections.js",
+        "elements/nuxeo-collections/nuxeo-favorites.js",
+        "elements/nuxeo-home.html"
+      ]
+    },
+    {
+      "name": "default_search",
+      "origins": ["core"],
+      "files": ["elements/nuxeo-web-ui-bundle.html"]
+    },
+    {
+      "name": "default_trash_search",
+      "origins": ["core"],
+      "files": ["elements/nuxeo-web-ui-bundle.html"]
+    },
+    {
+      "name": "domain_documents",
+      "origins": ["core"],
+      "files": ["elements/nuxeo-home.html"]
+    },
+    {
+      "name": "expired_search",
+      "origins": ["core"],
+      "files": ["elements/nuxeo-web-ui-bundle.html"]
+    },
+    {
+      "name": "nxql_search",
+      "origins": ["core"],
+      "files": [
+        "elements/nuxeo-admin/nuxeo-distribution-analytics.js",
+        "elements/nuxeo-publication/nuxeo-document-publications.js",
+        "elements/nuxeo-web-ui-bundle.html"
+      ]
+    },
+    {
+      "name": "publish_space_suggestion",
+      "origins": ["core"],
+      "files": ["elements/nuxeo-publication/nuxeo-internal-publish.js"]
+    },
+    {
+      "name": "template_based",
+      "origins": ["nuxeo-template-rendering"],
+      "files": [
+        "addons/nuxeo-template-rendering/document/templatesource/nuxeo-templatesource-view-layout.html",
+        "addons/nuxeo-template-rendering/document/webtemplatesource/nuxeo-webtemplatesource-view-layout.html"
+      ]
+    },
+    {
+      "name": "tree_children",
+      "origins": ["core"],
+      "files": ["elements/nuxeo-document-tree/nuxeo-document-tree.js"]
+    },
+    {
+      "name": "user_collections",
+      "origins": ["core"],
+      "files": ["elements/nuxeo-collections/nuxeo-collections.js"]
+    }
+  ]
+}

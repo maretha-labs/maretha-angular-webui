@@ -1,0 +1,135 @@
+@if (browserRouteActive()) {
+	@if (context(); as context) {
+		<div
+			class="btn-toolbar px-3 py-2 align-items-center gap-2"
+			[class.has-selection]="context.selectedDocuments.length"
+			role="toolbar"
+			[attr.aria-label]="
+				'app.modules.document-toolbar.document-and-result-actions-adb2d1'
+					| webuiMessage: 'Document and result actions'
+			"
+		>
+			@if (
+				!scopedResults($any(context.document)) &&
+				(context.queryScope ||
+					$any(context.document)?.ng?.isFolder ||
+					context.collection ||
+					isTrash())
+			) {
+				<nx-webui-slot
+					name="RESULTS_ACTIONS"
+					[context]="context"
+					[excludeIds]="[
+						'maretha.toolbar.select-loaded',
+						'maretha.toolbar.clear-selection',
+						'maretha.toolbar.display',
+					]"
+				/>
+				<span class="small">{{
+					'selection.displayed'
+						| webuiMessage: '{count, number} displayed' : { count: context.loadedCount }
+				}}</span>
+			}
+			<span class="flex-grow-1"></span>
+			@if (context.allSelected && !scopedResults($any(context.document))) {
+				<span role="status">{{
+					'app.modules.document-toolbar.choose-displayed-documents-to-apply-action-856d1b'
+						| webuiMessage: 'Choose displayed documents to apply actions.'
+				}}</span>
+			}
+			@if (context.selectedDocuments.length && !scopedResults($any(context.document))) {
+				<div
+					class="selection-action-group"
+					role="group"
+					[attr.aria-label]="
+						'app.modules.document-toolbar.actions-for-selected-documents-9706ed'
+							| webuiMessage: 'Actions for selected documents'
+					"
+				>
+					<span class="selection-action-group__label" role="status">
+						<span class="selection-action-group__count">{{
+							context.selectedDocuments.length | webuiNumber
+						}}</span>
+
+						{{
+							'app.modules.document-toolbar.selected-documents-525b90'
+								| webuiMessage: 'Selected documents'
+						}}
+					</span>
+					<button
+						type="button"
+						class="selection-text-action"
+						(click)="selectionPreview.set(!selectionPreview())"
+						[attr.aria-expanded]="selectionPreview()"
+					>
+						{{ 'results.displaySelection' | webuiMessage: 'Display selection' }}
+					</button>
+					<button
+						type="button"
+						class="selection-text-action"
+						(click)="context.execute('clear-selection'); selectionPreview.set(false)"
+					>
+						{{ 'command.clear' | webuiMessage: 'Clear' }}
+					</button>
+					<div class="selection-action-group__actions">
+						<nx-webui-slot
+							[name]="isTrash() ? 'TRASH_RESULTS_SELECTION_ACTIONS' : 'RESULTS_SELECTION_ACTIONS'"
+							[context]="context"
+						/>
+						@if (context.collection) {
+							<nx-webui-slot name="COLLECTION_ACTIONS" [context]="context" />
+						}
+					</div>
+				</div>
+			} @else {
+				@if (documentContext(); as document) {
+					@if (document.document) {
+						<nx-document-actions-toolbar
+							[document]="document.document"
+							[noEdit]="document.noEdit"
+							[primary]="true"
+							[referenceLayout]="standardHeader(document.document)"
+							[context]="document"
+						/>
+					}
+				}
+			}
+			@if (
+				!scopedResults($any(context.document)) &&
+				($any(context.document)?.ng?.isFolder || context.collection || isTrash())
+			) {
+				<div
+					class="results-display-control"
+					role="group"
+					[attr.aria-label]="
+						'app.modules.document-toolbar.display-settings-876c92'
+							| webuiMessage: 'Display settings'
+					"
+				>
+					<nx-webui-slot
+						name="RESULTS_ACTIONS"
+						[context]="context"
+						[includeIds]="['maretha.toolbar.display']"
+					/>
+				</div>
+			}
+		</div>
+	}
+	@if (error()) {
+		<p role="alert" class="alert alert-danger m-2">{{ error() }}</p>
+	}
+}
+
+@if (selectionPreview() && context()?.selectedDocuments?.length) {
+	<section
+		class="selection-preview"
+		role="region"
+		[attr.aria-label]="'results.displaySelection' | webuiMessage: 'Display selection'"
+	>
+		@for (document of context()!.selectedDocuments; track document['uid']) {
+			<button type="button" (click)="selectionPreview.set(false); openSelectionDocument(document)">
+				{{ document['title'] }}
+			</button>
+		}
+	</section>
+}

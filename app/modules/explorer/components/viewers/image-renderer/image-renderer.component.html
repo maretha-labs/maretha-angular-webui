@@ -1,0 +1,327 @@
+<div #viewerBody class="media flex-grow-1">
+	<div class="image-canvas">
+		<div class="image-viewport">
+			<div
+				#imageStage
+				class="image-preview"
+				[class.zoomed]="zoom() !== null"
+				[class.dragging]="dragging()"
+				[style.aspect-ratio]="stageAspectRatio()"
+				tabindex="0"
+				role="group"
+				[attr.aria-label]="
+					'app.runtime.image-renderer.image-preview-66403a' | webuiMessage: 'Image preview'
+				"
+				(pointerdown)="startPan($event)"
+				(pointermove)="movePan($event)"
+				(pointerup)="endPan($event)"
+				(pointercancel)="endPan($event)"
+				(lostpointercapture)="endPan($event)"
+				(keydown)="panWithKeyboard($event)"
+			>
+				@if (loading()) {
+					<p class="mb-0" role="status">
+						{{ 'app.modules.image-renderer.loading-image-1bcab4' | webuiMessage: 'Loading image…' }}
+					</p>
+				}
+				@for (objectUrl of [imageUrl()]; track objectUrl) {
+					@if (objectUrl) {
+						<img
+							#previewImage
+							[src]="objectUrl"
+							[style.width.px]="naturalWidth() * imageScale()"
+							[style.height.px]="naturalHeight() * imageScale()"
+							[style.transform]="imageTransform()"
+							draggable="false"
+							[alt]="
+								document?.title ||
+								('app.runtime.image-renderer.image-preview-66403a' | webuiMessage: 'Image preview')
+							"
+							(load)="onImageLoad(objectUrl, previewImage)"
+							(error)="onImageError(objectUrl)"
+						/>
+					}
+				}
+				@if (error()) {
+					<p class="alert alert-dark mb-0" role="alert">{{ error() }}</p>
+				}
+			</div>
+			<div
+				#viewerToolbar
+				class="viewer-toolbar"
+				[style.bottom.px]="toolbarBottom()"
+				role="toolbar"
+				[attr.aria-label]="
+					'app.modules.image-renderer.image-viewing-controls-87b751'
+						| webuiMessage: 'Image viewing controls'
+				"
+			>
+				<button
+					type="button"
+					[attr.aria-label]="'imagePreviewer.zoom.out' | webuiMessage: 'Zoom out'"
+					(click)="zoomBy(-25)"
+					[disabled]="!naturalWidth() || zoom() === 10"
+				>
+					<fa-icon [icon]="zoomOutIcon" />
+				</button>
+				<button
+					type="button"
+					[attr.aria-label]="
+						zoom() === 100
+							? ('imagePreviewer.fitToViewer' | webuiMessage: 'Fit to viewer')
+							: ('imagePreviewer.fitToRealSize' | webuiMessage: 'Fit to real size')
+					"
+					(click)="zoom() === 100 ? fitImage() : zoom.set(100)"
+					[disabled]="!naturalWidth()"
+				>
+					<nx-webui-icon
+						[name]="zoom() === 100 ? 'nuxeo:fit-to-viewer' : 'nuxeo:fit-to-real-size'"
+					/>
+				</button>
+				<button
+					type="button"
+					[attr.aria-label]="'imagePreviewer.zoom.in' | webuiMessage: 'Zoom in'"
+					(click)="zoomBy(25)"
+					[disabled]="!naturalWidth() || zoom() === 400"
+				>
+					<fa-icon [icon]="zoomInIcon" />
+				</button>
+				<button
+					type="button"
+					[attr.aria-label]="'imagePreviewer.rotate.left' | webuiMessage: 'Rotate left'"
+					(click)="rotate(-90)"
+					[disabled]="!naturalWidth()"
+				>
+					<fa-icon icon="rotate-left" />
+				</button>
+				<button
+					type="button"
+					[attr.aria-label]="'imagePreviewer.rotate.right' | webuiMessage: 'Rotate right'"
+					(click)="rotate(90)"
+					[disabled]="!naturalWidth()"
+				>
+					<fa-icon icon="rotate-right" />
+				</button>
+				@for (control of panControls; track control.label) {
+					<button
+						type="button"
+						[attr.aria-label]="control.key | webuiMessage: control.label"
+						(click)="panImage(control.x, control.y)"
+						[disabled]="!naturalWidth()"
+					>
+						<fa-icon [icon]="control.icon" />
+					</button>
+				}
+			</div>
+		</div>
+		@if (viewerMessage()) {
+			<p role="status">{{ viewerMessage() }}</p>
+		}
+
+		<footer class="asset-caption">
+			<div>
+				<span>{{ document?.ng?.attachment?.name || document?.title }}</span
+				><small>{{ document?.ng?.attachment?.length | fileSize: 2 }}</small>
+			</div>
+			@if (inlineBlobActions) {
+				<ng-content select="[imageBlobActions]" />
+			} @else {
+				<button
+					type="button"
+					[attr.aria-label]="
+						'app.modules.image-renderer.download-original-file-99f0e9'
+							| webuiMessage: 'Download original file'
+					"
+					[tooltip]="
+						'app.modules.image-renderer.download-original-file-99f0e9'
+							| webuiMessage: 'Download original file'
+					"
+					container="body"
+					containerClass="document-action-tooltip"
+					(click)="downloadBlob(document.ng?.attachment)"
+				>
+					<fa-icon icon="download" />
+				</button>
+			}
+		</footer>
+		<ng-content />
+	</div>
+	@if (!externalCards) {
+		<ng-container *ngTemplateOutlet="technicalCards" />
+	}
+</div>
+<ng-template #technicalCards>
+	<div class="picture-cards">
+		@if (document?.type === 'Picture' || document?.facets?.includes('Picture')) {
+			<nx-picture-metadata-card [document]="document" kind="Picture Info" />
+		}
+		@if (document?.properties?.['picture:views']?.length) {
+			<details class="rendition-tray" open>
+				<summary>
+					{{
+						'app.modules.image-renderer.additional-formats-cfc470'
+							| webuiMessage: 'Additional formats'
+					}}
+					<span>{{ document.properties['picture:views'].length | webuiNumber }}</span>
+				</summary>
+				<div class="rendition-body">
+					<table class="table table-sm table-hover align-middle mb-0 caption-top">
+						<thead>
+							<tr>
+								<th class="text-start ps-3">
+									{{ 'publication.rendition' | webuiMessage: 'Rendition' }}
+								</th>
+								<th>{{ 'app.modules.image-renderer.image-f05cce' | webuiMessage: 'Image' }}</th>
+								<th>
+									{{ 'app.modules.image-renderer.file-size-3dd6ce' | webuiMessage: 'File size' }}
+								</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							@for (
+								picture of document.properties['picture:views'];
+								track picture.content?.data;
+								let index = $index
+							) {
+								<tr [class.table-active]="isSelected(picture.content?.data)">
+									<th>
+										<div class="d-flex align-items-center">
+											<div
+												class="form-check"
+												[tooltip]="
+													'app.modules.image-renderer.view-this-rendition-949fdb'
+														| webuiMessage: 'View this rendition'
+												"
+											>
+												<input
+													[id]="'view-' + index"
+													class="form-check-input"
+													type="radio"
+													name="imageSource"
+													[checked]="isSelected(picture.content?.data)"
+													[disabled]="!isUsableView(picture)"
+													(change)="selectView(picture)"
+												/><label [for]="'view-' + index"
+													>{{
+														picture.title ||
+															picture.info?.format ||
+															('app.runtime.image-renderer.rendition-979e0b'
+																| webuiMessage: 'Rendition')
+													}}
+													@if (picture.info?.format) {
+														<span class="text-muted">· {{ picture.info.format }}</span>
+													}
+												</label>
+											</div>
+										</div>
+									</th>
+									<td>
+										{{ picture.info?.width | webuiNumber }}×{{ picture.info?.height | webuiNumber
+										}}<small>{{
+											'picture.depth'
+												| webuiMessage
+													: '{colorSpace} · {depth, number} bit'
+													: { colorSpace: picture.info?.colorSpace, depth: picture.info?.depth }
+										}}</small>
+									</td>
+									<td>{{ picture.content?.length | fileSize: 1 }}</td>
+									<td>
+										<button
+											type="button"
+											class="btn btn-sm btn-link link-primary"
+											[tooltip]="
+												'app.modules.image-renderer.download-this-rendition-77fb1f'
+													| webuiMessage: 'Download this rendition'
+											"
+											[attr.aria-label]="
+												'action.downloadNamed'
+													| webuiMessage: 'Download {name}' : { name: picture.title }
+											"
+											(click)="downloadBlob(picture.content)"
+										>
+											<fa-icon [fixedWidth]="true" icon="download" size="sm"></fa-icon>
+										</button>
+									</td>
+								</tr>
+							}
+							@if (document.properties['picture:info']?.width || document.ng?.attachment?.data) {
+								<tr
+									class="original-rendition"
+									[class.table-active]="isSelected(document.ng?.attachment?.data)"
+								>
+									<th>
+										<div class="d-flex align-items-center">
+											<div
+												class="form-check"
+												[tooltip]="
+													'app.modules.image-renderer.view-original-ec2c8d'
+														| webuiMessage: 'View original'
+												"
+											>
+												<input
+													id="image-original"
+													class="form-check-input"
+													type="radio"
+													name="imageSource"
+													[checked]="isSelected(document.ng?.attachment?.data)"
+													(change)="selectOriginal()"
+												/><label for="image-original"
+													>{{
+														'app.modules.image-renderer.original-file-5e9116'
+															| webuiMessage: 'Original file'
+													}}
+													@if (document.properties['picture:info']?.format) {
+														<span class="text-muted"
+															>· {{ document.properties['picture:info'].format }}</span
+														>
+													}
+												</label>
+											</div>
+										</div>
+									</th>
+									<td>
+										{{ document.properties['picture:info']?.width | webuiNumber }}×{{
+											document.properties['picture:info']?.height | webuiNumber
+										}}<small>{{
+											'picture.depth'
+												| webuiMessage
+													: '{colorSpace} · {depth, number} bit'
+													: {
+															colorSpace: document.properties['picture:info']?.colorSpace,
+															depth: document.properties['picture:info']?.depth,
+													  }
+										}}</small>
+									</td>
+
+									<td>{{ document.ng?.attachment?.length | fileSize: 1 }}</td>
+									<td>
+										<button
+											type="button"
+											class="btn btn-sm btn-link link-primary"
+											[tooltip]="
+												'app.modules.image-renderer.download-original-dd2dd0'
+													| webuiMessage: 'Download original'
+											"
+											[attr.aria-label]="
+												'app.modules.image-renderer.download-original-file-99f0e9'
+													| webuiMessage: 'Download original file'
+											"
+											(click)="downloadBlob(document.ng?.attachment)"
+										>
+											<fa-icon [fixedWidth]="true" icon="download" size="sm"></fa-icon>
+										</button>
+									</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			</details>
+		}
+		@if (document?.type === 'Picture' || document?.facets?.includes('Picture')) {
+			<nx-picture-metadata-card [document]="document" kind="EXIF" />
+			<nx-picture-metadata-card [document]="document" kind="IPTC" />
+		}
+	</div>
+</ng-template>

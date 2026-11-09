@@ -1,0 +1,192 @@
+.nx-audit {
+	padding: 16px;
+	color: var(--nuxeo-text-default);
+}
+.nx-audit__filters {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	grid-template-areas:
+		'username username'
+		'from to'
+		'actions category';
+	gap: 12px 10px;
+	align-items: end;
+	padding: 16px;
+	margin-bottom: 16px;
+	background: var(--nuxeo-box);
+	border: 1px solid var(--nuxeo-border);
+}
+.nx-audit__filters label:nth-child(1) {
+	grid-area: username;
+}
+.nx-audit__filters label:nth-child(2) {
+	grid-area: from;
+}
+.nx-audit__filters label:nth-child(3) {
+	grid-area: to;
+}
+.nx-audit__filters label:nth-child(4) {
+	grid-area: actions;
+}
+.nx-audit__filters label:nth-child(5) {
+	grid-area: category;
+}
+.nx-audit__filters label {
+	display: grid;
+	gap: 0.35rem;
+	font-size: 14px;
+	font-weight: 400;
+	color: var(--nuxeo-text-default);
+}
+.nx-audit__filters input,
+.nx-audit__filters select {
+	min-width: 0;
+	min-height: 34px;
+	padding: 7px 0;
+	border: 0;
+	border-bottom: 1px solid var(--nuxeo-text-default);
+	border-radius: 0;
+	background: transparent;
+	color: var(--nuxeo-text-default);
+}
+.nx-audit__filters ng-select {
+	min-width: 0;
+}
+.nx-audit__table-wrap {
+	overflow-x: auto;
+}
+.nx-audit__table-wrap table {
+	min-width: 54rem;
+	margin: 0;
+	background: var(--nuxeo-box);
+	border: 1px solid var(--nuxeo-border);
+	color: var(--nuxeo-text-default);
+}
+.nx-audit__table-wrap th {
+	padding: 12px 26px;
+	border-color: var(--nuxeo-border);
+	font-size: 13px;
+	font-weight: 600;
+}
+.nx-audit__table-wrap th button {
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	font-weight: inherit;
+}
+.nx-audit__table-wrap td {
+	padding: 10px 26px;
+	border-color: var(--nuxeo-border);
+	font-size: 13px;
+	vertical-align: middle;
+}
+.nx-audit__message {
+	padding: 1rem;
+	border-inline-start: 4px solid var(--nuxeo-primary-color);
+	background: var(--nuxeo-box);
+}
+.nx-audit__summary {
+	margin-bottom: 0.75rem;
+	color: var(--nuxeo-text-default);
+}
+.nx-audit__pagination {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	gap: 0.75rem;
+}
+@media (max-width: 900px) {
+	.nx-audit__filters {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+@media (max-width: 540px) {
+	.nx-audit {
+		padding: 1rem;
+	}
+	.nx-audit__filters {
+		grid-template-columns: 1fr;
+		grid-template-areas: 'username' 'from' 'to' 'actions' 'category';
+	}
+}
+
+.nx-audit--document .nx-audit__summary {
+	display: none;
+}
+.nx-audit--document .nx-audit__table-wrap {
+	padding: 16px;
+	background: var(--nuxeo-box);
+}
+.nx-audit--document .nx-audit__table-wrap table {
+	min-width: 44rem;
+	border: 0;
+}
+.nx-audit--document .state-tag {
+	border-radius: 12px;
+	background: var(--nuxeo-page-background, #f4f4f4);
+	padding: 2px 8px;
+	font-size: 11px;
+}
+
+.nx-audit__table-tools {
+	display: flex;
+	justify-content: flex-end;
+}
+.nx-audit__columns {
+	position: relative;
+}
+.nx-audit__columns summary {
+	list-style: none;
+	cursor: pointer;
+	padding: 4px 8px;
+	font-size: 22px;
+}
+.nx-audit__columns summary::-webkit-details-marker {
+	display: none;
+}
+.nx-audit__columns-menu {
+	position: absolute;
+	inset-inline-end: 0;
+	z-index: 1;
+	min-width: 150px;
+	padding: 12px;
+	background: var(--nuxeo-box);
+	border: 1px solid var(--nuxeo-border);
+	box-shadow: 0 2px 6px #0002;
+}
+.nx-audit__columns-menu label {
+	display: flex;
+	gap: 8px;
+	padding: 5px;
+	white-space: nowrap;
+}
+.nx-audit__table-wrap .nx-audit__empty {
+	padding: 40px 16px;
+	text-align: center;
+	color: var(--nuxeo-text-default);
+}
+
+.nx-audit__table-wrap th button::after {
+	content: '↕';
+	margin-inline-start: 6px;
+	opacity: 0.55;
+}
+.nx-audit__table-wrap th button[data-sort='ASC']::after {
+	content: '↑';
+	opacity: 1;
+}
+.nx-audit__table-wrap th button[data-sort='DESC']::after {
+	content: '↓';
+	opacity: 1;
+}
+:host ::ng-deep .nx-audit__filters .ng-select-container {
+	border: 0;
+	border-bottom: 1px solid var(--nuxeo-border);
+	border-radius: 0;
+	background: transparent;
+}
+.nx-audit--document .nx-audit__table-wrap td {
+	padding-block: 16px;
+}

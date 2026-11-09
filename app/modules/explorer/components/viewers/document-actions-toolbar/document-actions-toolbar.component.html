@@ -1,0 +1,127 @@
+@if (document) {
+	<div class="document-actions">
+		@if (primary && !(referenceLayout && narrow())) {
+			<div
+				class="document-actions__primary"
+				[attr.aria-label]="
+					'app.modules.document-actions-toolbar.primary-document-actions-5ad7c1'
+						| webuiMessage: 'Primary document actions'
+				"
+			>
+				@if (referenceLayout) {
+					<nx-webui-slot
+						[name]="documentActionsSlot"
+						[context]="actionContext"
+						[excludeIds]="referenceExcludedIds"
+					/>
+					@for (id of referencePrimaryIds; track id) {
+						<nx-webui-slot
+							[name]="documentActionsSlot"
+							[context]="actionContext"
+							[includeIds]="[id]"
+						/>
+					}
+				} @else {
+					<nx-webui-slot
+						[name]="documentActionsSlot"
+						[context]="actionContext"
+						[includeIds]="primaryActionIds"
+					/>
+				}
+			</div>
+		}
+		@if (compact || primary) {
+			@if (menuHasItems()) {
+				<button
+					#compactTrigger
+					#compactOrigin="cdkOverlayOrigin"
+					type="button"
+					class="document-actions__more"
+					[attr.aria-label]="
+						'app.modules.document-actions-toolbar.more-actions-d74c3b'
+							| webuiMessage: 'More actions'
+					"
+					[tooltip]="
+						'app.modules.document-actions-toolbar.more-actions-d74c3b'
+							| webuiMessage: 'More actions'
+					"
+					#actionTip="bs-tooltip"
+					container="body"
+					containerClass="document-action-tooltip"
+					placement="bottom"
+					triggers="mouseenter:mouseleave focus:blur"
+					[delay]="250"
+					(pointerdown)="actionTip.hide()"
+					cdkOverlayOrigin
+					[attr.aria-expanded]="menuOpen()"
+					aria-haspopup="dialog"
+					(click)="toggleActions()"
+					(keydown.escape)="actionTip.hide(); closeActions()"
+				>
+					<span aria-hidden="true">⋮</span>
+				</button>
+				<ng-template
+					cdkConnectedOverlay
+					[cdkConnectedOverlayOrigin]="compactOrigin"
+					[cdkConnectedOverlayOpen]="menuOpen()"
+					[cdkConnectedOverlayHasBackdrop]="true"
+					[cdkConnectedOverlayUsePopover]="null"
+					[cdkConnectedOverlayBackdropClass]="'document-actions__backdrop'"
+					[cdkConnectedOverlayPositions]="compactMenuPositions"
+					(backdropClick)="closeActions()"
+					(detach)="closeActions(false)"
+					(attach)="focusActions()"
+					(overlayKeydown)="onOverlayKeydown($event)"
+				>
+					<div
+						#compactMenu
+						(document-action-opened)="dialogOpened($event)"
+						(document-action-complete)="closeActions()"
+						class="document-actions__menu"
+						[class.has-dialog]="nativeDialogOpen()"
+						(document-native-dialog-opened)="nativeDialogOpen.set(true)"
+						role="dialog"
+						[attr.aria-label]="
+							'app.modules.document-actions-toolbar.document-actions-72e786'
+								| webuiMessage: 'Document actions'
+						"
+						tabindex="-1"
+					>
+						@if (referenceLayout) {
+							@if (narrow()) {
+								@for (id of referencePrimaryIds; track id) {
+									<nx-webui-slot
+										[name]="documentActionsSlot"
+										[context]="actionContext"
+										[includeIds]="[id]"
+										[layout]="'stack'"
+									/>
+								}
+							}
+							@for (id of orderedMenuIds; track id) {
+								<nx-webui-slot
+									[name]="documentActionsSlot"
+									[context]="actionContext"
+									[includeIds]="[id]"
+									[layout]="'stack'"
+								/>
+							}
+						}
+						@if (!referenceLayout || narrow()) {
+							<nx-webui-slot
+								[name]="documentActionsSlot"
+								[context]="actionContext"
+								[excludeIds]="
+									referenceLayout ? referenceExcludedIds : primary ? primaryActionIds : []
+								"
+								[layout]="'stack'"
+							/>
+						}
+					</div>
+				</ng-template>
+			}
+		} @else {
+			<nx-webui-slot [name]="documentActionsSlot" [context]="actionContext" />
+		}
+	</div>
+}

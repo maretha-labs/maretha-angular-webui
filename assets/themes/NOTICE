@@ -1,0 +1,7 @@
+Kawaii background image from Nuxeo Web UI themes/kawaii/background.png, and the theme preview
+images from Nuxeo Web UI themes/<name>/preview.jpg for the default, dark, light and kawaii themes.
+©2023 Hyland Software, Inc. and its affiliates. All rights reserved.
+Licensed under Apache License 2.0; see LICENSE-APACHE-2.0.
+Source: https://github.com/nuxeo/nuxeo-web-ui at e0ccb86615c692a3a60c557d363d4ce32f91c686.
+Images unchanged; asset paths relocated for the Angular application (themes/<name>/preview.jpg
+became <name>-preview.jpg).

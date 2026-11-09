@@ -1,0 +1,198 @@
+<!-- Stock serialdocumentreview / paralleldocumentreview nuxeo-task*-layout elements. -->
+@switch (context.taskKey) {
+	@case ('task38e') {
+		<ng-container
+			*ngTemplateOutlet="
+				participantPicker;
+				context: {
+					$implicit: ('wf.serialDocumentReview.participants' | webuiMessage: 'Participants'),
+				}
+			"
+		/>
+		<div class="nx-workflow-widget">
+			<label class="nx-workflow-label" for="workflow-review-type">{{
+				'wf.serialDocumentReview.review.type' | webuiMessage: 'Review Type'
+			}}</label>
+			<select
+				id="workflow-review-type"
+				class="nx-workflow-input nx-workflow-select"
+				[value]="context.variables['validationOrReview'] ?? ''"
+				(change)="update('validationOrReview', $any($event.target).value)"
+				[disabled]="context.readOnly || context.busy"
+			>
+				<option value="simpleReview">
+					{{ 'wf.serialDocumentReview.simpleReview' | webuiMessage: 'Simple Review' }}
+				</option>
+				<option value="validation">
+					{{ 'wf.serialDocumentReview.validation' | webuiMessage: 'Validation' }}
+				</option>
+			</select>
+		</div>
+		<ng-container
+			*ngTemplateOutlet="
+				comment;
+				context: { $implicit: ('wf.serialDocumentReview.comment' | webuiMessage: 'Comment') }
+			"
+		/>
+	}
+	@case ('task2556') {
+		<ng-container
+			*ngTemplateOutlet="
+				participantPicker;
+				context: {
+					$implicit: ('wf.parallelDocumentReview.participants' | webuiMessage: 'Participants'),
+				}
+			"
+		/>
+		<ng-container
+			*ngTemplateOutlet="
+				comment;
+				context: { $implicit: ('wf.parallelDocumentReview.comment' | webuiMessage: 'Comment') }
+			"
+		/>
+		<div class="nx-workflow-widget">
+			<label class="nx-workflow-label nx-workflow-label--required" for="workflow-end-date">{{
+				'wf.parallelDocumentReview.endDate' | webuiMessage: 'End Date'
+			}}</label
+			><input
+				id="workflow-end-date"
+				type="date"
+				class="nx-workflow-input"
+				required
+				[value]="dateValue()"
+				[attr.value]="dateValue()"
+				(input)="setDate($any($event.target).value)"
+				(change)="setDate($any($event.target).value)"
+				[disabled]="context.readOnly || context.busy"
+			/>
+		</div>
+	}
+	@case ('task6d8') {
+		<div class="nx-workflow-widget nx-workflow-participants">
+			<span class="nx-workflow-label">{{
+				'wf.serialDocumentReview.participants' | webuiMessage: 'Participants'
+			}}</span>
+			@for (group of participantsOfType('group'); track group) {
+				<span class="nx-workflow-group-tag"
+					><nx-webui-icon name="nuxeo:group" />{{ principalName(group) }}</span
+				>
+			}
+			@for (user of participantsOfType('user'); track user) {
+				@if (principal(user) | async; as entity) {
+					<nx-user-tag [user]="entity" [lookup]="false" />
+				}
+			}
+		</div>
+		<div class="nx-workflow-widget">
+			<span class="nx-workflow-label">{{
+				'wf.serialDocumentReview.initiatorComment' | webuiMessage: 'Initiator Comment'
+			}}</span>
+			<div class="nx-workflow-value">{{ context.variables['initiatorComment'] }}</div>
+		</div>
+		<ng-container
+			*ngTemplateOutlet="
+				comment;
+				context: { $implicit: ('wf.serialDocumentReview.comment' | webuiMessage: 'Comment') }
+			"
+		/>
+	}
+	@case ('task328d') {
+		<div class="nx-workflow-widget">
+			<span class="nx-workflow-label">{{
+				'wf.parallelDocumentReview.initiatorComment' | webuiMessage: 'Initiator Comment'
+			}}</span>
+			<div class="nx-workflow-value">{{ context.variables['initiatorComment'] }}</div>
+		</div>
+		<ng-container
+			*ngTemplateOutlet="
+				comment;
+				context: { $implicit: ('wf.parallelDocumentReview.comment' | webuiMessage: 'Comment') }
+			"
+		/>
+	}
+	@case ('task2169') {
+		<div class="nx-workflow-widget">
+			<span class="nx-workflow-label">{{
+				'wf.parallelDocumentReview.consolidate.form.review_brief'
+					| webuiMessage: 'Consultation Wrap-Up'
+			}}</span>
+			<div class="nx-workflow-value" [innerHTML]="reviewResult()"></div>
+		</div>
+		<ng-container
+			*ngTemplateOutlet="
+				comment;
+				context: { $implicit: ('wf.parallelDocumentReview.comment' | webuiMessage: 'Comment') }
+			"
+		/>
+	}
+}
+
+<!-- Stock nuxeo-user-suggestion (USER_GROUP_TYPE, multiple, prefixed, required). -->
+<ng-template #participantPicker let-label>
+	<div class="nx-workflow-widget">
+		<label class="nx-workflow-label nx-workflow-label--required" for="workflow-participants">{{
+			label
+		}}</label>
+		<div class="nx-workflow-input nx-workflow-suggestion" aria-live="polite">
+			@for (participant of participants(); track participant) {
+				<span class="nx-workflow-chip"
+					>{{ participantLabel(participant)
+					}}<button
+						type="button"
+						(click)="removeParticipant(participant)"
+						[disabled]="context.readOnly || context.busy"
+						[attr.aria-label]="
+							'action.removeNamed'
+								| webuiMessage: 'Remove {name}' : { name: participantLabel(participant) }
+						"
+					>
+						×
+					</button></span
+				>
+			}
+			<input
+				id="workflow-participants"
+				autocomplete="off"
+				[value]="participantQuery"
+				(input)="searchParticipants($any($event.target).value)"
+				[disabled]="context.readOnly || context.busy"
+			/>
+		</div>
+		@if (participantHint(); as hint) {
+			<div class="list-group nx-workflow-suggestions" role="status">
+				<div class="list-group-item disabled">{{ hint }}</div>
+			</div>
+		}
+		@if (suggestions.length) {
+			<div class="list-group nx-workflow-suggestions" role="listbox">
+				@for (suggestion of suggestions; track suggestion.id) {
+					<button
+						type="button"
+						role="option"
+						aria-selected="false"
+						class="list-group-item list-group-item-action"
+						(click)="addParticipant(suggestion.id, suggestion.label)"
+						[disabled]="context.readOnly || context.busy"
+					>
+						{{ suggestion.label }} <small>({{ suggestion.id }})</small>
+					</button>
+				}
+			</div>
+		}
+	</div>
+</ng-template>
+
+<!-- Stock nuxeo-textarea always-float-label. -->
+<ng-template #comment let-label>
+	<div class="nx-workflow-widget">
+		<label class="nx-workflow-label" for="workflow-comment">{{ label }}</label
+		><textarea
+			id="workflow-comment"
+			class="nx-workflow-input nx-workflow-textarea"
+			rows="1"
+			[value]="context.variables['comment'] ?? ''"
+			(input)="update('comment', $any($event.target).value)"
+			[disabled]="context.readOnly || context.busy"
+		></textarea>
+	</div>
+</ng-template>

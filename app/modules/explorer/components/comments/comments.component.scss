@@ -1,0 +1,115 @@
+@import '../../../../../styles/variables';
+
+:host {
+	display: block;
+	padding: 0.5rem;
+}
+
+.comments {
+	max-height: min(25vh, 220px);
+	overflow-y: auto;
+}
+
+.comment {
+	.comment-reply {
+		border: 0;
+		padding: 0;
+		background: transparent;
+		color: inherit;
+		text-align: start;
+		white-space: normal;
+		overflow: auto;
+		cursor: pointer;
+
+		&.collapsed {
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			max-height: 100px;
+		}
+	}
+}
+
+li ul {
+	margin-block-start: 0.5rem;
+}
+
+form {
+	/* Keep Post and Cancel clear of the floating create button. */
+	padding-inline-end: 4rem;
+}
+
+.form-floating-sm > .form-control {
+	padding: 0.5rem 1rem;
+	height: 0;
+}
+
+.list-group .list-group-item {
+	padding: 0.5rem;
+
+	.list-group .list-group-item {
+		padding-inline-start: 0;
+		padding-inline-end: 0;
+		margin-block-start: 0;
+	}
+}
+
+.selected {
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset-block-start: -0.2rem;
+		inset-inline-start: -0.2rem;
+		inset-inline-end: 0;
+		inset-block-end: 0;
+		box-shadow: rgba(var(--nuxeo-primary-rgb, #{$primary-rgb}), 0.3) 0px 0px 0px 0.1rem;
+		background: rgba(var(--nuxeo-primary-rgb, #{$primary-rgb}), 0.1);
+		border-radius: 0.5rem;
+		pointer-events: none;
+		opacity: 0.3;
+		border: 2px solid rgba(0, 0, 0, 0);
+		background-image:
+			linear-gradient(
+				var(--maretha-style-color-selection-fill, #f2f4f6),
+				var(--maretha-style-color-selection-fill, #f2f4f6)
+			),
+			repeating-linear-gradient(
+				-45deg,
+				var(--nuxeo-primary-color, #{$primary}) 0,
+				var(--nuxeo-primary-color, #{$primary}) 12.5%,
+				transparent 0,
+				transparent 25%,
+				var(--nuxeo-primary-color, #{$primary}) 0,
+				var(--nuxeo-primary-color, #{$primary}) 37.5%,
+				transparent 0,
+				transparent 50%
+			);
+		background-clip: padding-box, border-box;
+		background-size: 1em 1em;
+		animation: ants 30s linear infinite;
+	}
+}
+
+@keyframes ants {
+	to {
+		background-position: 100% 100%;
+	}
+}
+
+$s-min: 20;
+$s-max: 70;
+$l-min: 30;
+$l-max: 90;
+
+@for $i from 1 through 100 {
+	.user-#{$i} {
+		color: hsl(
+			random(360),
+			$s-min + random($s-max + -$s-min) * 1%,
+			$l-min + random($l-max + -$l-min) * 1%
+		);
+	}
+}

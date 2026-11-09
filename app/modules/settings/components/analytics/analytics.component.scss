@@ -1,0 +1,323 @@
+.nx-analytics {
+	padding: 16px;
+	color: var(--nuxeo-text-default);
+
+	// Stock nuxeo-card: no border, a light shadow.
+	&__filters {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		gap: 1rem 2rem;
+		align-items: end;
+		padding: 16px;
+		margin-bottom: 1rem;
+		background: var(--nuxeo-box);
+		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.04);
+	}
+
+	// Stock --nuxeo-label.
+	&__filters label {
+		display: grid;
+		gap: 0.3rem;
+		font-size: 0.875rem;
+		font-weight: 400;
+		color: var(--nuxeo-text-default);
+	}
+
+	// Stock nuxeo-date-picker field.
+	&__filters input {
+		width: 190px;
+		padding: 6px 8px;
+		border: 1px solid color-mix(in srgb, var(--nuxeo-text-default) 45%, transparent);
+		border-radius: 2px;
+		background: var(--nuxeo-box);
+		color: var(--nuxeo-text-default);
+	}
+
+	// Stock nuxeo-select: at least 250px wide.
+	&__workflow {
+		min-width: 250px;
+		font-size: 1rem;
+	}
+
+	&__notice {
+		padding: 1rem;
+		border-inline-start: 4px solid var(--nuxeo-primary-color);
+		background: var(--nuxeo-box);
+	}
+
+	&__metric-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+	}
+
+	// Stock nuxeo-card heading.
+	&__metric-grid h2 {
+		margin: 0 0 1em;
+		font-size: 14px;
+		font-weight: 700;
+		letter-spacing: 0.24px;
+		line-height: 1.25rem;
+		text-align: start;
+		color: var(--nuxeo-text-default);
+	}
+
+	&__metric-grid dl {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 0.35rem 0.75rem;
+		margin: 0;
+	}
+
+	&__distribution {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 0.4rem 1rem;
+		margin: 0;
+	}
+
+	&__distribution dd {
+		margin: 0;
+		font-weight: 600;
+	}
+	&__metric-grid dt {
+		overflow-wrap: anywhere;
+		font-weight: 400;
+	}
+	&__metric-grid dd {
+		margin: 0;
+		font-weight: 600;
+	}
+	// Stock <h1> under the card icon.
+	&__duration {
+		margin: 0.67em 0;
+		font-size: 2rem;
+		font-weight: 700;
+		color: var(--nuxeo-text-default);
+	}
+
+	&__loading {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 4rem 0;
+		color: var(--bs-gray-500);
+	}
+
+	&__stats {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+		margin-bottom: 1.25rem;
+	}
+
+	&__stat-card {
+		background: var(--nuxeo-box);
+		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.04);
+		padding: 1.25rem;
+		text-align: center;
+	}
+
+	&__stat-icon {
+		font-size: 1.25rem;
+		color: var(--nuxeo-primary-color);
+		margin-bottom: 0.5rem;
+		opacity: 0.6;
+	}
+
+	&__stat-value {
+		font-size: 2rem;
+		font-weight: 700;
+		color: var(--nuxeo-primary-color);
+		line-height: 1;
+		margin-bottom: 0.35rem;
+	}
+
+	&__stat-label {
+		font-size: 0.75rem;
+		color: var(--nuxeo-text-default);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	&__charts-row {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	&__chart-card {
+		min-width: 0;
+		background: var(--nuxeo-box);
+		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.04);
+		padding: 16px;
+		margin-bottom: 1rem;
+	}
+
+	&__metric-grid &__chart-card {
+		min-height: 275px;
+		margin-bottom: 0;
+		text-align: center;
+	}
+
+	&__metric-grid dl {
+		max-width: 255px;
+		margin-inline: auto;
+		text-align: start;
+	}
+
+	&__chart-title {
+		font-size: 0.75rem;
+		font-weight: 600;
+		color: var(--nuxeo-text-default);
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		margin-bottom: 1rem;
+	}
+
+	&__chart-container {
+		min-width: 0;
+		height: 220px;
+		position: relative;
+
+		&--contributors {
+			height: 280px;
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.nx-analytics__metric-grid,
+	.nx-analytics__charts-row,
+	.nx-analytics__stats {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+@media (max-width: 600px) {
+	.nx-analytics__filters {
+		justify-content: stretch;
+	}
+	.nx-analytics__filters label,
+	.nx-analytics__filters button {
+		width: 100%;
+	}
+}
+
+.full-width {
+	grid-column: 1/-1;
+}
+.summary-icon {
+	display: block;
+	width: 144px;
+	height: 144px;
+	color: #0f9d58;
+	margin: 50px auto 0;
+}
+.distribution-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 3fr) minmax(180px, 1fr);
+	gap: 16px;
+}
+.distribution-layout fieldset label {
+	display: block;
+	padding: 8px 0;
+}
+.distribution-layout input {
+	margin-inline-end: 8px;
+}
+.path-label {
+	flex: 1;
+}
+.depth-label {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+.depth-label input {
+	flex: 1;
+}
+.depth-label nx-webui-icon,
+.nx-analytics__filters nx-webui-icon {
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+}
+@media (max-width: 720px) {
+	.distribution-layout {
+		grid-template-columns: 1fr;
+	}
+}
+
+// Stock paper-dropdown-menu and paper-listbox: the value over an underline with the arrow at the
+// end (primary when focused), the options below it, the selected one bold on a grey tint.
+:host ::ng-deep .nx-analytics__workflow {
+	&.ng-select .ng-select-container {
+		min-height: 32px;
+		border: 0;
+		border-bottom: 1px solid var(--nuxeo-text-default);
+		border-radius: 0;
+		background: transparent;
+		color: var(--nuxeo-text-default);
+		box-shadow: none;
+		cursor: pointer;
+	}
+
+	&.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
+		border-bottom-color: var(--nuxeo-primary-color);
+		box-shadow: inset 0 -1px 0 var(--nuxeo-primary-color);
+	}
+
+	&.ng-select-single .ng-select-container .ng-value-container {
+		padding: 4px 0 7px;
+	}
+
+	.ng-arrow-wrapper {
+		width: 24px;
+		padding-right: 2px;
+	}
+
+	&.ng-select .ng-arrow-wrapper .ng-arrow,
+	&.ng-select-opened > .ng-select-container .ng-arrow {
+		top: 0;
+		border-color: var(--nuxeo-text-default) transparent transparent;
+		border-style: solid;
+		border-width: 5px 5px 0;
+	}
+
+	.ng-dropdown-panel {
+		margin-top: 0;
+		border: 0;
+		border-radius: 0;
+		background: var(--nuxeo-box);
+		box-shadow:
+			0 2px 2px 0 rgba(0, 0, 0, 0.14),
+			0 1px 5px 0 rgba(0, 0, 0, 0.12),
+			0 3px 1px -2px rgba(0, 0, 0, 0.2);
+		font-size: 1rem;
+	}
+
+	.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+		display: flex;
+		align-items: center;
+		min-height: 48px;
+		padding: 0 16px;
+		background: transparent;
+		color: var(--nuxeo-text-default);
+		font-weight: 400;
+	}
+
+	.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+		background: color-mix(in srgb, var(--nuxeo-text-default) 6%, transparent);
+		color: var(--nuxeo-text-default);
+	}
+
+	.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected,
+	.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked {
+		background: color-mix(in srgb, var(--nuxeo-text-default) 12%, transparent);
+		color: var(--nuxeo-text-default);
+		font-weight: 700;
+	}
+}

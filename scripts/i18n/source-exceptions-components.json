@@ -1,0 +1,1176 @@
+{
+  "version": 1,
+  "scopes": ["app/components/"],
+  "exceptions": [
+    {
+      "id": "835876be4930e0a3",
+      "file": "app/components/quick-search/quick-search.service.ts",
+      "kind": "typescript-string",
+      "text": "SELECT * FROM Document WHERE ecm:uuid IN (${ids.map((id) => `'${id}'`).join(', ')})",
+      "ownership": "technical-token",
+      "reason": "Reviewed NXQL query string sent to Nuxeo REST search to resolve document paths by UUID; not visible UI text.",
+      "maximum": 1
+    },
+    {
+      "id": "9f25132f4dd52764",
+      "file": "app/components/application-pages/comparison-page.component.ts",
+      "kind": "template-expression-literal",
+      "text": "title",
+      "ownership": "technical-token",
+      "reason": "Reviewed property lookup, form-control name or date format argument; this string selects data or formatting and is not user-facing prose.",
+      "maximum": 2
+    },
+    {
+      "id": "70625d27f5b023f7",
+      "file": "app/components/application-pages/comparison-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ doc['title'] }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 2
+    },
+    {
+      "id": "19007444dfc86430",
+      "file": "app/components/application-pages/comparison-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ error() }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "d6dd80b13b9cb218",
+      "file": "app/components/application-pages/comparison-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ title(doc) }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 2
+    },
+    {
+      "id": "ef90b7adb1bc1d25",
+      "file": "app/components/application-pages/comparison-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ group.name }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "00e7ee5bac418336",
+      "file": "app/components/application-pages/comparison-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ fieldLabel(property) }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed display helper resolves explicit app-owned message keys and preserves unknown repository labels/customer inputs; this template displays that result without a second implicit lookup.",
+      "maximum": 2
+    },
+    {
+      "id": "f96cbd0b4dae4ebd",
+      "file": "app/components/application-pages/comparison-page.component.ts",
+      "kind": "typescript-string",
+      "text": "Select between 2 and 199 documents to compare.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "71a0381084251c41",
+      "file": "app/components/application-pages/comparison-page.component.ts",
+      "kind": "typescript-string",
+      "text": "Unable to load these documents. They may be missing or you may not have access.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "174d000a183d0cab",
+      "file": "app/components/application-pages/comparison-page.component.ts",
+      "kind": "typescript-string",
+      "text": "(v${props['uid:major_version']}.${props['uid:minor_version']})",
+      "ownership": "technical-token",
+      "reason": "Repository version notation assembled from numeric major/minor version identifiers; not app-owned language.",
+      "maximum": 1
+    },
+    {
+      "id": "4ecaa959eeff0c76",
+      "file": "app/components/application-pages/principal-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{\n\t\t\t\t\t\t\tprincipal.title\n\t\t\t\t\t\t}}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "687d3c6b94a518bb",
+      "file": "app/components/application-pages/principal-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ principal.id }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "91af7b027df52e2c",
+      "file": "app/components/application-pages/principal-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ group }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "8940e91581aa3327",
+      "file": "app/components/application-pages/principal-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ user }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "2e0f95093fa256fa",
+      "file": "app/components/application-pages/principal-page.component.ts",
+      "kind": "typescript-string",
+      "text": "Select a valid user or group.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "b5d4317d451d855a",
+      "file": "app/components/application-pages/principal-page.component.ts",
+      "kind": "typescript-string",
+      "text": "This user or group is unavailable, or you do not have permission to view it.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "4a3b7b0cebfa1898",
+      "file": "app/components/application-pages/principal-page.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "First name",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "52d0371f5911fc48",
+      "file": "app/components/application-pages/principal-page.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Last name",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "a2c5e51d9d541a5e",
+      "file": "app/components/application-pages/principal-page.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Company",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "45c2451f77e42fc4",
+      "file": "app/components/application-pages/principal-page.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Email",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "0bf609ad8e96a5fe",
+      "file": "app/components/application-pages/principal-page.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Description",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "0b0cfa343dcb62fa",
+      "file": "app/components/application-pages/user-authorized-apps-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ error() }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "ed7c175e8d6706cd",
+      "file": "app/components/application-pages/user-authorized-apps-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ application.client.name }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "13ae929342f42bed",
+      "file": "app/components/application-pages/user-authorized-apps-page.component.ts",
+      "kind": "template-expression-literal",
+      "text": "longDate",
+      "ownership": "technical-token",
+      "reason": "Reviewed property lookup, form-control name or date format argument; this string selects data or formatting and is not user-facing prose.",
+      "maximum": 1
+    },
+    {
+      "id": "5a26966479097298",
+      "file": "app/components/application-pages/user-authorized-apps-page.component.ts",
+      "kind": "typescript-string",
+      "text": "Authorized applications are unavailable, or you do not have permission to view them.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "9a2ed4f381402e45",
+      "file": "app/components/application-pages/user-authorized-apps-page.component.ts",
+      "kind": "typescript-string",
+      "text": "Could not revoke {name}.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "c731709174769878",
+      "file": "app/components/application-pages/user-cloud-services-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ error() }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "8f44c32d7105ea26",
+      "file": "app/components/application-pages/user-cloud-services-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ account.serviceName }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "919c4944ed5080fe",
+      "file": "app/components/application-pages/user-cloud-services-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ account.serviceLogin }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "dccd00f1e13f09cf",
+      "file": "app/components/application-pages/user-cloud-services-page.component.ts",
+      "kind": "template-expression-literal",
+      "text": "longDate",
+      "ownership": "technical-token",
+      "reason": "Reviewed property lookup, form-control name or date format argument; this string selects data or formatting and is not user-facing prose.",
+      "maximum": 1
+    },
+    {
+      "id": "2eeb728ead497ba5",
+      "file": "app/components/application-pages/user-cloud-services-page.component.ts",
+      "kind": "typescript-string",
+      "text": "Cloud services are unavailable, or you do not have permission to view them.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "985297723220fada",
+      "file": "app/components/application-pages/user-cloud-services-page.component.ts",
+      "kind": "typescript-string",
+      "text": "Could not disconnect {name}.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "af9e3300db21327f",
+      "file": "app/components/dashboard/dashboard.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ documentTitle }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "7d66e3fb8ec8bc7a",
+      "file": "app/components/dashboard/dashboard.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ row.title }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "fd7291dc51e25bfb",
+      "file": "app/components/dashboard/dashboard.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ row.type }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "4ecfe0b8445f406c",
+      "file": "app/components/dashboard/dashboard.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Title",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 2
+    },
+    {
+      "id": "ca23b690b591bcf9",
+      "file": "app/components/dashboard/dashboard.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Type",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "4b04b83d13a2db52",
+      "file": "app/components/dashboard/dashboard.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Last Viewed",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "09223b4881ba3ec3",
+      "file": "app/components/dashboard/dashboard.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Modified",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "291887f1df320d3b",
+      "file": "app/components/dashboard/dashboard.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Last Contributor",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "3765d0ddd1501288",
+      "file": "app/components/dashboard/dashboard.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Recently Edited",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "9f8414edd64ee3b9",
+      "file": "app/components/dashboard/dashboard.component.ts",
+      "kind": "typescript-string",
+      "text": "There are no items to show.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "226a29fb2f249ec8",
+      "file": "app/components/dashboard/dashboard.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Tasks",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "05cbbbbe1341fd70",
+      "file": "app/components/dashboard/dashboard.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Recently Viewed",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "58b17a30ff521893",
+      "file": "app/components/dashboard/dashboard.component.ts",
+      "kind": "typescript-string",
+      "text": "There are no recent documents to display.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "f8b9d107ad27100d",
+      "file": "app/components/dashboard/dashboard.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Favorite Items",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "26c7d19abf0848ff",
+      "file": "app/components/dashboard/dashboard.component.ts",
+      "kind": "typescript-string",
+      "text": "You haven't starred documents yet.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "f6053450e586797b",
+      "file": "app/components/dashboard/recent-documents.service.ts",
+      "kind": "typescript-string",
+      "text": "'${String(d.uid).replace(/\\\\/g, '\\\\\\\\').replace(/'/g, \"\\\\'\")}'",
+      "ownership": "technical-token",
+      "reason": "NXQL query or escaped repository ID list; translating it would change the server query.",
+      "maximum": 1
+    },
+    {
+      "id": "aabfc7d0b73856d1",
+      "file": "app/components/dashboard/recent-documents.service.ts",
+      "kind": "typescript-string",
+      "text": "SELECT * FROM Document WHERE ecm:uuid IN (${ids}) AND ecm:isTrashed=0",
+      "ownership": "technical-token",
+      "reason": "NXQL query or escaped repository ID list; translating it would change the server query.",
+      "maximum": 1
+    },
+    {
+      "id": "7bed21f6622050aa",
+      "file": "app/components/home/home.component.ts",
+      "kind": "typescript-string",
+      "text": "${x.firstName} ${x.lastName}",
+      "ownership": "customer-content",
+      "reason": "Display name concatenates customer first and last name fields without translating either value.",
+      "maximum": 1
+    },
+    {
+      "id": "ef3d0831cea07020",
+      "file": "app/components/quick-search/destination-create-dialog.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ error() }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "6426f460d4f49c25",
+      "file": "app/components/quick-search/destination-create-dialog.component.ts",
+      "kind": "typescript-string",
+      "text": "The current editor could not be closed. Your destination has not changed.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "9f193ab0a318dfa5",
+      "file": "app/components/quick-search/destination-create-dialog.component.ts",
+      "kind": "typescript-string",
+      "text": "This folder could not be loaded. Check the path and your access.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "e18ed349631f6616",
+      "file": "app/components/quick-search/destination-create-dialog.component.ts",
+      "kind": "typescript-string",
+      "text": "Invalid destination.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "3d51f42ff5f806c8",
+      "file": "app/components/quick-search/destination-create-dialog.component.ts",
+      "kind": "typescript-string",
+      "text": "The current editor could not be closed. Your changes are still available.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "33df9e41ef41ee98",
+      "file": "app/components/quick-search/destination-create-dialog.component.ts",
+      "kind": "typescript-string",
+      "text": "Creation is no longer allowed in this folder for the selected type.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "847f6def5b5e9c64",
+      "file": "app/components/quick-search/destination-create-dialog.component.ts",
+      "kind": "typescript-string",
+      "text": "Creation could not be started: {detail}",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "5b29455e23114949",
+      "file": "app/components/quick-search/destination-create-dialog.component.ts",
+      "kind": "typescript-string",
+      "text": "Creation could not be started.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "fbf0c4bc7d5f5feb",
+      "file": "app/components/quick-search/destination-create-dialog.component.ts",
+      "kind": "typescript-string",
+      "text": "Select a different container to import your content.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "e89d97649464a159",
+      "file": "app/components/quick-search/global-create.component.ts",
+      "kind": "typescript-string",
+      "text": "input, textarea, select, [contenteditable]:not([contenteditable=\"false\"]), [role=\"textbox\"]",
+      "ownership": "technical-token",
+      "reason": "DOM focus-management CSS selector used for keyboard behavior; not displayed text.",
+      "maximum": 1
+    },
+    {
+      "id": "9679f62857ee9dc6",
+      "file": "app/components/quick-search/quick-search.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ error() }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "b3cf4c018c348999",
+      "file": "app/components/quick-search/quick-search.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ item.label }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "d59e96b064343cf5",
+      "file": "app/components/quick-search/quick-search.component.ts",
+      "kind": "typescript-string",
+      "text": "Search could not be completed. Please retry.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "29dbfb586b2454f9",
+      "file": "app/components/quick-search/quick-search.component.ts",
+      "kind": "typescript-string",
+      "text": "This repository is not supported by the current document route.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "f52bd89e4dd09fff",
+      "file": "app/components/quick-search/quick-search.component.ts",
+      "kind": "typescript-string",
+      "text": "This result could not be opened. Please retry.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "26f4009ba343dd5f",
+      "file": "app/components/quick-search/quick-search.component.ts",
+      "kind": "typescript-string",
+      "text": "button, input, select, textarea, a[href], [tabindex], [contenteditable=\"true\"]",
+      "ownership": "technical-token",
+      "reason": "DOM focus-management CSS selector used for keyboard behavior; not displayed text.",
+      "maximum": 1
+    },
+    {
+      "id": "2c980bf93cffa3ee",
+      "file": "app/components/quick-search/quick-search.service.ts",
+      "kind": "diagnostic",
+      "text": "Invalid search response",
+      "ownership": "diagnostic",
+      "reason": "Internal thrown/logged validation detail; the associated component catches failure and renders a separately keyed app-owned message.",
+      "maximum": 1
+    },
+    {
+      "id": "cec7c4bde68ca437",
+      "file": "app/components/tasks/tasks-page.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ error }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "c0f69148afc3e353",
+      "file": "app/components/tasks/tasks-page.component.ts",
+      "kind": "typescript-string",
+      "text": "Tasks could not be loaded. Check your connection and permissions, then retry.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "3128a05987db57e1",
+      "file": "app/components/tasks/tasks-page.component.ts",
+      "kind": "typescript-string",
+      "text": "This task is unavailable or you no longer have permission to view it.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to localizedMessage.set with an explicit app-owned catalog key; the resulting state is reactive and customer parameters remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "5dc444c959abbe4e",
+      "file": "app/components/dashboard/dashboard-document-table.component.html",
+      "kind": "dynamic-template",
+      "text": "{{\n\t\t\tcaption()\n\t\t}}",
+      "ownership": "localized-fallback",
+      "reason": "Caption originates in DashboardComponent card.captionKey through webuiMessage; the three fixed document cards already use localized caption catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "baa66ff7ec9f2b13",
+      "file": "app/components/dashboard/dashboard-document-table.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ column.label }}",
+      "ownership": "localized-fallback",
+      "reason": "Effective column labels come from ResultsProjectionComponent.hostContext().columns after visibleColumns resolves each fixed dashboard column labelKey through WebUiMessages.",
+      "maximum": 1
+    },
+    {
+      "id": "c8a3ddd5520cc7dd",
+      "file": "app/components/dashboard/dashboard-document-table.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ sortSymbol(column.id) }}",
+      "ownership": "technical-token",
+      "reason": "Sort symbols contain only up/down arrows and multi-sort ordinal numbers; the span is aria-hidden and the accessible sort description uses localized column and direction labels.",
+      "maximum": 1
+    },
+    {
+      "id": "7ee11d9bc7f51ab8",
+      "file": "app/components/dashboard/dashboard-document-table.component.html",
+      "kind": "bound-attribute-literal",
+      "text": "ariaFilterMenuOpen",
+      "ownership": "technical-token",
+      "reason": "ariaFilterMenuOpen is an exact AG Grid locale dictionary key passed to locale(), which delegates to the SDK gridMessages catalog; the identifier itself is not displayed.",
+      "maximum": 1
+    },
+    {
+      "id": "9b24b9d8336dcf2c",
+      "file": "app/components/dashboard/dashboard-document-table.component.html",
+      "kind": "bound-attribute-literal",
+      "text": "ariaAdvancedFilterBuilderJoinOperator",
+      "ownership": "technical-token",
+      "reason": "ariaAdvancedFilterBuilderJoinOperator is an exact AG Grid locale dictionary key; locale() resolves the existing SDK localized accessible label rather than displaying this token.",
+      "maximum": 1
+    },
+    {
+      "id": "e6cd6d4cc1b8d741",
+      "file": "app/components/dashboard/dashboard-document-table.component.html",
+      "kind": "template-expression-literal",
+      "text": "andCondition",
+      "ownership": "technical-token",
+      "reason": "andCondition is the existing AG Grid locale dictionary key; the option label is the localized value returned by the SDK gridMessages lookup.",
+      "maximum": 1
+    },
+    {
+      "id": "d91d8ef0caca5bef",
+      "file": "app/components/dashboard/dashboard-document-table.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ locale('andCondition') }}",
+      "ownership": "localized-fallback",
+      "reason": "The AND option displays locale(andCondition), whose value comes from the existing seven-locale SDK gridMessages dictionaries and WebUiMessages override contract.",
+      "maximum": 1
+    },
+    {
+      "id": "5c2112fc8e379ea1",
+      "file": "app/components/dashboard/dashboard-document-table.component.html",
+      "kind": "template-expression-literal",
+      "text": "orCondition",
+      "ownership": "technical-token",
+      "reason": "orCondition is the existing AG Grid locale dictionary key; the option label is the localized value returned by the SDK gridMessages lookup.",
+      "maximum": 1
+    },
+    {
+      "id": "9216acefb7d8710b",
+      "file": "app/components/dashboard/dashboard-document-table.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ locale('orCondition') }}",
+      "ownership": "localized-fallback",
+      "reason": "The OR option displays locale(orCondition), whose value comes from the existing seven-locale SDK gridMessages dictionaries and WebUiMessages override contract.",
+      "maximum": 1
+    },
+    {
+      "id": "f8f074eb921c703f",
+      "file": "app/components/dashboard/dashboard-document-table.component.html",
+      "kind": "bound-attribute-literal",
+      "text": "ariaFilteringOperator",
+      "ownership": "technical-token",
+      "reason": "ariaFilteringOperator is an exact AG Grid locale dictionary key resolved through SDK gridMessages for the filter operator accessible label; it is not literal user-facing prose.",
+      "maximum": 1
+    },
+    {
+      "id": "b6aebfbc1547570d",
+      "file": "app/components/dashboard/dashboard-document-table.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ locale(operator) }}",
+      "ownership": "localized-fallback",
+      "reason": "operator is restricted to the eight existing AG Grid text-filter dictionary keys; locale(operator) renders their localized SDK catalog values, preserving the technical operator IDs.",
+      "maximum": 1
+    },
+    {
+      "id": "32b6d89265f769ac",
+      "file": "app/components/dashboard/dashboard-document-table.component.html",
+      "kind": "bound-attribute-literal",
+      "text": "ariaFilterValue",
+      "ownership": "technical-token",
+      "reason": "ariaFilterValue is an exact AG Grid locale dictionary key resolved through SDK gridMessages for the filter input accessible label; the key is not displayed.",
+      "maximum": 1
+    },
+    {
+      "id": "3b039b2fa2035f8f",
+      "file": "app/components/dashboard/dashboard-document-table.component.html",
+      "kind": "template-expression-literal",
+      "text": "resetFilter",
+      "ownership": "technical-token",
+      "reason": "resetFilter is an exact AG Grid locale dictionary key; locale() resolves the existing SDK localized reset action rather than displaying the identifier.",
+      "maximum": 1
+    },
+    {
+      "id": "eee9097f91c4d115",
+      "file": "app/components/dashboard/dashboard-document-table.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ locale('resetFilter') }}",
+      "ownership": "localized-fallback",
+      "reason": "The reset button displays locale(resetFilter), whose value comes from the existing seven-locale SDK gridMessages dictionaries and WebUiMessages override contract.",
+      "maximum": 1
+    },
+    {
+      "id": "7abae6fd9b6a2f40",
+      "file": "app/components/dashboard/dashboard-document-table.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ projection().value(row, column) }}",
+      "ownership": "customer-content",
+      "reason": "The fallback cell reads the SDK host value from the current Nuxeo document and its effective column value function; repository title, date, type and contributor data remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "57532629c38ac697",
+      "file": "app/components/dashboard/dashboard-document-table.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ sortDescription() }}",
+      "ownership": "localized-fallback",
+      "reason": "sortDescription() combines only ordinal numbers, punctuation, effective localized column labels and SDK localized sortAscending/sortDescending values; no app-owned English prose is embedded.",
+      "maximum": 1
+    },
+    {
+      "id": "e73b7168945b88c5",
+      "file": "app/components/dashboard/dashboard-document-table.component.ts",
+      "kind": "typescript-string",
+      "text": "${index + 1}. ${column.label}: ${this.locale(sort.direction === 'ascending' ? 'sortAscending' : 'sortDescending')}",
+      "ownership": "localized-fallback",
+      "reason": "The multi-sort description combines ordinal numbers and punctuation with effective localized column labels and the exact SDK gridMessages sortAscending/sortDescending values.",
+      "maximum": 1
+    },
+    {
+      "id": "d333d5f29bda385e",
+      "file": "app/components/dashboard/dashboard-document-table.component.ts",
+      "kind": "typescript-string",
+      "text": "${sort.direction === 'ascending' ? '↑' : '↓'}${this.sorts().length > 1 ? this.sorts().indexOf(sort) + 1 : ''}",
+      "ownership": "technical-token",
+      "reason": "This expression emits only up/down sort arrows and multi-sort ordinal numbers into an aria-hidden span; localized sortDirection description and aria-sort provide accessible semantics.",
+      "maximum": 1
+    },
+    {
+      "id": "04ce509b7f4ecd16",
+      "file": "app/components/application-pages/profile-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ user.id }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed parity change: repository names, paths, values, principal labels or server facet values are preserved. Any surrounding UI labels are resolved separately through WebUiMessages.",
+      "maximum": 1
+    },
+    {
+      "id": "5b68ec3dd77e50cb",
+      "file": "app/components/application-pages/profile-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ user.firstName }} {{ user.lastName }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed parity change: repository names, paths, values, principal labels or server facet values are preserved. Any surrounding UI labels are resolved separately through WebUiMessages.",
+      "maximum": 1
+    },
+    {
+      "id": "0d341382580671a3",
+      "file": "app/components/application-pages/profile-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ user.email }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed parity change: repository names, paths, values, principal labels or server facet values are preserved. Any surrounding UI labels are resolved separately through WebUiMessages.",
+      "maximum": 1
+    },
+    {
+      "id": "ce9000b59c3b854c",
+      "file": "app/components/application-pages/profile-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ user.company }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed parity change: repository names, paths, values, principal labels or server facet values are preserved. Any surrounding UI labels are resolved separately through WebUiMessages.",
+      "maximum": 1
+    },
+    {
+      "id": "0ed1969833d13060",
+      "file": "app/components/application-pages/profile-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ group.id }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed parity change: repository names, paths, values, principal labels or server facet values are preserved. Any surrounding UI labels are resolved separately through WebUiMessages.",
+      "maximum": 1
+    },
+    {
+      "id": "35dd251ef5b61226",
+      "file": "app/components/application-pages/profile-permissions.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ heading() }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "1965736e55d43042",
+      "file": "app/components/application-pages/profile-permissions.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ row.title }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed parity change: repository names, paths, values, principal labels or server facet values are preserved. Any surrounding UI labels are resolved separately through WebUiMessages.",
+      "maximum": 1
+    },
+    {
+      "id": "66dc765d4e6912af",
+      "file": "app/components/application-pages/profile-permissions.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ row.path }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed parity change: repository names, paths, values, principal labels or server facet values are preserved. Any surrounding UI labels are resolved separately through WebUiMessages.",
+      "maximum": 1
+    },
+    {
+      "id": "d56505dd1396ad08",
+      "file": "app/components/application-pages/profile-permissions.component.ts",
+      "kind": "typescript-string",
+      "text": "SELECT * FROM Document WHERE ecm:mixinType != \"HiddenInNavigation\" AND ecm:isProxy = 0 AND ecm:isVersion = 0 AND ecm:isTrashed = 0 AND ecm:acl/*1/principal = \"${entity}\"",
+      "ownership": "technical-token",
+      "reason": "Reviewed parity change: internal query, selector, message key, SVG/CSS geometry, format token, sort indicator or numeric page position; this exact occurrence is not translatable prose.",
+      "maximum": 1
+    },
+    {
+      "id": "a390c21a9485fd96",
+      "file": "app/components/application-pages/user-cloud-services-page.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ account.nuxeoLogin }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed parity change: repository names, paths, values, principal labels or server facet values are preserved. Any surrounding UI labels are resolved separately through WebUiMessages.",
+      "maximum": 1
+    },
+    {
+      "id": "b81aca9c51a31aa1",
+      "file": "app/components/quick-search/destination-create-dialog.component.ts",
+      "kind": "typescript-string",
+      "text": "The import could not be completed. Retry unfinished files.",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "51c769f43c811d27",
+      "file": "app/components/quick-search/quick-search.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ destination(item) }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed parity change: repository names, paths, values, principal labels or server facet values are preserved. Any surrounding UI labels are resolved separately through WebUiMessages.",
+      "maximum": 1
+    },
+    {
+      "id": "ca9eda7d6b6557db",
+      "file": "app/components/quick-search/quick-search.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ chunk.text }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed parity change: repository names, paths, values, principal labels or server facet values are preserved. Any surrounding UI labels are resolved separately through WebUiMessages.",
+      "maximum": 2
+    },
+    {
+      "id": "3ad96244b653d5c6",
+      "file": "app/components/tasks/tasks-page.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ label(current.name) }}",
+      "ownership": "localized-fallback",
+      "reason": "Workflow label resolver maps known stock task and workflow identifiers through existing wf catalogue messages; custom workflow names remain repository-owned literal values.",
+      "maximum": 1
+    },
+    {
+      "id": "6969066fb65e3c67",
+      "file": "app/components/not-found/not-found.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ code }}",
+      "ownership": "technical-token",
+      "reason": "HTTP status code shown unchanged above its translated label, as stock nuxeo-error prints it; not translatable prose.",
+      "maximum": 1
+    },
+    {
+      "id": "324fdf473243d00d",
+      "file": "app/components/not-found/not-found.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ error().address }}",
+      "ownership": "customer-content",
+      "reason": "The missing document's repository path or id, or the requested route, preserved literally as stock nuxeo-error prints its url; never interpreted as a catalog key.",
+      "maximum": 1
+    },
+    {
+      "id": "694597e5f720c432",
+      "file": "app/components/tasks/task-document-view.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ blob.name }}",
+      "ownership": "customer-content",
+      "reason": "File name of the task document's main blob, shown literally as stock nuxeo-document-viewer shows it.",
+      "maximum": 1
+    },
+    {
+      "id": "d9bd4461eecc9ac1",
+      "file": "app/components/tasks/tasks-page.component.html",
+      "kind": "dynamic-template",
+      "text": "{{\n\t\t\t\t\t\t\tdocument.title\n\t\t\t\t\t\t}}",
+      "ownership": "customer-content",
+      "reason": "Task document title in the stock document header; repository content shown literally.",
+      "maximum": 1
+    },
+    {
+      "id": "60bed275eba5b23f",
+      "file": "app/components/tasks/tasks-page.component.html",
+      "kind": "dynamic-template",
+      "text": "{{\n\t\t\t\t\t\t\t\t\t\t\tancestor.title\n\t\t\t\t\t\t\t\t\t\t}}",
+      "ownership": "customer-content",
+      "reason": "Breadcrumb ancestor titles from the document breadcrumb enricher; repository content shown literally.",
+      "maximum": 1
+    },
+    {
+      "id": "a6b83df3615948c9",
+      "file": "app/components/tasks/tasks-page.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ label(item.name) }}",
+      "ownership": "localized-fallback",
+      "reason": "Workflow label resolver maps known stock task and workflow identifiers through existing wf catalogue messages; custom workflow names remain repository-owned literal values.",
+      "maximum": 1
+    },
+    {
+      "id": "3989efb252dfa696",
+      "file": "app/components/tasks/tasks-page.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ label(item.directive) }}",
+      "ownership": "localized-fallback",
+      "reason": "Workflow label resolver maps known stock task and workflow identifiers through existing wf catalogue messages; custom workflow names remain repository-owned literal values.",
+      "maximum": 1
+    },
+    {
+      "id": "c2003e14e1e5b4cd",
+      "file": "app/components/tasks/tasks-page.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ label(item.workflowModelName) }}",
+      "ownership": "localized-fallback",
+      "reason": "Workflow label resolver maps known stock task and workflow identifiers through existing wf catalogue messages; custom workflow names remain repository-owned literal values.",
+      "maximum": 1
+    },
+    {
+      "id": "08c0f355c1a8e5a1",
+      "file": "app/components/tasks/tasks-page.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ item.targetDocumentIds?.[0]?.title }}",
+      "ownership": "customer-content",
+      "reason": "Title of the task's target document from the fetched task entity; repository content shown literally.",
+      "maximum": 1
+    },
+    {
+      "id": "dc8e7777a6c7de3c",
+      "file": "app/components/tasks/tasks-page.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ parentPath(item.targetDocumentIds?.[0]?.path) }}",
+      "ownership": "customer-content",
+      "reason": "Parent path of the task's target document; repository path shown literally.",
+      "maximum": 1
+    },
+    {
+      "id": "2209e0294909455b",
+      "file": "app/components/tasks/tasks-page.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ groupLabel(group) }}",
+      "ownership": "customer-content",
+      "reason": "Group actor label from the fetched task actor entities; repository principal shown literally.",
+      "maximum": 1
+    },
+    {
+      "id": "2b0d92bcd6125250",
+      "file": "app/components/tasks/tasks-page.component.ts",
+      "kind": "typescript-string",
+      "text": "M19 2h-4.18C14.4.84 13.3 0 12 0c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 18H5V4h2v3h10V4h2v16z",
+      "ownership": "technical-token",
+      "reason": "SVG path data of the stock iron-icons content-paste glyph used on task cards; drawn, never rendered as text.",
+      "maximum": 1
+    },
+    {
+      "id": "e773c7d5a23e65a1",
+      "file": "app/components/tasks/task-assignment-dialog.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ label(task?.name) }}",
+      "ownership": "localized-fallback",
+      "reason": "label() resolves the stock task-name catalogue key through WebUiMessages on each render and falls back to the key, as stock i18n() does.",
+      "maximum": 1
+    },
+    {
+      "id": "f09ac7169aed9cc1",
+      "file": "app/components/tasks/task-assignment-dialog.component.ts",
+      "kind": "template-expression-literal",
+      "text": "selectivity.noResultsForTerm",
+      "ownership": "technical-token",
+      "reason": "Stock catalogue key passed to messageBefore/messageAfter to split the message around its {0} term; the key itself is never rendered.",
+      "maximum": 2
+    },
+    {
+      "id": "b225f9edd5a1a83b",
+      "file": "app/components/tasks/task-assignment-dialog.component.ts",
+      "kind": "template-expression-literal",
+      "text": "No results for {0}",
+      "ownership": "localized-fallback",
+      "reason": "English fallback beside the stock selectivity catalogue key, resolved through WebUiMessages on each render.",
+      "maximum": 2
+    },
+    {
+      "id": "abd8e70e96aac88b",
+      "file": "app/components/tasks/task-assignment-dialog.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ messageBefore('selectivity.noResultsForTerm', 'No results for {0}')\n\t\t\t\t\t\t\t\t\t}}",
+      "ownership": "localized-fallback",
+      "reason": "Renders the WebUiMessages text of the stock selectivity message before or after its {0} term, so the term can be styled as stock does.",
+      "maximum": 1
+    },
+    {
+      "id": "f5dcbafda0279ff6",
+      "file": "app/components/tasks/task-assignment-dialog.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ term }}",
+      "ownership": "customer-content",
+      "reason": "The search term the user typed, shown inside the stock no-results and failure messages.",
+      "maximum": 2
+    },
+    {
+      "id": "73a7d36a6c7bce21",
+      "file": "app/components/tasks/task-assignment-dialog.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ messageAfter('selectivity.noResultsForTerm', 'No results for {0}') }}",
+      "ownership": "localized-fallback",
+      "reason": "Renders the WebUiMessages text of the stock selectivity message before or after its {0} term, so the term can be styled as stock does.",
+      "maximum": 1
+    },
+    {
+      "id": "dbc9b49067d73bed",
+      "file": "app/components/tasks/task-assignment-dialog.component.ts",
+      "kind": "template-expression-literal",
+      "text": "selectivity.failedFetchResultsForTerm",
+      "ownership": "technical-token",
+      "reason": "Stock catalogue key passed to messageBefore/messageAfter to split the message around its {0} term; the key itself is never rendered.",
+      "maximum": 2
+    },
+    {
+      "id": "a7cbf76786efd64e",
+      "file": "app/components/tasks/task-assignment-dialog.component.ts",
+      "kind": "template-expression-literal",
+      "text": "Failed to fetch results for {0}",
+      "ownership": "localized-fallback",
+      "reason": "English fallback beside the stock selectivity catalogue key, resolved through WebUiMessages on each render.",
+      "maximum": 2
+    },
+    {
+      "id": "707312828d6b0407",
+      "file": "app/components/tasks/task-assignment-dialog.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{\n\t\t\t\t\t\t\t\t\t\tmessageBefore(\n\t\t\t\t\t\t\t\t\t\t\t'selectivity.failedFetchResultsForTerm',\n\t\t\t\t\t\t\t\t\t\t\t'Failed to fetch results for {0}'\n\t\t\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t\t\t}}",
+      "ownership": "localized-fallback",
+      "reason": "Renders the WebUiMessages text of the stock selectivity message before or after its {0} term, so the term can be styled as stock does.",
+      "maximum": 1
+    },
+    {
+      "id": "76e3af15b276eec3",
+      "file": "app/components/tasks/task-assignment-dialog.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{\n\t\t\t\t\t\t\t\t\t\tmessageAfter(\n\t\t\t\t\t\t\t\t\t\t\t'selectivity.failedFetchResultsForTerm',\n\t\t\t\t\t\t\t\t\t\t\t'Failed to fetch results for {0}'\n\t\t\t\t\t\t\t\t\t\t)\n\t\t\t\t\t\t\t\t\t}}",
+      "ownership": "localized-fallback",
+      "reason": "Renders the WebUiMessages text of the stock selectivity message before or after its {0} term, so the term can be styled as stock does.",
+      "maximum": 1
+    },
+    {
+      "id": "c6109e9a80232b3b",
+      "file": "app/components/tasks/task-assignment-dialog.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ initials(entry) }}",
+      "ownership": "customer-content",
+      "reason": "Builds avatar initials from the user or group names in the response, as stock nuxeo-user-avatar does.",
+      "maximum": 1
+    },
+    {
+      "id": "9a6ac6ccd1731440",
+      "file": "app/components/tasks/task-assignment-dialog.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ entry.displayLabel }}",
+      "ownership": "customer-content",
+      "reason": "User or group name from the user and group search responses.",
+      "maximum": 1
+    },
+    {
+      "id": "63709e08afab2b07",
+      "file": "app/components/tasks/task-assignment-dialog.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ actionLabel() }}",
+      "ownership": "localized-fallback",
+      "reason": "actionLabel() reads the stock tasks.reassign or tasks.delegate catalogue key through WebUiMessages on each render.",
+      "maximum": 1
+    },
+    {
+      "id": "2501a17db3f6bea7",
+      "file": "app/components/tasks/task-assignment-dialog.component.ts",
+      "kind": "typescript-string",
+      "text": "${parts[0].charAt(0)}${parts[parts.length - 1].charAt(0)}",
+      "ownership": "customer-content",
+      "reason": "Builds avatar initials from the user or group names in the response, as stock nuxeo-user-avatar does.",
+      "maximum": 1
+    },
+    {
+      "id": "d56edf8bb198f813",
+      "file": "app/components/tasks/task-assignment-dialog.component.ts",
+      "kind": "typescript-string",
+      "text": "hsl(${Math.abs(hash % 360)}, 70%, 42%)",
+      "ownership": "technical-token",
+      "reason": "CSS colour value for the avatar background; it is never rendered as text.",
+      "maximum": 1
+    },
+    {
+      "id": "415de35d7b36eec5",
+      "file": "app/components/dashboard/dashboard.component.html",
+      "kind": "bound-attribute-literal",
+      "text": "medium",
+      "ownership": "technical-token",
+      "reason": "This exact template argument selects a field/property or formatting style; it is not rendered as text itself.",
+      "maximum": 2
+    }
+  ]
+}

@@ -1,0 +1,3176 @@
+{
+  "general": {
+    "title": "Salut {userName}!",
+    "and": "şi",
+    "or": "sau",
+    "date": {
+      "seconds": "{value,plural,=1{o secundă} other{# secunde} one{o secundă} few{# secunde}}",
+      "minutes": "{value,plural,=1{un minut} other{# minute} one{un minut} few{# minute}}",
+      "hours": "{value,plural,=1{o oră} other{# ore} one{o oră} few{# ore}}",
+      "days": "{value,plural,=1{o zi} other{# zile} one{o zi} few{# zile}}",
+      "weeks": "{value,plural,=1{o săptămână} other{# săptămâni} one{o săptămână} few{# săptămâni}}",
+      "months": "{value,plural,=1{o lună} other{# luni} one{o lună} few{# luni}}",
+      "years": "{value,plural,=1{un an} other{# ani} one{un an} few{# ani}}"
+    },
+    "fileSize": {
+      "bytes": "Octeți",
+      "kb": "KB",
+      "mb": "MB",
+      "gb": "GB",
+      "tb": "TB",
+      "pb": "PB",
+      "eb": "EB",
+      "zb": "ZB",
+      "yb": "YB"
+    }
+  },
+  "rights": {
+    "Read": "{value,plural,=1{Poate} other{Pot} one{Poate} few{Pot}} citi documente",
+    "ReadWrite": "{value,plural,=1{Poate} other{Pot} one{Poate} few{Pot}} citi & scrie documente",
+    "Everything": "{value,plural,=1{Poate} other{Pot} one{Poate} few{Pot}} gestiona totul",
+    "ManageLegalHold": "{value,plural,=1{Poate} other{Pot} one{Poate} few{Pot}} gestiona retenţii legale",
+    "ManageRecord": "{value,plural,=1{Poate} other{Pot} one{Poate} few{Pot}} gestiona înregistrări",
+    "Version": "{value,plural,=1{Poate} other{Pot} one{Poate} few{Pot}} crea versiuni"
+  },
+  "pageProviders": {
+    "default_search": {
+      "label": "implicit",
+      "fields": {
+        "ecm_fulltext": "Căutare text integral"
+      },
+      "aggregations": {
+        "common_size_agg": {
+          "label": "Dimenisunea",
+          "buckets": {
+            "tiny": "Foarte mic",
+            "small": "Mic",
+            "medium": "Mediu",
+            "big": "Mare",
+            "huge": "Imens"
+          }
+        },
+        "dc_coverage_agg": {
+          "label": "Acoperirea"
+        },
+        "dc_creator_agg": {
+          "label": "Creat de"
+        },
+        "dc_modified_agg": {
+          "label": "Ultima modificare",
+          "buckets": {
+            "last24h": "In ultimele 24 ore",
+            "lastWeek": "Săptămâna trecută",
+            "lastMonth": "Luna trecută",
+            "lastYear": "Anul trecut",
+            "priorToLastYear": "Mai mult de un an"
+          }
+        },
+        "dc_nature_agg": {
+          "label": "Natura"
+        },
+        "dc_subjects_agg": {
+          "label": "Subiectul"
+        }
+      },
+      "quickFilters": {
+        "mostRecent": "Documente modificate recent",
+        "noFolder": "Documente care nu sunt dosar",
+        "onlyValidated": "Documente validate"
+      }
+    },
+    "default_trash_search": {
+      "label": "documente şterse",
+      "fields": {
+        "ecm_fulltext": "Căutare text integral"
+      },
+      "aggregations": {
+        "common_size_agg": {
+          "label": "Dimensiune obișnuită",
+          "buckets": {
+            "tiny": "Foarte mic",
+            "small": "Mic",
+            "medium": "Mediu",
+            "big": "Mare",
+            "huge": "Foarte mare"
+          }
+        },
+        "dc_coverage_agg": {
+          "label": "Acoperire"
+        },
+        "dc_creator_agg": {
+          "label": "Creat de"
+        },
+        "dc_modified_agg": {
+          "label": "Ultima modificare",
+          "buckets": {
+            "last24h": "Ultimele 24 de ore",
+            "lastWeek": "Săptămâna trecută",
+            "lastMonth": "Luna trecută",
+            "lastYear": "Anul trecut",
+            "priorToLastYear": "Acum mai mult de un an"
+          }
+        },
+        "dc_nature_agg": {
+          "label": "Natură"
+        },
+        "dc_subjects_agg": {
+          "label": "Subiecte"
+        }
+      }
+    },
+    "retention_search": {
+      "label": "retenţie",
+      "fields": {
+        "ecm_fulltext": "Căutare text integral"
+      },
+      "aggregations": {
+        "doc_type_agg": {
+          "label": "Tipul documentului",
+          "buckets": {
+            "tiny": "Foarte mic",
+            "small": "Mic",
+            "medium": "Mediu",
+            "big": "Mare",
+            "huge": "Imens"
+          }
+        },
+        "ecm_retain_agg": {
+          "label": "Reţinut pentru",
+          "buckets": {
+            "next24Hours": "Urmatoarele 24 ore",
+            "beforeAWeek": "O săptămână",
+            "beforeAMonth": "O lună",
+            "beforeAYear": "Un an",
+            "afterAYear": "Mai mult de un an",
+            "indeterminate": "Nedeterminat"
+          }
+        },
+        "record_retain_agg": {
+          "label": "Reţinut până",
+          "buckets": {
+            "last24h": "În ultimele 24 ore",
+            "lastWeek": "Acum o săptămână",
+            "lastMonth": "Acum o lună",
+            "lastYear": "Acum un an",
+            "priorToLastYear": "Mai mult de un an"
+          }
+        },
+        "rules_agg": {
+          "label": "Reguli aplicate"
+        }
+      },
+      "quickFilters": {
+        "withoutRule": "Nici o regulă",
+        "withRule": "Una sau mai multe reguli",
+        "hasLegalHold": "Se afla sub retenţie legală",
+        "hasNotLegalHold": "Nu se afla sub retenţie legală",
+        "exceptTrashed": "Exclude documentele şterse"
+      }
+    },
+    "nxql_search": {
+      "label": "NXQL",
+      "queryParams": "Interogare"
+    }
+  },
+  "search": {
+    "title": "Găseşte documente",
+    "close": "Închide panoul de căutare",
+    "searchFields": "Câmpuri de căutare",
+    "customFilters": "Filtrare",
+    "quickFilters": "Filtrare rapide",
+    "enabled": "Activ",
+    "disabled": "Inactiv",
+    "enable": "apasă pentru activare",
+    "disable": "apasă pentru dezactivare",
+    "options": "Opţiuni",
+    "optionsLocalOnly": "Cautare doar în locaţia curentă",
+    "optionsSaveSearch": "Salvează şi refoloseşte parametrii curenţi",
+    "optionsSavedSearches": "Căutări pesonalizate",
+    "optionsReset": "Goleşte toate câmpurile",
+    "optionsClearForm": "Goleşte toate câmpurile",
+    "optionsProviders": "Modul de căutare a documentelor",
+    "optionsPageProvider": "Mod de căutare",
+    "deleteSavedSearch": "Şterge această căutare personalizată",
+    "saveSearch": "Salvează această căutare personalizată",
+    "saveSearchTooltip": "Denumirea căutarii personalizate...",
+    "savedSearches": "Căutari personalizate",
+    "searchFieldsSaved": "Căutare personalizată creată",
+    "searchFieldsSavedAck": "Căutarea personalizată <b>{title}</b> a fost creată cu succes.",
+    "savedSearchRemoved": "Căutare personalizată ştearsă",
+    "savedSearchRemovedAck": "Căutarea personalizată <b>{title}</b> a fost ştearsă.",
+    "nxql": "Căutare NXQL",
+    "removeFilter": "Elimină {label}",
+    "quick": {
+      "nofolder": "Nu există containere",
+      "mostrecent": "Cele mai recente",
+      "onlyvalidated": "Validat"
+    }
+  },
+  "tooltips": {
+    "created": "Creat de {user} pe {date}",
+    "lastModified": "Modificat de {user} pe {date}",
+    "type": "Tipul documentului: {type}",
+    "trashed": "Acest document este şters",
+    "pendingTasks": "Ai {value,plural,=1{o acţiune} other{# acţiuni} one{o acţiune} few{# acţiuni}} de rezolvat pentru acest document",
+    "notifications": "Primeşti notificări oricând acest document este modificat",
+    "locked": "Documentul poate fi modificat doar de {user}, fiind protejat împotriva modificărilor {timeago}",
+    "underLegalHold": "Document aflat în reținere legală, drept urmare fişierele ataşate nu pot fi modificate",
+    "underRetention": "Acest document are una sau mai multe reguli de retenţie aplicate, drept urmare fişierele ataşate nu pot fi modificate",
+    "record": "Document marcat ca fiind consemnat"
+  },
+  "directories": {
+    "country": {
+      "Afghanistan": "Afganistan",
+      "Aland_Islands": "Insulele Åland",
+      "Albania": "Albania",
+      "Algeria": "Algeria",
+      "American_Samoa": "Samoa Americană",
+      "Andorra": "Andorra",
+      "Angola": "Angola",
+      "Anguilla": "Anguilla",
+      "Antarctica_the_territory_South_of_60_deg_S": "Antarctica",
+      "Antigua_and_Barbuda": "Antigua și Barbuda",
+      "Argentina": "Argentina",
+      "Armenia": "Armenia",
+      "Aruba": "Aruba",
+      "Australia": "Australia",
+      "Austria": "Austria",
+      "Azerbaijan": "Azerbaidjan",
+      "Bahamas": "Bahamas",
+      "Bahrain": "Bahrain",
+      "Bangladesh": "Bangladesh",
+      "Barbados": "Barbados",
+      "Belarus": "Belarus",
+      "Belgium": "Belgia",
+      "Belize": "Belize",
+      "Benin": "Benin",
+      "Bermuda": "Bermuda",
+      "Bhutan": "Bhutan",
+      "Bolivia": "Bolivia",
+      "Bosnia_and_Herzegovina": "Bosnia și Herțegovina",
+      "Botswana": "Botswana",
+      "Bouvet_Island_Bouvetoya": "Insula Bouvet",
+      "Brazil": "Brazilia",
+      "British_Indian_Ocean_Territory_Chagos_Archipelago": "Teritoriul Britanic din Oceanul Indian",
+      "British_Virgin_Islands": "Insulele Virgine Britanice",
+      "Brunei_Darussalam": "Brunei",
+      "Bulgaria": "Bulgaria",
+      "Burkina_Faso": "Burkina Faso",
+      "Burundi": "Burundi",
+      "Cambodia": "Cambodgia",
+      "Cameroon": "Camerun",
+      "Canada": "Canada",
+      "Cape_Verde": "Capul Verde",
+      "Cayman_Islands": "Insulele Cayman",
+      "Central_African_Republic": "Republica Centrafricană",
+      "Chad": "Ciad",
+      "Chile": "Chile",
+      "China": "China",
+      "Christmas_Island": "Insula Christmas",
+      "Cocos_Keeling_Islands": "Insulele Cocos (Keeling)",
+      "Colombia": "Columbia",
+      "Comoros": "Comore",
+      "Congo_Democratic_Republic": "Congo - Kinshasa",
+      "Congo_Republic": "Congo - Brazzaville",
+      "Cook_Islands": "Insulele Cook",
+      "Costa_Rica": "Costa Rica",
+      "Cote_D_Ivoire": "Côte d’Ivoire",
+      "Croatia": "Croația",
+      "Cuba": "Cuba",
+      "Cyprus": "Cipru",
+      "Czech_Republic": "Cehia",
+      "Denmark": "Danemarca",
+      "Djibouti": "Djibouti",
+      "Dominica": "Dominica",
+      "Dominican_Republic": "Republica Dominicană",
+      "Ecuador": "Ecuador",
+      "Egypt": "Egipt",
+      "El_Salvador": "El Salvador",
+      "Equatorial_Guinea": "Guineea Ecuatorială",
+      "Eritrea": "Eritreea",
+      "Estonia": "Estonia",
+      "Ethiopia": "Etiopia",
+      "Falkland_Islands_Malvinas": "Insulele Falkland",
+      "Faroe_Islands": "Insulele Feroe",
+      "Fiji": "Fiji",
+      "Finland": "Finlanda",
+      "France": "Franța",
+      "French_Guiana": "Guyana Franceză",
+      "French_Polynesia": "Polinezia Franceză",
+      "French_Southern_Territories": "Teritoriile Australe și Antarctice Franceze",
+      "Gabon": "Gabon",
+      "Gambia": "Gambia",
+      "Georgia": "Georgia",
+      "Germany": "Germania",
+      "Ghana": "Ghana",
+      "Gibraltar": "Gibraltar",
+      "Greece": "Grecia",
+      "Greenland": "Groenlanda",
+      "Grenada": "Grenada",
+      "Guadaloupe": "Guadelupa",
+      "Guam": "Guam",
+      "Guatemala": "Guatemala",
+      "Guernsey": "Guernsey",
+      "Guinea": "Guineea",
+      "Guinea_Bissau": "Guineea-Bissau",
+      "Guyana": "Guyana",
+      "Haiti": "Haiti",
+      "Heard_and_McDonald_Islands": "Insula Heard și Insulele McDonald",
+      "Holy_See_Vatican_City_State": "Statul Cetății Vaticanului",
+      "Honduras": "Honduras",
+      "Hong_Kong": "R.A.S. Hong Kong, China",
+      "Hungary": "Ungaria",
+      "Iceland": "Islanda",
+      "India": "India",
+      "Indonesia": "Indonezia",
+      "Iran": "Iran",
+      "Iraq": "Irak",
+      "Ireland": "Irlanda",
+      "Isle_of_Man": "Insula Man",
+      "Israel": "Israel",
+      "Italy": "Italia",
+      "Jamaica": "Jamaica",
+      "Japan": "Japonia",
+      "Jersey": "Jersey",
+      "Jordan": "Iordania",
+      "Kazakhstan": "Kazahstan",
+      "Kenya": "Kenya",
+      "Kiribati": "Kiribati",
+      "Kuwait": "Kuweit",
+      "Kyrgyz_Republic": "Kârgâzstan",
+      "Lao_People_s_Democratic_Republic": "Laos",
+      "Latvia": "Letonia",
+      "Lebanon": "Liban",
+      "Lesotho": "Lesotho",
+      "Liberia": "Liberia",
+      "Libyan_Arab_Jamahiriya": "Libia",
+      "Liechtenstein": "Liechtenstein",
+      "Lithuania": "Lituania",
+      "Luxembourg": "Luxemburg",
+      "Macao": "R.A.S. Macao, China",
+      "Macedonia": "Macedonia de Nord",
+      "Madagascar": "Madagascar",
+      "Malawi": "Malawi",
+      "Malaysia": "Malaysia",
+      "Maldives": "Maldive",
+      "Mali": "Mali",
+      "Malta": "Malta",
+      "Marshall_Islands": "Insulele Marshall",
+      "Martinique": "Martinica",
+      "Mauritania": "Mauritania",
+      "Mauritius": "Mauritius",
+      "Mayotte": "Mayotte",
+      "Mexico": "Mexic",
+      "Micronesia": "Micronezia",
+      "Moldova": "Republica Moldova",
+      "Monaco": "Monaco",
+      "Mongolia": "Mongolia",
+      "Montenegro": "Muntenegru",
+      "Montserrat": "Montserrat",
+      "Morocco": "Maroc",
+      "Mozambique": "Mozambic",
+      "Myanmar": "Myanmar (Birmania)",
+      "Namibia": "Namibia",
+      "Nauru": "Nauru",
+      "Nepal": "Nepal",
+      "Netherlands": "Țările de Jos",
+      "Netherlands_Antilles": "Curaçao",
+      "New_Caledonia": "Noua Caledonie",
+      "New_Zealand": "Noua Zeelandă",
+      "Nicaragua": "Nicaragua",
+      "Niger": "Niger",
+      "Nigeria": "Nigeria",
+      "Niue": "Niue",
+      "Norfolk_Island": "Insula Norfolk",
+      "North_Korea": "Coreea de Nord",
+      "Northern_Mariana_Islands": "Insulele Mariane de Nord",
+      "Norway": "Norvegia",
+      "Oman": "Oman",
+      "Pakistan": "Pakistan",
+      "Palau": "Palau",
+      "Palestinian_Territory": "Teritoriile Palestiniene",
+      "Panama": "Panama",
+      "Papua_New_Guinea": "Papua-Noua Guinee",
+      "Paraguay": "Paraguay",
+      "Peru": "Peru",
+      "Philippines": "Filipine",
+      "Pitcairn_Island": "Insulele Pitcairn",
+      "Poland": "Polonia",
+      "Portugal": "Portugalia",
+      "Puerto_Rico": "Puerto Rico",
+      "Qatar": "Qatar",
+      "Reunion": "Réunion",
+      "Romania": "România",
+      "Russian_Federation": "Rusia",
+      "Rwanda": "Rwanda",
+      "Samoa": "Samoa",
+      "San_Marino": "San Marino",
+      "Sao_Tome_and_Principe": "São Tomé și Príncipe",
+      "Saudi_Arabia": "Arabia Saudită",
+      "Senegal": "Senegal",
+      "Serbia": "Serbia",
+      "Seychelles": "Seychelles",
+      "Sierra_Leone": "Sierra Leone",
+      "Singapore": "Singapore",
+      "Slovakia_Slovak_Republic": "Slovacia",
+      "Slovenia": "Slovenia",
+      "Solomon_Islands": "Insulele Solomon",
+      "Somalia": "Somalia",
+      "South_Africa": "Africa de Sud",
+      "South_Georgia_and_the_South_Sandwich_Islands": "Georgia de Sud și Insulele Sandwich de Sud",
+      "South_Korea": "Coreea de Sud",
+      "Spain": "Spania",
+      "Sri_Lanka": "Sri Lanka",
+      "St_Helena": "Sfânta Elena",
+      "St_Kitts_and_Nevis": "Saint Kitts și Nevis",
+      "St_Lucia": "Sfânta Lucia",
+      "St_Pierre_and_Miquelon": "Saint-Pierre și Miquelon",
+      "St_Vincent_and_the_Grenadines": "Saint Vincent și Grenadinele",
+      "Sudan": "Sudan",
+      "Suriname": "Suriname",
+      "Svalbard_Jan_Mayen_Islands": "Svalbard și Jan Mayen",
+      "Swaziland": "Eswatini",
+      "Sweden": "Suedia",
+      "Switzerland": "Elveția",
+      "Syrian_Arab_Republic": "Siria",
+      "Taiwan": "Taiwan",
+      "Tajikistan": "Tadjikistan",
+      "Tanzania": "Tanzania",
+      "Thailand": "Thailanda",
+      "Timor_Leste": "Timor-Leste",
+      "Togo": "Togo",
+      "Tokelau_Tokelau_Islands": "Tokelau",
+      "Tonga": "Tonga",
+      "Trinidad_and_Tobago": "Trinidad și Tobago",
+      "Tunisia": "Tunisia",
+      "Turkey": "Turcia",
+      "Turkmenistan": "Turkmenistan",
+      "Turks_and_Caicos_Islands": "Insulele Turks și Caicos",
+      "Tuvalu": "Tuvalu",
+      "US_Virgin_Islands": "Insulele Virgine Americane",
+      "Uganda": "Uganda",
+      "Ukraine": "Ucraina",
+      "United_Arab_Emirates": "Emiratele Arabe Unite",
+      "United_Kingdom_of_Great_Britain_N_Ireland": "Regatul Unit",
+      "United_States_Minor_Outlying_Islands": "Insulele Îndepărtate ale S.U.A.",
+      "United_States_of_America": "Statele Unite ale Americii",
+      "Uruguay": "Uruguay",
+      "Uzbekistan": "Uzbekistan",
+      "Vanuatu": "Vanuatu",
+      "Venezuela": "Venezuela",
+      "Viet_Nam": "Vietnam",
+      "Wallis_and_Futuna_Islands": "Wallis și Futuna",
+      "Western_Sahara": "Sahara Occidentală",
+      "Yemen": "Yemen",
+      "Zambia": "Zambia",
+      "Zimbabwe": "Zimbabwe"
+    },
+    "continent": {
+      "africa": "Africa",
+      "antarctica": "Antarctica",
+      "asia": "Asia",
+      "europe": "Europa",
+      "north-america": "America de Nord",
+      "oceania": "Oceania",
+      "south-america": "America de Sud"
+    },
+    "english": "Engleză",
+    "french": "Franceză",
+    "german": "Germană",
+    "italian": "Italiană",
+    "japanese": "Japoneză",
+    "nature": {
+      "CDRom": "CD-ROM",
+      "accomodationApplicationForm": "Formular de cerere de cazare",
+      "acknowledgement": "Confirmare de primire",
+      "application": "Cerere",
+      "article": "Articol",
+      "assessment": "Evaluare",
+      "bankAccountDetails": "Datele contului bancar",
+      "booklet": "Broșură",
+      "card": "Fișă",
+      "certificate": "Certificat",
+      "contract": "Contract",
+      "convocation": "Convocare",
+      "credit": "Credit",
+      "decree": "Decret",
+      "deliveryNote": "Aviz de livrare",
+      "email": "E-mail",
+      "endorsement": "Avizare",
+      "fax": "Fax",
+      "internshipReport": "Raport de stagiu",
+      "invoice": "Factură",
+      "leaveApplication": "Cerere de concediu",
+      "letter": "Scrisoare",
+      "loanApplication": "Cerere de împrumut",
+      "medicalCertificate": "Certificat medical",
+      "memo": "Notă internă",
+      "note": "Notă",
+      "notice": "Aviz",
+      "notification": "Notificare",
+      "order": "Ordin",
+      "pressReview": "Revista presei",
+      "procedure": "Procedură",
+      "purchaseOrder": "Comandă de achiziție",
+      "quotation": "Ofertă de preț",
+      "report": "Raport",
+      "serviceCertificate": "Adeverință de serviciu",
+      "trainingApplication": "Cerere de formare",
+      "worksheet": "Fișă de lucru"
+    },
+    "portuguese": "Portugheză",
+    "russian": "Rusia",
+    "spanish": "Spaniolă",
+    "subtopic": {
+      "architecture": "Arhitectură",
+      "arthistory": "Istoria artei",
+      "astronautic": "Astronautică",
+      "astronomy": "Astronomie",
+      "biology": "Biologie",
+      "chemistry": "Chimie",
+      "cinema": "Cinema",
+      "collection": "Colecție",
+      "comics": "Benzi desenate",
+      "company": "Companie",
+      "culture": "Cultură",
+      "danse": "Dans",
+      "earthscience": "Științele Pământului",
+      "ecology": "Ecologie",
+      "economy": "Economie",
+      "education": "Educație",
+      "electronic": "Electronică",
+      "energy": "Energie",
+      "fashion": "Modă",
+      "games": "Jocuri",
+      "gardening": "Grădinărit",
+      "gastronomy": "Gastronomie",
+      "geography": "Geografie",
+      "history": "Istorie",
+      "humanitarian": "Ajutor umanitar",
+      "industry": "Industrie",
+      "information": "Informații",
+      "it": "Informatică",
+      "languages": "Limbă",
+      "literature": "Literatură",
+      "logic": "Logică",
+      "math": "Matematică",
+      "medicine": "Medicină",
+      "minority": "Minorități",
+      "music": "Muzică",
+      "paint": "Pictură",
+      "photography": "Fotografie",
+      "phylosophy": "Filosofie",
+      "physic": "Fizică",
+      "psychology": "Psihologie",
+      "religion": "Religie",
+      "rights": "Drepturi",
+      "robotic": "Robotică",
+      "sexuality": "Sexualitate",
+      "show": "Spectacole",
+      "sociology": "Sociologie",
+      "sport": "Sport",
+      "television": "Televiziune",
+      "tourism": "Turism",
+      "transport": "Transport",
+      "videogames": "Jocuri video",
+      "women": "Femei"
+    },
+    "topic": {
+      "art": "Artă",
+      "dailylife": "Viața cotidiană",
+      "humansciences": "Științe umaniste",
+      "sciences": "Știință",
+      "society": "Societate",
+      "technology": "Tehnologie"
+    }
+  },
+  "wf": {
+    "parallelDocumentReview": {
+      "ParallelDocumentReview": "Revizuire paralelă a documentului",
+      "cancel": "Abandonează fluxul de lucru",
+      "startReview": "Începe revizuirea",
+      "NA": "Amână",
+      "approve": "Aprobă",
+      "reject": "Respinge",
+      "chooseParticipants": {
+        "title": "Alege participanții",
+        "directive": "Alege participanții la acest flux de lucru"
+      },
+      "give_opinion": {
+        "title": "Exprimă o opinie",
+        "directive": "Exprimă-ți opinia despre acest document"
+      }
+    },
+    "serialDocumentReview": {
+      "SerialDocumentReview": "Revizuire secvențială a documentului",
+      "cancel": "Abandonează fluxul de lucru",
+      "startReview": "Începe revizuirea",
+      "Validate": "Aprobă",
+      "Reject": "Respinge",
+      "chooseParticipants": "Alege participanții",
+      "pleaseSelect": "Selectează participanții",
+      "DocumentValidation": "Validarea documentului",
+      "AcceptReject": "Acceptă sau respinge"
+    }
+  },
+  "documentInfo": {
+    "title": "Informații despre document",
+    "publications": "Publicații",
+    "documentPublications": "{value, plural, =0{Nicio copie} one{1 copie} few{# copii} other{# de copii}} | ale acestui document {value, plural, =0{a fost publicată} one{a fost publicată} few{au fost publicate} other{au fost publicate}} până acum.",
+    "snapshots": "Instantanee",
+    "createSnapshot": "Creează un instantaneu |versiunea { minorVersion }| sau |versiunea { majorVersion }| pentru a indica o modificare minoră, respectiv majoră, a acestui document.",
+    "documentSnapshots": "{value, plural, =0{Niciun instantaneu} one{1 instantaneu} few{# instantanee} other{# de instantanee}} | ale acestui document {value, plural, =0{a fost creat} one{a fost creat} few{au fost create} other{au fost create}} până acum.",
+    "viewSnapshot": "Vezi versiunea { version } a acestui document"
+  },
+  "clipboard": {
+    "selectSource": "Selectează o parte sau | toate | documentele pe care vrei să le copiezi sau să le muți în această locație.",
+    "selectAll": "Selectează toate documentele",
+    "cannotPaste": "Lipirea nu este posibilă"
+  },
+  "documentViewers": {
+    "noPreview": "Nu există previzualizare pentru acest tip de fișier: |{ fileType }|",
+    "noPreviewDownload": "Poți |descărca atașamentul| și folosi o aplicație dedicată.",
+    "mainFileSize": "Dimensiunea fișierului principal: { size }",
+    "modelVariant": "Varianta { variant }"
+  },
+  "documentEditors": {
+    "documentImport": {
+      "auto": "Creează rapid { fileCount } documente",
+      "autoNote": "(sistemul stabilește tipul documentului pe baza fișierelor selectate)",
+      "or": "sau",
+      "manual": "Specifică manual tipul documentului pentru toate fișierele selectate"
+    },
+    "bulkCreate": {
+      "title": "Adaugă mai multe documente |{documentType}|",
+      "note": "Încarcă unul sau mai multe fișiere de pe calculator pentru a crea simultan mai multe documente |{documentType}|.",
+      "createButtonTitle": "Creează {fileCount, plural, =0{} one{un document `{documentType}`} few{# documente |{documentType}|} other{# de documente |{documentType}|}}"
+    },
+    "documentAttachments": {
+      "mainFile": "Fișier principal",
+      "additionalAttachments": "{fileCount, plural, =0{Atașamente suplimentare} one{1 atașament suplimentar} few{# atașamente suplimentare} other{# de atașamente suplimentare}}"
+    }
+  },
+  "toolbar": {
+    "copyToClipboard": "Copiază acest document în clipboard",
+    "copySelectionToClipboard": "Copiază în clipboard {count, plural, =1{documentul selectat} one{documentul selectat} few{cele # documente selectate} other{cele # de documente selectate}}",
+    "addToCollection": "Adaugă acest document la o colecție",
+    "addSelectionToCollection": "Adaugă la o colecție {count, plural, =1{documentul selectat} one{documentul selectat} few{cele # documente selectate} other{cele # de documente selectate}}"
+  },
+  "app": {
+    "components": {
+      "user-profile": {
+        "company-a5599d": "Companie",
+        "close-835585": "Închide",
+        "first-name-8ddd99": "Prenume",
+        "last-name-1c6695": "Nume de familie",
+        "save-changes-b75610": "Salvează modificările",
+        "user-profile-e887dd": "Profilul utilizatorului",
+        "email-address-6fabb7": "Adresă de e-mail",
+        "confirm-password-6c7fd2": "Confirmă parola",
+        "close-without-saving-939e73": "Închide fără a salva"
+      },
+      "principal-page": {
+        "company": "Companie",
+        "email": "E-mail",
+        "first-name": "Prenume",
+        "last-name": "Nume de familie",
+        "description": "Descriere",
+        "user": "Utilizator",
+        "group": "Grup",
+        "groups": "Grupuri",
+        "loading-85be6b": "Se încarcă…",
+        "retry-2971db": "Reîncearcă",
+        "subgroups": "Subgrupuri",
+        "invalid": "Selectați un utilizator sau un grup valid.",
+        "unavailable": "Acest utilizator sau grup nu este disponibil ori nu aveți permisiunea de a-l vizualiza.",
+        "no-groups-to-display-b171c2": "Nu există grupuri de afișat.",
+        "no-members-to-display-b4c708": "Nu există membri de afișat."
+      },
+      "comparison-page": {
+        "compare-11a835": "Compară",
+        "unified": "Vizualizare unificată",
+        "loading-documents-24cc43": "Se încarcă documentele…",
+        "retry-b82db2": "Reîncearcă",
+        "left-document-b1d815": "Documentul din stânga",
+        "right-document-06d484": "Documentul din dreapta",
+        "select-between-2-and-199-documents-to-compare": "Selectați între 2 și 199 de documente pentru comparație.",
+        "unable-to-load-these-documents-they-may-be-missing-or-yo": "Aceste documente nu pot fi încărcate. Este posibil să lipsească sau să nu aveți acces.",
+        "split": "Vizualizare împărțită",
+        "no-differences-82d964": "Nu există diferențe."
+      },
+      "themes-page": {
+        "themes-08df78": "Teme"
+      },
+      "user-authorized-apps-page": {
+        "authorized-applications-5a610e": "Aplicații autorizate",
+        "name-9c4f0b": "Nume",
+        "authorization-date-611fc3": "Data autorizării",
+        "actions-880bd6": "Acțiuni",
+        "loading-authorized-applications-fa1f3b": "Se încarcă aplicațiile autorizate…",
+        "retry-2c6120": "Reîncearcă",
+        "you-haven-t-granted-any-application-access-63fd18": "Nu ați acordat încă niciunei aplicații acces la contul dumneavoastră Nuxeo.",
+        "authorized-applications-are-unavailable-or-you-do-not-ha": "Aplicațiile autorizate nu sunt disponibile sau nu aveți permisiunea de a le vizualiza.",
+        "confirm": "Revocați accesul pentru {name}?",
+        "failed": "Accesul pentru {name} nu a putut fi revocat."
+      },
+      "user-cloud-services-page": {
+        "cloud-services-608216": "Servicii cloud",
+        "connected-accounts-d80016": "Conturi conectate",
+        "actions-6689fa": "Acțiuni",
+        "loading-connected-accounts-04258f": "Se încarcă conturile conectate…",
+        "retry-0e8815": "Reîncearcă",
+        "service-db5f28": "Serviciu",
+        "account-48d01e": "Cont",
+        "connected-ed01ad": "Conectat",
+        "disconnect-3e4528": "Deconectează",
+        "no-cloud-accounts-are-connected-b5c935": "Nu există conturi cloud conectate.",
+        "cloud-services-are-unavailable-or-you-do-not-have-permis": "Serviciile cloud nu sunt disponibile sau nu aveți permisiunea de a le vizualiza.",
+        "confirm": "Deconectați {name}?",
+        "failed": "{name} nu a putut fi deconectat."
+      },
+      "destination-create-dialog": {
+        "select-a-different-container-to-import-your-content": "Selectați un alt container pentru a importa conținutul.",
+        "browse-folders-7f63e0": "Răsfoiește dosarele",
+        "loading-destination-7a6a46": "Se încarcă destinația…",
+        "retry-996e88": "Reîncearcă",
+        "you-cannot-create-documents-here-choose-a--f7a74b": "Nu puteți crea documente aici. Alegeți un dosar în care aveți drept de scriere.",
+        "create-content-91e6e2": "Creează conținut",
+        "the-current-editor-could-not-be-closed-your-destination-": "Editorul curent nu a putut fi închis. Destinația nu s-a schimbat.",
+        "this-folder-could-not-be-loaded-check-the-path-and-your-": "Acest dosar nu a putut fi încărcat. Verificați calea și drepturile de acces.",
+        "the-current-editor-could-not-be-closed-your-changes-are-": "Editorul curent nu a putut fi închis. Modificările sunt încă disponibile.",
+        "invalid-destination": "Destinație nevalidă.",
+        "creation-could-not-be-started": "Crearea nu a putut fi pornită.",
+        "creation-not-allowed": "Crearea nu mai este permisă în acest dosar pentru tipul selectat.",
+        "creation-failed-detail": "Crearea nu a putut fi inițiată: {detail}"
+      },
+      "quick-search": {
+        "no-results-found-63260b": "Nu s-au găsit rezultate",
+        "search-results-98c442": "Rezultatele căutării",
+        "close-quick-search-13a285": "Închide căutarea rapidă",
+        "searching-9c5b46": "Se caută…",
+        "retry-bb789f": "Reîncearcă",
+        "search-could-not-be-completed-please-retry": "Căutarea nu a putut fi încheiată. Încercați din nou.",
+        "this-repository-is-not-supported-by-the-current-document": "Acest depozit nu este acceptat de ruta curentă a documentului.",
+        "this-result-could-not-be-opened-please-retry": "Acest rezultat nu a putut fi deschis. Încercați din nou."
+      },
+      "tasks-page": {
+        "load-more-1e042c": "Încarcă mai multe...",
+        "workflow-f7fa20": "Flux de lucru",
+        "due-date-42b170": "Termen-limită",
+        "none-ca3a8a": "Niciuna",
+        "all-tasks-5c4e99": "Toate sarcinile",
+        "loading-tasks-be0909": "Se încarcă sarcinile…",
+        "document-55ac8b": "Document",
+        "assigned-actors-e8bdc2": "Participanți desemnați",
+        "delegated-actors-dcdd23": "Participanți delegați",
+        "task-actions-64e75e": "Acțiuni pentru sarcină",
+        "process-task-bd442e": "Procesează sarcina",
+        "loading-workflow-graph-4f90a8": "Se încarcă diagrama fluxului de lucru…",
+        "workflow-graph-425fb0": "Diagrama fluxului de lucru",
+        "task": "Sarcină",
+        "workflow-task": "Sarcină din fluxul de lucru",
+        "document": "Document",
+        "due": "Termen: {date}",
+        "count": "{count, plural, one {# sarcină} few {# sarcini} other {# de sarcini}}",
+        "unknown-workflow": "Flux de lucru necunoscut",
+        "process": "Procesează sarcina",
+        "hide-graph": "Ascunde diagrama fluxului de lucru",
+        "next": "următorul",
+        "tasks-could-not-be-loaded-check-your-connection-and-per": "Sarcinile nu au putut fi încărcate. Verificați conexiunea și permisiunile, apoi încercați din nou.",
+        "this-task-is-unavailable-or-you-no-longer-have-permissi": "Această sarcină nu este disponibilă sau nu mai aveți permisiunea de a o vizualiza.",
+        "the-workflow-graph-could-not-be-loaded": "Diagrama fluxului de lucru nu a putut fi încărcată.",
+        "unknown-actor": "Necunoscut"
+      },
+      "dashboard": {
+        "column-title": "Titlu",
+        "column-type": "Tip",
+        "column-last-viewed": "Ultima vizualizare",
+        "column-modified": "Modificat",
+        "column-last-contributor": "Ultimul colaborator",
+        "unable-to-load-tasks-d875ae": "Sarcinile nu pot fi încărcate.",
+        "unable-to-load-recently-edited-documents-ca4f3d": "Documentele editate recent nu pot fi încărcate.",
+        "unable-to-load-recently-viewed-documents-d4bff0": "Documentele vizualizate recent nu pot fi încărcate.",
+        "unable-to-load-favorite-documents-93218c": "Documentele favorite nu pot fi încărcate."
+      },
+      "application-page": {
+        "loading-your-session-2478e4": "Se încarcă sesiunea…"
+      },
+      "not-found": {
+        "document-not-found-95cb6b": "Documentul nu a fost găsit!"
+      },
+      "unauthorized": {
+        "you-are-not-authorized-to-view-this-sectio-190263": "Nu sunteți autorizat să vizualizați această secțiune!"
+      },
+      "home": {
+        "welcome": "Bun venit, {name}"
+      },
+      "shell-actions": {
+        "landmark": "Acțiunile aplicației"
+      }
+    },
+    "modules": {
+      "nature-subjects-coverage-expiration": {
+        "coverage-b69dad": "Acoperire",
+        "nature-127a54": "Natură",
+        "subjects-fa5f98": "Subiecte"
+      },
+      "standard-content-fields": {
+        "nature-956217": "Natură",
+        "subjects-4d771b": "Subiecte",
+        "coverage-745b7d": "Acoperire"
+      },
+      "standard-content-layout": {
+        "note-73b51c": "Notă",
+        "cancel-9eb0de": "Anulează",
+        "remove-11de9f": "Elimină",
+        "frame-rate-a9cf28": "Rată de cadre",
+        "create-version-b32ae0": "Creează o versiune",
+        "note-content-faf20b": "Conținutul notei",
+        "write-your-note-here-0584dc": "Scrieți nota aici",
+        "video-player-1a1014": "Player video",
+        "video-storyboard-4d811f": "Cadre reprezentative ale videoclipului",
+        "audio-player-942539": "Player audio",
+        "remove-file-confirmation-707cea": "Confirmarea eliminării fișierului",
+        "remove-the-attached-file-172d95": "Eliminați fișierul atașat?",
+        "video-information-e0d6d4": "Informații video",
+        "format-f33b6e": "Format",
+        "video-conversions-73fd4a": "Conversii video",
+        "document-details-de920b": "Detaliile documentului",
+        "metadata-793dcc": "Metadate",
+        "hide-metadata-f27738": "Ascunde metadatele",
+        "show-metadata-23569d": "Afișează metadatele",
+        "save-be43c4": "Salvează",
+        "creating-6b4ee2": "Se creează...",
+        "edit-html-source-55ee59": "Editează sursa HTML",
+        "edit-note-f221e4": "Editează nota",
+        "visual-editor-640327": "Editor vizual",
+        "html-source-d0ca4b": "Sursă HTML",
+        "uploading-97ce35": "Se încarcă…",
+        "click-to-upload-a-file-ce0a3b": "Faceți clic pentru a încărca un fișier"
+      },
+      "standard-document-permissions-view": {
+        "email-6432e4": "E-mail",
+        "user-group-2ba655": "Utilizator / Grup",
+        "time-frame-060052": "Interval de timp",
+        "granted-by-c4dd81": "Acordată de",
+        "actions-6f5083": "Acțiuni",
+        "permanent-dd6100": "Permanentă",
+        "loading-permissions-cc511c": "Se încarcă permisiunile…",
+        "retry-4b998d": "Reîncearcă",
+        "edit-dfe788": "Editează",
+        "notify-db0252": "Notifică",
+        "delete-4f05e5": "Șterge",
+        "select-a-permission-367243": "Selectați o permisiune",
+        "new-external-permission-a1be68": "Permisiune externă nouă",
+        "new-local-permission-ed2bbb": "Permisiune locală nouă"
+      },
+      "base-workflow-editor": {
+        "abandon-workflow-5d8350": "Abandonează fluxul de lucru",
+        "close-4235ba": "Închide",
+        "users-7fda12": "Utilizatori",
+        "groups-d960c4": "Grupuri",
+        "reassign-workflow-task-ed83f4": "Reatribuie sarcina din fluxul de lucru",
+        "delegate-workflow-task-dc85c9": "Deleagă sarcina din fluxul de lucru",
+        "go-back-8270af": "Înapoi",
+        "no-workflow-layout-is-registered-for-this--23161f": "Nu este înregistrat niciun formular de flux de lucru pentru această sarcină.",
+        "select-the-users-groups-you-wish-to-reassi-27b9a9": "Selectați utilizatorii/grupurile cărora doriți să le reatribuiți această sarcină:",
+        "are-you-sure-you-wish-to-abandon-this-wrok-1f9e1f": "Sigur doriți să abandonați acest flux de lucru înainte de finalizare?",
+        "discard-changes-27242c": "Renunță la modificări",
+        "reassign-task-de4b88": "Reatribuie sarcina",
+        "delegate-task-69a761": "Deleagă sarcina"
+      },
+      "workflow-info": {
+        "or-c1aa86": "sau",
+        "process-3c0e91": "Proces",
+        "delegate-283977": "Deleagă",
+        "reassign-0116bf": "Reatribuie",
+        "abandon-this-workflow-now-29a1a9": "abandona acest flux de lucru acum",
+        "process-this-task-c69887": "Procesează această sarcină",
+        "invite-other-users-to-process-this-task-a367fb": "Invită alți utilizatori să proceseze această sarcină",
+        "reassign-this-task-to-other-users-cb96af": "Reatribuie această sarcină altor utilizatori"
+      },
+      "cloud": {
+        "enabled-29ac97": "Activat",
+        "service-name-67e74a": "Numele serviciului",
+        "actions-725338": "Acțiuni",
+        "name-c5432f": "Nume",
+        "client-secret-26679e": "Secretul clientului",
+        "redirect-uris-33300c": "URI-uri de redirecționare",
+        "authorized-applications-7f856f": "Aplicații autorizate",
+        "nuxeo-login-adf30e": "Autentificare Nuxeo",
+        "service-login-4ae10c": "Autentificare la serviciu",
+        "creation-date-273b56": "Data creării",
+        "cloud-accounts-46f8b6": "Conturi cloud",
+        "shared-3cf9a7": "Partajat",
+        "oauth2-service-providers-7eb357": "Furnizori de servicii OAuth2",
+        "add-a-new-service-provider-cc956d": "Adaugă un furnizor de servicii",
+        "user-server-url-0d2f9b": "Adresa URL a serverului de utilizatori",
+        "edit-this-service-provider-715912": "Editează acest furnizor de servicii",
+        "delete-this-service-provider-dffd18": "Șterge acest furnizor de servicii",
+        "oauth2-clients-86b4f5": "Clienți OAuth2",
+        "add-a-new-client-5e8a4a": "Adaugă un client",
+        "auto-grant-767cec": "Autorizare automată",
+        "edit-this-client-7ee85f": "Editează acest client",
+        "delete-this-client-4ad1f3": "Șterge acest client",
+        "edit-this-application-token-1dd5c5": "Editează acest token de aplicație",
+        "revoke-this-application-token-bdd778": "Revocă acest token de aplicație",
+        "edit-this-account-b58797": "Editează acest cont",
+        "delete-this-account-f23461": "Șterge acest cont"
+      },
+      "cloud-client-editor": {
+        "enabled-c0fb07": "Activat",
+        "close-16f491": "Închide",
+        "name-bf5e9f": "Nume",
+        "client-id-57b4c5": "Identificatorul clientului",
+        "client-secret-620c32": "Secretul clientului",
+        "redirect-uris-4559af": "URI-uri de redirecționare",
+        "save-changes-403727": "Salvează modificările",
+        "add-a-new-client-486978": "Adaugă un client",
+        "edit-client-129f20": "Editează clientul",
+        "add-a-new-scope-64d8d1": "Adaugă un domeniu de acces...",
+        "click-to-add-a-new-scope-15fcc8": "Faceți clic pentru a adăuga un domeniu de acces",
+        "remove-this-scope-6796cc": "Elimină acest domeniu de acces",
+        "auto-grant-f26d14": "Autorizare automată",
+        "close-without-saving-5decaa": "Închide fără a salva"
+      },
+      "cloud-service-provider-editor": {
+        "enabled-281b62": "Activat",
+        "close-d5ba67": "Închide",
+        "name-9261f5": "Nume",
+        "client-id-15f622": "Identificatorul clientului",
+        "client-secret-e09923": "Secretul clientului",
+        "description-070956": "Descriere",
+        "save-changes-1dfd69": "Salvează modificările",
+        "add-a-new-service-provider-ebd9a0": "Adaugă un furnizor de servicii",
+        "edit-service-provider-0bdcad": "Editează furnizorul de servicii",
+        "user-server-url-f81ca5": "Adresa URL a serverului de utilizatori",
+        "add-a-new-scope-358462": "Adaugă un domeniu de acces...",
+        "click-to-add-a-new-scope-5ffaec": "Faceți clic pentru a adăuga un domeniu de acces",
+        "remove-this-scope-2ad6ac": "Elimină acest domeniu de acces",
+        "close-without-saving-a2fc47": "Închide fără a salva"
+      },
+      "retention-rule-editor": {
+        "enabled-d0f365": "Activat",
+        "close-346c5a": "Închide",
+        "title-8c52bc": "Titlu",
+        "description-f06eaf": "Descriere",
+        "save-changes-02e866": "Salvează modificările",
+        "add-a-new-retention-rule-85f53f": "Adaugă o regulă de păstrare",
+        "edit-retention-rule-9cf818": "Editează regula de păstrare",
+        "application-policy-e1a0d8": "Politică de aplicare",
+        "expression-508e02": "Expresie",
+        "ex-document-gettype-file-de981b": "De exemplu: Document.getType() == 'File'",
+        "document-types-affected-by-this-retention--5780de": "Tipurile de documente vizate de această regulă de păstrare",
+        "click-to-add-a-new-document-type-83877b": "Faceți clic pentru a adăuga un tip de document",
+        "remove-this-document-type-d37271": "Elimină acest tip de document",
+        "starting-point-policy-97ec77": "Politică pentru începutul perioadei",
+        "the-retention-period-starts-automatically--155c7e": "Perioada de păstrare începe automat și sincron când această politică de păstrare este aplicată unui document.",
+        "starting-point-event-311383": "Eveniment de început",
+        "event-input-25b40c": "Datele de intrare ale evenimentului",
+        "field-b67f12": "Câmp",
+        "the-specified-document-field-acts-as-the-r-361fdf": "Câmpul specificat al documentului stabilește începutul perioadei de păstrare",
+        "end-actions-620f7a": "Acțiuni la final",
+        "click-to-add-an-action-80cb71": "Faceți clic pentru a adăuga o acțiune",
+        "remove-this-action-351616": "Elimină această acțiune",
+        "duration-in-years-6e254e": "Durată în ani:",
+        "duration-in-months-676771": "Durată în luni:",
+        "duration-in-days-68c14a": "Durată în zile:",
+        "duration-in-seconds-5655eb": "Durată în secunde:",
+        "close-without-saving-459436": "Închide fără a salva"
+      },
+      "user-and-group-editor": {
+        "company-3f1098": "Companie",
+        "edit-user-c60a44": "Editează utilizatorul",
+        "edit-group-e854f1": "Editează grupul",
+        "close-117f66": "Închide",
+        "description-7b25bb": "Descriere",
+        "users-d1150b": "Utilizatori",
+        "groups-811eae": "Grupuri",
+        "username-d7ad7e": "Nume de utilizator",
+        "first-name-8750b5": "Prenume",
+        "last-name-fc6463": "Nume de familie",
+        "create-another-e98481": "Creează încă unul",
+        "add-a-new-user-4bfb9e": "Adaugă un utilizator",
+        "add-a-new-group-e40bd3": "Adaugă un grup",
+        "loading-db71a4": "Se încarcă…",
+        "retry-1679c8": "Reîncearcă",
+        "id-75b5b9": "ID",
+        "a-group-cannot-be-a-member-of-itself-3535b9": "Un grup nu poate fi membru al lui însuși.",
+        "enter-a-username-a66b27": "Introduceți un nume de utilizator.",
+        "email-address-e8d2c5": "Adresă de e-mail",
+        "enter-a-valid-email-address-1b7789": "Introduceți o adresă de e-mail validă.",
+        "set-password-5309cf": "Setează parola",
+        "an-invitation-will-be-sent-to-the-email-ad-f69c22": "O invitație va fi trimisă la adresa de e-mail pentru ca utilizatorul să poată seta o parolă.",
+        "confirm-password-e18441": "Confirmă parola",
+        "enter-and-confirm-the-same-password-16fcb4": "Introduceți și confirmați aceeași parolă.",
+        "close-without-saving-2dee77": "Închide fără a salva",
+        "create-9b100a": "Creează",
+        "save-changes-d32592": "Salvează modificările",
+        "sending-28957e": "Se trimite…",
+        "send-invitation-423c57": "Trimite invitația"
+      },
+      "user-menu-language": {
+        "language-382388": "Limbă"
+      },
+      "document-info": {
+        "document-type-221314": "Tip de document",
+        "you-re-currently-receiving-notifications-w-9f57d8": "Primești notificări când acest document se modifică",
+        "retention-abbeff": "retenție",
+        "this-document-is-marked-as-a-record-264125": "Acest document este marcat ca înregistrare",
+        "close-719769": "Închide",
+        "details-21a7f1": "Detalii",
+        "title-cda706": "Titlu",
+        "lock-4a568e": "Blochează",
+        "unlock-f0a33d": "Deblochează",
+        "permissions-72426f": "Permisiuni",
+        "download-this-file-b861e7": "Descarcă acest fișier",
+        "this-document-doesn-t-have-a-main-file-att-87856c": "Acest document nu are un fișier principal atașat.",
+        "additional-attachments-12bac4": "Atașamente suplimentare",
+        "this-document-doesn-t-have-any-additional--8f304b": "Acest document nu are fișiere suplimentare atașate.",
+        "show-advanced-features-782d7f": "Afișează funcțiile avansate",
+        "you-cannot-create-snapshots-of-this-docume-e2384a": "Nu puteți crea instantanee ale acestui document deoarece este marcat ca înregistrare.",
+        "publish-this-document-438e81": "Publică acest document",
+        "to-a-space-dedicated-to-the-distribution-f-7dfacd": "într-un spațiu destinat distribuirii către un public mai larg.",
+        "you-cannot-publish-this-document-because-i-d834dc": "Nu puteți publica acest document deoarece este marcat ca înregistrare.",
+        "workflows-340e4a": "Fluxuri de lucru",
+        "this-document-is-part-of-these-workflows-93567c": "Acest document face parte din următoarele fluxuri de lucru:",
+        "this-document-is-not-part-of-any-workflow-5d7a8d": "Acest document nu face parte din niciun flux de lucru.",
+        "the-current-document-state-is-b398fc": "Starea curentă a documentului este:",
+        "current-document-state-5cb2c6": "Starea curentă a documentului",
+        "notifications-79d515": "Notificări",
+        "disable-notifications-191a9e": "Dezactivează notificările.",
+        "get-notified-9bd163": "Primește notificări",
+        "when-this-document-changes-9e268c": "când acest document se modifică.",
+        "lock-this-document-a4cf29": "Blochează acest document",
+        "so-only-you-or-users-having-the-manage-eve-55d844": "astfel încât doar dumneavoastră (sau utilizatorii cu permisiunea «Administrare completă») să îl puteți modifica.",
+        "legal-hold-45f0e1": "Blocare juridică",
+        "this-document-is-placed-under-legal-hold-s-d3f82f": "Acest document este supus unei blocări juridice, astfel încât fișierele sale principale sau suplimentare nu pot fi modificate.",
+        "remove-legal-hold-8ac622": "Elimină blocarea juridică",
+        "place-under-legal-hold-ee0cf2": "Aplică o blocare juridică",
+        "to-prevent-altering-the-main-or-additional-d9dccd": "pentru a împiedica modificarea fișierelor principale sau suplimentare.",
+        "this-document-has-the-following-retention--522d80": "Acestui document i se aplică următoarele reguli de păstrare:",
+        "extend-retention-period-c99131": "Prelungește perioada de păstrare",
+        "apply-a-retention-rule-7651f4": "Aplică o regulă de păstrare"
+      },
+      "binary-editor": {
+        "or-d25fe0": "sau",
+        "title-03457e": "Titlu",
+        "description-e90fd2": "Descriere",
+        "add-a-new-544258": "Adaugă un nou",
+        "document-63ddb8": "document",
+        "please-specify-a-title-13ffed": "Specificați un titlu.",
+        "show-additional-fields-8ec178": "Afișează câmpuri suplimentare",
+        "leave-this-field-as-it-is-57d661": "Lasă acest câmp neschimbat",
+        "use-one-of-the-existing-values-a741e8": "Folosește una dintre valorile existente",
+        "edit-multiple-documents-737077": "Editează mai multe documente",
+        "main-file-readonly-because-document-is-und-26a2a5": "Fișier principal (doar pentru citire, deoarece documentul este supus unei perioade de păstrare sau unei blocări juridice)",
+        "additional-attachments-readonly-because-do-155184": "Atașamente suplimentare (doar pentru citire, deoarece documentul este supus unei perioade de păstrare sau unei blocări juridice)"
+      },
+      "domain-editor": {
+        "or-e7490d": "sau",
+        "title-8d059d": "Titlu",
+        "description-6f16f1": "Descriere",
+        "please-specify-a-title-3997d0": "Specificați un titlu.",
+        "leave-this-field-as-it-is-72205a": "Lasă acest câmp neschimbat",
+        "use-one-of-the-existing-values-3510fc": "Folosește una dintre valorile existente",
+        "add-a-new-domain-363561": "Adaugă un domeniu",
+        "bulk-edit-multiple-domains-695fa0": "Editează în masă mai multe domenii",
+        "edit-domain-445e68": "Editează domeniul"
+      },
+      "generic-editor": {
+        "or-1668a3": "sau",
+        "title-d77f00": "Titlu",
+        "description-026aae": "Descriere",
+        "add-a-new-b71ecd": "Adaugă un nou",
+        "document-f378d0": "document",
+        "please-specify-a-title-3b3b8e": "Specificați un titlu.",
+        "show-additional-fields-b71a33": "Afișează câmpuri suplimentare",
+        "leave-this-field-as-it-is-d6f050": "Lasă acest câmp neschimbat",
+        "use-one-of-the-existing-values-6341ed": "Folosește una dintre valorile existente",
+        "edit-multiple-documents-660dae": "Editează mai multe documente"
+      },
+      "note-editor": {
+        "or-b5d62e": "sau",
+        "title-d49c50": "Titlu",
+        "description-d5ff67": "Descriere",
+        "add-a-new-8b056b": "Adaugă un nou",
+        "document-5bc54b": "document",
+        "please-specify-a-title-27b6f5": "Specificați un titlu.",
+        "format-784891": "Format",
+        "show-additional-fields-8115e2": "Afișează câmpuri suplimentare",
+        "leave-this-field-as-it-is-803fb5": "Lasă acest câmp neschimbat",
+        "use-one-of-the-existing-values-9a9ea5": "Folosește una dintre valorile existente",
+        "edit-multiple-documents-bf90ef": "Editează mai multe documente",
+        "additional-attachments-readonly-because-do-275657": "Atașamente suplimentare (doar pentru citire, deoarece documentul este supus unei perioade de păstrare sau unei blocări juridice)"
+      },
+      "document-navigation-bar": {
+        "pdf-ec3812": "PDF",
+        "zip-45b8b4": "ZIP",
+        "collections-7967ee": "Colecții",
+        "document-location-016fb0": "Locația documentului",
+        "secondary-navigation-b9e96b": "Navigare secundară",
+        "edit-document-path-774d5a": "Editează calea documentului",
+        "export-as-df44df": "Exportă ca"
+      },
+      "collections": {
+        "creation-date-5198df": "Data creării",
+        "select-the-target-collection-or-specify-a--8979fa": "Selectați colecția destinație sau specificați una nouă.",
+        "new-collection-c06c0e": "Colecție nouă...",
+        "add-to-this-new-collection-c91827": "Adaugă în această colecție nouă",
+        "loading-collections-b90eec": "Se încarcă colecțiile...",
+        "collection-documents-289d22": "documentele colecției",
+        "owner-fb74f4": "Proprietar"
+      },
+      "comments": {
+        "cancel-fe8eb5": "Anulează",
+        "be-the-first-to-leave-a-comment-11f1cb": "Fiți primul care lasă un comentariu!",
+        "nobody-left-any-comments-00bafe": "Nimeni nu a lăsat comentarii!",
+        "write-a-comment-a51f2f": "Scrieți un comentariu",
+        "edit-your-comment-488b78": "Editează comentariul tău",
+        "post-your-comment-318363": "Publică comentariul tău",
+        "tap-to-reply-to-this-comment-007309": "Atingeți pentru a răspunde la acest comentariu",
+        "edit-this-comment-3c85d8": "Editează acest comentariu",
+        "delete-this-comment-f5a7c0": "Șterge acest comentariu",
+        "show-more-4333bd": "Afișează mai multe ...",
+        "reply-to-this-comment-5c1d2e": "Răspundeți la acest comentariu"
+      },
+      "contributors": {
+        "created-2a3118": "Creat",
+        "by-648fbf": "De",
+        "modified-1e007d": "Modificat",
+        "contributors-bce1bc": "Colaboratori"
+      },
+      "default-document-metadata-layout": {
+        "cancel-8bc5e9": "Anulează",
+        "customize-bf2d9d": "Personalizează",
+        "edit-metadata-d96a3a": "Editează metadatele",
+        "customize-metadata-9cada1": "Personalizează metadatele",
+        "visible-fields-5fafa0": "Câmpuri vizibile",
+        "show-all-allowed-fields-20a225": "Afișează toate câmpurile permise",
+        "metadata-is-hidden-in-your-display-prefere-684259": "Metadatele sunt ascunse în preferințele de afișare.",
+        "show-empty-fields-16e57e": "Afișează câmpurile goale",
+        "save-changes-baa2a7": "Salvează modificările",
+        "descriptive-metadata-48a40e": "Metadate descriptive"
+      },
+      "document-activity": {
+        "end-date-e7e8ee": "Data de încheiere",
+        "loading-history-94523a": "Se încarcă istoricul…",
+        "retry-7df2c7": "Reîncearcă",
+        "who-073bcd": "Cine",
+        "filter-events-by-author-ac9166": "Filtrează evenimentele după autor",
+        "when-08df18": "Când",
+        "filter-events-by-date-bc7b85": "Filtrează evenimentele după dată",
+        "what-114333": "Ce",
+        "filter-events-by-type-84f423": "Filtrează evenimentele după tip",
+        "clear-filter-fda57d": "Șterge filtrul",
+        "start-date-d95938": "Data de început"
+      },
+      "blob-action": {
+        "replace-file-256661": "Înlocuiește fișierul",
+        "download-file-10ab9f": "Descarcă fișierul",
+        "drop-or-choose-a-file-1b3c4d": "Trageți un fișier aici sau faceți clic pentru a alege unul"
+      },
+      "document-permission-editor": {
+        "from-5fcc39": "De la",
+        "save-changes-38725d": "Salvează modificările",
+        "in-workspaces-92d93a": "În spațiile de lucru",
+        "in-sections-44fef9": "În secțiuni",
+        "please-specify-the-permission-2ccb71": "Specificați permisiunea.",
+        "email-address-e869de": "Adresă de e-mail",
+        "user-group-e46734": "Utilizator/Grup",
+        "make-this-permanent-0c8930": "Fă această permisiune permanentă",
+        "effectiveness-timeframe-c240e8": "Perioada de valabilitate",
+        "until-6b49cd": "Până la...",
+        "send-a-notification-email-5188fd": "Trimite un e-mail de notificare",
+        "message-96912a": "Mesaj",
+        "email-address-804fc3": "Adresă de e-mail",
+        "user-or-group-f01b8e": "Utilizator sau grup"
+      },
+      "document-permissions": {
+        "indefinitely-afbf88": "Pe durată nedeterminată",
+        "loading-permissions-2afc98": "Se încarcă permisiunile…",
+        "retry-56f7b5": "Reîncearcă",
+        "the-shared-permissions-1-take-precedence-o-9bcd51": "Permisiunile partajate (1) au prioritate față de cele specifice documentului (2), care au prioritate față de permisiunile moștenite (3).",
+        "there-are-no-permissions-to-display-here-ce98b2": "Nu există permisiuni de afișat aici.",
+        "denied-c34db5": "Refuzat:",
+        "send-by-email-a-link-pointing-to-this-docu-d71653": "Trimite prin e-mail un link către acest document",
+        "edit-this-permission-aafe87": "Editează această permisiune",
+        "remove-this-permission-15d9a6": "Elimină această permisiune",
+        "user-37604c": "Utilizator",
+        "user-group-71f032": "Grup de utilizatori",
+        "external-share-1b2dc9": "Partajare externă"
+      },
+      "bulk-editor-modal": {
+        "close-5f021c": "Închide",
+        "cancel-5e097e": "Anulează",
+        "edit-selected-documents-4e68d7": "Editează documentele selectate",
+        "retry-choices-4483d7": "Reîncearcă încărcarea opțiunilor",
+        "check-the-documents-marked-unknown-before--248f04": "Verificați documentele marcate ca necunoscute înainte de a încerca o altă actualizare în masă; ultima lor scriere este posibil să se fi încheiat.",
+        "retry-failed-473bba": "Reîncearcă operațiile nereușite"
+      },
+      "bulk-zip-download-dialog": {
+        "close-6e89a7": "Închide",
+        "download-zip-204feb": "Descarcă ZIP"
+      },
+      "create-popup": {
+        "create-9d65fb": "Creează",
+        "close-7416a7": "Închide",
+        "remove-aed227": "Elimină",
+        "create-content-a04138": "Creează conținut",
+        "from-files-a3510a": "Din fișiere",
+        "create-documents-from-uploaded-files-69fa7e": "Creează documente din fișierele încărcate.",
+        "select-files-ff2231": "Selectează fișiere",
+        "no-creatable-document-types-are-available--e78ab3": "Aici nu sunt disponibile tipuri de documente care pot fi create."
+      },
+      "query-edit": {
+        "cancel-b0ff70": "Anulează",
+        "edit-all-matching-dd782f": "Editează toate rezultatele corespunzătoare",
+        "edit-all-matching-results-9374a6": "Editează toate rezultatele care corespund căutării",
+        "retry-choices-1aa187": "Reîncearcă încărcarea opțiunilor",
+        "review-changes-79a82d": "Verifică modificările",
+        "retry-status-538426": "Reverifică starea",
+        "abort-job-0ab470": "Întrerupe operația"
+      },
+      "query-trash": {
+        "cancel-fe5a86": "Anulează",
+        "abort-job-a57a99": "Întrerupe operația",
+        "retry-status-0fca72": "Reverifică starea"
+      },
+      "selection-publish": {
+        "close-3f2518": "Închide",
+        "publish-selection-cca260": "Publică selecția",
+        "publish-destinations-fdc9a4": "Destinații de publicare"
+      },
+      "toolbar-action": {
+        "close-d09c9d": "Închide"
+      },
+      "base-editor": {
+        "close-925f1b": "Închide",
+        "finishing-the-created-document-19ea05": "Se finalizează documentul creat…",
+        "retry-remaining-steps-9eb9f0": "Reîncearcă pașii rămași"
+      },
+      "document-import": {
+        "close-75eedb": "Închide",
+        "add-documents-in-bulk-9c0c35": "Adaugă documente în masă",
+        "done-8db17f": "Finalizat",
+        "retry-unfinished-files-9e1f9a": "Reîncearcă fișierele nefinalizate"
+      },
+      "editor-metadata-status": {
+        "close-89fadc": "Închide",
+        "loading-document-type-information-0bbebb": "Se încarcă informațiile despre tipul documentului…",
+        "retry-efb1df": "Reîncearcă"
+      },
+      "generic-type-bulk-create": {
+        "close-4773c2": "Închide",
+        "description-0016e1": "Descriere",
+        "loading-document-type-da9d0f": "Se încarcă tipul documentului…",
+        "uploaded-files-0ecc41": "Fișiere încărcate",
+        "format-cd8604": "Format",
+        "detect-from-file-plain-text-fallback-138400": "Detectează din fișier (text simplu ca alternativă)",
+        "retry-bb92d2": "Reîncearcă",
+        "done-b09b22": "Finalizat",
+        "retry-unfinished-files-102904": "Reîncearcă fișierele nefinalizate",
+        "create-documents-19d407": "Creează documente"
+      },
+      "standard-content-editor": {
+        "description-e65128": "Descriere",
+        "file-d0c84e": "Fișier",
+        "remove-file-73be3e": "Elimină fișierul",
+        "title-fa99d2": "Titlu *",
+        "please-specify-a-title-92e0dc": "Specificați un titlu.",
+        "format-0c0c5d": "Format"
+      },
+      "standard-content-import": {
+        "close-dd4b09": "Închide",
+        "remove-6abf4b": "Elimină",
+        "description-19a3e3": "Descriere",
+        "files-02bd9a": "Fișiere",
+        "files-to-import-ceb0c5": "Fișiere de importat",
+        "title-516cb5": "Titlu *",
+        "format-213a92": "Format",
+        "apply-properties-to-other-files-fa2fdc": "Aplică proprietățile altor fișiere",
+        "done-f9b04b": "Finalizat",
+        "cancel-481624": "Anulează",
+        "create-4eefae": "Creează",
+        "retry-unfinished-files-3e3e56": "Reîncearcă fișierele nefinalizate"
+      },
+      "tags": {
+        "tags-d712fd": "Etichete",
+        "add-a-new-tag-2689e6": "Adaugă o etichetă nouă...",
+        "click-to-add-a-new-tag-519f35": "Faceți clic pentru a adăuga o etichetă nouă",
+        "remove-this-tag-c045a7": "Elimină această etichetă",
+        "create-new-tag-1826bc": "Creează o etichetă nouă"
+      },
+      "internal-publication": {
+        "location-6f2163": "Locație",
+        "override-existing-publications-25d559": "Suprascrie publicările existente.",
+        "please-specify-the-target-location-1e3753": "Specificați locația destinație."
+      },
+      "document-command": {
+        "cancel-898478": "Anulează",
+        "add-to-collection-056bb3": "Adaugă în colecție",
+        "close-dab41f": "Închide",
+        "permanently-delete-this-document-this-cann-714721": "Ștergeți definitiv acest document? Această acțiune nu poate fi anulată.",
+        "delete-permanently-9aa5b1": "Șterge definitiv"
+      },
+      "document-create-action": {
+        "create-9e51ba": "Creează",
+        "create-document-d81fdf": "Creează un document"
+      },
+      "standard-document-publish": {
+        "close-010a05": "Închide",
+        "publish-destinations-b30e91": "Destinații de publicare"
+      },
+      "document-collections-panel": {
+        "collections-f8e852": "Colecții"
+      },
+      "document-comparison": {
+        "close-49e1fc": "Închide",
+        "document-comparison-b346d6": "Comparație de documente",
+        "property-c21545": "Proprietate"
+      },
+      "document-details-panel": {
+        "state-60222a": "Stare",
+        "version-48d6d4": "Versiune",
+        "last-modified-c6e13b": "Ultima modificare",
+        "created-1a5f57": "Creat",
+        "contributors-a72898": "Colaboratori",
+        "collections-fc10ea": "Colecții",
+        "document-details-1fbb8e": "Detaliile documentului",
+        "document-information-2fb193": "Informații despre document",
+        "metadata-is-unavailable-for-this-document-86572e": "Metadatele nu sunt disponibile pentru acest document."
+      },
+      "document-publication-view": {
+        "unpublish-all-fe13b2": "Retrage tot de la publicare",
+        "load-more-d8986b": "Încarcă mai multe...",
+        "cancel-11b260": "Anulează",
+        "retry-c04766": "Reîncearcă",
+        "loading-publications-df3a6c": "Se încarcă publicările…",
+        "publish-to-a-section-17072a": "Publică într-o secțiune",
+        "publish-destinations-adf342": "Destinații de publicare",
+        "remove-all-publications-you-are-allowed-to-6b5232": "Eliminați toate publicațiile pe care aveți permisiunea să le ștergeți, inclusiv publicațiile de pe alte pagini?",
+        "remove-this-publication-892f4a": "Eliminați această publicație?",
+        "replace-this-publication-with-the-current--bbfa2c": "Înlocuiți această publicație cu versiunea curentă?"
+      },
+      "document-snapshot-comparison": {
+        "close-a9cb86": "Închide",
+        "document-snapshot-comparison-d3bd00": "Comparația instantaneelor documentului",
+        "property-8990fc": "Proprietate",
+        "choose-snapshot-version-8640bf": "Alege versiunea instantaneului"
+      },
+      "document-tags-panel": {
+        "tags-37b901": "Etichete",
+        "search-or-create-a-tag-95dc77": "Căutați sau creați o etichetă…",
+        "type-to-create-a-tag-ee4943": "Tastați pentru a crea o etichetă",
+        "existing-tag-dd78d9": "Etichetă existentă",
+        "create-tag-0e4d76": "Creează o etichetă",
+        "search-or-create-a-tag-6a452c": "Caută sau creează o etichetă"
+      },
+      "document-trash-view": {
+        "trash-98efdc": "Coș",
+        "load-more-cf108d": "Încarcă mai multe...",
+        "retry-5ed674": "Reîncearcă",
+        "loading-trash-396607": "Se încarcă coșul…"
+      },
+      "folderish-details-panel": {
+        "details-00db34": "Detalii",
+        "state-5a36fe": "Stare",
+        "last-modified-ee2ffc": "Ultima modificare",
+        "created-a2d2ce": "Creat",
+        "contributors-d9470f": "Colaboratori",
+        "document-information-b3e56c": "Informații despre document",
+        "document-properties-70da59": "Proprietățile documentului",
+        "document-activity-39f931": "Activitatea documentului",
+        "activity-could-not-be-loaded-027a60": "Activitatea nu a putut fi încărcată.",
+        "retry-eca88a": "Reîncearcă"
+      },
+      "generic-folderish-viewer": {
+        "load-more-e7fc61": "Încarcă mai multe..."
+      },
+      "generic-non-folderish-viewer": {
+        "cancel-37e754": "Anulează",
+        "show-metadata-82860c": "Afișează metadatele",
+        "metadata-f5fc50": "Metadate",
+        "edit-metadata-276587": "Editează metadatele",
+        "edit-89340f": "Editează",
+        "metadata-settings-2f7ba8": "Setările metadatelor",
+        "customize-fields-28c523": "Personalizează câmpurile",
+        "hide-metadata-a82f55": "Ascunde metadatele",
+        "technical-metadata-and-formats-13bd3b": "Metadate tehnice și formate",
+        "additional-attachments-d3c9f9": "Atașamente suplimentare",
+        "download-main-file-d39523": "Descarcă fișierul principal",
+        "you-cannot-view-the-files-attached-to-this-286308": "Nu puteți vizualiza fișierele atașate acestui document deoarece este marcat ca înregistrare.",
+        "save-a1a911": "Salvează"
+      },
+      "image-renderer": {
+        "additional-formats-cfc470": "Formate suplimentare",
+        "loading-image-1bcab4": "Se încarcă imaginea…",
+        "image-viewing-controls-87b751": "Comenzi de vizualizare a imaginii",
+        "fit-ba38ba": "Potrivește",
+        "actual-size-214301": "Dimensiune reală",
+        "download-original-file-99f0e9": "Descarcă fișierul original",
+        "image-f05cce": "Imagine",
+        "file-size-3dd6ce": "Dimensiunea fișierului",
+        "view-this-rendition-949fdb": "Vizualizează această variantă",
+        "download-this-rendition-77fb1f": "Descarcă această variantă",
+        "view-original-ec2c8d": "Vizualizează originalul",
+        "original-file-5e9116": "Fișierul original",
+        "download-original-dd2dd0": "Descarcă originalul",
+        "exit-fullscreen-a24ba2": "Ieși din ecranul complet"
+      },
+      "note-renderer": {
+        "save-changes-35d20a": "Salvează modificările",
+        "cancel-bbd85b": "Anulează",
+        "open-in-fullscreen-6399aa": "Deschide pe tot ecranul",
+        "edit-this-note-1ef67a": "Editează această notă"
+      },
+      "note-richtext-editor": {
+        "search-5d86f9": "Caută",
+        "cancel-5e0f36": "Anulează",
+        "a-776e45": "A",
+        "https-www-youtube-com-watch-v-fcedf3": "https://www.youtube.com/watch?v=…",
+        "https-2dc83c": "https://",
+        "note-formatting-8423d0": "Formatarea notei",
+        "heading-de437b": "Titlu",
+        "normal-ffd063": "Normal",
+        "text-color-4f0dd2": "Culoarea textului",
+        "insert-images-from-documents-fa2219": "Inserează imagini din documente",
+        "images-from-documents-5a1664": "Imagini din documente",
+        "search-documents-6efdf1": "Caută documente",
+        "search-image-documents-b26536": "Caută documente de tip imagine",
+        "loading-images-e7f358": "Se încarcă imaginile…",
+        "load-more-images-984aab": "Încarcă mai multe imagini",
+        "video-url-a3b073": "URL-ul videoclipului",
+        "insert-034c6a": "Inserează",
+        "link-url-ff56a8": "URL-ul linkului",
+        "note-rich-text-3912cc": "Textul formatat al notei"
+      },
+      "picturebook-content-layout": {
+        "done-b3f0e8": "Finalizat",
+        "title-93b066": "Titlu",
+        "modified-ddcca3": "Modificat",
+        "last-contributor-4e366c": "Ultimul colaborator",
+        "load-more-ece950": "Încarcă mai multe...",
+        "select-displayed-documents-7aa41d": "Selectează documentele afișate",
+        "sort-by-f4f3f6": "Sortează după",
+        "document-order-bb539a": "Ordinea documentelor",
+        "display-mode-023ca6": "Mod de afișare",
+        "switch-to-thumbnail-grid-657afb": "Comută la grila de miniaturi",
+        "switch-to-table-7efc0b": "Comută la tabel",
+        "visible-columns-8ec373": "Coloane vizibile",
+        "actions-for-selected-documents-38578b": "Acțiuni pentru documentele selectate",
+        "retry-69f46b": "Reîncearcă",
+        "filter-by-title-fbe002": "Filtrează după titlu",
+        "no-documents-found-4b2e0f": "Nu s-au găsit documente.",
+        "no-contributors-07948c": "Nu există colaboratori",
+        "ascending-order-8ed711": "Ordine crescătoare",
+        "descending-order-909f98": "Ordine descrescătoare"
+      },
+      "standard-content-metadata": {
+        "details-79a8eb": "Detalii",
+        "cancel-ff3ca4": "Anulează",
+        "edit-metadata-8a9af9": "Editează metadatele",
+        "expiration-date-a380a2": "Data expirării",
+        "save-ef93f6": "Salvează",
+        "format-640546": "Format",
+        "uploading-021247": "Se încarcă…",
+        "click-to-upload-files-fd1ef8": "Faceți clic pentru a încărca fișiere"
+      },
+      "audit": {
+        "username-50a839": "Nume de utilizator",
+        "from-de4c6e": "De la",
+        "to-281ce9": "Către",
+        "date-0e15dc": "Dată",
+        "category-b0c237": "Categorie",
+        "comment-393f03": "Comentariu",
+        "state-97bb2f": "Stare",
+        "no-audit-records-match-these-filters-123b4e": "Nicio înregistrare de audit nu corespunde acestor filtre.",
+        "document-e8ecfa": "Document",
+        "audit-pages-f4500f": "Pagini de audit",
+        "previous-559496": "Anterior",
+        "next-439df0": "Următor",
+        "document-history-3ccc76": "Istoricul documentului",
+        "audit-1aa3c7": "Audit",
+        "audit-records-728c4a": "Înregistrări de audit",
+        "action-239b98": "Acțiune"
+      },
+      "standard-document-publication-view": {
+        "unpublish-all-c09fbd": "Retrage tot de la publicare",
+        "load-more-e2f3be": "Încarcă mai multe...",
+        "cancel-bd0410": "Anulează",
+        "retry-401902": "Reîncearcă",
+        "loading-publications-348857": "Se încarcă publicările…",
+        "remove-all-publications-you-are-allowed-to-8bf586": "Eliminați toate publicațiile pe care aveți permisiunea să le ștergeți, inclusiv publicațiile de pe alte pagini?",
+        "remove-this-publication-e28ecf": "Eliminați această publicație?",
+        "replace-this-publication-with-the-current--b4f7e2": "Înlocuiți această publicație cu versiunea curentă?"
+      },
+      "standard-document-trash-view": {
+        "title-579269": "Titlu",
+        "created-32d811": "Creat",
+        "last-modified-88c085": "Ultima modificare",
+        "last-contributor-a63122": "Ultimul colaborator",
+        "load-more-1b4038": "Încarcă mai multe...",
+        "grid-83b613": "Grilă",
+        "table-5c0c78": "Tabel",
+        "clear-selection-ca8df1": "Golește selecția",
+        "retry-07a813": "Reîncearcă",
+        "loading-trash-44f80c": "Se încarcă coșul…",
+        "filter-title-c8e94b": "Filtrează după titlu",
+        "select-displayed-222c55": "Selectează elementele afișate",
+        "sort-by-6d6873": "Sortează după",
+        "no-values-1eb2d9": "Nicio valoare"
+      },
+      "threed-renderer": {
+        "polygons-f884f0": "poligoane",
+        "add-a-hotspot-459a1f": "Adaugă un punct de interes",
+        "auto-rotate-a660f4": "Rotire automată",
+        "play-pause-animation-111f1f": "Redă/întrerupe animația",
+        "views-d0ef71": "Vizualizări",
+        "download-this-view-as-a-png-file-6a85ff": "Descarcă această vizualizare ca fișier PNG",
+        "generating-export-896e58": "Se generează exportul...",
+        "hotspot-label-35f3d4": "Eticheta punctului de interes",
+        "edit-label-8ce71f": "Editează eticheta",
+        "remove-hotspot-daf627": "Elimină punctul de interes",
+        "remove-this-hotspot-d795ae": "Elimină acest punct de interes",
+        "view-in-your-space-4330a2": "Vizualizează în spațiul tău",
+        "move-your-device-to-place-the-3d-model-75d5c2": "Mișcați dispozitivul pentru a plasa modelul 3D",
+        "format-209791": "Format",
+        "vertices-d92606": "Vârfuri",
+        "textures-d6335e": "Texturi",
+        "file-size-c21f3d": "Dimensiunea fișierului",
+        "view-this-format-a41de5": "Vizualizează acest format",
+        "download-this-format-ef0778": "Descarcă acest format"
+      },
+      "trash-selection-action": {
+        "cancel-5b4eb8": "Anulează",
+        "delete-permanently-7645e2": "Șterge definitiv"
+      },
+      "parallel-wf-choose-participants-task": {
+        "participants-4b84b3": "Participanți",
+        "comment-1a427e": "Comentariu",
+        "end-date-eb1790": "Data de încheiere"
+      },
+      "parallel-wf-give-opinion-task": {
+        "initiator-comment-b60a28": "Comentariul inițiatorului"
+      },
+      "serial-wf-choose-participants-task": {
+        "participants-298d26": "Participanți",
+        "comment-31fb34": "Comentariu",
+        "validation-09f8a5": "Validare",
+        "review-type-dc01c4": "Tipul revizuirii",
+        "simple-review-370c82": "Revizuire simplă"
+      },
+      "serial-wf-document-validation-task": {
+        "participants-5ba3ce": "Participanți",
+        "comment-3556c4": "Comentariu"
+      },
+      "default-search-results": {
+        "search-results-7cdb6e": "Rezultatele căutării",
+        "switch-to-grid-view-cb21bb": "Comută la vizualizarea grilă",
+        "switch-to-table-view-3d04e9": "Comută la vizualizarea tabel",
+        "switch-to-list-view-c6c837": "Comută la vizualizarea listă",
+        "columns-settings-8c030a": "Setările coloanelor",
+        "load-more-a1dee0": "Încarcă mai multe...",
+        "default-search-results-b94069": "Rezultatele căutării implicite",
+        "search-result-controls-c55327": "Comenzile rezultatelor căutării",
+        "display-mode-05f129": "Mod de afișare",
+        "sort-by-f62fb2": "Sortează după",
+        "actions-for-selected-documents-ad45dd": "Acțiuni pentru documentele selectate",
+        "select-all-matching-5f6e32": "Selectează toate rezultatele",
+        "stop-selecting-d8e63b": "Oprește selectarea",
+        "retry-fa6db0": "Reîncearcă",
+        "loading-results-b1421b": "Se încarcă rezultatele…",
+        "no-results-3cc550": "Nu există rezultate.",
+        "loading-more-results-28e32c": "Se încarcă mai multe rezultate…",
+        "ascending-order-6c651e": "Ordine crescătoare",
+        "descending-order-aeba1d": "Ordine descrescătoare"
+      },
+      "assets-search-filters": {
+        "full-text-c1cf82": "Text integral",
+        "search-for-something-1de22c": "Căutați ceva...",
+        "reset-448ef9": "Resetează",
+        "search-73379e": "Caută",
+        "select-a-saved-search-26a626": "Selectați o căutare salvată",
+        "delete-saved-search-49a28d": "Șterge căutarea salvată",
+        "no-values-ac4ab6": "Nicio valoare"
+      },
+      "repository-search": {
+        "search-results-140c5d": "Rezultatele căutării",
+        "filters-e2acf9": "Filtre",
+        "search-b0bde9": "Caută",
+        "reset-53a22c": "Resetează",
+        "search-results-abae80": "Rezultatele căutării",
+        "switch-to-list-view-c12585": "Comută la vizualizarea listă",
+        "load-more-6a65cf": "Încarcă mai multe...",
+        "save-search-87f20a": "Salvează căutarea",
+        "title-578690": "Titlu",
+        "cancel-32f1be": "Anulează",
+        "update-2b3327": "Actualizează",
+        "save-e6d04b": "Salvează",
+        "toggle-search-filters-bf1a5f": "Afișează/ascunde filtrele de căutare",
+        "this-search-is-not-available-for-your-acco-2e6d56": "Această căutare nu este disponibilă pentru contul dvs.",
+        "nxql-query-87b7f7": "Interogare NXQL",
+        "ctrl-enter-to-run-8ebe0c": "Ctrl+Enter pentru executare",
+        "saved-search-d02426": "Căutare salvată",
+        "select-a-saved-search-45f4ab": "Selectați o căutare salvată",
+        "delete-saved-search-1294d4": "Șterge căutarea salvată",
+        "expired-before-a47869": "Expirat înainte de",
+        "applied-filters-b46029": "Filtre aplicate",
+        "actions-for-selected-documents-d3e110": "Acțiuni pentru documentele selectate",
+        "selected-documents-164dce": "Documente selectate",
+        "grid-view-906aa6": "Vizualizare grilă",
+        "table-view-f3c31c": "Vizualizare tabel",
+        "list-view-8724fc": "Vizualizare listă",
+        "sort-by-8c058a": "Sortează după",
+        "sort-results-1c012e": "Sortează rezultatele",
+        "default-order-2973d9": "Ordine implicită",
+        "select-all-matching-366850": "Selectează toate rezultatele",
+        "stop-selection-693486": "Oprește selectarea",
+        "retry-22577e": "Reîncearcă",
+        "loading-results-f64c54": "Se încarcă rezultatele…"
+      },
+      "search-pane": {
+        "share-56e599": "Partajează",
+        "search-f11f42": "Caută",
+        "reset-47b365": "Resetează",
+        "search-current-location-913fe1": "Caută în locația curentă",
+        "execute-this-nxql-query-ecd564": "Execută această interogare NXQL",
+        "update-selected-c03723": "Actualizează căutarea selectată",
+        "save-as-new-f9388f": "Salvează ca nouă",
+        "user-or-group-eb65ae": "Utilizator sau grup",
+        "user-or-group-to-share-with-b0a54e": "Utilizatorul sau grupul cu care se partajează",
+        "notify-4c7367": "Notifică"
+      },
+      "assets-search-queue": {
+        "search-results-d9cb21": "Rezultatele căutării",
+        "assets-a3c992": "Resurse digitale",
+        "load-more-c9bff2": "Încarcă mai multe...",
+        "assets-search-queue-394c0f": "Coada de căutare a resurselor",
+        "back-to-filters-5b2280": "Înapoi la filtre",
+        "queue-navigation-048949": "Navigare în coadă",
+        "previous-692dcf": "Anterior",
+        "next-5aa3a2": "Următor",
+        "retry-d5dae6": "Reîncearcă",
+        "loading-results-45937e": "Se încarcă rezultatele…",
+        "no-results-a194bb": "Nu există rezultate."
+      },
+      "search-queue": {
+        "load-more-fdb971": "Încarcă mai multe...",
+        "search-results-queue-299854": "Coada rezultatelor căutării",
+        "back-to-filters-8bba5e": "Înapoi la filtre",
+        "loading-results-23b60d": "Se încarcă rezultatele…",
+        "no-results-3e0e7d": "Nu există rezultate.",
+        "loading-more-results-02d138": "Se încarcă mai multe rezultate…",
+        "retry-a6b580": "Reîncearcă"
+      },
+      "analytics": {
+        "workflow-6a6bab": "Flux de lucru",
+        "after-9d9e02": "După",
+        "before-7e5044": "Înainte",
+        "calls-per-hour-05eb92": "Apeluri pe oră",
+        "filters-used-b8e879": "Filtre utilizate",
+        "average-workflow-duration-898983": "Durata medie a fluxurilor de lucru",
+        "workflow-initiators-22c731": "Inițiatorii fluxurilor de lucru",
+        "actions-per-user-57f209": "Acțiuni pe utilizator",
+        "path-60f8fc": "Cale",
+        "document-distribution-78f9fc": "Distribuția documentelor",
+        "users-3444c6": "Utilizatori",
+        "default-domain-workspaces-b068de": "/default-domain/workspaces/",
+        "loading-analytics-c4c1b7": "Se încarcă analizele…",
+        "audit-analytics-are-unavailable-on-this-se-c56101": "Analizele de audit nu sunt disponibile pe acest server. Numărul documentelor din depozit este afișat mai jos; graficele de audit necesită un serviciu compatibil de agregare a auditului.",
+        "no-workflow-model-is-available-c3da2f": "Nu este disponibil niciun model de flux de lucru",
+        "this-range-contains-more-than-1-000-releva-53bc00": "Acest interval conține peste 1.000 de evenimente de audit relevante. Restrângeți intervalul de date; nu sunt afișate valori parțiale.",
+        "calls-per-page-provider-1b6788": "Apeluri per furnizor de pagini",
+        "results-per-call-270a11": "Rezultate per apel",
+        "popular-full-text-searches-3ad4e6": "Căutări populare în textul integral",
+        "pages-displayed-4cb7c0": "Pagini afișate",
+        "no-workflow-model-is-available-on-this-ser-f47bd1": "Nu este disponibil niciun model de flux de lucru pe acest server.",
+        "average-task-duration-c5478f": "Durata medie a sarcinilor",
+        "depth-351c8c": "Adâncime",
+        "enter-a-repository-path-ending-in-a-slash--55b4d3": "Introduceți o cale din depozit care se termină cu o bară oblică pentru a examina ierarhia documentelor.",
+        "select-a-path-to-view-its-document-distrib-2a5295": "Selectați o cale pentru a vedea distribuția documentelor.",
+        "distribution-analytics-is-disabled-because-108fb2": "Analiza distribuției este dezactivată deoarece interogarea curentă ar afecta calitatea serviciului. Configurați un prag pozitiv pentru interogările serverului înainte de a selecta o cale.",
+        "no-documents-match-this-path-7d22d4": "Niciun document nu corespunde acestei căi.",
+        "total-documents-728507": "Total documente",
+        "folders-2447c9": "Dosare",
+        "repository-activity-last-30-days-31a643": "Activitatea depozitului — ultimele 30 de zile",
+        "top-contributors-last-90-days-9abdca": "Principalii contribuitori — ultimele 90 de zile",
+        "no-completed-workflows-78d1d8": "Niciun flux de lucru finalizat"
+      },
+      "cloud-account-editor": {
+        "close-6bc13c": "Închide",
+        "nuxeo-login-c1a1ab": "Autentificare Nuxeo",
+        "service-login-2ec977": "Autentificare la serviciu",
+        "creation-date-b646bb": "Data creării",
+        "save-changes-9ad120": "Salvează modificările",
+        "edit-account-ed8f5f": "Editează contul",
+        "close-without-saving-305dbe": "Închide fără a salva"
+      },
+      "cloud-application-editor": {
+        "close-23d36f": "Închide",
+        "nuxeo-login-42bae2": "Autentificare Nuxeo",
+        "service-login-b9a32e": "Autentificare la serviciu",
+        "creation-date-26a8ce": "Data creării",
+        "save-changes-a3d49b": "Salvează modificările",
+        "add-a-new-application-c6914a": "Adaugă o aplicație",
+        "close-without-saving-d03bb5": "Închide fără a salva"
+      },
+      "content-management": {
+        "document-types-a2747a": "Tipuri de documente",
+        "description-3319b6": "Descriere",
+        "name-bffcbd": "Nume",
+        "feature-id-aeee9b": "ID-ul funcționalității",
+        "schemas-df6cb2": "Scheme",
+        "prefix-858c09": "Prefix",
+        "total-fields-a96abe": "Total câmpuri",
+        "metadata-c7ecb1": "Metadate",
+        "data-type-69136c": "Tip de date",
+        "multi-valued-1ee6e1": "Valori multiple",
+        "schema-0ce0fe": "Schemă"
+      },
+      "metadata-policy": {
+        "remove-d03630": "Elimină",
+        "users-413c24": "Utilizatori",
+        "groups-db10f7": "Grupuri",
+        "i-c68a5b": "i",
+        "metadata-access-rules-bd96f2": "Reguli de acces la metadate",
+        "choose-which-metadata-people-can-see-and-e-5951bb": "Alegeți metadatele pe care utilizatorii le pot vedea și edita, în funcție de tipul documentului și de schemă.",
+        "discard-changes-6da815": "Renunță la modificări",
+        "these-rules-customize-the-interface-nuxeo--356045": "Aceste reguli personalizează interfața. Permisiunile Nuxeo controlează în continuare accesul la documente. Administratorii păstrează vizibilitatea completă.",
+        "only-administrators-can-change-metadata-la-0f9e24": "Doar administratorii pot modifica formularele de metadate.",
+        "retry-dc2510": "Reîncearcă",
+        "loading-metadata-rules-c57e91": "Se încarcă regulile pentru metadate…",
+        "rules-d6c53d": "Reguli",
+        "add-rule-ce6294": "Adaugă o regulă",
+        "no-custom-rules-yet-091d8b": "Nu există încă reguli personalizate",
+        "start-with-a-document-type-choose-its-meta-22c9c3": "Începeți cu un tip de document, alegeți metadatele, apoi stabiliți cine le poate vedea sau edita.",
+        "create-your-first-rule-8efa92": "Creați prima regulă",
+        "default-behavior-applies-until-you-save-a--538921": "Comportamentul implicit se aplică până când salvați o regulă.",
+        "metadata-scope-e8d7be": "Domeniul metadatelor",
+        "choose-where-this-rule-applies-8afbf4": "Alegeți unde se aplică această regulă.",
+        "all-document-types-dd432c": "Toate tipurile de documente",
+        "schema-18906d": "Schemă",
+        "who-it-applies-to-0ba36d": "Cui i se aplică",
+        "leave-both-lists-empty-to-apply-to-everyon-a4f0b8": "Lăsați ambele liste goale pentru a aplica regula tuturor.",
+        "search-or-enter-a-user-id-959a22": "Căutați sau introduceți un ID de utilizator",
+        "search-or-enter-a-group-id-87caa3": "Căutați sau introduceți un ID de grup",
+        "match-people-in-93ab4c": "Se aplică persoanelor din",
+        "either-list-users-or-group-members-861bd6": "Oricare dintre liste — utilizatori SAU membri ai grupurilor",
+        "both-lists-users-who-also-belong-to-a-grou-f9aef9": "Ambele liste — utilizatori care sunt și membri ai unui grup",
+        "what-they-can-do-f9a070": "Ce pot face",
+        "metadata-access-29d75f": "Acces la metadate",
+        "visible-fields-b03150": "Câmpuri vizibile",
+        "optional-679941": "Opțional",
+        "all-fields-in-the-selected-schema-aa327f": "Toate câmpurile din schema selectată",
+        "leave-empty-for-all-fields-when-you-select-008eee": "Lăsați necompletat pentru toate câmpurile. Când selectați câmpuri, celelalte câmpuri din acest domeniu sunt ascunse.",
+        "how-rules-work-e134bd": "Cum funcționează regulile",
+        "a-matching-user-rule-takes-precedence-over-10d4fe": "O regulă aplicabilă utilizatorului are prioritate față de regulile grupurilor. În cadrul acestui domeniu, tipurile de documente și schemele specifice au prioritate față de regulile generale. La egalitate, se aplică accesul cel mai restrictiv.",
+        "editing-also-requires-document-write-permi-1a3786": "Editarea necesită și permisiunea de scriere asupra documentului. Câmpurile generate rămân doar pentru citire. Dacă nu se aplică nicio regulă, câmpurile Dublin Core sunt editabile, iar celelalte scheme sunt doar pentru citire, în funcție de permisiunile documentului.",
+        "changes-saved-173028": "Modificările au fost salvate.",
+        "save-changes-3e4f48": "Salvează modificările",
+        "unsaved-changes-59eed5": "Modificări nesalvate",
+        "all-schemas-49b90b": "Toate schemele",
+        "everyone-56869f": "Toată lumea",
+        "editable-e43e43": "Editabil",
+        "read-only-732595": "Doar pentru citire",
+        "hidden-edf5f5": "Ascuns",
+        "view-values-without-editing-78c08a": "Vizualizează valorile fără editare",
+        "view-and-edit-values-8eb418": "Vizualizează și editează valorile",
+        "hide-metadata-from-view-4b99bd": "Ascunde metadatele"
+      },
+      "retention-rule-picker": {
+        "close-785662": "Închide",
+        "apply-a-retention-rule-64dc5a": "Aplică o regulă de păstrare",
+        "pick-the-retention-rule-to-apply-to-this-d-61bc8f": "Alegeți regula de păstrare care se aplică acestui document",
+        "only-the-retention-rules-that-are-applicab-7739a3": "Sunt afișate doar regulile de păstrare aplicabile acestui document.",
+        "go-back-b44049": "Înapoi",
+        "apply-retention-rule-5d78e1": "Aplică regula de păstrare"
+      },
+      "user-and-group-permissions": {
+        "close-297e3f": "Închide",
+        "path-cc2e71": "Cale",
+        "local-permissions-913767": "Permisiuni locale",
+        "group-8478f4": "Grup",
+        "permanent-f3cd27": "Permanentă",
+        "user-permissions-c973f4": "Permisiunile utilizatorului",
+        "user-group-permissions-6cc2fb": "Permisiunile grupului de utilizatori",
+        "list-of-permissions-for-user-9d65a3": "Lista permisiunilor pentru utilizator",
+        "list-of-permissions-for-group-b74258": "Lista permisiunilor pentru grup",
+        "granted-eeda8a": "Acordată",
+        "effectiveness-c8b94f": "Valabilitate",
+        "permissions-inherited-from-the-c0d8ff": "Permisiuni moștenite de la",
+        "press-hold-to-delete-this-permission-a0566e": "Țineți apăsat pentru a șterge această permisiune"
+      },
+      "users-and-groups": {
+        "users-groups-6ea071": "Utilizatori și grupuri",
+        "groups-a87294": "Grupuri",
+        "users-fb312e": "Utilizatori",
+        "all-users-and-groups-eb23d6": "Toți utilizatorii și toate grupurile",
+        "search-users-and-groups-e045c0": "Caută utilizatori și grupuri",
+        "saving-changes-3a4931": "Se salvează modificările…",
+        "add-a-new-group-ef054c": "Adaugă un grup",
+        "edit-this-group-801528": "Editează acest grup",
+        "view-permissions-1212f0": "Vizualizează permisiunile",
+        "delete-this-group-a07d8c": "Șterge acest grup",
+        "user-members-6a3728": "Utilizatori membri",
+        "filter-user-members-3c0465": "Filtrează utilizatorii membri",
+        "remove-this-member-93c028": "Elimină acest membru",
+        "group-members-cda1e8": "Grupuri membre",
+        "filter-group-members-44123e": "Filtrează grupurile membre",
+        "no-members-match-the-current-filters-7a3e73": "Niciun membru nu corespunde filtrelor curente.",
+        "there-are-no-user-groups-to-display-3020eb": "Nu există grupuri de utilizatori de afișat.",
+        "expand-any-user-group-to-show-its-members-5b2d31": "Extindeți un grup de utilizatori pentru a-i afișa membrii.",
+        "add-a-new-user-247b06": "Adaugă un utilizator",
+        "edit-this-user-6b36e3": "Editează acest utilizator",
+        "delete-this-user-88d18b": "Șterge acest utilizator",
+        "this-user-is-not-part-of-any-group-yet-e63cdd": "Acest utilizator nu face încă parte din niciun grup.",
+        "detach-from-this-group-4947d3": "Elimină din acest grup",
+        "there-are-no-users-to-display-2b6385": "Nu există utilizatori de afișat.",
+        "loading-189714": "Se încarcă…",
+        "retry-0938b3": "Reîncearcă",
+        "previous-b47147": "Anterior",
+        "next-c6a5d5": "Următor"
+      },
+      "vocabularies": {
+        "vocabulary-748809": "Vocabular",
+        "select-a-vocabulary-256030": "Selectați un vocabular",
+        "add-entry-e500b3": "Adaugă o înregistrare",
+        "actions-e7048e": "Acțiuni",
+        "english-label-856b69": "Etichetă în engleză",
+        "french-label-3cdc0b": "Etichetă în franceză",
+        "obsolete-1d87b4": "Învechit",
+        "cancel-9bb10d": "Anulează",
+        "save-094e48": "Salvează",
+        "delete-entry-679cf9": "Șterge înregistrarea",
+        "retry-c83dbb": "Reîncearcă",
+        "loading-a8b66a": "Se încarcă…",
+        "edit-a480d0": "Editează",
+        "delete-355662": "Șterge",
+        "no-entries-8cd961": "Niciun element.",
+        "previous-43d317": "Anterior",
+        "next-dc78ee": "Următor",
+        "select-parent-73527c": "Selectați părintele",
+        "yes-ff114f": "Da",
+        "no-2256cf": "Nu",
+        "edit-entry-a04b68": "Editează înregistrarea"
+      },
+      "settings": {
+        "administration-171b5e": "Administrare",
+        "close-administration-navigation-fb0022": "Închide navigarea administrării",
+        "open-administration-navigation-d9a095": "Deschide navigarea administrării"
+      },
+      "header": {
+        "sign-out-6fbf9e": "Deconectează-te",
+        "document-explorer-cbad34": "Explorator de documente",
+        "find-documents-43048a": "Caută documente",
+        "settings-77665f": "Setări",
+        "user-profile-1c5d61": "Profilul utilizatorului"
+      },
+      "administration-drawer": {
+        "administration-d96529": "Administrare"
+      },
+      "repository-search-drawer": {
+        "search-ee3075": "Caută",
+        "open-results-to-refine-filters-and-select--bdd455": "Deschideți rezultatele pentru a ajusta filtrele și a selecta documente."
+      },
+      "sidebar": {
+        "administration-6a4b44": "Administrare",
+        "main-navigation-3f69d6": "Navigare principală",
+        "application-navigation-6004e0": "Navigarea aplicației",
+        "account-and-administration-917406": "Cont și administrare",
+        "user-menu-b6f323": "Meniul utilizatorului",
+        "navigation-details-7876a4": "Detalii de navigare",
+        "close-navigation-8845ce": "Închide navigarea",
+        "drawer-controls-6ebb60": "Comenzile panoului lateral"
+      },
+      "video-renderer": {
+        "fps-c3b44a": "FPS",
+        "format-93ef1f": "Format",
+        "file-size-7f35df": "Dimensiunea fișierului",
+        "view-this-format-1bd248": "Vizualizează acest format",
+        "download-this-format-a42b24": "Descarcă acest format",
+        "download-original-file-fae086": "Descarcă fișierul original"
+      },
+      "clipboard": {
+        "you-cannot-paste-this-document-in-this-loc-eb6acf": "Nu puteți lipi acest document în această locație",
+        "there-are-no-items-in-the-clipboard-b77d17": "Nu există elemente în clipboard.",
+        "copy-the-selected-documents-to-the-current-ed255a": "Copiază documentele selectate în locația curentă",
+        "move-the-selected-documents-to-the-current-36d71d": "Mută documentele selectate în locația curentă",
+        "remove-the-selected-documents-from-the-cli-ea7dcc": "Elimină documentele selectate din clipboard",
+        "remove-all-documents-from-clipboard-974976": "Elimină toate documentele din clipboard",
+        "clear-clipboard-f3a9fb": "Golește clipboardul"
+      },
+      "display-settings": {
+        "create-button-location-a61897": "Poziția butonului de creare",
+        "lower-right-default-1142ed": "În dreapta jos (implicit)",
+        "document-actions-toolbar-56379f": "Bara de acțiuni pentru documente",
+        "saved-automatically-for-this-browser-b1a4a4": "Se salvează automat pentru acest browser.",
+        "documents-use-the-folder-s-saved-order-sel-f84f19": "Documentele folosesc ordinea salvată a dosarului. Selectați documente pentru a le muta în sus sau în jos.",
+        "sort-documents-by-42a33a": "Sortează documentele după",
+        "choose-a-different-sort-field-d69a49": "Alege un alt câmp de sortare",
+        "remove-this-sort-field-b1557f": "Elimină acest câmp de sortare",
+        "add-a-new-sort-field-c194ef": "Adaugă un câmp de sortare nou",
+        "order-documents-789ad3": "Ordonează documentele",
+        "ascending-d0f651": "Crescător",
+        "descending-be46d2": "Descrescător",
+        "number-of-items-per-page-b5e90f": "Număr de elemente pe pagină",
+        "apply-changes-286792": "Aplică modificările"
+      },
+      "blob-preview": {
+        "loading-preview-d1d5c4": "Se încarcă previzualizarea…",
+        "retry-2e4838": "Reîncearcă",
+        "pdf-preview-aa8636": "Previzualizare PDF",
+        "your-browser-cannot-display-this-pdf-downl-d8ac48": "Browserul dvs. nu poate afișa acest PDF. Descărcați fișierul pentru a-l vizualiza."
+      },
+      "document-attachments": {
+        "remove-all-attachments-c80f70": "Elimină toate atașamentele",
+        "there-are-no-files-to-show-b87766": "Nu există fișiere de afișat.",
+        "add-files-b6082d": "Adaugă fișiere",
+        "add-a-file-b2d533": "Adaugă un fișier"
+      },
+      "document-info-panel": {
+        "close-info-panel-9488a4": "Închide panoul de informații"
+      },
+      "document-snapshots": {
+        "create-a-new-minor-snapshot-e5de17": "Creează un instantaneu minor nou",
+        "create-a-new-major-snapshot-0db8bf": "Creează un instantaneu major nou",
+        "this-is-the-displayed-version-996a56": "Aceasta este versiunea afișată",
+        "see-how-the-document-looked-like-when-this-09cbcf": "Vezi cum arăta documentul la crearea acestui instantaneu",
+        "compare-the-displayed-version-against-this-a1b12e": "Compară versiunea afișată cu aceasta",
+        "restore-the-document-to-how-it-looked-like-b824fd": "Restaurează documentul la starea de la crearea acestui instantaneu"
+      },
+      "document-toolbar": {
+        "document-and-result-actions-adb2d1": "Acțiuni pentru documente și rezultate",
+        "choose-displayed-documents-to-apply-action-856d1b": "Alegeți documentele afișate asupra cărora să aplicați acțiuni.",
+        "actions-for-selected-documents-9706ed": "Acțiuni pentru documentele selectate",
+        "selected-documents-525b90": "Documente selectate",
+        "display-settings-876c92": "Setări de afișare"
+      },
+      "results-csv-export": {
+        "exporting-all-results-matching-the-applied-3db9b7": "Se exportă toate rezultatele care corespund filtrelor aplicate…",
+        "stop-waiting-5bc5b3": "Oprește așteptarea",
+        "export-ready-d9bdeb": "Export pregătit.",
+        "save-export-430afe": "Salvează exportul"
+      },
+      "selection-download": {
+        "archive-preparation-890e23": "Pregătirea arhivei",
+        "cancel-preparation-27620f": "Anulează pregătirea",
+        "retry-status-fa6296": "Reverifică starea",
+        "archive-preparation-cancelled-8616cb": "Pregătirea arhivei a fost anulată.",
+        "download-started-check-your-browser-s-down-019c3e": "Descărcarea a început. Verificați descărcările browserului. Dacă a eșuat sau a fost întreruptă, generați din nou arhiva ZIP.",
+        "regenerate-zip-c7a692": "Generează din nou arhiva ZIP",
+        "cancelling-preparation-c4abcd": "Se anulează pregătirea…",
+        "archive-preparation-queued-9e00e4": "Pregătirea arhivei este în coadă…",
+        "preparing-archive-e329af": "Se pregătește arhiva…"
+      },
+      "bulk-creation-results": {
+        "import-results-7892e6": "Rezultatele importului",
+        "some-creation-results-are-uncertain-inspec-6e3dbc": "Unele rezultate ale creării sunt incerte. Verificați destinația înainte de a importa din nou acele fișiere. Ele nu vor fi reîncercate automat.",
+        "inspect-created-document-1f8037": "Verifică documentul creat",
+        "inspect-destination-79dd01": "Verifică destinația",
+        "stopping-after-this-file-ad0d84": "Se oprește după acest fișier…",
+        "stop-after-this-file-178a6a": "Oprește după acest fișier"
+      },
+      "document-type-editor": {
+        "this-document-layout-is-disabled-e8352e": "Această configurație de document este dezactivată."
+      },
+      "vocabulary": {
+        "click-to-add-a-new-item-7dd2ea": "Faceți clic pentru a adăuga un element nou",
+        "remove-this-item-799870": "Elimină acest element"
+      },
+      "history": {
+        "clear-history-5edc22": "Șterge istoricul"
+      },
+      "document-actions-toolbar": {
+        "primary-document-actions-5ad7c1": "Acțiunile principale ale documentului",
+        "more-actions-d74c3b": "Mai multe acțiuni",
+        "document-actions-72e786": "Acțiunile documentului"
+      },
+      "document-info-action": {
+        "show-document-information-1e16c1": "Afișează informațiile documentului",
+        "show-this-document-s-info-permissions-and--59c160": "Afișează informațiile, permisiunile și activitatea acestui document",
+        "document-information-003fe1": "Informații despre document"
+      },
+      "document-share": {
+        "people-opening-this-link-need-permission-t-899177": "Persoanele care deschid acest link au nevoie de permisiunea de a accesa documentul."
+      },
+      "document-type-viewer": {
+        "no-viewer-is-currently-available-for-this--88cd23": "În prezent nu este disponibil niciun vizualizator pentru acest tip de document!"
+      },
+      "generic-type-viewer": {
+        "loading-document-449c7c": "Se încarcă documentul…"
+      },
+      "picture-metadata-card": {
+        "not-available-c0e170": "Indisponibil"
+      },
+      "pdf-renderer": {
+        "loading-pdf-56ea16": "Se încarcă PDF-ul…",
+        "retry-c76e1b": "Reîncearcă",
+        "table-of-contents-9db724": "Cuprins",
+        "fullscreen-d80e4d": "Ecran complet",
+        "zoom-in-out-810965": "Mărire/micșorare",
+        "auto-9fb3e3": "Automat",
+        "actual-size-7daf66": "Dimensiune reală",
+        "fit-view-height-39b7a5": "Potrivește pe înălțime",
+        "fit-view-width-2d2e2d": "Potrivește pe lățime",
+        "rotate-clockwise-bd9080": "Rotește în sensul acelor de ceasornic",
+        "rotate-counter-clockwise-123e89": "Rotește în sens invers acelor de ceasornic",
+        "hand-tool-7bd658": "Instrumentul mână",
+        "select-text-4a8ba9": "Selectează text",
+        "find-in-document-2c3d7a": "Caută în document...",
+        "print-this-file-cd83da": "Tipărește acest fișier"
+      },
+      "selection-publication-page": {
+        "find-a-section-0d9ef0": "Caută o secțiune",
+        "find-ccf607": "Caută",
+        "destination-5a3dc5": "Destinație",
+        "choose-a-section-b665a6": "Alegeți o secțiune",
+        "original-fb0e10": "Original",
+        "replace-existing-publications-3619e0": "Înlocuiește publicațiile existente",
+        "stop-after-current-document-522eaa": "Oprește după documentul curent",
+        "loading-destinations-baf212": "Se încarcă destinațiile…",
+        "published-4249bd": "Publicat",
+        "retry-remaining-9b99c4": "Reîncearcă elementele rămase"
+      },
+      "analytics-workspace": {
+        "analytics-views-a2f7e3": "Vizualizări analitice"
+      },
+      "retention-rules": {
+        "enable-or-disable-this-retention-rule-6cbb20": "Activează sau dezactivează această regulă de păstrare",
+        "the-retention-period-starts-immediately-6e34d8": "Perioada de păstrare începe imediat",
+        "the-retention-period-starts-when-a-documen-a72d60": "Perioada de păstrare începe când un document este modificat, pe baza acestei expresii",
+        "the-retention-period-starts-when-a-documen-b5b568": "Perioada de păstrare începe când un document este mutat, pe baza acestei expresii",
+        "field-edd6b2": "câmp",
+        "once-the-retention-period-has-expired-the--1286e4": "După expirarea perioadei de păstrare, vor fi efectuate următoarele acțiuni:",
+        "it-affects-only-these-document-types-8aa390": "Se aplică doar acestor tipuri de documente:",
+        "edit-this-retention-rule-c5463f": "Editează această regulă de păstrare",
+        "edit-this-rule-d72c2d": "Editează această regulă",
+        "add-a-new-retention-rule-addcbf": "Adaugă o regulă de păstrare"
+      },
+      "document-icon-and-title": {
+        "collection-documents-bb3355": "documentele colecției",
+        "owner-1ad6c7": "Proprietar",
+        "you-ve-added-this-document-to-your-collect-9bb13f": "Ați adăugat acest document în colecțiile dvs."
+      },
+      "document-tree": {
+        "loading-folders-147d99": "Se încarcă dosarele…",
+        "retry-5090ea": "Reîncearcă",
+        "load-more-folders-09ae21": "Încarcă mai multe dosare"
+      },
+      "clipboard-drawer": {
+        "clear-clipboard-e0be1d": "Golește clipboardul"
+      },
+      "personal-workspace-drawer": {
+        "loading-workspace-67d517": "Se încarcă spațiul de lucru…",
+        "retry-2c78f7": "Reîncearcă"
+      },
+      "users-and-groups-picker": {
+        "click-to-add-a-new-item-21dc83": "Faceți clic pentru a adăuga un element nou",
+        "remove-this-item-ebd1ce": "Elimină acest element",
+        "users-afc181": "Utilizatori",
+        "user-groups-17ec0f": "Grupuri de utilizatori"
+      },
+      "document-info-bar": {
+        "unlock-6ebc32": "Deblochează",
+        "this-document-is-placed-under-legal-hold-e9dca4": "Acest document face obiectul unei blocări juridice."
+      },
+      "default-workflow-layout": {
+        "participants-e440e1": "Participanți",
+        "validation-c5668c": "Validare",
+        "comment-3dc08e": "Comentariu",
+        "end-date-3209f9": "Data de încheiere",
+        "search-users-and-groups-1b2dd3": "Caută utilizatori și grupuri.",
+        "review-brief-08f9f7": "Instrucțiuni de revizuire"
+      },
+      "default-drawer-page": {
+        "clear-clipboard-4bbb2b": "Golește clipboardul"
+      },
+      "common": {
+        "unavailable": "Indisponibil"
+      }
+    },
+    "services": {
+      "documents": {
+        "error-title": "Eroare",
+        "unauthorized": "Nu sunteți autorizat(ă) să vizualizați acest document.",
+        "not-found": "Documentul specificat nu a putut fi găsit.",
+        "notifications-title": "Notificări despre document",
+        "lock-title": "Blocarea documentului a fost modificată",
+        "legal-hold-title": "Blocarea juridică a documentului a fost modificată",
+        "destination-changed": "Destinația sau permisiunile de creare s-au schimbat. Actualizați și reîncercați.",
+        "unsubscribed": "Nu veți mai primi notificări când documentul „{title}” se modifică.",
+        "subscribed": "Veți primi notificări când documentul „{title}” se modifică.",
+        "unlocked": "Documentul „{title}” a fost deblocat.",
+        "locked": "Documentul „{title}” este acum blocat.",
+        "held": "Documentul „{title}” face acum obiectul unei blocări juridice și nu poate fi modificat.",
+        "unheld": "Documentul „{title}” nu mai face obiectul unei blocări juridice."
+      },
+      "collections": {
+        "exists-title": "Colecția există deja",
+        "create-failed": "Colecția specificată nu a putut fi creată.",
+        "create-failed-title": "Eroare la crearea colecției",
+        "limit": "Nu puteți adăuga mai mult de 20 de documente într-o colecție deodată.",
+        "update-failed-title": "Eroare la actualizarea colecției",
+        "updating": "Se actualizează colecția...",
+        "updating-all": "Se actualizează colecțiile...",
+        "add-failed": "Documentul nu a putut fi adăugat în colecția specificată.",
+        "partially-updated": "Colecție actualizată parțial",
+        "remove-failed": "Documentul nu a putut fi eliminat din colecția specificată.",
+        "some-remove-failed": "Unele documente nu au putut fi eliminate din colecția specificată.",
+        "updated": "Colecție actualizată",
+        "exists": "Există deja o colecție numită „{name}”.",
+        "many-add-failed": "{count, plural, one {# document nu a putut fi adăugat în colecția specificată.} few {# documente nu au putut fi adăugate în colecția specificată.} other {# de documente nu au putut fi adăugate în colecția specificată.}}",
+        "added": "{count, plural, one {# document a fost adăugat în colecția specificată.} few {# documente au fost adăugate în colecția specificată.} other {# de documente au fost adăugate în colecția specificată.}}",
+        "removed": "{count, plural, one {# document a fost eliminat din colecția specificată.} few {# documente au fost eliminate din colecția specificată.} other {# de documente au fost eliminate din colecția specificată.}}",
+        "favorite-added": "{count, plural, one {# document a fost adăugat la favorite.} few {# documente au fost adăugate la favorite.} other {# de documente au fost adăugate la favorite.}}",
+        "favorite-removed": "{count, plural, one {# document a fost eliminat din favorite.} few {# documente au fost eliminate din favorite.} other {# de documente au fost eliminate din favorite.}}"
+      },
+      "clipboard": {
+        "limit": "Din motive de performanță, clipboardul poate conține cel mult 100 de documente.",
+        "not-updated": "Clipboard neactualizat",
+        "updated": "Clipboard actualizat",
+        "already-added": "Documentul se află deja în clipboard.",
+        "add-failed": "Documentul nu a putut fi adăugat în clipboard.",
+        "empty-copy": "Niciun document nu a fost copiat în clipboard.",
+        "all-removed": "Toate documentele au fost eliminate din clipboard.",
+        "cleared": "Clipboard golit",
+        "copied-title": "Documente copiate",
+        "moved-title": "Documente mutate",
+        "some-added": "{count, plural, one {# document din {total, number} a fost adăugat în clipboard; unele erau deja prezente.} few {# documente din {total, number} au fost adăugate în clipboard; unele erau deja prezente.} other {# de documente din {total, number} au fost adăugate în clipboard; unele erau deja prezente.}}",
+        "added": "{count, plural, one {# document a fost adăugat în clipboard.} few {# documente au fost adăugate în clipboard.} other {# de documente au fost adăugate în clipboard.}}",
+        "removed": "{count, plural, one {# document a fost eliminat din clipboard.} few {# documente au fost eliminate din clipboard.} other {# de documente au fost eliminate din clipboard.}}",
+        "copied": "{count, plural, one {# document a fost copiat în locația curentă.} few {# documente au fost copiate în locația curentă.} other {# de documente au fost copiate în locația curentă.}}",
+        "moved": "{count, plural, one {# document a fost mutat în locația curentă.} few {# documente au fost mutate în locația curentă.} other {# de documente au fost mutate în locația curentă.}}"
+      },
+      "attachments": {
+        "download-starting": "Descărcarea începe.",
+        "download-title": "Descărcare de fișier",
+        "download-start-failed": "Descărcarea nu a putut fi inițiată. Verificați conexiunea și permisiunile, apoi reîncercați.",
+        "download-error": "Eroare la descărcare",
+        "export-failed": "A apărut o eroare la exportul documentului specificat.",
+        "export-error": "Eroare la export",
+        "exported-title": "Document exportat",
+        "download-failed": "A apărut o eroare la descărcarea documentului specificat.",
+        "uploading": "Se încarcă fișierele…",
+        "upload-title": "Încărcare de fișier",
+        "upload-failed": "Fișierele nu au putut fi încărcate. Verificați conexiunea și permisiunile, apoi reîncercați.",
+        "upload-start-failed": "Încărcarea nu a putut fi inițiată. Verificați conexiunea și permisiunile, apoi reîncercați.",
+        "upload-error": "Eroare la încărcarea fișierelor",
+        "uploaded": "Fișierele au fost încărcate cu succes.",
+        "exported": "Documentul a fost exportat ca fișier {format}.",
+        "downloading": "Se descarcă fișierul „{name}”…",
+        "uploading-file": "Se încarcă „{name}”…",
+        "file-too-large": "Fișierul „{name}” nu a putut fi încărcat la timp deoarece este prea mare.",
+        "file-failed": "Fișierul „{name}” nu a putut fi încărcat.",
+        "file-uploaded": "Fișierul „{name}” a fost încărcat cu succes.",
+        "invalid-chunk-size": "Dimensiunea fragmentului de încărcare trebuie să fie un număr întreg pozitiv."
+      },
+      "trash": {
+        "emptied-title": "Coș golit",
+        "removed-title": "Documente eliminate",
+        "restored-title": "Documente restaurate",
+        "purged-title": "Documente șterse definitiv",
+        "moved": "{count, plural, one {# document a fost mutat în coșul de gunoi.} few {# documente au fost mutate în coșul de gunoi.} other {# de documente au fost mutate în coșul de gunoi.}}",
+        "restored": "{count, plural, one {# document a fost restaurat din coșul de gunoi.} few {# documente au fost restaurate din coșul de gunoi.} other {# de documente au fost restaurate din coșul de gunoi.}}",
+        "purged": "{count, plural, one {# document a fost șters definitiv.} few {# documente au fost șterse definitiv.} other {# de documente au fost șterse definitiv.}}",
+        "emptied-folder": "Toate documentele din coșul de gunoi aflate în „{title}” au fost șterse definitiv.",
+        "emptied-all": "Toate documentele din coșul de gunoi au fost șterse definitiv."
+      },
+      "http": {
+        "error-title": "Eroare",
+        "configuration": "Maretha Angular WebUI nu este configurată corect în instanța dvs. Nuxeo.",
+        "expired-title": "Sesiune expirată",
+        "expired": "Sesiunea dvs. a expirat. Faceți clic aici pentru a reveni la pagina de autentificare."
+      },
+      "snapshots": {
+        "created": "Instantaneul documentului a fost creat cu succes.",
+        "created-title": "Instantaneu al documentului creat",
+        "create-failed": "A apărut o eroare la crearea instantaneului documentului.",
+        "create-failed-title": "Eroare la crearea instantaneului",
+        "loaded-title": "Instantaneu al documentului încărcat",
+        "restored-title": "Instantaneu al documentului restaurat",
+        "loaded": "Se afișează versiunea instantaneului {version}.",
+        "restored": "Documentul a fost restaurat la versiunea instantaneului {version}."
+      },
+      "automations": {
+        "error-title": "Eroare la acțiunea în masă",
+        "progress": "Progres: {progress, number, percent}…",
+        "title": "Acțiune în masă {operation}"
+      },
+      "import": {
+        "invalid-input": "Alegeți o destinație și fișiere valide.",
+        "leave": "Părăsiți acest import? Documentele create vor rămâne; fișierele nefinalizate și detaliile de recuperare vor fi abandonate.",
+        "not-allowed": "Crearea nu mai este permisă pentru această destinație și acest tip de document.",
+        "missing-upload-reference": "Încărcarea nu a returnat o referință de fișier.",
+        "created-details-failed": "Creat; detaliile nu au putut fi încărcate. Reîncercați pentru a reîncărca acest document.",
+        "failed": "Acest fișier nu a putut fi creat. Reîncercați după rezolvarea problemei.",
+        "too-large": "„{name}” este prea mare pentru a fi importat ca notă. Dimensiunea maximă este de {limit, number} MB.",
+        "invalid-text": "„{name}” nu a putut fi citit ca text UTF-8."
+      },
+      "creation": {
+        "details-failed": "Documentul a fost creat, dar detaliile sale nu au putut fi încărcate. Reîncercați finalizarea acestui document.",
+        "unknown": "Serverul nu a confirmat dacă s-a finalizat crearea. Verificați destinația înainte de a crea un alt document."
+      },
+      "search": {
+        "queue-not-open": "Efectuați o căutare înainte de a deschide lista sa.",
+        "queue-load-failed": "Lista de căutare nu a putut fi încărcată. Reîncercați pentru a continua.",
+        "queue-changed": "Căutarea s-a modificat. Redeschideți lista pentru a vedea noile rezultate.",
+        "return-failed": "Nu s-a putut reveni la filtrele de căutare.",
+        "asset-open-failed": "Această resursă nu a putut fi deschisă.",
+        "assets-load-failed": "Lista de resurse nu a putut fi încărcată. Reîncercați pentru a continua.",
+        "confirm-trash": "Mutați documentele selectate în coșul de gunoi?"
+      },
+      "permissions": {
+        "link-sent": "Un link către acest document a fost trimis la {email}.",
+        "sent-title": "Notificare trimisă"
+      },
+      "publication": {
+        "no-longer-publishable": "Documentul nu mai poate fi publicat. Actualizați selecția și verificați permisiunile."
+      }
+    },
+    "columns": {
+      "title": "Titlu",
+      "path": "Cale",
+      "version": "Versiune",
+      "rendition": "Variantă",
+      "publisher": "Publicat de",
+      "type": "Tip",
+      "modified": "Modificat",
+      "file-size": "Dimensiunea fișierului",
+      "state": "Stare",
+      "last-modification": "Ultima modificare",
+      "last-modified": "Ultima modificare",
+      "last-contributor": "Ultimul colaborator",
+      "created": "Creat",
+      "author": "Autor",
+      "nature": "Natură",
+      "coverage": "Acoperire",
+      "subjects": "Subiecte",
+      "publish-date": "Data publicării",
+      "flags": "Marcaje",
+      "size": "Dimensiune",
+      "performed-action": "Acțiune efectuată",
+      "date": "Dată",
+      "username": "Nume de utilizator",
+      "category": "Categorie",
+      "comment": "Comentariu",
+      "status": "Stare",
+      "published": "Publicat",
+      "format": "Format"
+    },
+    "notices": {
+      "error-creating-collection-f0f886": "Eroare la crearea colecției",
+      "error-updating-collection-48250e": "Eroare la actualizarea colecției",
+      "file-download-c2574e": "Descărcare de fișier",
+      "document-published-6ffc86": "Document publicat",
+      "error-54a0e8": "Eroare",
+      "failed-to-create-the-value-collection-4a1517": "Colecția „{value0}” nu a putut fi creată.",
+      "failed-to-add-the-specified-documents-to-the-74a129": "Documentele specificate nu au putut fi adăugate în colecția „{value0}”.",
+      "your-comment-was-removed-6e4bf3": "Comentariul dvs. a fost eliminat.",
+      "comment-removed-f80ae1": "Comentariu eliminat",
+      "your-comment-was-saved-bccb02": "Comentariul dvs. a fost salvat.",
+      "comment-saved-dbb46c": "Comentariu salvat",
+      "downloading-file-value-4ed119": "Se descarcă fișierul „{value0}”…",
+      "-value-plural-one-file-has-been-added-to-the-7162c5": "{value0, plural, one {# fișier a fost adăugat în listă.} few {# fișiere au fost adăugate în listă.} other {# de fișiere au fost adăugate în listă.}}",
+      "files-attached-9fcc60": "Fișiere atașate",
+      "no-files-have-been-added-to-the-list-a4830a": "Niciun fișier nu a fost adăugat în listă.",
+      "no-files-attached-367e69": "Niciun fișier atașat",
+      "a-copy-of-the-document-was-published-to-the-s-9821cf": "O copie a documentului a fost publicată în secțiunea specificată.",
+      "the-specified-path-is-invalid-703573": "Calea specificată nu este validă.",
+      "error-saving-document-5886ac": "Eroare la salvarea documentului",
+      "the-file-has-been-successfully-created-618e09": "Fișierul a fost creat cu succes.",
+      "the-file-has-been-successfully-modified-4128ae": "Fișierul a fost modificat cu succes.",
+      "document-saved-e81dde": "Document salvat",
+      "fullscreen-is-not-available-in-your-browser-abce6c": "Modul ecran complet nu este disponibil în browserul dvs.",
+      "fullscreen-not-available-bdc19a": "Modul ecran complet nu este disponibil",
+      "changes-were-saved-but-the-document-could-not-7a41dc": "Modificările au fost salvate, dar documentul nu a putut fi reîncărcat.",
+      "the-note-has-been-successfully-modified-27f5e0": "Nota a fost modificată cu succes.",
+      "note-saved-123e3c": "Notă salvată",
+      "you-need-to-choose-a-point-on-the-d-model-its-d4b8d5": "Trebuie să alegeți un punct chiar pe modelul 3D.",
+      "hotspot-outside-model-3cf200": "Punct de interes în afara modelului",
+      "error-loading-d-model-0755bd": "Eroare la încărcarea modelului 3D",
+      "an-error-occurred-please-try-again-in-a-few-m-5b0be8": "A apărut o eroare. Reîncercați peste câteva momente.",
+      "move-the-selected-documents-to-trash-7c970b": "Mutați documentele selectate în coșul de gunoi?",
+      "do-you-wish-to-create-a-snapshot-of-the-curre-3baa59": "Doriți să creați un instantaneu al documentului curent înainte de a-l restaura la o versiune anterioară?",
+      "discard-your-unsaved-changes-f117f1": "Renunțați la modificările nesalvate?",
+      "discard-this-permission-change-2d35fc": "Renunțați la această modificare a permisiunii?",
+      "delete-the-value-permission-for-value-ca37da": "Ștergeți permisiunea {value0} pentru {value1}?",
+      "are-you-sure-f0762c": "Sigur doriți să continuați?",
+      "discard-unsaved-directory-entry-changes-146cb0": "Renunțați la modificările nesalvate ale intrării din director?",
+      "delete-saved-search-value-61ad3f": "Ștergeți căutarea salvată „{value0}”?"
+    },
+    "state": {
+      "link-copied-71af38": "Link copiat",
+      "select-a-permission-d82270": "Selectați o permisiune",
+      "directory-choices-could-not-be-loaded-retry-b-5c648e": "Opțiunile directorului nu au putut fi încărcate. Încercați din nou înainte de a modifica un câmp de director.",
+      "this-browser-could-not-display-the-file-downl-0b935c": "Acest browser nu a putut afișa fișierul. Descărcați-l pentru a folosi un alt vizualizator.",
+      "preview-is-unavailable-check-access-or-server-160777": "Previzualizarea nu este disponibilă. Verificați accesul sau suportul de conversie al serverului ori descărcați fișierul.",
+      "unable-to-refresh-the-search-results-2e29d4": "Rezultatele căutării nu au putut fi reîmprospătate.",
+      "unable-to-refresh-the-document-d06b97": "Documentul nu a putut fi reîmprospătat.",
+      "the-accepted-job-is-still-pending-retry-its-s-4eb054": "Sarcina acceptată este încă în așteptare. Încercați din nou să-i verificați starea sau întrerupeți-o.",
+      "the-search-scope-changed-review-and-confirm-a-cfc692": "Domeniul căutării s-a modificat. Verificați și confirmați din nou.",
+      "the-submission-outcome-is-unknown-do-not-subm-d63d25": "Rezultatul trimiterii este necunoscut. Nu o trimiteți din nou.",
+      "the-bulk-runaction-endpoint-was-not-found-che-7e29bd": "Punctul de acces Bulk.RunAction nu a fost găsit. Verificați configurarea serverului sau a proxy-ului înainte de a folosi acțiuni asupra întregii interogări.",
+      "the-job-was-accepted-but-status-could-not-be-210342": "Sarcina a fost acceptată, dar starea sa nu a putut fi citită.",
+      "unable-to-start-the-query-metadata-update-c12746": "Actualizarea metadatelor pentru interogare nu a putut fi pornită.",
+      "the-job-status-is-still-unavailable-7d9210": "Starea sarcinii este încă indisponibilă.",
+      "abort-requested-452edb": "Întrerupere solicitată.",
+      "the-server-could-not-abort-this-job-db90a8": "Serverul nu a putut întrerupe această sarcină.",
+      "the-accepted-job-is-still-pending-retry-its-s-25239c": "Sarcina acceptată este încă în așteptare. Încercați din nou să-i verificați starea.",
+      "unable-to-start-the-query-trash-action-cfabb0": "Acțiunea de mutare în coș pentru interogare nu a putut fi pornită.",
+      "csv-export-failed-retry-the-export-8c140a": "Exportul CSV a eșuat. Încercați din nou exportul.",
+      "cancellation-could-not-be-confirmed-retry-can-e54119": "Anularea nu a putut fi confirmată. Încercați din nou anularea.",
+      "cancellation-could-not-be-confirmed-retry-can-5d2070": "Anularea nu a putut fi confirmată. Încercați din nou anularea, dacă este disponibilă.",
+      "unable-to-load-versions-please-try-again-e20f81": "Versiunile nu au putut fi încărcate. Încercați din nou.",
+      "the-action-failed-check-permissions-and-retry-5e8cad": "Acțiunea a eșuat. Verificați permisiunile și încercați din nou.",
+      "copy-the-selected-link-using-your-keyboard-17309d": "Copiați linkul selectat folosind tastatura.",
+      "the-lock-could-not-be-removed-retry-after-che-55fe38": "Blocarea nu a putut fi eliminată. Încercați din nou după verificarea permisiunilor.",
+      "publications-could-not-be-loaded-4e082f": "Publicările nu au putut fi încărcate.",
+      "more-publications-could-not-be-loaded-86eb10": "Nu au putut fi încărcate mai multe publicări.",
+      "some-publications-remain-nuxeo-only-removes-p-81b56e": "Unele publicări au rămas. Nuxeo elimină doar publicările pe care aveți permisiunea să le ștergeți.",
+      "publications-removed-e98c00": "Publicări eliminate.",
+      "the-publication-action-failed-verify-your-per-8ec829": "Acțiunea de publicare a eșuat. Verificați permisiunile și încercați din nou.",
+      "trash-could-not-be-loaded-b3ca80": "Coșul de gunoi nu a putut fi încărcat.",
+      "fullscreen-is-unavailable-in-this-browser-aaff2c": "Ecranul complet nu este disponibil în acest browser.",
+      "no-browser-preview-is-available-this-image-ne-279e76": "Previzualizarea în browser nu este disponibilă. Această imagine necesită conversie pe server înainte de a putea fi vizualizată.",
+      "preview-is-unavailable-for-this-image-downloa-62a90e": "Previzualizarea nu este disponibilă pentru această imagine. Descărcați fișierul pentru a-l vizualiza.",
+      "the-selected-documents-could-not-be-moved-to-240f2c": "Documentele selectate nu au putut fi mutate în coșul de gunoi. Verificați permisiunile și încercați din nou.",
+      "the-selected-documents-could-not-be-removed-f-94e7f8": "Documentele selectate nu au putut fi eliminate din această colecție. Reîmprospătați și încercați din nou.",
+      "the-documents-could-not-be-reordered-refresh-0e0bf7": "Documentele nu au putut fi reordonate. Reîmprospătați și încercați din nou.",
+      "-value-content-could-not-be-loaded-check-your-2ea53d": "Conținutul pentru {value0} nu a putut fi încărcat. Verificați accesul și încercați din nou.",
+      "destinations-could-not-be-loaded-retry-the-se-50a24a": "Destinațiile nu au putut fi încărcate. Încercați din nou căutarea.",
+      "permissions-could-not-be-loaded-de0c27": "Permisiunile nu au putut fi încărcate.",
+      "select-a-user-or-group-or-enter-a-valid-exter-87778b": "Selectați un utilizator sau un grup ori introduceți o adresă de e-mail externă validă.",
+      "enter-a-valid-permission-time-frame-b2ebc5": "Introduceți un interval de timp valid pentru permisiune.",
+      "permissions-updated-2674b9": "Permisiuni actualizate.",
+      "trash-could-not-be-emptied-04df71": "Coșul de gunoi nu a putut fi golit.",
+      "unable-to-check-whether-this-version-can-be-r-dc052f": "Nu s-a putut verifica dacă această versiune poate fi restaurată.",
+      "this-version-can-no-longer-be-restored-246e03": "Această versiune nu mai poate fi restaurată.",
+      "the-version-could-not-be-restored-2faf1c": "Versiunea nu a putut fi restaurată.",
+      "search-failed-check-the-filters-and-retry-f73bdd": "Căutarea a eșuat. Verificați filtrele și încercați din nou.",
+      "enter-an-nxql-query-22e2ac": "Introduceți o interogare NXQL.",
+      "enter-an-absolute-repository-path-d6ebeb": "Introduceți o cale absolută în depozit.",
+      "enter-a-valid-expiration-date-2183d9": "Introduceți o dată de expirare validă.",
+      "unable-to-load-saved-searches-ac687d": "Căutările salvate nu au putut fi încărcate.",
+      "search-saved-681246": "Căutare salvată.",
+      "unable-to-save-this-search-265779": "Această căutare nu a putut fi salvată.",
+      "unable-to-delete-this-search-4ba973": "Această căutare nu a putut fi ștearsă.",
+      "search-failed-check-the-query-permissions-and-48df75": "Căutarea a eșuat. Verificați interogarea, permisiunile și disponibilitatea acestui furnizor de căutare, apoi încercați din nou.",
+      "metadata-layout-policy-could-not-be-saved-17476f": "Politica de aranjare a metadatelor nu a putut fi salvată.",
+      "the-version-was-created-but-the-refreshed-doc-8e261a": "Versiunea a fost creată, dar documentul reîmprospătat nu a putut fi încărcat. Reîncărcați pagina.",
+      "the-version-could-not-be-created-please-try-a-71fe33": "Versiunea nu a putut fi creată. Încercați din nou.",
+      "saved-but-the-refreshed-document-could-not-be-8ca637": "Salvat, dar documentul reîmprospătat nu a putut fi încărcat. Reîncărcați pagina.",
+      "the-attachments-could-not-be-saved-please-try-5a9bdd": "Atașamentele nu au putut fi salvate. Încercați din nou.",
+      "the-attachment-could-not-be-removed-please-tr-0846e5": "Atașamentul nu a putut fi eliminat. Încercați din nou.",
+      "saved-value-79e8db": "S-a salvat {value0}.",
+      "unable-to-save-this-search-check-your-permiss-a7bdca": "Această căutare nu a putut fi salvată. Verificați permisiunile și încercați din nou.",
+      "updated-value-064850": "S-a actualizat {value0}.",
+      "unable-to-update-this-search-check-your-permi-a85910": "Această căutare nu a putut fi actualizată. Verificați permisiunile și încercați din nou.",
+      "enter-one-user-or-group-name-without-line-bre-88f55c": "Introduceți un singur nume de utilizator sau de grup, fără sfârșituri de linie.",
+      "granted-read-access-to-value-740215": "S-a acordat acces Read pentru {value0}.",
+      "unable-to-share-this-search-you-need-permissi-ef6a3e": "Această căutare nu a putut fi partajată. Aveți nevoie de permisiunea de a o gestiona.",
+      "this-saved-search-has-invalid-parameters-b85643": "Această căutare salvată are parametri nevalizi.",
+      "restored-value-b065a7": "S-a restaurat {value0}.",
+      "deleted-value-93c1b6": "S-a șters {value0}.",
+      "unable-to-delete-this-search-check-your-permi-4ab2af": "Această căutare nu a putut fi ștearsă. Verificați permisiunile și încercați din nou.",
+      "the-start-date-must-be-before-the-end-date-88c4c0": "Data de început trebuie să fie anterioară datei de sfârșit.",
+      "analytics-could-not-be-loaded-check-your-conn-b46033": "Statisticile nu au putut fi încărcate. Verificați conexiunea și permisiunile, apoi încercați din nou.",
+      "document-distribution-could-not-be-loaded-sel-02b1b2": "Distribuția documentelor nu a putut fi încărcată. Selectați un domeniu mai restrâns sau verificați indexul de căutare.",
+      "enter-valid-audit-dates-e5ac7d": "Introduceți date valide pentru audit.",
+      "the-start-date-must-be-before-or-on-the-end-d-53a541": "Data de început trebuie să fie anterioară sau egală cu data de sfârșit.",
+      "only-an-administrator-can-add-a-user-to-the-a-ee74ba": "Doar un administrator poate adăuga un utilizator în grupul administrators.",
+      "invitation-queued-for-value-5bdcfd": "Invitația pentru {value0} a fost pusă în coadă.",
+      "-value-value-created-051fd5": "S-a creat {value0} {value1}.",
+      "unable-to-load-the-current-account-details-re-244ab4": "Detaliile contului curent nu au putut fi încărcate. Încercați din nou pentru a edita.",
+      "unable-to-load-users-and-groups-5ae278": "Utilizatorii și grupurile nu au putut fi încărcate.",
+      "unable-to-load-value-value-6ba643": "Nu s-a putut încărca {value0} {value1}.",
+      "metadata-could-not-be-saved-refresh-the-docum-c4fa8b": "Metadatele nu au putut fi salvate. Reîmprospătați documentul și încercați din nou.",
+      "import-is-disabled-for-value-93eee7": "Importul este dezactivat pentru {value0}.",
+      "the-import-could-not-be-started-4aad57": "Importul nu a putut fi pornit.",
+      "the-custom-document-layout-must-declare-a-lay-f73b3d": "Aranjamentul personalizat al documentului trebuie să declare o intrare layoutContext.",
+      "this-document-type-does-not-support-a-main-fi-c08948": "Acest tip de document nu acceptă un fișier principal. Alegeți alt tip.",
+      "document-type-information-could-not-be-loaded-877c5c": "Informațiile despre tipul de document nu au putut fi încărcate.",
+      "publication-failed-verify-the-target-permissi-84fc63": "Publicarea a eșuat. Verificați permisiunile destinației și încercați din nou.",
+      "suggestions-are-unavailable-you-can-still-add-859857": "Sugestiile nu sunt disponibile. Puteți adăuga în continuare o etichetă nouă.",
+      "no-matching-images-on-this-page-load-more-ima-9fbfd6": "Nicio imagine de pe această pagină nu corespunde. Încărcați mai multe imagini pentru a continua.",
+      "no-matching-images-found-e070cd": "Nu s-au găsit imagini corespunzătoare.",
+      "images-could-not-be-loaded-please-try-again-9f030e": "Imaginile nu au putut fi încărcate. Încercați din nou.",
+      "enter-a-youtube-or-vimeo-https-video-url-6cc690": "Introduceți o adresă URL HTTPS de videoclip YouTube sau Vimeo.",
+      "enter-an-https-http-or-email-link-50abcc": "Introduceți un link https, http sau de e-mail.",
+      "history-could-not-be-loaded-check-your-access-ae2d65": "Istoricul nu a putut fi încărcat. Verificați accesul și încercați din nou.",
+      "permissions-could-not-be-loaded-check-your-ac-abce21": "Permisiunile nu au putut fi încărcate. Verificați accesul și încercați din nou.",
+      "the-permission-change-could-not-be-completed-ec522e": "Modificarea permisiunii nu a putut fi finalizată. Reîmprospătați și încercați din nou.",
+      "uploading-file-value-9d01a9": "Se încarcă fișierul „{value0}”",
+      "creating-document-value-e8c827": "Se creează documentul „{value0}”",
+      "collection-membership-could-not-be-updated-b86ce5": "Apartenența la colecție nu a putut fi actualizată.",
+      "tags-could-not-be-updated-3e7d4f": "Etichetele nu au putut fi actualizate.",
+      "this-task-action-is-no-longer-available-87150c": "Această acțiune asupra sarcinii nu mai este disponibilă.",
+      "unable-to-refresh-this-task-6c7927": "Această sarcină nu a putut fi reîmprospătată.",
+      "this-workflow-can-no-longer-be-abandoned-6f4699": "Acest flux de lucru nu mai poate fi abandonat.",
+      "unable-to-refresh-this-workflow-72164e": "Acest flux de lucru nu a putut fi reîmprospătat.",
+      "unable-to-save-this-workflow-change-f3bddb": "Această modificare a fluxului de lucru nu a putut fi salvată.",
+      "this-task-can-no-longer-be-changed-a6f145": "Această sarcină nu mai poate fi modificată.",
+      "documents-copied-047a0c": "Documente copiate",
+      "documents-moved-00a77f": "Documente mutate",
+      "folders-could-not-be-loaded-check-your-access-4b610d": "Dosarele nu au putut fi încărcate. Verificați accesul și reîncercați.",
+      "this-administration-page-could-not-be-opened-218a4c": "Această pagină de administrare nu a putut fi deschisă. Încercați din nou.",
+      "the-document-could-not-be-opened-try-again-36410b": "Documentul nu a putut fi deschis. Încercați din nou.",
+      "the-documents-were-saved-but-the-current-loca-c6e66d": "Documentele au fost salvate, dar locația curentă nu a putut fi actualizată.",
+      "navigation-cancelled-your-collection-is-still-055691": "Navigarea a fost anulată. Colecția este în continuare disponibilă.",
+      "this-document-could-not-be-opened-try-again-2db5fc": "Acest document nu a putut fi deschis. Încercați din nou.",
+      "this-document-is-no-longer-available-in-the-c-21585e": "Acest document nu mai este disponibil în colecție.",
+      "favorites-could-not-be-loaded-check-your-conn-8618b2": "Favoritele nu au putut fi încărcate. Verificați conexiunea și reîncercați.",
+      "navigation-cancelled-your-favorites-are-still-706c48": "Navigarea a fost anulată. Favoritele sunt în continuare disponibile.",
+      "the-favorite-was-removed-but-its-updated-list-f1c05b": "Favoritul a fost eliminat, dar lista actualizată nu a putut fi încărcată. Reîncercați.",
+      "the-document-could-not-be-removed-from-favori-4afef1": "Documentul nu a putut fi eliminat din favorite. Reîncercați.",
+      "your-personal-workspace-could-not-be-loaded-c-101b54": "Spațiul de lucru personal nu a putut fi încărcat. Verificați accesul și reîncercați.",
+      "save-or-discard-changes-in-the-open-drawer-be-7e7abf": "Salvați sau renunțați la modificările din panoul deschis înainte de a pleca.",
+      "renamed-value-2f1c7a": "Redenumit în {value0}.",
+      "unable-to-rename-this-search-check-your-permi-5d0b3c": "Această căutare nu poate fi redenumită. Verificați permisiunile și încercați din nou."
+    },
+    "labels": {
+      "create-documents-5d5686": "Creează documente",
+      "creating-3b951e": "Se creează...",
+      "created-d70b9e": "Creat",
+      "title-7e8cd2": "Titlu",
+      "description-526e00": "Descriere",
+      "nature-c71ce8": "Natură",
+      "subjects-1a7529": "Subiecte",
+      "coverage-523487": "Acoperire",
+      "expiration-date-8ccc3f": "Data expirării",
+      "bold-94fee6": "Aldin",
+      "italic-9bf37c": "Cursiv",
+      "underline-02f843": "Subliniere",
+      "code-block-754538": "Bloc de cod",
+      "decrease-indent-88053f": "Micșorează indentarea",
+      "increase-indent-b80a5d": "Mărește indentarea",
+      "align-left-eac0f9": "Aliniază la stânga",
+      "align-center-e55c76": "Aliniază la centru",
+      "align-right-8f4f8e": "Aliniază la dreapta",
+      "subscript-cd512a": "Indice",
+      "superscript-31a0ba": "Exponent",
+      "numbered-list-cc62f6": "Listă numerotată",
+      "bulleted-list-ce51b3": "Listă cu marcatori",
+      "clear-formatting-9e75ec": "Elimină formatarea",
+      "picture-info-fc2deb": "Informații despre imagine",
+      "dimensions-914182": "Dimensiuni",
+      "color-profile-dacfe1": "Profil de culoare",
+      "bit-depth-per-channel-e31b31": "Adâncime de biți pe canal",
+      "save-changes-dd0ae7": "Salvează modificările",
+      "close-without-saving-bb5e6e": "Închide fără a salva",
+      "consult-content-b1dac7": "Consultă conținutul",
+      "comment-documents-22011f": "Comentează documente",
+      "tag-documents-9a3dfd": "Etichetează documente",
+      "collect-content-8507cf": "Adaugă conținut în colecții",
+      "follow-content-897c1c": "Urmărește conținutul",
+      "edit-documents-c06bd9": "Editează documente",
+      "add-remove-relations-36d72f": "Adaugă / elimină relații",
+      "start-a-workflow-6c6b2d": "Pornește un flux de lucru",
+      "delete-documents-7e7d03": "Șterge documente",
+      "read-actions-0b2cef": "+ Acțiuni de citire",
+      "manage-permissions-2630ba": "Gestionează permisiuni",
+      "set-alerts-to-other-users-729faa": "Setează alerte pentru alți utilizatori",
+      "apply-a-preset-look-on-documents-75f209": "Aplică un aspect predefinit documentelor",
+      "manage-deleted-documents-0b23a2": "Gestionează documente șterse",
+      "define-publication-targets-63dcd6": "Definește destinații de publicare",
+      "edit-actions-a06a00": "+ Acțiuni de editare",
+      "permissions-for-people-outside-the-organizati-f93d74": "1. Permisiuni pentru persoane din afara organizației",
+      "permissions-specific-to-this-document-a162dc": "2. Permisiuni specifice acestui document",
+      "permissions-inherited-from-the-parent-folder-3600b6": "3. Permisiuni moștenite de la dosarul părinte",
+      "add-a-new-permission-ddb3e4": "Adaugă o permisiune nouă",
+      "sharing-to-external-users-does-not-create-new-eca5e2": "Partajarea cu utilizatori externi nu creează conturi noi de utilizator; în schimb, utilizatorii externi primesc un link pentru a accesa acest document.",
+      "enable-permission-inheritance-6da961": "Activează moștenirea permisiunilor",
+      "disable-permission-inheritance-946455": "Dezactivează moștenirea permisiunilor",
+      "unknown-principal-edd139": "Utilizator sau grup necunoscut",
+      "pending-331551": "În așteptare",
+      "checking-destination-885a56": "Se verifică destinația",
+      "reading-text-10c504": "Se citește textul",
+      "uploading-8b898c": "Se încarcă",
+      "needs-attention-c1ebc7": "Necesită atenție",
+      "outcome-unknown-164557": "Rezultat necunoscut",
+      "strikethrough-9aabbc": "Text tăiat",
+      "block-quote-cb1946": "Citat bloc",
+      "format-2f3436": "Format",
+      "date-taken-a2f4fe": "Data fotografierii",
+      "horizontal-resolution-cc9eae": "Rezoluție orizontală",
+      "vertical-resolution-415b15": "Rezoluție verticală",
+      "you-can-either-manually-select-files-or-drag--ced9be": "Puteți selecta manual fișierele sau le puteți trage aici"
+    },
+    "toolbar": {
+      "move-up": "Mută în sus",
+      "move-down": "Mută în jos",
+      "select-loaded": "Selectează elementele afișate",
+      "clear-selection": "Golește selecția",
+      "display": "Setări de afișare",
+      "compare": "Compară",
+      "collect": "Adaugă în colecție",
+      "remove-collection": "Elimină din colecție",
+      "edit-selection": "Editează selecția",
+      "clipboard": "Copiază în clipboard",
+      "trash": "Mută în coșul de gunoi",
+      "versions": "Versiuni",
+      "workflow": "Pornește un flux de lucru"
+    },
+    "search": {
+      "favorite": "Favorit",
+      "cold-storage": "Stocare la rece",
+      "color-depth": "Adâncime de culoare",
+      "facet-value": "{label}: {value}"
+    },
+    "runtime": {
+      "binary-editor": {
+        "save-changes-ae7d55": "Salvează modificările",
+        "cancel-da793d": "Anulează",
+        "close-without-saving-e18793": "Închide fără a salva"
+      },
+      "domain-editor": {
+        "save-changes-cfd8f1": "Salvează modificările",
+        "create-domain-8cd2df": "Creați un domeniu"
+      },
+      "generic-editor": {
+        "save-changes-0b2bb7": "Salvează modificările",
+        "cancel-c75bdc": "Anulează",
+        "close-without-saving-0f3176": "Închide fără a salva"
+      },
+      "note-editor": {
+        "save-changes-3a9695": "Salvează modificările",
+        "cancel-a751d6": "Anulează",
+        "close-without-saving-5c3bfb": "Închide fără a salva"
+      },
+      "standard-content-editor": {
+        "create-049116": "Creează",
+        "save-d06564": "Salvează",
+        "cancel-da79c8": "Anulează"
+      },
+      "empty-document-layout": {
+        "cancel-7e17e0": "Anulează"
+      },
+      "image-renderer": {
+        "rendition-979e0b": "Variantă",
+        "image-preview-66403a": "Previzualizarea imaginii"
+      },
+      "display-settings": {
+        "pick-a-sort-option-e53804": "Alegeți o opțiune de sortare..."
+      },
+      "blob-preview": {
+        "document-preview-7d76d8": "Previzualizarea documentului"
+      },
+      "base-editor": {
+        "saving-document-d06e6b": "Se salvează documentul…"
+      },
+      "document-type-editor": {
+        "no-editor-is-currently-available-for-this--6d1647": "Nu există momentan un editor disponibil pentru acest tip de document!"
+      },
+      "editor-metadata-status": {
+        "document-8efccc": "Document"
+      },
+      "picturebook-content-layout": {
+        "document-thumbnail-e00a5b": "Miniatura documentului"
+      }
+    },
+    "settingsShared": {
+      "recently-viewed-eab19e": "Vizualizate recent",
+      "collections-9f9fea": "Colecții",
+      "favorites-7a1f2a": "Favorite",
+      "tasks-b3a60e": "Sarcini",
+      "administration-4b42c6": "Administrare",
+      "id-384397": "ID",
+      "parent-5f7953": "Părinte",
+      "label-0e6637": "Etichetă",
+      "english-label-100733": "Etichetă în engleză",
+      "french-label-c8eef1": "Etichetă în franceză",
+      "obsolete-a97fc8": "Învechit",
+      "order-6be090": "Ordin",
+      "automatic-d461a4": "Automat",
+      "first-page-0bdbb7": "Prima pagină",
+      "theme-default": "implicită",
+      "clipboard-285d69": "Clipboard",
+      "expanded-select-true-collapse-title-other-expan-22e5c6": "{expanded, select, true {Restrângeți {title}} other {Extindeți {title}}}",
+      "count-plural-one-you-have-pending-task-other-yo-82d0f1": "{count, plural, one {Aveți # sarcină în așteptare} few {Aveți # sarcini în așteptare} other {Aveți # de sarcini în așteptare}}",
+      "view-members-of-title-7b9c23": "Vizualizați membrii colecției {title}",
+      "user-group-identifier-id-e1c575": "Identificatorul grupului de utilizatori: {id}",
+      "actions-for-group-name-1dc425": "Acțiuni pentru grupul {name}",
+      "actions-for-user-name-c5458d": "Acțiuni pentru utilizatorul {name}",
+      "detach-from-group-name-a16a06": "Detașați din grupul {name}",
+      "kind-select-users-user-pages-other-group-pages-605ea0": "{kind, select, users {Pagini de utilizatori} other {Pagini de grupuri}}",
+      "remove-rule-number-number-8707d6": "Eliminați regula {number, number}",
+      "users-number-users-groups-number-groups-ec7116": "{users, number} utilizatori · {groups, number} grupuri",
+      "seconds-number-precision-integer-seconds-d3070d": "{seconds, number, ::precision-integer} secunde",
+      "count-plural-one-audit-record-other-audit-recor-82d2ca": "{count, plural, one {# înregistrare de audit} few {# înregistrări de audit} other {# de înregistrări de audit}}",
+      "field-select-eventid-sort-by-action-eventdate-s-679936": "{field, select, eventId {Sortați după acțiune} eventDate {Sortați după dată} principalName {Sortați după utilizator} other {Sortați după categorie}}{sort, select, ASC {, sortare crescătoare} DESC {, sortare descrescătoare} other {}}",
+      "audit-records-are-unavailable-your-server-must-e-b42176": "Înregistrările de audit nu sunt disponibile. Serverul trebuie să expună punctul de acces pentru automatizare Audit.QueryWithPageProvider.",
+      "action-select-create-the-entry-could-not-be-cre-16ce3e": "{action, select, create {Intrarea nu a putut fi creată.} other {Intrarea nu a putut fi actualizată.}}",
+      "directories-could-not-be-loaded-retry-the-reques-42d3cc": "Vocabularele nu au putut fi încărcate. Repetați cererea.",
+      "an-entry-id-and-a-valid-parent-are-needed-484ae9": "Sunt necesare un ID de intrare și un părinte valid.",
+      "the-entry-could-not-be-deleted-it-may-be-referen-e2289b": "Intrarea nu a putut fi ștearsă. Este posibil să fie referită de alte elemente.",
+      "directory-entries-could-not-be-loaded-retry-the-031629": "Intrările vocabularului nu au putut fi încărcate. Repetați cererea.",
+      "manual-b0b9fe": "Manual",
+      "immediate-ed6cb0": "Imediat",
+      "based-on-events-b7ab69": "Pe baza evenimentelor",
+      "based-on-a-document-s-field-6b32a5": "Pe baza unui câmp al documentului",
+      "unable-to-send-the-invitation-check-the-values-a-3bf881": "Invitația nu a putut fi trimisă. Verificați valorile și reîncercați.",
+      "kind-select-group-unable-to-save-the-group-chec-03378d": "{kind, select, group {Grupul nu a putut fi salvat. Verificați valorile și reîncercați.} other {Utilizatorul nu a putut fi salvat. Verificați valorile și reîncercați.}}",
+      "kind-select-group-group-id-created-other-user-i-225abd": "{kind, select, group {Grupul {id} a fost creat.} other {Utilizatorul {id} a fost creat.}}",
+      "operation-select-copy-the-documents-could-not-b-ea6d40": "{operation, select, Copy {Documentele nu au putut fi copiate. Verificați destinația și încercați din nou.} other {Documentele nu au putut fi mutate. Verificați destinația și încercați din nou.}}",
+      "kind-select-group-unable-to-delete-group-id-che-3e6542": "{kind, select, group {Grupul {id} nu a putut fi șters. Verificați permisiunile și reîncercați.} other {Utilizatorul {id} nu a putut fi șters. Verificați permisiunile și reîncercați.}}",
+      "unable-to-add-user-to-group-check-permissions-an-d17955": "Utilizatorul {user} nu a putut fi adăugat în grupul {group}. Verificați permisiunile și reîncercați.",
+      "unable-to-remove-user-from-group-check-permissio-e15a69": "Utilizatorul {user} nu a putut fi eliminat din grupul {group}. Verificați permisiunile și reîncercați.",
+      "kind-select-group-unable-to-load-group-id-other-8eaf44": "{kind, select, group {Grupul {id} nu a putut fi încărcat.} other {Utilizatorul {id} nu a putut fi încărcat.}}",
+      "unable-to-load-this-directory-page-8ae94c": "Această pagină a vocabularului nu a putut fi încărcată.",
+      "unable-to-load-group-members-retry-a1725f": "Membrii grupului nu au putut fi încărcați. Reîncercați.",
+      "unknown-b764cd": "Necunoscut",
+      "actorknown-select-true-actor-other-unknown-task-2940b7": "{actorKnown, select, true {{actor}} other {Necunoscut}} · {taskKnown, select, true {{task}} other {Sarcină}}",
+      "no-result-c6008b": "Niciun rezultat",
+      "less-than-181ad0": "Mai puțin de 50",
+      "to-d5b660": "De la 51 la 200",
+      "to-6b2752": "De la 201 la 1000",
+      "more-than-016b89": "Mai mult de 1000",
+      "page-794f70": "Pagina 2",
+      "pages-to-b3c307": "Paginile 3–5",
+      "pages-to-ef2bc9": "Paginile 6–10",
+      "after-pages-8280ea": "După 10 pagini",
+      "events-8d14f6": "Evenimente",
+      "apple-quicktime-91e566": "Apple QuickTime",
+      "excel-xlsx-9e97de": "Excel (xlsx)",
+      "google-docs-507e98": "Google Docs",
+      "google-drive-file-5a492f": "Fișier Google Drive",
+      "google-drive-folder-edd32e": "Dosar Google Drive",
+      "google-earth-kml-54b869": "Google Earth (kml)",
+      "google-earth-kmz-72018f": "Google Earth (kmz)",
+      "google-form-44f53b": "Formular Google",
+      "google-fusion-tables-d830eb": "Google Fusion Tables",
+      "google-presentation-ba3a6a": "Prezentare Google",
+      "google-sites-66df01": "Google Sites",
+      "google-spreadsheet-6fa70d": "Foaie de calcul Google",
+      "one-note-8ff8b1": "OneNote",
+      "opendocument-chart-b5745c": "Diagramă OpenDocument",
+      "opendocument-chart-template-d1aa7c": "Șablon de diagramă OpenDocument",
+      "opendocument-database-232000": "Bază de date OpenDocument",
+      "opendocument-formula-caaf5b": "Formulă OpenDocument",
+      "opendocument-formula-template-0402ec": "Șablon de formulă OpenDocument",
+      "opendocument-graphics-90a2b0": "Grafică OpenDocument",
+      "opendocument-graphics-template-5b39a6": "Șablon de grafică OpenDocument",
+      "opendocument-image-b43b24": "Imagine OpenDocument",
+      "opendocument-image-template-c847f7": "Șablon de imagine OpenDocument",
+      "opendocument-presentation-4af4e0": "Prezentare OpenDocument",
+      "opendocument-presentation-template-ef2503": "Șablon de prezentare OpenDocument",
+      "opendocument-spreadsheet-5bdb19": "Foaie de calcul OpenDocument",
+      "opendocument-spreadsheet-template-e114bc": "Șablon de foaie de calcul OpenDocument",
+      "opendocument-text-a531cc": "Text OpenDocument",
+      "opendocument-text-master-d3002f": "Document principal OpenDocument",
+      "opendocument-text-template-9f2401": "Șablon de text OpenDocument",
+      "opendocument-text-web-0ad7be": "Text web OpenDocument",
+      "plain-text-7b5cb3": "Text simplu",
+      "word-template-9cb39c": "Șablon Word",
+      "folders-could-not-be-loaded-retry-to-continue-477df1": "Dosarele nu au putut fi încărcate. Reîncercați pentru a continua.",
+      "collections-could-not-be-loaded-retry-the-reques-26a407": "Colecțiile nu au putut fi încărcate. Repetați cererea.",
+      "permission-to-update-this-collection-has-changed-a57520": "Permisiunea de a actualiza această colecție s-a schimbat.",
+      "the-member-could-not-be-removed-retry-the-reques-0d79fc": "Membrul nu a putut fi eliminat. Repetați cererea.",
+      "retentionRules": "Reguli de păstrare",
+      "metadataLayouts": "Aspecte pentru metadate"
+    },
+    "errors": {
+      "cancellation-could-not-be-confirmed-retr-e54119": "Anularea nu a putut fi confirmată. Încercați din nou anularea.",
+      "the-streaming-session-has-ended-sign-in--b8ce91": "Sesiunea de redare în flux s-a încheiat. Autentificați-vă din nou.",
+      "invalid-archive-preparation-identifier--05b584": "Identificatorul pregătirii arhivei nu este valid.",
+      "the-server-returned-an-invalid-archive-p-ed80c0": "Serverul a returnat o stare nevalidă pentru pregătirea arhivei.",
+      "the-streaming-grant-changed-identity--a45585": "Identitatea autorizației de redare în flux s-a schimbat.",
+      "streaming-requires-this-application-and--eb55ea": "Redarea în flux necesită ca această aplicație și Nuxeo să aibă aceeași origine HTTPS.",
+      "the-server-returned-an-invalid-streaming-e61825": "Serverul a returnat o autorizație de redare în flux nevalidă.",
+      "the-server-returned-an-invalid-streaming-4129b2": "Serverul a returnat o adresă URL de redare în flux nevalidă.",
+      "select-up-to-1-000-valid-documents-from--fe7e4f": "Selectați cel mult 1.000 de documente valide dintr-un singur depozit.",
+      "a-complete-query-scope-is-required--5d108b": "Este necesar un domeniu complet al interogării.",
+      "download-cancelled--79310f": "Descărcarea a fost anulată.",
+      "the-server-did-not-expose-the-download-s-0012f8": "Serverul nu a expus adresa URL a stării descărcării. Permiteți antetul de răspuns Location în configurația CORS a Nuxeo.",
+      "no-csv-export-was-returned--e3fe3f": "Nu a fost returnat niciun export CSV.",
+      "no-downloadable-content-was-returned--65d092": "Nu a fost returnat niciun conținut descărcabil.",
+      "unexpected-nested-csv-result-url--5767cf": "Adresă URL imbricată neașteptată pentru rezultatul CSV.",
+      "the-csv-export-stopped-or-completed-with-8f40bd": "Exportul CSV s-a oprit sau s-a încheiat cu erori.",
+      "missing-export-status-url--3dd5ac": "Lipsește adresa URL a stării exportului.",
+      "missing-download-status-url--6d57df": "Lipsește adresa URL a stării descărcării.",
+      "the-server-could-not-prepare-the-selecte-6673f4": "Serverul nu a putut pregăti fișierele selectate.",
+      "invalid-download-status-url--e4b0a6": "Adresa URL a stării descărcării nu este validă.",
+      "this-folder-can-no-longer-be-reordered-r-171dd8": "Acest dosar nu mai poate fi reordonat. Reîmprospătați și verificați permisiunile.",
+      "the-folder-changed-before-reordering--9b771d": "Dosarul s-a schimbat înainte de reordonare.",
+      "the-folder-contents-changed-refresh-befo-9737ec": "Conținutul dosarului s-a schimbat. Reîmprospătați înainte de reordonare.",
+      "the-folder-order-changed-while-loading-r-75a30d": "Ordinea dosarului s-a schimbat în timpul încărcării. Reîmprospătați și reîncercați.",
+      "the-complete-sibling-order-is-unavailabl-0938f8": "Ordinea completă a elementelor din același nivel nu este disponibilă. Reîmprospătați înainte de reordonare.",
+      "the-server-returned-an-incomplete-siblin-03bf2e": "Serverul a returnat o pagină incompletă de elemente de la același nivel.",
+      "a-selected-document-moved-or-is-unavaila-b98287": "Un document selectat a fost mutat sau nu este disponibil. Reîmprospătați selecția.",
+      "the-displayed-order-is-stale-refresh-the-97f922": "Ordinea afișată este depășită. Reîmprospătați dosarul înainte de reordonare.",
+      "reordering-failed-or-its-outcome-is-unkn-857931": "Reordonarea a eșuat sau rezultatul este necunoscut. Reîmprospătați dosarul înainte de a reîncerca.",
+      "permission-to-empty-this-trash-has-chang-9c8d9d": "Permisiunea de a goli acest coș de gunoi s-a schimbat.",
+      "save-the-file-before-streaming-or-downlo-e2e304": "Salvați fișierul înainte de a-l reda în flux sau de a-l descărca.",
+      "the-saved-file-could-not-be-identified-u-ab5c25": "Fișierul salvat nu a putut fi identificat în mod unic. Reîmprospătați documentul și încercați din nou.",
+      "the-saved-file-has-no-repository--d67912": "Fișierul salvat nu are un depozit.",
+      "the-document-has-changed-refresh-and-try-955ef4": "Documentul s-a schimbat. Reîmprospătați și încercați din nou.",
+      "permission-to-manage-access-has-changed--8759b9": "Permisiunea de a gestiona accesul s-a schimbat.",
+      "the-selected-permission-is-no-longer-ava-ba220e": "Permisiunea selectată nu mai este disponibilă.",
+      "this-permission-has-changed-refresh-and--167160": "Această permisiune s-a schimbat. Reîmprospătați și încercați din nou."
+    },
+    "viewer": {
+      "documentType": "Tip de document",
+      "state": "Stare",
+      "embeddedVideo": "Videoclip încorporat",
+      "mediaPlaybackFailed": "Acest conținut media nu a putut fi redat. Verificați accesul sau reîmprospătați documentul pentru a încerca din nou.",
+      "streamingExpired": "Autorizația de redare în flux a expirat.",
+      "streamingUnavailable": "Redarea în flux nu este disponibilă. Reîmprospătați documentul pentru a încerca din nou.",
+      "comparisonMissing": "— lipsă —",
+      "comparisonEmpty": "— gol —",
+      "unnamedFile": "fișier fără nume",
+      "comparisonEmptyList": "— listă goală —",
+      "comparisonEmptyObject": "— obiect gol —",
+      "comparisonAddition": "adăugare",
+      "comparisonDeletion": "ștergere",
+      "comparisonModification": "modificare",
+      "comparisonUnchanged": "neschimbat",
+      "isModified": "Este modificat",
+      "metadataRights": "Drepturi",
+      "metadataSource": "Sursă",
+      "metadataLanguage": "Limbă",
+      "metadataPublisher": "Editor",
+      "metadataIssued": "Data emiterii",
+      "metadataValid": "Valabil"
+    },
+    "gateway": {
+      "changeToken": "Este necesar un token de modificare pentru a salva în siguranță.",
+      "createTarget": "Sunt necesare un părinte și un nume valid pentru document.",
+      "uploadBatch": "Serverul nu a returnat un lot de încărcare.",
+      "directoryTooLarge": "Vocabularul are peste 1000 de intrări selectabile. Restrângeți-l înainte de editarea în masă.",
+      "directoryLimit": "Vocabularul a atins limita de 1000 de opțiuni pentru editarea în masă. Restrângeți-l înainte de editare.",
+      "directoryRepeated": "Răspunsul vocabularului a repetat o pagină înainte de terminarea căutării.",
+      "directoryTruncated": "Răspunsul vocabularului a fost trunchiat înainte de căutarea tuturor intrărilor.",
+      "directoryPages": "Căutarea în vocabular a depășit limita de siguranță de 100 de pagini."
+    }
+  },
+  "widgets": {
+    "datepicker": {
+      "open": "Deschide calendarul",
+      "placeholder": "dd.mm.yyyy",
+      "today": "Astăzi",
+      "clear": "Golește",
+      "customRange": "Interval personalizat"
+    },
+    "select": {
+      "notFound": "Nu s-au găsit elemente",
+      "typeToSearch": "Tastați pentru a căuta",
+      "addTag": "Adaugă un element",
+      "loading": "Se încarcă…",
+      "clearAll": "Golește tot",
+      "dropdown": "Deschide opțiunile"
+    }
+  },
+  "dialog": {
+    "confirm": "Confirmă",
+    "confirmation": "Confirmare",
+    "decline": "Refuză",
+    "deleteTitle": "Confirmarea ștergerii",
+    "keep": "Nu, păstrează",
+    "delete": "Da, șterge",
+    "revoke": "Da, revocă",
+    "unsavedChanges": "Modificări nesalvate"
+  },
+  "validation": {
+    "required": "Acest câmp este obligatoriu.",
+    "list": "Folosiți o valoare de tip listă.",
+    "boolean": "Folosiți o valoare booleană.",
+    "number": "Introduceți un număr valid.",
+    "minimum": "Valoarea minimă este {value}.",
+    "maximum": "Valoarea maximă este {value}.",
+    "date": "Introduceți o dată validă.",
+    "object": "Folosiți o valoare de tip obiect.",
+    "nested": "{field}: {error}",
+    "unsupportedType": "{field}: tip de schemă neacceptat.",
+    "file": "Alegeți un fișier.",
+    "maxLength": "Folosiți cel mult {count, plural, one {# caracter} few {# caractere} other {# de caractere}}."
+  },
+  "workflow": {
+    "started": "Ați început fluxul de lucru {workflow} pentru acest document. Îl puteți încheia înainte de finalizare.",
+    "assigned": "V-a fost atribuită sarcina {task} din fluxul de lucru {workflow}.",
+    "due": "Termen: {date}",
+    "initiator": "Inițiat de: {user}",
+    "participantsRequired": "Participanții sunt obligatorii.",
+    "participantsAndEndRequired": "Participanții și data de încheiere sunt obligatorii.",
+    "initiatedBy": "Flux de lucru inițiat de {name}"
+  },
+  "retention": {
+    "start": {
+      "immediate": "Perioada de păstrare începe imediat și durează {duration}.",
+      "modified": "Perioada de păstrare începe când documentul este modificat conform expresiei {expression} și durează {duration}.",
+      "moved": "Perioada de păstrare începe când documentul este mutat conform expresiei {expression} și durează {duration}.",
+      "metadata": "Perioada de păstrare începe de la valoarea câmpului {field} al documentului și durează {duration}.",
+      "event": "Perioada de păstrare începe cu evenimentul {event} și durează {duration}."
+    }
+  },
+  "shell": {
+    "closeUserMenu": "Închide meniul utilizatorului",
+    "activity": "Activitatea aplicației",
+    "loadingContent": "Se încarcă conținutul",
+    "loadingPage": "Se încarcă pagina",
+    "drawerResize": "Redimensionați panoul de navigare",
+    "drawerResizeHelp": "Trageți pentru a redimensiona. Folosiți tastele săgeată pentru a ajusta; apăsați Enter sau faceți dublu clic pentru a reseta."
+  },
+  "comments": {
+    "replyTo": "Răspunde lui {author}",
+    "replies": "{count, plural, one {# răspuns} few {# răspunsuri} other {# de răspunsuri}}",
+    "reply": "Răspundeți"
+  },
+  "metadata": {
+    "chooseFields": "Alegeți câmpurile afișate pentru {type}. Câmpurile restricționate de administrator nu sunt enumerate.",
+    "thisType": "acest tip de document",
+    "editRule": "Editează regula {number, number}",
+    "savedRefreshFailed": "Salvat, dar documentul reîmprospătat nu a putut fi încărcat. Reîncărcați pagina.",
+    "adminOnly": "Numai administratorii pot modifica setările metadatelor.",
+    "changedBeforeSave": "Un alt administrator a modificat aceste setări. Reîncărcați înainte de salvare.",
+    "preferencesFailed": "Browserul nu a putut salva aceste preferințe.",
+    "invalidPolicy": "Format neacceptat pentru politica de metadate.",
+    "invalidRule": "Fiecare regulă necesită un tip de document, o schemă, un acces valid și identificatori de utilizatori sau grupuri.",
+    "cannotEdit": "Nu puteți edita {property} în acest aranjament al metadatelor.",
+    "typeLoadFailed": "Informațiile despre tipul documentului nu au putut fi încărcate. Reîncercați sau închideți acest dialog.",
+    "loadFailed": "Setările metadatelor nu au putut fi încărcate. Reîncercați pentru a afișa metadatele.",
+    "conflict": "Setările s-au schimbat pe server. Reîncărcați înainte de a salva.",
+    "saveFailed": "Setările metadatelor nu au putut fi salvate.",
+    "saveRetry": "Metadatele nu au putut fi salvate. Modificările au fost păstrate; încercați din nou."
+  },
+  "document": {
+    "version": "Versiunea {version}",
+    "lockedDetails": "Acest document a fost blocat {date} și poate fi modificat doar de {who, select, self {dvs.} other {{user}}} sau de utilizatorii cu permisiunea „Administrare completă”.",
+    "modifiedBy": "Modificat ultima dată {date} de {user}",
+    "importType": "Importă {type}",
+    "createType": "Creează un document de tip {type}",
+    "lockedBy": "Acest document a fost blocat {date} de {user}.",
+    "retainedUntil": "Acest document este supus păstrării până la {date}.",
+    "by": "De {user}",
+    "developerTools": "Instrumente pentru dezvoltatori"
+  },
+  "permissions": {
+    "dates": "De la {begin} până la {end}",
+    "begin": "Începând cu {begin}",
+    "end": "Până la {end}",
+    "read": "Citire",
+    "everything": "Administrare completă",
+    "inheritanceAction": "{action, select, unblock {Deblocați permisiunile moștenite de la nivelurile superioare} other {Blocați permisiunile moștenite de la nivelurile superioare}}",
+    "editFor": "Editați permisiunea pentru {name}",
+    "notifyNamed": "Notificați {name}",
+    "deleteFor": "Ștergeți permisiunea pentru {name}",
+    "edit": "Editați",
+    "loadError": "Permisiunile nu au putut fi încărcate.",
+    "delete": {
+      "title": "Ștergeți permisiunea"
+    }
+  },
+  "selection": {
+    "files": "{count, plural, one {# fișier selectat} few {# fișiere selectate} other {# de fișiere selectate}}",
+    "displayed": "{count, number} afișate",
+    "count": "{count, number} selectate",
+    "all": "Selectează toate cele {count, number} rezultate corespunzătoare",
+    "progress": "{known, select, true {Se selectează {selected, number} din {total, number} documente corespunzătoare…} other {Se selectează {selected, number} documente corespunzătoare…}}",
+    "more": "Încă {count, number}…",
+    "partial": "{count, plural, one {A fost selectat doar # document.} few {Au fost selectate doar # documente.} other {Au fost selectate doar # de documente.}} {reason, select, invalid {Furnizorul de căutare a returnat o pagină de rezultate nevalidă.} empty {Furnizorul de căutare a indicat o altă pagină fără a returna documente.} duplicate {Furnizorul de căutare a repetat documentele în loc să treacă la o pagină nouă.} limit {Selectarea s-a oprit după {pages, number} pagini.} other {Furnizorul de căutare nu a trecut la o pagină nouă.}} Puteți rula o acțiune asupra acestei selecții parțiale sau puteți încerca din nou.",
+    "capped": "{count, plural, one {A fost selectat primul document corespunzător.} few {Au fost selectate primele # documente corespunzătoare.} other {Au fost selectate primele # de documente corespunzătoare.}} Restrângeți filtrele înainte de a rula o acțiune asupra mai multor rezultate.",
+    "complete": "{count, plural, one {A fost selectat documentul corespunzător.} few {Au fost selectate toate cele # documente corespunzătoare.} other {Au fost selectate toate cele # de documente corespunzătoare.}}",
+    "failed": "{count, plural, one {A fost selectat doar # document înainte ca interogarea să eșueze.} few {Au fost selectate doar # documente înainte ca interogarea să eșueze.} other {Au fost selectate doar # de documente înainte ca interogarea să eșueze.}} Puteți rula o acțiune asupra acestei selecții parțiale sau puteți încerca din nou.",
+    "stopped": "{count, plural, one {Selectarea s-a oprit după # document.} few {Selectarea s-a oprit după # documente.} other {Selectarea s-a oprit după # de documente.}}",
+    "selecting": "Se selectează documentele corespunzătoare… {count, number} selectate.",
+    "repository": "Documentele selectate trebuie să aparțină depozitului curent."
+  },
+  "query": {
+    "editScope": "Modificările se aplică tuturor celor {count, number} rezultate corespunzătoare. Rezultate corespunzătoare excluse: {excluded, number}.",
+    "editConfirm": "Aplicați modificările verificate ale metadatelor tuturor celor {count, number} rezultate care corespund filtrelor capturate?",
+    "job": "Operațiune {id}",
+    "trashConfirm": "{operation, select, restore {Restaurați din coșul de gunoi toate cele {count, number} rezultate din {repository}/{provider} care corespund filtrelor aplicate?} other {Mutați în coșul de gunoi toate cele {count, number} rezultate din {repository}/{provider} care corespund filtrelor aplicate?}}",
+    "progress": "{state, select, SCHEDULED {Programat} RUNNING {În curs} COMPLETED {Finalizat} ABORTED {Întrerupt} PARTIAL {Finalizat parțial} FAILED {Eșuat} ERROR {Eroare} other {{state}}}: {processed, number} procesate, {failed, number} eșuate.",
+    "restoreAll": "Restaurează toate documentele corespunzătoare",
+    "trashAll": "Mută în coș toate documentele corespunzătoare"
+  },
+  "download": {
+    "prepared": "{completed, number} din {total, number} fișiere pregătite",
+    "preparationStopped": "{state, select, consumed {Descărcarea acestei arhive a început deja.} cancelled {Pregătirea arhivei a fost anulată.} expired {Pregătirea arhivei a expirat.} other {Pregătirea arhivei a eșuat.}} Regenerați fișierul ZIP pentru a reîncerca.",
+    "unsupportedFormat": "Serverul a returnat un format de export neacceptat ({format, select, unknown {necunoscut} other {{format}}}).",
+    "noZip": "Serverul nu a returnat o descărcare ZIP.",
+    "unconfirmed": "Pregătirea arhivei nu a putut fi confirmată. Verificați din nou starea sau regenerați fișierul ZIP."
+  },
+  "editor": {
+    "useValue": "Folosește „{value}”",
+    "heading": "Titlu de nivel {level, number}",
+    "creationUnknown": "Serverul nu a confirmat dacă s-a finalizat crearea. Verificați destinația înainte de a crea un alt document.",
+    "creationIncomplete": "Documentul a fost creat. Unii pași rămași au eșuat; reîncercați finalizarea acestui document fără a crea o altă copie.",
+    "saveFailed": "Documentul nu a putut fi salvat. Modificările sunt în continuare disponibile.",
+    "changed": "Acest document s-a schimbat. Reîncărcați-l înainte de a salva din nou.",
+    "retrySave": "Documentul nu a putut fi salvat. Modificările au fost păstrate; încercați din nou.",
+    "typeHeading": "{action, select, create {Creați {type}} other {Editați {type}}}",
+    "supplementalLoading": "Se încarcă câmpurile suplimentare…",
+    "supplementalFailed": "Câmpurile suplimentare nu au putut fi încărcate. Reîncercați înainte de salvare."
+  },
+  "creation": {
+    "completed": "{completed, number} din {total, number} documente create."
+  },
+  "picture": {
+    "depth": "{colorSpace} · {depth, number} biți",
+    "noMetadata": "Nu sunt disponibile metadate {kind} de afișat.",
+    "width": "Lățime",
+    "height": "Înălțime",
+    "format": "Format",
+    "colorSpace": "Spațiu de culoare",
+    "bitDepth": "Adâncime de culoare"
+  },
+  "results": {
+    "count": "{count, plural, one {# rezultat} few {# rezultate} other {# de rezultate}}",
+    "displaySelection": "Afișați selecția"
+  },
+  "content": {
+    "loading": "Se încarcă conținutul de tip {type}…",
+    "loadingMore": "Se încarcă mai mult conținut de tip {type}…",
+    "named": "Conținut de tip {type}",
+    "resultControls": "Comenzi pentru rezultate de tip {type}",
+    "filter": "Filtrați conținutul de tip {type}",
+    "previewType": "Previzualizare de tip {type}"
+  },
+  "publication": {
+    "confirm": "{count, plural, one {Publică # document selectat.} few {Publică # documente selectate.} other {Publică # de documente selectate.}}",
+    "completed": "{completed, number} din {total, number} publicate{busy, select, true {…} other {.}}",
+    "none": "Niciuna",
+    "defaultRendition": "Varianta implicită",
+    "failedRetry": "Publicarea a eșuat. Documentele finalizate nu vor fi reprocesate. Dacă s-a întrerupt conexiunea, verificați destinația înainte de a reîncerca documentul curent.",
+    "internal": "Publicare internă"
+  },
+  "version": {
+    "createFor": "Creează o versiune pentru {title}",
+    "minor": "{version} — Versiune minoră",
+    "major": "{version} — Versiune majoră",
+    "viewing": "Vizualizați versiunea {version}.",
+    "restore": "Restaurează {version}"
+  },
+  "trash": {
+    "deleteConfirm": "{count, plural, one {Ștergeți definitiv # document selectat? Această acțiune nu poate fi anulată.} few {Ștergeți definitiv # documente selectate? Această acțiune nu poate fi anulată.} other {Ștergeți definitiv # de documente selectate? Această acțiune nu poate fi anulată.}}",
+    "actionFailed": "Acțiunea asupra coșului de gunoi a eșuat. Verificați permisiunile și reîncercați.",
+    "confirmDocument": "Mutați acest document în coșul de gunoi?"
+  },
+  "analytics": {
+    "unsupported": "{section, select, search {Analizele de căutare necesită serviciul de agregare a auditului de pe server.} other {Analizele fluxurilor de lucru necesită serviciul de agregare a auditului de pe server.}} Acest server nu oferă un API de agregare compatibil, așadar nu sunt afișate valori.",
+    "milliseconds": "{value, number} ms",
+    "tooManyDocuments": "Această cale conține {count, number} documente, depășind limita configurată de {limit, number}. Selectați o cale mai restrânsă."
+  },
+  "pagination": {
+    "page": "Pagina {page, number}",
+    "position": "{known, select, true {Pagina {page, number} din {total, number}} other {Pagina {page, number}}}"
+  },
+  "principals": {
+    "loading": "{kind, select, users {Se încarcă utilizatorii…} groups {Se încarcă grupurile…} user {Se încarcă utilizatorul…} group {Se încarcă grupul…} other {Se încarcă…}}",
+    "dragToGroup": "Adăugați un utilizator într-un grup trăgând utilizatorul peste un grup de utilizatori extins.",
+    "deleteConfirm": "{kind, select, user {Sigur doriți să ștergeți acest utilizator?} group {Sigur doriți să ștergeți acest grup?} other {Sigur doriți să ștergeți această intrare?}}"
+  },
+  "vocabulary": {
+    "deleteConfirm": "Ștergeți {id}?"
+  },
+  "cloud": {
+    "confirm": {
+      "provider": "Sigur doriți să ștergeți acest furnizor de servicii OAuth2: „{name}”?",
+      "client": "Sigur doriți să ștergeți acest client OAuth2: „{name}”?",
+      "token": "Sigur doriți să revocați acest token al aplicației cloud: „{name}”?",
+      "account": "Sigur doriți să ștergeți acest cont cloud: „{name}”?"
+    }
+  },
+  "asset": {
+    "select": "Selectează {title}",
+    "action": "{action, select, deselect {Deselectează {title}} select {Selectează {title}} other {Deschide {title}}}"
+  },
+  "eventCategory": {
+    "eventLifeCycleCategory": "Ciclu de viață",
+    "eventGroupCategory": "Grup",
+    "eventUserCategory": "Utilizator",
+    "eventDocumentCategory": "Document",
+    "eventWorkflowCategory": "Flux de lucru"
+  },
+  "eventType": {
+    "documentCreated": "Document creat",
+    "documentModified": "Document modificat",
+    "documentRemoved": "Document eliminat",
+    "documentMoved": "Document mutat",
+    "documentSecurityUpdated": "Securitatea documentului a fost actualizată",
+    "documentPublished": "Document publicat",
+    "documentCheckedIn": "Versiune creată",
+    "documentCheckedOut": "Document rezervat pentru editare",
+    "loginSuccess": "Autentificare reușită",
+    "loginFailed": "Autentificare nereușită"
+  },
+  "action": {
+    "failed": "Acțiunea a eșuat. Verificați permisiunile și încercați din nou.",
+    "removeNamed": "Eliminați {name}",
+    "downloadNamed": "Descărcați {name}",
+    "insertNamed": "Inserați {name}",
+    "viewNamed": "Vizualizați {name}"
+  },
+  "lifecycle": {
+    "project": "Ciornă",
+    "approved": "Aprobat",
+    "obsolete": "Învechit",
+    "deleted": "Șters"
+  },
+  "create": {
+    "import": "Importă",
+    "typeFromFiles": "Creați {type} din fișiere",
+    "newDocument": "Document nou"
+  },
+  "common": {
+    "yes": "Da",
+    "no": "Nu"
+  },
+  "history": {
+    "loadFailed": "Istoricul documentului nu a putut fi încărcat. Verificați conexiunea și permisiunile, apoi reîncercați."
+  },
+  "note": {
+    "plainText": "Text"
+  },
+  "permission": {
+    "changeFailed": "Modificarea permisiunii a eșuat. Verificați utilizatorul selectat și accesul dvs."
+  },
+  "collection": {
+    "removeNamed": "Eliminați din {name}"
+  },
+  "comparison": {
+    "useBaseline": "Folosiți {name} ca bază de comparație",
+    "useVersionBaseline": "Folosiți versiunea {version} ca bază de comparație"
+  },
+  "media": {
+    "seekSeconds": "Mergeți la {seconds, number} secunde"
+  },
+  "collectionRemoveAction": {
+    "tooltip": "Eliminați din colecție"
+  },
+  "documentTrashAction": {
+    "tooltip": "Mutați în coșul de gunoi",
+    "untrash": "Restaurează documentul din coș",
+    "delete": "Ștergeți definitiv documentul"
+  },
+  "publishButton": {
+    "tooltip": "Publicați documentul"
+  },
+  "command": {
+    "retry": "Reîncercați",
+    "actions": "Acțiuni",
+    "createAnother": "Creează încă unul",
+    "loading": "Se încarcă...",
+    "new": "Nou",
+    "done": "Gata",
+    "manage": "Gestionare"
+  },
+  "label": {
+    "loadMore": "Încărcați mai multe"
+  },
+  "maretha": {
+    "export": {
+      "pdf": "Exportați PDF",
+      "xml": "Exportați XML",
+      "zip": "Exportați ZIP"
+    }
+  },
+  "addToCollectionDocumentsButton": {
+    "collection": "Colecții *"
+  },
+  "documentDistributionChart": {
+    "onlyFolders": "Doar dosare"
+  },
+  "documentImportForm": {
+    "editNext": "Editează următorul",
+    "editPrevious": "Editează precedentul",
+    "retry": "Reîncercați fișierele neterminate",
+    "includeFile": "Includeți {name}",
+    "type": "Tip"
+  },
+  "documentPermissions": {
+    "new": "Nou"
+  },
+  "documentTrashInfo": {
+    "message": "Vizualizați un document aflat în coș."
+  },
+  "workflowButton": {
+    "dialog": {
+      "process": "Proces",
+      "selectProcess": "Pornește un proces"
+    },
+    "startError": "Procesul nu a putut fi pornit. Verificați permisiunile și încercați din nou."
+  },
+  "userManagement": {
+    "company": "Companie",
+    "email": "E-mail",
+    "group": "Grup",
+    "setUserPassword": "Setează parola utilizatorului",
+    "user": "Utilizator",
+    "users": "Utilizatori",
+    "firstName": "Prenume",
+    "lastName": "Nume de familie",
+    "newUser": "Utilizator nou",
+    "newGroup": "Grup nou",
+    "manageUser": "Gestionați {user}",
+    "memberships": "Gestionați apartenențele",
+    "requiredField": "Introduceți o valoare validă pentru {field}.",
+    "searchResults": "Rezultatele căutării",
+    "label": "Etichetă",
+    "description": "Descriere"
+  },
+  "userProfile": {
+    "password": {
+      "noMatch": "Parolele nu coincid."
+    }
+  },
+  "table": {
+    "columnSettings": "Setările coloanelor"
+  },
+  "distributionAnalytics": {
+    "heading": "Distribuția documentelor",
+    "options": "Opțiuni de distribuție",
+    "path": "Cale de distribuție"
+  },
+  "documentCollections": {
+    "addError": "Documentele nu au putut fi adăugate în colecție. Verificați permisiunile și încercați din nou.",
+    "loadError": "Colecțiile nu au putut fi încărcate. Verificați permisiunile și încercați din nou.",
+    "search": "Căutați colecții…"
+  },
+  "exportButton": {
+    "error": "Documentul nu a putut fi exportat. Verificați permisiunile și încercați din nou."
+  },
+  "searchForm": {
+    "savedSearch": "Selectați o căutare salvată",
+    "searchFilters": {
+      "placeholder": "Selectați o căutare salvată"
+    }
+  },
+  "userGroupPermissions": {
+    "empty": "Nu există permisiuni."
+  },
+  "tasksList": {
+    "viewTasksDashboard": "Vizualizați tabloul de bord al sarcinilor"
+  },
+  "themes": {
+    "nuxeo": "Nuxeo"
+  },
+  "imagePreviewer": {
+    "pan": {
+      "left": "Deplasare la stânga",
+      "up": "Deplasare în sus",
+      "down": "Deplasare în jos",
+      "right": "Deplasare la dreapta"
+    }
+  },
+  "documentPage.resize.side": "Redimensionați panoul de informații. Folosiți săgețile stânga/dreapta pentru a ajusta lățimea, Home sau End pentru minim sau maxim și Enter sau Spațiu pentru resetare.",
+  "versions": {
+    "restore": {
+      "confirm": "Restaurați această versiune? Copia de lucru curentă va fi înlocuită."
+    }
+  },
+  "blob": {
+    "remove": {
+      "title": "Eliminați fișierul"
+    }
+  },
+  "attachments": {
+    "remove": {
+      "title": "Eliminați atașamentul",
+      "confirm": "Eliminați atașamentul {name}?"
+    }
+  },
+  "breadcrumb": {
+    "parents": "Dosare părinte"
+  }
+}

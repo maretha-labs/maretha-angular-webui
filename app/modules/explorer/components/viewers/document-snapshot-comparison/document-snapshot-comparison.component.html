@@ -1,0 +1,89 @@
+<div class="modal-header">
+	<h4 class="modal-title pull-left">
+		{{
+			'app.modules.document-snapshot-comparison.document-snapshot-comparison-d3bd00'
+				| webuiMessage: 'Document snapshot comparison'
+		}}
+	</h4>
+	<button
+		type="button"
+		class="close btn-close pull-right"
+		[attr.aria-label]="
+			'app.modules.document-snapshot-comparison.close-a9cb86' | webuiMessage: 'Close'
+		"
+		(click)="close()"
+	>
+		<span aria-hidden="true" class="visually-hidden">&times;</span>
+	</button>
+</div>
+<div class="modal-body">
+	<div class="table-responsive">
+		<table class="table table-sm table-hover mb-0 comparison-table">
+			<thead>
+				<tr>
+					<th scope="col">
+						{{
+							'app.modules.document-snapshot-comparison.property-8990fc' | webuiMessage: 'Property'
+						}}
+					</th>
+					@for (document of documents; track document['uid']; let index = $index) {
+						<th scope="col" [class.text-bg-primary]="pivot?.['uid'] === document['uid']">
+							<label
+								><input
+									type="radio"
+									name="snapshot-pivot"
+									[checked]="pivot?.['uid'] === document['uid']"
+									(change)="pivot = document"
+									[attr.aria-label]="
+										'comparison.useVersionBaseline'
+											| webuiMessage
+												: 'Use version {version} as comparison baseline'
+												: { version: version(document) }
+									"
+								/>
+								{{ version(document) }}</label
+							><select
+								class="form-select form-select-sm mt-2"
+								[value]="version(document)"
+								(change)="updateDocument(index, $any($event.target).value)"
+								[attr.aria-label]="
+									'app.modules.document-snapshot-comparison.choose-snapshot-version-8640bf'
+										| webuiMessage: 'Choose snapshot version'
+								"
+							>
+								@for (snapshot of snapshots; track snapshot['uid']) {
+									<option [value]="version(snapshot)">{{ version(snapshot) }}</option>
+								}
+							</select>
+						</th>
+					}
+				</tr>
+			</thead>
+			<tbody>
+				@for (property of propertiesToCompare; track property.name) {
+					<tr>
+						<th scope="row">
+							{{
+								property.labelKey
+									? (property.labelKey | webuiMessage: property.label)
+									: property.label
+							}}
+						</th>
+						@for (document of documents; track document['uid']) {
+							<td
+								[class.text-bg-primary]="pivot?.['uid'] === document['uid']"
+								[ngClass]="cell(document, property).changed ? 'different' : 'equal'"
+							>
+								<nx-comparison-value
+									[property]="property"
+									[cell]="cell(document, property)"
+									[document]="document"
+								></nx-comparison-value>
+							</td>
+						}
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>

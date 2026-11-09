@@ -1,0 +1,49 @@
+:host.embedded {
+	display: block;
+	color: var(--nuxeo-text-default);
+	background: var(--nuxeo-box);
+	padding: 16px;
+}
+.inline-heading {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 1rem;
+	margin: 8px 0 24px;
+	font-weight: 600;
+}
+.inline-heading nx-webui-icon {
+	display: block;
+	width: 28px;
+	height: 28px;
+}
+.inline-field {
+	margin-bottom: 8px;
+}
+.inline-field label {
+	display: block;
+	font-size: 0.875rem;
+}
+.inline-field input {
+	display: block;
+	width: 100%;
+	border: 0;
+	border-bottom: 1px solid var(--nuxeo-border);
+	border-radius: 0;
+	padding: 8px 0;
+	background: transparent;
+	color: inherit;
+}
+.inline-field span {
+	color: var(--nuxeo-warn-text, #b00020);
+}
+.inline-actions {
+	display: flex;
+	gap: 4px;
+	margin-top: 16px;
+	flex-wrap: wrap;
+}
+.password-toggle {
+	display: block;
+	margin-top: 8px;
+}

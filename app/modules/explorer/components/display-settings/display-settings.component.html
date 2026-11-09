@@ -1,0 +1,219 @@
+@if (displaySettingsForm) {
+	<form [formGroup]="displaySettingsForm" class="d-flex flex-column align-items-center">
+		<div class="settings">
+			<div class="form-group mb-3">
+				<button type="button" for="create-placement" class="menu-header">
+					{{
+						'app.modules.display-settings.create-button-location-a61897'
+							| webuiMessage: 'Create button location'
+					}}
+				</button>
+				<select
+					id="create-placement"
+					class="form-select form-select-sm"
+					[ngModel]="layoutService.createButtonPlacement()"
+					[ngModelOptions]="{ standalone: true }"
+					(ngModelChange)="layoutService.setCreateButtonPlacement($event)"
+				>
+					<option value="floating">
+						{{
+							'app.modules.display-settings.lower-right-default-1142ed'
+								| webuiMessage: 'Lower right (default)'
+						}}
+					</option>
+					<option value="document-actions">
+						{{
+							'app.modules.display-settings.document-actions-toolbar-56379f'
+								| webuiMessage: 'Document actions toolbar'
+						}}
+					</option>
+				</select>
+				<small class="text-muted">{{
+					'app.modules.display-settings.saved-automatically-for-this-browser-b1a4a4'
+						| webuiMessage: 'Saved automatically for this browser.'
+				}}</small>
+			</div>
+			@if (orderedFolder) {
+				<p>
+					{{
+						'app.modules.display-settings.documents-use-the-folder-s-saved-order-sel-f84f19'
+							| webuiMessage
+								: 'Documents use the folder’s saved order. Select documents to move them up or down.'
+					}}
+				</p>
+			}
+			@if (availableSortFields && !orderedFolder) {
+				<div class="form-group form-group-sm mb-3 w-100" formArrayName="sortFields">
+					<div class="menu-header">
+						{{
+							'app.modules.display-settings.sort-documents-by-42a33a'
+								| webuiMessage: 'Sort documents by'
+						}}
+					</div>
+					@for (
+						sortFieldsFormControl of sortFieldsFormArray.controls;
+						track sortFieldsFormControl;
+						let i = $index
+					) {
+						<div class="btn-group btn-group-sm w-100 mb-1" role="group">
+							@if (sortFieldsFormArray.valid || sortFieldsFormControl.invalid) {
+								<div dropdown class="btn-group btn-group-sm w-100" role="group">
+									<button
+										id="button_sorting"
+										[nxAutofocus]="true"
+										[nxAutofocusDelay]="400"
+										class="btn btn-outline-secondary dropdown-toggle"
+										dropdownToggle
+										aria-controls="dropdown_sorting"
+										[tooltip]="
+											'app.modules.display-settings.choose-a-different-sort-field-d69a49'
+												| webuiMessage: 'Choose a different sort field'
+										"
+									>
+										<div>
+											{{
+												layoutService.sortLabel(
+													sortFieldsFormControl.get('fieldName')?.value,
+													sortFieldsFormControl.get('fieldLabel')?.value
+												) ||
+													('app.runtime.display-settings.pick-a-sort-option-e53804'
+														| webuiMessage: 'Pick a sort option...')
+											}}
+										</div>
+									</button>
+									<ul
+										*dropdownMenu
+										id="dropdown_sorting"
+										class="dropdown-menu w-100"
+										role="menu"
+										aria-labelledby="button_sorting"
+									>
+										@for (sortField of availableSortFields | keyvalue; track sortField) {
+											<li>
+												<button
+													(click)="updateSortField(i, sortField.key)"
+													[disabled]="
+														(sortField.value.disabled && sortFieldsFormControl.invalid) ||
+														sortFieldsFormControl.get('fieldName')?.value === sortField.key
+													"
+													class="dropdown-item"
+												>
+													{{ layoutService.sortLabel(sortField.key, sortField.value.label) }}
+												</button>
+											</li>
+										}
+									</ul>
+								</div>
+							}
+							@if (sortFieldsFormArray.invalid && sortFieldsFormControl.valid) {
+								<button class="btn btn-outline-secondary text-start w-100">
+									{{
+										layoutService.sortLabel(
+											sortFieldsFormControl.get('fieldName')?.value,
+											sortFieldsFormControl.get('fieldLabel')?.value
+										)
+									}}
+								</button>
+							}
+							@if (
+								sortFieldsFormArray.controls.length > 1 &&
+								(sortFieldsFormControl.invalid || sortFieldsFormArray.valid)
+							) {
+								<button
+									(click)="removeSortField(i)"
+									class="btn btn-outline-secondary"
+									[tooltip]="
+										'app.modules.display-settings.remove-this-sort-field-b1557f'
+											| webuiMessage: 'Remove this sort field'
+									"
+								>
+									<fa-icon [fixedWidth]="true" icon="times"></fa-icon>
+								</button>
+							}
+							@if (sortFieldsFormControl.valid && canAddSortField) {
+								<button
+									(click)="addSortField(i + 1)"
+									[disabled]="sortFieldsFormArray.invalid && sortFieldsFormControl.valid"
+									class="btn btn-outline-secondary"
+									[tooltip]="
+										'app.modules.display-settings.add-a-new-sort-field-c194ef'
+											| webuiMessage: 'Add a new sort field'
+									"
+								>
+									<fa-icon [fixedWidth]="true" icon="plus"></fa-icon>
+								</button>
+							}
+						</div>
+					}
+				</div>
+				<div class="form-group mb-3 w-100">
+					<div class="menu-header">
+						{{
+							'app.modules.display-settings.order-documents-789ad3'
+								| webuiMessage: 'Order documents'
+						}}
+					</div>
+					<div
+						class="btn-group btn-group-sm w-100"
+						btnRadioGroup
+						formControlName="sortFieldAscending"
+					>
+						<button type="button" class="btn btn-outline-secondary" btnRadio="true">
+							<fa-icon [fixedWidth]="true" icon="arrow-down-short-wide"></fa-icon>
+
+							{{ 'app.modules.display-settings.ascending-d0f651' | webuiMessage: 'Ascending' }}
+						</button>
+						<button type="button" class="btn btn-outline-secondary" btnRadio="">
+							<fa-icon [fixedWidth]="true" icon="arrow-down-wide-short"></fa-icon>
+
+							{{ 'app.modules.display-settings.descending-be46d2' | webuiMessage: 'Descending' }}
+						</button>
+					</div>
+				</div>
+			}
+			<div class="form-group mb-3 w-100">
+				<div class="menu-header">
+					{{
+						'app.modules.display-settings.number-of-items-per-page-b5e90f'
+							| webuiMessage: 'Number of items per page'
+					}}
+				</div>
+				<div class="btn-group btn-group-sm w-100" btnRadioGroup formControlName="pageSize">
+					@for (itemCount of itemsPerPage; track itemCount) {
+						<button
+							type="button"
+							class="btn btn-outline-secondary"
+							[btnRadio]="itemCount.toString()"
+						>
+							{{ itemCount | webuiNumber }}
+						</button>
+					}
+				</div>
+			</div>
+			<!-- <div class="form-group form-group-sm mb-3 w-100">
+      <div class="menu-header">Info panel</div>
+      <div class="form-group ps-1">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="showInfoPanel"
+            formControlName="showInfoPanel">
+          <button type="button" class="form-check-label" for="showInfoPanel">
+            Show current document info in a panel instead of a dialog
+          </button>
+        </div>
+      </div>
+    </div> -->
+		</div>
+		<div class="btn-group btn-group-sm w-100">
+			<button
+				(click)="applyDisplaySettings()"
+				type="sumbit"
+				class="btn btn-secondary"
+				[disabled]="displaySettingsForm.pristine"
+			>
+				<fa-icon [fixedWidth]="true" icon="check-double"></fa-icon>
+
+				{{ 'app.modules.display-settings.apply-changes-286792' | webuiMessage: 'Apply changes' }}
+			</button>
+		</div>
+	</form>
+}

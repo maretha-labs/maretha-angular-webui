@@ -1,0 +1,236 @@
+@if (editorForm) {
+	<nx-base-editor
+		[add]="add"
+		[parentDocument]="parentDocument"
+		[documentType]="documentType"
+		[documents]="documents"
+		[editorForm]="editorForm"
+		[saveButtonLabel]="
+			add
+				? ('app.modules.document-create-action.create-document-d81fdf'
+					| webuiMessage: 'Create document')
+				: ('app.runtime.generic-editor.save-changes-0b2bb7' | webuiMessage: 'Save changes')
+		"
+		[cancelButtonLabel]="
+			add
+				? ('app.runtime.generic-editor.cancel-c75bdc' | webuiMessage: 'Cancel')
+				: ('app.runtime.generic-editor.close-without-saving-0f3176'
+					| webuiMessage: 'Close without saving')
+		"
+		(close)="close()"
+		(save)="saveChanges($event)"
+	>
+		@if (add) {
+			<ng-container modalTitle>
+				{{ 'app.modules.generic-editor.add-a-new-b71ecd' | webuiMessage: 'Add a new' }}
+				<b>{{ documents[0].type }}</b>
+				{{ 'app.modules.generic-editor.document-f378d0' | webuiMessage: 'document' }}
+			</ng-container>
+		}
+		@if (!add && documents.length === 1) {
+			<div modalTitle class="flex-grow-1 d-flex align-items-center">
+				<div
+					class="media-container d-inline-block"
+					[class.loading]="documents[0].ng.thumbnailLoadingStatus === 1"
+				>
+					@if (documents[0].ng.thumbnailLoadingStatus === 1) {
+						<div class="skeleton"></div>
+					}
+					<img
+						nxLazyLoad
+						(willLoadMedia)="documents[0].ng.thumbnailLoadingStatus = 1"
+						(didLoadMedia)="documents[0].ng.thumbnailLoadingStatus = 2"
+						(loadError)="documents[0].ng.thumbnailLoadingStatus = 3"
+						[src]="documents[0].contextParameters?.thumbnail?.url"
+						[alt]="documents[0].title"
+						class="img-thumbnail"
+					/>
+				</div>
+				<span class="lh-1">
+					<span>{{
+						documents.length > 1
+							? ('app.modules.generic-editor.edit-multiple-documents-660dae'
+								| webuiMessage: 'Edit multiple documents')
+							: ('documentEditAction.tooltip' | webuiMessage: 'Edit document')
+					}}</span>
+					<small>{{ documents[0]?.uid }}</small>
+				</span>
+			</div>
+		}
+		<form modalBody [formGroup]="editorForm" novalidate>
+			<div class="row">
+				<!-- Title -->
+				<div class="col-12 mb-3">
+					<ng-container
+						*ngTemplateOutlet="existingValuesPicker; context: { propertyName: 'dc:title' }"
+					>
+					</ng-container>
+					<div class="form-floating required">
+						<input
+							type="text"
+							class="form-control"
+							[ngClass]="getValidationClassName('dc:title')"
+							id="title"
+							[attr.placeholder]="'app.modules.generic-editor.title-d77f00' | webuiMessage: 'Title'"
+							formControlName="dc:title"
+							[nxAutofocus]="true"
+							[nxAutofocusDelay]="400"
+						/>
+						<label for="title">{{
+							'app.modules.generic-editor.title-d77f00' | webuiMessage: 'Title'
+						}}</label>
+						<div class="invalid-feedback">
+							{{
+								'app.modules.generic-editor.please-specify-a-title-3b3b8e'
+									| webuiMessage: 'Please specify a title.'
+							}}
+						</div>
+					</div>
+				</div>
+				@if (isPictureBook) {
+					<div class="col-12">
+						<div class="form-floating">
+							<textarea
+								class="form-control"
+								id="description"
+								[attr.placeholder]="
+									'app.modules.generic-editor.description-026aae' | webuiMessage: 'Description'
+								"
+								formControlName="dc:description"
+								autosize
+								rows="2"
+								[maxRows]="15"
+							></textarea>
+							<label for="description">{{
+								'app.modules.generic-editor.description-026aae' | webuiMessage: 'Description'
+							}}</label>
+						</div>
+					</div>
+				} @else if (!showExtraInfo) {
+					<button class="btn btn-link" (click)="showExtraInfo = !showExtraInfo">
+						{{
+							'app.modules.generic-editor.show-additional-fields-b71a33'
+								| webuiMessage: 'Show additional fields'
+						}}
+					</button>
+				}
+				@if (showExtraInfo) {
+					<div @verticalInOutAnimation>
+						@if (documents.length === 1) {
+							<nx-nature-subjects-coverage-expiration
+								formControlName="natureSubjectsCoverageExpiration"
+							>
+							</nx-nature-subjects-coverage-expiration>
+						}
+						<!-- Tags -->
+						@if (documents.length === 1 && !usesSourceMetadataFields) {
+							<div class="col-sm-12">
+								<nx-tags formControlName="tags"></nx-tags>
+							</div>
+						}
+						<!-- Description -->
+						<div class="col-12">
+							<ng-container
+								*ngTemplateOutlet="
+									existingValuesPicker;
+									context: { propertyName: 'dc:description' }
+								"
+							>
+							</ng-container>
+							<div class="form-floating">
+								<textarea
+									class="form-control"
+									[ngClass]="getValidationClassName('dc:description')"
+									id="description"
+									[attr.placeholder]="
+										'app.modules.generic-editor.description-026aae' | webuiMessage: 'Description'
+									"
+									formControlName="dc:description"
+									autosize
+									rows="2"
+									[maxRows]="15"
+								>
+								</textarea>
+								<label for="description">{{
+									'app.modules.generic-editor.description-026aae' | webuiMessage: 'Description'
+								}}</label>
+							</div>
+						</div>
+					</div>
+				}
+			</div>
+		</form>
+	</nx-base-editor>
+}
+
+<ng-template #existingValuesPicker let-propertyName="propertyName">
+	@if (!this.add && documents.length > 1) {
+		<div class="d-flex align-items-center">
+			<div class="btn-group btn-group-sm">
+				<button
+					(click)="resetFieldValue(propertyName)"
+					type="button"
+					class="btn btn-link px-0"
+					[disabled]="editorForm!.get(propertyName)?.pristine"
+				>
+					{{
+						'app.modules.generic-editor.leave-this-field-as-it-is-d6f050'
+							| webuiMessage: 'Leave this field as it is'
+					}}
+				</button>
+			</div>
+			@if (!getCommonValue(propertyName) && commonFieldValues[propertyName].length > 1) {
+				<small class="px-3">{{
+					'app.modules.generic-editor.or-1668a3' | webuiMessage: 'OR'
+				}}</small>
+				<div
+					class="btn-group btn-group-sm existing-values-picker"
+					dropdown
+					placement="bottom right"
+				>
+					<button
+						[id]="'button-existing-values-' + propertyName"
+						dropdownToggle
+						type="button"
+						class="btn btn-link dropdown-toggle px-0"
+						[attr.aria-controls]="'dropdown-existing-values-' + propertyName"
+					>
+						{{
+							'app.modules.generic-editor.use-one-of-the-existing-values-6341ed'
+								| webuiMessage: 'Use one of the existing values'
+						}}
+					</button>
+					<ul
+						[id]="'dropdown-existing-values-' + propertyName"
+						*dropdownMenu
+						class="dropdown-menu dropdown-menu-right"
+						role="menu"
+						[attr.aria-labelledby]="'button-existing-values-' + propertyName"
+					>
+						@for (commonFieldValue of commonFieldValues[propertyName]; track commonFieldValue) {
+							<li role="menuitem">
+								<button
+									(click)="useExistingValue(propertyName, commonFieldValue)"
+									class="dropdown-item"
+								>
+									{{
+										'editor.useValue' | webuiMessage: 'Use “{value}”' : { value: commonFieldValue }
+									}}
+								</button>
+							</li>
+						}
+					</ul>
+				</div>
+			}
+		</div>
+	}
+</ng-template>
+@if (!editorForm) {
+	<nx-editor-metadata-status
+		[documentType]="documentType"
+		[loading]="metadata.loading()"
+		[error]="metadata.error()"
+		(retry)="loadMetadata()"
+		(closed)="close()"
+	/>
+}

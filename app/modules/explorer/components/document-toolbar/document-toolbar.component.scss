@@ -1,0 +1,195 @@
+@import './selection-action-group';
+@import '../../../../../styles/_variables';
+
+:host {
+	display: block;
+	background: var(--nuxeo-box, #fff);
+	border-bottom: 1px solid var(--nuxeo-border);
+	padding: 0;
+}
+
+.btn-toolbar {
+	min-height: 48px;
+	padding-block: 0.5rem !important;
+	background: var(--nuxeo-box, #fff);
+}
+
+.btn-toolbar > .small {
+	color: var(--nuxeo-text-default);
+	white-space: nowrap;
+}
+
+// Contributions own their semantics. This only gives their native controls a
+// consistent, quiet toolbar treatment without changing which actions are shown.
+.btn-toolbar ::ng-deep > * > button,
+.btn-toolbar ::ng-deep > button {
+	min-height: 32px;
+	padding: 0.375rem 0.625rem;
+	border: 1px solid var(--nuxeo-border, #d9d9d9);
+	border-radius: 0.25rem;
+	background: var(--nuxeo-box, #fff);
+	color: var(--nuxeo-text-default);
+	font-size: 0.8125rem;
+	font-weight: 500;
+	line-height: 1.25;
+
+	&:hover:not(:disabled) {
+		border-color: var(--nuxeo-primary-color);
+		color: var(--nuxeo-primary-color);
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--nuxeo-primary-color);
+		outline-offset: 2px;
+	}
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.form-file-input {
+	width: 0;
+	height: 0;
+	opacity: 0;
+	visibility: hidden;
+	position: absolute;
+}
+
+.form-file input:not(:placeholder-shown) ~ label {
+	cursor: pointer;
+	background-color: transparent;
+	background-clip: padding-box;
+	z-index: 1;
+	position: static;
+	width: 100%;
+
+	&::after {
+		content: '';
+		position: absolute;
+		inset-block-start: 0;
+		inset-inline-start: 0;
+		inset-inline-end: 0;
+		inset-block-end: 0;
+	}
+}
+
+.form-file-label::after,
+.form-file-input:lang(en) ~ .form-file-label::after {
+	content: none;
+}
+
+.dropdown-item {
+	position: relative;
+}
+
+#dropdown_new_item > li:hover {
+	box-shadow: var(--nuxeo-primary-color) 0 0 0 2px inset;
+}
+
+.btn-group .dropdown-toggle:not(:last-of-type) {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+// Nuxeo-style action buttons in toolbar
+.btn-sm {
+	min-height: 32px;
+	font-size: 0.85rem;
+}
+
+.btn-link {
+	color: #{$runtime-gray-600};
+	min-height: auto;
+
+	&:hover {
+		color: var(--nuxeo-primary-color);
+	}
+}
+
+@media (max-width: 767.98px) {
+	.btn-toolbar {
+		padding-inline: 0.75rem !important;
+		gap: 0.5rem !important;
+		flex-wrap: wrap;
+	}
+
+	.btn-toolbar > .small {
+		order: 10;
+		width: 100%;
+	}
+}
+
+:host(.compact) {
+	border: 0;
+	.btn-toolbar {
+		min-height: 52px;
+		padding: 0 !important;
+		justify-content: flex-end;
+	}
+	.btn-toolbar > .flex-grow-1 {
+		display: none;
+	}
+}
+
+// Keep display preferences at the trailing edge, separate from document actions.
+.results-display-control {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	margin-inline-start: 4px;
+	padding-inline-start: 8px;
+	border-inline-start: 1px solid var(--nuxeo-border, #ddd);
+}
+@media (max-width: 767.98px) {
+	.results-display-control {
+		margin-inline-start: auto;
+	}
+}
+
+.btn-toolbar.has-selection {
+	background: var(--nuxeo-primary-color, #0066ff);
+	color: #fff;
+}
+.has-selection > .small,
+.has-selection > .flex-grow-1,
+.has-selection > nx-webui-slot,
+.has-selection > .results-display-control {
+	display: none;
+}
+.has-selection .selection-action-group {
+	width: 100%;
+	flex: 1;
+	background: transparent;
+	color: inherit;
+	border: 0;
+	border-radius: 0;
+	padding: 0;
+}
+.has-selection .selection-action-group__actions {
+	margin-inline-start: auto;
+}
+.has-selection .selection-text-action {
+	color: inherit;
+	background: transparent;
+	border: 0;
+	white-space: nowrap;
+}
+.has-selection ::ng-deep button {
+	color: inherit;
+	border-color: transparent;
+	background: transparent;
+}
+.selection-preview {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	padding: 16px;
+	background: var(--nuxeo-box);
+}
+.selection-preview button {
+	border: 1px solid var(--nuxeo-border);
+	background: transparent;
+	color: inherit;
+	padding: 8px;
+}

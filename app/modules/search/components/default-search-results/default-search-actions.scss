@@ -1,0 +1,157 @@
+@use '../../../explorer/components/document-toolbar/selection-toolbar' as *;
+.default-search-results__pending {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 3rem 1rem;
+	color: var(--nuxeo-text-light, #7d8591);
+	font-size: 13px;
+}
+.default-search-results__resultbar[hidden],
+.default-search-results__controls[hidden],
+nx-results-projection[hidden] {
+	display: none;
+}
+
+// The fixed selection bar covers the header in place so the list never shifts on select.
+.default-search-results__header[inert] {
+	visibility: hidden;
+}
+.default-search-results__selection {
+	@include selection-toolbar;
+}
+
+// Stock saved-search header actions: Save As (primary), Save (outline), and the ⋮ menu.
+.default-search-results__actions {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+.default-search-results__header button.saved-search-action {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	min-height: 36px;
+	padding: 6px 16px;
+	border-radius: 3px;
+	font-size: 13px;
+	font-weight: 500;
+	--webui-icon-size: 18px;
+}
+.default-search-results__header button.saved-search-action--outline {
+	background: transparent;
+	color: var(--nuxeo-primary-color);
+	border: 1px solid var(--nuxeo-primary-color);
+}
+.saved-search-menu {
+	position: relative;
+	summary {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		list-style: none;
+		cursor: pointer;
+		font-size: 22px;
+		line-height: 1;
+		color: var(--nuxeo-text-default);
+		&::-webkit-details-marker {
+			display: none;
+		}
+		&:hover {
+			background: rgba(0, 0, 0, 0.06);
+		}
+	}
+	[role='menu'] {
+		position: absolute;
+		inset-inline-end: 0;
+		top: 100%;
+		z-index: 20;
+		min-width: 176px;
+		padding: 8px 0;
+		background: var(--nuxeo-box, #fff);
+		box-shadow: 0 2px 6px #0003;
+	}
+	[role='menuitem'] {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		width: 100%;
+		padding: 12px 16px;
+		border: 0;
+		background: transparent;
+		color: var(--nuxeo-text-default);
+		font-size: 13px;
+		text-align: start;
+		cursor: pointer;
+		--webui-icon-size: 20px;
+		&:hover {
+			background: rgba(0, 0, 0, 0.05);
+		}
+	}
+}
+
+// Stock empty state: no count, centred grey "No results." under the sort bar.
+.default-search-results__resultbar p[hidden] {
+	display: none;
+}
+nx-results-projection ::ng-deep .nx-results-projection__empty-content {
+	display: flex;
+	justify-content: center;
+	padding: 32px 16px;
+	color: var(--nuxeo-text-light, #7d8591);
+	font-size: 13px;
+}
+nx-results-projection ::ng-deep .nx-results-projection__empty-content p {
+	margin: 0;
+}
+
+// The section must keep the full column width when the projection is empty.
+.default-search-results {
+	width: 100%;
+	align-self: stretch;
+}
+nx-results-projection > p {
+	margin: 0;
+	padding: 32px 16px;
+	text-align: center;
+	color: var(--nuxeo-text-light, #7d8591);
+	font-size: 13px;
+}
+
+// Grid view: stock nuxeo-data-grid of nuxeo-document-grid-thumbnail, at stock's 13px root (em
+// values resolved to px). Fixed 220×260 cards with a 2px frame and 0.4em/0.8em margins, rows centred
+// like iron-list, a 190px grey thumbnail area, a one-line title over the pill type tag, the round
+// check over the thumbnail, and the favourite/download strip over the tag on hover or keyboard focus.
+// Load more: the shared nx-load-more-button (centred outline action with a chevron and progress).
+
+// Stock nuxeo-results geometry in every view: 16px gutters, a 13px count, the sort bar under the
+// count row and the results 16px under the bar.
+.default-search-results__resultbar {
+	padding: 20px 16px 0;
+}
+.default-search-results__resultbar > p[aria-live] {
+	font-size: 13px;
+	line-height: 20px;
+}
+.default-search-results__controls {
+	margin: 16px 16px 0;
+}
+nx-results-projection {
+	margin-inline: 16px;
+	margin-top: 16px;
+}
+
+.default-search-results__views {
+	position: relative;
+	margin: 16px 16px 0;
+}
+.default-search-results__views[hidden] {
+	display: none;
+}
+.default-search-results__views > nx-results-projection {
+	margin: 0;
+}

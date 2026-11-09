@@ -1,0 +1,143 @@
+@if (editorForm) {
+	<nx-base-editor
+		[add]="add"
+		[parentDocument]="parentDocument"
+		[documentType]="documentType"
+		[documents]="documents"
+		[editorForm]="editorForm"
+		[saveButtonLabel]="
+			add
+				? ('app.runtime.domain-editor.create-domain-8cd2df' | webuiMessage: 'Create domain')
+				: ('app.runtime.domain-editor.save-changes-cfd8f1' | webuiMessage: 'Save changes')
+		"
+		(close)="close()"
+		(save)="saveChanges($event)"
+	>
+		<ng-container modalTitle>{{
+			add
+				? ('app.modules.domain-editor.add-a-new-domain-363561' | webuiMessage: 'Add a new domain')
+				: documents.length > 1
+					? ('app.modules.domain-editor.bulk-edit-multiple-domains-695fa0'
+						| webuiMessage: 'Bulk edit multiple domains')
+					: ('app.modules.domain-editor.edit-domain-445e68' | webuiMessage: 'Edit domain')
+		}}</ng-container>
+		<form modalBody [formGroup]="editorForm" novalidate>
+			<div class="row">
+				<div class="col mb-3">
+					<ng-container
+						*ngTemplateOutlet="existingValuesPicker; context: { propertyName: 'dc:title' }"
+					>
+					</ng-container>
+					<div class="form-floating required">
+						<input
+							type="text"
+							class="form-control"
+							[ngClass]="getValidationClassName('dc:title')"
+							id="title"
+							[attr.placeholder]="'app.modules.domain-editor.title-8d059d' | webuiMessage: 'Title'"
+							formControlName="dc:title"
+							[nxAutofocus]="true"
+							[nxAutofocusDelay]="400"
+						/>
+						<label for="title">{{
+							'app.modules.domain-editor.title-8d059d' | webuiMessage: 'Title'
+						}}</label>
+						<div class="invalid-feedback">
+							{{
+								'app.modules.domain-editor.please-specify-a-title-3997d0'
+									| webuiMessage: 'Please specify a title.'
+							}}
+						</div>
+					</div>
+				</div>
+				<div class="col-12 mb-3">
+					<ng-container
+						*ngTemplateOutlet="existingValuesPicker; context: { propertyName: 'dc:description' }"
+					>
+					</ng-container>
+					<div class="form-floating">
+						<textarea
+							class="form-control"
+							[ngClass]="getValidationClassName('dc:description')"
+							id="description"
+							[attr.placeholder]="
+								'app.modules.domain-editor.description-6f16f1' | webuiMessage: 'Description'
+							"
+							formControlName="dc:description"
+						></textarea>
+						<label for="description">{{
+							'app.modules.domain-editor.description-6f16f1' | webuiMessage: 'Description'
+						}}</label>
+					</div>
+				</div>
+				<div class="col-12">
+					<nx-nature-subjects-coverage-expiration
+						formControlName="natureSubjectsCoverageExpiration"
+					>
+					</nx-nature-subjects-coverage-expiration>
+				</div>
+			</div>
+		</form>
+	</nx-base-editor>
+}
+
+<ng-template #existingValuesPicker let-propertyName="propertyName">
+	@if (documents.length > 1) {
+		<div class="d-flex align-items-center">
+			<div class="btn-group btn-group-sm">
+				<button
+					(click)="resetFieldValue(propertyName)"
+					type="button"
+					class="btn btn-link px-0"
+					[disabled]="editorForm!.get(propertyName)?.pristine"
+				>
+					{{
+						'app.modules.domain-editor.leave-this-field-as-it-is-72205a'
+							| webuiMessage: 'Leave this field as it is'
+					}}
+				</button>
+			</div>
+			@if (!getCommonValue(propertyName) && commonFieldValues[propertyName].length > 1) {
+				<small class="px-3">{{ 'app.modules.domain-editor.or-e7490d' | webuiMessage: 'OR' }}</small>
+				<div
+					class="btn-group btn-group-sm existing-values-picker"
+					dropdown
+					placement="bottom right"
+				>
+					<button
+						id="button-existing-values-0"
+						dropdownToggle
+						type="button"
+						class="btn btn-link dropdown-toggle px-0"
+						aria-controls="dropdown-existing-values-0"
+					>
+						{{
+							'app.modules.domain-editor.use-one-of-the-existing-values-3510fc'
+								| webuiMessage: 'Use one of the existing values'
+						}}
+					</button>
+					<ul
+						id="dropdown-existing-values-0"
+						*dropdownMenu
+						class="dropdown-menu dropdown-menu-right"
+						role="menu"
+						aria-labelledby="button-existing-values-0"
+					>
+						@for (commonFieldValue of commonFieldValues[propertyName]; track commonFieldValue) {
+							<li role="menuitem">
+								<button
+									(click)="useExistingValue(propertyName, commonFieldValue)"
+									class="dropdown-item"
+								>
+									{{
+										'editor.useValue' | webuiMessage: 'Use “{value}”' : { value: commonFieldValue }
+									}}
+								</button>
+							</li>
+						}
+					</ul>
+				</div>
+			}
+		</div>
+	}
+</ng-template>

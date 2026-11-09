@@ -1,0 +1,59 @@
+<div [formGroup]="formGroup" class="row">
+	<div class="col-6 mb-3">
+		<nx-vocabulary
+			formControlName="dc:coverage"
+			id="coverage"
+			[label]="
+				'app.modules.nature-subjects-coverage-expiration.coverage-b69dad' | webuiMessage: 'Coverage'
+			"
+			directoryName="l10ncoverage"
+			entryTranslationPrefix="country"
+			groupTranslationPrefix="continent"
+		>
+		</nx-vocabulary>
+	</div>
+	<div class="col-6 mb-3">
+		<nx-vocabulary
+			formControlName="dc:nature"
+			id="nature"
+			[label]="
+				'app.modules.nature-subjects-coverage-expiration.nature-127a54' | webuiMessage: 'Nature'
+			"
+			directoryName="nature"
+			[dbl10n]="false"
+			entryTranslationPrefix="nature"
+		>
+		</nx-vocabulary>
+	</div>
+	<div class="col-12 mb-3">
+		<nx-vocabulary
+			formControlName="dc:subjects"
+			id="subjects"
+			[label]="
+				'app.modules.nature-subjects-coverage-expiration.subjects-fa5f98' | webuiMessage: 'Subjects'
+			"
+			directoryName="l10nsubjects"
+			entryTranslationPrefix="subtopic"
+			groupTranslationPrefix="topic"
+			[multiple]="true"
+			[addTag]="true"
+			entryKeyTrim=""
+		>
+		</nx-vocabulary>
+	</div>
+	<div class="col-12 mb-3">
+		<div class="form-floating">
+			<input
+				type="text"
+				class="form-control"
+				id="expired"
+				[attr.placeholder]="'label.dublincore.expire' | webuiMessage: 'Expires'"
+				[ngClass]="getValidationClassName('dc:expired')"
+				formControlName="dc:expired"
+				bsDatepicker
+				[bsConfig]="{ containerClass: 'slim-edge theme-dark-blue' }"
+			/>
+			<label for="expired">{{ 'label.dublincore.expire' | webuiMessage: 'Expires' }}</label>
+		</div>
+	</div>
+</div>

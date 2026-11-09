@@ -1,0 +1,177 @@
+@switch (context().activeKey) {
+	<!-- Document tree drawer -->
+	@case ('tree') {
+		<div class="nx-drawer__header">
+			<h6>{{ 'app.browse' | webuiMessage: 'Browse' }}</h6>
+		</div>
+		<div class="nx-drawer__content nx-browse-content">
+			<nx-document-tree
+				class="nx-browse-tree"
+				[showRoot]="true"
+				anchor="current"
+				[visible]="context().opened"
+				[navigate]="context().navigate"
+				[repository]="repository"
+			></nx-document-tree>
+		</div>
+	}
+	<!-- Search drawer -->
+	@case ('search') {
+		<div class="nx-drawer__content">
+			<nx-search-form [definition]="searchDefinition" [inputs]="{ definition: searchDefinition }" />
+		</div>
+	}
+	<!-- Recently Viewed drawer -->
+	@case ('recents') {
+		<div class="nx-drawer__header">
+			<h6>{{ 'app.settingsShared.recently-viewed-eab19e' | webuiMessage: 'Recently Viewed' }}</h6>
+		</div>
+		<div class="nx-drawer__content">
+			<nx-results-projection
+				hostId="drawer-recents"
+				mode="table"
+				[rowActivation]="true"
+				[rowDisabled]="drawerDocumentDisabled"
+				(rowActivated)="navigateRecent($event)"
+				[rows]="context().recentDocuments"
+				[columns]="drawerColumns"
+				[selectionEnabled]="false"
+			>
+				<ng-template nxResultsTemplate="cell:title" let-row="row">
+					<nx-document-icon-and-title
+						[document]="row"
+						[disabled]="drawerDocumentDisabled(row)"
+						[compact]="true"
+					/>
+				</ng-template>
+			</nx-results-projection>
+			<div class="p-2">
+				<button
+					(click)="context().clearHistory()"
+					class="btn btn-outline-primary text-center w-100"
+				>
+					<fa-icon [fixedWidth]="true" icon="eraser"></fa-icon>
+
+					{{ 'app.modules.history.clear-history-5edc22' | webuiMessage: 'Clear history' }}
+				</button>
+			</div>
+		</div>
+	}
+	<!-- Collections drawer -->
+	@case ('collections') {
+		<div class="nx-drawer__header">
+			<h6>{{ 'app.settingsShared.collections-9f9fea' | webuiMessage: 'Collections' }}</h6>
+		</div>
+		<div class="nx-drawer__content">
+			<div class="list-group-container">
+				<div class="list-group list-group-flush px-2">
+					@for (collection of userCollections; track collection) {
+						<div class="list-group-item list-group-item-action p-0 position-relative">
+							<nx-document-icon-and-title [document]="collection" (click)="context().close()">
+							</nx-document-icon-and-title>
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+	}
+	<!-- Favorites drawer -->
+	@case ('favorites') {
+		<div class="nx-drawer__header">
+			<h6>{{ 'app.settingsShared.favorites-7a1f2a' | webuiMessage: 'Favorites' }}</h6>
+		</div>
+		<div class="nx-drawer__content">
+			<div class="list-group-container">
+				<div class="list-group list-group-flush px-2">
+					@for (collection of favoritesCollections; track collection) {
+						<div class="list-group-item list-group-item-action p-0 position-relative">
+							<nx-document-icon-and-title [document]="collection" (click)="context().close()">
+							</nx-document-icon-and-title>
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+	}
+	<!-- Clipboard drawer -->
+	@case ('clipboard') {
+		<div class="nx-drawer__header">
+			<h6>{{ 'app.settingsShared.clipboard-285d69' | webuiMessage: 'Clipboard' }}</h6>
+		</div>
+		<div class="nx-drawer__content">
+			<nx-results-projection
+				hostId="drawer-clipboard"
+				mode="table"
+				[rows]="context().clipboard"
+				[columns]="drawerColumns"
+				[selectionEnabled]="false"
+			>
+				<ng-template nxResultsTemplate="cell:title" let-row="row">
+					<nx-document-icon-and-title
+						[document]="row"
+						[disabled]="drawerDocumentDisabled(row)"
+						[compact]="true"
+						(click)="context().close()"
+					/>
+				</ng-template>
+			</nx-results-projection>
+			@if (context().clipboard.length) {
+				<div class="p-2">
+					<button
+						(click)="context().clearClipboard()"
+						class="btn btn-outline-primary text-center w-100"
+					>
+						<fa-icon [fixedWidth]="true" icon="eraser"></fa-icon>
+
+						{{
+							'app.modules.default-drawer-page.clear-clipboard-4bbb2b'
+								| webuiMessage: 'Clear clipboard'
+						}}
+					</button>
+				</div>
+			}
+		</div>
+	}
+	<!-- Tasks drawer: stock nuxeo-tasks-drawer and nuxeo-tasks-list, one flat list of tasks. -->
+	@case ('tasks') {
+		<div class="nx-drawer__header">
+			<h6>{{ 'app.tasks' | webuiMessage: 'Tasks' }}</h6>
+		</div>
+		<div class="nx-drawer__content">
+			@for (task of drawerTasks(); track task.id) {
+				<button
+					type="button"
+					class="nx-drawer__task-item"
+					[class.selected]="task.id === currentTaskId()"
+					[attr.aria-current]="task.id === currentTaskId() ? 'page' : null"
+					(click)="context().navigate(taskUrl(task.id))"
+				>
+					<span class="nx-drawer__task-name">{{ label(task.name) }}</span>
+					<span class="nx-drawer__task-line">{{ task.targetDocumentIds?.[0]?.title }}</span>
+					<span class="nx-drawer__task-line"
+						><span class="nx-drawer__task-due">{{
+							'tasksList.dueDate' | webuiMessage: 'Due'
+						}}</span>
+						@if (task.dueDate) {
+							<span class="nx-drawer__task-date">{{
+								task.dueDate | nxRelativeDate: locale()
+							}}</span>
+						}
+					</span>
+					<span>{{ label(task.workflowModelName) }}</span>
+				</button>
+			} @empty {
+				<p class="drawer-empty">
+					{{
+						'tasksList.noTasks' | webuiMessage: "You don't have any tasks to process at the moment."
+					}}
+				</p>
+			}
+		</div>
+		<footer class="drawer-footer">
+			<button type="button" class="drawer-footer__link" (click)="context().navigate('/tasks')">
+				{{ 'app.viewTasksDashboard' | webuiMessage: 'View Tasks Dashboard' }}
+			</button>
+		</footer>
+	}
+}

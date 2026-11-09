@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "projects": {
+    "client-webui": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": ".",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "main.ts",
+            "index": "index.html",
+            "tsConfig": "tsconfig.json",
+            "outputPath": "dist",
+            "styles": ["styles.css"],
+            "budgets": [{ "type": "initial", "maximumError": "600kb" }]
+          }
+        }
+      }
+    }
+  },
+  "cli": { "analytics": false }
+}

@@ -1,0 +1,78 @@
+// The stock nuxeo-selection-toolbar, shared by the default, Expired and Assets searches and folder
+// views: while documents are selected one blue bar spans the whole window over
+// the header, rail and drawer; 13px light text, bold count, underlined links, white icon actions.
+// Include it in the bar's own rule; it is fixed, so the page under it never shifts on select.
+@mixin selection-toolbar {
+	position: fixed;
+	inset-inline: 0;
+	top: 0;
+	z-index: 1100;
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
+	gap: 16px;
+	min-height: var(--nuxeo-header-height, 53px);
+	margin: 0;
+	padding: 0 24px 0 32px;
+	border: 0;
+	background: var(--nuxeo-primary-color);
+	box-shadow: 0 2px 4px #0002;
+	color: #fff;
+	font-size: 13px;
+	font-weight: 300;
+
+	[role='status'] {
+		font-weight: 600;
+		white-space: nowrap;
+	}
+	> button {
+		padding: 0;
+		border: 0;
+		background: transparent;
+		color: inherit;
+		font: inherit;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		white-space: nowrap;
+	}
+	> nx-webui-slot {
+		margin-inline-start: auto;
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		--webui-icon-size: 24px;
+	}
+	// Every contributed action renders white, whatever its own default colour.
+	::ng-deep button {
+		border: 0;
+		background: transparent;
+		color: #fff;
+	}
+	::ng-deep button:hover {
+		background: rgb(255 255 255 / 15%);
+	}
+	::ng-deep button.selection-icon-action,
+	::ng-deep button svg {
+		color: #fff;
+		fill: #fff;
+	}
+	.shortcut-hint {
+		margin-inline-start: 1em;
+		font-style: italic;
+		white-space: nowrap;
+	}
+	.shortcut-hint ::ng-deep kbd {
+		padding: 2px 6px;
+		border: 1px solid #94a3b8;
+		border-radius: 4px;
+		background: #e0e7ff;
+		box-shadow: inset 0 -1px 0 #94a3b8;
+		color: #000;
+		font-family: monospace;
+		font-size: 0.85em;
+		font-style: normal;
+	}
+	&:focus-within .shortcut-hint {
+		display: none;
+	}
+}

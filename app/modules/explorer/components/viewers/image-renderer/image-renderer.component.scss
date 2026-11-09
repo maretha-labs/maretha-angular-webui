@@ -1,0 +1,397 @@
+@import '../../../../../../styles/_variables';
+
+:host {
+	min-width: 0;
+	width: 100%;
+	max-width: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	min-height: 0;
+	padding: 0.5rem;
+}
+.media {
+	min-width: 0;
+	max-width: 100%;
+	display: flex;
+	flex: 1 1 auto;
+	min-height: 0;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 0.5rem;
+	overflow: auto;
+	position: relative;
+	border-radius: 0.325rem;
+}
+.image-preview {
+	min-width: 0;
+	max-width: 100%;
+	display: flex;
+	flex: 0 0 auto;
+	height: clamp(280px, 58vh, 780px);
+	min-height: 16rem;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+.rendition-tray {
+	flex: 0 0 auto;
+	border: 1px solid var(--nuxeo-border);
+	border-radius: 6px;
+	background: var(--nuxeo-box, #fff);
+	min-width: 0;
+	align-self: start;
+	max-height: none;
+	overflow: auto;
+}
+.rendition-tray summary {
+	cursor: pointer;
+	padding: 12px 16px;
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--bs-secondary-color);
+}
+.rendition-tray summary span {
+	margin-inline-start: 0.35rem;
+	padding: 0.05rem 0.35rem;
+	border-radius: 1rem;
+	background: var(--bs-secondary-bg);
+}
+.image-preview img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	min-height: 16rem;
+	object-fit: contain;
+	border-radius: 0;
+}
+.table {
+	flex: 0 0 auto;
+	thead th:last-child {
+		text-align: end;
+	}
+	tbody {
+		th {
+			padding: 8px;
+			&:first-child {
+				text-align: start;
+				.form-check-input {
+					cursor: pointer;
+				}
+			}
+		}
+		td {
+			padding: 0.25rem 0.5rem;
+			&:last-child {
+				text-align: end;
+			}
+		}
+	}
+}
+.form-switch {
+	padding-inline-start: 3em;
+	min-height: 0 !important;
+	margin-bottom: 0 !important;
+}
+.link-primary {
+	filter: brightness(1.5);
+}
+dl {
+	dd,
+	dt {
+		display: inline-block;
+	}
+	dt {
+		padding-inline-end: 0.125rem;
+	}
+	dd {
+		padding-inline-end: 1rem;
+	}
+}
+
+.picture-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+	gap: 16px;
+	align-items: start;
+	flex: 0 0 auto;
+	width: 100%;
+	max-width: 1500px;
+	margin: 12px auto;
+}
+.rendition-tray summary {
+	text-align: start;
+	color: var(--nuxeo-text-default);
+}
+.rendition-body {
+	overflow: auto;
+	max-height: 320px;
+	border-top: 1px solid var(--nuxeo-border);
+}
+.rendition-body table {
+	font-size: 12px;
+	text-align: start;
+}
+.rendition-body th {
+	font-weight: 500;
+}
+.rendition-body thead th {
+	font-size: 11px;
+	white-space: nowrap;
+}
+.rendition-body td small {
+	display: block;
+	color: var(--bs-secondary-color);
+	font-size: 10px;
+	white-space: nowrap;
+}
+.rendition-body .form-check {
+	padding-inline-start: 2.25em;
+}
+.rendition-body label {
+	min-width: 70px;
+}
+
+.viewer-toolbar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 12px;
+	padding: 8px 48px 16px;
+	flex: 0 0 auto;
+}
+.viewer-control-group {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	border-inline-end: 1px solid var(--nuxeo-border);
+	padding-inline-end: 12px;
+}
+.viewer-toolbar button {
+	border: 0;
+	border-radius: 4px;
+	background: transparent;
+	color: var(--nuxeo-text-default);
+	padding: 6px 10px;
+	font-size: 13px;
+	line-height: 20px;
+}
+.viewer-toolbar button:hover:not(:disabled),
+.viewer-toolbar button.active {
+	background: var(--nuxeo-box, #fff);
+	color: var(--nuxeo-primary-color);
+}
+.viewer-toolbar button:focus-visible {
+	outline: 2px solid var(--nuxeo-primary-color);
+	outline-offset: 1px;
+}
+.viewer-toolbar button:disabled {
+	opacity: 0.4;
+}
+.viewer-toolbar output {
+	min-width: 48px;
+	font-size: 12px;
+	text-align: center;
+	font-variant-numeric: tabular-nums;
+}
+.image-preview.zoomed {
+	overflow: hidden;
+}
+.image-preview.zoomed img {
+	min-height: 0;
+	max-width: none;
+	max-height: none;
+	margin: auto;
+}
+.rendition-body .form-check {
+	padding-inline-start: 24px;
+}
+.rendition-body .form-check-input {
+	border-radius: 50%;
+	width: 14px;
+	height: 14px;
+}
+.rendition-body .original-rendition {
+	border-block-start: 2px solid var(--nuxeo-border);
+}
+.rendition-body .table-active {
+	--bs-table-bg-state: rgba(0, 102, 255, 0.06);
+}
+.rendition-body table {
+	font-size: 13px;
+}
+.rendition-body td small {
+	font-size: 11px;
+}
+:host:fullscreen {
+	background: var(--nuxeo-page-background, #f5f5f5);
+	padding: 16px;
+}
+:host:fullscreen .image-preview {
+	height: calc(100vh - 90px);
+}
+:host:fullscreen .picture-cards {
+	display: none;
+}
+
+// Polymer-style asset canvas and technical card row.
+:host {
+	height: auto;
+	min-height: 100%;
+	padding: 0;
+	background: var(--nuxeo-box, #fff);
+}
+.media {
+	overflow: visible;
+}
+.image-canvas {
+	padding: 24px 16px 16px;
+	background: var(--nuxeo-box, #fff);
+}
+.image-viewport {
+	position: relative;
+	min-width: 0;
+}
+.image-preview {
+	position: relative;
+	// Stage follows the image ratio (bound from naturalWidth/Height) like stock, capped by the viewport.
+	height: auto;
+	max-height: clamp(240px, calc(80vh - 60px), 880px);
+	min-height: 240px;
+	width: 100%;
+	align-items: center;
+	touch-action: none;
+	cursor: grab;
+}
+.image-preview.dragging {
+	cursor: grabbing;
+}
+.image-preview:focus-visible {
+	outline: 2px solid var(--nuxeo-primary-color);
+	outline-offset: -2px;
+}
+.image-preview img {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	max-width: none;
+	max-height: none;
+	min-height: 0;
+	user-select: none;
+	pointer-events: none;
+}
+.image-preview.zoomed {
+	height: clamp(240px, calc(80vh - 60px), 880px);
+}
+.viewer-toolbar {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	width: max-content;
+	max-width: calc(100% - 16px);
+	margin: 0;
+	padding: 4px 8px;
+	gap: 4px;
+	z-index: 2;
+	border-radius: 4px;
+	background: #272726;
+	color: #fff;
+	box-shadow: 0 1px 4px #0002;
+}
+.viewer-toolbar button {
+	flex: 0 0 auto;
+	min-width: 32px;
+	min-height: 36px;
+	touch-action: manipulation;
+	color: inherit;
+	font-size: 12px;
+	padding: 4px 8px;
+}
+.viewer-toolbar button.active,
+.viewer-toolbar button:hover:not(:disabled) {
+	color: #fff;
+	background: #ffffff24;
+}
+.viewer-toolbar output {
+	font-size: 11px;
+}
+.viewer-control-group {
+	border-color: #ffffff30;
+	padding-inline-end: 6px;
+}
+.asset-caption {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+	padding-top: 20px;
+	text-align: start;
+	font-size: 12px;
+}
+.asset-caption small {
+	display: block;
+	color: var(--bs-secondary-color);
+	margin-top: 4px;
+}
+.asset-caption button {
+	border: 0;
+	color: var(--nuxeo-text-default);
+	background: transparent;
+	padding: 8px;
+}
+.picture-cards {
+	max-width: none;
+	margin: 0;
+	gap: 8px;
+	align-items: stretch;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.rendition-tray {
+	border: 0;
+	border-radius: 0;
+	min-height: 200px;
+	align-self: stretch;
+}
+.rendition-tray summary {
+	font-size: 13px;
+}
+.rendition-body {
+	border-top: 0;
+	max-height: none;
+}
+.rendition-body thead {
+	display: none;
+}
+.rendition-body table {
+	font-size: 12px;
+}
+:host:fullscreen .image-preview:not(.zoomed) {
+	height: calc(100vh - 120px);
+	aspect-ratio: auto !important;
+}
+:host:fullscreen .image-preview:not(.zoomed) img {
+	object-fit: contain;
+}
+@media (max-width: 1100px) {
+	.picture-cards {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+@media (max-width: 640px) {
+	.picture-cards {
+		grid-template-columns: 1fr;
+	}
+	.image-canvas {
+		padding: 12px;
+	}
+}
+
+@media (pointer: coarse) {
+	.viewer-toolbar button {
+		min-width: 44px;
+		min-height: 44px;
+	}
+}

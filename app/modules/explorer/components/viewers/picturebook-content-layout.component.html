@@ -1,0 +1,271 @@
+<section
+	class="picturebook-content"
+	[attr.aria-label]="'content.named' | webuiMessage: '{type} content' : { type: contentLabel }"
+>
+	<nx-folderish-details-panel [document]="document" [noEdit]="toolbarContext().noEdit" />
+
+	<div
+		class="picturebook-content__controls"
+		role="toolbar"
+		[attr.aria-label]="
+			'content.resultControls' | webuiMessage: '{type} result controls' : { type: contentLabel }
+		"
+	>
+		<span class="picturebook-content__count" aria-live="polite">{{
+			'results.heading.count' | webuiMessage: '{0} result(s)' : total() ?? rows().length
+		}}</span>
+		@if (isOrderedFolder()) {
+			<button
+				type="button"
+				[disabled]="loading() || busy()"
+				[attr.aria-pressed]="naturalOrder()"
+				(click)="useNaturalOrder()"
+			>
+				{{
+					'app.modules.picturebook-content-layout.document-order-bb539a'
+						| webuiMessage: 'Document order'
+				}}
+			</button>
+		}
+		<div class="picturebook-content__actions">
+			<nx-webui-slot
+				name="RESULTS_ACTIONS"
+				[context]="toolbarContext()"
+				[includeIds]="['maretha.results.csv-export']"
+			/>
+			<div
+				role="group"
+				[attr.aria-label]="
+					'app.modules.picturebook-content-layout.display-mode-023ca6'
+						| webuiMessage: 'Display mode'
+				"
+			>
+				<button
+					type="button"
+					[attr.aria-pressed]="displayMode() === 'grid'"
+					(click)="setDisplayMode('grid')"
+					[attr.aria-label]="
+						'app.modules.picturebook-content-layout.switch-to-thumbnail-grid-657afb'
+							| webuiMessage: 'Switch to thumbnail grid'
+					"
+				>
+					<nx-webui-icon name="nuxeo:view-thumbnails" />
+				</button>
+				<button
+					type="button"
+					[attr.aria-pressed]="displayMode() === 'table'"
+					(click)="setDisplayMode('table')"
+					[attr.aria-label]="
+						'app.modules.picturebook-content-layout.switch-to-table-7efc0b'
+							| webuiMessage: 'Switch to table'
+					"
+				>
+					<nx-webui-icon name="nuxeo:view-list" />
+				</button>
+			</div>
+		</div>
+	</div>
+
+	@if (displayMode() === 'grid') {
+		<!-- Stock grid view: the sort bar under the result count (the table sorts by its headers). -->
+		<nx-results-sort-bar
+			class="picturebook-content__sort"
+			[options]="gridSortOptions()"
+			[field]="gridSort().field"
+			[ascending]="gridSort().ascending"
+			[disabled]="loading() || busy()"
+			(fieldChange)="setSort($any($event))"
+			(orderToggle)="toggleSortOrder()"
+		/>
+	}
+
+	@if (quickFilters().length) {
+		<div
+			class="picturebook-content__quick-filters"
+			role="group"
+			[attr.aria-label]="'search.quickFilters' | webuiMessage: 'Quick filters'"
+		>
+			@for (filter of quickFilters(); track filter.name) {
+				<label
+					><input
+						type="checkbox"
+						[checked]="filter.active"
+						(change)="toggleQuickFilter(filter.name)"
+						[disabled]="loading() || busy()"
+					/>{{ filter.label }}</label
+				>
+			}
+		</div>
+	}
+
+	@if (selectionCount()) {
+		<!-- The same selection bar as the searches: fixed across the window over the header. -->
+		<div
+			class="picturebook-content__selection selection-toolbar"
+			role="group"
+			[attr.aria-label]="
+				'app.modules.picturebook-content-layout.actions-for-selected-documents-38578b'
+					| webuiMessage: 'Actions for selected documents'
+			"
+		>
+			<span role="status">{{
+				'selectionToolbar.selected.items' | webuiMessage: '{0} item(s) selected' : selectionCount()
+			}}</span>
+			@if (!isCollection()) {
+				<button
+					type="button"
+					[disabled]="loading() || busy() || querySelected()"
+					(click)="selectAllMatching()"
+				>
+					<!-- The default search's message, so the wording and translations are the same. -->
+					{{
+						'app.modules.default-search-results.select-all-matching-5f6e32'
+							| webuiMessage: 'Select all matching'
+					}}
+				</button>
+			}
+			<button
+				type="button"
+				(click)="selectionOnly.set(!selectionOnly())"
+				[attr.aria-pressed]="selectionOnly()"
+			>
+				{{ 'results.displaySelection' | webuiMessage: 'Display selection' }}
+			</button>
+			<button
+				type="button"
+				(click)="toolbarContext().execute('clear-selection'); selectionOnly.set(false)"
+			>
+				{{ 'command.clear' | webuiMessage: 'Clear' }}
+			</button>
+			@if (keyboardHint()) {
+				<span
+					class="shortcut-hint"
+					aria-hidden="true"
+					[innerHTML]="
+						'selectionToolbar.hint.message'
+							| webuiMessage
+								: 'Use <kbd>{0}</kbd> + <kbd>.</kbd> to navigate to the toolbar'
+								: modifierKey
+					"
+				></span>
+			}
+			@if (querySelected()) {
+				<nx-webui-slot
+					name="RESULTS_ACTIONS"
+					[context]="toolbarContext()"
+					[includeIds]="['maretha.results.query-trash']"
+				/>
+			} @else {
+				<nx-webui-slot
+					[name]="isCollection() ? 'COLLECTION_ACTIONS' : 'RESULTS_SELECTION_ACTIONS'"
+					[context]="toolbarContext()"
+				/>
+			}
+		</div>
+	}
+
+	@if (error()) {
+		<p role="alert">{{ error() }}</p>
+		<button type="button" [disabled]="loading() || busy()" (click)="retry()">
+			{{ 'app.modules.picturebook-content-layout.retry-69f46b' | webuiMessage: 'Retry' }}
+		</button>
+	}
+	<nx-results-projection
+		[rowActivation]="true"
+		(rowActivated)="activateResult($event)"
+		[columnLayoutEnabled]="true"
+		(columnLayoutChange)="columnLayoutChanged($event)"
+		[columnChooser]="true"
+		(columnChooserOpen)="openColumnChooser()"
+		[rows]="displayedRows()"
+		[selection]="selectedIds()"
+		[mode]="displayMode()"
+		[columns]="resultColumns()"
+		[loading]="false"
+		[pageScroll]="true"
+		[readOnly]="loading() || busy()"
+		[scope]="toolbarContext().queryScope"
+		[remoteSort]="true"
+		hostId="picturebook-content"
+		[contextEpoch]="resultEpoch()"
+		(selectionChange)="projectedSelectionChange($event)"
+		(sortChange)="projectedSortChange($event)"
+		(loadMore)="more()"
+	>
+		<ng-template
+			nxResultsTemplate="item"
+			let-row="row"
+			let-selected="selected"
+			let-toggleSelection="toggleSelection"
+		>
+			<nx-document-grid-thumbnail
+				[document]="row"
+				[selected]="selected"
+				[selecting]="selectionCount() > 0"
+				[selectionDisabled]="loading() || busy()"
+				[href]="document?.type === 'Collection' ? resultUrl(row) : null"
+				(open)="activateCollectionLink($event, row)"
+				(toggleSelection)="toggleSelection()"
+			/>
+		</ng-template>
+		<ng-template nxResultsTemplate="cell:title" let-row="row">
+			<div class="picturebook-content__table-title">
+				@if (thumbnail(row)) {
+					<img [src]="thumbnail(row)" alt="" />
+				}
+				@if (document?.type === 'Collection') {
+					<a
+						[href]="resultUrl(row)"
+						(click)="activateCollectionLink($event, row)"
+						data-nx-results-interactive
+						>{{ row.title }}</a
+					>
+				} @else {
+					<a [routerLink]="row | documentLink" data-nx-results-interactive>{{ row.title }}</a>
+				}
+			</div>
+		</ng-template>
+		<ng-template nxResultsTemplate="cell:state" let-row="row"
+			><span class="type-tag">{{
+				statePresentation(row).key ?? '' | webuiMessage: statePresentation(row).fallback
+			}}</span></ng-template
+		>
+		<ng-template nxResultsTemplate="cell:modified" let-row="row">{{
+			documentDate(row, 'dc:modified') | webuiDate: 'longDate'
+		}}</ng-template>
+		<ng-template nxResultsTemplate="cell:created" let-row="row">{{
+			documentDate(row, 'dc:created') | webuiDate: 'longDate'
+		}}</ng-template>
+		<ng-template nxResultsTemplate="cell:lastContributor" let-row="row"
+			><nx-user-tag [lookup]="false" [user]="row.properties?.['dc:lastContributor']"
+		/></ng-template>
+		<ng-template nxResultsHostTemplate="empty"
+			><p>
+				{{
+					'app.modules.picturebook-content-layout.no-documents-found-4b2e0f'
+						| webuiMessage: 'No documents found.'
+				}}
+			</p></ng-template
+		>
+	</nx-results-projection>
+	<nx-search-column-chooser
+		[columns]="resultColumns()"
+		(visibilityChange)="toggleColumn($event.id)"
+		(resetColumns)="resetColumns()"
+	/>
+
+	<!-- Status lines sit below the results and out of the flow: they never shift the grid. -->
+	@if (loading() && !rows().length) {
+		<p role="status" class="picturebook-content__status">
+			{{ 'content.loading' | webuiMessage: 'Loading {type} content…' : { type: contentLabel } }}
+		</p>
+	}
+	<!-- The shared Load more, as the searches: it reports the next page's progress itself. -->
+	@if (hasMore()) {
+		<nx-load-more-button
+			[loading]="loadingMore() && rows().length > 0"
+			[disabled]="loading() || busy()"
+			(more)="more()"
+		/>
+	}
+</section>

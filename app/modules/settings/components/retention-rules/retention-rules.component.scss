@@ -1,0 +1,42 @@
+@import '../../../../../styles/_variables';
+
+:host {
+	height: 100%;
+	display: block;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 16px;
+}
+
+.card {
+	min-height: max(10vh, 300px);
+}
+
+.card-header {
+	border-block-end: 0;
+	text-transform: uppercase;
+	font-size: 0.85rem;
+	letter-spacing: 0.03em;
+}
+
+.scrollable {
+	max-height: 190px;
+	overflow: auto;
+}
+
+.form-check {
+	display: inline-block;
+	min-height: 1rem;
+	margin-block-end: 0;
+}
+
+.form-check-input {
+	&:checked {
+		background-color: #{$runtime-success};
+		border-color: #{$runtime-success};
+
+		&:focus {
+			box-shadow: 0 0 0 0.25rem #{$runtime-success-light-35};
+		}
+	}
+}

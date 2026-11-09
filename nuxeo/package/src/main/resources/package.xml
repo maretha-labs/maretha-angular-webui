@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package type="addon" name="maretha-angular-webui" version="@VERSION@">
+  <title>Maretha Angular Web UI</title>
+  <description>
+    <p>Angular user interface served under /nuxeo/ng/, with authenticated media, file and ZIP
+      delivery and its OAuth2 client.</p>
+  </description>
+  <vendor>io.maretha</vendor>
+  <installer restart="true" />
+  <uninstaller restart="true" />
+  <nuxeo-validation>none</nuxeo-validation>
+  <production-state>testing</production-state>
+  <supported>true</supported>
+  <target-platform>
+    <name>lts</name>
+    <version>[2025.0,2026.0)</version>
+  </target-platform>
+  <license>Apache-2.0</license>
+  <license-url>https://www.apache.org/licenses/LICENSE-2.0</license-url>
+  <visibility>DEV</visibility>
+</package>

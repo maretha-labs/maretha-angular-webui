@@ -1,0 +1,156 @@
+# CI-only native dependencies. There is deliberately no Ingress, NodePort or hostPort.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: maretha-runtime-ci
+  labels:
+    maretha.io/purpose: runtime-native-ci
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: native-ci-budget
+  namespace: maretha-runtime-ci
+spec:
+  hard:
+    pods: '4'
+    requests.cpu: '2'
+    limits.cpu: '4'
+    requests.memory: 3Gi
+    limits.memory: 5Gi
+    requests.storage: 20Gi
+    persistentvolumeclaims: '2'
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo
+  namespace: maretha-runtime-ci
+spec:
+  accessModes: [ReadWriteOnce]
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: opensearch
+  namespace: maretha-runtime-ci
+spec:
+  accessModes: [ReadWriteOnce]
+  resources:
+    requests:
+      storage: 10Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo
+  namespace: maretha-runtime-ci
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels: { app: mongo }
+  template:
+    metadata:
+      labels: { app: mongo }
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: mongo
+          image: mongo:7.0.26@sha256:8c3ce64d1a433bf57ea79035b48a38ea3e532997a1328fe3266e2e2e8bfb41b6
+          args: [--bind_ip_all]
+          ports:
+            - { containerPort: 27017 }
+          resources:
+            requests: { cpu: 250m, memory: 512Mi }
+            limits: { cpu: '1', memory: 1Gi }
+          readinessProbe:
+            tcpSocket: { port: 27017 }
+            periodSeconds: 5
+          volumeMounts:
+            - { name: data, mountPath: /data/db }
+      volumes:
+        - name: data
+          persistentVolumeClaim: { claimName: mongo }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+  namespace: maretha-runtime-ci
+spec:
+  selector: { app: mongo }
+  ports:
+    - { port: 27017, targetPort: 27017 }
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opensearch
+  namespace: maretha-runtime-ci
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels: { app: opensearch }
+  template:
+    metadata:
+      labels: { app: opensearch }
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        fsGroup: 1000
+      containers:
+        - name: opensearch
+          image: opensearchproject/opensearch:2.19.1@sha256:72fe2fc84be8295906b8efca020b46c58ed45c8da60cd9b8b49e1991e38e89a4
+          env:
+            - { name: discovery.type, value: single-node }
+            - { name: DISABLE_INSTALL_DEMO_CONFIG, value: 'true' }
+            - { name: DISABLE_SECURITY_PLUGIN, value: 'true' }
+            - { name: OPENSEARCH_JAVA_OPTS, value: '-Xms1g -Xmx1g' }
+            - { name: bootstrap.memory_lock, value: 'false' }
+            - { name: node.store.allow_mmap, value: 'false' }
+          ports:
+            - { containerPort: 9200 }
+          resources:
+            requests: { cpu: 500m, memory: 2Gi }
+            limits: { cpu: '2', memory: 3Gi }
+          readinessProbe:
+            httpGet: { path: /, port: 9200 }
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          volumeMounts:
+            - { name: data, mountPath: /usr/share/opensearch/data }
+      volumes:
+        - name: data
+          persistentVolumeClaim: { claimName: opensearch }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: opensearch
+  namespace: maretha-runtime-ci
+spec:
+  selector: { app: opensearch }
+  ports:
+    - { port: 9200, targetPort: 9200 }
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: isolated-native-dependencies
+  namespace: maretha-runtime-ci
+spec:
+  podSelector: {}
+  policyTypes: [Ingress, Egress]
+  ingress:
+    - from:
+        - podSelector: {}
+  egress:
+    - to:
+        - podSelector: {}

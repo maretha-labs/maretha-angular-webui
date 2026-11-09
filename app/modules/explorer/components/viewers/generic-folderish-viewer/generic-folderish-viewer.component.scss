@@ -1,0 +1,55 @@
+@import '../../../../../../styles/_variables';
+
+:host,
+.content {
+	display: flex;
+	flex: 1;
+	min-height: 0;
+}
+
+.content {
+	flex-direction: column;
+	padding-inline: 16px;
+}
+
+nx-results-projection {
+	min-width: 0;
+	flex: 1;
+	overflow: auto;
+}
+
+.display-modes {
+	display: flex;
+	flex: none;
+	justify-content: flex-end;
+	gap: 0.25rem;
+}
+
+.form-check-input {
+	position: relative;
+	background-color: transparent;
+	transition: none !important;
+
+	&:active,
+	&:focus {
+		box-shadow: none;
+		filter: none;
+	}
+
+	&:checked {
+		border-color: transparent;
+	}
+}
+
+:host ::ng-deep .ag-row {
+	min-height: 47px;
+}
+
+:host ::ng-deep .ag-cell {
+	display: flex;
+	align-items: center;
+}
+
+:host ::ng-deep nx-document-icon-and-title {
+	margin: 0.5rem 0;
+}

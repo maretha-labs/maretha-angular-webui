@@ -1,0 +1,111 @@
+// Stock list cards own their .8em vertical margin; SDK item wrappers add no second gap.
+:host ::ng-deep .nx-results-projection__cards:not(.nx-results-projection__grid) {
+	gap: 0;
+}
+
+// Keep the page as the scroll owner. Header and row heights remain AG Grid's real geometry.
+:host ::ng-deep .ag-root-wrapper {
+	border: 2px solid transparent;
+	border-block: 0;
+	border-radius: 0;
+	font-size: 13px;
+}
+:host ::ng-deep .ag-header {
+	overflow: visible;
+	z-index: 4;
+}
+:host ::ng-deep .ag-header-cell {
+	font-size: 13px;
+	overflow: visible;
+	font-weight: 600;
+	color: var(--nuxeo-text-light, #606978);
+	padding-inline: 24px;
+}
+:host ::ng-deep .ag-header-viewport {
+	overflow: visible;
+}
+:host ::ng-deep .ag-header-cell-resize::after {
+	top: 0;
+	height: 100%;
+	width: 1px;
+	background: var(--nuxeo-border, #e3e3e3);
+}
+:host ::ng-deep .ag-cell {
+	font-size: 13px;
+	display: flex;
+	align-items: center;
+	padding-inline: 24px;
+}
+:host ::ng-deep nx-ag-grid-projection-cell {
+	display: flex;
+	align-items: center;
+	min-width: 0;
+	width: 100%;
+}
+:host ::ng-deep .ag-pinned-left-header,
+:host ::ng-deep .ag-pinned-right-header,
+:host ::ng-deep .ag-cell-last-left-pinned,
+:host ::ng-deep .ag-cell-first-right-pinned {
+	border-inline: 0;
+}
+:host ::ng-deep nx-ag-grid-projection-checkbox,
+:host ::ng-deep nx-ag-grid-projection-select-all {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+:host ::ng-deep nx-ag-grid-projection-checkbox input,
+:host ::ng-deep nx-ag-grid-projection-select-all input {
+	box-sizing: border-box;
+	width: 22px;
+	height: 22px;
+	margin: 0;
+	accent-color: var(--nuxeo-primary-color);
+}
+
+:host ::ng-deep .ag-cell[col-id='__selection'],
+:host ::ng-deep .ag-header-cell[col-id='__selection'] {
+	padding-inline: 0;
+	justify-content: center;
+}
+
+:host ::ng-deep .ag-pinned-left-cols-container,
+:host ::ng-deep .ag-pinned-right-cols-container {
+	border: 0;
+}
+:host ::ng-deep nx-ag-grid-projection-checkbox input,
+:host ::ng-deep nx-ag-grid-projection-select-all input {
+	position: relative;
+	appearance: none;
+	border: 2px solid var(--nuxeo-text-default, #3a3a54);
+	border-radius: 0;
+	background: transparent;
+	cursor: pointer;
+}
+:host ::ng-deep nx-ag-grid-projection-checkbox input:checked,
+:host ::ng-deep nx-ag-grid-projection-select-all input:checked,
+:host ::ng-deep nx-ag-grid-projection-select-all input:indeterminate {
+	border-color: var(--nuxeo-primary-color);
+	background: var(--nuxeo-primary-color);
+}
+:host ::ng-deep nx-ag-grid-projection-checkbox input:checked::after,
+:host ::ng-deep nx-ag-grid-projection-select-all input:checked::after {
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 5px;
+	top: 4px;
+	left: 3px;
+	border-left: 2px solid white;
+	border-bottom: 2px solid white;
+	transform: rotate(-45deg);
+}
+:host ::ng-deep nx-ag-grid-projection-select-all input:indeterminate::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	width: 10px;
+	height: 2px;
+	margin: auto;
+	background: white;
+}

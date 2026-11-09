@@ -1,0 +1,1931 @@
+{
+  "scope": "Initial legacy-catalog migration snapshot only; counts below predate W6 message additions. Current layer hashes/counts and gaps are in translation-provenance.generated.json.",
+  "independentLinguisticReview": false,
+  "reuseRule": "Same English source value and one unambiguous target value; existing app translations retained.",
+  "locales": {
+    "en-US": {
+      "preserved": 528,
+      "reused": {},
+      "remaining": 0
+    },
+    "es": {
+      "preserved": 0,
+      "reused": {
+        "pageProviders.default_search.aggregations.common_size_agg.buckets.small": [
+          "exportButton.Small"
+        ],
+        "pageProviders.default_search.aggregations.common_size_agg.buckets.medium": [
+          "exportButton.Medium"
+        ],
+        "pageProviders.default_search.aggregations.dc_coverage_agg.label": [
+          "defaultSearch.coverage",
+          "documentContentView.datatable.header.coverage",
+          "label.dublincore.coverage",
+          "searchResults.sort.field.coverage"
+        ],
+        "pageProviders.default_search.aggregations.dc_modified_agg.buckets.lastWeek": [
+          "label.ui.aggregate.lastWeek"
+        ],
+        "pageProviders.default_search.aggregations.dc_modified_agg.buckets.lastMonth": [
+          "label.ui.aggregate.lastMonth"
+        ],
+        "pageProviders.default_search.aggregations.dc_modified_agg.buckets.lastYear": [
+          "label.ui.aggregate.lastYear"
+        ],
+        "pageProviders.default_search.aggregations.dc_nature_agg.label": [
+          "defaultSearch.nature",
+          "documentContentView.datatable.header.nature",
+          "label.dublincore.nature",
+          "searchResults.sort.field.nature"
+        ],
+        "pageProviders.default_search.aggregations.dc_subjects_agg.label": [
+          "defaultSearch.subject",
+          "documentContentView.datatable.header.subjects",
+          "label.dublincore.subjects"
+        ],
+        "pageProviders.default_search.quickFilters.onlyValidated": [
+          "label.ui.state.validated",
+          "ui.label.quickFilters.onlyValidated"
+        ],
+        "pageProviders.default_trash_search.aggregations.common_size_agg.buckets.small": [
+          "exportButton.Small"
+        ],
+        "pageProviders.default_trash_search.aggregations.common_size_agg.buckets.medium": [
+          "exportButton.Medium"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_coverage_agg.label": [
+          "defaultSearch.coverage",
+          "documentContentView.datatable.header.coverage",
+          "label.dublincore.coverage",
+          "searchResults.sort.field.coverage"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_modified_agg.buckets.lastWeek": [
+          "label.ui.aggregate.lastWeek"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_modified_agg.buckets.lastMonth": [
+          "label.ui.aggregate.lastMonth"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_modified_agg.buckets.lastYear": [
+          "label.ui.aggregate.lastYear"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_nature_agg.label": [
+          "defaultSearch.nature",
+          "documentContentView.datatable.header.nature",
+          "label.dublincore.nature",
+          "searchResults.sort.field.nature"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_subjects_agg.label": [
+          "defaultSearch.subject",
+          "documentContentView.datatable.header.subjects",
+          "label.dublincore.subjects"
+        ],
+        "pageProviders.retention_search.aggregations.doc_type_agg.buckets.small": [
+          "exportButton.Small"
+        ],
+        "pageProviders.retention_search.aggregations.doc_type_agg.buckets.medium": [
+          "exportButton.Medium"
+        ],
+        "search.nxql": ["app.nxqlSearch", "app.title.admin.nxql", "nxqlSearch.heading"],
+        "search.options": ["publication.internal.options"],
+        "directories.continent.africa": ["label.directories.continent.africa"],
+        "directories.continent.antarctica": ["label.directories.continent.antarctica"],
+        "directories.continent.europe": ["label.directories.continent.europe"],
+        "directories.continent.north-america": ["label.directories.continent.north-america"],
+        "directories.continent.oceania": ["label.directories.continent.oceania"],
+        "directories.continent.south-america": ["label.directories.continent.south-america"],
+        "directories.country.Afghanistan": ["label.directories.country.Afghanistan"],
+        "directories.country.Aland_Islands": ["label.directories.country.Aland_Islands"],
+        "directories.country.Algeria": ["label.directories.country.Algeria"],
+        "directories.country.American_Samoa": ["label.directories.country.American_Samoa"],
+        "directories.country.Antarctica_the_territory_South_of_60_deg_S": [
+          "label.directories.country.Antarctica_the_territory_South_of_60_deg_S"
+        ],
+        "directories.country.Antigua_and_Barbuda": [
+          "label.directories.country.Antigua_and_Barbuda"
+        ],
+        "directories.country.Azerbaijan": ["label.directories.country.Azerbaijan"],
+        "directories.country.Bahrain": ["label.directories.country.Bahrain"],
+        "directories.country.Belarus": ["label.directories.country.Belarus"],
+        "directories.country.Belgium": ["label.directories.country.Belgium"],
+        "directories.country.Belize": ["label.directories.country.Belize"],
+        "directories.country.Benin": ["label.directories.country.Benin"],
+        "directories.country.Bhutan": ["label.directories.country.Bhutan"],
+        "directories.country.Bosnia_and_Herzegovina": [
+          "label.directories.country.Bosnia_and_Herzegovina"
+        ],
+        "directories.country.Botswana": ["label.directories.country.Botswana"],
+        "directories.country.Bouvet_Island_Bouvetoya": [
+          "label.directories.country.Bouvet_Island_Bouvetoya"
+        ],
+        "directories.country.Brazil": ["label.directories.country.Brazil"],
+        "directories.country.British_Indian_Ocean_Territory_Chagos_Archipelago": [
+          "label.directories.country.British_Indian_Ocean_Territory_Chagos_Archipelago"
+        ],
+        "directories.country.British_Virgin_Islands": [
+          "label.directories.country.British_Virgin_Islands"
+        ],
+        "directories.country.Brunei_Darussalam": ["label.directories.country.Brunei_Darussalam"],
+        "directories.country.Cambodia": ["label.directories.country.Cambodia"],
+        "directories.country.Cameroon": ["label.directories.country.Cameroon"],
+        "directories.country.Canada": ["label.directories.country.Canada"],
+        "directories.country.Cape_Verde": ["label.directories.country.Cape_Verde"],
+        "directories.country.Cayman_Islands": ["label.directories.country.Cayman_Islands"],
+        "directories.country.Central_African_Republic": [
+          "label.directories.country.Central_African_Republic"
+        ],
+        "directories.country.Christmas_Island": ["label.directories.country.Christmas_Island"],
+        "directories.country.Cocos_Keeling_Islands": [
+          "label.directories.country.Cocos_Keeling_Islands"
+        ],
+        "directories.country.Comoros": ["label.directories.country.Comoros"],
+        "directories.country.Congo_Democratic_Republic": [
+          "label.directories.country.Congo_Democratic_Republic"
+        ],
+        "directories.country.Congo_Republic": ["label.directories.country.Congo_Republic"],
+        "directories.country.Cook_Islands": ["label.directories.country.Cook_Islands"],
+        "directories.country.Croatia": ["label.directories.country.Croatia"],
+        "directories.country.Cyprus": ["label.directories.country.Cyprus"],
+        "directories.country.Czech_Republic": ["label.directories.country.Czech_Republic"],
+        "directories.country.Denmark": ["label.directories.country.Denmark"],
+        "directories.country.Djibouti": ["label.directories.country.Djibouti"],
+        "directories.country.Dominican_Republic": ["label.directories.country.Dominican_Republic"],
+        "directories.country.Egypt": ["label.directories.country.Egypt"],
+        "directories.country.Equatorial_Guinea": ["label.directories.country.Equatorial_Guinea"],
+        "directories.country.Ethiopia": ["label.directories.country.Ethiopia"],
+        "directories.country.Falkland_Islands_Malvinas": [
+          "label.directories.country.Falkland_Islands_Malvinas"
+        ],
+        "directories.country.Faroe_Islands": ["label.directories.country.Faroe_Islands"],
+        "directories.country.Fiji": ["label.directories.country.Fiji"],
+        "directories.country.Finland": ["label.directories.country.Finland"],
+        "directories.country.France": ["label.directories.country.France"],
+        "directories.country.French_Guiana": ["label.directories.country.French_Guiana"],
+        "directories.country.French_Polynesia": ["label.directories.country.French_Polynesia"],
+        "directories.country.French_Southern_Territories": [
+          "label.directories.country.French_Southern_Territories"
+        ],
+        "directories.country.Gabon": ["label.directories.country.Gabon"],
+        "directories.country.Germany": ["label.directories.country.Germany"],
+        "directories.country.Greece": ["label.directories.country.Greece"],
+        "directories.country.Greenland": ["label.directories.country.Greenland"],
+        "directories.country.Grenada": ["label.directories.country.Grenada"],
+        "directories.country.Guadaloupe": ["label.directories.country.Guadaloupe"],
+        "directories.country.Guinea_Bissau": ["label.directories.country.Guinea_Bissau"],
+        "directories.country.Haiti": ["label.directories.country.Haiti"],
+        "directories.country.Heard_and_McDonald_Islands": [
+          "label.directories.country.Heard_and_McDonald_Islands"
+        ],
+        "directories.country.Holy_See_Vatican_City_State": [
+          "label.directories.country.Holy_See_Vatican_City_State"
+        ],
+        "directories.country.Hungary": ["label.directories.country.Hungary"],
+        "directories.country.Iceland": ["label.directories.country.Iceland"],
+        "directories.country.Iran": ["label.directories.country.Iran"],
+        "directories.country.Ireland": ["label.directories.country.Ireland"],
+        "directories.country.Isle_of_Man": ["label.directories.country.Isle_of_Man"],
+        "directories.country.Italy": ["label.directories.country.Italy"],
+        "directories.country.Japan": ["label.directories.country.Japan"],
+        "directories.country.Jordan": ["label.directories.country.Jordan"],
+        "directories.country.Kazakhstan": ["label.directories.country.Kazakhstan"],
+        "directories.country.Kenya": ["label.directories.country.Kenya"],
+        "directories.country.Kyrgyz_Republic": ["label.directories.country.Kyrgyz_Republic"],
+        "directories.country.Lao_People_s_Democratic_Republic": [
+          "label.directories.country.Lao_People_s_Democratic_Republic"
+        ],
+        "directories.country.Latvia": ["label.directories.country.Latvia"],
+        "directories.country.Lebanon": ["label.directories.country.Lebanon"],
+        "directories.country.Lesotho": ["label.directories.country.Lesotho"],
+        "directories.country.Libyan_Arab_Jamahiriya": [
+          "label.directories.country.Libyan_Arab_Jamahiriya"
+        ],
+        "directories.country.Lithuania": ["label.directories.country.Lithuania"],
+        "directories.country.Luxembourg": ["label.directories.country.Luxembourg"],
+        "directories.country.Malawi": ["label.directories.country.Malawi"],
+        "directories.country.Malaysia": ["label.directories.country.Malaysia"],
+        "directories.country.Maldives": ["label.directories.country.Maldives"],
+        "directories.country.Marshall_Islands": ["label.directories.country.Marshall_Islands"],
+        "directories.country.Martinique": ["label.directories.country.Martinique"],
+        "directories.country.Mauritius": ["label.directories.country.Mauritius"],
+        "directories.country.Mexico": ["label.directories.country.Mexico"],
+        "directories.country.Moldova": ["label.directories.country.Moldova"],
+        "directories.country.Monaco": ["label.directories.country.Monaco"],
+        "directories.country.Morocco": ["label.directories.country.Morocco"],
+        "directories.country.Myanmar": ["label.directories.country.Myanmar"],
+        "directories.country.Netherlands": ["label.directories.country.Netherlands"],
+        "directories.country.Netherlands_Antilles": [
+          "label.directories.country.Netherlands_Antilles"
+        ],
+        "directories.country.New_Caledonia": ["label.directories.country.New_Caledonia"],
+        "directories.country.New_Zealand": ["label.directories.country.New_Zealand"],
+        "directories.country.Niger": ["label.directories.country.Niger"],
+        "directories.country.Norfolk_Island": ["label.directories.country.Norfolk_Island"],
+        "directories.country.North_Korea": ["label.directories.country.North_Korea"],
+        "directories.country.Northern_Mariana_Islands": [
+          "label.directories.country.Northern_Mariana_Islands"
+        ],
+        "directories.country.Norway": ["label.directories.country.Norway"],
+        "directories.country.Oman": ["label.directories.country.Oman"],
+        "directories.country.Pakistan": ["label.directories.country.Pakistan"],
+        "directories.country.Palestinian_Territory": [
+          "label.directories.country.Palestinian_Territory"
+        ],
+        "directories.country.Panama": ["label.directories.country.Panama"],
+        "directories.country.Papua_New_Guinea": ["label.directories.country.Papua_New_Guinea"],
+        "directories.country.Peru": ["label.directories.country.Peru"],
+        "directories.country.Philippines": ["label.directories.country.Philippines"],
+        "directories.country.Pitcairn_Island": ["label.directories.country.Pitcairn_Island"],
+        "directories.country.Poland": ["label.directories.country.Poland"],
+        "directories.country.Reunion": ["label.directories.country.Reunion"],
+        "directories.country.Romania": ["label.directories.country.Romania"],
+        "directories.country.Russian_Federation": ["label.directories.country.Russian_Federation"],
+        "directories.country.Rwanda": ["label.directories.country.Rwanda"],
+        "directories.country.Sao_Tome_and_Principe": [
+          "label.directories.country.Sao_Tome_and_Principe"
+        ],
+        "directories.country.Saudi_Arabia": ["label.directories.country.Saudi_Arabia"],
+        "directories.country.Sierra_Leone": ["label.directories.country.Sierra_Leone"],
+        "directories.country.Singapore": ["label.directories.country.Singapore"],
+        "directories.country.Slovakia_Slovak_Republic": [
+          "label.directories.country.Slovakia_Slovak_Republic"
+        ],
+        "directories.country.Slovenia": ["label.directories.country.Slovenia"],
+        "directories.country.Solomon_Islands": ["label.directories.country.Solomon_Islands"],
+        "directories.country.South_Africa": ["label.directories.country.South_Africa"],
+        "directories.country.South_Georgia_and_the_South_Sandwich_Islands": [
+          "label.directories.country.South_Georgia_and_the_South_Sandwich_Islands"
+        ],
+        "directories.country.South_Korea": ["label.directories.country.South_Korea"],
+        "directories.country.Spain": ["label.directories.country.Spain"],
+        "directories.country.St_Helena": ["label.directories.country.St_Helena"],
+        "directories.country.St_Kitts_and_Nevis": ["label.directories.country.St_Kitts_and_Nevis"],
+        "directories.country.St_Lucia": ["label.directories.country.St_Lucia"],
+        "directories.country.St_Pierre_and_Miquelon": [
+          "label.directories.country.St_Pierre_and_Miquelon"
+        ],
+        "directories.country.St_Vincent_and_the_Grenadines": [
+          "label.directories.country.St_Vincent_and_the_Grenadines"
+        ],
+        "directories.country.Sudan": ["label.directories.country.Sudan"],
+        "directories.country.Suriname": ["label.directories.country.Suriname"],
+        "directories.country.Svalbard_Jan_Mayen_Islands": [
+          "label.directories.country.Svalbard_Jan_Mayen_Islands"
+        ],
+        "directories.country.Swaziland": ["label.directories.country.Swaziland"],
+        "directories.country.Sweden": ["label.directories.country.Sweden"],
+        "directories.country.Switzerland": ["label.directories.country.Switzerland"],
+        "directories.country.Syrian_Arab_Republic": [
+          "label.directories.country.Syrian_Arab_Republic"
+        ],
+        "directories.country.Taiwan": ["label.directories.country.Taiwan"],
+        "directories.country.Tajikistan": ["label.directories.country.Tajikistan"],
+        "directories.country.Thailand": ["label.directories.country.Thailand"],
+        "directories.country.Timor_Leste": ["label.directories.country.Timor_Leste"],
+        "directories.country.Tokelau_Tokelau_Islands": [
+          "label.directories.country.Tokelau_Tokelau_Islands"
+        ],
+        "directories.country.Trinidad_and_Tobago": [
+          "label.directories.country.Trinidad_and_Tobago"
+        ],
+        "directories.country.Tunisia": ["label.directories.country.Tunisia"],
+        "directories.country.Turkey": ["label.directories.country.Turkey"],
+        "directories.country.Turkmenistan": ["label.directories.country.Turkmenistan"],
+        "directories.country.Turks_and_Caicos_Islands": [
+          "label.directories.country.Turks_and_Caicos_Islands"
+        ],
+        "directories.country.US_Virgin_Islands": ["label.directories.country.US_Virgin_Islands"],
+        "directories.country.Ukraine": ["label.directories.country.Ukraine"],
+        "directories.country.United_Arab_Emirates": [
+          "label.directories.country.United_Arab_Emirates"
+        ],
+        "directories.country.United_Kingdom_of_Great_Britain_N_Ireland": [
+          "label.directories.country.United_Kingdom_of_Great_Britain_N_Ireland"
+        ],
+        "directories.country.United_States_Minor_Outlying_Islands": [
+          "label.directories.country.United_States_Minor_Outlying_Islands"
+        ],
+        "directories.country.United_States_of_America": [
+          "label.directories.country.United_States_of_America"
+        ],
+        "directories.country.Uzbekistan": ["label.directories.country.Uzbekistan"],
+        "directories.country.Viet_Nam": ["label.directories.country.Viet_Nam"],
+        "directories.country.Wallis_and_Futuna_Islands": [
+          "label.directories.country.Wallis_and_Futuna_Islands"
+        ],
+        "directories.country.Western_Sahara": ["label.directories.country.Western_Sahara"],
+        "directories.country.Zimbabwe": ["label.directories.country.Zimbabwe"],
+        "directories.english": ["label.directories.english"],
+        "directories.french": ["label.directories.french"],
+        "directories.german": ["label.directories.german"],
+        "directories.italian": ["label.directories.italian"],
+        "directories.japanese": ["label.directories.japanese"],
+        "directories.nature.CDRom": ["label.directories.nature.CDRom"],
+        "directories.nature.accomodationApplicationForm": [
+          "label.directories.nature.accomodationApplicationForm"
+        ],
+        "directories.nature.acknowledgement": ["label.directories.nature.acknowledgement"],
+        "directories.nature.application": [
+          "authenticationTokensManagement.application",
+          "label.directories.nature.application"
+        ],
+        "directories.nature.article": ["label.directories.nature.article"],
+        "directories.nature.assessment": ["label.directories.nature.assessment"],
+        "directories.nature.bankAccountDetails": ["label.directories.nature.bankAccountDetails"],
+        "directories.nature.booklet": ["label.directories.nature.booklet"],
+        "directories.nature.card": ["label.directories.nature.card"],
+        "directories.nature.certificate": ["label.directories.nature.certificate"],
+        "directories.nature.contract": ["label.directories.nature.contract"],
+        "directories.nature.convocation": ["label.directories.nature.convocation"],
+        "directories.nature.credit": ["label.directories.nature.credit"],
+        "directories.nature.decree": ["label.directories.nature.decree"],
+        "directories.nature.deliveryNote": ["label.directories.nature.deliveryNote"],
+        "directories.nature.email": [
+          "editUser.email",
+          "popupPermission.email",
+          "userGroupSearch.email",
+          "viewUser.email",
+          "easysharefolder.contactEmail",
+          "label.directories.nature.email",
+          "label.mail.folder.email"
+        ],
+        "directories.nature.endorsement": ["label.directories.nature.endorsement"],
+        "directories.nature.internshipReport": ["label.directories.nature.internshipReport"],
+        "directories.nature.invoice": ["label.directories.nature.invoice"],
+        "directories.nature.leaveApplication": ["label.directories.nature.leaveApplication"],
+        "directories.nature.letter": ["label.directories.nature.letter"],
+        "directories.nature.loanApplication": ["label.directories.nature.loanApplication"],
+        "directories.nature.medicalCertificate": ["label.directories.nature.medicalCertificate"],
+        "directories.nature.note": [
+          "label.directories.nature.note",
+          "label.document.type.note",
+          "searchResults.highlight.field.note:note.fulltext"
+        ],
+        "directories.nature.notice": ["label.directories.nature.notice"],
+        "directories.nature.notification": ["label.directories.nature.notification"],
+        "directories.nature.order": ["label.directories.nature.order"],
+        "directories.nature.pressReview": ["label.directories.nature.pressReview"],
+        "directories.nature.procedure": ["label.directories.nature.procedure"],
+        "directories.nature.purchaseOrder": ["label.directories.nature.purchaseOrder"],
+        "directories.nature.quotation": ["label.directories.nature.quotation"],
+        "directories.nature.report": ["label.directories.nature.report"],
+        "directories.nature.serviceCertificate": ["label.directories.nature.serviceCertificate"],
+        "directories.nature.trainingApplication": ["label.directories.nature.trainingApplication"],
+        "directories.nature.worksheet": ["label.directories.nature.worksheet"],
+        "directories.portuguese": ["label.directories.portuguese"],
+        "directories.russian": ["label.directories.russian"],
+        "directories.spanish": ["label.directories.spanish"],
+        "directories.subtopic.architecture": ["label.directories.subtopic.architecture"],
+        "directories.subtopic.arthistory": ["label.directories.subtopic.arthistory"],
+        "directories.subtopic.astronautic": ["label.directories.subtopic.astronautic"],
+        "directories.subtopic.astronomy": ["label.directories.subtopic.astronomy"],
+        "directories.subtopic.biology": ["label.directories.subtopic.biology"],
+        "directories.subtopic.chemistry": ["label.directories.subtopic.chemistry"],
+        "directories.subtopic.cinema": ["label.directories.subtopic.cinema"],
+        "directories.subtopic.comics": ["label.directories.subtopic.comics"],
+        "directories.subtopic.company": [
+          "editUser.company",
+          "viewUser.company",
+          "label.directories.subtopic.company"
+        ],
+        "directories.subtopic.culture": ["label.directories.subtopic.culture"],
+        "directories.subtopic.danse": ["label.directories.subtopic.danse"],
+        "directories.subtopic.earthscience": ["label.directories.subtopic.earthscience"],
+        "directories.subtopic.ecology": ["label.directories.subtopic.ecology"],
+        "directories.subtopic.economy": ["label.directories.subtopic.economy"],
+        "directories.subtopic.education": ["label.directories.subtopic.education"],
+        "directories.subtopic.electronic": ["label.directories.subtopic.electronic"],
+        "directories.subtopic.energy": ["label.directories.subtopic.energy"],
+        "directories.subtopic.fashion": ["label.directories.subtopic.fashion"],
+        "directories.subtopic.games": ["label.directories.subtopic.games"],
+        "directories.subtopic.gardening": ["label.directories.subtopic.gardening"],
+        "directories.subtopic.gastronomy": ["label.directories.subtopic.gastronomy"],
+        "directories.subtopic.geography": ["label.directories.subtopic.geography"],
+        "directories.subtopic.humanitarian": ["label.directories.subtopic.humanitarian"],
+        "directories.subtopic.industry": ["label.directories.subtopic.industry"],
+        "directories.subtopic.information": ["label.directories.subtopic.information"],
+        "directories.subtopic.it": ["label.directories.subtopic.it"],
+        "directories.subtopic.languages": ["label.directories.subtopic.languages"],
+        "directories.subtopic.literature": ["label.directories.subtopic.literature"],
+        "directories.subtopic.logic": ["label.directories.subtopic.logic"],
+        "directories.subtopic.math": ["label.directories.subtopic.math"],
+        "directories.subtopic.medicine": ["label.directories.subtopic.medicine"],
+        "directories.subtopic.minority": ["label.directories.subtopic.minority"],
+        "directories.subtopic.music": ["label.directories.subtopic.music"],
+        "directories.subtopic.paint": ["label.directories.subtopic.paint"],
+        "directories.subtopic.photography": ["label.directories.subtopic.photography"],
+        "directories.subtopic.phylosophy": ["label.directories.subtopic.phylosophy"],
+        "directories.subtopic.physic": ["label.directories.subtopic.physic"],
+        "directories.subtopic.psychology": ["label.directories.subtopic.psychology"],
+        "directories.subtopic.religion": ["label.directories.subtopic.religion"],
+        "directories.subtopic.rights": [
+          "label.directories.subtopic.rights",
+          "pictureViewLayout.rights"
+        ],
+        "directories.subtopic.robotic": ["label.directories.subtopic.robotic"],
+        "directories.subtopic.sexuality": ["label.directories.subtopic.sexuality"],
+        "directories.subtopic.show": ["label.directories.subtopic.show"],
+        "directories.subtopic.sociology": ["label.directories.subtopic.sociology"],
+        "directories.subtopic.sport": ["label.directories.subtopic.sport"],
+        "directories.subtopic.television": ["label.directories.subtopic.television"],
+        "directories.subtopic.tourism": ["label.directories.subtopic.tourism"],
+        "directories.subtopic.transport": ["label.directories.subtopic.transport"],
+        "directories.subtopic.videogames": ["label.directories.subtopic.videogames"],
+        "directories.subtopic.women": ["label.directories.subtopic.women"],
+        "directories.topic.art": ["label.directories.topic.art"],
+        "directories.topic.dailylife": ["label.directories.topic.dailylife"],
+        "directories.topic.humansciences": ["label.directories.topic.humanscience"],
+        "directories.topic.society": ["label.directories.topic.society"],
+        "directories.topic.technology": ["label.directories.topic.technology"],
+        "wf.parallelDocumentReview.ParallelDocumentReview": ["ParallelDocumentReview"],
+        "wf.parallelDocumentReview.approve": ["wf.parallelDocumentReview.approve"],
+        "wf.parallelDocumentReview.reject": [
+          "wf.parallelDocumentReview.reject",
+          "wf.serialDocumentReview.Reject"
+        ],
+        "wf.serialDocumentReview.Validate": ["wf.parallelDocumentReview.approve"],
+        "wf.serialDocumentReview.Reject": [
+          "wf.parallelDocumentReview.reject",
+          "wf.serialDocumentReview.Reject"
+        ],
+        "documentInfo.publications": ["documentInfo.publications"]
+      },
+      "remaining": 243
+    },
+    "fr": {
+      "preserved": 0,
+      "reused": {
+        "pageProviders.default_search.aggregations.common_size_agg.buckets.small": [
+          "exportButton.Small"
+        ],
+        "pageProviders.default_search.aggregations.common_size_agg.buckets.medium": [
+          "exportButton.Medium"
+        ],
+        "pageProviders.default_search.aggregations.dc_coverage_agg.label": [
+          "defaultSearch.coverage",
+          "documentContentView.datatable.header.coverage",
+          "label.dublincore.coverage",
+          "searchResults.sort.field.coverage"
+        ],
+        "pageProviders.default_search.aggregations.dc_modified_agg.buckets.lastWeek": [
+          "label.ui.aggregate.lastWeek"
+        ],
+        "pageProviders.default_search.aggregations.dc_modified_agg.buckets.lastMonth": [
+          "label.ui.aggregate.lastMonth"
+        ],
+        "pageProviders.default_search.aggregations.dc_modified_agg.buckets.lastYear": [
+          "label.ui.aggregate.lastYear"
+        ],
+        "pageProviders.default_search.aggregations.dc_subjects_agg.label": [
+          "defaultSearch.subject",
+          "documentContentView.datatable.header.subjects",
+          "label.dublincore.subjects"
+        ],
+        "pageProviders.default_trash_search.aggregations.common_size_agg.buckets.small": [
+          "exportButton.Small"
+        ],
+        "pageProviders.default_trash_search.aggregations.common_size_agg.buckets.medium": [
+          "exportButton.Medium"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_coverage_agg.label": [
+          "defaultSearch.coverage",
+          "documentContentView.datatable.header.coverage",
+          "label.dublincore.coverage",
+          "searchResults.sort.field.coverage"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_modified_agg.buckets.lastWeek": [
+          "label.ui.aggregate.lastWeek"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_modified_agg.buckets.lastMonth": [
+          "label.ui.aggregate.lastMonth"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_modified_agg.buckets.lastYear": [
+          "label.ui.aggregate.lastYear"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_subjects_agg.label": [
+          "defaultSearch.subject",
+          "documentContentView.datatable.header.subjects",
+          "label.dublincore.subjects"
+        ],
+        "pageProviders.retention_search.aggregations.doc_type_agg.buckets.small": [
+          "exportButton.Small"
+        ],
+        "pageProviders.retention_search.aggregations.doc_type_agg.buckets.medium": [
+          "exportButton.Medium"
+        ],
+        "search.nxql": ["app.nxqlSearch", "app.title.admin.nxql", "nxqlSearch.heading"],
+        "search.enabled": [
+          "cloudConsumersEdit.isEnabled",
+          "cloudConsumers.isEnabled",
+          "cloudProviderEdit.isEnabled",
+          "cloudProviders.enabled"
+        ],
+        "directories.continent.africa": ["label.directories.continent.africa"],
+        "directories.continent.antarctica": ["label.directories.continent.antarctica"],
+        "directories.continent.asia": ["label.directories.continent.asia"],
+        "directories.continent.north-america": ["label.directories.continent.north-america"],
+        "directories.continent.oceania": ["label.directories.continent.oceania"],
+        "directories.continent.south-america": ["label.directories.continent.south-america"],
+        "directories.country.Aland_Islands": ["label.directories.country.Aland_Islands"],
+        "directories.country.Albania": ["label.directories.country.Albania"],
+        "directories.country.Algeria": ["label.directories.country.Algeria"],
+        "directories.country.American_Samoa": ["label.directories.country.American_Samoa"],
+        "directories.country.Andorra": ["label.directories.country.Andorra"],
+        "directories.country.Antarctica_the_territory_South_of_60_deg_S": [
+          "label.directories.country.Antarctica_the_territory_South_of_60_deg_S"
+        ],
+        "directories.country.Antigua_and_Barbuda": [
+          "label.directories.country.Antigua_and_Barbuda"
+        ],
+        "directories.country.Argentina": ["label.directories.country.Argentina"],
+        "directories.country.Armenia": ["label.directories.country.Armenia"],
+        "directories.country.Australia": ["label.directories.country.Australia"],
+        "directories.country.Austria": ["label.directories.country.Austria"],
+        "directories.country.Azerbaijan": ["label.directories.country.Azerbaijan"],
+        "directories.country.Bahrain": ["label.directories.country.Bahrain"],
+        "directories.country.Barbados": ["label.directories.country.Barbados"],
+        "directories.country.Belarus": ["label.directories.country.Belarus"],
+        "directories.country.Belgium": ["label.directories.country.Belgium"],
+        "directories.country.Belize": ["label.directories.country.Belize"],
+        "directories.country.Benin": ["label.directories.country.Benin"],
+        "directories.country.Bermuda": ["label.directories.country.Bermuda"],
+        "directories.country.Bhutan": ["label.directories.country.Bhutan"],
+        "directories.country.Bolivia": ["label.directories.country.Bolivia"],
+        "directories.country.Bosnia_and_Herzegovina": [
+          "label.directories.country.Bosnia_and_Herzegovina"
+        ],
+        "directories.country.Bouvet_Island_Bouvetoya": [
+          "label.directories.country.Bouvet_Island_Bouvetoya"
+        ],
+        "directories.country.Brazil": ["label.directories.country.Brazil"],
+        "directories.country.British_Indian_Ocean_Territory_Chagos_Archipelago": [
+          "label.directories.country.British_Indian_Ocean_Territory_Chagos_Archipelago"
+        ],
+        "directories.country.British_Virgin_Islands": [
+          "label.directories.country.British_Virgin_Islands"
+        ],
+        "directories.country.Brunei_Darussalam": ["label.directories.country.Brunei_Darussalam"],
+        "directories.country.Bulgaria": ["label.directories.country.Bulgaria"],
+        "directories.country.Cambodia": ["label.directories.country.Cambodia"],
+        "directories.country.Cameroon": ["label.directories.country.Cameroon"],
+        "directories.country.Cape_Verde": ["label.directories.country.Cape_Verde"],
+        "directories.country.Cayman_Islands": ["label.directories.country.Cayman_Islands"],
+        "directories.country.Central_African_Republic": [
+          "label.directories.country.Central_African_Republic"
+        ],
+        "directories.country.Chad": ["label.directories.country.Chad"],
+        "directories.country.Chile": ["label.directories.country.Chile"],
+        "directories.country.China": ["label.directories.country.China"],
+        "directories.country.Christmas_Island": ["label.directories.country.Christmas_Island"],
+        "directories.country.Cocos_Keeling_Islands": [
+          "label.directories.country.Cocos_Keeling_Islands"
+        ],
+        "directories.country.Colombia": ["label.directories.country.Colombia"],
+        "directories.country.Comoros": ["label.directories.country.Comoros"],
+        "directories.country.Congo_Democratic_Republic": [
+          "label.directories.country.Congo_Democratic_Republic"
+        ],
+        "directories.country.Congo_Republic": ["label.directories.country.Congo_Republic"],
+        "directories.country.Cook_Islands": ["label.directories.country.Cook_Islands"],
+        "directories.country.Cote_D_Ivoire": ["label.directories.country.Cote_D_Ivoire"],
+        "directories.country.Croatia": ["label.directories.country.Croatia"],
+        "directories.country.Cyprus": ["label.directories.country.Cyprus"],
+        "directories.country.Czech_Republic": ["label.directories.country.Czech_Republic"],
+        "directories.country.Denmark": ["label.directories.country.Denmark"],
+        "directories.country.Dominica": ["label.directories.country.Dominica"],
+        "directories.country.Dominican_Republic": ["label.directories.country.Dominican_Republic"],
+        "directories.country.Ecuador": ["label.directories.country.Ecuador"],
+        "directories.country.Egypt": ["label.directories.country.Egypt"],
+        "directories.country.El_Salvador": ["label.directories.country.El_Salvador"],
+        "directories.country.Equatorial_Guinea": ["label.directories.country.Equatorial_Guinea"],
+        "directories.country.Eritrea": ["label.directories.country.Eritrea"],
+        "directories.country.Estonia": ["label.directories.country.Estonia"],
+        "directories.country.Ethiopia": ["label.directories.country.Ethiopia"],
+        "directories.country.Falkland_Islands_Malvinas": [
+          "label.directories.country.Falkland_Islands_Malvinas"
+        ],
+        "directories.country.Faroe_Islands": ["label.directories.country.Faroe_Islands"],
+        "directories.country.Fiji": ["label.directories.country.Fiji"],
+        "directories.country.Finland": ["label.directories.country.Finland"],
+        "directories.country.French_Guiana": ["label.directories.country.French_Guiana"],
+        "directories.country.French_Polynesia": ["label.directories.country.French_Polynesia"],
+        "directories.country.French_Southern_Territories": [
+          "label.directories.country.French_Southern_Territories"
+        ],
+        "directories.country.Gambia": ["label.directories.country.Gambia"],
+        "directories.country.Georgia": ["label.directories.country.Georgia"],
+        "directories.country.Germany": ["label.directories.country.Germany"],
+        "directories.country.Greece": ["label.directories.country.Greece"],
+        "directories.country.Greenland": ["label.directories.country.Greenland"],
+        "directories.country.Grenada": ["label.directories.country.Grenada"],
+        "directories.country.Guadaloupe": ["label.directories.country.Guadaloupe"],
+        "directories.country.Guatemala": ["label.directories.country.Guatemala"],
+        "directories.country.Guernsey": ["label.directories.country.Guernsey"],
+        "directories.country.Guinea": ["label.directories.country.Guinea"],
+        "directories.country.Guinea_Bissau": ["label.directories.country.Guinea_Bissau"],
+        "directories.country.Haiti": ["label.directories.country.Haiti"],
+        "directories.country.Heard_and_McDonald_Islands": [
+          "label.directories.country.Heard_and_McDonald_Islands"
+        ],
+        "directories.country.Holy_See_Vatican_City_State": [
+          "label.directories.country.Holy_See_Vatican_City_State"
+        ],
+        "directories.country.Hungary": ["label.directories.country.Hungary"],
+        "directories.country.Iceland": ["label.directories.country.Iceland"],
+        "directories.country.India": ["label.directories.country.India"],
+        "directories.country.Indonesia": ["label.directories.country.Indonesia"],
+        "directories.country.Iraq": ["label.directories.country.Iraq"],
+        "directories.country.Ireland": ["label.directories.country.Ireland"],
+        "directories.country.Isle_of_Man": ["label.directories.country.Isle_of_Man"],
+        "directories.country.Israel": ["label.directories.country.Israel"],
+        "directories.country.Italy": ["label.directories.country.Italy"],
+        "directories.country.Jamaica": ["label.directories.country.Jamaica"],
+        "directories.country.Japan": ["label.directories.country.Japan"],
+        "directories.country.Jordan": ["label.directories.country.Jordan"],
+        "directories.country.Kuwait": ["label.directories.country.Kuwait"],
+        "directories.country.Kyrgyz_Republic": ["label.directories.country.Kyrgyz_Republic"],
+        "directories.country.Lao_People_s_Democratic_Republic": [
+          "label.directories.country.Lao_People_s_Democratic_Republic"
+        ],
+        "directories.country.Latvia": ["label.directories.country.Latvia"],
+        "directories.country.Lebanon": ["label.directories.country.Lebanon"],
+        "directories.country.Liberia": ["label.directories.country.Liberia"],
+        "directories.country.Libyan_Arab_Jamahiriya": [
+          "label.directories.country.Libyan_Arab_Jamahiriya"
+        ],
+        "directories.country.Lithuania": ["label.directories.country.Lithuania"],
+        "directories.country.Macedonia": ["label.directories.country.Macedonia"],
+        "directories.country.Malaysia": ["label.directories.country.Malaysia"],
+        "directories.country.Malta": ["label.directories.country.Malta"],
+        "directories.country.Marshall_Islands": ["label.directories.country.Marshall_Islands"],
+        "directories.country.Mauritania": ["label.directories.country.Mauritania"],
+        "directories.country.Mauritius": ["label.directories.country.Mauritius"],
+        "directories.country.Mexico": ["label.directories.country.Mexico"],
+        "directories.country.Micronesia": ["label.directories.country.Micronesia"],
+        "directories.country.Moldova": ["label.directories.country.Moldova"],
+        "directories.country.Mongolia": ["label.directories.country.Mongolia"],
+        "directories.country.Montenegro": ["label.directories.country.Montenegro"],
+        "directories.country.Morocco": ["label.directories.country.Morocco"],
+        "directories.country.Myanmar": ["label.directories.country.Myanmar"],
+        "directories.country.Namibia": ["label.directories.country.Namibia"],
+        "directories.country.Nepal": ["label.directories.country.Nepal"],
+        "directories.country.Netherlands": ["label.directories.country.Netherlands"],
+        "directories.country.Netherlands_Antilles": [
+          "label.directories.country.Netherlands_Antilles"
+        ],
+        "directories.country.New_Caledonia": ["label.directories.country.New_Caledonia"],
+        "directories.country.New_Zealand": ["label.directories.country.New_Zealand"],
+        "directories.country.Nigeria": ["label.directories.country.Nigeria"],
+        "directories.country.Niue": ["label.directories.country.Niue"],
+        "directories.country.Norfolk_Island": ["label.directories.country.Norfolk_Island"],
+        "directories.country.North_Korea": ["label.directories.country.North_Korea"],
+        "directories.country.Northern_Mariana_Islands": [
+          "label.directories.country.Northern_Mariana_Islands"
+        ],
+        "directories.country.Norway": ["label.directories.country.Norway"],
+        "directories.country.Palau": ["label.directories.country.Palau"],
+        "directories.country.Palestinian_Territory": [
+          "label.directories.country.Palestinian_Territory"
+        ],
+        "directories.country.Papua_New_Guinea": ["label.directories.country.Papua_New_Guinea"],
+        "directories.country.Peru": ["label.directories.country.Peru"],
+        "directories.country.Pitcairn_Island": ["label.directories.country.Pitcairn_Island"],
+        "directories.country.Poland": ["label.directories.country.Poland"],
+        "directories.country.Puerto_Rico": ["label.directories.country.Puerto_Rico"],
+        "directories.country.Reunion": ["label.directories.country.Reunion"],
+        "directories.country.Romania": ["label.directories.country.Romania"],
+        "directories.country.Russian_Federation": ["label.directories.country.Russian_Federation"],
+        "directories.country.San_Marino": ["label.directories.country.San_Marino"],
+        "directories.country.Sao_Tome_and_Principe": [
+          "label.directories.country.Sao_Tome_and_Principe"
+        ],
+        "directories.country.Saudi_Arabia": ["label.directories.country.Saudi_Arabia"],
+        "directories.country.Senegal": ["label.directories.country.Senegal"],
+        "directories.country.Serbia": ["label.directories.country.Serbia"],
+        "directories.country.Singapore": ["label.directories.country.Singapore"],
+        "directories.country.Slovakia_Slovak_Republic": [
+          "label.directories.country.Slovakia_Slovak_Republic"
+        ],
+        "directories.country.Slovenia": ["label.directories.country.Slovenia"],
+        "directories.country.Solomon_Islands": ["label.directories.country.Solomon_Islands"],
+        "directories.country.Somalia": ["label.directories.country.Somalia"],
+        "directories.country.South_Africa": ["label.directories.country.South_Africa"],
+        "directories.country.South_Georgia_and_the_South_Sandwich_Islands": [
+          "label.directories.country.South_Georgia_and_the_South_Sandwich_Islands"
+        ],
+        "directories.country.South_Korea": ["label.directories.country.South_Korea"],
+        "directories.country.Spain": ["label.directories.country.Spain"],
+        "directories.country.St_Helena": ["label.directories.country.St_Helena"],
+        "directories.country.St_Kitts_and_Nevis": ["label.directories.country.St_Kitts_and_Nevis"],
+        "directories.country.St_Lucia": ["label.directories.country.St_Lucia"],
+        "directories.country.St_Pierre_and_Miquelon": [
+          "label.directories.country.St_Pierre_and_Miquelon"
+        ],
+        "directories.country.St_Vincent_and_the_Grenadines": [
+          "label.directories.country.St_Vincent_and_the_Grenadines"
+        ],
+        "directories.country.Sudan": ["label.directories.country.Sudan"],
+        "directories.country.Svalbard_Jan_Mayen_Islands": [
+          "label.directories.country.Svalbard_Jan_Mayen_Islands"
+        ],
+        "directories.country.Sweden": ["label.directories.country.Sweden"],
+        "directories.country.Switzerland": ["label.directories.country.Switzerland"],
+        "directories.country.Syrian_Arab_Republic": [
+          "label.directories.country.Syrian_Arab_Republic"
+        ],
+        "directories.country.Taiwan": ["label.directories.country.Taiwan"],
+        "directories.country.Tajikistan": ["label.directories.country.Tajikistan"],
+        "directories.country.Tanzania": ["label.directories.country.Tanzania"],
+        "directories.country.Thailand": ["label.directories.country.Thailand"],
+        "directories.country.Timor_Leste": ["label.directories.country.Timor_Leste"],
+        "directories.country.Tokelau_Tokelau_Islands": [
+          "label.directories.country.Tokelau_Tokelau_Islands"
+        ],
+        "directories.country.Trinidad_and_Tobago": [
+          "label.directories.country.Trinidad_and_Tobago"
+        ],
+        "directories.country.Tunisia": ["label.directories.country.Tunisia"],
+        "directories.country.Turkey": ["label.directories.country.Turkey"],
+        "directories.country.Turkmenistan": ["label.directories.country.Turkmenistan"],
+        "directories.country.Turks_and_Caicos_Islands": [
+          "label.directories.country.Turks_and_Caicos_Islands"
+        ],
+        "directories.country.US_Virgin_Islands": ["label.directories.country.US_Virgin_Islands"],
+        "directories.country.Uganda": ["label.directories.country.Uganda"],
+        "directories.country.United_Arab_Emirates": [
+          "label.directories.country.United_Arab_Emirates"
+        ],
+        "directories.country.United_Kingdom_of_Great_Britain_N_Ireland": [
+          "label.directories.country.United_Kingdom_of_Great_Britain_N_Ireland"
+        ],
+        "directories.country.United_States_Minor_Outlying_Islands": [
+          "label.directories.country.United_States_Minor_Outlying_Islands"
+        ],
+        "directories.country.United_States_of_America": [
+          "label.directories.country.United_States_of_America"
+        ],
+        "directories.country.Uzbekistan": ["label.directories.country.Uzbekistan"],
+        "directories.country.Venezuela": ["label.directories.country.Venezuela"],
+        "directories.country.Viet_Nam": ["label.directories.country.Viet_Nam"],
+        "directories.country.Wallis_and_Futuna_Islands": [
+          "label.directories.country.Wallis_and_Futuna_Islands"
+        ],
+        "directories.country.Western_Sahara": ["label.directories.country.Western_Sahara"],
+        "directories.country.Yemen": ["label.directories.country.Yemen"],
+        "directories.country.Zambia": ["label.directories.country.Zambia"],
+        "directories.english": ["label.directories.english"],
+        "directories.french": ["label.directories.french"],
+        "directories.german": ["label.directories.german"],
+        "directories.italian": ["label.directories.italian"],
+        "directories.japanese": ["label.directories.japanese"],
+        "directories.nature.CDRom": ["label.directories.nature.CDRom"],
+        "directories.nature.accomodationApplicationForm": [
+          "label.directories.nature.accomodationApplicationForm"
+        ],
+        "directories.nature.acknowledgement": ["label.directories.nature.acknowledgement"],
+        "directories.nature.application": ["label.directories.nature.application"],
+        "directories.nature.assessment": ["label.directories.nature.assessment"],
+        "directories.nature.bankAccountDetails": ["label.directories.nature.bankAccountDetails"],
+        "directories.nature.booklet": ["label.directories.nature.booklet"],
+        "directories.nature.card": ["label.directories.nature.card"],
+        "directories.nature.certificate": ["label.directories.nature.certificate"],
+        "directories.nature.contract": ["label.directories.nature.contract"],
+        "directories.nature.convocation": ["label.directories.nature.convocation"],
+        "directories.nature.credit": ["label.directories.nature.credit"],
+        "directories.nature.decree": ["label.directories.nature.decree"],
+        "directories.nature.deliveryNote": ["label.directories.nature.deliveryNote"],
+        "directories.nature.email": ["label.directories.nature.email"],
+        "directories.nature.endorsement": ["label.directories.nature.endorsement"],
+        "directories.nature.fax": ["label.directories.nature.fax"],
+        "directories.nature.internshipReport": ["label.directories.nature.internshipReport"],
+        "directories.nature.invoice": ["label.directories.nature.invoice"],
+        "directories.nature.leaveApplication": ["label.directories.nature.leaveApplication"],
+        "directories.nature.letter": ["label.directories.nature.letter"],
+        "directories.nature.loanApplication": ["label.directories.nature.loanApplication"],
+        "directories.nature.medicalCertificate": ["label.directories.nature.medicalCertificate"],
+        "directories.nature.memo": ["label.directories.nature.memo"],
+        "directories.nature.note": ["label.directories.nature.note"],
+        "directories.nature.notice": ["label.directories.nature.notice"],
+        "directories.nature.notification": ["label.directories.nature.notification"],
+        "directories.nature.order": ["label.directories.nature.order"],
+        "directories.nature.pressReview": ["label.directories.nature.pressReview"],
+        "directories.nature.procedure": ["label.directories.nature.procedure"],
+        "directories.nature.purchaseOrder": ["label.directories.nature.purchaseOrder"],
+        "directories.nature.quotation": ["label.directories.nature.quotation"],
+        "directories.nature.report": ["label.directories.nature.report"],
+        "directories.nature.serviceCertificate": ["label.directories.nature.serviceCertificate"],
+        "directories.nature.trainingApplication": ["label.directories.nature.trainingApplication"],
+        "directories.nature.worksheet": ["label.directories.nature.worksheet"],
+        "directories.portuguese": ["label.directories.portuguese"],
+        "directories.russian": ["label.directories.russian"],
+        "directories.spanish": ["label.directories.spanish"],
+        "directories.subtopic.arthistory": ["label.directories.subtopic.arthistory"],
+        "directories.subtopic.astronautic": ["label.directories.subtopic.astronautic"],
+        "directories.subtopic.astronomy": ["label.directories.subtopic.astronomy"],
+        "directories.subtopic.biology": ["label.directories.subtopic.biology"],
+        "directories.subtopic.chemistry": ["label.directories.subtopic.chemistry"],
+        "directories.subtopic.cinema": ["label.directories.subtopic.cinema"],
+        "directories.subtopic.comics": ["label.directories.subtopic.comics"],
+        "directories.subtopic.company": [
+          "editUser.company",
+          "viewUser.company",
+          "label.directories.subtopic.company"
+        ],
+        "directories.subtopic.culture": ["label.directories.subtopic.culture"],
+        "directories.subtopic.danse": ["label.directories.subtopic.danse"],
+        "directories.subtopic.earthscience": ["label.directories.subtopic.earthscience"],
+        "directories.subtopic.ecology": ["label.directories.subtopic.ecology"],
+        "directories.subtopic.economy": ["label.directories.subtopic.economy"],
+        "directories.subtopic.education": ["label.directories.subtopic.education"],
+        "directories.subtopic.electronic": ["label.directories.subtopic.electronic"],
+        "directories.subtopic.energy": ["label.directories.subtopic.energy"],
+        "directories.subtopic.fashion": ["label.directories.subtopic.fashion"],
+        "directories.subtopic.games": ["label.directories.subtopic.games"],
+        "directories.subtopic.gardening": ["label.directories.subtopic.gardening"],
+        "directories.subtopic.gastronomy": ["label.directories.subtopic.gastronomy"],
+        "directories.subtopic.geography": ["label.directories.subtopic.geography"],
+        "directories.subtopic.humanitarian": ["label.directories.subtopic.humanitarian"],
+        "directories.subtopic.industry": ["label.directories.subtopic.industry"],
+        "directories.subtopic.it": ["label.directories.subtopic.it"],
+        "directories.subtopic.languages": ["label.directories.subtopic.languages"],
+        "directories.subtopic.literature": ["label.directories.subtopic.literature"],
+        "directories.subtopic.logic": ["label.directories.subtopic.logic"],
+        "directories.subtopic.math": ["label.directories.subtopic.math"],
+        "directories.subtopic.medicine": ["label.directories.subtopic.medicine"],
+        "directories.subtopic.minority": ["label.directories.subtopic.minority"],
+        "directories.subtopic.music": ["label.directories.subtopic.music"],
+        "directories.subtopic.paint": ["label.directories.subtopic.paint"],
+        "directories.subtopic.photography": ["label.directories.subtopic.photography"],
+        "directories.subtopic.phylosophy": ["label.directories.subtopic.phylosophy"],
+        "directories.subtopic.physic": ["label.directories.subtopic.physic"],
+        "directories.subtopic.psychology": ["label.directories.subtopic.psychology"],
+        "directories.subtopic.rights": [
+          "label.directories.subtopic.rights",
+          "pictureViewLayout.rights"
+        ],
+        "directories.subtopic.robotic": ["label.directories.subtopic.robotic"],
+        "directories.subtopic.sexuality": ["label.directories.subtopic.sexuality"],
+        "directories.subtopic.show": ["label.directories.subtopic.show"],
+        "directories.subtopic.sociology": ["label.directories.subtopic.sociology"],
+        "directories.subtopic.television": ["label.directories.subtopic.television"],
+        "directories.subtopic.tourism": ["label.directories.subtopic.tourism"],
+        "directories.subtopic.videogames": ["label.directories.subtopic.videogames"],
+        "directories.subtopic.women": ["label.directories.subtopic.women"],
+        "directories.topic.dailylife": ["label.directories.topic.dailylife"],
+        "directories.topic.humansciences": ["label.directories.topic.humanscience"],
+        "directories.topic.society": ["label.directories.topic.society"],
+        "directories.topic.technology": ["label.directories.topic.technology"],
+        "wf.parallelDocumentReview.ParallelDocumentReview": ["ParallelDocumentReview"],
+        "wf.parallelDocumentReview.approve": ["wf.parallelDocumentReview.approve"],
+        "wf.parallelDocumentReview.reject": [
+          "wf.parallelDocumentReview.reject",
+          "wf.serialDocumentReview.Reject"
+        ],
+        "wf.serialDocumentReview.Validate": ["wf.parallelDocumentReview.approve"],
+        "wf.serialDocumentReview.Reject": [
+          "wf.parallelDocumentReview.reject",
+          "wf.serialDocumentReview.Reject"
+        ]
+      },
+      "remaining": 225
+    },
+    "ar": {
+      "preserved": 1,
+      "reused": {
+        "pageProviders.default_search.aggregations.common_size_agg.buckets.small": [
+          "exportButton.Small"
+        ],
+        "pageProviders.default_search.aggregations.common_size_agg.buckets.medium": [
+          "exportButton.Medium"
+        ],
+        "pageProviders.default_search.aggregations.dc_coverage_agg.label": [
+          "defaultSearch.coverage",
+          "documentContentView.datatable.header.coverage",
+          "label.dublincore.coverage",
+          "searchResults.sort.field.coverage"
+        ],
+        "pageProviders.default_search.aggregations.dc_modified_agg.buckets.lastWeek": [
+          "label.ui.aggregate.lastWeek"
+        ],
+        "pageProviders.default_search.aggregations.dc_modified_agg.buckets.lastMonth": [
+          "label.ui.aggregate.lastMonth"
+        ],
+        "pageProviders.default_search.aggregations.dc_modified_agg.buckets.lastYear": [
+          "label.ui.aggregate.lastYear"
+        ],
+        "pageProviders.default_search.aggregations.dc_nature_agg.label": [
+          "defaultSearch.nature",
+          "documentContentView.datatable.header.nature",
+          "label.dublincore.nature",
+          "searchResults.sort.field.nature"
+        ],
+        "pageProviders.default_search.aggregations.dc_subjects_agg.label": [
+          "defaultSearch.subject",
+          "documentContentView.datatable.header.subjects",
+          "label.dublincore.subjects"
+        ],
+        "pageProviders.default_trash_search.aggregations.common_size_agg.buckets.small": [
+          "exportButton.Small"
+        ],
+        "pageProviders.default_trash_search.aggregations.common_size_agg.buckets.medium": [
+          "exportButton.Medium"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_coverage_agg.label": [
+          "defaultSearch.coverage",
+          "documentContentView.datatable.header.coverage",
+          "label.dublincore.coverage",
+          "searchResults.sort.field.coverage"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_modified_agg.buckets.lastWeek": [
+          "label.ui.aggregate.lastWeek"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_modified_agg.buckets.lastMonth": [
+          "label.ui.aggregate.lastMonth"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_modified_agg.buckets.lastYear": [
+          "label.ui.aggregate.lastYear"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_nature_agg.label": [
+          "defaultSearch.nature",
+          "documentContentView.datatable.header.nature",
+          "label.dublincore.nature",
+          "searchResults.sort.field.nature"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_subjects_agg.label": [
+          "defaultSearch.subject",
+          "documentContentView.datatable.header.subjects",
+          "label.dublincore.subjects"
+        ],
+        "pageProviders.retention_search.aggregations.doc_type_agg.buckets.small": [
+          "exportButton.Small"
+        ],
+        "pageProviders.retention_search.aggregations.doc_type_agg.buckets.medium": [
+          "exportButton.Medium"
+        ],
+        "search.nxql": ["app.nxqlSearch", "app.title.admin.nxql", "nxqlSearch.heading"],
+        "search.enabled": [
+          "cloudConsumersEdit.isEnabled",
+          "cloudConsumers.isEnabled",
+          "cloudProviderEdit.isEnabled",
+          "cloudProviders.enabled"
+        ],
+        "search.options": ["publication.internal.options"],
+        "directories.continent.africa": ["label.directories.continent.africa"],
+        "directories.continent.antarctica": ["label.directories.continent.antarctica"],
+        "directories.continent.asia": ["label.directories.continent.asia"],
+        "directories.continent.europe": ["label.directories.continent.europe"],
+        "directories.continent.north-america": ["label.directories.continent.north-america"],
+        "directories.continent.oceania": ["label.directories.continent.oceania"],
+        "directories.continent.south-america": ["label.directories.continent.south-america"],
+        "directories.country.Afghanistan": ["label.directories.country.Afghanistan"],
+        "directories.country.Aland_Islands": ["label.directories.country.Aland_Islands"],
+        "directories.country.Albania": ["label.directories.country.Albania"],
+        "directories.country.Algeria": ["label.directories.country.Algeria"],
+        "directories.country.American_Samoa": ["label.directories.country.American_Samoa"],
+        "directories.country.Andorra": ["label.directories.country.Andorra"],
+        "directories.country.Angola": ["label.directories.country.Angola"],
+        "directories.country.Anguilla": ["label.directories.country.Anguilla"],
+        "directories.country.Antarctica_the_territory_South_of_60_deg_S": [
+          "label.directories.country.Antarctica_the_territory_South_of_60_deg_S"
+        ],
+        "directories.country.Antigua_and_Barbuda": [
+          "label.directories.country.Antigua_and_Barbuda"
+        ],
+        "directories.country.Argentina": ["label.directories.country.Argentina"],
+        "directories.country.Armenia": ["label.directories.country.Armenia"],
+        "directories.country.Aruba": ["label.directories.country.Aruba"],
+        "directories.country.Australia": ["label.directories.country.Australia"],
+        "directories.country.Austria": ["label.directories.country.Austria"],
+        "directories.country.Azerbaijan": ["label.directories.country.Azerbaijan"],
+        "directories.country.Bahamas": ["label.directories.country.Bahamas"],
+        "directories.country.Bahrain": ["label.directories.country.Bahrain"],
+        "directories.country.Bangladesh": ["label.directories.country.Bangladesh"],
+        "directories.country.Barbados": ["label.directories.country.Barbados"],
+        "directories.country.Belarus": ["label.directories.country.Belarus"],
+        "directories.country.Belgium": ["label.directories.country.Belgium"],
+        "directories.country.Belize": ["label.directories.country.Belize"],
+        "directories.country.Benin": ["label.directories.country.Benin"],
+        "directories.country.Bermuda": ["label.directories.country.Bermuda"],
+        "directories.country.Bhutan": ["label.directories.country.Bhutan"],
+        "directories.country.Bolivia": ["label.directories.country.Bolivia"],
+        "directories.country.Bosnia_and_Herzegovina": [
+          "label.directories.country.Bosnia_and_Herzegovina"
+        ],
+        "directories.country.Botswana": ["label.directories.country.Botswana"],
+        "directories.country.Bouvet_Island_Bouvetoya": [
+          "label.directories.country.Bouvet_Island_Bouvetoya"
+        ],
+        "directories.country.Brazil": ["label.directories.country.Brazil"],
+        "directories.country.British_Indian_Ocean_Territory_Chagos_Archipelago": [
+          "label.directories.country.British_Indian_Ocean_Territory_Chagos_Archipelago"
+        ],
+        "directories.country.British_Virgin_Islands": [
+          "label.directories.country.British_Virgin_Islands"
+        ],
+        "directories.country.Brunei_Darussalam": ["label.directories.country.Brunei_Darussalam"],
+        "directories.country.Bulgaria": ["label.directories.country.Bulgaria"],
+        "directories.country.Burkina_Faso": ["label.directories.country.Burkina_Faso"],
+        "directories.country.Burundi": ["label.directories.country.Burundi"],
+        "directories.country.Cambodia": ["label.directories.country.Cambodia"],
+        "directories.country.Cameroon": ["label.directories.country.Cameroon"],
+        "directories.country.Canada": ["label.directories.country.Canada"],
+        "directories.country.Cape_Verde": ["label.directories.country.Cape_Verde"],
+        "directories.country.Cayman_Islands": ["label.directories.country.Cayman_Islands"],
+        "directories.country.Central_African_Republic": [
+          "label.directories.country.Central_African_Republic"
+        ],
+        "directories.country.Chad": ["label.directories.country.Chad"],
+        "directories.country.Chile": ["label.directories.country.Chile"],
+        "directories.country.China": ["label.directories.country.China"],
+        "directories.country.Christmas_Island": ["label.directories.country.Christmas_Island"],
+        "directories.country.Cocos_Keeling_Islands": [
+          "label.directories.country.Cocos_Keeling_Islands"
+        ],
+        "directories.country.Colombia": ["label.directories.country.Colombia"],
+        "directories.country.Comoros": ["label.directories.country.Comoros"],
+        "directories.country.Congo_Democratic_Republic": [
+          "label.directories.country.Congo_Democratic_Republic"
+        ],
+        "directories.country.Congo_Republic": ["label.directories.country.Congo_Republic"],
+        "directories.country.Cook_Islands": ["label.directories.country.Cook_Islands"],
+        "directories.country.Costa_Rica": ["label.directories.country.Costa_Rica"],
+        "directories.country.Cote_D_Ivoire": ["label.directories.country.Cote_D_Ivoire"],
+        "directories.country.Croatia": ["label.directories.country.Croatia"],
+        "directories.country.Cuba": ["label.directories.country.Cuba"],
+        "directories.country.Cyprus": ["label.directories.country.Cyprus"],
+        "directories.country.Czech_Republic": ["label.directories.country.Czech_Republic"],
+        "directories.country.Denmark": ["label.directories.country.Denmark"],
+        "directories.country.Djibouti": ["label.directories.country.Djibouti"],
+        "directories.country.Dominica": ["label.directories.country.Dominica"],
+        "directories.country.Dominican_Republic": ["label.directories.country.Dominican_Republic"],
+        "directories.country.Ecuador": ["label.directories.country.Ecuador"],
+        "directories.country.Egypt": ["label.directories.country.Egypt"],
+        "directories.country.El_Salvador": ["label.directories.country.El_Salvador"],
+        "directories.country.Equatorial_Guinea": ["label.directories.country.Equatorial_Guinea"],
+        "directories.country.Eritrea": ["label.directories.country.Eritrea"],
+        "directories.country.Estonia": ["label.directories.country.Estonia"],
+        "directories.country.Ethiopia": ["label.directories.country.Ethiopia"],
+        "directories.country.Falkland_Islands_Malvinas": [
+          "label.directories.country.Falkland_Islands_Malvinas"
+        ],
+        "directories.country.Faroe_Islands": ["label.directories.country.Faroe_Islands"],
+        "directories.country.Fiji": ["label.directories.country.Fiji"],
+        "directories.country.Finland": ["label.directories.country.Finland"],
+        "directories.country.France": ["label.directories.country.France"],
+        "directories.country.French_Guiana": ["label.directories.country.French_Guiana"],
+        "directories.country.French_Polynesia": ["label.directories.country.French_Polynesia"],
+        "directories.country.French_Southern_Territories": [
+          "label.directories.country.French_Southern_Territories"
+        ],
+        "directories.country.Gabon": ["label.directories.country.Gabon"],
+        "directories.country.Gambia": ["label.directories.country.Gambia"],
+        "directories.country.Georgia": ["label.directories.country.Georgia"],
+        "directories.country.Germany": ["label.directories.country.Germany"],
+        "directories.country.Ghana": ["label.directories.country.Ghana"],
+        "directories.country.Gibraltar": ["label.directories.country.Gibraltar"],
+        "directories.country.Greece": ["label.directories.country.Greece"],
+        "directories.country.Greenland": ["label.directories.country.Greenland"],
+        "directories.country.Grenada": ["label.directories.country.Grenada"],
+        "directories.country.Guadaloupe": ["label.directories.country.Guadaloupe"],
+        "directories.country.Guam": ["label.directories.country.Guam"],
+        "directories.country.Guatemala": ["label.directories.country.Guatemala"],
+        "directories.country.Guernsey": ["label.directories.country.Guernsey"],
+        "directories.country.Guinea": ["label.directories.country.Guinea"],
+        "directories.country.Guinea_Bissau": ["label.directories.country.Guinea_Bissau"],
+        "directories.country.Guyana": ["label.directories.country.Guyana"],
+        "directories.country.Haiti": ["label.directories.country.Haiti"],
+        "directories.country.Heard_and_McDonald_Islands": [
+          "label.directories.country.Heard_and_McDonald_Islands"
+        ],
+        "directories.country.Holy_See_Vatican_City_State": [
+          "label.directories.country.Holy_See_Vatican_City_State"
+        ],
+        "directories.country.Honduras": ["label.directories.country.Honduras"],
+        "directories.country.Hong_Kong": ["label.directories.country.Hong_Kong"],
+        "directories.country.Hungary": ["label.directories.country.Hungary"],
+        "directories.country.Iceland": ["label.directories.country.Iceland"],
+        "directories.country.India": ["label.directories.country.India"],
+        "directories.country.Indonesia": ["label.directories.country.Indonesia"],
+        "directories.country.Iran": ["label.directories.country.Iran"],
+        "directories.country.Iraq": ["label.directories.country.Iraq"],
+        "directories.country.Ireland": ["label.directories.country.Ireland"],
+        "directories.country.Isle_of_Man": ["label.directories.country.Isle_of_Man"],
+        "directories.country.Israel": ["label.directories.country.Israel"],
+        "directories.country.Italy": ["label.directories.country.Italy"],
+        "directories.country.Jamaica": ["label.directories.country.Jamaica"],
+        "directories.country.Japan": ["label.directories.country.Japan"],
+        "directories.country.Jersey": ["label.directories.country.Jersey"],
+        "directories.country.Jordan": ["label.directories.country.Jordan"],
+        "directories.country.Kazakhstan": ["label.directories.country.Kazakhstan"],
+        "directories.country.Kenya": ["label.directories.country.Kenya"],
+        "directories.country.Kiribati": ["label.directories.country.Kiribati"],
+        "directories.country.Kuwait": ["label.directories.country.Kuwait"],
+        "directories.country.Kyrgyz_Republic": ["label.directories.country.Kyrgyz_Republic"],
+        "directories.country.Lao_People_s_Democratic_Republic": [
+          "label.directories.country.Lao_People_s_Democratic_Republic"
+        ],
+        "directories.country.Latvia": ["label.directories.country.Latvia"],
+        "directories.country.Lebanon": ["label.directories.country.Lebanon"],
+        "directories.country.Lesotho": ["label.directories.country.Lesotho"],
+        "directories.country.Liberia": ["label.directories.country.Liberia"],
+        "directories.country.Libyan_Arab_Jamahiriya": [
+          "label.directories.country.Libyan_Arab_Jamahiriya"
+        ],
+        "directories.country.Liechtenstein": ["label.directories.country.Liechtenstein"],
+        "directories.country.Lithuania": ["label.directories.country.Lithuania"],
+        "directories.country.Luxembourg": ["label.directories.country.Luxembourg"],
+        "directories.country.Macao": ["label.directories.country.Macao"],
+        "directories.country.Macedonia": ["label.directories.country.Macedonia"],
+        "directories.country.Madagascar": ["label.directories.country.Madagascar"],
+        "directories.country.Malawi": ["label.directories.country.Malawi"],
+        "directories.country.Malaysia": ["label.directories.country.Malaysia"],
+        "directories.country.Maldives": ["label.directories.country.Maldives"],
+        "directories.country.Mali": ["label.directories.country.Mali"],
+        "directories.country.Malta": ["label.directories.country.Malta"],
+        "directories.country.Marshall_Islands": ["label.directories.country.Marshall_Islands"],
+        "directories.country.Martinique": ["label.directories.country.Martinique"],
+        "directories.country.Mauritania": ["label.directories.country.Mauritania"],
+        "directories.country.Mauritius": ["label.directories.country.Mauritius"],
+        "directories.country.Mayotte": ["label.directories.country.Mayotte"],
+        "directories.country.Mexico": ["label.directories.country.Mexico"],
+        "directories.country.Micronesia": ["label.directories.country.Micronesia"],
+        "directories.country.Moldova": ["label.directories.country.Moldova"],
+        "directories.country.Monaco": ["label.directories.country.Monaco"],
+        "directories.country.Mongolia": ["label.directories.country.Mongolia"],
+        "directories.country.Montenegro": ["label.directories.country.Montenegro"],
+        "directories.country.Montserrat": ["label.directories.country.Montserrat"],
+        "directories.country.Morocco": ["label.directories.country.Morocco"],
+        "directories.country.Mozambique": ["label.directories.country.Mozambique"],
+        "directories.country.Myanmar": ["label.directories.country.Myanmar"],
+        "directories.country.Namibia": ["label.directories.country.Namibia"],
+        "directories.country.Nauru": ["label.directories.country.Nauru"],
+        "directories.country.Nepal": ["label.directories.country.Nepal"],
+        "directories.country.Netherlands": ["label.directories.country.Netherlands"],
+        "directories.country.Netherlands_Antilles": [
+          "label.directories.country.Netherlands_Antilles"
+        ],
+        "directories.country.New_Caledonia": ["label.directories.country.New_Caledonia"],
+        "directories.country.New_Zealand": ["label.directories.country.New_Zealand"],
+        "directories.country.Nicaragua": ["label.directories.country.Nicaragua"],
+        "directories.country.Niger": ["label.directories.country.Niger"],
+        "directories.country.Nigeria": ["label.directories.country.Nigeria"],
+        "directories.country.Niue": ["label.directories.country.Niue"],
+        "directories.country.Norfolk_Island": ["label.directories.country.Norfolk_Island"],
+        "directories.country.North_Korea": ["label.directories.country.North_Korea"],
+        "directories.country.Northern_Mariana_Islands": [
+          "label.directories.country.Northern_Mariana_Islands"
+        ],
+        "directories.country.Norway": ["label.directories.country.Norway"],
+        "directories.country.Oman": ["label.directories.country.Oman"],
+        "directories.country.Pakistan": ["label.directories.country.Pakistan"],
+        "directories.country.Palau": ["label.directories.country.Palau"],
+        "directories.country.Palestinian_Territory": [
+          "label.directories.country.Palestinian_Territory"
+        ],
+        "directories.country.Panama": ["label.directories.country.Panama"],
+        "directories.country.Papua_New_Guinea": ["label.directories.country.Papua_New_Guinea"],
+        "directories.country.Paraguay": ["label.directories.country.Paraguay"],
+        "directories.country.Peru": ["label.directories.country.Peru"],
+        "directories.country.Philippines": ["label.directories.country.Philippines"],
+        "directories.country.Pitcairn_Island": ["label.directories.country.Pitcairn_Island"],
+        "directories.country.Poland": ["label.directories.country.Poland"],
+        "directories.country.Portugal": ["label.directories.country.Portugal"],
+        "directories.country.Puerto_Rico": ["label.directories.country.Puerto_Rico"],
+        "directories.country.Qatar": ["label.directories.country.Qatar"],
+        "directories.country.Reunion": ["label.directories.country.Reunion"],
+        "directories.country.Romania": ["label.directories.country.Romania"],
+        "directories.country.Russian_Federation": ["label.directories.country.Russian_Federation"],
+        "directories.country.Rwanda": ["label.directories.country.Rwanda"],
+        "directories.country.Samoa": ["label.directories.country.Samoa"],
+        "directories.country.San_Marino": ["label.directories.country.San_Marino"],
+        "directories.country.Sao_Tome_and_Principe": [
+          "label.directories.country.Sao_Tome_and_Principe"
+        ],
+        "directories.country.Saudi_Arabia": ["label.directories.country.Saudi_Arabia"],
+        "directories.country.Senegal": ["label.directories.country.Senegal"],
+        "directories.country.Serbia": ["label.directories.country.Serbia"],
+        "directories.country.Seychelles": ["label.directories.country.Seychelles"],
+        "directories.country.Sierra_Leone": ["label.directories.country.Sierra_Leone"],
+        "directories.country.Singapore": ["label.directories.country.Singapore"],
+        "directories.country.Slovakia_Slovak_Republic": [
+          "label.directories.country.Slovakia_Slovak_Republic"
+        ],
+        "directories.country.Slovenia": ["label.directories.country.Slovenia"],
+        "directories.country.Solomon_Islands": ["label.directories.country.Solomon_Islands"],
+        "directories.country.Somalia": ["label.directories.country.Somalia"],
+        "directories.country.South_Africa": ["label.directories.country.South_Africa"],
+        "directories.country.South_Georgia_and_the_South_Sandwich_Islands": [
+          "label.directories.country.South_Georgia_and_the_South_Sandwich_Islands"
+        ],
+        "directories.country.South_Korea": ["label.directories.country.South_Korea"],
+        "directories.country.Spain": ["label.directories.country.Spain"],
+        "directories.country.Sri_Lanka": ["label.directories.country.Sri_Lanka"],
+        "directories.country.St_Helena": ["label.directories.country.St_Helena"],
+        "directories.country.St_Kitts_and_Nevis": ["label.directories.country.St_Kitts_and_Nevis"],
+        "directories.country.St_Lucia": ["label.directories.country.St_Lucia"],
+        "directories.country.St_Pierre_and_Miquelon": [
+          "label.directories.country.St_Pierre_and_Miquelon"
+        ],
+        "directories.country.St_Vincent_and_the_Grenadines": [
+          "label.directories.country.St_Vincent_and_the_Grenadines"
+        ],
+        "directories.country.Sudan": ["label.directories.country.Sudan"],
+        "directories.country.Suriname": ["label.directories.country.Suriname"],
+        "directories.country.Svalbard_Jan_Mayen_Islands": [
+          "label.directories.country.Svalbard_Jan_Mayen_Islands"
+        ],
+        "directories.country.Swaziland": ["label.directories.country.Swaziland"],
+        "directories.country.Sweden": ["label.directories.country.Sweden"],
+        "directories.country.Switzerland": ["label.directories.country.Switzerland"],
+        "directories.country.Syrian_Arab_Republic": [
+          "label.directories.country.Syrian_Arab_Republic"
+        ],
+        "directories.country.Taiwan": ["label.directories.country.Taiwan"],
+        "directories.country.Tajikistan": ["label.directories.country.Tajikistan"],
+        "directories.country.Tanzania": ["label.directories.country.Tanzania"],
+        "directories.country.Thailand": ["label.directories.country.Thailand"],
+        "directories.country.Timor_Leste": ["label.directories.country.Timor_Leste"],
+        "directories.country.Togo": ["label.directories.country.Togo"],
+        "directories.country.Tokelau_Tokelau_Islands": [
+          "label.directories.country.Tokelau_Tokelau_Islands"
+        ],
+        "directories.country.Tonga": ["label.directories.country.Tonga"],
+        "directories.country.Trinidad_and_Tobago": [
+          "label.directories.country.Trinidad_and_Tobago"
+        ],
+        "directories.country.Tunisia": ["label.directories.country.Tunisia"],
+        "directories.country.Turkey": ["label.directories.country.Turkey"],
+        "directories.country.Turkmenistan": ["label.directories.country.Turkmenistan"],
+        "directories.country.Turks_and_Caicos_Islands": [
+          "label.directories.country.Turks_and_Caicos_Islands"
+        ],
+        "directories.country.Tuvalu": ["label.directories.country.Tuvalu"],
+        "directories.country.US_Virgin_Islands": ["label.directories.country.US_Virgin_Islands"],
+        "directories.country.Uganda": ["label.directories.country.Uganda"],
+        "directories.country.Ukraine": ["label.directories.country.Ukraine"],
+        "directories.country.United_Arab_Emirates": [
+          "label.directories.country.United_Arab_Emirates"
+        ],
+        "directories.country.United_Kingdom_of_Great_Britain_N_Ireland": [
+          "label.directories.country.United_Kingdom_of_Great_Britain_N_Ireland"
+        ],
+        "directories.country.United_States_Minor_Outlying_Islands": [
+          "label.directories.country.United_States_Minor_Outlying_Islands"
+        ],
+        "directories.country.United_States_of_America": [
+          "label.directories.country.United_States_of_America"
+        ],
+        "directories.country.Uruguay": ["label.directories.country.Uruguay"],
+        "directories.country.Uzbekistan": ["label.directories.country.Uzbekistan"],
+        "directories.country.Vanuatu": ["label.directories.country.Vanuatu"],
+        "directories.country.Venezuela": ["label.directories.country.Venezuela"],
+        "directories.country.Viet_Nam": ["label.directories.country.Viet_Nam"],
+        "directories.country.Wallis_and_Futuna_Islands": [
+          "label.directories.country.Wallis_and_Futuna_Islands"
+        ],
+        "directories.country.Western_Sahara": ["label.directories.country.Western_Sahara"],
+        "directories.country.Yemen": ["label.directories.country.Yemen"],
+        "directories.country.Zambia": ["label.directories.country.Zambia"],
+        "directories.country.Zimbabwe": ["label.directories.country.Zimbabwe"],
+        "directories.english": ["label.directories.english"],
+        "directories.french": ["label.directories.french"],
+        "directories.german": ["label.directories.german"],
+        "directories.italian": ["label.directories.italian"],
+        "directories.japanese": ["label.directories.japanese"],
+        "directories.nature.accomodationApplicationForm": [
+          "label.directories.nature.accomodationApplicationForm"
+        ],
+        "directories.nature.acknowledgement": ["label.directories.nature.acknowledgement"],
+        "directories.nature.application": [
+          "authenticationTokensManagement.application",
+          "label.directories.nature.application"
+        ],
+        "directories.nature.article": ["label.directories.nature.article"],
+        "directories.nature.assessment": ["label.directories.nature.assessment"],
+        "directories.nature.bankAccountDetails": ["label.directories.nature.bankAccountDetails"],
+        "directories.nature.booklet": ["label.directories.nature.booklet"],
+        "directories.nature.card": ["label.directories.nature.card"],
+        "directories.nature.certificate": ["label.directories.nature.certificate"],
+        "directories.nature.contract": ["label.directories.nature.contract"],
+        "directories.nature.convocation": ["label.directories.nature.convocation"],
+        "directories.nature.credit": ["label.directories.nature.credit"],
+        "directories.nature.decree": ["label.directories.nature.decree"],
+        "directories.nature.deliveryNote": ["label.directories.nature.deliveryNote"],
+        "directories.nature.endorsement": ["label.directories.nature.endorsement"],
+        "directories.nature.fax": ["label.directories.nature.fax"],
+        "directories.nature.internshipReport": ["label.directories.nature.internshipReport"],
+        "directories.nature.invoice": ["label.directories.nature.invoice"],
+        "directories.nature.leaveApplication": ["label.directories.nature.leaveApplication"],
+        "directories.nature.letter": ["label.directories.nature.letter"],
+        "directories.nature.loanApplication": ["label.directories.nature.loanApplication"],
+        "directories.nature.medicalCertificate": ["label.directories.nature.medicalCertificate"],
+        "directories.nature.memo": ["label.directories.nature.memo"],
+        "directories.nature.note": [
+          "label.directories.nature.note",
+          "label.document.type.note",
+          "searchResults.highlight.field.note:note.fulltext"
+        ],
+        "directories.nature.notice": ["label.directories.nature.notice"],
+        "directories.nature.notification": ["label.directories.nature.notification"],
+        "directories.nature.order": ["label.directories.nature.order"],
+        "directories.nature.pressReview": ["label.directories.nature.pressReview"],
+        "directories.nature.procedure": ["label.directories.nature.procedure"],
+        "directories.nature.purchaseOrder": ["label.directories.nature.purchaseOrder"],
+        "directories.nature.quotation": ["label.directories.nature.quotation"],
+        "directories.nature.report": ["label.directories.nature.report"],
+        "directories.nature.serviceCertificate": ["label.directories.nature.serviceCertificate"],
+        "directories.nature.trainingApplication": ["label.directories.nature.trainingApplication"],
+        "directories.nature.worksheet": ["label.directories.nature.worksheet"],
+        "directories.portuguese": ["label.directories.portuguese"],
+        "directories.russian": ["label.directories.russian"],
+        "directories.spanish": ["label.directories.spanish"],
+        "directories.subtopic.architecture": ["label.directories.subtopic.architecture"],
+        "directories.subtopic.arthistory": ["label.directories.subtopic.arthistory"],
+        "directories.subtopic.astronautic": ["label.directories.subtopic.astronautic"],
+        "directories.subtopic.astronomy": ["label.directories.subtopic.astronomy"],
+        "directories.subtopic.biology": ["label.directories.subtopic.biology"],
+        "directories.subtopic.chemistry": ["label.directories.subtopic.chemistry"],
+        "directories.subtopic.cinema": ["label.directories.subtopic.cinema"],
+        "directories.subtopic.collection": [
+          "app.title.collection",
+          "label.directories.subtopic.collection",
+          "label.document.type.collection"
+        ],
+        "directories.subtopic.comics": ["label.directories.subtopic.comics"],
+        "directories.subtopic.company": [
+          "editUser.company",
+          "viewUser.company",
+          "label.directories.subtopic.company"
+        ],
+        "directories.subtopic.culture": ["label.directories.subtopic.culture"],
+        "directories.subtopic.danse": ["label.directories.subtopic.danse"],
+        "directories.subtopic.earthscience": ["label.directories.subtopic.earthscience"],
+        "directories.subtopic.ecology": ["label.directories.subtopic.ecology"],
+        "directories.subtopic.economy": ["label.directories.subtopic.economy"],
+        "directories.subtopic.education": ["label.directories.subtopic.education"],
+        "directories.subtopic.electronic": ["label.directories.subtopic.electronic"],
+        "directories.subtopic.energy": ["label.directories.subtopic.energy"],
+        "directories.subtopic.fashion": ["label.directories.subtopic.fashion"],
+        "directories.subtopic.games": ["label.directories.subtopic.games"],
+        "directories.subtopic.gardening": ["label.directories.subtopic.gardening"],
+        "directories.subtopic.gastronomy": ["label.directories.subtopic.gastronomy"],
+        "directories.subtopic.geography": ["label.directories.subtopic.geography"],
+        "directories.subtopic.humanitarian": ["label.directories.subtopic.humanitarian"],
+        "directories.subtopic.industry": ["label.directories.subtopic.industry"],
+        "directories.subtopic.information": ["label.directories.subtopic.information"],
+        "directories.subtopic.it": ["label.directories.subtopic.it"],
+        "directories.subtopic.languages": ["label.directories.subtopic.languages"],
+        "directories.subtopic.literature": ["label.directories.subtopic.literature"],
+        "directories.subtopic.logic": ["label.directories.subtopic.logic"],
+        "directories.subtopic.math": ["label.directories.subtopic.math"],
+        "directories.subtopic.medicine": ["label.directories.subtopic.medicine"],
+        "directories.subtopic.minority": ["label.directories.subtopic.minority"],
+        "directories.subtopic.music": ["label.directories.subtopic.music"],
+        "directories.subtopic.paint": ["label.directories.subtopic.paint"],
+        "directories.subtopic.photography": ["label.directories.subtopic.photography"],
+        "directories.subtopic.phylosophy": ["label.directories.subtopic.phylosophy"],
+        "directories.subtopic.physic": ["label.directories.subtopic.physic"],
+        "directories.subtopic.psychology": ["label.directories.subtopic.psychology"],
+        "directories.subtopic.religion": ["label.directories.subtopic.religion"],
+        "directories.subtopic.rights": [
+          "label.directories.subtopic.rights",
+          "pictureViewLayout.rights"
+        ],
+        "directories.subtopic.robotic": ["label.directories.subtopic.robotic"],
+        "directories.subtopic.sexuality": ["label.directories.subtopic.sexuality"],
+        "directories.subtopic.show": ["label.directories.subtopic.show"],
+        "directories.subtopic.sociology": ["label.directories.subtopic.sociology"],
+        "directories.subtopic.sport": ["label.directories.subtopic.sport"],
+        "directories.subtopic.television": ["label.directories.subtopic.television"],
+        "directories.subtopic.tourism": ["label.directories.subtopic.tourism"],
+        "directories.subtopic.transport": ["label.directories.subtopic.transport"],
+        "directories.subtopic.videogames": ["label.directories.subtopic.videogames"],
+        "directories.subtopic.women": ["label.directories.subtopic.women"],
+        "directories.topic.art": ["label.directories.topic.art"],
+        "directories.topic.dailylife": ["label.directories.topic.dailylife"],
+        "directories.topic.humansciences": ["label.directories.topic.humanscience"],
+        "directories.topic.society": ["label.directories.topic.society"],
+        "directories.topic.technology": ["label.directories.topic.technology"],
+        "wf.parallelDocumentReview.ParallelDocumentReview": ["ParallelDocumentReview"],
+        "wf.parallelDocumentReview.approve": ["wf.parallelDocumentReview.approve"],
+        "wf.parallelDocumentReview.reject": [
+          "wf.parallelDocumentReview.reject",
+          "wf.serialDocumentReview.Reject"
+        ],
+        "wf.serialDocumentReview.Validate": ["wf.parallelDocumentReview.approve"],
+        "wf.serialDocumentReview.Reject": [
+          "wf.parallelDocumentReview.reject",
+          "wf.serialDocumentReview.Reject"
+        ],
+        "documentInfo.publications": ["documentInfo.publications"]
+      },
+      "remaining": 150
+    },
+    "ro": {
+      "preserved": 101,
+      "reused": {},
+      "remaining": 427
+    },
+    "pt-PT": {
+      "preserved": 0,
+      "reused": {
+        "pageProviders.default_search.aggregations.dc_coverage_agg.label": [
+          "defaultSearch.coverage",
+          "documentContentView.datatable.header.coverage",
+          "label.dublincore.coverage",
+          "searchResults.sort.field.coverage"
+        ],
+        "pageProviders.default_search.aggregations.dc_modified_agg.buckets.lastWeek": [
+          "label.ui.aggregate.lastWeek"
+        ],
+        "pageProviders.default_search.aggregations.dc_modified_agg.buckets.lastMonth": [
+          "label.ui.aggregate.lastMonth"
+        ],
+        "pageProviders.default_search.aggregations.dc_modified_agg.buckets.lastYear": [
+          "label.ui.aggregate.lastYear"
+        ],
+        "pageProviders.default_search.aggregations.dc_nature_agg.label": [
+          "defaultSearch.nature",
+          "documentContentView.datatable.header.nature",
+          "label.dublincore.nature",
+          "searchResults.sort.field.nature"
+        ],
+        "pageProviders.default_search.aggregations.dc_subjects_agg.label": [
+          "defaultSearch.subject",
+          "documentContentView.datatable.header.subjects",
+          "label.dublincore.subjects"
+        ],
+        "pageProviders.default_search.quickFilters.onlyValidated": [
+          "label.ui.state.validated",
+          "ui.label.quickFilters.onlyValidated"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_coverage_agg.label": [
+          "defaultSearch.coverage",
+          "documentContentView.datatable.header.coverage",
+          "label.dublincore.coverage",
+          "searchResults.sort.field.coverage"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_modified_agg.buckets.lastWeek": [
+          "label.ui.aggregate.lastWeek"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_modified_agg.buckets.lastMonth": [
+          "label.ui.aggregate.lastMonth"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_modified_agg.buckets.lastYear": [
+          "label.ui.aggregate.lastYear"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_nature_agg.label": [
+          "defaultSearch.nature",
+          "documentContentView.datatable.header.nature",
+          "label.dublincore.nature",
+          "searchResults.sort.field.nature"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_subjects_agg.label": [
+          "defaultSearch.subject",
+          "documentContentView.datatable.header.subjects",
+          "label.dublincore.subjects"
+        ],
+        "search.nxql": ["app.nxqlSearch", "app.title.admin.nxql", "nxqlSearch.heading"],
+        "directories.nature.application": ["authenticationTokensManagement.application"],
+        "directories.nature.note": [
+          "label.document.type.note",
+          "searchResults.highlight.field.note:note.fulltext"
+        ],
+        "directories.subtopic.collection": [
+          "app.title.collection",
+          "label.document.type.collection"
+        ],
+        "directories.subtopic.company": ["editUser.company", "viewUser.company"],
+        "directories.subtopic.history": ["browser.history"],
+        "directories.subtopic.rights": ["pictureViewLayout.rights"],
+        "wf.parallelDocumentReview.ParallelDocumentReview": ["ParallelDocumentReview"],
+        "wf.parallelDocumentReview.approve": ["wf.parallelDocumentReview.approve"],
+        "wf.parallelDocumentReview.reject": [
+          "wf.parallelDocumentReview.reject",
+          "wf.serialDocumentReview.Reject"
+        ],
+        "wf.serialDocumentReview.Validate": ["wf.parallelDocumentReview.approve"],
+        "wf.serialDocumentReview.Reject": [
+          "wf.parallelDocumentReview.reject",
+          "wf.serialDocumentReview.Reject"
+        ]
+      },
+      "remaining": 503
+    },
+    "it": {
+      "preserved": 0,
+      "reused": {
+        "pageProviders.default_search.aggregations.common_size_agg.buckets.small": [
+          "exportButton.Small"
+        ],
+        "pageProviders.default_search.aggregations.common_size_agg.buckets.medium": [
+          "exportButton.Medium"
+        ],
+        "pageProviders.default_search.aggregations.dc_coverage_agg.label": [
+          "defaultSearch.coverage",
+          "documentContentView.datatable.header.coverage",
+          "label.dublincore.coverage",
+          "searchResults.sort.field.coverage"
+        ],
+        "pageProviders.default_search.aggregations.dc_modified_agg.buckets.lastWeek": [
+          "label.ui.aggregate.lastWeek"
+        ],
+        "pageProviders.default_search.aggregations.dc_modified_agg.buckets.lastMonth": [
+          "label.ui.aggregate.lastMonth"
+        ],
+        "pageProviders.default_search.aggregations.dc_modified_agg.buckets.lastYear": [
+          "label.ui.aggregate.lastYear"
+        ],
+        "pageProviders.default_search.aggregations.dc_nature_agg.label": [
+          "defaultSearch.nature",
+          "documentContentView.datatable.header.nature",
+          "label.dublincore.nature",
+          "searchResults.sort.field.nature"
+        ],
+        "pageProviders.default_search.aggregations.dc_subjects_agg.label": [
+          "defaultSearch.subject",
+          "documentContentView.datatable.header.subjects",
+          "label.dublincore.subjects"
+        ],
+        "pageProviders.default_search.quickFilters.onlyValidated": [
+          "label.ui.state.validated",
+          "ui.label.quickFilters.onlyValidated"
+        ],
+        "pageProviders.default_trash_search.aggregations.common_size_agg.buckets.small": [
+          "exportButton.Small"
+        ],
+        "pageProviders.default_trash_search.aggregations.common_size_agg.buckets.medium": [
+          "exportButton.Medium"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_coverage_agg.label": [
+          "defaultSearch.coverage",
+          "documentContentView.datatable.header.coverage",
+          "label.dublincore.coverage",
+          "searchResults.sort.field.coverage"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_modified_agg.buckets.lastWeek": [
+          "label.ui.aggregate.lastWeek"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_modified_agg.buckets.lastMonth": [
+          "label.ui.aggregate.lastMonth"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_modified_agg.buckets.lastYear": [
+          "label.ui.aggregate.lastYear"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_nature_agg.label": [
+          "defaultSearch.nature",
+          "documentContentView.datatable.header.nature",
+          "label.dublincore.nature",
+          "searchResults.sort.field.nature"
+        ],
+        "pageProviders.default_trash_search.aggregations.dc_subjects_agg.label": [
+          "defaultSearch.subject",
+          "documentContentView.datatable.header.subjects",
+          "label.dublincore.subjects"
+        ],
+        "pageProviders.retention_search.aggregations.doc_type_agg.buckets.small": [
+          "exportButton.Small"
+        ],
+        "pageProviders.retention_search.aggregations.doc_type_agg.buckets.medium": [
+          "exportButton.Medium"
+        ],
+        "search.nxql": ["app.nxqlSearch", "app.title.admin.nxql", "nxqlSearch.heading"],
+        "search.options": ["publication.internal.options"],
+        "directories.continent.antarctica": ["label.directories.continent.antarctica"],
+        "directories.continent.europe": ["label.directories.continent.europe"],
+        "directories.continent.north-america": ["label.directories.continent.north-america"],
+        "directories.continent.south-america": ["label.directories.continent.south-america"],
+        "directories.country.Aland_Islands": ["label.directories.country.Aland_Islands"],
+        "directories.country.American_Samoa": ["label.directories.country.American_Samoa"],
+        "directories.country.Antarctica_the_territory_South_of_60_deg_S": [
+          "label.directories.country.Antarctica_the_territory_South_of_60_deg_S"
+        ],
+        "directories.country.Antigua_and_Barbuda": [
+          "label.directories.country.Antigua_and_Barbuda"
+        ],
+        "directories.country.Azerbaijan": ["label.directories.country.Azerbaijan"],
+        "directories.country.Bahrain": ["label.directories.country.Bahrain"],
+        "directories.country.Belgium": ["label.directories.country.Belgium"],
+        "directories.country.Bosnia_and_Herzegovina": [
+          "label.directories.country.Bosnia_and_Herzegovina"
+        ],
+        "directories.country.Bouvet_Island_Bouvetoya": [
+          "label.directories.country.Bouvet_Island_Bouvetoya"
+        ],
+        "directories.country.Brazil": ["label.directories.country.Brazil"],
+        "directories.country.British_Indian_Ocean_Territory_Chagos_Archipelago": [
+          "label.directories.country.British_Indian_Ocean_Territory_Chagos_Archipelago"
+        ],
+        "directories.country.British_Virgin_Islands": [
+          "label.directories.country.British_Virgin_Islands"
+        ],
+        "directories.country.Brunei_Darussalam": ["label.directories.country.Brunei_Darussalam"],
+        "directories.country.Cambodia": ["label.directories.country.Cambodia"],
+        "directories.country.Cameroon": ["label.directories.country.Cameroon"],
+        "directories.country.Cape_Verde": ["label.directories.country.Cape_Verde"],
+        "directories.country.Cayman_Islands": ["label.directories.country.Cayman_Islands"],
+        "directories.country.Central_African_Republic": [
+          "label.directories.country.Central_African_Republic"
+        ],
+        "directories.country.Chad": ["label.directories.country.Chad"],
+        "directories.country.Chile": ["label.directories.country.Chile"],
+        "directories.country.China": ["label.directories.country.China"],
+        "directories.country.Christmas_Island": ["label.directories.country.Christmas_Island"],
+        "directories.country.Cocos_Keeling_Islands": [
+          "label.directories.country.Cocos_Keeling_Islands"
+        ],
+        "directories.country.Comoros": ["label.directories.country.Comoros"],
+        "directories.country.Congo_Democratic_Republic": [
+          "label.directories.country.Congo_Democratic_Republic"
+        ],
+        "directories.country.Congo_Republic": ["label.directories.country.Congo_Republic"],
+        "directories.country.Cook_Islands": ["label.directories.country.Cook_Islands"],
+        "directories.country.Cote_D_Ivoire": ["label.directories.country.Cote_D_Ivoire"],
+        "directories.country.Croatia": ["label.directories.country.Croatia"],
+        "directories.country.Cyprus": ["label.directories.country.Cyprus"],
+        "directories.country.Czech_Republic": ["label.directories.country.Czech_Republic"],
+        "directories.country.Denmark": ["label.directories.country.Denmark"],
+        "directories.country.Djibouti": ["label.directories.country.Djibouti"],
+        "directories.country.Dominican_Republic": ["label.directories.country.Dominican_Republic"],
+        "directories.country.Egypt": ["label.directories.country.Egypt"],
+        "directories.country.Equatorial_Guinea": ["label.directories.country.Equatorial_Guinea"],
+        "directories.country.Ethiopia": ["label.directories.country.Ethiopia"],
+        "directories.country.Falkland_Islands_Malvinas": [
+          "label.directories.country.Falkland_Islands_Malvinas"
+        ],
+        "directories.country.Faroe_Islands": ["label.directories.country.Faroe_Islands"],
+        "directories.country.Fiji": ["label.directories.country.Fiji"],
+        "directories.country.Finland": ["label.directories.country.Finland"],
+        "directories.country.France": ["label.directories.country.France"],
+        "directories.country.French_Guiana": ["label.directories.country.French_Guiana"],
+        "directories.country.French_Polynesia": ["label.directories.country.French_Polynesia"],
+        "directories.country.French_Southern_Territories": [
+          "label.directories.country.French_Southern_Territories"
+        ],
+        "directories.country.Germany": ["label.directories.country.Germany"],
+        "directories.country.Gibraltar": ["label.directories.country.Gibraltar"],
+        "directories.country.Greece": ["label.directories.country.Greece"],
+        "directories.country.Greenland": ["label.directories.country.Greenland"],
+        "directories.country.Guadaloupe": ["label.directories.country.Guadaloupe"],
+        "directories.country.Guinea_Bissau": ["label.directories.country.Guinea_Bissau"],
+        "directories.country.Guyana": ["label.directories.country.Guyana"],
+        "directories.country.Heard_and_McDonald_Islands": [
+          "label.directories.country.Heard_and_McDonald_Islands"
+        ],
+        "directories.country.Holy_See_Vatican_City_State": [
+          "label.directories.country.Holy_See_Vatican_City_State"
+        ],
+        "directories.country.Hungary": ["label.directories.country.Hungary"],
+        "directories.country.Iceland": ["label.directories.country.Iceland"],
+        "directories.country.Ireland": ["label.directories.country.Ireland"],
+        "directories.country.Isle_of_Man": ["label.directories.country.Isle_of_Man"],
+        "directories.country.Israel": ["label.directories.country.Israel"],
+        "directories.country.Italy": ["label.directories.country.Italy"],
+        "directories.country.Jamaica": ["label.directories.country.Jamaica"],
+        "directories.country.Japan": ["label.directories.country.Japan"],
+        "directories.country.Jordan": ["label.directories.country.Jordan"],
+        "directories.country.Kazakhstan": ["label.directories.country.Kazakhstan"],
+        "directories.country.Kyrgyz_Republic": ["label.directories.country.Kyrgyz_Republic"],
+        "directories.country.Lao_People_s_Democratic_Republic": [
+          "label.directories.country.Lao_People_s_Democratic_Republic"
+        ],
+        "directories.country.Latvia": ["label.directories.country.Latvia"],
+        "directories.country.Lebanon": ["label.directories.country.Lebanon"],
+        "directories.country.Libyan_Arab_Jamahiriya": [
+          "label.directories.country.Libyan_Arab_Jamahiriya"
+        ],
+        "directories.country.Lithuania": ["label.directories.country.Lithuania"],
+        "directories.country.Luxembourg": ["label.directories.country.Luxembourg"],
+        "directories.country.Malaysia": ["label.directories.country.Malaysia"],
+        "directories.country.Maldives": ["label.directories.country.Maldives"],
+        "directories.country.Marshall_Islands": ["label.directories.country.Marshall_Islands"],
+        "directories.country.Martinique": ["label.directories.country.Martinique"],
+        "directories.country.Mexico": ["label.directories.country.Mexico"],
+        "directories.country.Moldova": ["label.directories.country.Moldova"],
+        "directories.country.Montserrat": ["label.directories.country.Montserrat"],
+        "directories.country.Morocco": ["label.directories.country.Morocco"],
+        "directories.country.Mozambique": ["label.directories.country.Mozambique"],
+        "directories.country.Myanmar": ["label.directories.country.Myanmar"],
+        "directories.country.Netherlands": ["label.directories.country.Netherlands"],
+        "directories.country.Netherlands_Antilles": [
+          "label.directories.country.Netherlands_Antilles"
+        ],
+        "directories.country.New_Caledonia": ["label.directories.country.New_Caledonia"],
+        "directories.country.New_Zealand": ["label.directories.country.New_Zealand"],
+        "directories.country.Norfolk_Island": ["label.directories.country.Norfolk_Island"],
+        "directories.country.North_Korea": ["label.directories.country.North_Korea"],
+        "directories.country.Northern_Mariana_Islands": [
+          "label.directories.country.Northern_Mariana_Islands"
+        ],
+        "directories.country.Norway": ["label.directories.country.Norway"],
+        "directories.country.Palestinian_Territory": [
+          "label.directories.country.Palestinian_Territory"
+        ],
+        "directories.country.Papua_New_Guinea": ["label.directories.country.Papua_New_Guinea"],
+        "directories.country.Peru": ["label.directories.country.Peru"],
+        "directories.country.Philippines": ["label.directories.country.Philippines"],
+        "directories.country.Pitcairn_Island": ["label.directories.country.Pitcairn_Island"],
+        "directories.country.Poland": ["label.directories.country.Poland"],
+        "directories.country.Portugal": ["label.directories.country.Portugal"],
+        "directories.country.Puerto_Rico": ["label.directories.country.Puerto_Rico"],
+        "directories.country.Reunion": ["label.directories.country.Reunion"],
+        "directories.country.Russian_Federation": ["label.directories.country.Russian_Federation"],
+        "directories.country.Rwanda": ["label.directories.country.Rwanda"],
+        "directories.country.Sao_Tome_and_Principe": [
+          "label.directories.country.Sao_Tome_and_Principe"
+        ],
+        "directories.country.Saudi_Arabia": ["label.directories.country.Saudi_Arabia"],
+        "directories.country.Slovakia_Slovak_Republic": [
+          "label.directories.country.Slovakia_Slovak_Republic"
+        ],
+        "directories.country.Solomon_Islands": ["label.directories.country.Solomon_Islands"],
+        "directories.country.South_Africa": ["label.directories.country.South_Africa"],
+        "directories.country.South_Georgia_and_the_South_Sandwich_Islands": [
+          "label.directories.country.South_Georgia_and_the_South_Sandwich_Islands"
+        ],
+        "directories.country.South_Korea": ["label.directories.country.South_Korea"],
+        "directories.country.Spain": ["label.directories.country.Spain"],
+        "directories.country.St_Helena": ["label.directories.country.St_Helena"],
+        "directories.country.St_Kitts_and_Nevis": ["label.directories.country.St_Kitts_and_Nevis"],
+        "directories.country.St_Lucia": ["label.directories.country.St_Lucia"],
+        "directories.country.St_Pierre_and_Miquelon": [
+          "label.directories.country.St_Pierre_and_Miquelon"
+        ],
+        "directories.country.St_Vincent_and_the_Grenadines": [
+          "label.directories.country.St_Vincent_and_the_Grenadines"
+        ],
+        "directories.country.Svalbard_Jan_Mayen_Islands": [
+          "label.directories.country.Svalbard_Jan_Mayen_Islands"
+        ],
+        "directories.country.Sweden": ["label.directories.country.Sweden"],
+        "directories.country.Switzerland": ["label.directories.country.Switzerland"],
+        "directories.country.Syrian_Arab_Republic": [
+          "label.directories.country.Syrian_Arab_Republic"
+        ],
+        "directories.country.Tajikistan": ["label.directories.country.Tajikistan"],
+        "directories.country.Thailand": ["label.directories.country.Thailand"],
+        "directories.country.Timor_Leste": ["label.directories.country.Timor_Leste"],
+        "directories.country.Tokelau_Tokelau_Islands": [
+          "label.directories.country.Tokelau_Tokelau_Islands"
+        ],
+        "directories.country.Trinidad_and_Tobago": [
+          "label.directories.country.Trinidad_and_Tobago"
+        ],
+        "directories.country.Turkey": ["label.directories.country.Turkey"],
+        "directories.country.Turks_and_Caicos_Islands": [
+          "label.directories.country.Turks_and_Caicos_Islands"
+        ],
+        "directories.country.US_Virgin_Islands": ["label.directories.country.US_Virgin_Islands"],
+        "directories.country.Ukraine": ["label.directories.country.Ukraine"],
+        "directories.country.United_Arab_Emirates": [
+          "label.directories.country.United_Arab_Emirates"
+        ],
+        "directories.country.United_Kingdom_of_Great_Britain_N_Ireland": [
+          "label.directories.country.United_Kingdom_of_Great_Britain_N_Ireland"
+        ],
+        "directories.country.United_States_Minor_Outlying_Islands": [
+          "label.directories.country.United_States_Minor_Outlying_Islands"
+        ],
+        "directories.country.United_States_of_America": [
+          "label.directories.country.United_States_of_America"
+        ],
+        "directories.country.Viet_Nam": ["label.directories.country.Viet_Nam"],
+        "directories.country.Wallis_and_Futuna_Islands": [
+          "label.directories.country.Wallis_and_Futuna_Islands"
+        ],
+        "directories.country.Western_Sahara": ["label.directories.country.Western_Sahara"],
+        "directories.english": ["label.directories.english"],
+        "directories.french": ["label.directories.french"],
+        "directories.german": ["label.directories.german"],
+        "directories.italian": ["label.directories.italian"],
+        "directories.japanese": ["label.directories.japanese"],
+        "directories.nature.accomodationApplicationForm": [
+          "label.directories.nature.accomodationApplicationForm"
+        ],
+        "directories.nature.acknowledgement": ["label.directories.nature.acknowledgement"],
+        "directories.nature.application": [
+          "authenticationTokensManagement.application",
+          "label.directories.nature.application"
+        ],
+        "directories.nature.article": ["label.directories.nature.article"],
+        "directories.nature.assessment": ["label.directories.nature.assessment"],
+        "directories.nature.bankAccountDetails": ["label.directories.nature.bankAccountDetails"],
+        "directories.nature.booklet": ["label.directories.nature.booklet"],
+        "directories.nature.card": ["label.directories.nature.card"],
+        "directories.nature.certificate": ["label.directories.nature.certificate"],
+        "directories.nature.contract": ["label.directories.nature.contract"],
+        "directories.nature.convocation": ["label.directories.nature.convocation"],
+        "directories.nature.credit": ["label.directories.nature.credit"],
+        "directories.nature.decree": ["label.directories.nature.decree"],
+        "directories.nature.deliveryNote": ["label.directories.nature.deliveryNote"],
+        "directories.nature.email": [
+          "editUser.email",
+          "popupPermission.email",
+          "userGroupSearch.email",
+          "viewUser.email",
+          "easysharefolder.contactEmail",
+          "label.directories.nature.email",
+          "label.mail.folder.email"
+        ],
+        "directories.nature.endorsement": ["label.directories.nature.endorsement"],
+        "directories.nature.internshipReport": ["label.directories.nature.internshipReport"],
+        "directories.nature.invoice": ["label.directories.nature.invoice"],
+        "directories.nature.leaveApplication": ["label.directories.nature.leaveApplication"],
+        "directories.nature.letter": ["label.directories.nature.letter"],
+        "directories.nature.loanApplication": ["label.directories.nature.loanApplication"],
+        "directories.nature.medicalCertificate": ["label.directories.nature.medicalCertificate"],
+        "directories.nature.memo": ["label.directories.nature.memo"],
+        "directories.nature.note": [
+          "label.directories.nature.note",
+          "label.document.type.note",
+          "searchResults.highlight.field.note:note.fulltext"
+        ],
+        "directories.nature.notice": ["label.directories.nature.notice"],
+        "directories.nature.notification": ["label.directories.nature.notification"],
+        "directories.nature.order": ["label.directories.nature.order"],
+        "directories.nature.pressReview": ["label.directories.nature.pressReview"],
+        "directories.nature.procedure": ["label.directories.nature.procedure"],
+        "directories.nature.purchaseOrder": ["label.directories.nature.purchaseOrder"],
+        "directories.nature.quotation": ["label.directories.nature.quotation"],
+        "directories.nature.report": ["label.directories.nature.report"],
+        "directories.nature.serviceCertificate": ["label.directories.nature.serviceCertificate"],
+        "directories.nature.trainingApplication": ["label.directories.nature.trainingApplication"],
+        "directories.nature.worksheet": ["label.directories.nature.worksheet"],
+        "directories.portuguese": ["label.directories.portuguese"],
+        "directories.russian": ["label.directories.russian"],
+        "directories.spanish": ["label.directories.spanish"],
+        "directories.subtopic.architecture": ["label.directories.subtopic.architecture"],
+        "directories.subtopic.arthistory": ["label.directories.subtopic.arthistory"],
+        "directories.subtopic.astronautic": ["label.directories.subtopic.astronautic"],
+        "directories.subtopic.astronomy": ["label.directories.subtopic.astronomy"],
+        "directories.subtopic.biology": ["label.directories.subtopic.biology"],
+        "directories.subtopic.chemistry": ["label.directories.subtopic.chemistry"],
+        "directories.subtopic.comics": ["label.directories.subtopic.comics"],
+        "directories.subtopic.company": [
+          "editUser.company",
+          "viewUser.company",
+          "label.directories.subtopic.company"
+        ],
+        "directories.subtopic.culture": ["label.directories.subtopic.culture"],
+        "directories.subtopic.danse": ["label.directories.subtopic.danse"],
+        "directories.subtopic.earthscience": ["label.directories.subtopic.earthscience"],
+        "directories.subtopic.ecology": ["label.directories.subtopic.ecology"],
+        "directories.subtopic.economy": ["label.directories.subtopic.economy"],
+        "directories.subtopic.education": ["label.directories.subtopic.education"],
+        "directories.subtopic.electronic": ["label.directories.subtopic.electronic"],
+        "directories.subtopic.energy": ["label.directories.subtopic.energy"],
+        "directories.subtopic.fashion": ["label.directories.subtopic.fashion"],
+        "directories.subtopic.games": ["label.directories.subtopic.games"],
+        "directories.subtopic.gardening": ["label.directories.subtopic.gardening"],
+        "directories.subtopic.gastronomy": ["label.directories.subtopic.gastronomy"],
+        "directories.subtopic.geography": ["label.directories.subtopic.geography"],
+        "directories.subtopic.humanitarian": ["label.directories.subtopic.humanitarian"],
+        "directories.subtopic.industry": ["label.directories.subtopic.industry"],
+        "directories.subtopic.information": ["label.directories.subtopic.information"],
+        "directories.subtopic.it": ["label.directories.subtopic.it"],
+        "directories.subtopic.languages": ["label.directories.subtopic.languages"],
+        "directories.subtopic.literature": ["label.directories.subtopic.literature"],
+        "directories.subtopic.logic": ["label.directories.subtopic.logic"],
+        "directories.subtopic.math": ["label.directories.subtopic.math"],
+        "directories.subtopic.medicine": ["label.directories.subtopic.medicine"],
+        "directories.subtopic.minority": ["label.directories.subtopic.minority"],
+        "directories.subtopic.music": ["label.directories.subtopic.music"],
+        "directories.subtopic.paint": ["label.directories.subtopic.paint"],
+        "directories.subtopic.photography": ["label.directories.subtopic.photography"],
+        "directories.subtopic.phylosophy": ["label.directories.subtopic.phylosophy"],
+        "directories.subtopic.physic": ["label.directories.subtopic.physic"],
+        "directories.subtopic.psychology": ["label.directories.subtopic.psychology"],
+        "directories.subtopic.religion": ["label.directories.subtopic.religion"],
+        "directories.subtopic.rights": [
+          "label.directories.subtopic.rights",
+          "pictureViewLayout.rights"
+        ],
+        "directories.subtopic.robotic": ["label.directories.subtopic.robotic"],
+        "directories.subtopic.sexuality": ["label.directories.subtopic.sexuality"],
+        "directories.subtopic.show": ["label.directories.subtopic.show"],
+        "directories.subtopic.sociology": ["label.directories.subtopic.sociology"],
+        "directories.subtopic.television": ["label.directories.subtopic.television"],
+        "directories.subtopic.tourism": ["label.directories.subtopic.tourism"],
+        "directories.subtopic.transport": ["label.directories.subtopic.transport"],
+        "directories.subtopic.videogames": ["label.directories.subtopic.videogames"],
+        "directories.subtopic.women": ["label.directories.subtopic.women"],
+        "directories.topic.art": ["label.directories.topic.art"],
+        "directories.topic.dailylife": ["label.directories.topic.dailylife"],
+        "directories.topic.humansciences": ["label.directories.topic.humanscience"],
+        "directories.topic.society": ["label.directories.topic.society"],
+        "directories.topic.technology": ["label.directories.topic.technology"],
+        "wf.parallelDocumentReview.ParallelDocumentReview": ["ParallelDocumentReview"],
+        "wf.parallelDocumentReview.approve": ["wf.parallelDocumentReview.approve"],
+        "wf.parallelDocumentReview.reject": [
+          "wf.parallelDocumentReview.reject",
+          "wf.serialDocumentReview.Reject"
+        ],
+        "wf.serialDocumentReview.Validate": ["wf.parallelDocumentReview.approve"],
+        "wf.serialDocumentReview.Reject": [
+          "wf.parallelDocumentReview.reject",
+          "wf.serialDocumentReview.Reject"
+        ],
+        "documentInfo.publications": ["documentInfo.publications"]
+      },
+      "remaining": 268
+    }
+  }
+}

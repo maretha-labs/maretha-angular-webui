@@ -1,0 +1,31 @@
+<div [formGroup]="formGroup" class="row">
+	<div class="col-12 mb-3">
+		<nx-users-and-groups-picker
+			formControlName="participants"
+			id="participants"
+			[label]="
+				'app.modules.serial-wf-document-validation-task.participants-5ba3ce'
+					| webuiMessage: 'Participants'
+			"
+			[multiple]="true"
+			[nxAutofocus]="true"
+			[nxAutofocusDelay]="400"
+			[required]="true"
+		>
+		</nx-users-and-groups-picker>
+	</div>
+	<div class="col-12 mb-3">
+		<div class="form-floating">
+			<textarea
+				formControlName="comment"
+				class="form-control"
+				[ngClass]="getValidationClassName('comment')"
+				autosize
+			>
+			</textarea>
+			<label for="comment">{{
+				'app.modules.serial-wf-document-validation-task.comment-3556c4' | webuiMessage: 'Comment'
+			}}</label>
+		</div>
+	</div>
+</div>

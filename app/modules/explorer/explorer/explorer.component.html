@@ -1,0 +1,38 @@
+<header class="document-header" [class.document-header--compact]="compactDocumentHeader">
+	<nx-document-navigation-bar [compact]="compactDocumentHeader" />
+	<nx-document-toolbar [compact]="compactDocumentHeader" />
+</header>
+
+<div class="container px-0">
+	@if (documentBrowserRouteActive) {
+		<div
+			[class.file-over]="fileOver"
+			class="drag-container"
+			[class.no-upload]="!document()?.ng.subTypes?.length"
+			[nxDragAndDrop]="true"
+			(filesDragged)="filesDragged($event)"
+			(filesDropped)="filesDropped($event)"
+			data-drag-message="Drop your files here to attach them to a new document."
+			data-no-drop-message="This document type doesn't allow files to be imported."
+		>
+			<nx-generic-type-viewer [document]="document()"></nx-generic-type-viewer>
+		</div>
+	}
+
+	@if (!documentBrowserRouteActive) {
+		<nx-generic-folderish-viewer [document]="document()" class="flex-grow-1">
+		</nx-generic-folderish-viewer>
+	}
+</div>
+
+@if (loading) {
+	<div class="loading-spinner">
+		<fa-icon
+			[fixedWidth]="true"
+			class="spinner"
+			icon="spinner"
+			[fixedWidth]="true"
+			animation="spin-pulse"
+		></fa-icon>
+	</div>
+}

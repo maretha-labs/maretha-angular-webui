@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "source": "migration/polymer-source",
+  "entries": [
+    {
+      "polymer": {
+        "file": "elements/acme-contract-approve.html",
+        "slot": "DOCUMENT_ACTIONS",
+        "name": "acmeContractApprove",
+        "filter": {
+          "type": "Contract",
+          "permission": "Write",
+          "expression": "!this.isTrashed(document)"
+        }
+      },
+      "angular": {
+        "slot": "DOCUMENT_ACTIONS",
+        "id": "acme.contract.approve",
+        "file": "custom/contributions/document-actions/acme.contract.approve.component.ts"
+      },
+      "status": "ported"
+    },
+    {
+      "polymer": {
+        "file": "elements/nuxeo-contract-view-layout.html",
+        "layout": { "type": "Contract", "mode": "view" }
+      },
+      "angular": {
+        "layout": { "type": "Contract", "mode": "view" },
+        "id": "acme.layout.contract.view",
+        "file": "custom/layouts/Contract/contract.view.layout.ts"
+      },
+      "status": "ported"
+    },
+    {
+      "polymer": {
+        "file": "search/contracts/nuxeo-contracts-search-form.html",
+        "search": "contracts",
+        "provider": "acme_contracts"
+      },
+      "angular": {
+        "slot": "DRAWER_PAGES",
+        "id": "acme.drawer.contracts",
+        "file": "custom/contributions/drawer-items/acme.drawer.contracts.component.ts"
+      },
+      "status": "pending",
+      "note": "Search forms have no SDK registry; the drawer page will query the acme_contracts page provider on submit."
+    },
+    {
+      "polymer": { "file": "elements/acme-signature-pad.html" },
+      "angular": null,
+      "status": "waived",
+      "note": "Custom element with no slot; the signing step moves to the server workflow."
+    }
+  ]
+}

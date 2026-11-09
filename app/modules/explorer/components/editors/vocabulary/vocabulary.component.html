@@ -1,0 +1,82 @@
+<div class="form-control">
+	<label [for]="id + '-input'">{{ label }}</label>
+	<ng-select
+		#select
+		[formControl]="formControl"
+		class="ng-select-sm ng-select-discreet"
+		[labelForId]="id + '-input'"
+		[hideSelected]="true"
+		[multiple]="multiple"
+		[placeholder]="placeholder"
+		[clearable]="clearable"
+		[addTag]="addTag"
+		[selectOnTab]="true"
+		[items]="vocabularyEntries$ | async"
+		[trackByFn]="trackByFn"
+		[loading]="loading"
+		[typeahead]="searchTerm$"
+		[nxSuggestionLimits]="limits()"
+		groupBy="parentLabel"
+		(focus)="fetchEntries($event)"
+	>
+		<ng-template ng-optgroup-tmp let-item="item" let-index="index">
+			<b class="text-primary">{{ item.parentLabel }}</b>
+		</ng-template>
+		<ng-template ng-label-tmp let-item="item">
+			@if (item.parentLabel) {
+				<span class="ng-value-label"> {{ item.parentLabel }}/{{ item.label }} </span>
+			}
+			@if (!item.parentLabel) {
+				<span class="ng-value-label">
+					{{ item.label }}
+				</span>
+			}
+		</ng-template>
+		<ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
+			@for (item of items; track item; let index = $index) {
+				<div class="ng-value">
+					@if (item.parentLabel) {
+						<span
+							[tooltip]="
+								'app.modules.vocabulary.click-to-add-a-new-item-7dd2ea'
+									| webuiMessage: 'Click to add a new item'
+							"
+							class="ng-value-label"
+							[id]="id + '-selected-' + index"
+						>
+							{{ item.parentLabel }}/{{ item.label }}
+						</span>
+					}
+					@if (!item.parentLabel) {
+						<span
+							[tooltip]="
+								'app.modules.vocabulary.click-to-add-a-new-item-7dd2ea'
+									| webuiMessage: 'Click to add a new item'
+							"
+							class="ng-value-label"
+							[id]="id + '-selected-' + index"
+						>
+							{{ item.label }}
+						</span>
+					}
+					<button
+						type="button"
+						(click)="clear(item); select.focus(); $event.stopPropagation()"
+						(keydown)="$event.stopPropagation()"
+						[disabled]="formControl.disabled"
+						[attr.aria-label]="
+							'app.modules.vocabulary.remove-this-item-799870' | webuiMessage: 'Remove this item'
+						"
+						[attr.aria-describedby]="id + '-selected-' + index"
+						[tooltip]="
+							'app.modules.vocabulary.remove-this-item-799870' | webuiMessage: 'Remove this item'
+						"
+						class="ng-value-icon right border-0 bg-transparent text-reset"
+					>
+						×
+					</button>
+				</div>
+			}
+		</ng-template>
+	</ng-select>
+</div>

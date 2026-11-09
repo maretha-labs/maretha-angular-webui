@@ -1,0 +1,53 @@
+<ul class="list-group list-group-flush" [class.small]="compact">
+	@if (document.properties['dc:created']) {
+		<li class="list-group-item" [class.p-0]="compact">
+			{{ 'app.modules.contributors.created-2a3118' | webuiMessage: 'Created:' }}
+			<strong>
+				<abbr
+					[tooltip]="(document.properties['dc:created'] | webuiDate: 'short') || ''"
+					class="ms-1"
+				>
+					{{ document.properties['dc:created'] | timeago }}
+				</abbr>
+
+				{{ 'app.modules.contributors.by-648fbf' | webuiMessage: 'by' }}
+				<abbr class="ms-1 bg-light">
+					<fa-icon icon="user" size="xs" [fixedWidth]="true"></fa-icon>
+					{{ document.ng.createdBy }}
+				</abbr>
+			</strong>
+		</li>
+	}
+
+	@if (document.properties['dc:modified']) {
+		<li class="list-group-item" [class.p-0]="compact">
+			{{ 'app.modules.contributors.modified-1e007d' | webuiMessage: 'Modified:' }}
+			<strong>
+				<span
+					[tooltip]="(document.properties['dc:modified'] | webuiDate: 'short') || ''"
+					class="ms-1"
+				>
+					{{ document.properties['dc:modified'] | timeago }}
+				</span>
+
+				{{ 'app.modules.contributors.by-648fbf' | webuiMessage: 'by' }}
+				<abbr class="ms-1 bg-light">
+					<fa-icon icon="user" size="xs" [fixedWidth]="true"></fa-icon>
+					{{ document.ng.lastModifiedBy }}
+				</abbr>
+			</strong>
+		</li>
+	}
+
+	<li class="list-group-item" [class.p-0]="compact">
+		{{ 'app.modules.contributors.contributors-bce1bc' | webuiMessage: 'Contributors:' }}
+		<strong>
+			@for (contributor of contributors; track contributor) {
+				<abbr class="me-1 mb-1 bg-light">
+					<fa-icon icon="user" size="xs" [fixedWidth]="true"></fa-icon>
+					{{ contributor }}
+				</abbr>
+			}
+		</strong>
+	</li>
+</ul>

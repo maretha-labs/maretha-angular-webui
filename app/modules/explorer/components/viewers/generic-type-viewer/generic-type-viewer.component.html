@@ -1,0 +1,16 @@
+@if (document && documentMatchesNavigation) {
+	<nx-document-views
+		[context]="viewContext"
+		[navigationPath]="navigationPath"
+		[selectedView]="selectedView()"
+		(viewChange)="viewChanged($event)"
+	/>
+} @else if (!document) {
+	<nx-generic-folderish-viewer [document]="document" />
+} @else {
+	<p role="status">
+		{{
+			'app.modules.generic-type-viewer.loading-document-449c7c' | webuiMessage: 'Loading document…'
+		}}
+	</p>
+}

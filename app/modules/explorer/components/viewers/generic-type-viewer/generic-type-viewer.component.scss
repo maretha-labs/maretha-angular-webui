@@ -1,0 +1,10 @@
+:host {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+nx-generic-folderish-viewer,
+nx-document-views {
+	flex-grow: 1;
+}

@@ -1,0 +1,22 @@
+@if (visible()) {
+	<button
+		type="button"
+		(click)="showDocumentInfo()"
+		class="btn btn-sm btn-link text-decoration-none"
+		[attr.aria-label]="
+			'app.modules.document-info-action.show-document-information-1e16c1'
+				| webuiMessage: 'Show document information'
+		"
+		[tooltip]="
+			'app.modules.document-info-action.show-this-document-s-info-permissions-and--59c160'
+				| webuiMessage: 'Show this document\'s info, permissions and activity'
+		"
+		container="body"
+	>
+		<fa-icon [fixedWidth]="true" [icon]="infoIcon"></fa-icon>
+		<span class="document-info-label">{{
+			'app.modules.document-info-action.document-information-003fe1'
+				| webuiMessage: 'Document information'
+		}}</span>
+	</button>
+}

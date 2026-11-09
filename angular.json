@@ -1,0 +1,226 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "maretha-angular-webui": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "./",
+      "prefix": "nx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/maretha-angular-webui",
+            "index": "./index.html",
+            "main": "./main.ts",
+            "polyfills": "./polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "allowedCommonJsDependencies": ["fast-deep-equal", "prismjs"],
+            "assets": [
+              "./favicon.ico",
+              "./assets",
+              "./env.js",
+              {
+                "glob": "suggestions.json",
+                "input": "custom",
+                "output": "/custom/"
+              },
+              {
+                "glob": "bootstrap.rtl.min.css",
+                "input": "node_modules/bootstrap/dist/css",
+                "output": "/assets/styles/"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/ngx-extended-pdf-viewer/bleeding-edge/",
+                "output": "/bleeding-edge/"
+              }
+            ],
+            "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/ngx-drag-to-select/ngx-drag-to-select.css",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
+              "styles/prism-one-light.css",
+              "styles/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js",
+              "assets/js/three.js",
+              "assets/js/LegacyGLTFLoader.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "sourceMap": {
+                "hidden": true,
+                "scripts": true,
+                "styles": true
+              },
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5mb",
+                  "maximumError": "6mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "8kb"
+                }
+              ],
+              "baseHref": "/nuxeo/ng/",
+              "fileReplacements": [
+                {
+                  "replace": "environments/environment.ts",
+                  "with": "environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            },
+            "preview": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "main": "preview/main.ts",
+              "index": "preview/index.html",
+              "tsConfig": "preview/tsconfig.json",
+              "baseHref": "/",
+              "outputPath": "dist/component-preview",
+              "assets": [],
+              "styles": ["preview/styles.scss"],
+              "scripts": []
+            },
+            "a11y": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "main": "e2e/a11y/main.ts",
+              "index": "e2e/a11y/index.html",
+              "tsConfig": "e2e/a11y/tsconfig.json",
+              "baseHref": "/",
+              "outputPath": "dist/a11y-fixture"
+            },
+            "i18n": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "main": "e2e/i18n/main.ts",
+              "index": "e2e/a11y/index.html",
+              "tsConfig": "e2e/i18n/tsconfig.json",
+              "baseHref": "/",
+              "outputPath": "dist/i18n-fixture"
+            },
+            "compiled-search": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "main": "e2e/compiled-search/main.ts",
+              "index": "e2e/compiled-search/index.html",
+              "tsConfig": "e2e/compiled-search/tsconfig.json",
+              "baseHref": "/",
+              "outputPath": "dist/compiled-search-fixture"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "port": 4200,
+            "open": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "maretha-angular-webui:build:production"
+            },
+            "development": {
+              "buildTarget": "maretha-angular-webui:build:development"
+            },
+            "preview": {
+              "buildTarget": "maretha-angular-webui:build:preview"
+            },
+            "a11y": {
+              "buildTarget": "maretha-angular-webui:build:a11y"
+            },
+            "i18n": {
+              "buildTarget": "maretha-angular-webui:build:i18n"
+            },
+            "compiled-search": {
+              "buildTarget": "maretha-angular-webui:build:compiled-search"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "maretha-angular-webui:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "./test.ts",
+            "polyfills": "./polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "exclude": ["examples/**"],
+            "inlineStyleLanguage": "scss",
+            "assets": ["./favicon.ico", "./assets", "./env.js"],
+            "styles": ["./styles/styles.scss"],
+            "scripts": ["assets/js/three.js", "assets/js/LegacyGLTFLoader.js"]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              ".//**/*.ts",
+              ".//**/*.html",
+              ".//scripts/**/*.mjs",
+              ".//scripts/**/*.cjs",
+              ".//e2e/**/*.mjs"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false,
+    "schematicCollections": ["angular-eslint"]
+  }
+}

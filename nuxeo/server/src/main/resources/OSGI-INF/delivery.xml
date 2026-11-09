@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<component name="io.maretha.maretha-angular-webui.server.delivery">
+  <require>org.nuxeo.ecm.platform.ui.web.auth.defaultConfig</require>
+  <!-- These two routes perform independent cookie + resource-grant checks in DeliveryServlet.
+       All mint/renew/revoke routes retain the normal Nuxeo authentication chain. -->
+  <extension target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService" point="openUrl">
+    <openUrl name="io.maretha.maretha-angular-webui.server.delivery.get">
+      <grantPattern>^\Q${org.nuxeo.ecm.contextPath}/maretha-ui-maretha-angular-webui-delivery/v1/content/\E[A-Za-z0-9_-]{43}$</grantPattern>
+      <method>GET</method>
+    </openUrl>
+    <openUrl name="io.maretha.maretha-angular-webui.server.delivery.head">
+      <grantPattern>^\Q${org.nuxeo.ecm.contextPath}/maretha-ui-maretha-angular-webui-delivery/v1/content/\E[A-Za-z0-9_-]{43}$</grantPattern>
+      <method>HEAD</method>
+    </openUrl>
+  </extension>
+</component>

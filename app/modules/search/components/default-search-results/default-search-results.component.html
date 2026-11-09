@@ -1,0 +1,355 @@
+<section
+	class="default-search-results"
+	[class.default-search-results--selecting]="toolbarContext().selectedDocuments.length > 0"
+	[attr.aria-label]="
+		'app.modules.default-search-results.default-search-results-b94069'
+			| webuiMessage: 'Default search results'
+	"
+>
+	@if (toolbarContext().selectedDocuments.length) {
+		<div
+			class="default-search-results__selection"
+			role="group"
+			[attr.aria-label]="
+				'app.modules.default-search-results.actions-for-selected-documents-ad45dd'
+					| webuiMessage: 'Actions for selected documents'
+			"
+		>
+			<span role="status">{{
+				'selectionToolbar.selected.items'
+					| webuiMessage: '{0} item(s) selected' : toolbarContext().selectedDocuments.length
+			}}</span>
+			<button
+				type="button"
+				[disabled]="loading() || busy() || selectingQuery()"
+				(click)="selectMatchingQuery()"
+			>
+				{{
+					'app.modules.default-search-results.select-all-matching-5f6e32'
+						| webuiMessage: 'Select all matching'
+				}}
+			</button>
+			<button
+				type="button"
+				(click)="selectionOnly.set(!selectionOnly())"
+				[attr.aria-pressed]="selectionOnly()"
+			>
+				{{ 'results.displaySelection' | webuiMessage: 'Display selection' }}
+			</button>
+			<button type="button" (click)="clearSelection(); selectionOnly.set(false)">
+				{{ 'command.clear' | webuiMessage: 'Clear' }}
+			</button>
+			@if (keyboardHint()) {
+				<span
+					class="shortcut-hint"
+					aria-hidden="true"
+					[innerHTML]="
+						'selectionToolbar.hint.message'
+							| webuiMessage
+								: 'Use <kbd>{0}</kbd> + <kbd>.</kbd> to navigate to the toolbar'
+								: modifierKey
+					"
+				></span>
+			}
+			<nx-webui-slot name="RESULTS_SELECTION_ACTIONS" [context]="toolbarContext()" />
+		</div>
+	}
+	@if (!initialLoading()) {
+		<header
+			class="default-search-results__header"
+			[attr.inert]="toolbarContext().selectedDocuments.length ? '' : null"
+		>
+			<div>
+				<h1>
+					{{ 'searchResults.results' | webuiMessage: 'Search Results' }}
+				</h1>
+			</div>
+			<div class="default-search-results__actions">
+				@if (showSaveAs()) {
+					<button
+						type="button"
+						class="saved-search-action saved-search-action--primary"
+						(click)="openSaveAs()"
+					>
+						<nx-webui-icon name="nuxeo:filter-edit" />{{
+							'app.saveNewSearch' | webuiMessage: 'Save As'
+						}}
+					</button>
+				}
+				@if (showSave()) {
+					<button
+						type="button"
+						class="saved-search-action saved-search-action--outline"
+						(click)="savedSearchAction('save')"
+					>
+						<nx-webui-icon name="nuxeo:filter-add" />{{ 'app.savedSearch' | webuiMessage: 'Save' }}
+					</button>
+				}
+				@if (showSavedSearchMenu()) {
+					<details
+						class="saved-search-menu"
+						#savedSearchMenu
+						(focusout)="
+							!savedSearchMenu.contains($any($event.relatedTarget)) &&
+								(savedSearchMenu.open = false)
+						"
+					>
+						<summary [attr.aria-label]="'command.menu' | webuiMessage: 'Menu'">
+							<span aria-hidden="true">⋮</span>
+						</summary>
+						<div role="menu">
+							<button
+								type="button"
+								role="menuitem"
+								(click)="savedSearchMenu.open = false; savedSearchAction('rename')"
+							>
+								<nx-webui-icon name="nuxeo:edit" />{{ 'app.renameSearch' | webuiMessage: 'Rename' }}
+							</button>
+							<button
+								type="button"
+								role="menuitem"
+								(click)="savedSearchMenu.open = false; savedSearchAction('share')"
+							>
+								<nx-webui-icon name="nuxeo:share" />{{ 'app.shareSearch' | webuiMessage: 'Share' }}
+							</button>
+							<button
+								type="button"
+								role="menuitem"
+								(click)="savedSearchMenu.open = false; savedSearchAction('delete')"
+							>
+								<nx-webui-icon name="nuxeo:delete" />{{
+									'app.deleteSearch' | webuiMessage: 'Delete'
+								}}
+							</button>
+						</div>
+					</details>
+				}
+			</div>
+		</header>
+	}
+	@if (initialLoading()) {
+		<div class="default-search-results__pending" role="status" aria-live="polite">
+			<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+			<span>{{
+				'app.modules.default-search-results.loading-results-b1421b'
+					| webuiMessage: 'Loading results…'
+			}}</span>
+		</div>
+	}
+	<div class="default-search-results__resultbar" [hidden]="initialLoading()">
+		<p aria-live="polite" [hidden]="(total() ?? rows().length) === 0">
+			{{ 'results.heading.count' | webuiMessage: '{0} result(s)' : total() ?? rows().length }}
+		</p>
+		<div class="result-quick-filters">
+			@for (key of quickFilterKeys(); track key) {
+				<button
+					type="button"
+					[attr.aria-pressed]="quickFilters()[key]"
+					(click)="toggleQuickFilter(key)"
+				>
+					{{ quickFilterLabel(key) }}
+				</button>
+			}
+		</div>
+		<div class="default-search-results__actions">
+			<nx-webui-slot
+				name="RESULTS_ACTIONS"
+				[context]="toolbarContext()"
+				[excludeIds]="resultbarExcludedActions()"
+			/>
+			<div
+				role="group"
+				[attr.aria-label]="
+					'app.modules.default-search-results.display-mode-05f129' | webuiMessage: 'Display mode'
+				"
+			>
+				@if (definition().views.grid) {
+					<button
+						type="button"
+						[disabled]="displayMode() === 'grid'"
+						(click)="setDisplayMode('grid')"
+						[attr.aria-label]="
+							'app.modules.default-search-results.switch-to-grid-view-cb21bb'
+								| webuiMessage: 'Switch to grid view'
+						"
+					>
+						<nx-webui-icon name="nuxeo:view-thumbnails" />
+					</button>
+				}
+				@if (definition().views.table) {
+					<button
+						type="button"
+						[disabled]="displayMode() === 'table'"
+						(click)="setDisplayMode('table')"
+						[attr.aria-label]="
+							'app.modules.default-search-results.switch-to-table-view-3d04e9'
+								| webuiMessage: 'Switch to table view'
+						"
+					>
+						<nx-webui-icon name="nuxeo:view-list" />
+					</button>
+				}
+				@if (definition().views.list) {
+					<button
+						type="button"
+						[disabled]="displayMode() === 'list'"
+						(click)="setDisplayMode('list')"
+						[attr.aria-label]="
+							'app.modules.default-search-results.switch-to-list-view-c6c837'
+								| webuiMessage: 'Switch to list view'
+						"
+					>
+						<nx-webui-icon name="nuxeo:view-headline" />
+					</button>
+				}
+			</div>
+		</div>
+	</div>
+
+	@if (displayMode() !== 'table') {
+		<nx-results-sort-bar
+			class="default-search-results__controls"
+			role="toolbar"
+			[hidden]="initialLoading()"
+			[attr.aria-label]="
+				'app.modules.default-search-results.search-result-controls-c55327'
+					| webuiMessage: 'Search result controls'
+			"
+			[options]="sortOptions"
+			[field]="sortBy()"
+			[ascending]="sortAscending()"
+			[disabled]="loading() || busy()"
+			(fieldChange)="setSort($any($event))"
+			(orderToggle)="toggleSortOrder()"
+		/>
+	}
+
+	@if (selectingQuery()) {
+		<button type="button" (click)="stopSelectingQuery()">
+			{{
+				'app.modules.default-search-results.stop-selecting-d8e63b' | webuiMessage: 'Stop selecting'
+			}}
+		</button>
+	}
+	@if (selectionOutcome()) {
+		<p role="status">{{ selectionOutcome() }}</p>
+	}
+	@if (error()) {
+		<p role="alert">{{ error() }}</p>
+		<button type="button" [disabled]="loading() || busy()" (click)="retry()">
+			{{ 'app.modules.default-search-results.retry-fa6db0' | webuiMessage: 'Retry' }}
+		</button>
+	}
+	<div class="default-search-results__views" [hidden]="initialLoading()">
+		<nx-results-projection
+			[hidden]="initialLoading()"
+			[rowActivation]="true"
+			(rowActivated)="activateResult($event)"
+			[columnLayoutEnabled]="true"
+			(columnLayoutChange)="columnLayoutChanged($event)"
+			[columnChooser]="definition().views.table?.columnChooser === true"
+			(columnChooserOpen)="openColumnChooser()"
+			[rows]="displayedRows()"
+			[selection]="selectedIds()"
+			[mode]="displayMode()"
+			[columns]="tableColumns()"
+			[pageScroll]="true"
+			[tableHeaderHeight]="50"
+			[tableRowHeight]="52"
+			[selectionColumnWidth]="64"
+			[loading]="loading() || busy() || selectingQuery()"
+			[scope]="toolbarContext().queryScope"
+			[remoteSort]="true"
+			[hostId]="definition().results.hostId"
+			[searchId]="definition().id"
+			[components]="viewComponents()"
+			[contextEpoch]="resultEpoch()"
+			(selectionChange)="projectedSelectionChange($event)"
+			(sortChange)="projectedSortChange($event)"
+			(loadMore)="more()"
+		>
+			<ng-template
+				nxResultsTemplate="item"
+				let-row="row"
+				let-selected="selected"
+				let-toggle="toggleSelection"
+				let-loading="loading"
+			>
+				@if (displayMode() === 'grid') {
+					<nx-document-grid-thumbnail
+						[document]="row"
+						[selected]="selected"
+						[selecting]="toolbarContext().selectedDocuments.length > 0"
+						[selectionDisabled]="loading"
+						(toggleSelection)="toggle()"
+					/>
+				}
+			</ng-template>
+			<ng-template nxResultsTemplate="cell:title" let-row="row">
+				@if (thumbnail(row)) {
+					<img class="search-result__thumbnail" [src]="thumbnail(row)" alt="" loading="lazy" />
+				}
+				<a
+					class="search-result__title"
+					[routerLink]="row | documentLink"
+					data-nx-results-interactive
+					>{{ row.title }}</a
+				>
+			</ng-template>
+			<ng-template nxResultsTemplate="cell:state" let-row="row"
+				><span class="type-tag">{{
+					statePresentation(row).key ?? '' | webuiMessage: statePresentation(row).fallback
+				}}</span></ng-template
+			>
+			<ng-template nxResultsTemplate="cell:modified" let-row="row">
+				{{ modified(row) | webuiDate: 'mediumDate' }}
+			</ng-template>
+			<!-- Stock nuxeo-user-tag: `fetch-document: properties` resolves the user; an id that stays
+			     a string shows as itself, never looked up. -->
+			<ng-template nxResultsTemplate="cell:lastContributor" let-row="row">
+				<nx-user-tag [user]="$any(row).properties?.['dc:lastContributor']" [lookup]="false" />
+			</ng-template>
+			<ng-template nxResultsTemplate="cell:author" let-row="row">
+				<nx-user-tag [user]="$any(row).properties?.['dc:creator']" [lookup]="false" />
+			</ng-template>
+			<!-- Stock hidden columns: nuxeo-tag cells and the nuxeo-date long date. -->
+			<ng-template nxResultsTemplate="cell:type" let-row="row"
+				><nx-search-result-tags
+					field="type"
+					[row]="row"
+					[typeLabel]="definition().results.typeLabel"
+			/></ng-template>
+			<ng-template nxResultsTemplate="cell:created" let-row="row">
+				{{ $any(row).properties?.['dc:created'] | webuiDate: 'longDate' }}
+			</ng-template>
+			<ng-template nxResultsTemplate="cell:nature" let-row="row"
+				><nx-search-result-tags field="nature" [row]="row"
+			/></ng-template>
+			<ng-template nxResultsTemplate="cell:coverage" let-row="row"
+				><nx-search-result-tags field="coverage" [row]="row"
+			/></ng-template>
+			<ng-template nxResultsTemplate="cell:subjects" let-row="row"
+				><nx-search-result-tags field="subjects" [row]="row"
+			/></ng-template>
+			<ng-template nxResultsHostTemplate="empty"
+				><p>
+					{{ 'app.modules.default-search-results.no-results-3cc550' | webuiMessage: 'No results.' }}
+				</p></ng-template
+			>
+		</nx-results-projection>
+	</div>
+	@if (hasMore() || (loading() && rows().length)) {
+		<!-- Centred under the results; the same button reports progress while the next page loads. -->
+		<nx-load-more-button
+			[loading]="loading() && rows().length > 0"
+			[disabled]="loading() || busy() || !hasMore()"
+			(more)="more()"
+		/>
+	}
+</section>
+
+<nx-search-column-chooser
+	[columns]="resultColumns()"
+	(visibilityChange)="toggleColumn($event.id, $event.visible)"
+	(resetColumns)="resetStockColumns()"
+/>

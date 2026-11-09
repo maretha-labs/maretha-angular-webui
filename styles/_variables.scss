@@ -1,0 +1,283 @@
+@use 'sass:math';
+@use 'sass:string';
+@use 'sass:color';
+// Nuxeo-inspired theme
+// Based on Nuxeo Web UI default theme
+
+$theme: 'nuxeo' !default;
+
+// Layout dimensions
+$header-height: 53px;
+$footer-height: 0;
+$document-toolbar-height: 28px;
+$document-navigation-bar-height: 48px;
+$placeholder-color: #808080;
+
+// Nuxeo layout
+$nuxeo-sidebar-width: 52px;
+// The reference's 350px expanded drawer includes the 52px navigation rail.
+$nuxeo-drawer-width: 298px;
+
+@mixin random-bgr() {
+	background: rgb(math.random(255), math.random(255), math.random(255));
+}
+
+@mixin random-clr() {
+	color: rgb(math.random(255), math.random(255), math.random(255));
+}
+
+//
+// Color system
+//
+
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+$blue: #0066ff !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #d63384 !default;
+$red: #da292e !default;
+$orange: #ff7c48 !default;
+$yellow: #f8bd56 !default;
+$green: #279e70 !default;
+$teal: #20c9c9 !default;
+$cyan: #287bb5 !default;
+
+// Nuxeo-specific colors
+$nuxeo-secondary: #1f28bf;
+$nuxeo-sidebar-bg: #060826;
+$nuxeo-page-bg: #f5f5f5;
+$nuxeo-text: #3a3a54;
+$nuxeo-box: #fff;
+$nuxeo-border: rgba(0, 0, 0, 0.15);
+
+$primary: #0066ff !default;
+$primary-focus: #1f28bf !default; // hover/focus shade of primary (~80% brightness)
+$secondary: $white !default;
+$success: $green !default;
+$info: $teal !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $gray-100 !default;
+$dark: $gray-900 !default;
+
+$min-contrast-ratio: 1.65 !default;
+
+// Flatten design — no shadows
+$enable-shadows: false !default;
+
+// Body
+
+$body-color: $nuxeo-text !default;
+
+// Headings follow the active theme's heading token (stock headings use the theme text colour).
+$headings-color: var(--maretha-style-color-heading, #{$gray-900}) !default;
+
+// Fonts
+
+// stylelint-disable-next-line value-keyword-case
+$font-family:
+	'Inter',
+	-apple-system,
+	BlinkMacSystemFont,
+	'Segoe UI',
+	Roboto,
+	'Helvetica Neue',
+	Arial,
+	sans-serif,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol' !default;
+$font-size-base: 1rem !default;
+$font-size-sm: $font-size-base * 0.875 !default;
+
+// Components — flat design
+
+$border-radius: 0.1em !default;
+$border-radius-sm: 0.1em !default;
+$border-radius-lg: 0.1em !default;
+
+$box-shadow: 0 3px 5px rgba($black, 0.04) !default;
+$box-shadow-lg: 0 3px 5px rgba(0, 0, 0, 0.04) !default;
+
+// Tables
+
+$table-cell-padding-y: 1rem !default;
+$table-cell-padding-x: 1rem !default;
+$table-cell-padding-y-sm: 0.5rem !default;
+$table-cell-padding-x-sm: 0.5rem !default;
+
+$table-th-font-weight: 600 !default;
+
+// Buttons + Forms
+
+$input-btn-padding-y: 0.5rem !default;
+$input-btn-padding-x: 1rem !default;
+$input-btn-font-size: $font-size-sm !default;
+
+// Buttons
+
+$btn-font-weight: 600 !default;
+$btn-box-shadow: none !default;
+$btn-focus-box-shadow: none !default;
+$btn-active-box-shadow: none !default;
+
+// Forms
+
+$form-label-font-weight: 500 !default;
+
+$input-box-shadow: none !default;
+
+$input-group-addon-bg: $gray-100 !default;
+
+// Navs
+
+$nav-link-color: $body-color !default;
+$nav-link-hover-color: $body-color !default;
+
+$nav-tabs-border-radius: 0 !default;
+$nav-tabs-link-active-color: $primary !default;
+
+// Navbar
+
+$navbar-padding-y: 0.85rem !default;
+
+$navbar-nav-link-padding-x: 0.75rem !default;
+
+$navbar-dark-color: $white !default;
+$navbar-dark-hover-color: $white !default;
+$navbar-dark-active-color: $white !default;
+
+$navbar-light-color: $black !default;
+$navbar-light-hover-color: $black !default;
+$navbar-light-active-color: $black !default;
+
+// Dropdowns
+
+$dropdown-font-size: $font-size-sm !default;
+$dropdown-border-color: $gray-300 !default;
+$dropdown-divider-bg: $gray-200 !default;
+
+$dropdown-link-hover-color: $white !default;
+$dropdown-link-hover-bg: $primary !default;
+
+$dropdown-item-padding-y: 0.5rem !default;
+$dropdown-item-padding-x: 1rem !default;
+
+// Pagination
+
+$pagination-padding-y: 0.5rem !default;
+$pagination-padding-x: 1rem !default;
+
+$pagination-color: $gray-700 !default;
+
+$pagination-focus-color: $pagination-color !default;
+
+$pagination-hover-color: $pagination-color !default;
+$pagination-hover-bg: $gray-100 !default;
+
+// Cards — flat design
+$card-spacer-x: 1.5rem !default;
+$card-cap-padding-y: 1rem !default;
+$card-cap-padding-x: 1.5rem !default;
+$card-border-radius: 0 !default;
+$card-border-width: 0 !default;
+
+// Toasts
+
+$toast-header-color: $headings-color !default;
+
+// Modals
+
+$modal-content-border-color: $gray-300 !default;
+$modal-header-border-width: 0 !default;
+
+// List group
+
+$list-group-item-padding-y: 1rem !default;
+$list-group-item-padding-x: 1.5rem !default;
+
+// Breadcrumbs
+
+$breadcrumb-padding-x: 1rem !default;
+
+$breadcrumb-divider: string.quote('>') !default;
+
+// Scrollbar
+$scrollbar-thumb: rgba(0, 0, 0, 0.15);
+
+// Runtime CSS custom property fallbacks.
+//
+// Bootstrap Sass still needs compile-time values above, but app-authored styles
+// should consume these aliases so B2 can update the theme at runtime.
+$primary-rgb: 0, 102, 255 !default;
+$success-rgb: 39, 158, 112 !default;
+$info-rgb: 32, 201, 201 !default;
+$warning-rgb: 248, 189, 86 !default;
+$danger-rgb: 218, 41, 46 !default;
+$primary-dark-15: color.adjust($primary, $lightness: -15%) !default;
+$primary-dark-30: color.adjust($primary, $lightness: -30%) !default;
+$primary-light-5: color.adjust($primary, $lightness: 5%) !default;
+$success-light-35: color.adjust($success, $lightness: 35%) !default;
+$dark-dark-10: color.adjust($dark, $lightness: -10%) !default;
+
+$runtime-white: var(--maretha-style-color-white, #{$white});
+$runtime-black: var(--maretha-style-color-black, #{$black});
+$runtime-gray-100: var(--maretha-style-color-gray-100, #{$gray-100});
+$runtime-gray-200: var(--maretha-style-color-gray-200, #{$gray-200});
+$runtime-gray-300: var(--maretha-style-color-gray-300, #{$gray-300});
+$runtime-gray-400: var(--maretha-style-color-gray-400, #{$gray-400});
+$runtime-gray-500: var(--maretha-style-color-muted-subtle, #{$gray-500});
+$runtime-gray-600: var(--maretha-style-color-muted, #{$gray-600});
+$runtime-gray-700: var(--maretha-style-color-muted-strong, #{$gray-700});
+$runtime-gray-800: var(--maretha-style-color-gray-800, #{$gray-800});
+$runtime-gray-900: var(--maretha-style-color-heading, #{$gray-900});
+$runtime-primary: var(--maretha-style-color-primary, #{$primary});
+$runtime-primary-rgb: var(--maretha-style-color-primary-rgb, #{$primary-rgb});
+$runtime-primary-focus: var(--maretha-style-color-primary-focus, #{$primary-focus});
+$runtime-primary-dark-15: var(--maretha-style-color-primary-dark-15, #{$primary-dark-15});
+$runtime-primary-dark-30: var(--maretha-style-color-primary-dark-30, #{$primary-dark-30});
+$runtime-primary-light-5: var(--maretha-style-color-primary-light-5, #{$primary-light-5});
+$runtime-secondary: var(--maretha-style-color-accent, #{$nuxeo-secondary});
+$runtime-success: var(--maretha-style-color-success, #{$success});
+$runtime-success-rgb: var(--maretha-style-color-success-rgb, #{$success-rgb});
+$runtime-success-light-35: var(--maretha-style-color-success-light-35, #{$success-light-35});
+$runtime-info: var(--maretha-style-color-info, #{$info});
+$runtime-info-rgb: var(--maretha-style-color-info-rgb, #{$info-rgb});
+$runtime-warning: var(--maretha-style-color-warning, #{$warning});
+$runtime-warning-rgb: var(--maretha-style-color-warning-rgb, #{$warning-rgb});
+$runtime-danger: var(--maretha-style-color-danger, #{$danger});
+$runtime-danger-rgb: var(--maretha-style-color-danger-rgb, #{$danger-rgb});
+$runtime-light: var(--maretha-style-color-light, #{$light});
+$runtime-dark: var(--maretha-style-color-dark, #{$dark});
+$runtime-dark-dark-10: var(--maretha-style-color-dark-dark-10, #{$dark-dark-10});
+$runtime-page-bg: var(--maretha-style-color-background, #{$nuxeo-page-bg});
+$runtime-text: var(--maretha-style-color-text, #{$nuxeo-text});
+$runtime-surface: var(--maretha-style-color-surface, #{$nuxeo-box});
+$runtime-border: var(--maretha-style-color-border, #{$nuxeo-border});
+$runtime-link: var(--maretha-style-color-link, #{$nuxeo-text});
+$runtime-link-hover: var(--maretha-style-color-link-hover, #{$primary});
+$runtime-sidebar-bg: var(--maretha-style-color-sidebar-background, #{$nuxeo-sidebar-bg});
+$runtime-sidebar-item: var(--maretha-style-color-sidebar-item, #ababae);
+$runtime-sidebar-item-hover: var(--maretha-style-color-sidebar-item-hover, #fff);
+$runtime-table-header-bg: var(--maretha-style-color-table-header-background, #fafafa);
+$runtime-disabled-bg: var(--maretha-style-color-disabled-background, #f1f3f3);
+$runtime-tag-bg: var(--maretha-style-color-tag-background, rgba(0, 0, 0, 0.05));
+$runtime-card-shadow: var(--maretha-style-shadow-card, #{$box-shadow-lg});
+$runtime-scrollbar-thumb: var(--maretha-style-color-scrollbar-thumb, #{$scrollbar-thumb});
+$runtime-font-family: var(--maretha-style-font-family, #{$font-family});
+$runtime-radius: var(--maretha-style-radius, #{$border-radius});
+$runtime-radius-sm: var(--maretha-style-radius-sm, #{$border-radius-sm});
+$runtime-header-height: var(--maretha-style-header-height, #{$header-height});
+$runtime-sidebar-width: var(--maretha-style-sidebar-width, #{$nuxeo-sidebar-width});
+$runtime-drawer-width: var(--maretha-style-drawer-width, #{$nuxeo-drawer-width});

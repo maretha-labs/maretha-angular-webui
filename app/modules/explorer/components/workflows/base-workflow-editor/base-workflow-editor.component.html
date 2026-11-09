@@ -1,0 +1,270 @@
+<div class="modal-header" [class.d-none]="embedded">
+	<h4 class="modal-title pull-left text-sentencecase">
+		@if (intent === 0) {
+			<span>{{ label(task.nameKey || task.name) }}</span>
+		}
+		@if (intent === 1) {
+			<span>{{
+				'app.modules.base-workflow-editor.reassign-workflow-task-ed83f4'
+					| webuiMessage: 'Reassign workflow task'
+			}}</span>
+		}
+		@if (intent === 2) {
+			<span>{{
+				'app.modules.base-workflow-editor.delegate-workflow-task-dc85c9'
+					| webuiMessage: 'Delegate workflow task'
+			}}</span>
+		}
+		@if (intent === 3) {
+			<span>{{
+				'app.modules.base-workflow-editor.abandon-workflow-5d8350'
+					| webuiMessage: 'Abandon workflow'
+			}}</span>
+		}
+	</h4>
+
+	<button
+		type="button"
+		class="close btn-close pull-right"
+		[attr.aria-label]="'app.modules.base-workflow-editor.close-4235ba' | webuiMessage: 'Close'"
+		(click)="close()"
+		[disabled]="working"
+		[tooltip]="'app.modules.base-workflow-editor.go-back-8270af' | webuiMessage: 'Go back'"
+		[delay]="500"
+		container="body"
+	>
+		<span aria-hidden="true" class="visually-hidden">&times;</span>
+	</button>
+</div>
+
+<div class="modal-body">
+	@if (!intent && task) {
+		@if (!embedded) {
+			<p class="alert alert-primary py-2 small">
+				<fa-icon icon="exclamation-triangle"></fa-icon>
+				{{ label(task.directiveKey || task.directive) }}
+			</p>
+		}
+		@if (findLayout(); as layout) {
+			<ng-container *ngComponentOutlet="layout.component; inputs: layoutInputs"></ng-container>
+		} @else {
+			<p class="alert alert-warning mb-0">
+				{{
+					'app.modules.base-workflow-editor.no-workflow-layout-is-registered-for-this--23161f'
+						| webuiMessage: 'No workflow layout is registered for this task.'
+				}}
+			</p>
+		}
+	}
+
+	@if (intent === 1) {
+		<div>
+			<small>{{
+				'app.modules.base-workflow-editor.select-the-users-groups-you-wish-to-reassi-27b9a9'
+					| webuiMessage: 'Select the users/groups you wish to reassign this task to:'
+			}}</small>
+			<ng-container
+				*ngTemplateOutlet="usersAndGroups; context: { delegates: false }"
+			></ng-container>
+		</div>
+	}
+
+	@if (intent === 2) {
+		<div>
+			<small>{{
+				'app.modules.base-workflow-editor.select-the-users-groups-you-wish-to-reassi-27b9a9'
+					| webuiMessage: 'Select the users/groups you wish to reassign this task to:'
+			}}</small>
+			<ng-container *ngTemplateOutlet="usersAndGroups; context: { delegates: true }"></ng-container>
+		</div>
+	}
+
+	@if (intent === 3) {
+		<p>
+			{{
+				'app.modules.base-workflow-editor.are-you-sure-you-wish-to-abandon-this-wrok-1f9e1f'
+					| webuiMessage: 'Are you sure you wish to abandon this wrokflow before its completion?'
+			}}
+		</p>
+	}
+	@if (submitError) {
+		<p class="alert alert-danger mt-3 mb-0" role="alert">{{ submitError }}</p>
+	}
+</div>
+
+@if (embedded) {
+	<!-- Stock nuxeo-document-task: each task action is a primary button, end-aligned under the
+	layout and enabled unless a submission is running (the layout validates on click). -->
+	<div class="nx-task-actions">
+		@if (draftDirty) {
+			<button
+				(click)="discardChanges()"
+				type="button"
+				class="nx-task-actions__discard"
+				[disabled]="working"
+			>
+				{{
+					'app.modules.base-workflow-editor.discard-changes-27242c'
+						| webuiMessage: 'Discard changes'
+				}}
+			</button>
+		}
+		@if (!intent) {
+			@for (taskAction of task?.taskInfo?.taskActions; track taskAction) {
+				<button
+					(click)="performTaskAction($event, taskAction)"
+					type="button"
+					class="nx-task-actions__primary"
+					[disabled]="working"
+				>
+					{{ label(taskAction.labelKey || taskAction.label || taskAction.name) }}
+				</button>
+			}
+		}
+	</div>
+} @else {
+	<div class="modal-footer flex-nowrap justify-content-center p-0">
+		@if (draftDirty) {
+			<button
+				(click)="discardChanges()"
+				type="button"
+				class="btn btn-link fs-6 text-decoration-none col m-0 rounded-0"
+				[disabled]="working"
+			>
+				{{
+					'app.modules.base-workflow-editor.discard-changes-27242c'
+						| webuiMessage: 'Discard changes'
+				}}
+			</button>
+		}
+		<button
+			(click)="close()"
+			type="button"
+			class="btn btn-link fs-6 text-decoration-none col m-0 rounded-0"
+			[disabled]="working"
+		>
+			{{ 'app.modules.base-workflow-editor.go-back-8270af' | webuiMessage: 'Go back' }}
+		</button>
+
+		@if (!intent) {
+			@for (taskAction of task?.taskInfo?.taskActions; track taskAction) {
+				<button
+					(click)="performTaskAction($event, taskAction)"
+					type="button"
+					class="btn btn-link fs-6 fw-bold text-decoration-none col m-0 rounded-0 text-sentencecase"
+					[disabled]="working || !shouldPerformTask(taskAction)"
+				>
+					{{ label(taskAction.labelKey || taskAction.label || taskAction.name) }}
+				</button>
+			}
+		}
+
+		<ng-container>
+			@if (intent === 1) {
+				<button
+					(click)="reassignTask()"
+					type="button"
+					class="btn btn-link fs-6 fw-bold text-decoration-none col m-0 rounded-0"
+					[disabled]="working || !shouldReassign"
+				>
+					{{
+						'app.modules.base-workflow-editor.reassign-task-de4b88' | webuiMessage: 'Reassign task'
+					}}
+				</button>
+			}
+
+			@if (intent === 2) {
+				<button
+					(click)="delegateTask()"
+					type="button"
+					class="btn btn-link fs-6 fw-bold text-decoration-none col m-0 rounded-0"
+					[disabled]="working || !shouldDelegate"
+				>
+					{{
+						'app.modules.base-workflow-editor.delegate-task-69a761' | webuiMessage: 'Delegate task'
+					}}
+				</button>
+			}
+
+			@if (intent === 3) {
+				<button
+					(click)="abandonWorkflow()"
+					type="button"
+					class="btn btn-link fs-6 fw-bold text-decoration-none col m-0 rounded-0"
+					[disabled]="working"
+				>
+					{{
+						'app.modules.base-workflow-editor.abandon-workflow-5d8350'
+							| webuiMessage: 'Abandon workflow'
+					}}
+				</button>
+			}
+		</ng-container>
+	</div>
+}
+
+<ng-template #usersAndGroups let-delegates="delegates">
+	<div class="d-flex justify-content-between">
+		<div class="card w-50 mb-3 me-3">
+			<div class="card-header">
+				{{ 'app.modules.base-workflow-editor.users-7fda12' | webuiMessage: 'Users' }}
+			</div>
+			<div class="card-body small p-2">
+				@for (user of users; track user) {
+					<div class="form-check">
+						<input
+							(change)="setUser($event, user)"
+							[checked]="
+								(delegates ? delegatedActors['user:' + user.id] : actors['user:' + user.id]) ===
+								true
+							"
+							[disabled]="
+								(delegates ? delegatedActors['user:' + user.id] : actors['user:' + user.id]) ===
+								false
+							"
+							class="form-check-input"
+							type="checkbox"
+							[id]="user.id"
+						/>
+						<label class="form-check-label" [for]="user.id">
+							<abbr [tooltip]="user.id">
+								{{ user.name }}
+							</abbr>
+						</label>
+					</div>
+				}
+			</div>
+		</div>
+
+		<div class="card w-50 mb-3">
+			<div class="card-header">
+				{{ 'app.modules.base-workflow-editor.groups-d960c4' | webuiMessage: 'Groups' }}
+			</div>
+			<div class="card-body small p-2">
+				@for (group of groups; track group) {
+					<div class="form-check">
+						<input
+							(change)="setGroup($event, group)"
+							[checked]="
+								(delegates ? delegatedActors['group:' + group.id] : actors['group:' + group.id]) ===
+								true
+							"
+							[disabled]="
+								(delegates ? delegatedActors['group:' + group.id] : actors['group:' + group.id]) ===
+								false
+							"
+							class="form-check-input"
+							type="checkbox"
+							[id]="group.id"
+						/>
+						<label class="form-check-label" [for]="group.id">
+							<abbr [tooltip]="group.description">
+								{{ group.name }}
+							</abbr>
+						</label>
+					</div>
+				}
+			</div>
+		</div>
+	</div>
+</ng-template>

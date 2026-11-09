@@ -1,0 +1,106 @@
+<div class="modal-header">
+	<h4 class="modal-title pull-left">
+		{{
+			'app.modules.cloud-application-editor.add-a-new-application-c6914a'
+				| webuiMessage: 'Add a new application'
+		}}
+	</h4>
+
+	<button
+		type="button"
+		class="close btn-close pull-right"
+		[attr.aria-label]="'app.modules.cloud-application-editor.close-23d36f' | webuiMessage: 'Close'"
+		(click)="close()"
+	>
+		<span aria-hidden="true" class="visually-hidden">&times;</span>
+	</button>
+</div>
+
+@if (editorForm) {
+	<div class="modal-body" [formGroup]="editorForm">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="form-floating mb-3">
+					<input
+						type="text"
+						class="form-control"
+						id="nuxeoLogin"
+						[attr.placeholder]="
+							'app.modules.cloud-application-editor.nuxeo-login-42bae2'
+								| webuiMessage: 'Nuxeo login'
+						"
+						formControlName="nuxeoLogin"
+					/>
+					<label for="nuxeoLogin">{{
+						'app.modules.cloud-application-editor.nuxeo-login-42bae2' | webuiMessage: 'Nuxeo login'
+					}}</label>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-floating required mb-3">
+					<input
+						type="text"
+						class="form-control"
+						id="serviceLogin"
+						[attr.placeholder]="
+							'app.modules.cloud-application-editor.service-login-b9a32e'
+								| webuiMessage: 'Service login'
+						"
+						formControlName="serviceLogin"
+						[nxAutofocus]="true"
+						[nxAutofocusDelay]="400"
+					/>
+					<label for="serviceLogin">{{
+						'app.modules.cloud-application-editor.service-login-b9a32e'
+							| webuiMessage: 'Service login'
+					}}</label>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="form-floating required mb-3">
+					<input
+						type="text"
+						class="form-control"
+						id="creationDate"
+						[attr.placeholder]="
+							'app.modules.cloud-application-editor.creation-date-26a8ce'
+								| webuiMessage: 'Creation date'
+						"
+						formControlName="creationDate"
+						bsDatepicker
+						container=".popover"
+						[bsConfig]="{ isAnimated: true, adaptivePosition: true }"
+					/>
+					<label for="creationDate">{{
+						'app.modules.cloud-application-editor.creation-date-26a8ce'
+							| webuiMessage: 'Creation date'
+					}}</label>
+				</div>
+			</div>
+		</div>
+	</div>
+}
+
+<div class="modal-footer flex-nowrap p-0">
+	<button
+		(click)="close()"
+		type="button"
+		class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"
+	>
+		{{
+			'app.modules.cloud-application-editor.close-without-saving-d03bb5'
+				| webuiMessage: 'Close without saving'
+		}}
+	</button>
+
+	<button
+		(click)="saveChanges()"
+		type="button"
+		[disabled]="editorForm?.pristine || editorForm?.invalid"
+		class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0"
+	>
+		<strong>{{
+			'app.modules.cloud-application-editor.save-changes-a3d49b' | webuiMessage: 'Save changes'
+		}}</strong>
+	</button>
+</div>

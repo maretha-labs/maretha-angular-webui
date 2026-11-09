@@ -1,0 +1,14 @@
+{
+  "app.modules.note-richtext-editor.normal-ffd063": {
+    "english": "Normal",
+    "reason": "Identical Portuguese spelling or technical token."
+  },
+  "app.modules.selection-publication-page.original-fb0e10": {
+    "english": "Original",
+    "reason": "Identical Portuguese spelling or technical token."
+  },
+  "validation.nested": {
+    "english": "{field}: {error}",
+    "reason": "Identical Portuguese spelling or technical token."
+  }
+}

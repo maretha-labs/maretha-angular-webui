@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<component name="io.maretha.maretha-angular-webui.server.delivery.bulk">
+  <extension target="org.nuxeo.ecm.core.work.service" point="queues">
+    <queue id="io.maretha.maretha-angular-webui.server.delivery.bulk">
+      <name>maretha-angular-webui ZIP preparation</name>
+      <maxThreads>2</maxThreads>
+      <category>io.maretha.maretha-angular-webui.server.delivery.bulk</category>
+    </queue>
+  </extension>
+  <!-- Inherit the installation's default provider/backend. TTL units are minutes. -->
+  <extension target="org.nuxeo.ecm.core.transientstore.TransientStorageComponent" point="store">
+    <store name="io.maretha.maretha-angular-webui.server.delivery.bulk">
+      <firstLevelTTL>30</firstLevelTTL>
+      <secondLevelTTL>5</secondLevelTTL>
+    </store>
+  </extension>
+</component>

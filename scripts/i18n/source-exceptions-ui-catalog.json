@@ -1,0 +1,474 @@
+{
+  "version": 1,
+  "scopes": ["app/ui-catalog/"],
+  "exceptions": [
+    {
+      "id": "1bd3db41d8868287",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-string",
+      "text": "Canonical default registrations are checked against the application registry. Client extensions, actual host occurrences and complete settings documentation are not included.",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "5303b83f2e59678a",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Analytics",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "9271fe814e1e54c6",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Audit",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "de45af3e72407b3c",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Cloud Services",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 2
+    },
+    {
+      "id": "4b6dfab731ac971f",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Vocabularies",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "52022c37531e9761",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Metadata layouts",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "17e8e584e4680a12",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "NXQL Search",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "d297a4b2313d32e9",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Retention Rules",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "1d286269f6db2351",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Users & Groups",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "65ad76689e650966",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Document Distribution",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "9e2160e98ed16c24",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Repository",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "1433a8249ff09724",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Search",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 2
+    },
+    {
+      "id": "2291276484b04e43",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Workflow",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "36d1ae595d8c25da",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Copy to clipboard",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 2
+    },
+    {
+      "id": "40ad76b1af6a280b",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Remove from collection",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "a353fd11aed4f8b9",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Import",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "dd6bb69a250adef0",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "New document",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "9b7c02fadf7e5470",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Versions",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "eeff10b1745b07be",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Start a workflow",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "01f1c663d39642f9",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "View",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "f85c3ee783058365",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "History",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 2
+    },
+    {
+      "id": "ce77ca273b5dbb41",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Permissions",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 2
+    },
+    {
+      "id": "43f595ac94e484a5",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Publications",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 2
+    },
+    {
+      "id": "edfd527ebd496f9a",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Trash",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 3
+    },
+    {
+      "id": "cd50b6966f695e8e",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Assets",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "fc767e3e49b82f02",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Clipboard",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "6050e7d7663ded5a",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Collections",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "6a5a2d5d8b212a51",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Expired documents",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "01b3e2b3009fc35a",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Favorites",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "e59e7b94c22931d3",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Personal Space",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "5a7aec4ac056f70f",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Recently Viewed",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "19da692fe0694882",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Tasks",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "386b57bcf0f9bc6c",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Browse",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "eec65414a299f3f2",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Internal publication",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "d6db99bebac3e52d",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Restore all matching",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "527e1f93a66c612c",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Clear selection",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "cf9e368137f54f77",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Display settings",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "679e0c49f6aefe6a",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Select displayed",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "509dd04d43de0df7",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Add to collection",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "ff3657ae607f42c6",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Compare",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "2d236510cc67410d",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Edit selection",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "cb897e7d64cbe0d8",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Move down",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "18ef7247e3acf0cc",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Move up",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "ed58a0f74cd2ecd1",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Move to trash",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "08952ea4b1dd58a9",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Dark",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "2181a333263188fb",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Kawaii",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "da16a676d0abd122",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Light",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "40a8b14f533a3927",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Authorized Applications",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "89bbc4372567865a",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Profile",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "617e67419e4b19ac",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Sign Out",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "530511aabecc0417",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Themes",
+      "ownership": "catalogue-metadata",
+      "reason": "Canonical default contribution snapshot used by the contribution-identity drift check; it is not displayed, and live labels come from explicit contribution labelKey metadata.",
+      "maximum": 1
+    },
+    {
+      "id": "442cff09ada7e5b6",
+      "file": "app/ui-catalog/ui-catalog.json",
+      "kind": "typescript-ui-field",
+      "text": "Nuxeo",
+      "ownership": "brand",
+      "reason": "Nuxeo is the stock default theme brand in the generated UI contribution catalog.",
+      "maximum": 1
+    }
+  ]
+}

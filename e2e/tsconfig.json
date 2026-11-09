@@ -1,0 +1,6 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": { "types": ["node"], "noEmit": true, "esModuleInterop": true },
+  "include": ["./**/*.ts"],
+  "exclude": ["./a11y/main.ts", "./**/*.spec.ts"]
+}

@@ -1,0 +1,1158 @@
+{
+  "format": 1,
+  "slots": [
+    {
+      "name": "ADMINISTRATION_MENU",
+      "kind": "items",
+      "context": "AdministrationContext",
+      "pairedWith": "ADMINISTRATION_PAGES",
+      "contributions": [
+        {
+          "id": "maretha.admin.analytics",
+          "extensionId": "maretha.core.administration",
+          "pairKey": "analytics",
+          "pairedTargets": [{ "slot": "ADMINISTRATION_PAGES", "id": "maretha.admin.analytics" }]
+        },
+        {
+          "id": "maretha.admin.audit",
+          "extensionId": "maretha.core.administration",
+          "pairKey": "audit",
+          "pairedTargets": [{ "slot": "ADMINISTRATION_PAGES", "id": "maretha.admin.audit" }]
+        },
+        {
+          "id": "maretha.admin.cloud",
+          "extensionId": "maretha.core.administration",
+          "pairKey": "cloud",
+          "pairedTargets": [{ "slot": "ADMINISTRATION_PAGES", "id": "maretha.admin.cloud" }]
+        },
+        {
+          "id": "maretha.admin.directories",
+          "extensionId": "maretha.core.administration",
+          "pairKey": "directories",
+          "pairedTargets": [{ "slot": "ADMINISTRATION_PAGES", "id": "maretha.admin.directories" }]
+        },
+        {
+          "id": "maretha.admin.metadata-policy",
+          "extensionId": "maretha.core.administration",
+          "pairKey": "metadata-policy",
+          "pairedTargets": [
+            { "slot": "ADMINISTRATION_PAGES", "id": "maretha.admin.metadata-policy" }
+          ]
+        },
+        {
+          "id": "maretha.admin.nxql",
+          "extensionId": "maretha.core.administration",
+          "pairKey": "nxql",
+          "pairedTargets": [{ "slot": "ADMINISTRATION_PAGES", "id": "maretha.admin.nxql" }]
+        },
+        {
+          "id": "maretha.admin.retention",
+          "extensionId": "maretha.core.administration",
+          "pairKey": "retention",
+          "pairedTargets": [{ "slot": "ADMINISTRATION_PAGES", "id": "maretha.admin.retention" }]
+        },
+        {
+          "id": "maretha.admin.users",
+          "extensionId": "maretha.core.administration",
+          "pairKey": "users",
+          "pairedTargets": [{ "slot": "ADMINISTRATION_PAGES", "id": "maretha.admin.users" }]
+        }
+      ]
+    },
+    {
+      "name": "ADMINISTRATION_PAGES",
+      "kind": "pages",
+      "context": "AdministrationContext",
+      "pairedWith": "ADMINISTRATION_MENU",
+      "contributions": [
+        {
+          "id": "maretha.admin.analytics",
+          "extensionId": "maretha.core.administration",
+          "pairKey": "analytics",
+          "pairedTargets": [{ "slot": "ADMINISTRATION_MENU", "id": "maretha.admin.analytics" }]
+        },
+        {
+          "id": "maretha.admin.audit",
+          "extensionId": "maretha.core.administration",
+          "pairKey": "audit",
+          "pairedTargets": [{ "slot": "ADMINISTRATION_MENU", "id": "maretha.admin.audit" }]
+        },
+        {
+          "id": "maretha.admin.cloud",
+          "extensionId": "maretha.core.administration",
+          "pairKey": "cloud",
+          "pairedTargets": [{ "slot": "ADMINISTRATION_MENU", "id": "maretha.admin.cloud" }]
+        },
+        {
+          "id": "maretha.admin.directories",
+          "extensionId": "maretha.core.administration",
+          "pairKey": "directories",
+          "pairedTargets": [{ "slot": "ADMINISTRATION_MENU", "id": "maretha.admin.directories" }]
+        },
+        {
+          "id": "maretha.admin.metadata-policy",
+          "extensionId": "maretha.core.administration",
+          "pairKey": "metadata-policy",
+          "pairedTargets": [
+            { "slot": "ADMINISTRATION_MENU", "id": "maretha.admin.metadata-policy" }
+          ]
+        },
+        {
+          "id": "maretha.admin.nxql",
+          "extensionId": "maretha.core.administration",
+          "pairKey": "nxql",
+          "pairedTargets": [{ "slot": "ADMINISTRATION_MENU", "id": "maretha.admin.nxql" }]
+        },
+        {
+          "id": "maretha.admin.retention",
+          "extensionId": "maretha.core.administration",
+          "pairKey": "retention",
+          "pairedTargets": [{ "slot": "ADMINISTRATION_MENU", "id": "maretha.admin.retention" }]
+        },
+        {
+          "id": "maretha.admin.users",
+          "extensionId": "maretha.core.administration",
+          "pairKey": "users",
+          "pairedTargets": [{ "slot": "ADMINISTRATION_MENU", "id": "maretha.admin.users" }]
+        }
+      ]
+    },
+    {
+      "name": "ANALYTICS_ITEMS",
+      "kind": "items",
+      "context": "AdministrationContext",
+      "pairedWith": "ANALYTICS_PAGES",
+      "contributions": [
+        {
+          "id": "maretha.analytics.distribution",
+          "extensionId": "maretha.core.analytics",
+          "pairKey": "distribution",
+          "pairedTargets": [{ "slot": "ANALYTICS_PAGES", "id": "maretha.analytics.distribution" }]
+        },
+        {
+          "id": "maretha.analytics.repository",
+          "extensionId": "maretha.core.analytics",
+          "pairKey": "repository",
+          "pairedTargets": [{ "slot": "ANALYTICS_PAGES", "id": "maretha.analytics.repository" }]
+        },
+        {
+          "id": "maretha.analytics.search",
+          "extensionId": "maretha.core.analytics",
+          "pairKey": "search",
+          "pairedTargets": [{ "slot": "ANALYTICS_PAGES", "id": "maretha.analytics.search" }]
+        },
+        {
+          "id": "maretha.analytics.workflow",
+          "extensionId": "maretha.core.analytics",
+          "pairKey": "workflow",
+          "pairedTargets": [{ "slot": "ANALYTICS_PAGES", "id": "maretha.analytics.workflow" }]
+        }
+      ]
+    },
+    {
+      "name": "ANALYTICS_PAGES",
+      "kind": "pages",
+      "context": "AdministrationContext",
+      "pairedWith": "ANALYTICS_ITEMS",
+      "contributions": [
+        {
+          "id": "maretha.analytics.distribution",
+          "extensionId": "maretha.core.analytics",
+          "pairKey": "distribution",
+          "pairedTargets": [{ "slot": "ANALYTICS_ITEMS", "id": "maretha.analytics.distribution" }]
+        },
+        {
+          "id": "maretha.analytics.repository",
+          "extensionId": "maretha.core.analytics",
+          "pairKey": "repository",
+          "pairedTargets": [{ "slot": "ANALYTICS_ITEMS", "id": "maretha.analytics.repository" }]
+        },
+        {
+          "id": "maretha.analytics.search",
+          "extensionId": "maretha.core.analytics",
+          "pairKey": "search",
+          "pairedTargets": [{ "slot": "ANALYTICS_ITEMS", "id": "maretha.analytics.search" }]
+        },
+        {
+          "id": "maretha.analytics.workflow",
+          "extensionId": "maretha.core.analytics",
+          "pairKey": "workflow",
+          "pairedTargets": [{ "slot": "ANALYTICS_ITEMS", "id": "maretha.analytics.workflow" }]
+        }
+      ]
+    },
+    {
+      "name": "BLOB_ACTIONS",
+      "kind": "actions",
+      "context": "BlobActionContext",
+      "pairedWith": null,
+      "contributions": [
+        {
+          "id": "maretha.blob.app-links",
+          "extensionId": "maretha.core.file-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.blob.download",
+          "extensionId": "maretha.core.file-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.blob.preview",
+          "extensionId": "maretha.core.file-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.blob.remove",
+          "extensionId": "maretha.core.file-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.blob.replace",
+          "extensionId": "maretha.core.file-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        }
+      ]
+    },
+    {
+      "name": "COLLECTION_ACTIONS",
+      "kind": "actions",
+      "context": "ResultsToolbarContext",
+      "pairedWith": null,
+      "contributions": [
+        {
+          "id": "maretha.selection.download",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.selection.publish",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.toolbar.clipboard",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.toolbar.remove-collection",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        }
+      ]
+    },
+    {
+      "name": "CREATE_POPUP_ITEMS",
+      "kind": "items",
+      "context": "DocumentCreateContext",
+      "pairedWith": "CREATE_POPUP_PAGES",
+      "contributions": [
+        {
+          "id": "maretha.create.import",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": "import",
+          "pairedTargets": [{ "slot": "CREATE_POPUP_PAGES", "id": "maretha.create.import" }]
+        },
+        {
+          "id": "maretha.create.types",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": "create",
+          "pairedTargets": [{ "slot": "CREATE_POPUP_PAGES", "id": "maretha.create.types" }]
+        }
+      ]
+    },
+    {
+      "name": "CREATE_POPUP_PAGES",
+      "kind": "pages",
+      "context": "DocumentCreateContext",
+      "pairedWith": "CREATE_POPUP_ITEMS",
+      "contributions": [
+        {
+          "id": "maretha.create.import",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": "import",
+          "pairedTargets": [{ "slot": "CREATE_POPUP_ITEMS", "id": "maretha.create.import" }]
+        },
+        {
+          "id": "maretha.create.types",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": "create",
+          "pairedTargets": [{ "slot": "CREATE_POPUP_ITEMS", "id": "maretha.create.types" }]
+        }
+      ]
+    },
+    {
+      "name": "DOCUMENT_ACTIONS",
+      "kind": "actions",
+      "context": "DocumentActionContext",
+      "pairedWith": null,
+      "contributions": [
+        {
+          "id": "maretha.document.clipboard",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.collect",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.compare-versions",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.create",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.download",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.download-folder",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.edit",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.export",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.favorite",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.info",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.lock",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.notifications",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.pdf",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.publish",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.purge",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.remove-collection",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.restore",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.share",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.standard-publish",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.trash",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.xml",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.zip",
+          "extensionId": "maretha.core.document-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.toolbar.versions",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.toolbar.workflow",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        }
+      ]
+    },
+    {
+      "name": "DOCUMENT_CREATE_ACTIONS",
+      "kind": "actions",
+      "context": "DocumentCreateContext",
+      "pairedWith": null,
+      "contributions": [
+        {
+          "id": "maretha.create.open",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        }
+      ]
+    },
+    {
+      "name": "DOCUMENT_INFO_BAR",
+      "kind": "actions",
+      "context": "DocumentInfoBarContext",
+      "pairedWith": null,
+      "contributions": [
+        {
+          "id": "maretha.document.notice.retention",
+          "extensionId": "maretha.core.document-info-bar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.notice.standard-version",
+          "extensionId": "maretha.core.document-info-bar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.notice.trash",
+          "extensionId": "maretha.core.document-info-bar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.document.notice.workflow",
+          "extensionId": "maretha.core.document-info-bar",
+          "pairKey": null,
+          "pairedTargets": []
+        }
+      ]
+    },
+    {
+      "name": "DOCUMENT_VIEWS_ITEMS",
+      "kind": "items",
+      "context": "DocumentViewContext",
+      "pairedWith": "DOCUMENT_VIEWS_PAGES",
+      "contributions": [
+        {
+          "id": "maretha.document.content",
+          "extensionId": "maretha.core.document-views",
+          "pairKey": "view",
+          "pairedTargets": [{ "slot": "DOCUMENT_VIEWS_PAGES", "id": "maretha.document.content" }]
+        },
+        {
+          "id": "maretha.document.history",
+          "extensionId": "maretha.core.document-views",
+          "pairKey": "history",
+          "pairedTargets": [{ "slot": "DOCUMENT_VIEWS_PAGES", "id": "maretha.document.history" }]
+        },
+        {
+          "id": "maretha.document.permissions",
+          "extensionId": "maretha.core.document-views",
+          "pairKey": "permissions",
+          "pairedTargets": [
+            { "slot": "DOCUMENT_VIEWS_PAGES", "id": "maretha.document.permissions" }
+          ]
+        },
+        {
+          "id": "maretha.document.publication",
+          "extensionId": "maretha.core.document-views",
+          "pairKey": "publication",
+          "pairedTargets": [
+            { "slot": "DOCUMENT_VIEWS_PAGES", "id": "maretha.document.publication" }
+          ]
+        },
+        {
+          "id": "maretha.document.standard-history",
+          "extensionId": "maretha.core.document-views",
+          "pairKey": "history",
+          "pairedTargets": [
+            { "slot": "DOCUMENT_VIEWS_PAGES", "id": "maretha.document.standard-history" }
+          ]
+        },
+        {
+          "id": "maretha.document.standard-permissions",
+          "extensionId": "maretha.core.document-views",
+          "pairKey": "permissions",
+          "pairedTargets": [
+            { "slot": "DOCUMENT_VIEWS_PAGES", "id": "maretha.document.standard-permissions" }
+          ]
+        },
+        {
+          "id": "maretha.document.standard-publication",
+          "extensionId": "maretha.core.document-views",
+          "pairKey": "publication",
+          "pairedTargets": [
+            { "slot": "DOCUMENT_VIEWS_PAGES", "id": "maretha.document.standard-publication" }
+          ]
+        },
+        {
+          "id": "maretha.document.standard-trash",
+          "extensionId": "maretha.core.document-views",
+          "pairKey": "trash",
+          "pairedTargets": [
+            { "slot": "DOCUMENT_VIEWS_PAGES", "id": "maretha.document.standard-trash" }
+          ]
+        },
+        {
+          "id": "maretha.document.trash",
+          "extensionId": "maretha.core.document-views",
+          "pairKey": "trash",
+          "pairedTargets": [{ "slot": "DOCUMENT_VIEWS_PAGES", "id": "maretha.document.trash" }]
+        }
+      ]
+    },
+    {
+      "name": "DOCUMENT_VIEWS_PAGES",
+      "kind": "pages",
+      "context": "DocumentViewContext",
+      "pairedWith": "DOCUMENT_VIEWS_ITEMS",
+      "contributions": [
+        {
+          "id": "maretha.document.content",
+          "extensionId": "maretha.core.document-views",
+          "pairKey": "view",
+          "pairedTargets": [{ "slot": "DOCUMENT_VIEWS_ITEMS", "id": "maretha.document.content" }]
+        },
+        {
+          "id": "maretha.document.history",
+          "extensionId": "maretha.core.document-views",
+          "pairKey": "history",
+          "pairedTargets": [{ "slot": "DOCUMENT_VIEWS_ITEMS", "id": "maretha.document.history" }]
+        },
+        {
+          "id": "maretha.document.permissions",
+          "extensionId": "maretha.core.document-views",
+          "pairKey": "permissions",
+          "pairedTargets": [
+            { "slot": "DOCUMENT_VIEWS_ITEMS", "id": "maretha.document.permissions" }
+          ]
+        },
+        {
+          "id": "maretha.document.publication",
+          "extensionId": "maretha.core.document-views",
+          "pairKey": "publication",
+          "pairedTargets": [
+            { "slot": "DOCUMENT_VIEWS_ITEMS", "id": "maretha.document.publication" }
+          ]
+        },
+        {
+          "id": "maretha.document.standard-history",
+          "extensionId": "maretha.core.document-views",
+          "pairKey": "history",
+          "pairedTargets": [
+            { "slot": "DOCUMENT_VIEWS_ITEMS", "id": "maretha.document.standard-history" }
+          ]
+        },
+        {
+          "id": "maretha.document.standard-permissions",
+          "extensionId": "maretha.core.document-views",
+          "pairKey": "permissions",
+          "pairedTargets": [
+            { "slot": "DOCUMENT_VIEWS_ITEMS", "id": "maretha.document.standard-permissions" }
+          ]
+        },
+        {
+          "id": "maretha.document.standard-publication",
+          "extensionId": "maretha.core.document-views",
+          "pairKey": "publication",
+          "pairedTargets": [
+            { "slot": "DOCUMENT_VIEWS_ITEMS", "id": "maretha.document.standard-publication" }
+          ]
+        },
+        {
+          "id": "maretha.document.standard-trash",
+          "extensionId": "maretha.core.document-views",
+          "pairKey": "trash",
+          "pairedTargets": [
+            { "slot": "DOCUMENT_VIEWS_ITEMS", "id": "maretha.document.standard-trash" }
+          ]
+        },
+        {
+          "id": "maretha.document.trash",
+          "extensionId": "maretha.core.document-views",
+          "pairKey": "trash",
+          "pairedTargets": [{ "slot": "DOCUMENT_VIEWS_ITEMS", "id": "maretha.document.trash" }]
+        }
+      ]
+    },
+    {
+      "name": "DRAWER_ITEMS",
+      "kind": "items",
+      "context": "DrawerContext",
+      "pairedWith": "DRAWER_PAGES",
+      "contributions": [
+        {
+          "id": "maretha.drawer.assets",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "assets",
+          "pairedTargets": [{ "slot": "DRAWER_PAGES", "id": "maretha.drawer.assets" }]
+        },
+        {
+          "id": "maretha.drawer.clipboard",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "clipboard",
+          "pairedTargets": [{ "slot": "DRAWER_PAGES", "id": "maretha.drawer.clipboard" }]
+        },
+        {
+          "id": "maretha.drawer.collections",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "collections",
+          "pairedTargets": [{ "slot": "DRAWER_PAGES", "id": "maretha.drawer.collections" }]
+        },
+        {
+          "id": "maretha.drawer.expired",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "expired",
+          "pairedTargets": [{ "slot": "DRAWER_PAGES", "id": "maretha.drawer.expired" }]
+        },
+        {
+          "id": "maretha.drawer.favorites",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "favorites",
+          "pairedTargets": [{ "slot": "DRAWER_PAGES", "id": "maretha.drawer.favorites" }]
+        },
+        {
+          "id": "maretha.drawer.personal-workspace",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "personal-workspace",
+          "pairedTargets": [{ "slot": "DRAWER_PAGES", "id": "maretha.drawer.personal-workspace" }]
+        },
+        {
+          "id": "maretha.drawer.recents",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "recents",
+          "pairedTargets": [{ "slot": "DRAWER_PAGES", "id": "maretha.drawer.recents" }]
+        },
+        {
+          "id": "maretha.drawer.search",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "search",
+          "pairedTargets": [{ "slot": "DRAWER_PAGES", "id": "maretha.drawer.search" }]
+        },
+        {
+          "id": "maretha.drawer.tasks",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "tasks",
+          "pairedTargets": [{ "slot": "DRAWER_PAGES", "id": "maretha.drawer.tasks" }]
+        },
+        {
+          "id": "maretha.drawer.trash",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "trash",
+          "pairedTargets": [{ "slot": "DRAWER_PAGES", "id": "maretha.drawer.trash" }]
+        },
+        {
+          "id": "maretha.drawer.tree",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "tree",
+          "pairedTargets": [{ "slot": "DRAWER_PAGES", "id": "maretha.drawer.tree" }]
+        }
+      ]
+    },
+    {
+      "name": "DRAWER_PAGES",
+      "kind": "pages",
+      "context": "DrawerContext",
+      "pairedWith": "DRAWER_ITEMS",
+      "contributions": [
+        {
+          "id": "maretha.drawer.assets",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "assets",
+          "pairedTargets": [{ "slot": "DRAWER_ITEMS", "id": "maretha.drawer.assets" }]
+        },
+        {
+          "id": "maretha.drawer.clipboard",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "clipboard",
+          "pairedTargets": [{ "slot": "DRAWER_ITEMS", "id": "maretha.drawer.clipboard" }]
+        },
+        {
+          "id": "maretha.drawer.collections",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "collections",
+          "pairedTargets": [{ "slot": "DRAWER_ITEMS", "id": "maretha.drawer.collections" }]
+        },
+        {
+          "id": "maretha.drawer.expired",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "expired",
+          "pairedTargets": [{ "slot": "DRAWER_ITEMS", "id": "maretha.drawer.expired" }]
+        },
+        {
+          "id": "maretha.drawer.favorites",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "favorites",
+          "pairedTargets": [{ "slot": "DRAWER_ITEMS", "id": "maretha.drawer.favorites" }]
+        },
+        {
+          "id": "maretha.drawer.personal-workspace",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "personal-workspace",
+          "pairedTargets": [{ "slot": "DRAWER_ITEMS", "id": "maretha.drawer.personal-workspace" }]
+        },
+        {
+          "id": "maretha.drawer.recents",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "recents",
+          "pairedTargets": [{ "slot": "DRAWER_ITEMS", "id": "maretha.drawer.recents" }]
+        },
+        {
+          "id": "maretha.drawer.search",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "search",
+          "pairedTargets": [{ "slot": "DRAWER_ITEMS", "id": "maretha.drawer.search" }]
+        },
+        {
+          "id": "maretha.drawer.tasks",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "tasks",
+          "pairedTargets": [{ "slot": "DRAWER_ITEMS", "id": "maretha.drawer.tasks" }]
+        },
+        {
+          "id": "maretha.drawer.trash",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "trash",
+          "pairedTargets": [{ "slot": "DRAWER_ITEMS", "id": "maretha.drawer.trash" }]
+        },
+        {
+          "id": "maretha.drawer.tree",
+          "extensionId": "maretha.core.drawer",
+          "pairKey": "tree",
+          "pairedTargets": [{ "slot": "DRAWER_ITEMS", "id": "maretha.drawer.tree" }]
+        }
+      ]
+    },
+    {
+      "name": "FILE_UPLOAD_ACTIONS",
+      "kind": "actions",
+      "context": "FileUploadContext",
+      "pairedWith": null,
+      "contributions": [
+        {
+          "id": "maretha.upload.choose",
+          "extensionId": "maretha.core.file-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        }
+      ]
+    },
+    {
+      "name": "PAGES",
+      "kind": "pages",
+      "context": "PageContext",
+      "pairedWith": null,
+      "contributions": [
+        {
+          "id": "maretha.page.administration",
+          "extensionId": "maretha.core.pages",
+          "pairKey": "administration",
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.page.assets",
+          "extensionId": "maretha.core.pages",
+          "pairKey": "assets",
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.page.compare",
+          "extensionId": "maretha.core.pages",
+          "pairKey": "compare",
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.page.dashboard",
+          "extensionId": "maretha.core.pages",
+          "pairKey": "dashboard",
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.page.expired",
+          "extensionId": "maretha.core.pages",
+          "pairKey": "expired",
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.page.explorer",
+          "extensionId": "maretha.core.pages",
+          "pairKey": "explorer",
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.page.group",
+          "extensionId": "maretha.core.pages",
+          "pairKey": "group",
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.page.profile",
+          "extensionId": "maretha.core.pages",
+          "pairKey": "profile",
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.page.themes",
+          "extensionId": "maretha.core.pages",
+          "pairKey": "themes",
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.page.trash",
+          "extensionId": "maretha.core.pages",
+          "pairKey": "trash",
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.page.user",
+          "extensionId": "maretha.core.pages",
+          "pairKey": "user",
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.page.user-authorized-apps",
+          "extensionId": "maretha.core.pages",
+          "pairKey": "user-authorized-apps",
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.page.user-cloud-services",
+          "extensionId": "maretha.core.pages",
+          "pairKey": "user-cloud-services",
+          "pairedTargets": []
+        }
+      ]
+    },
+    {
+      "name": "PUBLISH_ITEMS",
+      "kind": "items",
+      "context": "PublishContext",
+      "pairedWith": "PUBLISH_PAGES",
+      "contributions": [
+        {
+          "id": "maretha.publish.section",
+          "extensionId": "maretha.core.publish-views",
+          "pairKey": "section",
+          "pairedTargets": [{ "slot": "PUBLISH_PAGES", "id": "maretha.publish.section" }]
+        }
+      ]
+    },
+    {
+      "name": "PUBLISH_PAGES",
+      "kind": "pages",
+      "context": "PublishContext",
+      "pairedWith": "PUBLISH_ITEMS",
+      "contributions": [
+        {
+          "id": "maretha.publish.section",
+          "extensionId": "maretha.core.publish-views",
+          "pairKey": "section",
+          "pairedTargets": [{ "slot": "PUBLISH_ITEMS", "id": "maretha.publish.section" }]
+        }
+      ]
+    },
+    {
+      "name": "QUICK_SEARCH_ACTIONS",
+      "kind": "actions",
+      "context": "QuickSearchContext",
+      "pairedWith": null,
+      "contributions": []
+    },
+    {
+      "name": "RESULTS_ACTIONS",
+      "kind": "actions",
+      "context": "ResultsToolbarContext",
+      "pairedWith": null,
+      "contributions": [
+        {
+          "id": "maretha.results.csv-export",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.results.query-edit",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.results.query-restore",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.results.query-trash",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.results.spreadsheet",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.toolbar.clear-selection",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.toolbar.display",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.toolbar.select-loaded",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        }
+      ]
+    },
+    {
+      "name": "RESULTS_SELECTION_ACTIONS",
+      "kind": "actions",
+      "context": "ResultsToolbarContext",
+      "pairedWith": null,
+      "contributions": [
+        {
+          "id": "maretha.selection.download",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.selection.publish",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.toolbar.clipboard",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.toolbar.collect",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.toolbar.compare",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.toolbar.edit-selection",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.toolbar.move-down",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.toolbar.move-up",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.toolbar.trash",
+          "extensionId": "maretha.core.toolbar",
+          "pairKey": null,
+          "pairedTargets": []
+        }
+      ]
+    },
+    {
+      "name": "SHELL_ACTIONS",
+      "kind": "actions",
+      "context": "ShellActionContext",
+      "pairedWith": null,
+      "contributions": [
+        {
+          "id": "maretha.shell.create",
+          "extensionId": "maretha.core.shell",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.shell.quick-search",
+          "extensionId": "maretha.core.shell",
+          "pairKey": null,
+          "pairedTargets": []
+        }
+      ]
+    },
+    {
+      "name": "THEMES",
+      "kind": "themes",
+      "context": "WebUiThemeContext",
+      "pairedWith": null,
+      "contributions": [
+        {
+          "id": "maretha.theme.dark",
+          "extensionId": "maretha.core.themes",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.theme.default",
+          "extensionId": "maretha.core.themes",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.theme.kawaii",
+          "extensionId": "maretha.core.themes",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.theme.light",
+          "extensionId": "maretha.core.themes",
+          "pairKey": null,
+          "pairedTargets": []
+        }
+      ]
+    },
+    {
+      "name": "TRASH_RESULTS_SELECTION_ACTIONS",
+      "kind": "actions",
+      "context": "ResultsSelectionContext",
+      "pairedWith": null,
+      "contributions": [
+        {
+          "id": "maretha.trash.purge",
+          "extensionId": "maretha.core.trash-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.trash.restore",
+          "extensionId": "maretha.core.trash-actions",
+          "pairKey": null,
+          "pairedTargets": []
+        }
+      ]
+    },
+    {
+      "name": "USER_MENU",
+      "kind": "actions",
+      "context": "UserMenuContext",
+      "pairedWith": null,
+      "contributions": [
+        {
+          "id": "maretha.user.authorized-applications",
+          "extensionId": "maretha.core.user-menu",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.user.cloud-services",
+          "extensionId": "maretha.core.user-menu",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.user.language",
+          "extensionId": "maretha.core.user-menu",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.user.profile",
+          "extensionId": "maretha.core.user-menu",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.user.sign-out",
+          "extensionId": "maretha.core.user-menu",
+          "pairKey": null,
+          "pairedTargets": []
+        },
+        {
+          "id": "maretha.user.themes",
+          "extensionId": "maretha.core.user-menu",
+          "pairKey": null,
+          "pairedTargets": []
+        }
+      ]
+    }
+  ]
+}

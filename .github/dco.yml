@@ -1,0 +1,4 @@
+# DCO GitHub App settings. A contributor whose commit lacks a Signed-off-by line can fix it with
+# a follow-up signed-off commit instead of rewriting history (see CONTRIBUTING.md).
+allowRemediationCommits:
+  individual: true

@@ -1,0 +1,10 @@
+.permission-list {
+	max-height: 200px;
+	overflow: auto;
+}
+
+.list-group.permission-list > .list-group-item {
+	&::after {
+		content: none;
+	}
+}

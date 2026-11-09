@@ -1,0 +1,158 @@
+@use '../../../../../styles/variables';
+
+:host {
+	overflow: hidden;
+	display: block;
+}
+
+.list-group-container {
+	max-height: 50vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+button fa-icon {
+	&::after {
+		content: '';
+	}
+
+	+ div {
+		margin-inline-start: 0.5rem;
+	}
+}
+
+.warning {
+	position: absolute;
+	inset-block-end: -0.65rem;
+	inset-inline-start: 3.5rem;
+	transform: translateY(calc(50% - 1.33rem));
+}
+
+.text {
+	transition: all 0.3s ease-in-out;
+	overflow: hidden;
+	display: inline-block;
+	width: 100%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	opacity: 1;
+}
+
+.no-text .text {
+	margin-inline-start: 0;
+	width: 0;
+	opacity: 0;
+}
+
+.list-group-horizontal > .list-group-item {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: inline-block;
+	flex-grow: 1;
+	width: 0;
+
+	&:nth-child(1) {
+		z-index: 1;
+	}
+	&:nth-child(2) {
+		z-index: 2;
+	}
+	&:nth-child(3) {
+		z-index: 3;
+	}
+	&:nth-child(4) {
+		z-index: 4;
+	}
+}
+
+.list-group-container label {
+	position: absolute;
+	inset-inline-start: 0;
+	transition: background-color 0.3s ease-in-out;
+}
+
+input:checked {
+	z-index: 1;
+
+	~ label {
+		background-color: var(--nuxeo-primary-color, #{variables.$primary});
+	}
+
+	~ nx-document-icon-and-title {
+		&:after {
+			border-color: var(--nuxeo-primary-color, #{variables.$primary});
+			box-shadow: 0 0 0 0.1rem var(--nuxeo-primary-color, #{variables.$primary}) inset;
+			transition: box-shadow 0.3s ease-in-out;
+		}
+	}
+}
+
+.form-check-input {
+	pointer-events: none;
+	background-color: transparent;
+	transition: none !important;
+
+	&:active,
+	&:focus {
+		box-shadow: none;
+		filter: none;
+		background-color: transparent;
+	}
+
+	&:checked {
+		border-color: transparent;
+	}
+}
+
+.list-group-flush {
+	nx-document-icon-and-title {
+		display: block;
+		margin-block: 0;
+		margin-inline: 2.75rem 0.25rem;
+		max-width: calc(100% - 7rem);
+
+		&:after {
+			content: '';
+			position: absolute;
+			inset-block-start: 0;
+			inset-inline-start: 0;
+			inset-block-end: 0;
+			pointer-events: none;
+			inset-inline-end: 0;
+			border-radius: 0.375rem;
+		}
+	}
+
+	.list-group-item {
+		&.list-group-item-action {
+			position: relative;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				inset-inline-start: 0;
+				bottom: 0;
+				width: 2.75rem;
+				background-color: #{variables.$runtime-black};
+				border-start-start-radius: 0.375rem;
+				border-end-start-radius: 0.375rem;
+				opacity: 0;
+				transition: opacity 0.3s ease-in-out;
+			}
+
+			&:hover:before {
+				opacity: 0.05;
+			}
+		}
+
+		label {
+			inset-block-start: 0;
+			inset-block-end: 0;
+			width: 2.75rem;
+			border-start-start-radius: 0.375rem;
+			border-end-start-radius: 0.375rem;
+		}
+	}
+}

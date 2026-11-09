@@ -1,0 +1,34 @@
+@import '../../../../../../styles/_variables';
+
+:host {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 0.5rem;
+	text-align: start;
+}
+
+textarea {
+	font-family: monospace;
+	resize: none;
+}
+
+textarea,
+editor {
+	+ #viewer {
+		max-height: 48%;
+	}
+}
+
+#viewer,
+textarea,
+editor {
+	flex-grow: 1;
+	overflow: auto;
+}
+
+#viewer {
+	// background: $dark;
+	border-radius: 0.5rem;
+	padding: 0.25rem 0.5rem 0.5rem;
+}

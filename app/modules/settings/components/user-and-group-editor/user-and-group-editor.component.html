@@ -1,0 +1,534 @@
+@if (embedded) {
+	<h2 class="inline-heading">
+		<nx-webui-icon [name]="isUserGroup ? 'nuxeo:group' : 'nuxeo:user'" />{{
+			(isUserGroup ? 'userManagement.newGroup' : 'userManagement.newUser')
+				| webuiMessage: (isUserGroup ? 'New Group' : 'New User')
+		}}
+	</h2>
+	@if (editorForm) {
+		<form
+			class="inline-form"
+			[formGroup]="editorForm"
+			(ngSubmit)="saveChanges()"
+			[attr.aria-busy]="saving"
+		>
+			@if (error) {
+				<p role="alert" class="text-danger">{{ error }}</p>
+			}
+			@if (status) {
+				<p role="status">{{ status }}</p>
+			}
+			@for (field of isUserGroup ? groupFields : userFields; track field.name) {
+				<div class="inline-field">
+					<label [for]="'inline-' + field.name"
+						>{{ field.key | webuiMessage: field.label }}
+						@if (field.required) {
+							<span aria-hidden="true">*</span>
+						}</label
+					><input
+						[id]="'inline-' + field.name"
+						[type]="field.name === 'email' ? 'email' : 'text'"
+						[formControlName]="field.name"
+						[required]="field.required"
+						[nxAutofocus]="field.name === 'id'"
+					/>
+					@if (editorForm.get(field.name)?.touched && editorForm.get(field.name)?.invalid) {
+						<p role="alert" class="text-danger">
+							{{
+								'userManagement.requiredField'
+									| webuiMessage
+										: 'Enter a valid {field}.'
+										: { field: field.key | webuiMessage: field.label }
+							}}
+						</p>
+					}
+				</div>
+			}
+			@if (isUserGroup) {
+				<nx-users-and-groups-picker
+					id="inline-users"
+					formControlName="users"
+					[label]="'userManagement.users' | webuiMessage: 'Users'"
+					[multiple]="true"
+					[findGroups]="false"
+					bindValue="id"
+				/><nx-users-and-groups-picker
+					id="inline-memberGroups"
+					formControlName="memberGroups"
+					[label]="'userManagement.groups' | webuiMessage: 'Groups'"
+					[multiple]="true"
+					[findUsers]="false"
+					bindValue="id"
+				/>
+				@if (editorForm.hasError('selfMembership')) {
+					<p role="alert">
+						{{
+							'app.modules.user-and-group-editor.a-group-cannot-be-a-member-of-itself-3535b9'
+								| webuiMessage: 'A group cannot be a member of itself.'
+						}}
+					</p>
+				}
+			} @else {
+				<nx-users-and-groups-picker
+					id="inline-groups"
+					formControlName="groups"
+					[label]="'userManagement.groups' | webuiMessage: 'Groups'"
+					[multiple]="true"
+					[findUsers]="false"
+					bindValue="id"
+				/>
+				<div formGroupName="password">
+					<label class="password-toggle" for="inline-setPassword">{{
+						'userManagement.setUserPassword' | webuiMessage: 'Set User Password'
+					}}</label
+					><input
+						id="inline-setPassword"
+						type="checkbox"
+						role="switch"
+						formControlName="changePassword"
+					/>
+					@if (editorForm.get(['password', 'changePassword'])?.value) {
+						<div class="inline-field">
+							<label for="inline-password"
+								>{{ 'userProfile.password.new' | webuiMessage: 'New password' }} *</label
+							><input
+								id="inline-password"
+								type="password"
+								autocomplete="new-password"
+								formControlName="newPassword"
+							/>
+						</div>
+						<div class="inline-field">
+							<label for="inline-password-confirm"
+								>{{ 'userProfile.password.confirm' | webuiMessage: 'Confirm password' }} *</label
+							><input
+								id="inline-password-confirm"
+								type="password"
+								autocomplete="new-password"
+								formControlName="newPasswordConfirmation"
+							/>
+						</div>
+						@if (editorForm.get('password')?.touched && editorForm.get('password')?.invalid) {
+							<p role="alert">
+								{{
+									'app.modules.user-and-group-editor.enter-and-confirm-the-same-password-16fcb4'
+										| webuiMessage: 'Enter and confirm the same password.'
+								}}
+							</p>
+						}
+					}
+				</div>
+			}
+			<div class="inline-actions">
+				<button type="button" class="btn btn-outline-primary" [disabled]="saving" (click)="close()">
+					{{ 'command.cancel' | webuiMessage: 'Cancel' }}</button
+				><button type="submit" class="btn btn-primary" [disabled]="saving">
+					{{ 'command.create' | webuiMessage: 'Create' }}</button
+				><button
+					type="button"
+					class="btn btn-primary"
+					[disabled]="saving"
+					(click)="saveChanges(true)"
+				>
+					{{ 'command.createAnother' | webuiMessage: 'Create Another' }}
+				</button>
+			</div>
+		</form>
+	}
+} @else {
+	<div class="modal-header">
+		<h4 class="modal-title pull-left">
+			@if (add && !isUserGroup) {
+				<span>{{
+					'app.modules.user-and-group-editor.add-a-new-user-4bfb9e' | webuiMessage: 'Add a new user'
+				}}</span>
+			}
+			@if (add && isUserGroup) {
+				<span>{{
+					'app.modules.user-and-group-editor.add-a-new-group-e40bd3'
+						| webuiMessage: 'Add a new group'
+				}}</span>
+			}
+			@if (!add && !isUserGroup) {
+				<span>{{
+					'app.modules.user-and-group-editor.edit-user-c60a44' | webuiMessage: 'Edit user'
+				}}</span>
+			}
+			@if (!add && isUserGroup) {
+				<span>{{
+					'app.modules.user-and-group-editor.edit-group-e854f1' | webuiMessage: 'Edit group'
+				}}</span>
+			}
+		</h4>
+
+		<button
+			type="button"
+			class="close btn-close pull-right"
+			[attr.aria-label]="'app.modules.user-and-group-editor.close-117f66' | webuiMessage: 'Close'"
+			[disabled]="saving"
+			(click)="close()"
+		>
+			<span aria-hidden="true" class="visually-hidden">&times;</span>
+		</button>
+	</div>
+
+	@if (loading) {
+		<p role="status" class="p-3">
+			{{ 'app.modules.user-and-group-editor.loading-db71a4' | webuiMessage: 'Loading…' }}
+		</p>
+	}
+	@if (!editorForm && error) {
+		<div class="p-3">
+			<p role="alert" class="text-danger">{{ error }}</p>
+			<button type="button" class="btn btn-link" (click)="loadEditor()">
+				{{ 'app.modules.user-and-group-editor.retry-1679c8' | webuiMessage: 'Retry' }}
+			</button>
+		</div>
+	}
+
+	@if (editorForm) {
+		<div [formGroup]="editorForm" class="modal-body" [attr.aria-busy]="saving">
+			@if (error) {
+				<p role="alert" class="text-danger">{{ error }}</p>
+			}
+			@if (status) {
+				<p role="status">{{ status }}</p>
+			}
+			@if (isUserGroup) {
+				<div class="row">
+					<div class="col-12 mb-3">
+						<div class="form-floating required">
+							<input
+								class="form-control"
+								type="text"
+								id="id"
+								[attr.placeholder]="
+									'app.modules.user-and-group-editor.id-75b5b9' | webuiMessage: 'Id'
+								"
+								formControlName="id"
+								[nxAutofocus]="add"
+								[nxAutofocusDelay]="400"
+							/>
+							<label for="id">{{
+								'app.modules.user-and-group-editor.id-75b5b9' | webuiMessage: 'Id'
+							}}</label>
+						</div>
+					</div>
+					<div class="col-sm-12 mb-3">
+						<div class="form-floating">
+							<input
+								type="text"
+								class="form-control"
+								id="name"
+								[attr.placeholder]="'vocabularyManagement.edit.label' | webuiMessage: 'Label'"
+								formControlName="name"
+								[nxAutofocus]="!add"
+								[nxAutofocusDelay]="400"
+							/>
+							<label for="name">{{
+								'vocabularyManagement.edit.label' | webuiMessage: 'Label'
+							}}</label>
+						</div>
+					</div>
+					<div class="col-sm-12 mb-3">
+						<div class="form-floating">
+							<textarea
+								rows="1"
+								class="form-control"
+								id="description"
+								[attr.placeholder]="
+									'app.modules.user-and-group-editor.description-7b25bb'
+										| webuiMessage: 'Description'
+								"
+								formControlName="description"
+							></textarea>
+							<label for="name">{{
+								'app.modules.user-and-group-editor.description-7b25bb' | webuiMessage: 'Description'
+							}}</label>
+						</div>
+					</div>
+					<div class="col-12">
+						<nx-users-and-groups-picker
+							formControlName="users"
+							id="users"
+							[label]="'app.modules.user-and-group-editor.users-d1150b' | webuiMessage: 'Users'"
+							[multiple]="true"
+							[findGroups]="false"
+							bindValue="id"
+						>
+						</nx-users-and-groups-picker>
+					</div>
+					<div class="col-12 mt-3">
+						<nx-users-and-groups-picker
+							formControlName="memberGroups"
+							id="memberGroups"
+							[label]="'app.modules.user-and-group-editor.groups-811eae' | webuiMessage: 'Groups'"
+							[multiple]="true"
+							[findUsers]="false"
+							bindValue="id"
+						/>
+						@if (editorForm.hasError('selfMembership')) {
+							<p role="alert" class="text-danger">
+								{{
+									'app.modules.user-and-group-editor.a-group-cannot-be-a-member-of-itself-3535b9'
+										| webuiMessage: 'A group cannot be a member of itself.'
+								}}
+							</p>
+						}
+					</div>
+				</div>
+			}
+			@if (!isUserGroup) {
+				<div class="row">
+					<div class="col-12 mb-3">
+						<div class="form-floating" [class.required]="add">
+							<input
+								class="form-control"
+								type="text"
+								id="username"
+								formControlName="id"
+								[attr.placeholder]="
+									'app.modules.user-and-group-editor.username-d7ad7e' | webuiMessage: 'Username'
+								"
+								[attr.aria-label]="
+									'app.modules.user-and-group-editor.username-d7ad7e' | webuiMessage: 'Username'
+								"
+								[readonly]="!add"
+								[nxAutofocus]="add"
+								[nxAutofocusDelay]="400"
+							/>
+							<label for="username">{{
+								'app.modules.user-and-group-editor.username-d7ad7e' | webuiMessage: 'Username'
+							}}</label>
+						</div>
+						@if (editorForm.get('id')?.touched && editorForm.get('id')?.invalid) {
+							<p role="alert" class="text-danger">
+								{{
+									'app.modules.user-and-group-editor.enter-a-username-a66b27'
+										| webuiMessage: 'Enter a username.'
+								}}
+							</p>
+						}
+					</div>
+					<div class="col-sm-12 mb-3">
+						<div class="form-floating required">
+							<input
+								type="email"
+								class="form-control"
+								id="email"
+								[attr.placeholder]="
+									'app.modules.user-and-group-editor.email-address-e8d2c5'
+										| webuiMessage: 'Email address'
+								"
+								formControlName="email"
+								[nxAutofocus]="!add"
+								[nxAutofocusDelay]="400"
+							/>
+							<label for="email">{{
+								'app.modules.user-and-group-editor.email-address-e8d2c5'
+									| webuiMessage: 'Email address'
+							}}</label>
+						</div>
+						@if (editorForm.get('email')?.touched && editorForm.get('email')?.invalid) {
+							<p role="alert" class="text-danger">
+								{{
+									'app.modules.user-and-group-editor.enter-a-valid-email-address-1b7789'
+										| webuiMessage: 'Enter a valid email address.'
+								}}
+							</p>
+						}
+					</div>
+					<div class="col-sm-6 mb-3">
+						<div class="form-floating">
+							<input
+								type="text"
+								class="form-control"
+								id="firstName"
+								[attr.placeholder]="
+									'app.modules.user-and-group-editor.first-name-8750b5' | webuiMessage: 'First name'
+								"
+								formControlName="firstName"
+							/>
+							<label for="firstName">{{
+								'app.modules.user-and-group-editor.first-name-8750b5' | webuiMessage: 'First name'
+							}}</label>
+						</div>
+					</div>
+					<div class="col-sm-6 mb-3">
+						<div class="form-floating">
+							<input
+								type="text"
+								class="form-control"
+								id="lastName"
+								[attr.placeholder]="
+									'app.modules.user-and-group-editor.last-name-fc6463' | webuiMessage: 'Last name'
+								"
+								formControlName="lastName"
+							/>
+							<label for="lastName">{{
+								'app.modules.user-and-group-editor.last-name-fc6463' | webuiMessage: 'Last name'
+							}}</label>
+						</div>
+					</div>
+					<div class="col-sm-12 mb-3">
+						<div class="form-floating">
+							<input
+								type="text"
+								class="form-control"
+								id="company"
+								[attr.placeholder]="
+									'app.modules.user-and-group-editor.company-3f1098' | webuiMessage: 'Company'
+								"
+								formControlName="company"
+							/>
+							<label for="company">{{
+								'app.modules.user-and-group-editor.company-3f1098' | webuiMessage: 'Company'
+							}}</label>
+						</div>
+					</div>
+					<div class="col-12">
+						<nx-users-and-groups-picker
+							formControlName="groups"
+							id="groups"
+							[label]="'app.modules.user-and-group-editor.groups-811eae' | webuiMessage: 'Groups'"
+							[multiple]="true"
+							[findUsers]="false"
+							bindValue="id"
+						>
+						</nx-users-and-groups-picker>
+					</div>
+					<ng-container formGroupName="password">
+						<div class="col-sm-12 mt-3">
+							@if (add) {
+								<div class="form-check form-switch">
+									<input
+										id="setPassword"
+										type="checkbox"
+										class="form-check-input"
+										formControlName="changePassword"
+									/>
+									<label class="form-check-label" for="setPassword">{{
+										'app.modules.user-and-group-editor.set-password-5309cf'
+											| webuiMessage: 'Set password'
+									}}</label>
+								</div>
+								@if (invitationMode) {
+									<p>
+										{{
+											'app.modules.user-and-group-editor.an-invitation-will-be-sent-to-the-email-ad-f69c22'
+												| webuiMessage
+													: 'An invitation will be sent to the email address so the user can set a password.'
+										}}
+									</p>
+								}
+							} @else if (!editorForm.get(['password', 'changePassword'])?.value) {
+								<button
+									(click)="editorForm.get(['password', 'changePassword'])?.setValue(true)"
+									[disabled]="saving"
+									class="btn btn-outline-secondary w-100 py-3"
+								>
+									{{ 'userProfile.password.change' | webuiMessage: 'Change password' }}
+								</button>
+							}
+						</div>
+						@if (editorForm.get(['password', 'changePassword'])?.value) {
+							<div class="col-sm-6">
+								<div class="form-floating required">
+									<input
+										type="password"
+										class="form-control"
+										id="newPassword"
+										[attr.placeholder]="'userProfile.password.new' | webuiMessage: 'New password'"
+										formControlName="newPassword"
+										autocomplete="new-password"
+									/>
+									<label for="newPassword">{{
+										'userProfile.password.new' | webuiMessage: 'New password'
+									}}</label>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-floating required">
+									<input
+										type="password"
+										class="form-control"
+										id="newPasswordConfirmation"
+										[attr.placeholder]="
+											'app.modules.user-and-group-editor.confirm-password-e18441'
+												| webuiMessage: 'Confirm password'
+										"
+										formControlName="newPasswordConfirmation"
+										autocomplete="new-password"
+									/>
+									<label for="newPasswordConfirmation">{{
+										'app.modules.user-and-group-editor.confirm-password-e18441'
+											| webuiMessage: 'Confirm password'
+									}}</label>
+								</div>
+							</div>
+							@if (editorForm.get('password')?.touched && editorForm.get('password')?.invalid) {
+								<p role="alert" class="text-danger">
+									{{
+										'app.modules.user-and-group-editor.enter-and-confirm-the-same-password-16fcb4'
+											| webuiMessage: 'Enter and confirm the same password.'
+									}}
+								</p>
+							}
+						}
+					</ng-container>
+				</div>
+			}
+		</div>
+	}
+
+	<div class="modal-footer flex-nowrap p-0">
+		<button
+			(click)="close()"
+			[disabled]="saving"
+			type="button"
+			[class.col-6]="!add"
+			[class.flex-fill]="add"
+			class="btn btn-lg btn-link fs-6 text-decoration-none m-0 rounded-0 border-end"
+		>
+			{{
+				'app.modules.user-and-group-editor.close-without-saving-2dee77'
+					| webuiMessage: 'Close without saving'
+			}}
+		</button>
+
+		<button
+			(click)="saveChanges()"
+			type="button"
+			[disabled]="loading || saving || !editorForm || editorForm.pristine || editorForm.invalid"
+			[class.col-6]="!add"
+			[class.flex-fill]="add"
+			class="btn btn-lg btn-link fs-6 text-decoration-none m-0 rounded-0"
+		>
+			<strong>{{
+				saving
+					? invitationMode
+						? ('app.modules.user-and-group-editor.sending-28957e' | webuiMessage: 'Sending…')
+						: ('sdk.layout.saving' | webuiMessage: 'Saving…')
+					: add
+						? invitationMode
+							? ('app.modules.user-and-group-editor.send-invitation-423c57'
+								| webuiMessage: 'Send invitation')
+							: ('app.modules.user-and-group-editor.create-9b100a' | webuiMessage: 'Create')
+						: ('app.modules.user-and-group-editor.save-changes-d32592'
+							| webuiMessage: 'Save changes')
+			}}</strong>
+		</button>
+		@if (add) {
+			<button
+				(click)="saveChanges(true)"
+				type="button"
+				[disabled]="loading || saving || !editorForm || editorForm.pristine || editorForm.invalid"
+				class="btn btn-lg btn-link fs-6 text-decoration-none flex-fill m-0 rounded-0"
+			>
+				{{
+					'app.modules.user-and-group-editor.create-another-e98481' | webuiMessage: 'Create another'
+				}}
+			</button>
+		}
+	</div>
+}

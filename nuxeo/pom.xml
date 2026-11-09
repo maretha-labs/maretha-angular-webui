@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.nuxeo</groupId>
+    <artifactId>nuxeo-parent</artifactId>
+    <version>2025.0</version>
+  </parent>
+
+  <groupId>io.maretha</groupId>
+  <artifactId>maretha-angular-webui-parent</artifactId>
+  <!-- Keep in step with package.json; scripts/nuxeo-package.mjs checks it. -->
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+  <name>Maretha Angular Web UI</name>
+
+  <properties>
+    <nuxeo.skip.enforcer>true</nuxeo.skip.enforcer>
+  </properties>
+
+  <modules>
+    <module>ui</module>
+    <module>server</module>
+    <module>package</module>
+  </modules>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <release>21</release>
+        </configuration>
+      </plugin>
+      <!-- nuxeo-ecm binds buildnumber-maven-plugin at validate and it reads the SCM; fall back
+           instead of failing when the sources are not a git checkout. -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <configuration>
+          <revisionOnScmFailure>0</revisionOnScmFailure>
+        </configuration>
+      </plugin>
+      <!-- nuxeo-ecm copies ../*.md into every jar; above nuxeo/ that is the repository root and
+           its local-only notes. -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-readme-parent</id>
+            <phase>none</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.maretha</groupId>
+        <artifactId>maretha-angular-webui-ui</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.maretha</groupId>
+        <artifactId>maretha-angular-webui-server</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <!-- Nuxeo LTS artifacts come from maven-private. -->
+  <repositories>
+    <repository>
+      <id>maven-public</id>
+      <url>https://packages.nuxeo.com/repository/maven-public/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>maven-private</id>
+      <url>https://packages.nuxeo.com/repository/maven-private/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>maven-public</id>
+      <url>https://packages.nuxeo.com/repository/maven-public/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+</project>

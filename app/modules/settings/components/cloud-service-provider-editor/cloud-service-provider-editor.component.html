@@ -1,0 +1,247 @@
+<div class="modal-header">
+	<h4 class="modal-title pull-left">
+		@if (add) {
+			<span>{{
+				'app.modules.cloud-service-provider-editor.add-a-new-service-provider-ebd9a0'
+					| webuiMessage: 'Add a new service provider'
+			}}</span>
+		}
+		@if (!add) {
+			<span>{{
+				'app.modules.cloud-service-provider-editor.edit-service-provider-0bdcad'
+					| webuiMessage: 'Edit service provider'
+			}}</span>
+		}
+	</h4>
+
+	<button
+		type="button"
+		class="close btn-close pull-right"
+		[attr.aria-label]="
+			'app.modules.cloud-service-provider-editor.close-d5ba67' | webuiMessage: 'Close'
+		"
+		(click)="close()"
+	>
+		<span aria-hidden="true" class="visually-hidden">&times;</span>
+	</button>
+</div>
+
+@if (editorForm) {
+	<div class="modal-body" [formGroup]="editorForm">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-floating required mb-3">
+					<input
+						type="text"
+						class="form-control"
+						id="name"
+						[attr.placeholder]="
+							'app.modules.cloud-service-provider-editor.name-9261f5' | webuiMessage: 'Name'
+						"
+						formControlName="serviceName"
+						[nxAutofocus]="true"
+						[nxAutofocusDelay]="400"
+					/>
+					<label for="name">{{
+						'app.modules.cloud-service-provider-editor.name-9261f5' | webuiMessage: 'Name'
+					}}</label>
+				</div>
+			</div>
+			<div class="col-sm-5">
+				<div class="form-floating mb-3">
+					<input
+						type="text"
+						class="form-control"
+						id="clientId"
+						[attr.placeholder]="
+							'app.modules.cloud-service-provider-editor.client-id-15f622'
+								| webuiMessage: 'Client Id'
+						"
+						formControlName="clientId"
+					/>
+					<label for="clientId">{{
+						'app.modules.cloud-service-provider-editor.client-id-15f622' | webuiMessage: 'Client Id'
+					}}</label>
+				</div>
+			</div>
+			<div class="col-sm-7">
+				<div class="form-floating mb-3">
+					<input
+						type="text"
+						class="form-control"
+						id="clientSecret"
+						[attr.placeholder]="
+							'app.modules.cloud-service-provider-editor.client-secret-e09923'
+								| webuiMessage: 'Client Secret'
+						"
+						formControlName="clientSecret"
+					/>
+					<label for="clientSecret">{{
+						'app.modules.cloud-service-provider-editor.client-secret-e09923'
+							| webuiMessage: 'Client Secret'
+					}}</label>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="form-floating mb-3">
+					<input
+						type="text"
+						class="form-control"
+						id="authServerUrl"
+						[attr.placeholder]="
+							'cloudProviderEdit.authorizationServerURL' | webuiMessage: 'Authorization Server URL'
+						"
+						formControlName="authorizationServerURL"
+					/>
+					<label for="authServerUrl">{{
+						'cloudProviderEdit.authorizationServerURL' | webuiMessage: 'Authorization Server URL'
+					}}</label>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="form-floating mb-3">
+					<input
+						type="text"
+						class="form-control"
+						id="tokenServerUrl"
+						[attr.placeholder]="
+							'cloudProviderEdit.tokenServerURL' | webuiMessage: 'Token Server URL'
+						"
+						formControlName="tokenServerURL"
+					/>
+					<label for="tokenServerUrl">{{
+						'cloudProviderEdit.tokenServerURL' | webuiMessage: 'Token Server URL'
+					}}</label>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="form-floating mb-3">
+					<input
+						type="text"
+						class="form-control"
+						id="userAuthUrl"
+						[attr.placeholder]="
+							'app.modules.cloud-service-provider-editor.user-server-url-f81ca5'
+								| webuiMessage: 'User Server URL'
+						"
+						formControlName="userAuthorizationURL"
+					/>
+					<label for="userAuthUrl">{{
+						'app.modules.cloud-service-provider-editor.user-server-url-f81ca5'
+							| webuiMessage: 'User Server URL'
+					}}</label>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="form-control mb-3">
+					<label for="scopes">{{ 'cloudProviderEdit.scopes' | webuiMessage: 'Scopes' }}</label>
+					<ng-select
+						[items]="cloudServiceProvider?.scopes || []"
+						id="scopes"
+						formControlName="scopes"
+						[addTag]="true"
+						[multiple]="true"
+						[selectOnTab]="true"
+						[closeOnSelect]="false"
+						[attr.placeholder]="
+							'app.modules.cloud-service-provider-editor.add-a-new-scope-358462'
+								| webuiMessage: 'Add a new scope...'
+						"
+						[clearable]="true"
+						class="ng-select-sm ng-select-discreet"
+					>
+						<ng-template ng-multi-label-tmp let-scopes="items" let-clear="clear">
+							@for (scope of scopes | slice: 0 : 1; track scope) {
+								<div class="ng-value">
+									<span
+										[tooltip]="
+											'app.modules.cloud-service-provider-editor.click-to-add-a-new-scope-5ffaec'
+												| webuiMessage: 'Click to add a new scope'
+										"
+										class="ng-value-label"
+									>
+										{{ $any(scope).label || scope }}
+									</span>
+									<span
+										(click)="clear(scope)"
+										[tooltip]="
+											'app.modules.cloud-service-provider-editor.remove-this-scope-2ad6ac'
+												| webuiMessage: 'Remove this scope'
+										"
+										class="ng-value-icon right"
+										aria-hidden="true"
+										>×</span
+									>
+								</div>
+							}
+							@if (scopes.length > 1) {
+								<div class="ng-value">
+									<span class="ng-value-label">{{
+										'selection.more'
+											| webuiMessage: '{count, number} more…' : { count: scopes.length - 1 }
+									}}</span>
+								</div>
+							}
+						</ng-template>
+					</ng-select>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="form-floating mb-3">
+					<textarea
+						class="form-control"
+						id="description"
+						[attr.placeholder]="
+							'app.modules.cloud-service-provider-editor.description-070956'
+								| webuiMessage: 'Description'
+						"
+						formControlName="description"
+						rows="1"
+					></textarea>
+					<label for="description">{{
+						'app.modules.cloud-service-provider-editor.description-070956'
+							| webuiMessage: 'Description'
+					}}</label>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="form-check form-switch">
+					<input
+						id="enabled"
+						class="form-check-input"
+						type="checkbox"
+						role="switch"
+						formControlName="isEnabled"
+					/>
+					<label for="enabled">{{
+						'app.modules.cloud-service-provider-editor.enabled-281b62' | webuiMessage: 'Enabled'
+					}}</label>
+				</div>
+			</div>
+		</div>
+	</div>
+}
+
+<div class="modal-footer flex-nowrap p-0">
+	<button
+		(click)="close()"
+		type="button"
+		class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"
+	>
+		{{
+			'app.modules.cloud-service-provider-editor.close-without-saving-a2fc47'
+				| webuiMessage: 'Close without saving'
+		}}
+	</button>
+
+	<button
+		(click)="saveChanges()"
+		type="button"
+		[disabled]="editorForm?.pristine || editorForm?.invalid"
+		class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0"
+	>
+		<strong>{{
+			'app.modules.cloud-service-provider-editor.save-changes-1dfd69' | webuiMessage: 'Save changes'
+		}}</strong>
+	</button>
+</div>

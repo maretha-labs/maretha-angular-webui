@@ -1,0 +1,248 @@
+<section
+	class="nx-audit"
+	[attr.aria-label]="
+		documentScoped
+			? ('app.modules.audit.document-history-3ccc76' | webuiMessage: 'Document history')
+			: ('app.modules.audit.audit-1aa3c7' | webuiMessage: 'Audit')
+	"
+	[class.nx-audit--document]="documentScoped"
+>
+	<form class="nx-audit__filters" (ngSubmit)="refresh()">
+		<label [for]="filterId + '-username'"
+			>{{ 'app.modules.audit.username-50a839' | webuiMessage: 'Username' }}
+			<ng-select
+				[labelForId]="filterId + '-username'"
+				name="principalName"
+				[(ngModel)]="principalName"
+				[items]="userSuggestions"
+				[typeahead]="usernameInput$"
+				[nxSuggestionLimits]="userLimits()"
+				[addTag]="true"
+				[placeholder]="text('audit.usernamePlaceholder', 'Filter by username')"
+				(change)="scheduleApply()"
+			></ng-select>
+		</label>
+		<label
+			>{{ 'app.modules.audit.from-de4c6e' | webuiMessage: 'From' }}
+			<input name="startDate" [(ngModel)]="startDate" (ngModelChange)="scheduleApply()" type="date"
+		/></label>
+		<label
+			>{{ 'app.modules.audit.to-281ce9' | webuiMessage: 'To' }}
+			<input name="endDate" [(ngModel)]="endDate" (ngModelChange)="scheduleApply()" type="date"
+		/></label>
+		<label [for]="filterId + '-events'"
+			>{{ text('audit.eventTypes', 'Performed Actions') }}
+			<ng-select
+				[labelForId]="filterId + '-events'"
+				name="eventIds"
+				[(ngModel)]="eventIds"
+				(ngModelChange)="scheduleApply()"
+				[items]="eventTypes"
+				bindValue="id"
+				[multiple]="true"
+				[closeOnSelect]="false"
+				[placeholder]="text('audit.selectEventTypes', 'Select event actions')"
+			>
+				<ng-template ng-option-tmp let-item="item">{{
+					directoryLabel(item, 'eventType')
+				}}</ng-template>
+				<ng-template ng-label-tmp let-item="item">{{
+					directoryLabel(item, 'eventType')
+				}}</ng-template>
+			</ng-select>
+		</label>
+		<label [for]="filterId + '-category'"
+			>{{ text('audit.eventCategory', 'Event Category') }}
+			<ng-select
+				[labelForId]="filterId + '-category'"
+				name="eventCategory"
+				[(ngModel)]="eventCategory"
+				(ngModelChange)="scheduleApply()"
+				[items]="eventCategories"
+				bindValue="id"
+				[clearable]="true"
+				[placeholder]="text('audit.selectEventCategory', 'Select event category')"
+			>
+				<ng-template ng-option-tmp let-item="item">{{
+					directoryLabel(item, 'eventCategory')
+				}}</ng-template>
+				<ng-template ng-label-tmp let-item="item">{{
+					directoryLabel(item, 'eventCategory')
+				}}</ng-template>
+			</ng-select>
+		</label>
+	</form>
+	@if (error) {
+		<p class="nx-audit__message" role="alert">{{ error }}</p>
+	}
+	@if (!documentScoped && !loading && !error && entries.length === 0) {
+		<p class="nx-audit__message">
+			{{
+				'app.modules.audit.no-audit-records-match-these-filters-123b4e'
+					| webuiMessage: 'No audit records match these filters.'
+			}}
+		</p>
+	}
+	@if (documentScoped || entries.length > 0) {
+		<!-- Keep quoted ICU braces intact: Prettier misreads them as Angular interpolation endings. -->
+		<!-- prettier-ignore -->
+		<div class="nx-audit__summary">
+			{{
+				resultsCount === null
+					? ('app.modules.audit.audit-records-728c4a' | webuiMessage: 'Audit records')
+					: ('app.settingsShared.count-plural-one-audit-record-other-audit-recor-82d2ca' | webuiMessage:'{count, plural, one {# audit record} other {# audit records}}':{count: resultsCount}) }}
+		</div>
+		<div class="nx-audit__table-wrap">
+			@if (documentScoped) {
+				<div class="nx-audit__table-tools">
+					<details class="nx-audit__columns">
+						<summary
+							[attr.aria-label]="'tableSettings.columnSettings' | webuiMessage: 'Columns Settings'"
+							[attr.title]="'tableSettings.columnSettings' | webuiMessage: 'Columns Settings'"
+						>
+							<nx-webui-icon name="nuxeo:settings" />
+						</summary>
+						<div class="nx-audit__columns-menu">
+							@for (column of historyColumns; track column.key) {
+								<label
+									><input
+										#columnToggle
+										type="checkbox"
+										[checked]="isColumnVisible(column.key)"
+										(change)="setColumnVisible(column.key, columnToggle.checked)"
+									/>{{
+										column.labelKey ? (column.labelKey | webuiMessage: column.label) : column.label
+									}}</label
+								>
+							}
+						</div>
+					</details>
+				</div>
+			}
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th [hidden]="!isColumnVisible('eventId')">
+							<button
+								type="button"
+								(click)="sort('eventId')"
+								[attr.aria-label]="sortLabel('eventId')"
+								[attr.data-sort]="sortBy === 'eventId' ? sortOrder : 'none'"
+							>
+								{{
+									documentScoped
+										? text('audit.performedAction', 'Performed Action')
+										: ('app.modules.audit.action-239b98' | webuiMessage: 'Action')
+								}}
+							</button>
+						</th>
+						<th [hidden]="!isColumnVisible('eventDate')">
+							<button
+								type="button"
+								(click)="sort('eventDate')"
+								[attr.aria-label]="sortLabel('eventDate')"
+								[attr.data-sort]="sortBy === 'eventDate' ? sortOrder : 'none'"
+							>
+								{{ 'app.modules.audit.date-0e15dc' | webuiMessage: 'Date' }}
+							</button>
+						</th>
+						<th [hidden]="!isColumnVisible('principalName')">
+							<button
+								type="button"
+								(click)="sort('principalName')"
+								[attr.aria-label]="sortLabel('principalName')"
+								[attr.data-sort]="sortBy === 'principalName' ? sortOrder : 'none'"
+							>
+								{{ 'app.modules.audit.username-50a839' | webuiMessage: 'Username' }}
+							</button>
+						</th>
+						<th [hidden]="!isColumnVisible('category')">
+							<button
+								type="button"
+								(click)="sort('category')"
+								[attr.aria-label]="sortLabel('category')"
+								[attr.data-sort]="sortBy === 'category' ? sortOrder : 'none'"
+							>
+								{{ 'app.modules.audit.category-b0c237' | webuiMessage: 'Category' }}
+							</button>
+						</th>
+						@if (!documentScoped) {
+							<th>{{ 'app.modules.audit.document-e8ecfa' | webuiMessage: 'Document' }}</th>
+						}
+						<th [hidden]="!isColumnVisible('comment')">
+							{{ 'app.modules.audit.comment-393f03' | webuiMessage: 'Comment' }}
+						</th>
+						@if (documentScoped) {
+							<th [hidden]="!isColumnVisible('state')">
+								{{ 'app.modules.audit.state-97bb2f' | webuiMessage: 'State' }}
+							</th>
+						}
+					</tr>
+				</thead>
+				<tbody>
+					@for (entry of entries; track entry.id) {
+						<tr>
+							<td [hidden]="!isColumnVisible('eventId')">{{ eventLabel(entry.eventId) }}</td>
+							<td [hidden]="!isColumnVisible('eventDate')">
+								{{ entry.eventDate | webuiDate: (documentScoped ? 'longDate' : 'medium') }}
+							</td>
+							<td [hidden]="!isColumnVisible('principalName')">
+								@if (entry.principalName) {
+									<nx-user-tag [user]="entry.principalName" />
+								} @else {
+									—
+								}
+							</td>
+							<td [hidden]="!isColumnVisible('category')">{{ categoryLabel(entry.category) }}</td>
+							@if (!documentScoped) {
+								<td>
+									@if (documentLink(entry); as link) {
+										<a [routerLink]="link">{{ entry.docPath || link }}</a>
+									} @else {
+										{{ entry.docPath || '—' }}
+									}
+								</td>
+							}
+							<td [hidden]="!isColumnVisible('comment')">{{ entry.comment || '' }}</td>
+							@if (documentScoped) {
+								<td [hidden]="!isColumnVisible('state')">
+									<span class="state-tag">{{ stateLabel(entry) }}</span>
+								</td>
+							}
+						</tr>
+					}
+					@if (documentScoped && !loading && !error && entries.length === 0) {
+						<tr>
+							<td colspan="6" class="nx-audit__empty">
+								{{ text('audit.empty', 'No results found.') }}
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+		@if (hasNextPage || page > 0) {
+			<nav
+				class="nx-audit__pagination"
+				[attr.aria-label]="'app.modules.audit.audit-pages-f4500f' | webuiMessage: 'Audit pages'"
+			>
+				<button
+					class="btn btn-outline-secondary"
+					(click)="previous()"
+					[disabled]="loading || page === 0"
+				>
+					{{ 'app.modules.audit.previous-559496' | webuiMessage: 'Previous' }}</button
+				><span>{{
+					'pagination.page' | webuiMessage: 'Page {page, number}' : { page: page + 1 }
+				}}</span
+				><button
+					class="btn btn-outline-secondary"
+					(click)="next()"
+					[disabled]="loading || !hasNextPage"
+				>
+					{{ 'app.modules.audit.next-439df0' | webuiMessage: 'Next' }}
+				</button>
+			</nav>
+		}
+	}
+</section>

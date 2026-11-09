@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ACME example document types (synthetic test fixture)
+Bundle-SymbolicName: io.maretha.webui.examples.acme
+Bundle-Version: 1.0.0
+Nuxeo-Component: OSGI-INF/acme-types.xml
+

@@ -1,0 +1,19 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/webui-sdk",
+  "assets": [
+    "CHANGELOG.md",
+    "NOTICE",
+    "LICENSE-APACHE-2.0",
+    "polymer-assets.provenance.json",
+    "LICENSE-POLYMER-BSD"
+  ],
+  "allowedNonPeerDependencies": [
+    "fast-deep-equal",
+    "@ag-grid-community/locale",
+    "intl-messageformat"
+  ],
+  "lib": {
+    "entryFile": "index.ts"
+  }
+}

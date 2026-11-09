@@ -1,0 +1,14 @@
+Maretha WebUI includes Nuxeo icon geometry, scalar theme values and selected interface labels derived from Nuxeo Elements and Nuxeo Web UI, and contribution filter semantics ported from Nuxeo Elements ui/nuxeo-filter.js and ui/nuxeo-filters-behavior.js.
+
+©2023 Hyland Software, Inc. and its affiliates. All rights reserved.
+All Hyland product names are registered or unregistered trademarks of Hyland Software, Inc. or its affiliates.
+
+These source assets are licensed under the Apache License, Version 2.0. See LICENSE-APACHE-2.0.
+Source repositories: https://github.com/nuxeo/nuxeo-elements and https://github.com/nuxeo/nuxeo-web-ui.
+Pinned revisions and extraction details are in polymer-assets.provenance.json.
+
+Changes: converted source SVG groups, scalar theme declarations and selected labels into typed Angular data catalogs; repaired the missing closing tag of the unretain path without changing its geometry. Reimplemented the filter conditions and FiltersBehavior helpers as pure TypeScript functions; string expressions became typed predicates. Runtime registries, safe SVG rendering and Angular adapters are Maretha implementation.
+
+The toolbar arrow paths are from @polymer/iron-icons (BSD-3-Clause),
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+See LICENSE-POLYMER-BSD.

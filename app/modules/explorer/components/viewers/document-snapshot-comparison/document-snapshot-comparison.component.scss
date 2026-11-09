@@ -1,0 +1,71 @@
+@import '../../../../../../styles/_variables';
+
+table {
+	table-layout: fixed;
+}
+
+th {
+	font-weight: bold;
+}
+
+tbody th,
+thead th {
+	position: sticky;
+	background-color: #{$runtime-white};
+}
+
+thead th:not(:first-child) {
+	inset-block-start: 0;
+	vertical-align: top;
+}
+
+tbody th,
+thead th:first-child {
+	inset-inline-start: 0;
+	z-index: 1;
+}
+
+tbody td,
+thead th:not(:first-child) {
+	max-width: 45%;
+	vertical-align: top;
+}
+
+thead th label {
+	cursor: pointer;
+	display: block;
+	height: 100%;
+	width: 100%;
+	padding: 0.5rem 0.75rem;
+	white-space: nowrap;
+	max-width: 250px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+
+	.ng-fa-icon {
+		display: block;
+		opacity: 0.5;
+	}
+
+	&.active .ng-fa-icon {
+		opacity: 1;
+	}
+}
+
+abbr {
+	border-block-end: 1px dotted;
+	cursor: help;
+}
+
+.property-value {
+	display: block;
+	max-height: 200px;
+	max-width: 100%;
+	overflow: auto;
+}
+
+select option:disabled {
+	opacity: 0.5;
+	background-color: #{$runtime-gray-100};
+	color: #{$runtime-gray-400};
+}

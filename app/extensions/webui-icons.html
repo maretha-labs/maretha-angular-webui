@@ -1,0 +1,8 @@
+<svg
+	#svg
+	[attr.viewBox]="icon()?.viewBox ?? '0 0 24 24'"
+	[attr.role]="label() ? 'img' : null"
+	[attr.aria-label]="label() || null"
+	[attr.aria-hidden]="label() ? null : 'true'"
+	focusable="false"
+></svg>

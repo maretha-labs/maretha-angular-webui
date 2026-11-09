@@ -1,0 +1,144 @@
+// Stock layout widgets (--nuxeo-widget, --nuxeo-label, paper-input underline).
+:host {
+	display: block;
+	font-size: 13px;
+	line-height: 20px;
+}
+.nx-workflow-widget {
+	position: relative;
+	margin-bottom: 16px;
+}
+.nx-workflow-label {
+	display: block;
+	overflow: hidden;
+	color: var(--nuxeo-text-default);
+	font-weight: 400;
+	opacity: 0.9;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.nx-workflow-label--required::after {
+	display: inline-block;
+	content: '*';
+	margin-inline-start: 4px;
+	color: var(--paper-input-container-invalid-color, var(--nuxeo-warn-text, #de350b));
+}
+.nx-workflow-input {
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	min-height: 32px;
+	padding: 4px 0;
+	border: 0;
+	border-bottom: 1px solid var(--nuxeo-text-default, #3a3a54);
+	border-radius: 0;
+	background-color: transparent;
+	color: var(--nuxeo-text-default);
+	font: inherit;
+}
+.nx-workflow-input:focus,
+.nx-workflow-input:focus-within {
+	outline: 0;
+	border-bottom: 2px solid var(--nuxeo-primary-color, #0066ff);
+}
+.nx-workflow-input:disabled {
+	opacity: 0.6;
+}
+// paper-dropdown-menu: the value over the underline with the arrow at the end.
+.nx-workflow-select {
+	appearance: none;
+	padding-inline-end: 24px;
+	background-image:
+		linear-gradient(45deg, transparent 50%, currentColor 50%),
+		linear-gradient(135deg, currentColor 50%, transparent 50%);
+	background-position:
+		calc(100% - 10px) 50%,
+		calc(100% - 5px) 50%;
+	background-size: 5px 5px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.nx-workflow-textarea {
+	resize: vertical;
+	field-sizing: content;
+	min-height: 32px;
+}
+// nuxeo-selectivity: chosen entries and the search field on one underlined row, with the
+// dropdown arrow at the end.
+.nx-workflow-suggestion {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 4px;
+	padding-inline-end: 24px;
+	background-image:
+		linear-gradient(45deg, transparent 50%, currentColor 50%),
+		linear-gradient(135deg, currentColor 50%, transparent 50%);
+	background-position:
+		calc(100% - 10px) 50%,
+		calc(100% - 5px) 50%;
+	background-size: 5px 5px;
+	background-repeat: no-repeat;
+}
+.nx-workflow-suggestion input {
+	flex: 1 1 80px;
+	min-width: 80px;
+	padding: 2px 0;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	outline: 0;
+}
+.nx-workflow-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 2px;
+	padding-inline: 8px 2px;
+	border-radius: 2em;
+	background: var(--nuxeo-tag-background, rgba(0, 0, 0, 0.05));
+	font-size: 12px;
+	line-height: 20px;
+}
+.nx-workflow-chip button {
+	padding: 0 6px;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	line-height: 20px;
+	cursor: pointer;
+}
+.nx-workflow-suggestions {
+	position: absolute;
+	inset-inline: 0;
+	z-index: 5;
+	max-height: 240px;
+	overflow: auto;
+	border-radius: 0;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.12);
+}
+// Stock task6d8 .participants: the label and the participants' tags on one row.
+.nx-workflow-participants {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+}
+.nx-workflow-participants .nx-workflow-label {
+	flex: 0 0 auto;
+}
+.nx-workflow-group-tag {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 0.2rem 0.5rem;
+	border-radius: 2em;
+	background: var(--nuxeo-tag-background, rgba(0, 0, 0, 0.05));
+	font-size: 12px;
+	line-height: 16px;
+	--webui-icon-size: 14px;
+}
+.nx-workflow-value {
+	overflow-wrap: break-word;
+	word-break: break-word;
+}

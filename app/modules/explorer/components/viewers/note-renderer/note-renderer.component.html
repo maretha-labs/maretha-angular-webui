@@ -1,0 +1,85 @@
+<div class="btn-toolbar align-items-center justify-content-end flex-nowrap mb-2">
+	<div class="btn-group btn-group-sm me-2">
+		<div class="btn-group btn-group-sm" role="group">
+			<button
+				(click)="openInFullscreen()"
+				class="btn btn-dark"
+				[tooltip]="
+					'app.modules.note-renderer.open-in-fullscreen-6399aa' | webuiMessage: 'Open in fullscreen'
+				"
+			>
+				<fa-icon [fixedWidth]="true" icon="expand"></fa-icon>
+			</button>
+		</div>
+	</div>
+
+	@if (!showEditor) {
+		<div class="btn-group btn-group-sm">
+			<button
+				class="btn btn-sm btn-dark"
+				[tooltip]="
+					'app.modules.note-renderer.edit-this-note-1ef67a' | webuiMessage: 'Edit this note'
+				"
+				(click)="toggleEditor()"
+			>
+				<fa-icon icon="file-pen"></fa-icon>
+			</button>
+		</div>
+	}
+
+	@if (showEditor) {
+		<div class="btn-group btn-group-sm">
+			<button class="btn btn-sm btn-dark" (click)="saveChanges()" [disabled]="!canSave || saving">
+				<fa-icon icon="check"></fa-icon>
+
+				{{ 'app.modules.note-renderer.save-changes-35d20a' | webuiMessage: 'Save changes' }}
+			</button>
+			<button class="btn btn-sm btn-outline-dark" (click)="discardChanges()" [disabled]="saving">
+				<fa-icon icon="times"></fa-icon>
+
+				{{ 'app.modules.note-renderer.cancel-bbd85b' | webuiMessage: 'Cancel' }}
+			</button>
+		</div>
+	}
+
+	<span class="flex-grow-1"></span>
+
+	<ng-content></ng-content>
+</div>
+
+@if (showEditor) {
+	<textarea
+		@verticalInOutAnimation
+		class="form-control mb-3"
+		[nxAutofocus]="true"
+		[(ngModel)]="note"
+		(ngModelChange)="allowSave($event)"
+		(keydown)="handleKeydown($event)"
+	>
+	</textarea>
+}
+
+<!-- <editor [init]="tinymceOptions" [initialValue]="note"></editor> -->
+
+@switch (noteMimeType) {
+	@case ('text/html') {
+		<div id="viewer">
+			<markdown [data]="note" lineNumbers></markdown>
+		</div>
+	}
+	@case ('text/xml') {
+		<div id="viewer">
+			<pre>{{ note }}</pre>
+		</div>
+	}
+	@case ('text/x-web-markdown') {
+		<div id="viewer">
+			<markdown [data]="note" lineNumbers></markdown>
+		</div>
+	}
+	@default {
+		<div id="viewer">
+			<pre>{{ note }}</pre>
+		</div>
+	}
+}

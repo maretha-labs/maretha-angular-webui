@@ -1,0 +1,89 @@
+@import '../../../../../../styles/_variables';
+
+:host {
+	display: block;
+	min-height: 400px;
+	height: max(500px, calc(100dvh - 160px));
+	width: 100%;
+	min-width: 0;
+	background: var(--nuxeo-box, #fff);
+}
+
+// Stock pdf.js toolbar: flat, muted controls on white; no dark button blocks.
+.btn-pdf {
+	border: 0;
+	background: transparent;
+	color: var(--nuxeo-text-default, #3a3a54);
+	opacity: 0.8;
+
+	&:hover,
+	&:focus-visible {
+		background: var(--nuxeo-container-hover, #f0f0f0);
+		color: var(--nuxeo-text-default, #3a3a54);
+		opacity: 1;
+	}
+	// Bootstrap's `.btn.active` primary fill must not win: the pressed tool is the muted grey.
+	&.active,
+	&:active,
+	&.active:hover {
+		background: color-mix(in srgb, currentColor 14%, transparent) !important;
+		color: var(--nuxeo-text-default, #3a3a54) !important;
+		border-color: transparent !important;
+		opacity: 1;
+	}
+	&:disabled {
+		opacity: 0.35;
+	}
+}
+// Toggle buttons (hand tool, sidebar): the checked state is the same muted grey, not Bootstrap's
+// primary fill.
+.btn-check:checked + .btn-pdf,
+.btn-check:checked + .btn-pdf:hover {
+	background: color-mix(in srgb, currentColor 14%, transparent);
+	color: var(--nuxeo-text-default, #3a3a54);
+	border-color: transparent;
+	opacity: 1;
+}
+
+.btn-print {
+	position: relative;
+	overflow: hidden;
+	--printProgress: 0%;
+
+	&::after {
+		content: '';
+		position: absolute;
+		height: 100%;
+		top: 100%;
+		inset-inline-start: 0;
+		inset-inline-end: 0;
+		inset-block-end: 0;
+		background-color: var(--maretha-style-color-light-overlay, rgba(248, 249, 250, 0.25));
+		transform: translateY(calc(0% - var(--printProgress)));
+		border-radius: 0.25rem;
+		backdrop-filter: invert(1);
+	}
+}
+
+.input-group {
+	display: flex;
+
+	.form-control {
+		border-radius: 0;
+		width: 3rem;
+		text-align: center;
+		flex-grow: 1;
+		font-weight: bold;
+	}
+
+	.input-group-text {
+		border-radius: 0;
+		flex-grow: 1;
+		padding: 0.25rem 0.5rem !important;
+	}
+}
+
+.pdf-status {
+	padding: 24px;
+	text-align: center;
+}

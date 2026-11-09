@@ -1,0 +1,30 @@
+<div class="btn-toolbar align-items-center justify-content-end p-2 flex-nowrap">
+	<ng-content></ng-content>
+</div>
+
+<div class="media flex-grow-1 d-flex align-items-center justify-content-center">
+	<audio
+		[nxStreamMedia]="document.properties?.['file:content'] || document.ng?.attachment"
+		[streamDocument]="document"
+		(streamError)="mediaError = $event"
+		(streamReady)="mediaError = ''"
+		controls
+		playsinline="true"
+		preload="metadata"
+	></audio>
+	@if (mediaError) {
+		<p role="alert">{{ mediaError }}</p>
+	}
+
+	@if (document.properties['aud:duration']) {
+		<div class="info small my-1 text-center">
+			<span
+				class="badge bg-light border"
+				[tooltip]="'videoViewLayout.duration' | webuiMessage: 'Duration'"
+			>
+				<fa-icon icon="ruler-horizontal"></fa-icon>
+				{{ document.properties['aud:duration'] | webuiNumber }}
+			</span>
+		</div>
+	}
+</div>

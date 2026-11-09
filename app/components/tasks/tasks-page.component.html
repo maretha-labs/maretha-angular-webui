@@ -1,0 +1,200 @@
+<main class="nx-tasks-page">
+	<!-- Stock nuxeo-tasks header: the task document's breadcrumb on a task, else "Tasks". -->
+	<header class="nx-tasks-page__header">
+		@if (!taskId) {
+			<h1 class="nx-tasks-page__title">{{ 'tasks.label' | webuiMessage: 'Tasks' }}</h1>
+		} @else if (taskDocument; as document) {
+			<div class="nx-tasks-page__identity">
+				@if (documentTypeIconUrl(document); as iconUrl) {
+					<img class="nx-tasks-page__type-icon" [src]="iconUrl" alt="" />
+				} @else {
+					<nx-webui-icon class="nx-tasks-page__type-icon" [name]="documentTypeIcon(document)" />
+				}
+				<div class="nx-tasks-page__identity-text">
+					<h1>
+						<a [routerLink]="taskDocumentUrl(document)" [title]="document.title">{{
+							document.title
+						}}</a>
+					</h1>
+					@if (taskAncestors.length) {
+						<nav
+							[attr.aria-label]="
+								'app.modules.document-navigation-bar.document-location-016fb0'
+									| webuiMessage: 'Document location'
+							"
+						>
+							<ol>
+								@for (ancestor of taskAncestors; track ancestor.uid) {
+									<li>
+										<a [routerLink]="taskDocumentUrl(ancestor)" [title]="ancestor.title">{{
+											ancestor.title
+										}}</a>
+									</li>
+								}
+							</ol>
+						</nav>
+					}
+				</div>
+			</div>
+		}
+	</header>
+
+	<div class="nx-tasks-page__content" #listScroller (scroll)="listScrolled()">
+		@if (loading) {
+			<p role="status">
+				{{ 'app.components.tasks-page.loading-tasks-be0909' | webuiMessage: 'Loading tasks…' }}
+			</p>
+		}
+		@if (error) {
+			<p role="alert">{{ error }}</p>
+		}
+
+		@if (!loading && !taskId) {
+			@if (!tasks.length && !error) {
+				<p class="nx-tasks-page__empty">
+					{{
+						'tasksList.noTasks' | webuiMessage: "You don't have any tasks to process at the moment."
+					}}
+				</p>
+			}
+			<!-- Stock nuxeo-tasks list cards (nuxeo-tasks.html:152-181). -->
+			<div class="nx-tasks-page__list">
+				@for (item of tasks; track item.id) {
+					<a class="nx-tasks-page__task" [routerLink]="['/tasks', item.id]">
+						<span class="nx-tasks-page__task-main">
+							<nx-webui-icon class="nx-tasks-page__task-icon" name="icons:content-paste" />
+							<span class="nx-tasks-page__task-info">
+								<span class="nx-tasks-page__task-name">{{ label(item.name) }}</span>
+								<span>{{ label(item.directive) }}</span>
+								<span>{{ label(item.workflowModelName) }}</span>
+							</span>
+						</span>
+						<span class="nx-tasks-page__task-target">
+							<span
+								><span class="nx-tasks-page__property">{{
+									'tasksList.on' | webuiMessage: 'On'
+								}}</span
+								>{{ item.targetDocumentIds?.[0]?.title }}</span
+							>
+							<span
+								><span class="nx-tasks-page__property">{{
+									'tasksList.in' | webuiMessage: 'In'
+								}}</span
+								>{{ parentPath(item.targetDocumentIds?.[0]?.path) }}</span
+							>
+						</span>
+						<span class="nx-tasks-page__task-due">
+							<span class="nx-tasks-page__property">{{
+								'tasksList.dueDate' | webuiMessage: 'Due'
+							}}</span>
+							@if (item.dueDate) {
+								<span class="nx-tasks-page__date">{{
+									item.dueDate | nxRelativeDate: locale()
+								}}</span>
+							}
+						</span>
+					</a>
+				}
+			</div>
+		}
+
+		@if (!loading && !error && task; as current) {
+			<div class="nx-tasks-page__task-layout">
+				<!-- Stock nuxeo-document-task in a nuxeo-card (nuxeo-tasks.html:128-131). -->
+				<section class="nx-tasks-page__card nx-tasks-page__task-view">
+					@if (current.state === 'ended') {
+						<p class="nx-tasks-page__processed" role="status">
+							<nx-webui-icon name="icons:assignment-turned-in" />
+							<span>{{
+								'tasks.alreadyProcessed' | webuiMessage: 'This task has already been processed.'
+							}}</span>
+						</p>
+					}
+					<div class="nx-tasks-page__heading">
+						<h2>{{ label(current.name) }}</h2>
+						@if (current.state !== 'ended') {
+							<div class="nx-tasks-page__options">
+								@if (current.taskInfo?.allowTaskReassignment) {
+									<button
+										class="nx-tasks-page__text-button"
+										type="button"
+										(click)="openAssignment('reassign')"
+									>
+										{{ 'tasks.reassign' | webuiMessage: 'Reassign' }}
+									</button>
+								}
+								@if (current.taskInfo?.allowDelegate !== false) {
+									<button
+										class="nx-tasks-page__text-button"
+										type="button"
+										(click)="openAssignment('delegate')"
+									>
+										{{ 'tasks.delegate' | webuiMessage: 'Delegate' }}
+									</button>
+								}
+							</div>
+						}
+					</div>
+					<button class="nx-tasks-page__view-graph" type="button" (click)="viewGraph()">
+						{{ 'tasks.viewGraph' | webuiMessage: 'View Graph' }}
+					</button>
+					<div class="nx-tasks-page__block">
+						<span>{{ 'tasks.actors.assigned' | webuiMessage: 'Actors in this task:' }}</span>
+						<ng-container *ngTemplateOutlet="actorTags; context: { $implicit: current.actors }" />
+					</div>
+					@if (current.delegatedActors?.length) {
+						<div class="nx-tasks-page__block">
+							<span>{{
+								'tasks.actors.delegated' | webuiMessage: 'Delegated Actors in this task:'
+							}}</span>
+							<ng-container
+								*ngTemplateOutlet="actorTags; context: { $implicit: current.delegatedActors }"
+							/>
+						</div>
+					}
+					<div class="nx-tasks-page__block">
+						<span class="nx-tasks-page__label">{{
+							'documentTask.dueDate' | webuiMessage: 'Due'
+						}}</span>
+						@if (current.dueDate) {
+							<span class="nx-tasks-page__date">{{
+								current.dueDate | nxRelativeDate: locale()
+							}}</span>
+						}
+					</div>
+					@if (current.state !== 'ended' && inlineEditorInjector) {
+						<div class="nx-tasks-page__form">
+							<ng-container
+								*ngComponentOutlet="
+									editorComponent;
+									injector: inlineEditorInjector;
+									inputs: inlineEditorInputs
+								"
+							/>
+						</div>
+					}
+				</section>
+				<!-- Stock nuxeo-document-view beside the task (nuxeo-tasks.html:133-137). -->
+				@if (hasDocumentView(taskDocument)) {
+					<section class="nx-tasks-page__card nx-tasks-page__document-view">
+						<nx-task-document-view [document]="taskDocument" />
+					</section>
+				}
+			</div>
+		}
+	</div>
+</main>
+
+<!-- Stock nuxeo-tags: group tags, then user tags. -->
+<ng-template #actorTags let-actors>
+	<div class="nx-tasks-page__tags">
+		@for (group of actorsOfType(actors, 'group'); track $index) {
+			<span class="nx-tasks-page__group-tag"
+				><nx-webui-icon name="nuxeo:group" />{{ groupLabel(group) }}</span
+			>
+		}
+		@for (user of actorsOfType(actors, 'user'); track $index) {
+			<nx-user-tag [user]="user" />
+		}
+	</div>
+</ng-template>

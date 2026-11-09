@@ -1,0 +1,154 @@
+{
+  "revisions": {
+    "elements": "a2e7ff950bec19dbf04d14369db9e46fdabb0dd3",
+    "webui": "e0ccb86615c692a3a60c557d363d4ce32f91c686"
+  },
+  "iconCount": 76,
+  "iconSourceSha256": "ebd92e521fdd55e95f5689a53b9455f50120ae5bf91a9b58350a4900ea9be7ff",
+  "scalarThemeTokenCounts": {
+    "default": 105,
+    "light": 103,
+    "dark": 104,
+    "kawaii": 103
+  },
+  "normalizations": [
+    "Closed the malformed unretain path element; all path data and transforms retained."
+  ],
+  "messages": [
+    "en-US",
+    "es",
+    "fr",
+    "ar",
+    "ro",
+    "pt-PT",
+    "it"
+  ],
+  "messageCounts": {
+    "en-US": 2003,
+    "es": 2003,
+    "fr": 2003,
+    "ar": 2003,
+    "ro": 2003,
+    "pt-PT": 2003,
+    "it": 2003
+  },
+  "kawaiiBackgroundSha256": "f4a5e8f072bfd00ce2695b8b874d3adc19cf7dd5c961c29c30b37a8c2bcab400",
+  "missingSourceLocales": [
+    "ro"
+  ],
+  "messageSources": {
+    "en-US": [
+      {
+        "repository": "elements",
+        "path": "ui/i18n/messages.json",
+        "sha256": "533ca5519371f2ea91c3d64388547cbdb30a8c2d3be96544a7aa88beb48eb2bb",
+        "count": 381
+      },
+      {
+        "repository": "webui",
+        "path": "i18n/messages.json",
+        "sha256": "814b71ba40a18e185288d759c700b2d1faabe1aac2bf9ca1d5fe6988aeddbe25",
+        "count": 1540
+      }
+    ],
+    "es": [
+      {
+        "repository": "elements",
+        "path": "ui/i18n/messages-es-ES.json",
+        "sha256": "ee108f8d8462656805cb5fbf9e5b37310714cd28d8cef1a567c382bd7fa7a3db",
+        "count": 381
+      },
+      {
+        "repository": "webui",
+        "path": "i18n/messages-es-ES.json",
+        "sha256": "81b91c67e57998fc5b87aca493734e1243a8541aa1f7c709887beec017d6d1a9",
+        "count": 1540
+      }
+    ],
+    "fr": [
+      {
+        "repository": "elements",
+        "path": "ui/i18n/messages-fr.json",
+        "sha256": "662a325981c17590752d6e879a4dfa43fcf7d700c20b356e82d80f3b498d9d19",
+        "count": 381
+      },
+      {
+        "repository": "webui",
+        "path": "i18n/messages-fr.json",
+        "sha256": "130fe3bbb46d280c97d4cb0657f3c2c9567631762fff02de14875ec6b993cd47",
+        "count": 1540
+      }
+    ],
+    "ar": [
+      {
+        "repository": "elements",
+        "path": "ui/i18n/messages-ar.json",
+        "sha256": "3d2c19c84206109a8600d6471c498d52372fdd21eaf47ae61c10b64b774ff729",
+        "count": 381
+      },
+      {
+        "repository": "webui",
+        "path": "i18n/messages-ar.json",
+        "sha256": "9ec0ef35724bd7bf8ea61c966422de84d27b089e1d313305e58ec2fba61e270f",
+        "count": 1540
+      }
+    ],
+    "ro": [],
+    "pt-PT": [
+      {
+        "repository": "elements",
+        "path": "ui/i18n/messages-pt-PT.json",
+        "sha256": "fbdefa2512f8d4e79c4c46e4b72da0b10a8db1c1d9d92d66df41f355eba7c788",
+        "count": 381
+      },
+      {
+        "repository": "webui",
+        "path": "i18n/messages-pt-PT.json",
+        "sha256": "ce5d07456ec59efc4d3c011f25408aafa04beac58cb3a250fff1da2b45b175f3",
+        "count": 1540
+      }
+    ],
+    "it": [
+      {
+        "repository": "elements",
+        "path": "ui/i18n/messages-it.json",
+        "sha256": "8b0e1bef2bd12bc8326961e265069bbbb7e732a592ba37d3e226e4cb1a93a64c",
+        "count": 381
+      },
+      {
+        "repository": "webui",
+        "path": "i18n/messages-it.json",
+        "sha256": "0dc6ff917c15ac128df140bfdd5e7a3ff6ef325808a8bdf81dfcea9bde710acb",
+        "count": 1540
+      }
+    ]
+  },
+  "localeAliases": {
+    "es": "es-ES"
+  },
+  "messageNormalizations": {
+    "rule": "ASCII quotes around positional parameters become typographic quotes, preserving interpolation when moving from Polymer to ICU.",
+    "counts": {
+      "en-US": 20,
+      "es": 19,
+      "fr": 16,
+      "ar": 20,
+      "pt-PT": 22,
+      "it": 16
+    }
+  },
+  "supplementalMessages": {
+    "path": "scripts/i18n/polymer-overrides.json",
+    "sha256": "257a6e971141e03ef35235de5adb06e9192e785783055c5d3d2979eed6330001",
+    "counts": {
+      "ro": 2003,
+      "pt-PT": 912,
+      "es": 131,
+      "ar": 113,
+      "en-US": 112,
+      "fr": 135,
+      "it": 122
+    },
+    "reviewStatus": "Agent-authored translations; independent native-speaker review is pending."
+  }
+}

@@ -1,0 +1,147 @@
+:host {
+	display: block;
+	min-width: 0;
+	color: var(--nuxeo-text-default, #3a3a54);
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+	font: inherit;
+}
+th,
+td {
+	height: 47px;
+	padding: 8px 12px;
+	border-block-end: 0;
+	vertical-align: middle;
+}
+th {
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	background: var(--nuxeo-box, #fff);
+	font-weight: 600;
+	font-size: 14px;
+	border-block-end: 1px solid var(--nuxeo-border, #ddd);
+}
+th:first-child,
+td:first-child {
+	width: 37.5%;
+}
+th:focus-visible,
+td:focus-visible {
+	outline: 2px solid var(--nuxeo-primary-color, #0066ff);
+	outline-offset: -2px;
+}
+td {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+tbody tr:hover {
+	background: var(--nuxeo-page-background, #f5f5f5);
+}
+.column-heading {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+.sort-button {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 4px;
+	min-width: 0;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	font-weight: inherit;
+	text-align: start;
+	cursor: pointer;
+}
+.column-filter {
+	opacity: 0;
+	flex: 0 0 24px;
+}
+summary {
+	display: grid;
+	place-items: center;
+	width: 24px;
+	height: 28px;
+	cursor: pointer;
+	list-style: none;
+}
+summary::-webkit-details-marker {
+	display: none;
+}
+th:hover .column-filter,
+th:focus-within .column-filter,
+.column-filter[open] {
+	opacity: 1;
+}
+summary nx-webui-icon {
+	width: 16px;
+	height: 16px;
+}
+summary.active {
+	color: var(--nuxeo-primary-color, #0066ff);
+}
+.filter-panel {
+	position: absolute;
+	inset-inline-end: 0;
+	display: grid;
+	gap: 8px;
+	width: 236px;
+	padding: 12px;
+	border: 1px solid var(--nuxeo-border, #ddd);
+	border-radius: 4px;
+	background: var(--nuxeo-box, #fff);
+	box-shadow: 0 2px 8px #0002;
+	font-weight: normal;
+}
+th:first-child .filter-panel {
+	inset-inline-start: 0;
+	inset-inline-end: auto;
+}
+select,
+input,
+.filter-panel button {
+	width: 100%;
+	min-height: 32px;
+	padding: 4px 8px;
+	border: 1px solid var(--nuxeo-border, #ddd);
+	border-radius: 4px;
+	background: var(--nuxeo-box, #fff);
+	color: inherit;
+	font: inherit;
+}
+button:disabled,
+input:disabled,
+select:disabled {
+	opacity: 0.65;
+}
+.filter-panel button {
+	width: auto;
+	justify-self: end;
+	cursor: pointer;
+}
+:focus-visible {
+	outline: 2px solid var(--nuxeo-primary-color, #0066ff);
+	outline-offset: 2px;
+}
+.detail-row td {
+	height: auto;
+	padding: 12px;
+}
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}

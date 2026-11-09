@@ -1,0 +1,33 @@
+cdk-virtual-scroll-viewport {
+	height: 400px;
+	max-height: 50vh;
+
+	table {
+		width: 100%;
+	}
+
+	thead,
+	tbody tr {
+		display: table;
+		width: 100%;
+		/* even columns width , fix width of table too*/
+		table-layout: fixed;
+	}
+
+	thead {
+		/* scrollbar is average 1em/16px width, remove it from thead width */
+		// width: calc(100% - 1em);
+
+		position: sticky;
+		background-color: var(--maretha-style-color-white, #fff);
+		z-index: 1;
+	}
+}
+
+ng-select {
+	width: 260px;
+
+	.ng-value-label {
+		line-height: 1.1;
+	}
+}

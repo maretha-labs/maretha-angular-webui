@@ -1,0 +1,178 @@
+// Stock nuxeo-document-list-item at 13px: 10rem thumbnail, .5rem/1rem body padding,
+// .4em/.8em card margins, and a 2px selection frame. The declared stock list owns its gap.
+:host {
+	position: relative;
+	display: flex;
+	min-width: 0;
+	margin: 0 5.2px 10.4px;
+	border: 2px solid transparent;
+	background: var(--nuxeo-box, #fff);
+	box-shadow: 0 3px 5px rgb(0 0 0 / 4%);
+	color: var(--nuxeo-text-default);
+	font-size: 13px;
+	line-height: 20px;
+	letter-spacing: 0.16px;
+	user-select: none;
+	cursor: pointer;
+}
+:host(:hover),
+:host(:focus-within) {
+	border-color: var(--nuxeo-link-hover-color, var(--nuxeo-primary-color));
+}
+:host(:focus-visible) {
+	outline: none;
+}
+:host(.document-list-item--selected) {
+	border-color: var(--nuxeo-grid-selected, var(--nuxeo-primary-color));
+}
+:host([aria-disabled='true']) {
+	cursor: default;
+}
+
+.document-list-item__thumbnail {
+	position: relative;
+	display: flex;
+	flex: 0 0 130px;
+	align-items: center;
+	justify-content: center;
+	width: 130px;
+	height: 130px;
+	background: rgb(0 0 0 / 10%);
+}
+.document-list-item__thumbnail img {
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 100%;
+}
+.document-list-item__body {
+	flex: 1;
+	min-width: 0;
+	padding: 6.5px 13px;
+}
+.document-list-item__heading {
+	display: flex;
+	align-items: center;
+}
+.document-list-item__title {
+	flex: 1;
+	min-width: 0;
+	margin-bottom: 5.2px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+:host(:hover) .document-list-item__title,
+:host(:focus-within) .document-list-item__title {
+	color: var(--nuxeo-link-hover-color, var(--nuxeo-primary-color));
+}
+.document-list-item__type {
+	flex: 0 0 auto;
+	margin-bottom: 3.12px;
+	padding: 2.6px 6.5px;
+	border-radius: 2em;
+	background: var(--nuxeo-tag-background, rgb(0 0 0 / 5%));
+	color: var(--nuxeo-tag-text, var(--nuxeo-text-default));
+	font-size: 10.4px;
+	line-height: 13px;
+	letter-spacing: 0.208px;
+}
+
+// The check appears on hover/focus, on selected rows and throughout selection mode.
+.document-list-item__select {
+	position: absolute;
+	top: 13px;
+	inset-inline-start: 13px;
+	z-index: 2;
+	box-sizing: content-box;
+	width: 32.5px;
+	height: 32.5px;
+	margin: 0;
+	appearance: none;
+	border: 2px solid #ddd;
+	border-radius: 50%;
+	background: var(--nuxeo-box, #fff);
+	opacity: 0;
+	cursor: pointer;
+}
+:host(:hover) .document-list-item__select,
+:host(:focus-within) .document-list-item__select,
+:host(.document-list-item--selecting) .document-list-item__select,
+.document-list-item__select:checked {
+	opacity: 1;
+}
+.document-list-item__select::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	width: 16px;
+	height: 7px;
+	margin: auto;
+	border-inline-start: 2px solid var(--nuxeo-text-default, #3a3a54);
+	border-block-end: 2px solid var(--nuxeo-text-default, #3a3a54);
+	transform: translateY(-2px) rotate(-45deg);
+}
+.document-list-item__select:hover {
+	border-color: var(--nuxeo-button-primary, var(--nuxeo-primary-color));
+	background: var(--nuxeo-button-primary, var(--nuxeo-primary-color));
+}
+.document-list-item__select:checked {
+	border-color: var(--nuxeo-grid-selected, var(--nuxeo-primary-color));
+	background: var(--nuxeo-grid-selected, var(--nuxeo-primary-color));
+}
+.document-list-item__select:hover::after,
+.document-list-item__select:checked::after {
+	border-color: #fff;
+}
+.document-list-item__select:disabled {
+	cursor: default;
+}
+
+.document-list-item__category {
+	opacity: 0.7;
+	font-size: 9.75px;
+	padding-inline-end: 6.5px;
+}
+.document-list-item__segment em {
+	color: var(--nuxeo-result-highlight, #06c);
+	font-weight: bold;
+	font-style: normal;
+	border-bottom: 1px solid var(--nuxeo-result-highlight, #06c);
+}
+.document-list-item__segment + .document-list-item__segment::before {
+	content: '...';
+}
+.document-list-item__actions {
+	position: absolute;
+	inset-inline-start: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+	width: 130px;
+	min-height: 32.5px;
+	background: var(--nuxeo-box, #fff);
+	opacity: 0;
+	pointer-events: none;
+}
+:host(:hover) .document-list-item__actions,
+:host(:focus-within) .document-list-item__actions {
+	opacity: 1;
+	pointer-events: auto;
+}
+.document-list-item__actions button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	padding: 8px;
+	border: 0;
+	background: transparent;
+	color: var(--nuxeo-text-default);
+	cursor: pointer;
+}
+.document-list-item__actions button[aria-pressed='true'],
+.document-list-item__actions button:hover {
+	color: var(--nuxeo-primary-color);
+}

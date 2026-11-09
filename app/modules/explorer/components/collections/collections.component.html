@@ -1,0 +1,120 @@
+@if (!loading) {
+	<div role="menu">
+		@if (editMode) {
+			<div class="small text-muted px-4 pb-1">
+				<fa-icon icon="turn-down" flip="horizontal" transform="down-6"></fa-icon>
+
+				{{
+					'app.modules.collections.select-the-target-collection-or-specify-a--8979fa'
+						| webuiMessage: 'Select the target collection or specify a new one.'
+				}}
+			</div>
+		}
+		<div class="list-group-container">
+			<div
+				[@listAnimation]="allDocumentCollections.length"
+				class="list-group list-group-flush px-2"
+			>
+				@for (collection of allDocumentCollections; track trackByFn(collection)) {
+					<div
+						@itemsAnimation
+						class="list-group-item list-group-item-action p-0 position-relative"
+						role="menuitem"
+					>
+						<ng-container
+							*ngTemplateOutlet="collectionDocument; context: { collection: collection }"
+						></ng-container>
+					</div>
+				}
+			</div>
+		</div>
+		@if (editMode) {
+			<div @listAnimation class="p-2 pb-0">
+				@if (form) {
+					<div @itemsAnimation>
+						<form [formGroup]="form" class="d-flex px-2 mt-1">
+							<input
+								formControlName="title"
+								type="text"
+								class="form-control form-control-sm"
+								[attr.placeholder]="
+									'app.modules.collections.new-collection-c06c0e'
+										| webuiMessage: 'New collection...'
+								"
+								[attr.aria-label]="
+									'app.modules.collections.new-collection-c06c0e'
+										| webuiMessage: 'New collection...'
+								"
+								required
+							/>
+							<button
+								(click)="addToCollection()"
+								[disabled]="form.invalid"
+								class="btn btn-link ps-2-3 pe-1"
+								[tooltip]="
+									'app.modules.collections.add-to-this-new-collection-c91827'
+										| webuiMessage: 'Add to this new collection'
+								"
+								[delay]="500"
+							>
+								<fa-icon [fixedWidth]="true" icon="check-double"></fa-icon>
+							</button>
+						</form>
+					</div>
+				}
+			</div>
+		}
+	</div>
+}
+
+@if (loading) {
+	<small @horizontalInOutAnimation class="px-2 text-muted">{{
+		'app.modules.collections.loading-collections-b90eec' | webuiMessage: 'Loading collections...'
+	}}</small>
+}
+
+<ng-template #collectionDocument let-collection="collection">
+	<button
+		(click)="collectionSelected(collection)"
+		class="btn btn-sm btn-link link-dark d-flex justify-content-between align-items-center w-100 text-decoration-none text-start"
+	>
+		<fa-layers [fixedWidth]="true" class="ms-2">
+			<fa-icon [icon]="['fas', 'circle']" size="lg" transform="grow-10"></fa-icon>
+			<fa-icon [inverse]="true" icon="book-bookmark" size="lg" transform="shrink-2"></fa-icon>
+		</fa-layers>
+
+		<div class="no-overflow ms-3 flex-grow-1">
+			<h6 class="mb-1">
+				{{ collection.title }}
+
+				@if (collection.totalCount) {
+					<span class="position-absolute badge rounded-pill bg-light border">
+						{{ collection.totalCount | webuiNumber }}
+						<span class="visually-hidden">{{
+							'app.modules.collections.collection-documents-289d22'
+								| webuiMessage: 'collection documents'
+						}}</span>
+					</span>
+				}
+			</h6>
+
+			<div class="small d-flex align-items-center">
+				<span
+					class="badge bg-light me-1 border text-truncated faded"
+					[tooltip]="'app.modules.collections.owner-fb74f4' | webuiMessage: 'Owner'"
+				>
+					<fa-icon icon="user"></fa-icon>
+					{{ collection.ng.createdBy }}
+				</span>
+
+				<span
+					class="badge bg-light me-1 border text-truncated faded"
+					[tooltip]="'app.modules.collections.creation-date-5198df' | webuiMessage: 'Creation date'"
+				>
+					<fa-icon icon="clock"></fa-icon>
+					{{ collection.lastModified || collection.ng.createdOn | timeago }}
+				</span>
+			</div>
+		</div>
+	</button>
+</ng-template>

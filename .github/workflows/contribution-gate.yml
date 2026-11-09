@@ -1,0 +1,48 @@
+# Evaluates every pull request against the routes in CONTRIBUTING.md and publishes the
+# `contribution-gate` check run on its head commit, with one sticky comment that explains what
+# is missing. It runs the base branch's copy of .github/contribution-gate/ only: the pull
+# request's content is never checked out or executed, and its text travels only as API data.
+name: Contribution gate
+
+on:
+  pull_request_target:
+    types: [opened, edited, synchronize, reopened, labeled, unlabeled]
+  issue_comment:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      pull_request:
+        description: Pull request number
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: contribution-gate-${{ github.event.pull_request.number || github.event.issue.number || inputs.pull_request }}
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    name: Contribution gate
+    if: github.event_name != 'issue_comment' || (github.event.issue.pull_request && startsWith(github.event.comment.body, '/gate'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: read
+      pull-requests: write
+      checks: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+      - name: Evaluate the pull request and publish the check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_PULL_REQUEST: ${{ inputs.pull_request }}
+        run: node .github/contribution-gate/run.mjs

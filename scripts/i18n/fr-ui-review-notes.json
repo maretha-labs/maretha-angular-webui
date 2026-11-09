@@ -1,0 +1,831 @@
+{
+  "locale": "fr",
+  "review": "Assistant review; independent native-speaker review remains pending.",
+  "unchanged": [
+    {
+      "key": "general.fileSize.kb",
+      "text": "KB",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "general.fileSize.mb",
+      "text": "MB",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "general.fileSize.gb",
+      "text": "GB",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "general.fileSize.tb",
+      "text": "TB",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "general.fileSize.pb",
+      "text": "PB",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "general.fileSize.eb",
+      "text": "EB",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "general.fileSize.zb",
+      "text": "ZB",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "general.fileSize.yb",
+      "text": "YB",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "pageProviders.default_search.aggregations.dc_nature_agg.label",
+      "text": "Nature",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "pageProviders.default_trash_search.aggregations.dc_nature_agg.label",
+      "text": "Nature",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "pageProviders.nxql_search.label",
+      "text": "NXQL",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "search.options",
+      "text": "Options",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "directories.continent.europe",
+      "text": "Europe",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Afghanistan",
+      "text": "Afghanistan",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Angola",
+      "text": "Angola",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Anguilla",
+      "text": "Anguilla",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Aruba",
+      "text": "Aruba",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Bahamas",
+      "text": "Bahamas",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Bangladesh",
+      "text": "Bangladesh",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Botswana",
+      "text": "Botswana",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Burkina_Faso",
+      "text": "Burkina Faso",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Burundi",
+      "text": "Burundi",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Canada",
+      "text": "Canada",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Costa_Rica",
+      "text": "Costa Rica",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Cuba",
+      "text": "Cuba",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Djibouti",
+      "text": "Djibouti",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.France",
+      "text": "France",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Gabon",
+      "text": "Gabon",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Ghana",
+      "text": "Ghana",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Gibraltar",
+      "text": "Gibraltar",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Guam",
+      "text": "Guam",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Guyana",
+      "text": "Guyana",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Honduras",
+      "text": "Honduras",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Iran",
+      "text": "Iran",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Jersey",
+      "text": "Jersey",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Kazakhstan",
+      "text": "Kazakhstan",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Kenya",
+      "text": "Kenya",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Kiribati",
+      "text": "Kiribati",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Lesotho",
+      "text": "Lesotho",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Liechtenstein",
+      "text": "Liechtenstein",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Luxembourg",
+      "text": "Luxembourg",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Madagascar",
+      "text": "Madagascar",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Malawi",
+      "text": "Malawi",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Maldives",
+      "text": "Maldives",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Mali",
+      "text": "Mali",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Martinique",
+      "text": "Martinique",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Mayotte",
+      "text": "Mayotte",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Monaco",
+      "text": "Monaco",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Montserrat",
+      "text": "Montserrat",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Mozambique",
+      "text": "Mozambique",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Nauru",
+      "text": "Nauru",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Nicaragua",
+      "text": "Nicaragua",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Niger",
+      "text": "Niger",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Oman",
+      "text": "Oman",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Pakistan",
+      "text": "Pakistan",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Panama",
+      "text": "Panama",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Paraguay",
+      "text": "Paraguay",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Philippines",
+      "text": "Philippines",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Portugal",
+      "text": "Portugal",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Qatar",
+      "text": "Qatar",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Rwanda",
+      "text": "Rwanda",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Samoa",
+      "text": "Samoa",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Seychelles",
+      "text": "Seychelles",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Sierra_Leone",
+      "text": "Sierra Leone",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Sri_Lanka",
+      "text": "Sri Lanka",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Suriname",
+      "text": "Suriname",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Togo",
+      "text": "Togo",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Tonga",
+      "text": "Tonga",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Tuvalu",
+      "text": "Tuvalu",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Ukraine",
+      "text": "Ukraine",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Uruguay",
+      "text": "Uruguay",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Vanuatu",
+      "text": "Vanuatu",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Zimbabwe",
+      "text": "Zimbabwe",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.nature.article",
+      "text": "Article",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "directories.subtopic.architecture",
+      "text": "Architecture",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "directories.subtopic.collection",
+      "text": "Collection",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "directories.subtopic.information",
+      "text": "Information",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "directories.subtopic.religion",
+      "text": "Religion",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "directories.subtopic.sport",
+      "text": "Sport",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "directories.subtopic.transport",
+      "text": "Transport",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "directories.topic.art",
+      "text": "Art",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "directories.topic.sciences",
+      "text": "Science",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "documentInfo.publications",
+      "text": "Publications",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.components.principal-page.description",
+      "text": "Description",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.components.user-authorized-apps-page.actions-880bd6",
+      "text": "Actions",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.components.user-cloud-services-page.service-db5f28",
+      "text": "Service",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.components.user-cloud-services-page.actions-6689fa",
+      "text": "Actions",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.components.dashboard.column-type",
+      "text": "Type",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.components.tasks-page.workflow-f7fa20",
+      "text": "Workflow",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.components.tasks-page.document-55ac8b",
+      "text": "Document",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.components.tasks-page.document",
+      "text": "Document",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.document-info.workflows-340e4a",
+      "text": "Workflows",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.document-info.notifications-79d515",
+      "text": "Notifications",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.document-navigation-bar.collections-7967ee",
+      "text": "Collections",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.document-navigation-bar.pdf-ec3812",
+      "text": "PDF",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "app.modules.document-navigation-bar.zip-45b8b4",
+      "text": "ZIP",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "app.modules.document-permission-editor.message-96912a",
+      "text": "Message",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.binary-editor.document-63ddb8",
+      "text": "document",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.binary-editor.description-e90fd2",
+      "text": "Description",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.domain-editor.description-6f16f1",
+      "text": "Description",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.generic-editor.document-f378d0",
+      "text": "document",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.generic-editor.description-026aae",
+      "text": "Description",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.generic-type-bulk-create.description-0016e1",
+      "text": "Description",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.generic-type-bulk-create.format-cd8604",
+      "text": "Format",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.nature-subjects-coverage-expiration.nature-127a54",
+      "text": "Nature",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.note-editor.document-5bc54b",
+      "text": "document",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.note-editor.format-784891",
+      "text": "Format",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.note-editor.description-d5ff67",
+      "text": "Description",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.standard-content-editor.description-e65128",
+      "text": "Description",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.standard-content-editor.format-0c0c5d",
+      "text": "Format",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.standard-content-fields.nature-956217",
+      "text": "Nature",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.standard-content-import.description-19a3e3",
+      "text": "Description",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.standard-content-import.format-213a92",
+      "text": "Format",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.document-collections-panel.collections-f8e852",
+      "text": "Collections",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.document-details-panel.version-48d6d4",
+      "text": "Version",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.document-details-panel.collections-fc10ea",
+      "text": "Collections",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.image-renderer.image-f05cce",
+      "text": "Image",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.note-richtext-editor.normal-ffd063",
+      "text": "Normal",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.note-richtext-editor.a-776e45",
+      "text": "A",
+      "reason": "Formatting symbol, technical unit or parameter-only composition has no language-specific prose to translate."
+    },
+    {
+      "key": "app.modules.note-richtext-editor.https-www-youtube-com-watch-v-fcedf3",
+      "text": "https://www.youtube.com/watch?v=…",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "app.modules.note-richtext-editor.https-2dc83c",
+      "text": "https://",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "app.modules.selection-publication-page.destination-5a3dc5",
+      "text": "Destination",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.selection-publication-page.original-fb0e10",
+      "text": "Original",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.standard-content-layout.note-73b51c",
+      "text": "Note",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.standard-content-layout.format-f33b6e",
+      "text": "Format",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.standard-content-metadata.format-640546",
+      "text": "Format",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.audit.date-0e15dc",
+      "text": "Date",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.audit.document-e8ecfa",
+      "text": "Document",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.audit.audit-1aa3c7",
+      "text": "Audit",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.audit.action-239b98",
+      "text": "Action",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.standard-document-permissions-view.actions-6f5083",
+      "text": "Actions",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.standard-document-permissions-view.permanent-dd6100",
+      "text": "Permanent",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.threed-renderer.format-209791",
+      "text": "Format",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.threed-renderer.textures-d6335e",
+      "text": "Textures",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.video-renderer.format-93ef1f",
+      "text": "Format",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.video-renderer.fps-c3b44a",
+      "text": "FPS",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "app.modules.parallel-wf-choose-participants-task.participants-4b84b3",
+      "text": "Participants",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.serial-wf-choose-participants-task.participants-298d26",
+      "text": "Participants",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.serial-wf-choose-participants-task.validation-09f8a5",
+      "text": "Validation",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.serial-wf-document-validation-task.participants-5ba3ce",
+      "text": "Participants",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.analytics.workflow-6a6bab",
+      "text": "Workflow",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.analytics.default-domain-workspaces-b068de",
+      "text": "/default-domain/workspaces/",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "app.modules.cloud.actions-725338",
+      "text": "Actions",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.cloud-service-provider-editor.description-070956",
+      "text": "Description",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.content-management.description-3319b6",
+      "text": "Description",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.metadata-policy.i-c68a5b",
+      "text": "i",
+      "reason": "Formatting symbol, technical unit or parameter-only composition has no language-specific prose to translate."
+    },
+    {
+      "key": "app.modules.retention-rule-editor.description-f06eaf",
+      "text": "Description",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.retention-rule-editor.expression-508e02",
+      "text": "Expression",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.user-and-group-editor.description-7b25bb",
+      "text": "Description",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.user-and-group-permissions.permanent-f3cd27",
+      "text": "Permanent",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.vocabularies.actions-e7048e",
+      "text": "Actions",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.settings.administration-171b5e",
+      "text": "Administration",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.administration-drawer.administration-d96529",
+      "text": "Administration",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.sidebar.administration-6a4b44",
+      "text": "Administration",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.default-workflow-layout.participants-e440e1",
+      "text": "Participants",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.modules.default-workflow-layout.validation-c5668c",
+      "text": "Validation",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.columns.version",
+      "text": "Version",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.columns.type",
+      "text": "Type",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.columns.nature",
+      "text": "Nature",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.columns.date",
+      "text": "Date",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "app.labels.nature-c71ce8",
+      "text": "Nature",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "dialog.confirmation",
+      "text": "Confirmation",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "document.version",
+      "text": "Version {version}",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    },
+    {
+      "key": "analytics.milliseconds",
+      "text": "{value, number} ms",
+      "reason": "Formatting symbol, technical unit or parameter-only composition has no language-specific prose to translate."
+    },
+    {
+      "key": "pagination.page",
+      "text": "Page {page, number}",
+      "reason": "Valid French shared spelling or established technical term, reviewed for this exact UI context (including workflow as the application’s established French term)."
+    }
+  ]
+}

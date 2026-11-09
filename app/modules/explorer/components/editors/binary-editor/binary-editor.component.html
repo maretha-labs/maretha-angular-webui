@@ -1,0 +1,270 @@
+@if (editorForm) {
+	<nx-base-editor
+		[add]="add"
+		[parentDocument]="parentDocument"
+		[documentType]="documentType"
+		[documents]="documents"
+		[editorForm]="editorForm"
+		[saveButtonLabel]="
+			add
+				? ('app.modules.document-create-action.create-document-d81fdf'
+					| webuiMessage: 'Create document')
+				: ('app.runtime.binary-editor.save-changes-ae7d55' | webuiMessage: 'Save changes')
+		"
+		[cancelButtonLabel]="
+			add
+				? ('app.runtime.binary-editor.cancel-da793d' | webuiMessage: 'Cancel')
+				: ('app.runtime.binary-editor.close-without-saving-e18793'
+					| webuiMessage: 'Close without saving')
+		"
+		(close)="close()"
+		(save)="saveChanges($event)"
+	>
+		@if (add) {
+			<ng-container modalTitle>
+				{{ 'app.modules.binary-editor.add-a-new-544258' | webuiMessage: 'Add a new' }}
+				<b>{{ documents[0].type }}</b>
+				{{ 'app.modules.binary-editor.document-63ddb8' | webuiMessage: 'document' }}
+			</ng-container>
+		}
+		@if (!add && documents.length === 1) {
+			<div modalTitle class="flex-grow-1 d-flex">
+				<div
+					class="media-container d-inline-block"
+					[class.loading]="documents[0].ng.thumbnailLoadingStatus === 1"
+				>
+					@if (documents[0].ng.thumbnailLoadingStatus === 1) {
+						<div class="skeleton"></div>
+					}
+					<img
+						nxLazyLoad
+						(willLoadMedia)="documents[0].ng.thumbnailLoadingStatus = 1"
+						(didLoadMedia)="documents[0].ng.thumbnailLoadingStatus = 2"
+						(loadError)="documents[0].ng.thumbnailLoadingStatus = 3"
+						[src]="documents[0].contextParameters?.thumbnail?.url"
+						[alt]="documents[0].title"
+						class="img-thumbnail"
+					/>
+				</div>
+				<span class="lh-1">
+					<span>{{
+						documents.length > 1
+							? ('app.modules.binary-editor.edit-multiple-documents-737077'
+								| webuiMessage: 'Edit multiple documents')
+							: ('documentEditAction.tooltip' | webuiMessage: 'Edit document')
+					}}</span>
+					<small>{{ documents[0]?.uid }}</small>
+				</span>
+			</div>
+		}
+		<form modalBody [formGroup]="editorForm" novalidate>
+			<div class="row">
+				<!-- Title -->
+				<div class="col-12 mb-3">
+					<ng-container
+						*ngTemplateOutlet="existingValuesPicker; context: { propertyName: 'dc:title' }"
+					>
+					</ng-container>
+					<div class="form-floating required">
+						<input
+							type="text"
+							class="form-control"
+							[ngClass]="getValidationClassName('dc:title')"
+							id="title"
+							[attr.placeholder]="'app.modules.binary-editor.title-03457e' | webuiMessage: 'Title'"
+							formControlName="dc:title"
+							[nxAutofocus]="true"
+							[nxAutofocusDelay]="400"
+						/>
+						<label for="title">{{
+							'app.modules.binary-editor.title-03457e' | webuiMessage: 'Title'
+						}}</label>
+						<div class="invalid-feedback">
+							{{
+								'app.modules.binary-editor.please-specify-a-title-13ffed'
+									| webuiMessage: 'Please specify a title.'
+							}}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<!-- File upload -->
+				@if (
+					(add && documents[0].ng?.canUpload) ||
+					(documents.length === 1 && documents[0].ng?.canUpload)
+				) {
+					<div class="col-12 mb-3">
+						<nx-document-attachments
+							[document]="documents[0]"
+							[attachments]="documents[0].ng.attachment ? [documents[0].ng.attachment] : []"
+							[multiple]="false"
+							[id]="documents[0].uid + 'content'"
+							[allowedMimeTypes]="allowedMimeTypes"
+							[disabled]="documents[0].isUnderRetentionOrLegalHold"
+							[label]="
+								documents[0].isUnderRetentionOrLegalHold
+									? ('app.modules.binary-editor.main-file-readonly-because-document-is-und-26a2a5'
+										| webuiMessage
+											: 'Main file (readonly because document is under retention or legal hold)')
+									: undefined
+							"
+							(attachmentsUpdated)="mainAttachmentUpdated($event)"
+						>
+						</nx-document-attachments>
+					</div>
+					@if (!add) {
+						<div class="col-12 mb-3">
+							<nx-document-attachments
+								[document]="documents[0]"
+								[attachments]="documents[0].ng.attachments"
+								[multiple]="true"
+								[id]="documents[0].uid + 'attachments'"
+								[allowedMimeTypes]="allowedMimeTypes"
+								[disabled]="documents[0].isUnderRetentionOrLegalHold"
+								[label]="
+									documents[0].isUnderRetentionOrLegalHold
+										? ('app.modules.binary-editor.additional-attachments-readonly-because-do-155184'
+											| webuiMessage
+												: 'Additional attachments (readonly because document is under retention or legal hold)')
+										: undefined
+								"
+								(attachmentsUpdated)="additionalAttachmentsUpdated($event)"
+							>
+							</nx-document-attachments>
+						</div>
+					}
+				}
+				@if (!showExtraInfo) {
+					<button class="btn btn-link" (click)="showExtraInfo = !showExtraInfo">
+						{{
+							'app.modules.binary-editor.show-additional-fields-8ec178'
+								| webuiMessage: 'Show additional fields'
+						}}
+					</button>
+				}
+				@if (showExtraInfo) {
+					<div @verticalInOutAnimation>
+						@if (documents.length === 1) {
+							<nx-nature-subjects-coverage-expiration
+								formControlName="natureSubjectsCoverageExpiration"
+							>
+							</nx-nature-subjects-coverage-expiration>
+						}
+						<!-- Tags -->
+						@if (documents.length === 1) {
+							<div class="col-sm-12">
+								<nx-tags formControlName="tags"></nx-tags>
+							</div>
+						}
+						<!-- Description -->
+						<div class="col-12">
+							<ng-container
+								*ngTemplateOutlet="
+									existingValuesPicker;
+									context: { propertyName: 'dc:description' }
+								"
+							>
+							</ng-container>
+							<div class="form-floating">
+								<textarea
+									class="form-control"
+									[ngClass]="getValidationClassName('dc:description')"
+									id="description"
+									[attr.placeholder]="
+										'app.modules.binary-editor.description-e90fd2' | webuiMessage: 'Description'
+									"
+									formControlName="dc:description"
+									autosize
+									rows="2"
+									[maxRows]="15"
+								>
+								</textarea>
+								<label for="description">{{
+									'app.modules.binary-editor.description-e90fd2' | webuiMessage: 'Description'
+								}}</label>
+							</div>
+						</div>
+					</div>
+				}
+			</div>
+			@if (supplementalContext && hasSupplementalFields) {
+				<nx-supplemental-document-fields
+					[context]="supplementalContext"
+					[editorForm]="editorForm"
+				/>
+			}
+		</form>
+	</nx-base-editor>
+}
+
+<ng-template #existingValuesPicker let-propertyName="propertyName">
+	@if (!this.add && documents.length > 1) {
+		<div class="d-flex align-items-center">
+			<div class="btn-group btn-group-sm">
+				<button
+					(click)="resetFieldValue(propertyName)"
+					type="button"
+					class="btn btn-link px-0"
+					[disabled]="editorForm!.get(propertyName)?.pristine"
+				>
+					{{
+						'app.modules.binary-editor.leave-this-field-as-it-is-57d661'
+							| webuiMessage: 'Leave this field as it is'
+					}}
+				</button>
+			</div>
+			@if (!getCommonValue(propertyName) && commonFieldValues[propertyName].length > 1) {
+				<small class="px-3">{{ 'app.modules.binary-editor.or-d25fe0' | webuiMessage: 'OR' }}</small>
+				<div
+					class="btn-group btn-group-sm existing-values-picker"
+					dropdown
+					placement="bottom right"
+				>
+					<button
+						[id]="'button-existing-values-' + propertyName"
+						dropdownToggle
+						type="button"
+						class="btn btn-link dropdown-toggle px-0"
+						[attr.aria-controls]="'dropdown-existing-values-' + propertyName"
+					>
+						{{
+							'app.modules.binary-editor.use-one-of-the-existing-values-a741e8'
+								| webuiMessage: 'Use one of the existing values'
+						}}
+					</button>
+					<ul
+						[id]="'dropdown-existing-values-' + propertyName"
+						*dropdownMenu
+						class="dropdown-menu dropdown-menu-right"
+						role="menu"
+						[attr.aria-labelledby]="'button-existing-values-' + propertyName"
+					>
+						@for (commonFieldValue of commonFieldValues[propertyName]; track commonFieldValue) {
+							<li role="menuitem">
+								<button
+									(click)="useExistingValue(propertyName, commonFieldValue)"
+									class="dropdown-item"
+								>
+									{{
+										'editor.useValue' | webuiMessage: 'Use “{value}”' : { value: commonFieldValue }
+									}}
+								</button>
+							</li>
+						}
+					</ul>
+				</div>
+			}
+		</div>
+	}
+</ng-template>
+@if (!editorForm) {
+	<nx-editor-metadata-status
+		[documentType]="documentType"
+		[loading]="metadata.loading()"
+		[error]="metadata.error()"
+		(retry)="loadMetadata()"
+		(closed)="close()"
+	/>
+}

@@ -1,0 +1,79 @@
+<ng-template #outlet></ng-template>
+<ng-template #valueTree let-value let-key="key">
+	@if (isBlob(value)) {
+		@if (blobHref(value); as href) {
+			<a [href]="href" target="_blank" rel="noopener">{{ blobName(value) }}</a>
+		} @else {
+			<span>{{ blobName(value) }}</span>
+		}
+	} @else if (entity(value) === 'user') {
+		<nx-user-tag [user]="value" />
+	} @else if (entity(value) === 'document') {
+		<a [routerLink]="value | documentLink">{{ leaf(value) }}</a>
+	} @else if (isComplex(value)) {
+		<div class="complex-value">
+			@for (child of children(value); track child.key) {
+				<div class="nested-value">
+					<span class="nested-label">{{ child.key + ': ' }}</span
+					><ng-container
+						*ngTemplateOutlet="valueTree; context: { $implicit: child.value, key: child.key }"
+					/>
+				</div>
+			} @empty {
+				<span>{{ leaf(value) }}</span>
+			}
+		</div>
+	} @else {
+		<span>{{ leaf(value, key) }}</span>
+	}
+</ng-template>
+@if (!mounted) {
+	<div
+		[class.deletion]="cell.changed && mode === 'split-left'"
+		[class.addition]="cell.changed && mode === 'split-right'"
+	>
+		@if (cell.changed && mode !== 'unified') {
+			<span aria-hidden="true">{{ mode === 'split-left' ? '− ' : '+ ' }}</span>
+		}
+		@if (changeKind !== 'unchanged') {
+			<span class="visually-hidden">{{ changeLabel }}: </span>
+		}
+		@if (mode === 'unified' && (changeKind === 'modification' || changeKind === 'deletion')) {
+			<div class="comparison-line deletion">
+				<span aria-hidden="true">− </span
+				><ng-container *ngTemplateOutlet="valueTree; context: { $implicit: cell.baseline }" />
+			</div>
+		}
+		@if (isComplex(cell.value) || isBlob(cell.value)) {
+			<div
+				class="comparison-line"
+				[class.addition]="mode === 'unified' && cell.changed && !cell.missing"
+			>
+				@if (mode === 'unified' && cell.changed) {
+					<span aria-hidden="true">+ </span>
+				}
+				<ng-container *ngTemplateOutlet="valueTree; context: { $implicit: cell.value }" />
+			</div>
+		} @else if (property.kind === 'document' || property.kind === 'document[]') {
+			@for (line of lines; track $index; let index = $index) {
+				@if (documentIds[index]) {
+					<a [routerLink]="documentIds[index] | documentLink">{{ line }}</a>
+				} @else {
+					<span>{{ line }}</span>
+				}
+			}
+		} @else {
+			@for (line of lines; track $index) {
+				<div
+					class="comparison-line"
+					[class.addition]="cell.changed && mode === 'unified' && !cell.missing"
+				>
+					@if (mode === 'unified' && cell.changed) {
+						<span aria-hidden="true">+ </span>
+					}
+					{{ line }}
+				</div>
+			}
+		}
+	</div>
+}

@@ -1,0 +1,132 @@
+:host {
+	display: contents;
+}
+.filters-card {
+	align-self: start;
+	margin: 0;
+	background: var(--nuxeo-box, #fff);
+	color: var(--nuxeo-text-default, #3a3a54);
+	font-size: 13px;
+	line-height: 1.54;
+	box-shadow: 0 3px 5px rgb(0 0 0 / 4%);
+}
+fieldset {
+	min-width: 0;
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+.filters-card__heading {
+	float: none;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font: inherit;
+}
+.filters-card__toggle {
+	display: flex;
+	align-items: center;
+	gap: 0;
+	width: 100%;
+	min-height: 53px;
+	padding: 0 16px;
+	border: 0;
+	color: inherit;
+	background: transparent;
+	font: inherit;
+	text-align: start;
+}
+.filters-card__chevron {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	flex: 0 0 24px;
+}
+.filters-card__chevron::before {
+	content: '';
+	width: 8px;
+	height: 8px;
+	border: solid currentColor;
+	border-width: 0 1.5px 1.5px 0;
+	transform: rotate(-45deg);
+}
+.filters-card__toggle[aria-expanded='true'] .filters-card__chevron::before {
+	transform: translateY(-2px) rotate(45deg);
+}
+.nxql-query {
+	display: block;
+	margin: 0 16px 16px;
+	padding-bottom: 8px;
+}
+.nxql-query__label {
+	display: block;
+}
+.nxql-query__input {
+	display: block;
+	position: relative;
+	margin-top: 5px;
+	padding-bottom: 2px;
+}
+.nxql-query__input::after {
+	content: '';
+	position: absolute;
+	inset: auto 0 1px;
+	height: 1px;
+	background: var(--nuxeo-text-default, #3a3a54);
+}
+.nxql-query__input:focus-within::after {
+	bottom: 0;
+	height: 2px;
+	background: var(--nuxeo-primary-color, #06f);
+}
+.nxql-query textarea {
+	display: block;
+	box-sizing: content-box;
+	width: 100%;
+	min-height: 24px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	color: inherit;
+	background: transparent;
+	font-size: 16px;
+	line-height: 24px;
+	font-family: inherit;
+	resize: none;
+	overflow: auto;
+}
+.nxql-query textarea:focus-visible {
+	outline: none;
+}
+.buttons {
+	display: flex;
+	justify-content: space-between;
+	gap: 8px;
+	padding: 0.7em 1.8em;
+}
+.buttons button {
+	min-width: 96px;
+	min-height: 40px;
+	padding: 8px 16px;
+	border: 1px solid var(--nuxeo-primary-color, #06f);
+	border-radius: 2px;
+	color: var(--nuxeo-primary-color, #06f);
+	background: transparent;
+	font: inherit;
+	font-weight: 600;
+}
+.buttons .button--primary {
+	color: var(--nuxeo-button-primary-text, #fff);
+	background: var(--nuxeo-primary-color, #06f);
+}
+button:focus-visible {
+	outline: 2px solid var(--nuxeo-primary-color, #06f);
+	outline-offset: 2px;
+}
+button:disabled {
+	opacity: 0.6;
+	cursor: default;
+}

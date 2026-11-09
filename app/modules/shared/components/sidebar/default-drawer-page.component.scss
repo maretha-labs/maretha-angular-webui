@@ -1,0 +1,96 @@
+// Only the tasks drawer renders these rows and its footer; the shared sidebar stylesheet stays
+// within its budget without them.
+.nx-drawer {
+	// Stock nuxeo-tasks-list .list-item (--hyland-drawer-item): 14px/500 text at 155% line height;
+	// hover, focus and the current task take the grey pill (--hyland-drawer-item-selected).
+	&__task-item {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		width: 100%;
+		min-width: 0;
+		padding: 0.7em 1em;
+		border: 0;
+		border-radius: 54px;
+		background: transparent;
+		color: var(--nuxeo-drawer-text, var(--nuxeo-text-default));
+		font-family: var(--nuxeo-app-font);
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 155%;
+		letter-spacing: 0.1px;
+		text-align: start;
+		cursor: pointer;
+
+		&:hover,
+		&:focus,
+		&.selected {
+			background-color: var(
+				--hyland-selection-pill-background,
+				var(--nuxeo-container-hover, rgba(0, 0, 0, 0.14))
+			);
+			outline: 0;
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--nuxeo-primary-color);
+			outline-offset: -2px;
+		}
+
+		> span {
+			max-width: 100%;
+		}
+
+		// Stock .doc-title and .date: one line, cut at 85% of the row.
+		> .nx-drawer__task-line {
+			max-width: 85%;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+	}
+
+	&__task-name {
+		font-weight: 700;
+	}
+
+	&__task-due {
+		opacity: 0.5;
+		margin-inline-end: 0.5rem;
+	}
+
+	&__task-date {
+		color: var(--nuxeo-warn-text, #de350b);
+	}
+}
+
+// Stock nuxeo-tasks-drawer .tasks-dashboard: a small text paper-button above a top border.
+.drawer-footer {
+	display: block;
+	padding: 9px 13px;
+	border-top: 1px solid var(--nuxeo-border);
+}
+.drawer-footer__link {
+	min-width: 96px;
+	min-height: 32px;
+	padding: 4px 16px;
+	border: 0;
+	border-radius: 0.1em;
+	background: transparent;
+	color: var(--nuxeo-button-secondary-text, var(--nuxeo-primary-color, #0066ff));
+	font-family: var(--nuxeo-app-font);
+	font-size: 13px;
+	font-weight: 600;
+	text-transform: capitalize;
+	cursor: pointer;
+
+	&:hover {
+		color: var(--nuxeo-secondary-color, #1f28bf);
+	}
+
+	&:focus-visible {
+		outline: 0;
+		background-color: var(--nuxeo-button-primary-focus, #1f28bf);
+		color: var(--nuxeo-button-primary-text, #fff);
+	}
+}

@@ -1,0 +1,293 @@
+:host {
+	display: block;
+	flex: 1;
+	min-width: 0;
+}
+.document-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 7fr) minmax(300px, 3fr);
+	gap: 16px;
+	padding: 16px;
+	position: relative;
+}
+.document-layout.metadata-hidden {
+	grid-template-columns: minmax(0, 1fr);
+}
+.content-column,
+aside {
+	min-width: 0;
+}
+aside {
+	background: var(--nuxeo-box, #fff);
+	box-shadow: 0 3px 5px rgb(0 0 0 / 4%);
+}
+.content-card {
+	background: var(--nuxeo-box, #fff);
+	padding: 16px;
+	margin-bottom: 16px;
+	box-shadow: 0 3px 5px rgb(0 0 0 / 4%);
+}
+.media-preview {
+	height: calc(80vh - 100px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+video,
+.empty-preview {
+	width: 100%;
+	min-height: 0;
+	max-height: 100%;
+	object-fit: contain;
+}
+audio {
+	width: 100%;
+}
+.media-preview.audio-preview {
+	justify-content: flex-start;
+	padding-top: 8px;
+}
+.blob-row {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	min-height: 40px;
+	margin-top: 8px;
+}
+.blob-row > .download-link {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.blob-row > span {
+	color: var(--nuxeo-secondary-text, #666);
+	white-space: nowrap;
+}
+.blob-row nx-webui-slot {
+	margin-inline-start: auto;
+}
+.download-link {
+	background: none;
+	border: 0;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	color: var(--nuxeo-link-color, #0066cc);
+	text-decoration: none;
+}
+.upload {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 80px;
+	border: 1px dashed var(--nuxeo-border, #ccc);
+	position: relative;
+	margin-top: 8px;
+}
+.upload input {
+	opacity: 0;
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	cursor: pointer;
+}
+.upload:focus-within {
+	outline: 2px solid var(--nuxeo-primary-color, #0066cc);
+}
+.video-info dl {
+	margin: 0;
+}
+.video-info dl > div,
+.conversion {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	min-height: 2.2rem;
+}
+.video-info dt,
+.conversion strong {
+	min-width: 10rem;
+	font-weight: 600;
+}
+.video-info dd {
+	margin: 0;
+}
+h3 {
+	font-size: 14px;
+	font-weight: 600;
+	margin: 0 0 16px;
+}
+.conversion > span {
+	flex: 1;
+}
+.storyboard {
+	display: flex;
+	gap: 8px;
+	width: 100%;
+	overflow: auto;
+	flex-shrink: 0;
+	padding-top: 8px;
+}
+.storyboard button {
+	border: 0;
+	padding: 0;
+	background: transparent;
+}
+.storyboard img {
+	height: 85px;
+}
+.note-card {
+	position: relative;
+	min-height: calc(80vh - 90px);
+}
+.note-text {
+	white-space: pre-wrap;
+	overflow-wrap: anywhere;
+	margin: 0;
+	font: inherit;
+}
+.note-html {
+	overflow-wrap: anywhere;
+	padding-top: 28px;
+}
+.note-edit {
+	position: absolute;
+	inset-inline-end: 12px;
+	top: 8px;
+}
+textarea {
+	width: 100%;
+	min-height: calc(80vh - 170px);
+	resize: vertical;
+	border: 0;
+	border-bottom: 1px solid var(--nuxeo-border, #ddd);
+	padding: 8px 0;
+	font: inherit;
+	color: inherit;
+	background: transparent;
+}
+.note-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+	margin-top: 16px;
+}
+.note-actions button {
+	border: 0;
+	padding: 8px 16px;
+	color: inherit;
+	background: transparent;
+}
+.note-actions .primary {
+	background: var(--nuxeo-primary-color, #0066cc);
+	color: var(--nuxeo-button-primary-text, #fff);
+}
+.icon-button {
+	border: 0;
+	background: transparent;
+	color: var(--nuxeo-text-default, #444);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+}
+.metadata-heading {
+	justify-content: flex-end;
+	padding-inline-end: calc(
+		16px + var(--nuxeo-document-create-button-width, 56px) +
+			var(--nuxeo-document-create-button-offset, 32px)
+	);
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding: 8px 16px 4px;
+}
+h2 {
+	font-size: 13px;
+	font-weight: 500;
+	margin: 0;
+	color: var(--nuxeo-secondary-text, #666);
+}
+.show-metadata {
+	position: absolute;
+	inset-inline-end: 16px;
+	top: 16px;
+}
+.save-error {
+	color: var(--nuxeo-error-text, #b42318);
+}
+button:focus-visible,
+a:focus-visible {
+	outline: 2px solid var(--nuxeo-primary-color, #0066cc);
+	outline-offset: 2px;
+}
+button:disabled {
+	opacity: 0.5;
+	cursor: default;
+}
+@media (max-width: 1024px) {
+	.document-layout {
+		grid-template-columns: minmax(0, 1fr);
+	}
+	.media-preview {
+		height: 55vh;
+	}
+}
+
+.note-mode {
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 8px;
+}
+.note-mode button {
+	border: 0;
+	background: transparent;
+	color: var(--nuxeo-secondary-text, #666);
+	padding: 4px 8px;
+	font: inherit;
+}
+
+.remove-confirmation {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding-top: 8px;
+	flex-wrap: wrap;
+}
+.remove-confirmation button {
+	border: 1px solid var(--nuxeo-border, #ccc);
+	background: var(--nuxeo-box, #fff);
+	color: inherit;
+	padding: 4px 12px;
+}
+dialog {
+	border: 0;
+	padding: 24px;
+	max-width: min(600px, 90vw);
+	color: inherit;
+	background: var(--nuxeo-box, #fff);
+	box-shadow: 0 8px 32px #0004;
+}
+dialog::backdrop {
+	background: #0005;
+}
+dialog h2 {
+	font-size: 20px;
+	margin-bottom: 24px;
+}
+dialog label {
+	display: block;
+	margin: 16px;
+}
+.create-version {
+	border: 0;
+	color: #fff;
+	background: var(--nuxeo-primary-color);
+	padding: 4px 8px;
+	border-radius: 2px;
+	font-size: 11px;
+	text-transform: uppercase;
+	margin-inline-start: auto;
+}

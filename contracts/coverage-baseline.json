@@ -1,0 +1,2493 @@
+{
+  "version": 1,
+  "minimum": {
+    "statements": 80.96643752527295,
+    "branches": 72.85230492777663,
+    "functions": 78.48966850007433,
+    "lines": 83.24252552538803
+  },
+  "files": {
+    "app/app-routing.module.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/app.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/application-icons.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/components/application-pages/administration-page.component.ts": {
+      "statements": 50,
+      "branches": 100,
+      "functions": 0,
+      "lines": 50
+    },
+    "app/components/application-pages/application-page.component.ts": {
+      "statements": 90.9090909090909,
+      "branches": 80,
+      "functions": 71.42857142857143,
+      "lines": 95
+    },
+    "app/components/application-pages/comparison-page.component.ts": {
+      "statements": 88.98305084745763,
+      "branches": 78.08219178082192,
+      "functions": 90.9090909090909,
+      "lines": 92.55319148936171
+    },
+    "app/components/application-pages/dashboard-page.component.ts": {
+      "statements": 50,
+      "branches": 100,
+      "functions": 0,
+      "lines": 50
+    },
+    "app/components/application-pages/default-pages.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/components/application-pages/explorer-page.component.ts": {
+      "statements": 50,
+      "branches": 100,
+      "functions": 0,
+      "lines": 50
+    },
+    "app/components/application-pages/password-dialog.component.ts": {
+      "statements": 95.83333333333333,
+      "branches": 100,
+      "functions": 83.33333333333333,
+      "lines": 95.23809523809524
+    },
+    "app/components/application-pages/principal-page.component.ts": {
+      "statements": 81.81818181818181,
+      "branches": 51.515151515151516,
+      "functions": 75,
+      "lines": 90
+    },
+    "app/components/application-pages/profile-page.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/components/application-pages/profile-permissions.component.ts": {
+      "statements": 81.57894736842105,
+      "branches": 36.36363636363637,
+      "functions": 90,
+      "lines": 86.11111111111111
+    },
+    "app/components/application-pages/themes-page.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/components/application-pages/user-authorized-apps-page.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/components/application-pages/user-cloud-services-page.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/components/dashboard/dashboard-document-table.component.ts": {
+      "statements": 88.52459016393442,
+      "branches": 72.6027397260274,
+      "functions": 95.91836734693878,
+      "lines": 96
+    },
+    "app/components/dashboard/dashboard.component.ts": {
+      "statements": 96.20253164556962,
+      "branches": 85.41666666666667,
+      "functions": 95.1219512195122,
+      "lines": 95.89041095890411
+    },
+    "app/components/dashboard/recent-documents.service.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/components/home/home.component.ts": {
+      "statements": 100,
+      "branches": 50,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/components/not-found/not-found.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/components/quick-search/default-shell-actions.ts": {
+      "statements": 42.857142857142854,
+      "branches": 100,
+      "functions": 42.857142857142854,
+      "lines": 60
+    },
+    "app/components/quick-search/destination-create-dialog.component.ts": {
+      "statements": 85.52036199095022,
+      "branches": 71.05263157894737,
+      "functions": 86.84210526315789,
+      "lines": 92.2279792746114
+    },
+    "app/components/quick-search/global-create-destination.service.ts": {
+      "statements": 100,
+      "branches": 83.87096774193549,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/components/quick-search/global-create.component.ts": {
+      "statements": 93.05555555555556,
+      "branches": 94.5945945945946,
+      "functions": 82.3529411764706,
+      "lines": 92.42424242424242
+    },
+    "app/components/quick-search/quick-search.component.ts": {
+      "statements": 91.57894736842105,
+      "branches": 73.46938775510205,
+      "functions": 95,
+      "lines": 94.44444444444444
+    },
+    "app/components/quick-search/quick-search.service.ts": {
+      "statements": 94.73684210526316,
+      "branches": 92.98245614035088,
+      "functions": 100,
+      "lines": 97.87234042553192
+    },
+    "app/components/quick-search/shell-actions.component.ts": {
+      "statements": 80,
+      "branches": 100,
+      "functions": 50,
+      "lines": 78.57142857142857
+    },
+    "app/components/tasks/task-assignment-dialog.component.ts": {
+      "statements": 81.89655172413794,
+      "branches": 55.10204081632653,
+      "functions": 77.77777777777777,
+      "lines": 85.84905660377359
+    },
+    "app/components/tasks/task-document-view.component.ts": {
+      "statements": 100,
+      "branches": 95.65217391304348,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/components/tasks/tasks-page.component.ts": {
+      "statements": 97.38562091503267,
+      "branches": 83.60655737704919,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/components/unauthorized/unauthorized.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/components/user-profile/user-profile.component.ts": {
+      "statements": 27.77777777777778,
+      "branches": 0,
+      "functions": 6.666666666666667,
+      "lines": 31.25
+    },
+    "app/default-ui-providers.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/directives/autofocus.directive.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/directives/click-outside.directive.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/directives/drag-and-drop.directive.ts": {
+      "statements": 13.793103448275861,
+      "branches": 0,
+      "functions": 14.285714285714286,
+      "lines": 21.05263157894737
+    },
+    "app/directives/lazy-load.directive.ts": {
+      "statements": 88.88888888888889,
+      "branches": 62.5,
+      "functions": 92.3076923076923,
+      "lines": 92.5
+    },
+    "app/directives/localized-select.directive.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/directives/placeholder-template.directive.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/directives/stream-media.directive.ts": {
+      "statements": 88.23529411764706,
+      "branches": 63.63636363636363,
+      "functions": 88.88888888888889,
+      "lines": 90.3225806451613
+    },
+    "app/directives/suggestion-escape.directive.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/directives/suggestion-limits.directive.ts": {
+      "statements": 100,
+      "branches": 80,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/administration.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/ag-grid-projection-cells.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/analytics.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/app-state.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/bulk-layout.ts": {
+      "statements": 100,
+      "branches": 88,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/comparison-layout.ts": {
+      "statements": 71.42857142857143,
+      "branches": 60,
+      "functions": 75,
+      "lines": 71.42857142857143
+    },
+    "app/extensions/contribution-outlet.component.ts": {
+      "statements": 94.11764705882354,
+      "branches": 85.71428571428571,
+      "functions": 100,
+      "lines": 94.5945945945946
+    },
+    "app/extensions/contribution.ts": {
+      "statements": 100,
+      "branches": 78.57142857142857,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/default-bulk-layout.component.ts": {
+      "statements": 100,
+      "branches": 75,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/directory-layout.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/document-field-extensions.ts": {
+      "statements": 100,
+      "branches": 92.3076923076923,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/document-info-bar.ts": {
+      "statements": 80,
+      "branches": 88.88888888888889,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/document-layout-host.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/document-layout-registry.ts": {
+      "statements": 91.54929577464789,
+      "branches": 82.22222222222223,
+      "functions": 100,
+      "lines": 98.24561403508773
+    },
+    "app/extensions/document-layout.ts": {
+      "statements": 96.19047619047619,
+      "branches": 89.32038834951456,
+      "functions": 100,
+      "lines": 97.84946236559139
+    },
+    "app/extensions/document-permissions.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/document-projection-registry.ts": {
+      "statements": 92.6829268292683,
+      "branches": 66.66666666666667,
+      "functions": 91.66666666666667,
+      "lines": 96.875
+    },
+    "app/extensions/document-view.ts": {
+      "statements": 95.45454545454545,
+      "branches": 85.71428571428571,
+      "functions": 100,
+      "lines": 97.36842105263158
+    },
+    "app/extensions/document-views.component.ts": {
+      "statements": 97.02127659574468,
+      "branches": 84.9624060150376,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/drawer.ts": {
+      "statements": 88.88888888888889,
+      "branches": 86.66666666666667,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/extension-registry.service.ts": {
+      "statements": 100,
+      "branches": 97.0873786407767,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/files.ts": {
+      "statements": 91.66666666666667,
+      "branches": 92.85714285714286,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/i18n/format-pipes.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/i18n/grid-locale.ts": {
+      "statements": 100,
+      "branches": 50,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/i18n/localized-state.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/i18n/message-format.ts": {
+      "statements": 90,
+      "branches": 50,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/i18n/webui-locale.ts": {
+      "statements": 100,
+      "branches": 92.85714285714286,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/nuxeo-filter.ts": {
+      "statements": 100,
+      "branches": 97.14285714285714,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/nuxeo-icons.generated.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/pages.ts": {
+      "statements": 83.33333333333333,
+      "branches": 71.42857142857143,
+      "functions": 88.88888888888889,
+      "lines": 88
+    },
+    "app/extensions/polymer-messages.generated.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/polymer-theme-tokens.generated.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/primitives/projection-primitives.ts": {
+      "statements": 92.99781181619257,
+      "branches": 83.13725490196079,
+      "functions": 91.2621359223301,
+      "lines": 95.96977329974811
+    },
+    "app/extensions/provide-webui-extensions.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/publishing.ts": {
+      "statements": 100,
+      "branches": 66.66666666666667,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/quick-search.ts": {
+      "statements": 30.434782608695652,
+      "branches": 77.77777777777777,
+      "functions": 50,
+      "lines": 33.333333333333336
+    },
+    "app/extensions/rail-tooltip.directive.ts": {
+      "statements": 92.36111111111111,
+      "branches": 86.79245283018868,
+      "functions": 89.28571428571429,
+      "lines": 94.44444444444444
+    },
+    "app/extensions/results-paging-settings.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/results-projection-registry.ts": {
+      "statements": 91.66666666666667,
+      "branches": 68.42105263157895,
+      "functions": 92.3076923076923,
+      "lines": 89.47368421052632
+    },
+    "app/extensions/results-projection.component.ts": {
+      "statements": 87.76223776223776,
+      "branches": 88,
+      "functions": 86.17021276595744,
+      "lines": 92.5925925925926
+    },
+    "app/extensions/results-projection.ts": {
+      "statements": 66.66666666666667,
+      "branches": 100,
+      "functions": 50,
+      "lines": 66.66666666666667
+    },
+    "app/extensions/results.ts": {
+      "statements": 20,
+      "branches": 0,
+      "functions": 0,
+      "lines": 25
+    },
+    "app/extensions/saved-search-gateway.ts": {
+      "statements": 33.333333333333336,
+      "branches": 100,
+      "functions": 0,
+      "lines": 40
+    },
+    "app/extensions/schema-field.component.ts": {
+      "statements": 92.76595744680851,
+      "branches": 82.3076923076923,
+      "functions": 100,
+      "lines": 95.73459715639811
+    },
+    "app/extensions/schema-layout.component.ts": {
+      "statements": 94.66292134831461,
+      "branches": 76.30331753554502,
+      "functions": 96.7741935483871,
+      "lines": 98.02631578947368
+    },
+    "app/extensions/slots.ts": {
+      "statements": 83.33333333333333,
+      "branches": 85.71428571428571,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/suggestion-settings.ts": {
+      "statements": 100,
+      "branches": 86.27450980392157,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/toolbar.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/user-menu.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/view-navigation.ts": {
+      "statements": 90.47619047619048,
+      "branches": 50,
+      "functions": 100,
+      "lines": 94.11764705882354
+    },
+    "app/extensions/webui-icons.ts": {
+      "statements": 89.83050847457628,
+      "branches": 68.96551724137932,
+      "functions": 100,
+      "lines": 94.23076923076923
+    },
+    "app/extensions/webui-messages.ts": {
+      "statements": 92.85714285714286,
+      "branches": 90.9090909090909,
+      "functions": 93.75,
+      "lines": 93.87755102040816
+    },
+    "app/extensions/webui-slot.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/extensions/webui-themes.ts": {
+      "statements": 97.46835443037975,
+      "branches": 85.18518518518519,
+      "functions": 95.65217391304348,
+      "lines": 98.48484848484848
+    },
+    "app/extensions/workflow-layout.ts": {
+      "statements": 50,
+      "branches": 100,
+      "functions": 0,
+      "lines": 50
+    },
+    "app/helpers/administration-access.ts": {
+      "statements": 100,
+      "branches": 90,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/application-state.ts": {
+      "statements": 100,
+      "branches": 83.33333333333333,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/application-user.ts": {
+      "statements": 100,
+      "branches": 83.33333333333333,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/auth.service.ts": {
+      "statements": 40.70796460176991,
+      "branches": 39.583333333333336,
+      "functions": 26.923076923076923,
+      "lines": 43.13725490196079
+    },
+    "app/helpers/blob-delivery.service.ts": {
+      "statements": 95.6896551724138,
+      "branches": 92.3076923076923,
+      "functions": 97.61904761904762,
+      "lines": 96.3963963963964
+    },
+    "app/helpers/builtin-aggregation-labels.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/collection-drawer-navigation.service.ts": {
+      "statements": 100,
+      "branches": 88.23529411764706,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/core-presentation-icons.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/core-results-options.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/document-blob-target.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/document-content-renderer.component.ts": {
+      "statements": 52.94117647058823,
+      "branches": 0,
+      "functions": 33.333333333333336,
+      "lines": 60
+    },
+    "app/helpers/document-route.ts": {
+      "statements": 93.33333333333333,
+      "branches": 92,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/document-type-presentation.ts": {
+      "statements": 100,
+      "branches": 85,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/drawer-width-preferences.service.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/http-interceptor.service.ts": {
+      "statements": 92.72727272727273,
+      "branches": 93.54838709677419,
+      "functions": 93.33333333333333,
+      "lines": 91.83673469387755
+    },
+    "app/helpers/lazy-cache.service.ts": {
+      "statements": 35.714285714285715,
+      "branches": 0,
+      "functions": 16.666666666666668,
+      "lines": 35.714285714285715
+    },
+    "app/helpers/localized-datepicker.service.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/localized-message.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/localized-timeago-formatter.ts": {
+      "statements": 84.61538461538461,
+      "branches": 100,
+      "functions": 66.66666666666667,
+      "lines": 83.33333333333333
+    },
+    "app/helpers/pdf-range-http.ts": {
+      "statements": 100,
+      "branches": 83.33333333333333,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/personal-workspace.service.ts": {
+      "statements": 95.34883720930233,
+      "branches": 72.72727272727273,
+      "functions": 100,
+      "lines": 97.29729729729729
+    },
+    "app/helpers/results-command-gateway.ts": {
+      "statements": 22.22222222222222,
+      "branches": 0,
+      "functions": 0,
+      "lines": 14.285714285714286
+    },
+    "app/helpers/saved-search-gateway.ts": {
+      "statements": 100,
+      "branches": 40,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/selection-toolbar-shortcut.ts": {
+      "statements": 95.83333333333333,
+      "branches": 58.8235294117647,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/settings-guard.service.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/sidebar.service.ts": {
+      "statements": 85,
+      "branches": 100,
+      "functions": 66.66666666666667,
+      "lines": 88.23529411764706
+    },
+    "app/helpers/suggestion-settings-loader.ts": {
+      "statements": 85.71428571428571,
+      "branches": 100,
+      "functions": 80,
+      "lines": 85.71428571428571
+    },
+    "app/helpers/task-route.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/token.service.ts": {
+      "statements": 97.05882352941177,
+      "branches": 81.81818181818181,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/update-toast-text.ts": {
+      "statements": 87.5,
+      "branches": 66.66666666666667,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/users-and-groups-finder.service.ts": {
+      "statements": 54.54545454545455,
+      "branches": 80,
+      "functions": 57.142857142857146,
+      "lines": 54.716981132075475
+    },
+    "app/helpers/webpack-translate-loader.service.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/webui-message-catalog.ts": {
+      "statements": 93.93939393939394,
+      "branches": 93.33333333333333,
+      "functions": 91.66666666666667,
+      "lines": 93.54838709677419
+    },
+    "app/helpers/webui-translation-bridge.service.ts": {
+      "statements": 96.7741935483871,
+      "branches": 91.66666666666667,
+      "functions": 100,
+      "lines": 98.14814814814815
+    },
+    "app/helpers/workflow-inbox.service.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/helpers/workflows.service.ts": {
+      "statements": 26.666666666666668,
+      "branches": 63.63636363636363,
+      "functions": 20.833333333333332,
+      "lines": 29.26829268292683
+    },
+    "app/modules/explorer/components/clipboard/clipboard.component.ts": {
+      "statements": 44.61538461538461,
+      "branches": 7.6923076923076925,
+      "functions": 18.51851851851852,
+      "lines": 49.152542372881356
+    },
+    "app/modules/explorer/components/collections/add-to-collection-dialog.component.ts": {
+      "statements": 81.81818181818181,
+      "branches": 75,
+      "functions": 81.81818181818181,
+      "lines": 84.21052631578948
+    },
+    "app/modules/explorer/components/collections/collections.component.ts": {
+      "statements": 100,
+      "branches": 95.65217391304348,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/comments/comments.component.ts": {
+      "statements": 36.633663366336634,
+      "branches": 4,
+      "functions": 26.923076923076923,
+      "lines": 41.1764705882353
+    },
+    "app/modules/explorer/components/contributors/contributors.component.ts": {
+      "statements": 77.77777777777777,
+      "branches": 0,
+      "functions": 66.66666666666667,
+      "lines": 87.5
+    },
+    "app/modules/explorer/components/default-document-layouts.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/default-document-metadata-layout.component.ts": {
+      "statements": 83.46774193548387,
+      "branches": 72.08121827411168,
+      "functions": 84.21052631578948,
+      "lines": 85.33333333333333
+    },
+    "app/modules/explorer/components/display-settings/display-settings.component.ts": {
+      "statements": 50,
+      "branches": 55.55555555555556,
+      "functions": 58.8235294117647,
+      "lines": 51.06382978723404
+    },
+    "app/modules/explorer/components/document-activity/document-activity.component.ts": {
+      "statements": 57.65765765765766,
+      "branches": 42.5531914893617,
+      "functions": 51.61290322580645,
+      "lines": 61.16504854368932
+    },
+    "app/modules/explorer/components/document-attachments/blob-action.component.ts": {
+      "statements": 100,
+      "branches": 91.66666666666667,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/document-attachments/blob-app-links.component.ts": {
+      "statements": 100,
+      "branches": 50,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/document-attachments/blob-app-links.ts": {
+      "statements": 100,
+      "branches": 91.66666666666667,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/document-attachments/blob-preview.component.ts": {
+      "statements": 81.11111111111111,
+      "branches": 67.3076923076923,
+      "functions": 70,
+      "lines": 84.33734939759036
+    },
+    "app/modules/explorer/components/document-attachments/default-file-actions.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/document-attachments/document-attachments.component.ts": {
+      "statements": 71.5909090909091,
+      "branches": 57.77777777777778,
+      "functions": 70,
+      "lines": 76.71232876712328
+    },
+    "app/modules/explorer/components/document-grid-thumbnail/document-grid-thumbnail.component.ts": {
+      "statements": 78.37837837837837,
+      "branches": 84.61538461538461,
+      "functions": 66.66666666666667,
+      "lines": 78.78787878787878
+    },
+    "app/modules/explorer/components/document-info-panel/document-info-panel.component.ts": {
+      "statements": 66.66666666666667,
+      "branches": 100,
+      "functions": 50,
+      "lines": 66.66666666666667
+    },
+    "app/modules/explorer/components/document-info/document-info.component.ts": {
+      "statements": 82.27848101265823,
+      "branches": 88.88888888888889,
+      "functions": 60.714285714285715,
+      "lines": 82.43243243243244
+    },
+    "app/modules/explorer/components/document-navigation-bar/document-navigation-bar.component.ts": {
+      "statements": 55.48780487804878,
+      "branches": 16.216216216216218,
+      "functions": 26.31578947368421,
+      "lines": 60.810810810810814
+    },
+    "app/modules/explorer/components/document-permission-editor/document-permission-editor.component.ts": {
+      "statements": 52.17391304347826,
+      "branches": 30.90909090909091,
+      "functions": 72.72727272727273,
+      "lines": 53.48837209302326
+    },
+    "app/modules/explorer/components/document-permissions/document-permissions.component.ts": {
+      "statements": 78.78787878787878,
+      "branches": 58.69565217391305,
+      "functions": 77.77777777777777,
+      "lines": 81.11111111111111
+    },
+    "app/modules/explorer/components/document-snapshots/document-snapshots.component.ts": {
+      "statements": 61.8421052631579,
+      "branches": 55.88235294117647,
+      "functions": 57.142857142857146,
+      "lines": 65.21739130434783
+    },
+    "app/modules/explorer/components/document-toolbar/bulk-directory-choices.ts": {
+      "statements": 100,
+      "branches": 66.66666666666667,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/document-toolbar/bulk-editor-modal.component.ts": {
+      "statements": 86.27450980392157,
+      "branches": 70.73170731707317,
+      "functions": 87.23404255319149,
+      "lines": 88.63636363636364
+    },
+    "app/modules/explorer/components/document-toolbar/bulk-editor.service.ts": {
+      "statements": 70.27027027027027,
+      "branches": 55,
+      "functions": 100,
+      "lines": 73.52941176470588
+    },
+    "app/modules/explorer/components/document-toolbar/bulk-zip-download-dialog.component.ts": {
+      "statements": 15.384615384615385,
+      "branches": 100,
+      "functions": 0,
+      "lines": 8.333333333333334
+    },
+    "app/modules/explorer/components/document-toolbar/create-popup.component.ts": {
+      "statements": 75.47169811320755,
+      "branches": 67.85714285714286,
+      "functions": 72.72727272727273,
+      "lines": 77.27272727272727
+    },
+    "app/modules/explorer/components/document-toolbar/default-toolbar.ts": {
+      "statements": 72.72727272727273,
+      "branches": 87.5,
+      "functions": 71.42857142857143,
+      "lines": 80.64516129032258
+    },
+    "app/modules/explorer/components/document-toolbar/document-toolbar.component.ts": {
+      "statements": 43.693693693693696,
+      "branches": 37.77777777777778,
+      "functions": 26,
+      "lines": 47.783251231527096
+    },
+    "app/modules/explorer/components/document-toolbar/query-edit.component.ts": {
+      "statements": 88.34355828220859,
+      "branches": 72.89719626168224,
+      "functions": 95.23809523809524,
+      "lines": 90.38461538461539
+    },
+    "app/modules/explorer/components/document-toolbar/query-trash.component.ts": {
+      "statements": 86.13861386138613,
+      "branches": 84.05797101449275,
+      "functions": 100,
+      "lines": 87.62886597938144
+    },
+    "app/modules/explorer/components/document-toolbar/results-csv-export.component.ts": {
+      "statements": 83.78378378378379,
+      "branches": 57.142857142857146,
+      "functions": 80,
+      "lines": 87.87878787878788
+    },
+    "app/modules/explorer/components/document-toolbar/results-spreadsheet.component.ts": {
+      "statements": 92,
+      "branches": 73.73737373737374,
+      "functions": 94.5945945945946,
+      "lines": 95.27027027027027
+    },
+    "app/modules/explorer/components/document-toolbar/results-spreadsheet.service.ts": {
+      "statements": 100,
+      "branches": 80,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/document-toolbar/results-spreadsheet.ts": {
+      "statements": 100,
+      "branches": 92.1875,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/document-toolbar/selection-download.component.ts": {
+      "statements": 88.03418803418803,
+      "branches": 85.05747126436782,
+      "functions": 86.95652173913044,
+      "lines": 93.13725490196079
+    },
+    "app/modules/explorer/components/document-toolbar/selection-publish.component.ts": {
+      "statements": 100,
+      "branches": 81.81818181818181,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/document-toolbar/start-process-dialog.component.ts": {
+      "statements": 78.26086956521739,
+      "branches": 71.42857142857143,
+      "functions": 66.66666666666667,
+      "lines": 81.81818181818181
+    },
+    "app/modules/explorer/components/document-toolbar/toolbar-action.component.ts": {
+      "statements": 94.54545454545455,
+      "branches": 94.11764705882354,
+      "functions": 83.33333333333333,
+      "lines": 97.87234042553192
+    },
+    "app/modules/explorer/components/editors/base-editor/base-editor.component.ts": {
+      "statements": 93.7984496124031,
+      "branches": 87.05882352941177,
+      "functions": 90.3225806451613,
+      "lines": 95.21739130434783
+    },
+    "app/modules/explorer/components/editors/binary-editor/binary-editor.component.ts": {
+      "statements": 70.10309278350516,
+      "branches": 60.78431372549019,
+      "functions": 69.56521739130434,
+      "lines": 71.11111111111111
+    },
+    "app/modules/explorer/components/editors/bulk-creation-results/bulk-creation-results.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/editors/document-edit-dialog.component.ts": {
+      "statements": 92.53731343283582,
+      "branches": 93.75,
+      "functions": 95.65217391304348,
+      "lines": 92.85714285714286
+    },
+    "app/modules/explorer/components/editors/document-import-host.component.ts": {
+      "statements": 87.12121212121212,
+      "branches": 67.5,
+      "functions": 87.71929824561404,
+      "lines": 89.0909090909091
+    },
+    "app/modules/explorer/components/editors/document-type-editor/document-type-editor.component.ts": {
+      "statements": 96.49122807017544,
+      "branches": 87.5,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/editors/domain-editor/domain-editor.component.ts": {
+      "statements": 49.056603773584904,
+      "branches": 40,
+      "functions": 58.333333333333336,
+      "lines": 50.98039215686274
+    },
+    "app/modules/explorer/components/editors/editor-metadata-status.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/editors/generic-editor/generic-editor.component.ts": {
+      "statements": 73.25581395348837,
+      "branches": 60,
+      "functions": 73.6842105263158,
+      "lines": 74.39024390243902
+    },
+    "app/modules/explorer/components/editors/generic-type-bulk-create/generic-type-bulk-create.component.ts": {
+      "statements": 79.38144329896907,
+      "branches": 48.148148148148145,
+      "functions": 89.65517241379311,
+      "lines": 81.81818181818181
+    },
+    "app/modules/explorer/components/editors/nature-subjects-coverage-expiration/nature-subjects-coverage-expiration.component.ts": {
+      "statements": 64,
+      "branches": 22.22222222222222,
+      "functions": 90.9090909090909,
+      "lines": 68.18181818181819
+    },
+    "app/modules/explorer/components/editors/note-editor/note-editor.component.ts": {
+      "statements": 54.94505494505494,
+      "branches": 44.18604651162791,
+      "functions": 54.54545454545455,
+      "lines": 57.83132530120482
+    },
+    "app/modules/explorer/components/editors/standard-content-editor.component.ts": {
+      "statements": 97.5609756097561,
+      "branches": 89.47368421052632,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/editors/standard-content-fields.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/editors/standard-content-import.component.ts": {
+      "statements": 100,
+      "branches": 93.75,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/editors/supplemental-document-fields.component.ts": {
+      "statements": 93.89312977099236,
+      "branches": 77.61194029850746,
+      "functions": 96.29629629629629,
+      "lines": 97.36842105263158
+    },
+    "app/modules/explorer/components/editors/tags/tags.component.ts": {
+      "statements": 47.61904761904762,
+      "branches": 14.285714285714286,
+      "functions": 60,
+      "lines": 48.717948717948715
+    },
+    "app/modules/explorer/components/editors/vocabulary/vocabulary.component.ts": {
+      "statements": 87.5,
+      "branches": 52.27272727272727,
+      "functions": 84.61538461538461,
+      "lines": 91.93548387096774
+    },
+    "app/modules/explorer/components/empty-document-layout.component.ts": {
+      "statements": 94.11764705882354,
+      "branches": 75,
+      "functions": 80,
+      "lines": 94.11764705882354
+    },
+    "app/modules/explorer/components/history/history.component.ts": {
+      "statements": 90.9090909090909,
+      "branches": 100,
+      "functions": 80,
+      "lines": 90
+    },
+    "app/modules/explorer/components/publications/internal-publication/internal-publication.component.ts": {
+      "statements": 100,
+      "branches": 88.23529411764706,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/results-sort-bar/results-sort-bar.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/audio-renderer/audio-renderer.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/content-column-header.component.ts": {
+      "statements": 15.384615384615385,
+      "branches": 0,
+      "functions": 0,
+      "lines": 9.090909090909092
+    },
+    "app/modules/explorer/components/viewers/default-document-info-bar.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/default-document-views.ts": {
+      "statements": 78.57142857142857,
+      "branches": 89.28571428571429,
+      "functions": 78.57142857142857,
+      "lines": 80.76923076923077
+    },
+    "app/modules/explorer/components/viewers/default-publish-views.ts": {
+      "statements": 25,
+      "branches": 0,
+      "functions": 25,
+      "lines": 33.333333333333336
+    },
+    "app/modules/explorer/components/viewers/default-trash-actions.ts": {
+      "statements": 66.66666666666667,
+      "branches": 100,
+      "functions": 66.66666666666667,
+      "lines": 66.66666666666667
+    },
+    "app/modules/explorer/components/viewers/document-actions-toolbar/compare-versions-action.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/document-actions-toolbar/default-document-actions.ts": {
+      "statements": 84.61538461538461,
+      "branches": 100,
+      "functions": 84.61538461538461,
+      "lines": 85.71428571428571
+    },
+    "app/modules/explorer/components/viewers/document-actions-toolbar/document-actions-toolbar.component.ts": {
+      "statements": 95.38461538461539,
+      "branches": 86.66666666666667,
+      "functions": 90.9090909090909,
+      "lines": 96.49122807017544
+    },
+    "app/modules/explorer/components/viewers/document-actions-toolbar/document-command-policy.ts": {
+      "statements": 100,
+      "branches": 98,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/document-actions-toolbar/document-command.component.ts": {
+      "statements": 76.11940298507463,
+      "branches": 78.02197802197803,
+      "functions": 87.5,
+      "lines": 77.04918032786885
+    },
+    "app/modules/explorer/components/viewers/document-actions-toolbar/document-create-action.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/document-actions-toolbar/document-export.component.ts": {
+      "statements": 83.33333333333333,
+      "branches": 66.66666666666667,
+      "functions": 80,
+      "lines": 83.33333333333333
+    },
+    "app/modules/explorer/components/viewers/document-actions-toolbar/document-info-action.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/document-actions-toolbar/document-share.component.ts": {
+      "statements": 92.5,
+      "branches": 62.5,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/document-actions-toolbar/document-version-policy.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/document-actions-toolbar/folder-content-download.component.ts": {
+      "statements": 9.090909090909092,
+      "branches": 0,
+      "functions": 0,
+      "lines": 11.11111111111111
+    },
+    "app/modules/explorer/components/viewers/document-actions-toolbar/standard-document-publish-policy.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/document-actions-toolbar/standard-document-publish.component.ts": {
+      "statements": 97.36842105263158,
+      "branches": 81.48148148148148,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/document-collections-panel.component.ts": {
+      "statements": 89.58333333333333,
+      "branches": 82.75862068965517,
+      "functions": 92.85714285714286,
+      "lines": 91.11111111111111
+    },
+    "app/modules/explorer/components/viewers/document-comparison/comparison-value.component.ts": {
+      "statements": 99.3103448275862,
+      "branches": 95.80838323353294,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/document-comparison/document-comparison.component.ts": {
+      "statements": 67.74193548387096,
+      "branches": 55.55555555555556,
+      "functions": 66.66666666666667,
+      "lines": 70.37037037037037
+    },
+    "app/modules/explorer/components/viewers/document-content-view.component.ts": {
+      "statements": 88.31168831168831,
+      "branches": 86.66666666666667,
+      "functions": 100,
+      "lines": 87.67123287671232
+    },
+    "app/modules/explorer/components/viewers/document-details-panel.component.ts": {
+      "statements": 64.74820143884892,
+      "branches": 45.96774193548387,
+      "functions": 55.26315789473684,
+      "lines": 68.21705426356588
+    },
+    "app/modules/explorer/components/viewers/document-history-view.component.ts": {
+      "statements": 50,
+      "branches": 100,
+      "functions": 0,
+      "lines": 50
+    },
+    "app/modules/explorer/components/viewers/document-info-bar.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/document-permissions-view.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/document-publication-view.component.ts": {
+      "statements": 95.55555555555556,
+      "branches": 90.36144578313252,
+      "functions": 94.11764705882354,
+      "lines": 98.26086956521739
+    },
+    "app/modules/explorer/components/viewers/document-snapshot-comparison/document-snapshot-comparison.component.ts": {
+      "statements": 57.5,
+      "branches": 46.666666666666664,
+      "functions": 53.84615384615385,
+      "lines": 61.76470588235294
+    },
+    "app/modules/explorer/components/viewers/document-tags-panel.component.ts": {
+      "statements": 90.67796610169492,
+      "branches": 78.87323943661971,
+      "functions": 96.55172413793103,
+      "lines": 94.44444444444444
+    },
+    "app/modules/explorer/components/viewers/document-trash-view.component.ts": {
+      "statements": 79.24528301886792,
+      "branches": 63.888888888888886,
+      "functions": 72.22222222222223,
+      "lines": 81.92771084337349
+    },
+    "app/modules/explorer/components/viewers/document-type-viewer/document-type-viewer.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/document-viewer-registry.service.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/folderish-details-layout.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/folderish-details-panel.component.ts": {
+      "statements": 86.53846153846153,
+      "branches": 58.18181818181818,
+      "functions": 73.6842105263158,
+      "lines": 85.71428571428571
+    },
+    "app/modules/explorer/components/viewers/generic-folderish-viewer/generic-folderish-viewer.component.ts": {
+      "statements": 83.78378378378379,
+      "branches": 79.54545454545455,
+      "functions": 68.42105263157895,
+      "lines": 85.14851485148515
+    },
+    "app/modules/explorer/components/viewers/generic-non-folderish-viewer/document-pane-resize-handle.component.ts": {
+      "statements": 93.98496240601504,
+      "branches": 82.53968253968254,
+      "functions": 95,
+      "lines": 99.12280701754386
+    },
+    "app/modules/explorer/components/viewers/generic-non-folderish-viewer/generic-non-folderish-viewer.component.ts": {
+      "statements": 60.9375,
+      "branches": 50.476190476190474,
+      "functions": 63.333333333333336,
+      "lines": 64.11764705882354
+    },
+    "app/modules/explorer/components/viewers/generic-type-viewer/generic-type-viewer.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/image-renderer/image-renderer.component.ts": {
+      "statements": 86.32478632478633,
+      "branches": 69.38775510204081,
+      "functions": 86.27450980392157,
+      "lines": 91.08910891089108
+    },
+    "app/modules/explorer/components/viewers/image-renderer/picture-metadata-card.component.ts": {
+      "statements": 57.142857142857146,
+      "branches": 50,
+      "functions": 57.142857142857146,
+      "lines": 61.36363636363637
+    },
+    "app/modules/explorer/components/viewers/legacy-model-vewer/legacy-model-vewer.component.ts": {
+      "statements": 9.375,
+      "branches": 0,
+      "functions": 5,
+      "lines": 9.782608695652174
+    },
+    "app/modules/explorer/components/viewers/note-html.pipe.ts": {
+      "statements": 92.6829268292683,
+      "branches": 62.5,
+      "functions": 100,
+      "lines": 94.5945945945946
+    },
+    "app/modules/explorer/components/viewers/note-renderer/note-renderer.component.ts": {
+      "statements": 32.608695652173914,
+      "branches": 8.333333333333334,
+      "functions": 36.36363636363637,
+      "lines": 37.5
+    },
+    "app/modules/explorer/components/viewers/note-richtext-editor.component.ts": {
+      "statements": 37.59398496240601,
+      "branches": 26.666666666666668,
+      "functions": 50,
+      "lines": 39.516129032258064
+    },
+    "app/modules/explorer/components/viewers/pdf-renderer/pdf-locale-adapter.ts": {
+      "statements": 79.03225806451613,
+      "branches": 82.85714285714286,
+      "functions": 84.61538461538461,
+      "lines": 81.35593220338983
+    },
+    "app/modules/explorer/components/viewers/pdf-renderer/pdf-range-bridge.ts": {
+      "statements": 94,
+      "branches": 91.66666666666667,
+      "functions": 100,
+      "lines": 93.33333333333333
+    },
+    "app/modules/explorer/components/viewers/pdf-renderer/pdf-range-source.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/pdf-renderer/pdf-renderer.component.ts": {
+      "statements": 99.32432432432432,
+      "branches": 96,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/picturebook-content-layout.component.ts": {
+      "statements": 63.910969793322735,
+      "branches": 52.915766738660906,
+      "functions": 55.12820512820513,
+      "lines": 66.42335766423358
+    },
+    "app/modules/explorer/components/viewers/publish-section-view.component.ts": {
+      "statements": 72.72727272727273,
+      "branches": 60,
+      "functions": 66.66666666666667,
+      "lines": 80
+    },
+    "app/modules/explorer/components/viewers/selection-publication-page.component.ts": {
+      "statements": 94.20289855072464,
+      "branches": 75.75757575757575,
+      "functions": 100,
+      "lines": 96.7741935483871
+    },
+    "app/modules/explorer/components/viewers/sibling-order.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/standard-content-layout.component.ts": {
+      "statements": 70.20202020202021,
+      "branches": 59.45945945945946,
+      "functions": 73.33333333333333,
+      "lines": 76.74418604651163
+    },
+    "app/modules/explorer/components/viewers/standard-content-metadata.component.ts": {
+      "statements": 71.54471544715447,
+      "branches": 68.42105263157895,
+      "functions": 86.95652173913044,
+      "lines": 77.57009345794393
+    },
+    "app/modules/explorer/components/viewers/standard-document-history-view.component.ts": {
+      "statements": 100,
+      "branches": 90.9090909090909,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/standard-document-permissions-view.component.ts": {
+      "statements": 97.70114942528735,
+      "branches": 91.40625,
+      "functions": 100,
+      "lines": 98.22222222222223
+    },
+    "app/modules/explorer/components/viewers/standard-document-publication-view.component.ts": {
+      "statements": 58.57142857142857,
+      "branches": 37.5,
+      "functions": 68.42105263157895,
+      "lines": 59.83606557377049
+    },
+    "app/modules/explorer/components/viewers/standard-document-trash-view.component.ts": {
+      "statements": 62.72401433691756,
+      "branches": 41.91616766467066,
+      "functions": 51.21951219512195,
+      "lines": 66.38655462184875
+    },
+    "app/modules/explorer/components/viewers/standard-version-notice.component.ts": {
+      "statements": 95.38461538461539,
+      "branches": 81.81818181818181,
+      "functions": 100,
+      "lines": 96.22641509433963
+    },
+    "app/modules/explorer/components/viewers/threed-renderer/threed-renderer.component.ts": {
+      "statements": 17.391304347826086,
+      "branches": 9.523809523809524,
+      "functions": 17.647058823529413,
+      "lines": 18.181818181818183
+    },
+    "app/modules/explorer/components/viewers/trash-selection-action.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/viewers/video-renderer/video-renderer.component.ts": {
+      "statements": 82.3529411764706,
+      "branches": 57.142857142857146,
+      "functions": 83.33333333333333,
+      "lines": 87.5
+    },
+    "app/modules/explorer/components/workflows/base-workflow-editor/base-workflow-editor.component.ts": {
+      "statements": 69.42148760330579,
+      "branches": 62.67605633802817,
+      "functions": 67.79661016949153,
+      "lines": 72.98578199052133
+    },
+    "app/modules/explorer/components/workflows/default-workflow-layout.component.ts": {
+      "statements": 88.31168831168831,
+      "branches": 80,
+      "functions": 80.76923076923077,
+      "lines": 92.7536231884058
+    },
+    "app/modules/explorer/components/workflows/default-workflow-layouts.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/workflows/parallel-document-review/parallel-wf-choose-participants-task/parallel-wf-choose-participants-task.component.ts": {
+      "statements": 32,
+      "branches": 0,
+      "functions": 27.272727272727273,
+      "lines": 31.818181818181817
+    },
+    "app/modules/explorer/components/workflows/parallel-document-review/parallel-wf-give-opinion-task/parallel-wf-give-opinion-task.component.ts": {
+      "statements": 32,
+      "branches": 0,
+      "functions": 27.272727272727273,
+      "lines": 31.818181818181817
+    },
+    "app/modules/explorer/components/workflows/serial-document-review/serial-wf-choose-participants-task/serial-wf-choose-participants-task.component.ts": {
+      "statements": 32,
+      "branches": 0,
+      "functions": 27.272727272727273,
+      "lines": 31.818181818181817
+    },
+    "app/modules/explorer/components/workflows/serial-document-review/serial-wf-document-validation-task/serial-wf-document-validation-task.component.ts": {
+      "statements": 32,
+      "branches": 0,
+      "functions": 27.272727272727273,
+      "lines": 31.818181818181817
+    },
+    "app/modules/explorer/components/workflows/workflow-graph-dialog/workflow-graph-dialog.component.ts": {
+      "statements": 96.29629629629629,
+      "branches": 59.25925925925926,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/workflows/workflow-graph-dialog/workflow-graph-dialog.service.ts": {
+      "statements": 92.3076923076923,
+      "branches": 33.333333333333336,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/components/workflows/workflow-graph-dialog/workflow-graph-layout.ts": {
+      "statements": 94.91525423728814,
+      "branches": 83.33333333333333,
+      "functions": 95,
+      "lines": 98.05825242718447
+    },
+    "app/modules/explorer/components/workflows/workflow-info/workflow-info.component.ts": {
+      "statements": 100,
+      "branches": 78.94736842105263,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/explorer.module.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/explorer/explorer.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/helpers/automations.service.ts": {
+      "statements": 77.52808988764045,
+      "branches": 42.5531914893617,
+      "functions": 75.86206896551724,
+      "lines": 77.90697674418605
+    },
+    "app/modules/explorer/helpers/bulk-document-creation.service.ts": {
+      "statements": 99.44134078212291,
+      "branches": 98.1981981981982,
+      "functions": 97.72727272727273,
+      "lines": 100
+    },
+    "app/modules/explorer/helpers/creation-parent.service.ts": {
+      "statements": 100,
+      "branches": 88.46153846153847,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/helpers/dialog-layout-host.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/helpers/document-activity.service.ts": {
+      "statements": 63.1578947368421,
+      "branches": 0,
+      "functions": 50,
+      "lines": 66.66666666666667
+    },
+    "app/modules/explorer/helpers/document-attachments.service.ts": {
+      "statements": 98.89502762430939,
+      "branches": 92.3076923076923,
+      "functions": 97.05882352941177,
+      "lines": 99.36305732484077
+    },
+    "app/modules/explorer/helpers/document-browser.service.ts": {
+      "statements": 100,
+      "branches": 63.1578947368421,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/helpers/document-clipboard.service.ts": {
+      "statements": 73,
+      "branches": 53.333333333333336,
+      "functions": 94.73684210526316,
+      "lines": 71.11111111111111
+    },
+    "app/modules/explorer/helpers/document-collections.service.ts": {
+      "statements": 98.76543209876543,
+      "branches": 94.91525423728814,
+      "functions": 98.11320754716981,
+      "lines": 98.66666666666667
+    },
+    "app/modules/explorer/helpers/document-comparison-resolver.service.ts": {
+      "statements": 100,
+      "branches": 90.9090909090909,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/helpers/document-comparison.service.ts": {
+      "statements": 90.21739130434783,
+      "branches": 73.5632183908046,
+      "functions": 94.44444444444444,
+      "lines": 97.22222222222223
+    },
+    "app/modules/explorer/helpers/document-creation-error.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/helpers/document-creation-wizard.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/helpers/document-enhancer.service.ts": {
+      "statements": 50,
+      "branches": 60.37735849056604,
+      "functions": 15.384615384615385,
+      "lines": 51.785714285714285
+    },
+    "app/modules/explorer/helpers/document-history.service.ts": {
+      "statements": 85.71428571428571,
+      "branches": 84.21052631578948,
+      "functions": 77.77777777777777,
+      "lines": 87.5
+    },
+    "app/modules/explorer/helpers/document-layout-gateway.service.ts": {
+      "statements": 86.08695652173913,
+      "branches": 76.38888888888889,
+      "functions": 80.76923076923077,
+      "lines": 87.25490196078431
+    },
+    "app/modules/explorer/helpers/document-navigation.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/helpers/document-order.service.ts": {
+      "statements": 98.50746268656717,
+      "branches": 92.98245614035088,
+      "functions": 100,
+      "lines": 98.21428571428571
+    },
+    "app/modules/explorer/helpers/document-permissions.service.ts": {
+      "statements": 73.33333333333333,
+      "branches": 14.285714285714286,
+      "functions": 73.33333333333333,
+      "lines": 82.05128205128206
+    },
+    "app/modules/explorer/helpers/document-snapshots.service.ts": {
+      "statements": 28.571428571428573,
+      "branches": 7.6923076923076925,
+      "functions": 11.764705882352942,
+      "lines": 31.372549019607842
+    },
+    "app/modules/explorer/helpers/document-trash.service.ts": {
+      "statements": 27.272727272727273,
+      "branches": 0,
+      "functions": 8.333333333333334,
+      "lines": 27.906976744186046
+    },
+    "app/modules/explorer/helpers/documents-manager.service.ts": {
+      "statements": 55.082742316784866,
+      "branches": 48.26498422712934,
+      "functions": 52.8,
+      "lines": 60.270270270270274
+    },
+    "app/modules/explorer/helpers/editor-metadata.service.ts": {
+      "statements": 97.22222222222223,
+      "branches": 88.88888888888889,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/helpers/fallback-document-layouts.ts": {
+      "statements": 100,
+      "branches": 90,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/helpers/favorite-changes.service.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/helpers/import-document-type.ts": {
+      "statements": 28.571428571428573,
+      "branches": 14.285714285714286,
+      "functions": 100,
+      "lines": 25
+    },
+    "app/modules/explorer/helpers/layout.service.ts": {
+      "statements": 73.25581395348837,
+      "branches": 81.25,
+      "functions": 63.63636363636363,
+      "lines": 73.25581395348837
+    },
+    "app/modules/explorer/helpers/legacy-gltf-renderer.ts": {
+      "statements": 5.333333333333333,
+      "branches": 0,
+      "functions": 5.555555555555555,
+      "lines": 5.633802816901408
+    },
+    "app/modules/explorer/helpers/metadata-policy.service.ts": {
+      "statements": 97.61904761904762,
+      "branches": 88.23529411764706,
+      "functions": 97.14285714285714,
+      "lines": 99.29577464788733
+    },
+    "app/modules/explorer/helpers/scoped-result-columns.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/explorer/helpers/selection-download.service.ts": {
+      "statements": 94.61538461538461,
+      "branches": 91.01123595505618,
+      "functions": 100,
+      "lines": 94.26229508196721
+    },
+    "app/modules/explorer/helpers/selection-publication.service.ts": {
+      "statements": 84.61538461538461,
+      "branches": 100,
+      "functions": 75,
+      "lines": 83.33333333333333
+    },
+    "app/modules/explorer/helpers/staged-import-uploads.ts": {
+      "statements": 89.77272727272727,
+      "branches": 78.26086956521739,
+      "functions": 89.1891891891892,
+      "lines": 94.82758620689656
+    },
+    "app/modules/explorer/helpers/standard-document-surfaces.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/components/default-search-results/default-search-column-header.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/components/default-search-results/default-search-flags-cell.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/components/default-search-results/default-search-results.component.ts": {
+      "statements": 76.17728531855956,
+      "branches": 58.333333333333336,
+      "functions": 68.29268292682927,
+      "lines": 81.0126582278481
+    },
+    "app/modules/search/components/repository-search/assets-column-settings.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/components/repository-search/assets-search-filters.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/components/repository-search/assets-search-tile.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/components/repository-search/justified-results.directive.ts": {
+      "statements": 79.59183673469387,
+      "branches": 78.57142857142857,
+      "functions": 77.77777777777777,
+      "lines": 79.54545454545455
+    },
+    "app/modules/search/components/repository-search/nxql-path-cell.component.ts": {
+      "statements": 100,
+      "branches": 75,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/components/repository-search/repository-search.component.ts": {
+      "statements": 81.43884892086331,
+      "branches": 77.48776508972267,
+      "functions": 81.5068493150685,
+      "lines": 84.1845140032949
+    },
+    "app/modules/search/components/search-form/assets-search-form.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/components/search-form/author-search-form.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/components/search-form/nxql-search-form.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/components/search-form/search-authors-filter.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/components/search-form/search-form-outlet.component.ts": {
+      "statements": 93.75,
+      "branches": 83.33333333333333,
+      "functions": 88.88888888888889,
+      "lines": 96.42857142857143
+    },
+    "app/modules/search/components/search-pane/search-pane.component.ts": {
+      "statements": 65.33864541832669,
+      "branches": 45.14767932489451,
+      "functions": 60.869565217391305,
+      "lines": 68.36283185840708
+    },
+    "app/modules/search/components/search-queue/assets-search-queue.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/components/search-queue/search-queue.component.ts": {
+      "statements": 74.50980392156863,
+      "branches": 81.25,
+      "functions": 70,
+      "lines": 77.77777777777777
+    },
+    "app/modules/search/components/search-result-tags/search-result-tags.component.ts": {
+      "statements": 93.75,
+      "branches": 54.166666666666664,
+      "functions": 100,
+      "lines": 96.66666666666667
+    },
+    "app/modules/search/helpers/assets-search-queue.service.ts": {
+      "statements": 100,
+      "branches": 98.01980198019803,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/helpers/default-search-definition.ts": {
+      "statements": 100,
+      "branches": 64.28571428571429,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/helpers/document-search.service.ts": {
+      "statements": 99.09909909909909,
+      "branches": 91.85185185185185,
+      "functions": 100,
+      "lines": 99.50248756218906
+    },
+    "app/modules/search/helpers/query-bulk-action.service.ts": {
+      "statements": 85.71428571428571,
+      "branches": 63.63636363636363,
+      "functions": 75,
+      "lines": 84.61538461538461
+    },
+    "app/modules/search/helpers/repository-search-columns.ts": {
+      "statements": 97.5609756097561,
+      "branches": 92.53731343283582,
+      "functions": 95,
+      "lines": 97.29729729729729
+    },
+    "app/modules/search/helpers/repository-search-definitions.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/helpers/repository-search-hosts.service.ts": {
+      "statements": 95.23809523809524,
+      "branches": 88.88888888888889,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/helpers/repository-search-providers.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/helpers/repository-search.service.ts": {
+      "statements": 96.07843137254902,
+      "branches": 72.54901960784314,
+      "functions": 94.11764705882354,
+      "lines": 95.55555555555556
+    },
+    "app/modules/search/helpers/search-queue.service.ts": {
+      "statements": 93.93939393939394,
+      "branches": 92,
+      "functions": 95.45454545454545,
+      "lines": 96.62921348314607
+    },
+    "app/modules/search/helpers/search-selection-actions.service.ts": {
+      "statements": 92.3076923076923,
+      "branches": 66.66666666666667,
+      "functions": 100,
+      "lines": 95.45454545454545
+    },
+    "app/modules/search/helpers/search-selection-policy.ts": {
+      "statements": 84.61538461538461,
+      "branches": 73.33333333333333,
+      "functions": 66.66666666666667,
+      "lines": 81.81818181818181
+    },
+    "app/modules/search/helpers/search-view-components.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/helpers/search-view-preferences.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/search/helpers/stock-result-columns.ts": {
+      "statements": 100,
+      "branches": 95.23809523809524,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/settings/administration-page.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/settings/components/analytics/admin-analytics-icons.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/settings/components/analytics/analytics-metric.component.ts": {
+      "statements": 81.81818181818181,
+      "branches": 57.57575757575758,
+      "functions": 84.61538461538461,
+      "lines": 89.36170212765957
+    },
+    "app/modules/settings/components/analytics/analytics-workspace.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/settings/components/analytics/analytics.component.ts": {
+      "statements": 61.53846153846154,
+      "branches": 37.93103448275862,
+      "functions": 44.15584415584416,
+      "lines": 65.02463054187191
+    },
+    "app/modules/settings/components/analytics/distribution-chart.component.ts": {
+      "statements": 3.125,
+      "branches": 0,
+      "functions": 0,
+      "lines": 3.3333333333333335
+    },
+    "app/modules/settings/components/audit/audit.component.ts": {
+      "statements": 95.13888888888889,
+      "branches": 100,
+      "functions": 86.11111111111111,
+      "lines": 94.8905109489051
+    },
+    "app/modules/settings/components/cloud-account-editor/cloud-account-editor.component.ts": {
+      "statements": 53.84615384615385,
+      "branches": 50,
+      "functions": 50,
+      "lines": 53.84615384615385
+    },
+    "app/modules/settings/components/cloud-application-editor/cloud-application-editor.component.ts": {
+      "statements": 53.84615384615385,
+      "branches": 50,
+      "functions": 50,
+      "lines": 53.84615384615385
+    },
+    "app/modules/settings/components/cloud-client-editor/cloud-client-editor.component.ts": {
+      "statements": 52.94117647058823,
+      "branches": 0,
+      "functions": 42.857142857142854,
+      "lines": 52.94117647058823
+    },
+    "app/modules/settings/components/cloud-service-provider-editor/cloud-service-provider-editor.component.ts": {
+      "statements": 52.94117647058823,
+      "branches": 0,
+      "functions": 42.857142857142854,
+      "lines": 52.94117647058823
+    },
+    "app/modules/settings/components/cloud/cloud.component.ts": {
+      "statements": 35.632183908045974,
+      "branches": 26.666666666666668,
+      "functions": 18.181818181818183,
+      "lines": 38.27160493827161
+    },
+    "app/modules/settings/components/content-management/content-management.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/settings/components/metadata-policy/metadata-policy.component.ts": {
+      "statements": 40.38461538461539,
+      "branches": 11.11111111111111,
+      "functions": 24.324324324324323,
+      "lines": 43.47826086956522
+    },
+    "app/modules/settings/components/retention-rule-editor/retention-rule-editor.component.ts": {
+      "statements": 70.58823529411765,
+      "branches": 64.70588235294117,
+      "functions": 72.72727272727273,
+      "lines": 72
+    },
+    "app/modules/settings/components/retention-rule-log/retention-rule-log.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/settings/components/retention-rule-picker/retention-rule-picker.component.ts": {
+      "statements": 56.52173913043478,
+      "branches": 0,
+      "functions": 36.36363636363637,
+      "lines": 59.09090909090909
+    },
+    "app/modules/settings/components/retention-rules/retention-rules.component.ts": {
+      "statements": 45.714285714285715,
+      "branches": 50,
+      "functions": 33.333333333333336,
+      "lines": 50
+    },
+    "app/modules/settings/components/user-and-group-editor/user-and-group-editor.component.ts": {
+      "statements": 91.85185185185185,
+      "branches": 85.61151079136691,
+      "functions": 90,
+      "lines": 93.65079365079364
+    },
+    "app/modules/settings/components/user-and-group-permissions/user-and-group-permissions.component.ts": {
+      "statements": 48.148148148148145,
+      "branches": 25,
+      "functions": 25,
+      "lines": 52
+    },
+    "app/modules/settings/components/users-and-groups/users-and-groups.component.ts": {
+      "statements": 75.95907928388746,
+      "branches": 63.18681318681319,
+      "functions": 65.78947368421052,
+      "lines": 81.70731707317073
+    },
+    "app/modules/settings/components/vocabularies/vocabularies.component.ts": {
+      "statements": 78.98550724637681,
+      "branches": 70.34482758620689,
+      "functions": 85.33333333333333,
+      "lines": 81.78137651821862
+    },
+    "app/modules/settings/default-administration.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/settings/default-analytics.ts": {
+      "statements": 40,
+      "branches": 100,
+      "functions": 40,
+      "lines": 40
+    },
+    "app/modules/settings/helpers/analytics.service.ts": {
+      "statements": 83.14606741573034,
+      "branches": 67.52136752136752,
+      "functions": 79.84496124031008,
+      "lines": 84.21052631578948
+    },
+    "app/modules/settings/helpers/cloud-services.service.ts": {
+      "statements": 80.70175438596492,
+      "branches": 100,
+      "functions": 78.94736842105263,
+      "lines": 81.13207547169812
+    },
+    "app/modules/settings/helpers/directory.service.ts": {
+      "statements": 77.77777777777777,
+      "branches": 50,
+      "functions": 71.42857142857143,
+      "lines": 77.77777777777777
+    },
+    "app/modules/settings/helpers/mime-type-labels.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/settings/helpers/retention.service.ts": {
+      "statements": 31.683168316831683,
+      "branches": 4.3478260869565215,
+      "functions": 34.48275862068966,
+      "lines": 35.95505617977528
+    },
+    "app/modules/settings/helpers/user-invitation.service.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/settings/helpers/users-and-groups.service.ts": {
+      "statements": 69.87951807228916,
+      "branches": 65.51724137931035,
+      "functions": 70.2127659574468,
+      "lines": 70.66666666666667
+    },
+    "app/modules/settings/models/retention-rule.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/settings/settings.component.ts": {
+      "statements": 93.02325581395348,
+      "branches": 80,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/settings/settings.module.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/shared/components/collapsible/collapsible.component.ts": {
+      "statements": 100,
+      "branches": 50,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/shared/components/confirmation-dialog/confirm-dialog.service.ts": {
+      "statements": 94.11764705882354,
+      "branches": 81.81818181818181,
+      "functions": 100,
+      "lines": 92.3076923076923
+    },
+    "app/modules/shared/components/confirmation-dialog/confirmation-dialog.component.ts": {
+      "statements": 95.83333333333333,
+      "branches": 52.38095238095238,
+      "functions": 100,
+      "lines": 95.65217391304348
+    },
+    "app/modules/shared/components/document-icon-and-title/document-icon-and-title.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/shared/components/document-list-item/document-list-item.component.ts": {
+      "statements": 91.93548387096774,
+      "branches": 86.36363636363636,
+      "functions": 90.47619047619048,
+      "lines": 95.91836734693878
+    },
+    "app/modules/shared/components/document-tree/document-tree.component.ts": {
+      "statements": 94.4954128440367,
+      "branches": 84.33734939759036,
+      "functions": 100,
+      "lines": 98.9247311827957
+    },
+    "app/modules/shared/components/file-upload/file-upload.component.ts": {
+      "statements": 96.61016949152543,
+      "branches": 88.88888888888889,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/shared/components/footer/footer.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/shared/components/input-dialog/input-dialog.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/shared/components/load-more/load-more-button.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/shared/components/press-and-hold-button/press-and-hold-button.component.ts": {
+      "statements": 40,
+      "branches": 0,
+      "functions": 28.571428571428573,
+      "lines": 40
+    },
+    "app/modules/shared/components/search-column-chooser/search-column-chooser.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/shared/components/sidebar/administration-drawer.component.ts": {
+      "statements": 100,
+      "branches": 91.89189189189189,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/shared/components/sidebar/clipboard-drawer.component.ts": {
+      "statements": 88.60759493670886,
+      "branches": 81.81818181818181,
+      "functions": 88.88888888888889,
+      "lines": 94.44444444444444
+    },
+    "app/modules/shared/components/sidebar/collections-drawer.component.ts": {
+      "statements": 83.125,
+      "branches": 64.5933014354067,
+      "functions": 87.71929824561404,
+      "lines": 85.71428571428571
+    },
+    "app/modules/shared/components/sidebar/default-drawer-page.component.ts": {
+      "statements": 84.61538461538461,
+      "branches": 84.21052631578948,
+      "functions": 69.23076923076923,
+      "lines": 90.9090909090909
+    },
+    "app/modules/shared/components/sidebar/default-drawer.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/shared/components/sidebar/drawer-resize-handle.component.ts": {
+      "statements": 96.3302752293578,
+      "branches": 90.3225806451613,
+      "functions": 95,
+      "lines": 97.9381443298969
+    },
+    "app/modules/shared/components/sidebar/favorites-drawer.component.ts": {
+      "statements": 92.2279792746114,
+      "branches": 75.40983606557377,
+      "functions": 91.89189189189189,
+      "lines": 95.20958083832335
+    },
+    "app/modules/shared/components/sidebar/navigation-icons.generated.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/shared/components/sidebar/personal-workspace-drawer.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/shared/components/sidebar/repository-search-drawer.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/shared/components/sidebar/sidebar.component.ts": {
+      "statements": 80.75117370892019,
+      "branches": 69.91150442477876,
+      "functions": 72.46376811594203,
+      "lines": 84.40860215053763
+    },
+    "app/modules/shared/components/sidebar/user-menu/default-themes.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/shared/components/sidebar/user-menu/default-user-menu.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/shared/components/sidebar/user-menu/user-menu-language.component.ts": {
+      "statements": 83.33333333333333,
+      "branches": 66.66666666666667,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/shared/components/sidebar/user-menu/user-menu-row.component.ts": {
+      "statements": 90.9090909090909,
+      "branches": 75,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/shared/components/user-tag/user-tag.component.ts": {
+      "statements": 97.01492537313433,
+      "branches": 80.72289156626506,
+      "functions": 95,
+      "lines": 98.27586206896552
+    },
+    "app/modules/shared/components/users-and-groups-picker/users-and-groups-picker.component.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/modules/shared/shared.module.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/pipes/duration.pipe.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/pipes/file-size.pipe.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/pipes/ordinal.pipe.ts": {
+      "statements": 60,
+      "branches": 0,
+      "functions": 50,
+      "lines": 50
+    },
+    "app/pipes/relative-date.pipe.ts": {
+      "statements": 100,
+      "branches": 86.84210526315789,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/pipes/size.pipe.ts": {
+      "statements": 9.523809523809524,
+      "branches": 0,
+      "functions": 0,
+      "lines": 6.25
+    },
+    "app/pipes/unescape.pipe.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "app/shared.constants.ts": {
+      "statements": 100,
+      "branches": 100,
+      "functions": 100,
+      "lines": 100
+    },
+    "main.ts": {
+      "statements": 54.54545454545455,
+      "branches": 25,
+      "functions": 0,
+      "lines": 60
+    }
+  },
+  "excluded": {
+    "app/extensions/results-projection-template-context.invalid.ts": {
+      "lines": 15,
+      "sha256": "35eb763cc05812ce4f849ed3f3511dbd1f7c20b99e8e3f062a34ad3062944275"
+    },
+    "app/modules/explorer/models/document.ts": {
+      "lines": 12,
+      "sha256": "b983920c4ca5880da833d74f401411c401f59b96f636dcfe8bd0ffd5d5500690"
+    },
+    "app/modules/search/search.module.ts": {
+      "lines": 12,
+      "sha256": "b7979577926e5c5ed805eebf73ba317c9412911e4acd177b86ecb902693cf93a"
+    },
+    "app/modules/settings/components/analytics/analytics-page.component.ts": {
+      "lines": 13,
+      "sha256": "2eda2ee4fd33b0bf62ac63c4c8dab1c46daee49ec91de51a94ff9da3bab5aa53"
+    },
+    "polyfills.ts": {
+      "lines": 52,
+      "sha256": "98be6b5ed3a3896d2227073ebc4cdf2b7f14379460e1fa2a10d91a7ea8d63511"
+    }
+  }
+}

@@ -1,0 +1,324 @@
+<div class="btn-toolbar align-items-center justify-content-start mb-2 flex-nowrap">
+	@if (loaded && !error) {
+		<div class="btn-group btn-group-sm me-2" role="group">
+			<button
+				(click)="toggleHotspotMode()"
+				class="btn btn-dark"
+				[class.active]="addHotspotMode"
+				[tooltip]="
+					'app.modules.threed-renderer.add-a-hotspot-459a1f' | webuiMessage: 'Add a hotspot'
+				"
+			>
+				<fa-icon [fixedWidth]="true" icon="location-crosshairs"></fa-icon>
+			</button>
+		</div>
+	}
+
+	@if (loaded) {
+		<div class="btn-group btn-group-sm me-2" role="group">
+			<button
+				(click)="toggleAutoRotate()"
+				class="btn btn-dark"
+				[class.active]="autoRotate"
+				[tooltip]="'app.modules.threed-renderer.auto-rotate-a660f4' | webuiMessage: 'Auto rotate'"
+			>
+				<fa-icon
+					icon="arrows-spin"
+					[fixedWidth]="true"
+					[animation]="autoRotate ? 'spin' : undefined"
+				></fa-icon>
+			</button>
+			@if (canAnimate) {
+				<button
+					(click)="toggleAutoPlay()"
+					class="btn btn-dark"
+					[class.active]="animate"
+					[tooltip]="
+						'app.modules.threed-renderer.play-pause-animation-111f1f'
+							| webuiMessage: 'Play/Pause animation'
+					"
+				>
+					<fa-icon [fixedWidth]="true" [icon]="animate ? 'pause' : 'play'"></fa-icon>
+				</button>
+			}
+			@if (!error) {
+				<div dropdown placement="bottom left" container="body" class="btn-group btn-group-sm me-2">
+					<button dropdownToggle id="button_views" class="btn btn-dark dropdown-toggle">
+						<fa-icon [fixedWidth]="true" icon="cube"></fa-icon>
+
+						{{ 'app.modules.threed-renderer.views-d0ef71' | webuiMessage: 'Views' }}
+					</button>
+					<ul
+						*dropdownMenu
+						id="dropdown_views"
+						class="dropdown-menu"
+						role="menu"
+						aria-labelledby="button_attachments"
+					>
+						@for (view of views | keyvalue; track view) {
+							<li class="d-flex" role="menuitem">
+								<button
+									(click)="switchView(view.value)"
+									class="dropdown-item flex-grow-1 d-flex align-items-center"
+									[disabled]="error"
+								>
+									{{ view.key | titlecase }}
+								</button>
+								<button
+									(click)="exportView(view.key)"
+									class="dropdown-item w-auto"
+									[tooltip]="
+										'app.modules.threed-renderer.download-this-view-as-a-png-file-6a85ff'
+											| webuiMessage: 'Download this view as a PNG file'
+									"
+								>
+									<fa-icon [fixedWidth]="true" icon="download"></fa-icon>
+								</button>
+							</li>
+						}
+					</ul>
+				</div>
+			}
+		</div>
+	}
+
+	@if (!error && availableVariants.length) {
+		<div dropdown placement="bottom left" container="body" class="btn-group btn-group-sm me-2">
+			<button dropdownToggle id="button_variants" class="btn btn-dark dropdown-toggle">
+				<fa-icon [fixedWidth]="true" icon="swatchbook"></fa-icon>
+				{{
+					'documentViewers.modelVariant'
+						| translate: { variant: modelViewer.variantName | titlecase }
+				}}
+			</button>
+			<ul
+				*dropdownMenu
+				id="dropdown_variants"
+				class="dropdown-menu"
+				role="menu"
+				aria-labelledby="button_attachments"
+			>
+				@for (variantName of availableVariants; track variantName) {
+					<li role="menuitem">
+						<button
+							(click)="showVariant(variantName)"
+							class="dropdown-item"
+							[class.active]="modelViewer.variantName === variantName"
+						>
+							{{ variantName | titlecase }}
+						</button>
+					</li>
+				}
+			</ul>
+		</div>
+	}
+
+	<span class="flex-grow-1"></span>
+
+	<ng-content></ng-content>
+</div>
+
+<div class="media flex-grow-1" (mousemove)="drawCrosshair($event)">
+	<span class="flex-grow-1"></span>
+
+	@if (exporting) {
+		<div class="loading-spinner">
+			<fa-icon
+				[fixedWidth]="true"
+				class="spinner"
+				icon="spinner"
+				[fixedWidth]="true"
+				animation="spin-pulse"
+				size="lg"
+			></fa-icon>
+
+			{{
+				'app.modules.threed-renderer.generating-export-896e58'
+					| webuiMessage: 'Generating export...'
+			}}
+		</div>
+	}
+
+	<div class="media-container" [class.hidden]="exporting" [class.add-hotspot-mode]="addHotspotMode">
+		<model-viewer
+			#modelViewer
+			[class.hidden]="error"
+			nxLazyLoad
+			(click)="addHotspot($event)"
+			(progress)="updateProgressBar($event)"
+			(error)="handleError($event)"
+			(load)="modelLoaded($event)"
+			[src]="contentUrl"
+			ar
+			ar-modes="webxr scene-viewer quick-look"
+			camera-controls
+			shadow-intensity="1"
+		>
+			@for (hotspot of hotspots; track hotspot) {
+				<div
+					[attr.slot]="hotspot.slot"
+					[attr.data-surface]="hotspot.placement.surface"
+					class="hotspot"
+					data-visibility-attribute="visible"
+				>
+					<button
+						type="button"
+						class="hotspot-focus"
+						(click)="$event.stopPropagation(); hotspotAction(hotspot)"
+						[attr.aria-label]="
+							'action.viewNamed' | webuiMessage: 'View {name}' : { name: hotspot.label }
+						"
+					>
+						<fa-icon [fixedWidth]="true" icon="bullseye"></fa-icon>
+					</button>
+					<div class="annotation">
+						<small
+							contenteditable="true"
+							role="textbox"
+							tabindex="0"
+							[attr.aria-label]="
+								'app.modules.threed-renderer.hotspot-label-35f3d4' | webuiMessage: 'Hotspot label'
+							"
+							[attr.data-placeholder]="
+								'app.modules.threed-renderer.hotspot-label-35f3d4' | webuiMessage: 'Hotspot label'
+							"
+							(click)="$event.stopPropagation()"
+							(keydown)="$event.stopPropagation()"
+							(input)="hotspot.label = $any($event.target).textContent"
+							[tooltip]="
+								'app.modules.threed-renderer.edit-label-8ce71f' | webuiMessage: 'Edit label'
+							"
+							>{{ hotspot.label }}</small
+						>
+						<button
+							type="button"
+							(click)="$event.stopPropagation(); removeHotspot(hotspot)"
+							class="btn-remove-hotspot"
+							[attr.aria-label]="
+								'app.modules.threed-renderer.remove-hotspot-daf627' | webuiMessage: 'Remove hotspot'
+							"
+							[tooltip]="
+								'app.modules.threed-renderer.remove-this-hotspot-d795ae'
+									| webuiMessage: 'Remove this hotspot'
+							"
+						>
+							<fa-icon icon="times" size="xs"></fa-icon>
+						</button>
+					</div>
+				</div>
+			}
+
+			<div class="progress-bar hide" slot="progress-bar">
+				<div class="update-bar"></div>
+			</div>
+
+			<button slot="ar-button" id="ar-button">
+				{{
+					'app.modules.threed-renderer.view-in-your-space-4330a2'
+						| webuiMessage: 'View in your space'
+				}}
+			</button>
+
+			<div id="ar-prompt">
+				<img
+					src="assets/images/model-viewer/hand.png"
+					[attr.alt]="
+						'app.modules.threed-renderer.move-your-device-to-place-the-3d-model-75d5c2'
+							| webuiMessage: 'Move your device to place the 3D model'
+					"
+				/>
+			</div>
+
+			@if (error) {
+				<canvas #canvas slot="canvas"></canvas>
+			}
+		</model-viewer>
+
+		@if (error) {
+			<nx-legacy-model-viewer
+				[src]="contentUrl"
+				[animate]="autoRotate"
+				(progress)="updateProgressBar($event)"
+				(error)="handleLegacyError($event)"
+			>
+				<div class="progress-bar hide" slot="progress-bar">
+					<div class="update-bar"></div>
+				</div>
+			</nx-legacy-model-viewer>
+		}
+	</div>
+
+	<span class="flex-grow-1"></span>
+
+	@if (document.properties['threed:transmissionFormats']?.length) {
+		<table class="table table-sm table-hover align-middle mb-0">
+			<thead>
+				<tr>
+					<th class="text-start ps-3">
+						{{ 'app.modules.threed-renderer.format-209791' | webuiMessage: 'Format' }}
+					</th>
+					<th>{{ 'app.modules.threed-renderer.polygons-f884f0' | webuiMessage: 'Polygons' }}</th>
+					<th>{{ 'app.modules.threed-renderer.vertices-d92606' | webuiMessage: 'Vertices' }}</th>
+					<th>{{ 'app.modules.threed-renderer.textures-d6335e' | webuiMessage: 'Textures' }}</th>
+					<th>{{ 'app.modules.threed-renderer.file-size-c21f3d' | webuiMessage: 'File size' }}</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (
+					transmissionFormat of document.properties['threed:transmissionFormats'];
+					track transmissionFormat;
+					let index = $index
+				) {
+					<tr [class.table-active]="contentUrl === transmissionFormat.content.data">
+						<td>
+							<div class="d-flex align-items-center">
+								<div
+									class="form-check form-switch"
+									[tooltip]="
+										'app.modules.threed-renderer.view-this-format-a41de5'
+											| webuiMessage: 'View this format'
+									"
+								>
+									<input
+										[id]="index"
+										class="form-check-input"
+										type="radio"
+										name="contentUrl"
+										(click)="contentUrl = transmissionFormat.content.data"
+										[checked]="index === 0"
+									/>
+									<label [for]="index">{{ transmissionFormat.name }}</label>
+								</div>
+							</div>
+						</td>
+						<td>
+							{{ transmissionFormat.info.polygons | size: 1 }} -
+							<small>{{ transmissionFormat.percPoly / 100 | webuiPercent }}</small>
+						</td>
+						<td>{{ transmissionFormat.info.vertices | size: 1 }}</td>
+						<td>
+							@if (transmissionFormat.maxTex) {
+								{{ transmissionFormat.maxTex | webuiNumber }} -
+								<small>{{ transmissionFormat.percTex / 100 | webuiPercent }}</small>
+							}
+						</td>
+						<td>{{ transmissionFormat.content.length | fileSize: 1 }}</td>
+						<td>
+							<a
+								[href]="transmissionFormat.content.data"
+								class="btn btn-sm btn-link link-primary"
+								[tooltip]="
+									'app.modules.threed-renderer.download-this-format-ef0778'
+										| webuiMessage: 'Download this format'
+								"
+							>
+								<fa-icon [fixedWidth]="true" icon="download" size="sm"></fa-icon>
+							</a>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	}
+</div>

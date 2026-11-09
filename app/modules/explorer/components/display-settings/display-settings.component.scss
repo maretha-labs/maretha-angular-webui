@@ -1,0 +1,19 @@
+@import '../../../../../styles/_variables.scss';
+
+.settings {
+	max-height: 50vh;
+	overflow: auto;
+	width: 100%;
+}
+
+#button_sorting > div {
+	display: inline-block;
+	width: 100%;
+	margin-inline-end: -1rem;
+	text-align: start;
+}
+
+.btn-outline-secondary.active {
+	background-color: #{$runtime-dark};
+	color: #{$runtime-light};
+}

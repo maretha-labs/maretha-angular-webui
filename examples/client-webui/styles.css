@@ -1,0 +1,47 @@
+:root {
+	font-family: Inter, Arial, sans-serif;
+	color: #3a3a54;
+	background: #f5f5f5;
+}
+body {
+	margin: 0;
+}
+main {
+	max-width: 960px;
+	margin: 40px auto;
+	padding: 24px;
+}
+nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 24px 0;
+}
+button,
+input {
+	font: inherit;
+	padding: 10px 14px;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+}
+button {
+	cursor: pointer;
+	background: white;
+	color: inherit;
+}
+button:focus-visible,
+input:focus-visible {
+	outline: 2px solid #0066ff;
+	outline-offset: 2px;
+}
+nx-document-views {
+	background: white;
+	padding: 16px;
+}
+label {
+	display: block;
+	margin-block: 16px;
+}
+input[type='checkbox'] {
+	margin-right: 8px;
+}

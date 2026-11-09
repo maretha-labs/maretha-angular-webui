@@ -1,0 +1,408 @@
+@import '../../../../../styles/variables';
+
+.nx-mobile-navigation,
+.nx-mobile-drawer-close {
+	display: none;
+}
+
+// Mobile hamburger toggle (visible < 720px)
+.nx-mobile-toggle {
+	display: none;
+	position: fixed;
+	inset-block-start: 8px;
+	inset-inline-start: 8px;
+	z-index: 1060;
+	background: var(--nuxeo-sidebar-background);
+	color: #{$runtime-white};
+	border: none;
+	width: 40px;
+	height: 40px;
+	border-radius: 0.1em;
+	cursor: pointer;
+	font-size: 1.2rem;
+	align-items: center;
+	justify-content: center;
+	min-height: auto;
+	padding: 0;
+}
+
+.nx-user-menu-close {
+	background: transparent;
+	border: 0;
+	color: var(--nuxeo-text-default);
+	font: inherit;
+	font-size: 24px;
+	line-height: 1;
+	padding: 8px;
+	cursor: pointer;
+	min-height: 40px;
+	min-width: 40px;
+
+	&:focus-visible {
+		outline: 2px solid var(--nuxeo-primary-color);
+		outline-offset: -2px;
+	}
+}
+
+// Sidebar — fixed left navigation strip
+.nx-sidebar,
+.nx-drawer {
+	font-family: var(--nuxeo-app-font);
+	line-height: 1.54;
+	letter-spacing: 0.16px;
+}
+
+.nx-sidebar {
+	position: fixed;
+	inset-block-start: 0;
+	inset-inline-start: 0;
+	width: var(--nuxeo-sidebar-width);
+	height: 100vh;
+	background: var(--nuxeo-sidebar-background);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	z-index: 1050;
+
+	&__logo {
+		border: 0;
+		background: transparent;
+		flex-shrink: 0;
+		width: 100%;
+		height: var(--nuxeo-header-height, #{$header-height});
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		padding: 0;
+		transition: opacity 0.2s;
+
+		&:hover {
+			opacity: 0.85;
+		}
+	}
+
+	&__logo-img {
+		width: 52px;
+		height: 52px;
+		object-fit: contain;
+	}
+
+	&__nav {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		flex: 1 1 auto;
+		min-height: 0;
+		overflow-y: auto;
+		overflow-x: hidden;
+		width: 100%;
+		gap: 0;
+		padding: 1px 0 0;
+
+		&--bottom {
+			flex: 0 0 auto;
+			margin-top: auto;
+			padding: 0;
+			overflow: visible;
+		}
+	}
+
+	&__item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 48px;
+		background: transparent;
+		border: none;
+		color: var(--nuxeo-sidebar-item-color);
+		cursor: pointer;
+		position: relative;
+		transition: color 0.2s;
+		font-size: 1.15rem;
+		padding: 0;
+		min-height: auto;
+
+		// Stock Web UI (nuxeo-menu-icon): a rounded lighter tile for hover and selection, plus a
+		// 4x20px indicator bar on the leading edge of the selected item.
+		&:hover,
+		&.active {
+			color: var(--nuxeo-sidebar-item-hover-color);
+			background: var(--nuxeo-sidebar-item-selected-background, rgba(255, 255, 255, 0.12));
+			border-radius: 12px;
+		}
+
+		&.active::before {
+			content: '';
+			position: absolute;
+			inset-inline-start: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 4px;
+			height: 20px;
+			background: var(
+				--nuxeo-sidebar-selection-indicator,
+				var(--nuxeo-sidebar-item-hover-color, #fff)
+			);
+			border-start-end-radius: 16px;
+			border-end-end-radius: 16px;
+			z-index: 1;
+		}
+	}
+
+	&__badge {
+		position: absolute;
+		inset-block-start: 6px;
+		inset-inline-end: 8px;
+		background: #fb6107;
+		color: #{$runtime-white};
+		font-size: 0.6rem;
+		font-weight: 700;
+		min-width: 16px;
+		height: 16px;
+		line-height: 16px;
+		text-align: center;
+		border-radius: 50%;
+		padding: 0 3px;
+	}
+}
+
+// Drawer — expandable side panel
+.nx-drawer {
+	position: fixed;
+	inset-block-start: 0;
+	inset-inline-start: var(--nuxeo-sidebar-width);
+	width: 0;
+	height: 100vh;
+	background: var(--nuxeo-drawer-background, var(--nuxeo-box));
+	color: var(--nuxeo-drawer-text, var(--nuxeo-text-default));
+	overflow: hidden;
+	z-index: 1040;
+	box-shadow: 3px 0 6px rgba(0, 0, 0, 0.05);
+	display: flex;
+	flex-direction: column;
+	transition: width 0.3s ease;
+
+	:host-context([dir='rtl']) & {
+		box-shadow: -3px 0 6px rgba(0, 0, 0, 0.05);
+	}
+
+	&.open {
+		width: var(--nx-shell-drawer-width, var(--nuxeo-drawer-width));
+	}
+
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 16px;
+		height: var(--nuxeo-header-height, #{$header-height});
+		min-height: var(--nuxeo-header-height, #{$header-height});
+
+		h6 {
+			margin: 0;
+			font-size: 26px;
+			font-weight: 500;
+			line-height: 1.54rem;
+			letter-spacing: 0.24px;
+			color: var(--nuxeo-drawer-header, var(--nuxeo-text-default));
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.btn-link {
+			color: var(--nuxeo-text-default);
+			min-height: auto;
+			padding: 4px;
+		}
+	}
+
+	&__content {
+		flex: 1;
+		overflow-y: auto;
+		overflow-x: hidden;
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+
+		&.nx-browse-content {
+			min-width: min(
+				var(--nx-shell-drawer-width, var(--nuxeo-drawer-width)),
+				calc(100vw - var(--nuxeo-sidebar-width))
+			);
+		}
+
+		.list-group-container {
+			flex-grow: 1;
+		}
+	}
+
+	// List group items in drawer
+	.list-group-item-action {
+		border: none;
+		padding: 10px 16px;
+		font-size: 0.9rem;
+
+		&:hover {
+			background-color: var(--nuxeo-page-background);
+		}
+
+		&:disabled {
+			font-weight: 600;
+			color: var(--nuxeo-primary-color);
+		}
+	}
+}
+
+// Drawer edge toggle — fixed position, outside drawer to avoid overflow clip
+.nx-drawer-edge-toggle {
+	position: fixed;
+	inset-block-start: 50%;
+	inset-inline-start: calc(
+		var(--nuxeo-sidebar-width) + var(--nx-shell-drawer-width, var(--nuxeo-drawer-width))
+	);
+	transform: translateY(-50%);
+	transition:
+		inset-inline-start 0.3s ease,
+		opacity 0.15s;
+	width: 24px;
+	height: 40px;
+	background: var(--nuxeo-box);
+	border: 1px solid var(--nuxeo-border);
+	border-inline-start: none;
+	border-radius: 0 4px 4px 0;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #{$runtime-gray-500};
+	z-index: 1042;
+	min-height: auto;
+	padding: 0;
+	box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+	// Hidden until the drawer or its controls are hovered, so it never covers page content.
+	opacity: 0;
+	pointer-events: none;
+
+	:host-context([dir='rtl']) & {
+		border-inline-start: 1px solid var(--nuxeo-border);
+		border-inline-end: none;
+		border-radius: 4px 0 0 4px;
+		box-shadow: -2px 0 4px rgba(0, 0, 0, 0.05);
+	}
+
+	&:hover {
+		color: var(--nuxeo-primary-color);
+		background: #{$runtime-gray-100};
+	}
+}
+
+.nx-drawer:hover ~ nav .nx-drawer-edge-toggle,
+nav:hover > .nx-drawer-edge-toggle,
+.nx-drawer-edge-toggle:focus-visible {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+:host-context(.drawer-resizing) {
+	.nx-drawer,
+	.nx-drawer-edge-toggle {
+		transition: none;
+	}
+}
+
+// Responsive: mobile (< 720px)
+@media (max-width: 720px) {
+	.nx-mobile-navigation,
+	.nx-mobile-drawer-close {
+		display: block;
+	}
+	.nx-mobile-toggle {
+		display: flex;
+	}
+	/* The settings route has a local chooser; it can explicitly reopen this main navigation. */
+	.nx-mobile-toggle--settings-route {
+		display: none;
+	}
+	.nx-mobile-toggle--open {
+		inset-inline-start: calc(var(--nuxeo-sidebar-width) + 8px);
+	}
+	.nx-drawer__header.nx-user-menu-header {
+		padding-inline-start: 56px;
+	}
+	.nx-sidebar {
+		display: none;
+		&.mobile-open {
+			display: flex;
+		}
+	}
+	.nx-mobile-drawer-close {
+		align-self: flex-end;
+		background: transparent;
+		color: var(--nuxeo-text-default);
+		border: 0;
+		min-width: 44px;
+		min-height: 48px;
+		font-size: 24px;
+	}
+	.nx-drawer.open {
+		width: calc(100vw - var(--nuxeo-sidebar-width));
+	}
+}
+
+// The edge handle is omitted when space is limited; rail toggles and Escape remain available.
+@media (max-width: 1024px), (max-height: 700px) {
+	.nx-drawer-edge-toggle {
+		display: none;
+	}
+}
+
+.nx-sidebar__nav > .drawer-item {
+	display: block;
+	flex-shrink: 0;
+	width: 100%;
+}
+.drawer-page,
+.drawer-retained-page {
+	display: flex;
+	flex: 1;
+	min-height: 0;
+}
+.drawer-retained-page[hidden] {
+	display: none;
+}
+.drawer-departure-message {
+	margin: 12px;
+}
+
+.drawer-empty {
+	text-align: center;
+	padding: 24px 16px;
+	opacity: 0.7;
+}
+
+.collection-bookmark {
+	background: var(--nuxeo-primary-color);
+	color: #fff;
+	border-radius: 50%;
+	padding: 8px;
+	width: 40px;
+	height: 40px;
+}
+
+// Stock search drawer: "Search Filters" is a small label sitting directly above the saved-search
+// selector, not a page title.
+.nx-drawer__header--compact {
+	height: auto;
+	min-height: 0;
+	padding-block: 16px 0;
+	h6 {
+		margin: 0;
+		line-height: 1.2;
+		font-size: 14px;
+		font-weight: 400;
+		color: var(--nuxeo-secondary-text, #666);
+	}
+}

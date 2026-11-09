@@ -1,0 +1,51 @@
+<div [formGroup]="formGroup" class="form-control mb-3">
+	<label for="tags">{{ 'app.modules.tags.tags-d712fd' | webuiMessage: 'Tags' }}</label>
+	<ng-select
+		formControlName="nxtag:tags"
+		[addTag]="true"
+		[multiple]="true"
+		[selectOnTab]="true"
+		[attr.placeholder]="'app.modules.tags.add-a-new-tag-2689e6' | webuiMessage: 'Add a new tag...'"
+		[clearable]="false"
+		[loading]="tagsLoading"
+		[items]="tags$ | async"
+		bindValue="id"
+		bindLabel="label"
+		[typeahead]="tagsInput$"
+		[nxSuggestionLimits]="limits()"
+		class="ng-select-sm ng-select-discreet"
+		id="tags"
+	>
+		<ng-template ng-multi-label-tmp let-tags="items" let-clear="clear">
+			@for (tag of tags; track tag) {
+				<div class="ng-value">
+					<span
+						[tooltip]="
+							'app.modules.tags.click-to-add-a-new-tag-519f35'
+								| webuiMessage: 'Click to add a new tag'
+						"
+						class="ng-value-label"
+					>
+						<fa-icon icon="hashtag" size="sm"></fa-icon>
+						{{ tag.id ? tag.id : tag }}
+					</span>
+					<span
+						(click)="clear(tag)"
+						[tooltip]="'app.modules.tags.remove-this-tag-c045a7' | webuiMessage: 'Remove this tag'"
+						class="ng-value-icon right"
+						aria-hidden="true"
+						>×</span
+					>
+				</div>
+			}
+		</ng-template>
+
+		<ng-template ng-tag-tmp let-search="searchTerm">
+			<fa-icon icon="plus-circle"></fa-icon>
+			<b class="mx-1">{{
+				'app.modules.tags.create-new-tag-1826bc' | webuiMessage: 'Create new tag'
+			}}</b>
+			<span class="badge text-bg-light rounded-pill align-middle">{{ search }}</span>
+		</ng-template>
+	</ng-select>
+</div>

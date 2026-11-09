@@ -1,0 +1,291 @@
+@import '../../../../../styles/variables';
+
+:host {
+	z-index: 3;
+	--bs-breadcrumb-divider: '>';
+}
+
+.nav-scroller {
+	padding-inline-end: 1rem;
+	min-height: 48px;
+	background: var(--nuxeo-box, #fff);
+	border-bottom: 1px solid var(--nuxeo-border);
+	position: relative;
+	z-index: 2;
+	display: flex;
+
+	.nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: nowrap;
+		color: var(--nuxeo-text-default);
+		text-align: center;
+		white-space: nowrap;
+		-webkit-overflow-scrolling: touch;
+
+		.address-bar {
+			border-radius: 0;
+			background: transparent;
+			flex-grow: 1;
+			margin: 0;
+			padding: 0.25rem 0;
+			display: flex;
+			flex-wrap: nowrap;
+			white-space: nowrap;
+			gap: 0.5rem;
+			height: auto;
+			min-height: 2.65rem;
+			align-items: center;
+		}
+
+		.breadcrumb {
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: center;
+			margin: 0;
+			font-size: $font-size-sm;
+
+			.breadcrumb-item {
+				padding: 0.5rem 0.125rem;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				flex: 0 auto;
+				flex-shrink: 1000;
+				display: inline-block;
+				height: 100%;
+				color: var(--nuxeo-text-default);
+				transition: flex-shrink 0.3s ease-in-out;
+
+				&:last-child {
+					flex: 1 0 auto !important;
+					display: inline-flex;
+					align-items: center;
+					font-weight: 600;
+					font-size: 0.9375rem;
+					color: var(--nuxeo-text-default);
+				}
+
+				&:hover {
+					flex: 1 0 auto;
+
+					a {
+						font-weight: 600;
+					}
+				}
+
+				&.home {
+					margin-inline-start: 0.125rem;
+				}
+
+				&.standalone,
+				&.root {
+					margin-inline-start: 0.25rem;
+				}
+
+				&.standalone a {
+					padding: 0.25rem 0.375rem;
+					border-radius: 0.1em;
+					color: #{$runtime-gray-600};
+					transition:
+						color 0.15s,
+						background-color 0.15s;
+
+					&:hover {
+						color: var(--nuxeo-primary-color);
+						background-color: rgba(var(--nuxeo-primary-rgb, #{$primary-rgb}), 0.05);
+					}
+				}
+
+				&::before {
+					padding-inline-end: 0.25rem;
+					color: #{$runtime-gray-400};
+					font-size: 0.75rem;
+				}
+
+				&.standalone::before {
+					content: none;
+				}
+
+				&.root::before {
+					content: '|';
+					padding-inline-end: 1rem;
+				}
+
+				a {
+					text-decoration: none;
+					padding: 0.5rem 0.1rem;
+					font-weight: 400;
+					color: var(--nuxeo-text-default);
+
+					&:hover {
+						color: var(--nuxeo-primary-color);
+					}
+				}
+
+				.form-control {
+					margin: -0.25rem 0;
+				}
+
+				.text-body {
+					cursor: text;
+					color: var(--nuxeo-text-default) !important;
+				}
+			}
+		}
+	}
+}
+
+.ellipsis {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	height: 100%;
+	max-width: 90%;
+}
+
+.badge.rounded-pill {
+	transform: translate(2px, -3px);
+	padding: 2px 4px 1px;
+	font-size: 0.6rem;
+	line-height: 0.9;
+	opacity: 0.75;
+}
+
+.collection-icon {
+	font-size: 2rem;
+}
+
+@media (max-width: 575.98px) {
+	.nav-scroller {
+		padding-inline: 0.75rem;
+	}
+
+	.nav-scroller .nav .address-bar {
+		gap: 0.25rem;
+	}
+
+	.ellipsis {
+		max-width: 78%;
+	}
+}
+
+// Below 720px the shell's navigation toggle covers the top-left corner.
+@media (max-width: 720px) {
+	.nav-scroller {
+		padding-inline-start: 56px;
+	}
+}
+
+// Stock nuxeo-breadcrumb (nuxeo-breadcrumb.js:38-136) at the stock 13px root (14px at <= 1024px):
+// .breadcrumb row, .current-icon, .doc-path 17px/400 title, #ancestors 0.75rem with " > ".
+.document-identity {
+	display: flex;
+	min-width: 0;
+	// Stock :host min-height 3em includes the 0.5em top margin of .breadcrumb.
+	min-height: 32.5px;
+	margin: 6.5px 13px 0 0;
+	overflow: hidden;
+	color: var(--nuxeo-text-default);
+	line-height: 20px;
+	white-space: nowrap;
+}
+.document-identity__icon {
+	flex: none;
+	box-sizing: content-box;
+	width: 20.8px;
+	height: 19.5px;
+	margin: 3.9px 6.5px 0 0;
+	padding: 2.6px;
+	border-radius: 2px;
+}
+img.document-identity__icon {
+	object-fit: contain;
+}
+// Stock hides the type icon at <= 1024px.
+@media (max-width: 1024px) {
+	.document-identity__icon {
+		display: none;
+	}
+}
+.document-identity__text {
+	width: 100%;
+	min-width: 0;
+	overflow: hidden;
+	font-family: var(--nuxeo-app-font);
+	font-size: 17px;
+	font-style: normal;
+	font-weight: 400;
+	white-space: nowrap;
+	h1 {
+		display: block;
+		margin: 0;
+		overflow: hidden;
+		color: var(--nuxeo-app-header, var(--nuxeo-text-default));
+		font: inherit;
+		line-height: 20px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	nav {
+		overflow: hidden;
+	}
+	ol {
+		max-width: 100%;
+		margin: -3px 0 0;
+		padding: 0;
+		list-style: none;
+		font-size: 9.75px;
+		white-space: nowrap;
+	}
+	li {
+		display: inline-block;
+		max-width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		vertical-align: top;
+	}
+	li + li::before {
+		content: ' > ';
+		white-space: pre;
+		opacity: 0.5;
+		font-weight: 300;
+	}
+	a,
+	.breadcrumb-ellipsis {
+		color: var(--nuxeo-link-color, var(--nuxeo-text-default));
+		opacity: 0.7;
+		font-weight: 400;
+		letter-spacing: 0.26px;
+		text-decoration: none;
+	}
+	a:hover {
+		color: var(--nuxeo-link-hover-color, #0066ff);
+		opacity: 1;
+	}
+	a:focus-visible {
+		outline: 2px solid var(--nuxeo-primary-color);
+		opacity: 1;
+	}
+}
+@media (max-width: 1024px) {
+	.document-identity__text ol {
+		font-size: 10.5px;
+	}
+}
+
+.nav-scroller {
+	height: 53px;
+	min-height: 53px;
+	box-sizing: border-box;
+	padding-inline: 16px 72px;
+}
+.nav-scroller .nav {
+	padding: 0;
+	margin: 0;
+	max-width: none;
+	min-width: 0;
+	width: 100%;
+}

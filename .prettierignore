@@ -1,0 +1,24 @@
+node_modules
+dist
+.angular
+.husky
+coverage
+out-tsc
+package-lock.json
+assets/js
+favicon-angular.ico
+favicon.ico
+
+# Deterministic output of scripts/import-polymer-assets.py; keep source/provenance bytes intact.
+app/extensions/polymer-messages.generated.ts
+app/extensions/polymer-assets.provenance.json
+
+# Git-excluded local workspace files.
+local
+graft
+_MANIFEST.md
+HANDOFF.md
+memory.md
+
+# Users edit it as needed; any valid JSON works (docs/suggestion-settings.md).
+custom/suggestions.json

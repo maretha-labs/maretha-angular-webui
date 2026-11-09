@@ -1,0 +1,491 @@
+@if (stockResults() && toolbarContext().selectedDocuments.length) {
+	<!-- Default search results: the blue selection bar takes the header's place while rows are selected. -->
+	<div
+		class="stock-selection"
+		role="group"
+		[attr.aria-label]="
+			'app.modules.repository-search.actions-for-selected-documents-d3e110'
+				| webuiMessage: 'Actions for selected documents'
+		"
+	>
+		<span role="status">{{
+			'selectionToolbar.selected.items'
+				| webuiMessage: '{0} item(s) selected' : toolbarContext().selectedDocuments.length
+		}}</span>
+		<button
+			type="button"
+			[disabled]="loading() || busy() || selectingQuery() || total() === 0"
+			(click)="selectMatchingQuery()"
+		>
+			{{
+				'app.modules.repository-search.select-all-matching-366850'
+					| webuiMessage: 'Select all matching'
+			}}
+		</button>
+		<button
+			type="button"
+			(click)="selectionOnly.set(!selectionOnly())"
+			[attr.aria-pressed]="selectionOnly()"
+		>
+			{{ 'results.displaySelection' | webuiMessage: 'Display selection' }}
+		</button>
+		<button type="button" (click)="clearSelectionView()">
+			{{ 'command.clear' | webuiMessage: 'Clear' }}
+		</button>
+		@if (keyboardHint()) {
+			<span
+				class="shortcut-hint"
+				aria-hidden="true"
+				[innerHTML]="
+					'selectionToolbar.hint.message'
+						| webuiMessage
+							: 'Use <kbd>{0}</kbd> + <kbd>.</kbd> to navigate to the toolbar'
+							: modifierKey
+				"
+			></span>
+		}
+		<!-- Trashed rows take the trash actions (restore, delete permanently), as stock. -->
+		<nx-webui-slot
+			[name]="
+				definition().results.includeTrashed
+					? 'TRASH_RESULTS_SELECTION_ACTIONS'
+					: 'RESULTS_SELECTION_ACTIONS'
+			"
+			[context]="toolbarContext()"
+		/>
+	</div>
+}
+@if (definition().layout.form !== 'inline') {
+	<!-- The fixed selection bar covers the header in place so the page never shifts on select. -->
+	<header
+		class="search-heading"
+		[attr.inert]="stockResults() && toolbarContext().selectedDocuments.length ? '' : null"
+	>
+		<h1>
+			{{ 'app.modules.repository-search.search-results-140c5d' | webuiMessage: 'Search Results' }}
+		</h1>
+		<div class="search-heading__actions">
+			@if (canSaveSearch()) {
+				<button type="button" (click)="openSaveSearch()" [disabled]="loading() || busy()">
+					{{ 'app.saveNewSearch' | webuiMessage: 'Save As' }}
+				</button>
+			}
+			@if (selectedSavedSearch) {
+				<button
+					type="button"
+					(click)="updateSelectedSearch()"
+					[disabled]="loading() || busy() || savingSearch()"
+				>
+					{{
+						savingSearch()
+							? ('sdk.layout.saving' | webuiMessage: 'Saving…')
+							: ('app.modules.repository-search.save-e6d04b' | webuiMessage: 'Save')
+					}}
+				</button>
+			}
+			@if (savedSearchStatus()) {
+				<span role="status">{{ savedSearchStatus() }}</span>
+			}
+		</div>
+	</header>
+}
+@if (!allowed()) {
+	<p role="alert">
+		{{
+			'app.modules.repository-search.this-search-is-not-available-for-your-acco-2e6d56'
+				| webuiMessage: 'This search is not available for your account.'
+		}}
+	</p>
+} @else {
+	<div
+		class="search-workspace"
+		[class.search-workspace--inline]="definition().layout.form === 'inline'"
+		[class.search-workspace--stock]="definition().layout.results === 'stock'"
+	>
+		@if (drawerOnly() || definition().layout.form === 'inline') {
+			<nx-search-form class="filters-card" [definition]="definition()" [inputs]="formInputs" />
+		}
+		<section
+			class="search-results-panel"
+			[attr.aria-label]="
+				'app.modules.repository-search.search-results-abae80' | webuiMessage: 'Search results'
+			"
+			(scroll)="onResultsScroll($event)"
+		>
+			@if (!stockResults() && activeFacetChips().length) {
+				<div
+					role="list"
+					[attr.aria-label]="
+						'app.modules.repository-search.applied-filters-b46029' | webuiMessage: 'Applied filters'
+					"
+				>
+					@for (chip of activeFacetChips(); track chip.key + chip.value) {
+						<button type="button" role="listitem" (click)="removeFacet(chip.key, chip.value)">
+							{{ 'search.removeFilter' | webuiMessage: 'Remove {label}' : { label: chip.label } }}
+						</button>
+					}
+				</div>
+			}
+			@if (!stockResults()) {
+				<div class="results-actions">
+					<nx-webui-slot
+						name="RESULTS_ACTIONS"
+						[context]="toolbarContext()"
+						[excludeIds]="excludedResultActions()"
+					/>
+					@if (toolbarContext().selectedDocuments.length) {
+						<div
+							class="selection-action-group"
+							role="group"
+							[attr.aria-label]="
+								'app.modules.repository-search.actions-for-selected-documents-d3e110'
+									| webuiMessage: 'Actions for selected documents'
+							"
+						>
+							<span class="selection-action-group__label" role="status">
+								<span class="selection-action-group__count">{{
+									toolbarContext().selectedDocuments.length | webuiNumber
+								}}</span>
+
+								{{
+									'app.modules.repository-search.selected-documents-164dce'
+										| webuiMessage: 'Selected documents'
+								}}
+							</span>
+							<div class="selection-action-group__actions">
+								<nx-webui-slot
+									[name]="
+										definition().results.includeTrashed
+											? 'TRASH_RESULTS_SELECTION_ACTIONS'
+											: 'RESULTS_SELECTION_ACTIONS'
+									"
+									[context]="toolbarContext()"
+								/>
+							</div>
+						</div>
+					}
+				</div>
+			}
+			<div class="results-toolbar">
+				<!-- Stock nuxeo-results: count and quick-filter pills on the left, view controls right. -->
+				<div class="results-toolbar__summary">
+					<p class="results-toolbar__count" aria-live="polite">
+						{{ 'results.heading.count' | webuiMessage: '{0} result(s)' : total() ?? rows().length }}
+					</p>
+					@for (filter of quickFilterOptions(); track filter.name) {
+						<button
+							type="button"
+							class="quick-filter"
+							[attr.aria-pressed]="quickFilters.includes(filter.name)"
+							[disabled]="loading() || busy()"
+							(click)="toggleQuickFilter(filter.name)"
+						>
+							{{ quickFilterLabel(filter.name) }}
+						</button>
+					}
+				</div>
+				<div class="result-controls">
+					@if (stockResults()) {
+						<!-- Stock nuxeo-results: CSV (RESULTS_ACTIONS) sits with the view switcher. -->
+						<nx-webui-slot
+							name="RESULTS_ACTIONS"
+							[context]="toolbarContext()"
+							[excludeIds]="resultbarExcludedActions()"
+						/>
+					}
+					@if (modeButtons().length > 1) {
+						<!-- Same switcher as the default search: CSV, then adjacent round mode buttons. -->
+						<div
+							class="mode-group"
+							role="group"
+							[attr.aria-label]="
+								'app.modules.default-search-results.display-mode-05f129'
+									| webuiMessage: 'Display mode'
+							"
+						>
+							@for (button of modeButtons(); track button.mode) {
+								<button
+									type="button"
+									class="mode-button"
+									[attr.aria-label]="button.label.key | webuiMessage: button.label.fallback"
+									[attr.title]="button.title.key | webuiMessage: button.title.fallback"
+									[disabled]="displayMode() === button.mode"
+									(click)="setDisplayMode(button.mode)"
+								>
+									<nx-webui-icon [name]="button.icon" />
+								</button>
+							}
+						</div>
+					}
+					@if (selectedIds().length && !stockResults()) {
+						<button
+							type="button"
+							[disabled]="loading() || busy() || selectingQuery() || total() === 0"
+							(click)="selectMatchingQuery()"
+						>
+							{{
+								'app.modules.repository-search.select-all-matching-366850'
+									| webuiMessage: 'Select all matching'
+							}}
+						</button>
+					}
+				</div>
+			</div>
+			@if (definition().results.sortBar && displayMode() !== 'table') {
+				<!-- Stock nuxeo-results sort bar for the grid and list views; the table sorts by its headers. -->
+				<nx-results-sort-bar
+					class="sort-bar"
+					role="toolbar"
+					[attr.aria-label]="
+						'app.modules.repository-search.sort-results-1c012e' | webuiMessage: 'Sort results'
+					"
+					[options]="sortBarOptions"
+					[field]="sortBy || definition().results.defaultSort"
+					[ascending]="!sortBy || sortOrder === 'asc'"
+					[disabled]="loading() || busy()"
+					(fieldChange)="sortBy = $event; applySort()"
+					(orderToggle)="reverseSort()"
+				/>
+			}
+			@if (selectingQuery()) {
+				<!-- Keep quoted ICU braces intact: Prettier misreads them as Angular interpolation endings. -->
+				<!-- prettier-ignore -->
+				<p role="status">
+					{{ 'selection.progress' | webuiMessage:'{known, select, true {Selecting {selected, number} of {total, number} matching documents…} other {Selecting {selected, number} matching documents…}}': {known: (selectionProgress().total !== null), selected:
+					(selectionProgress().selected), total: (selectionProgress().total ?? 0)} }}
+				</p>
+				<button type="button" (click)="stopSelectingQuery()">
+					{{
+						'app.modules.repository-search.stop-selection-693486' | webuiMessage: 'Stop selection'
+					}}
+				</button>
+			}
+			@if (selectionOutcome()) {
+				<p role="status">{{ selectionOutcome() }}</p>
+			}
+			@if (error()) {
+				<p role="alert">{{ error() }}</p>
+				<button type="button" [disabled]="loading() || busy()" (click)="retry()">
+					{{ 'app.modules.repository-search.retry-22577e' | webuiMessage: 'Retry' }}
+				</button>
+			}
+			@if (loading()) {
+				<p role="status">
+					{{
+						'app.modules.repository-search.loading-results-f64c54'
+							| webuiMessage: 'Loading results…'
+					}}
+				</p>
+			}
+			<div class="search-results-view">
+				<nx-results-projection
+					[nxJustifiedResults]="definition().views.grid?.layout === 'justified'"
+					[rowActivation]="true"
+					(rowActivated)="activateResult($event)"
+					[columnLayoutEnabled]="true"
+					(columnLayoutChange)="columnLayoutChanged($event)"
+					[columnChooser]="hasColumnChooser()"
+					(columnChooserOpen)="openColumnChooser()"
+					[rows]="displayedRows()"
+					[selection]="selectedIds()"
+					[mode]="displayMode()"
+					[pageScroll]="definition().results.pageScroll && displayMode() === 'table'"
+					[tableHeaderHeight]="definition().layout.form === 'inline' ? 50 : 47"
+					[tableRowHeight]="definition().layout.form === 'inline' ? 52 : 47"
+					[selectionColumnWidth]="definition().layout.form === 'inline' ? 64 : 48"
+					[remoteSort]="true"
+					(sortChange)="sortColumn($event)"
+					[columns]="tableColumns()"
+					[loading]="loading() || busy() || selectingQuery()"
+					[readOnly]="!allowed()"
+					[scope]="toolbarContext().queryScope"
+					[hostId]="definition().results.hostId"
+					[searchId]="definition().id"
+					[components]="resultComponents()"
+					[contextEpoch]="resultEpoch()"
+					(selectionChange)="projectedSelectionChange($event)"
+					(loadMore)="more()"
+				>
+					<ng-template
+						nxResultsTemplate="item"
+						let-row="row"
+						let-selected="selected"
+						let-toggle="toggleSelection"
+						let-loading="loading"
+					>
+						@if (displayMode() === 'grid' && usesAssetTiles()) {
+							<nx-assets-search-tile
+								[search]="this"
+								[row]="row"
+								[selected]="selected"
+								[loading]="loading"
+								(selectionChange)="toggle()"
+							/>
+						} @else if (displayMode() === 'grid') {
+							<nx-document-grid-thumbnail
+								[document]="row"
+								[selected]="selected"
+								[selecting]="selectedIds().length > 0"
+								[selectionDisabled]="loading"
+								(toggleSelection)="toggle()"
+							/>
+						} @else {
+							<article class="result-item" [class.result-item--selected]="selected" role="listitem">
+								<input
+									type="checkbox"
+									[checked]="selected"
+									[disabled]="loading"
+									[attr.aria-label]="
+										'asset.select' | webuiMessage: 'Select {title}' : { title: row.title }
+									"
+									(change)="toggle()"
+								/>
+								@if (definition().results.includeTrashed) {
+									<img nxLazyLoad [src]="thumbnail(row)" alt="" />
+									<span>{{ row.title }}</span>
+								} @else {
+									<a [routerLink]="row | documentLink" data-nx-results-interactive>
+										<img nxLazyLoad [src]="thumbnail(row)" alt="" />
+										<span>{{ row.title }}</span>
+									</a>
+								}
+								@if (definition().results.showType) {
+									<span class="result-item__type">{{ row.type }}</span>
+								}
+								@if (displayMode() === 'list') {
+									<span>{{ formatModified(documentModified(row)) }}</span
+									><span>{{ lastContributor(row) }}</span>
+								}
+							</article>
+						}
+					</ng-template>
+					<ng-template nxResultsTemplate="cell:path" let-row="row">
+						@if (stockResults()) {
+							<!-- Stock Path (nuxeo-trash-search-results): the plain path, wrapping. -->
+							<span class="result-path">{{ documentPath(row) }}</span>
+						} @else {
+							<a
+								class="document-path"
+								[routerLink]="row | documentLink"
+								data-nx-results-interactive
+							>
+								<nx-webui-icon name="nuxeo:asset" aria-hidden="true" />{{ documentPath(row) }}
+							</a>
+						}
+					</ng-template>
+					<ng-template nxResultsTemplate="cell:size" let-row="row">
+						{{ formatBytes(documentSize(row)) }}
+					</ng-template>
+					<ng-template nxResultsTemplate="cell:state" let-row="row"
+						><span class="type-tag">{{
+							statePresentation(row).key ?? '' | webuiMessage: statePresentation(row).fallback
+						}}</span></ng-template
+					>
+					<ng-template nxResultsTemplate="cell:modified" let-row="row">
+						{{ formatModified(documentModified(row)) }}
+					</ng-template>
+					<!-- Stock nuxeo-user-tag: `fetch-document: properties` resolves the user; an id that
+					     stays a string shows as itself, never looked up. -->
+					<ng-template nxResultsTemplate="cell:lastContributor" let-row="row"
+						><nx-user-tag
+							class="contributor-chip"
+							[user]="row.properties?.['dc:lastContributor']"
+							[lookup]="false"
+					/></ng-template>
+					<ng-template nxResultsTemplate="cell:author" let-row="row"
+						><nx-user-tag
+							class="contributor-chip"
+							[user]="row.properties?.['dc:creator']"
+							[lookup]="false"
+					/></ng-template>
+					<!-- Stock hidden columns: nuxeo-tag cells and the nuxeo-date long date. -->
+					<ng-template nxResultsTemplate="cell:type" let-row="row"
+						><nx-search-result-tags
+							field="type"
+							[row]="row"
+							[typeLabel]="definition().results.typeLabel"
+					/></ng-template>
+					<ng-template nxResultsTemplate="cell:created" let-row="row">
+						{{ formatModified(row.properties?.['dc:created']) }}
+					</ng-template>
+					<ng-template nxResultsTemplate="cell:nature" let-row="row"
+						><nx-search-result-tags field="nature" [row]="row"
+					/></ng-template>
+					<ng-template nxResultsTemplate="cell:coverage" let-row="row"
+						><nx-search-result-tags field="coverage" [row]="row"
+					/></ng-template>
+					<ng-template nxResultsTemplate="cell:subjects" let-row="row"
+						><nx-search-result-tags field="subjects" [row]="row"
+					/></ng-template>
+					<ng-template nxResultsTemplate="cell:title" let-row="row">
+						@if (stockResults()) {
+							<!-- Stock table title: thumbnail, then plain text that opens the document. -->
+							@if (thumbnail(row)) {
+								<img class="result-thumbnail" [src]="thumbnail(row)" alt="" loading="lazy" />
+							}
+							<a class="plain-link" [routerLink]="row | documentLink" data-nx-results-interactive>{{
+								row.title
+							}}</a>
+						} @else {
+							<a [routerLink]="row | documentLink" data-nx-results-interactive>{{ row.title }}</a>
+						}
+					</ng-template>
+				</nx-results-projection>
+				<nx-search-column-chooser
+					[columns]="resultColumns()"
+					(visibilityChange)="toggleColumn($event.id)"
+					(resetColumns)="resetStockColumns()"
+				/>
+			</div>
+			@if (hasMore()) {
+				<button type="button" [disabled]="busy() || loading()" (click)="more()">
+					{{ 'app.modules.repository-search.load-more-6a65cf' | webuiMessage: 'Load more' }}
+				</button>
+			}
+		</section>
+	</div>
+}
+
+@if (saveDialog()) {
+	<div class="saved-search-backdrop">
+		<section
+			class="saved-search-dialog"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="saved-search-title"
+			cdkTrapFocus
+			[cdkTrapFocusAutoCapture]="true"
+			(keydown.escape)="!savingSearch() && saveDialog.set(false)"
+		>
+			<h2 id="saved-search-title">
+				{{ 'app.modules.repository-search.save-search-87f20a' | webuiMessage: 'Save search' }}
+			</h2>
+			<form (ngSubmit)="saveSearch()">
+				<label
+					>{{ 'app.modules.repository-search.title-578690' | webuiMessage: 'Title'
+					}}<input name="savedSearchTitle" [(ngModel)]="savedSearchTitle" required cdkFocusInitial
+				/></label>
+				@if (savedSearchError()) {
+					<p role="alert">{{ savedSearchError() }}</p>
+				}
+				<div class="buttons">
+					<button type="button" (click)="saveDialog.set(false)" [disabled]="savingSearch()">
+						{{ 'app.modules.repository-search.cancel-32f1be' | webuiMessage: 'Cancel' }}
+					</button>
+					@if (selectedSavedSearch) {
+						<button
+							type="button"
+							(click)="saveSearch(true)"
+							[disabled]="savingSearch() || !savedSearchTitle.trim()"
+						>
+							{{ 'app.modules.repository-search.update-2b3327' | webuiMessage: 'Update' }}
+						</button>
+					}
+					<button type="submit" [disabled]="savingSearch() || !savedSearchTitle.trim()">
+						{{ 'app.modules.repository-search.save-e6d04b' | webuiMessage: 'Save' }}
+					</button>
+				</div>
+			</form>
+		</section>
+	</div>
+}

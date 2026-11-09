@@ -1,0 +1,298 @@
+{
+  "command.menu": {
+    "english": "Menu",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "exportButton.imageToPDF": {
+    "english": "PDF",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "exportButton.pdf": {
+    "english": "PDF",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "exportButton.FullHD": {
+    "english": "Full HD",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "tree.loadMore": {
+    "english": "...",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "app.title.drive": {
+    "english": "Nuxeo Drive",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "app.user.drive": {
+    "english": "Nuxeo Drive",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "drivePage.heading": {
+    "english": "Nuxeo Drive",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "authenticationTokensManagement.token": {
+    "english": "Token",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "cloudServices.tokens": {
+    "english": "Tokens",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "drivePage.tokens": {
+    "english": "Tokens",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "csv.import": {
+    "english": "CSV",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Andorra": {
+    "english": "Andorra",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Angola": {
+    "english": "Angola",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Argentina": {
+    "english": "Argentina",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Aruba": {
+    "english": "Aruba",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Barbados": {
+    "english": "Barbados",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Belize": {
+    "english": "Belize",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Brunei_Darussalam": {
+    "english": "Brunei Darussalam",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Burundi": {
+    "english": "Burundi",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Chile": {
+    "english": "Chile",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.China": {
+    "english": "China",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Costa_Rica": {
+    "english": "Costa Rica",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Cuba": {
+    "english": "Cuba",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.El_Salvador": {
+    "english": "El Salvador",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Fiji": {
+    "english": "Fiji",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Gibraltar": {
+    "english": "Gibraltar",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Guatemala": {
+    "english": "Guatemala",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Haiti": {
+    "english": "Haiti",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Honduras": {
+    "english": "Honduras",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Hong_Kong": {
+    "english": "Hong Kong",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Israel": {
+    "english": "Israel",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Jamaica": {
+    "english": "Jamaica",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Jersey": {
+    "english": "Jersey",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Mali": {
+    "english": "Mali",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Malta": {
+    "english": "Malta",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Montenegro": {
+    "english": "Montenegro",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Nauru": {
+    "english": "Nauru",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Nepal": {
+    "english": "Nepal",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Niue": {
+    "english": "Niue",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Palau": {
+    "english": "Palau",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Peru": {
+    "english": "Peru",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Portugal": {
+    "english": "Portugal",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Samoa": {
+    "english": "Samoa",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Senegal": {
+    "english": "Senegal",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Suriname": {
+    "english": "Suriname",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Taiwan": {
+    "english": "Taiwan",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Timor_Leste": {
+    "english": "Timor-Leste",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Togo": {
+    "english": "Togo",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Tonga": {
+    "english": "Tonga",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Tuvalu": {
+    "english": "Tuvalu",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Uganda": {
+    "english": "Uganda",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Vanuatu": {
+    "english": "Vanuatu",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.country.Venezuela": {
+    "english": "Venezuela",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.nature.fax": {
+    "english": "Fax",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.directories.subtopic.cinema": {
+    "english": "Cinema",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "label.document.type.threed": {
+    "english": "3D",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "liveconnectImportActions.dropbox": {
+    "english": "Dropbox",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "liveconnectImportActions.googledrive": {
+    "english": "Google Drive",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "liveconnectImportActions.onedrive": {
+    "english": "OneDrive",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "mimetype.text/html": {
+    "english": "HTML",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "mimetype.text/x-web-markdown": {
+    "english": "Markdown",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "mimetype.text/xml": {
+    "english": "XML",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "pictureViewLayout.exif": {
+    "english": "EXIF",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "pictureViewLayout.iptc": {
+    "english": "IPTC",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "pictureViewLayout.iso": {
+    "english": "ISO",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "themes.default": {
+    "english": "Nuxeo",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "themes.kawaii": {
+    "english": "Kawaii",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "versions.version": {
+    "english": "{0}.{1}",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "vocabularyManagement.edit.id": {
+    "english": "ID",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "wopiLink.excel.tooltip": {
+    "english": "Microsoft Excel Online",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "wopiLink.powerpoint.tooltip": {
+    "english": "Microsoft PowerPoint Online",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "wopiLink.wopitest.tooltip": {
+    "english": "Microsoft WOPI Test",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  },
+  "wopiLink.word.tooltip": {
+    "english": "Microsoft Word Online",
+    "reason": "Proper name, technical token, or identical Portuguese spelling; explicitly retained."
+  }
+}

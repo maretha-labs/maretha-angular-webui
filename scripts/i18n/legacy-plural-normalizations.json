@@ -1,0 +1,20 @@
+{
+  "locale": "ro",
+  "rule": "Added missing CLDR one/few branches using existing singular/other text; existing exact selectors retained.",
+  "keys": [
+    "general.date.seconds",
+    "general.date.minutes",
+    "general.date.hours",
+    "general.date.days",
+    "general.date.weeks",
+    "general.date.months",
+    "general.date.years",
+    "rights.Read",
+    "rights.ReadWrite",
+    "rights.Everything",
+    "rights.ManageLegalHold",
+    "rights.ManageRecord",
+    "rights.Version",
+    "tooltips.pendingTasks"
+  ]
+}

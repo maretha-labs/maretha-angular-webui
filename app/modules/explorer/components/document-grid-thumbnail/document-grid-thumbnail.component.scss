@@ -1,0 +1,164 @@
+// Stock nuxeo-document-grid-thumbnail at the stock 13px scale (its em values resolved to px): a
+// 220×260 box with a 2px frame, 5.2/10.4px margins, 190px thumbnail, 32.5px check at 13px inset.
+:host {
+	position: relative;
+	display: block;
+	box-sizing: content-box;
+	width: 220px;
+	height: 260px;
+	margin: 0 5.2px 10.4px;
+	border: 2px solid transparent;
+	background: var(--nuxeo-box, #fff);
+	box-shadow: 0 3px 5px rgb(0 0 0 / 4%);
+	color: var(--nuxeo-text-default);
+	font-size: 13px;
+	letter-spacing: 0.16px;
+	line-height: 20px;
+	cursor: pointer;
+}
+:host(:hover),
+:host(:has(:focus-visible)) {
+	border-color: var(--nuxeo-link-hover-color, var(--nuxeo-primary-color));
+}
+:host(.nx-grid-thumbnail--selected) {
+	border-color: var(--nuxeo-grid-selected, var(--nuxeo-primary-color));
+}
+:host(.nx-grid-thumbnail--disabled) {
+	cursor: default;
+}
+:host(.nx-grid-thumbnail--disabled) .nx-grid-thumbnail__body {
+	opacity: 0.5;
+}
+
+.nx-grid-thumbnail__body {
+	display: block;
+	color: var(--nuxeo-link-color, var(--nuxeo-text-default));
+	text-decoration: none;
+}
+
+.nx-grid-thumbnail__thumb {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 190px;
+	overflow: hidden;
+	background: rgb(0 0 0 / 10%);
+}
+.nx-grid-thumbnail__thumb img {
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.nx-grid-thumbnail__title {
+	display: block;
+	margin-bottom: 5.2px;
+	padding: 3.9px 10.4px 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+:host(:hover) a .nx-grid-thumbnail__title {
+	color: var(--nuxeo-link-hover-color, var(--nuxeo-primary-color));
+}
+
+// Stock --nuxeo-tag mixin: .2rem .5rem padding, .8rem text, .02em tracking, 2em radius.
+.nx-grid-thumbnail__tag {
+	display: inline-block;
+	margin: 0 10.4px 3.12px;
+	padding: 2.6px 6.5px;
+	border-radius: 2em;
+	background: var(--nuxeo-tag-background, rgb(0 0 0 / 5%));
+	color: var(--nuxeo-tag-text, var(--nuxeo-text-default));
+	font-size: 10.4px;
+	letter-spacing: 0.208px;
+	line-height: 13px;
+}
+
+// The round check over the thumbnail: shown on hover or focus, when checked, and on every card
+// while any is selected; a white tick on the primary colour when hovered or checked.
+.nx-grid-thumbnail__select {
+	position: absolute;
+	top: 13px;
+	inset-inline-start: 13px;
+	z-index: 2;
+	box-sizing: content-box;
+	width: 32.5px;
+	height: 32.5px;
+	margin: 0;
+	appearance: none;
+	border: 2px solid #ddd;
+	border-radius: 50%;
+	background: var(--nuxeo-box, #fff);
+	opacity: 0;
+	cursor: pointer;
+	transition: opacity 0.2s ease;
+}
+:host(:hover) .nx-grid-thumbnail__select,
+:host(:has(:focus-visible)) .nx-grid-thumbnail__select,
+:host(.nx-grid-thumbnail--selecting) .nx-grid-thumbnail__select,
+.nx-grid-thumbnail__select:checked {
+	opacity: 1;
+}
+.nx-grid-thumbnail__select::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	width: 16px;
+	height: 7px;
+	border-inline-start: 2px solid var(--nuxeo-text-default, #3a3a54);
+	border-block-end: 2px solid var(--nuxeo-text-default, #3a3a54);
+	transform: translateY(-2px) rotate(-45deg);
+}
+.nx-grid-thumbnail__select:hover {
+	border-color: var(--nuxeo-button-primary, var(--nuxeo-primary-color));
+	background: var(--nuxeo-button-primary, var(--nuxeo-primary-color));
+}
+.nx-grid-thumbnail__select:checked {
+	border-color: var(--nuxeo-grid-selected, var(--nuxeo-primary-color));
+	background: var(--nuxeo-grid-selected, var(--nuxeo-primary-color));
+}
+.nx-grid-thumbnail__select:hover::after,
+.nx-grid-thumbnail__select:checked::after {
+	border-color: #fff;
+}
+.nx-grid-thumbnail__select:disabled {
+	cursor: default;
+}
+
+// The actions strip covers the card foot on hover. Stock keeps it on a card whose check was just
+// ticked (it holds focus) and drops it on a pointer deselect (WEBUI-2056).
+.nx-grid-thumbnail__actions {
+	position: absolute;
+	inset: auto 0 0;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	min-height: 32.5px;
+	background: var(--nuxeo-box, #fff);
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
+:host(:hover) .nx-grid-thumbnail__actions,
+:host(:has(:focus-visible)) .nx-grid-thumbnail__actions,
+:host(:has(.nx-grid-thumbnail__select:checked:focus)) .nx-grid-thumbnail__actions {
+	opacity: 1;
+}
+.nx-grid-thumbnail__actions button {
+	width: 40px;
+	height: 40px;
+	padding: 8px;
+	border: 0;
+	background: transparent;
+	color: var(--nuxeo-text-default, #414458);
+	cursor: pointer;
+	--webui-icon-size: 24px;
+}
+.nx-grid-thumbnail__actions button[aria-pressed='true'] {
+	color: var(--nuxeo-action-color-activated, var(--nuxeo-primary-color, #06c));
+}
+.nx-grid-thumbnail__actions button:hover {
+	color: var(--nuxeo-primary-color, #06c);
+}

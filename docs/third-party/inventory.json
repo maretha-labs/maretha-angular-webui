@@ -1,0 +1,102 @@
+{
+  "$comment": "Third-party material in this repository and its builds. npm production dependencies are checked package by package by npm run verify:licenses, which also fails when a file under assets/js/ is missing here. See README.md.",
+  "components": [
+    {
+      "name": "npm production dependencies",
+      "origin": "npm registry, as locked in package-lock.json",
+      "version": "package-lock.json",
+      "license": "Per package, checked against the allowlist in scripts/verify-licenses.mjs",
+      "notice": "3rdpartylicenses.txt in the production build; ngx-extended-pdf-viewer's NOTICE is repeated in NOTICE",
+      "attribution": "Licence texts in 3rdpartylicenses.txt, including the Font Awesome Free licence (CC-BY-4.0 AND MIT) for the @fortawesome icon packages",
+      "files": []
+    },
+    {
+      "name": "three.js",
+      "origin": "https://github.com/mrdoob/three.js, build/three.js at tag r92, unchanged",
+      "version": "r92",
+      "sha256": "cb91e5a9c8413263d61b635029a732b0a105ccbd13ce2f41f473d60923871688",
+      "license": "MIT",
+      "notice": "assets/js/LICENSE-three.js.txt (LICENSE at tag r92)",
+      "attribution": "Copyright © 2010-2018 three.js authors",
+      "files": ["assets/js/three.js", "assets/js/LICENSE-three.js.txt"]
+    },
+    {
+      "name": "three.js LegacyGLTFLoader",
+      "origin": "https://github.com/mrdoob/three.js, examples/js/loaders/deprecated/LegacyGLTFLoader.js at tag r92, with one added line: case \"CESIUM_RTC_MODELVIEW\" next to case \"MODELVIEW\"",
+      "version": "r92 plus one line",
+      "sha256": "46c09fcb50e05483a6221dbe33c528eaa94b547aa11c7e4b4997a42b85428a60",
+      "license": "MIT",
+      "notice": "assets/js/LICENSE-three.js.txt (LICENSE at tag r92)",
+      "attribution": "Copyright © 2010-2018 three.js authors",
+      "files": ["assets/js/LegacyGLTFLoader.js"]
+    },
+    {
+      "name": "PDF.js viewer resources",
+      "origin": "ngx-extended-pdf-viewer 25.6.4, bleeding-edge/ (PDF.js 5.4.1106), copied to /bleeding-edge/ by angular.json",
+      "version": "25.6.4",
+      "license": "Apache-2.0 AND BSD-2-Clause AND BSD-3-Clause AND MIT AND OFL-1.1 AND MPL-2.0",
+      "notice": "Licence files ship next to the resources: cmaps/LICENSE and standard_fonts/LICENSE_FOXIT (BSD-3-Clause), standard_fonts/LICENSE_LIBERATION (OFL-1.1), wasm/LICENSE_OPENJPEG, wasm/LICENSE_PDFJS_OPENJPEG and wasm/LICENSE_PDFJS_QCMS (BSD-2-Clause), wasm/LICENSE_QCMS (MIT). Viewer and worker scripts carry the Apache-2.0 header; locale/*/viewer.ftl carry the MPL-2.0 header.",
+      "attribution": "Kept in the shipped licence files and file headers; unmodified",
+      "files": []
+    },
+    {
+      "name": "Nuxeo Web UI and Nuxeo Elements derived material",
+      "origin": "https://github.com/nuxeo/nuxeo-elements and https://github.com/nuxeo/nuxeo-web-ui at the revisions in app/extensions/polymer-assets.provenance.json",
+      "version": "app/extensions/polymer-assets.provenance.json",
+      "license": "Apache-2.0",
+      "notice": "app/extensions/NOTICE, repeated in NOTICE; licence app/extensions/LICENSE-APACHE-2.0",
+      "attribution": "©2023 Hyland Software, Inc. and its affiliates",
+      "files": []
+    },
+    {
+      "name": "Polymer iron-icons arrow paths",
+      "origin": "@polymer/iron-icons",
+      "version": "app/extensions/polymer-assets.provenance.json",
+      "license": "BSD-3-Clause",
+      "notice": "app/extensions/NOTICE; licence app/extensions/LICENSE-POLYMER-BSD",
+      "attribution": "Copyright (c) 2014 The Polymer Project Authors",
+      "files": []
+    },
+    {
+      "name": "Nuxeo Web UI theme images",
+      "origin": "https://github.com/nuxeo/nuxeo-web-ui at e0ccb86615c692a3a60c557d363d4ce32f91c686: themes/kawaii/background.png and themes/<name>/preview.jpg, unchanged",
+      "version": "e0ccb86615c692a3a60c557d363d4ce32f91c686",
+      "sha256": {
+        "assets/themes/kawaii-background.png": "f4a5e8f072bfd00ce2695b8b874d3adc19cf7dd5c961c29c30b37a8c2bcab400",
+        "assets/themes/default-preview.jpg": "967b11b3d0f82f300873a23393532f529721b340e41dddcdf06f6a6c706f002e",
+        "assets/themes/dark-preview.jpg": "3a39985b58e8c112bef611e2d3b36c85db4ef86606ab90358e47c345c0557c73",
+        "assets/themes/light-preview.jpg": "c1a998f1711c25bff07e8083e07623d3ef6c2dea0949ae5d5a802830b35ed71d",
+        "assets/themes/kawaii-preview.jpg": "ddb9e6c168dfb2fd2426ac0947edad65886c1311658d01c4c908ea1d4849570c"
+      },
+      "license": "Apache-2.0",
+      "notice": "assets/themes/NOTICE, repeated in NOTICE; licence assets/themes/LICENSE-APACHE-2.0",
+      "attribution": "©2023 Hyland Software, Inc. and its affiliates",
+      "files": [
+        "assets/themes/kawaii-background.png",
+        "assets/themes/default-preview.jpg",
+        "assets/themes/dark-preview.jpg",
+        "assets/themes/light-preview.jpg",
+        "assets/themes/kawaii-preview.jpg"
+      ]
+    },
+    {
+      "name": "model-viewer AR hand icon",
+      "origin": "https://github.com/google/model-viewer, packages/shared-assets/icons/hand.png (last changed in 9d6532baf8168ac2a97d993b320e4acd8f952de4), unchanged",
+      "version": "9d6532baf8168ac2a97d993b320e4acd8f952de4",
+      "sha256": "df2fafa664b477e0426559f930617206bc3a5feb848fd6e7c8eba5a8900fbc0f",
+      "license": "Apache-2.0",
+      "notice": "packages/shared-assets/LICENSE in that repository (Apache-2.0); the text is LICENSE",
+      "attribution": "Google model-viewer authors",
+      "files": ["assets/images/model-viewer/hand.png"]
+    },
+    {
+      "name": "ngx-toastr Bootstrap alert stylesheet, adapted",
+      "origin": "https://github.com/scttcper/ngx-toastr, toastr-bs4-alert.scss (diffed against the copy in ngx-toastr 19.1.0 as locked), restyled for this UI: Sass modules, logical properties and this theme's variables. The four status icons are the Font Awesome paths that stylesheet embeds, kept with its source comments",
+      "version": "ngx-toastr 19.1.0",
+      "license": "MIT",
+      "notice": "3rdpartylicenses.txt in the production build (ngx-toastr)",
+      "attribution": "Copyright (c) Scott Cooper",
+      "files": ["styles/toastr.scss"]
+    }
+  ]
+}

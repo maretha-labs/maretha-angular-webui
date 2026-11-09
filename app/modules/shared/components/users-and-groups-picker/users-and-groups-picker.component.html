@@ -1,0 +1,70 @@
+<div class="form-control" [class.required]="required">
+	<label [for]="id">{{ label }}</label>
+	<ng-select
+		[formControl]="formControl"
+		class="ng-select-sm ng-select-discreet"
+		[id]="id"
+		[hideSelected]="true"
+		[multiple]="multiple"
+		[placeholder]="placeholder"
+		[clearable]="clearable"
+		[addTag]="addTag"
+		[selectOnTab]="true"
+		[items]="items$ | async"
+		[trackByFn]="trackByFn"
+		[loading]="loading"
+		[typeahead]="searchTerm$"
+		[nxSuggestionLimits]="limits()"
+		groupBy="type"
+		[bindValue]="bindValue"
+		[bindLabel]="bindLabel"
+		[compareWith]="compareFn"
+		(focus)="fetchEntries($event)"
+	>
+		<ng-template ng-optgroup-tmp let-item="item">
+			<b class="text-primary">{{
+				item.type === 'USER_TYPE'
+					? ('app.modules.users-and-groups-picker.users-afc181' | webuiMessage: 'Users')
+					: ('app.modules.users-and-groups-picker.user-groups-17ec0f' | webuiMessage: 'User groups')
+			}}</b>
+		</ng-template>
+		<ng-template ng-option-tmp let-item="item">
+			<fa-icon [icon]="item.type === 'USER_TYPE' || findOnlyUsers ? 'user' : 'users'"></fa-icon>
+			{{ item[bindLabel] }}
+		</ng-template>
+		<ng-template ng-label-tmp let-item="item">
+			<span class="ng-value-label">
+				<fa-icon [icon]="item.type === 'USER_TYPE' || findOnlyUsers ? 'user' : 'users'"></fa-icon>
+				{{ item[bindLabel] }}
+			</span>
+		</ng-template>
+		<ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
+			@for (item of items; track item) {
+				<div class="ng-value">
+					<span
+						[tooltip]="
+							'app.modules.users-and-groups-picker.click-to-add-a-new-item-21dc83'
+								| webuiMessage: 'Click to add a new item'
+						"
+						class="ng-value-label"
+					>
+						<fa-icon
+							[icon]="item.type === 'USER_TYPE' || findOnlyUsers ? 'user' : 'users'"
+						></fa-icon>
+						{{ item[bindLabel] }}
+					</span>
+					<span
+						(click)="clear(item)"
+						[tooltip]="
+							'app.modules.users-and-groups-picker.remove-this-item-ebd1ce'
+								| webuiMessage: 'Remove this item'
+						"
+						class="ng-value-icon right"
+						aria-hidden="true"
+						>×</span
+					>
+				</div>
+			}
+		</ng-template>
+	</ng-select>
+</div>

@@ -1,0 +1,85 @@
+<button
+	type="button"
+	class="selection-icon-action"
+	[tooltip]="label() ?? ('bulkDownload.tooltip' | webuiMessage: 'Download selection')"
+	[attr.aria-label]="label() ?? ('bulkDownload.tooltip' | webuiMessage: 'Download selection')"
+	#actionTip="bs-tooltip"
+	container="body"
+	containerClass="document-action-tooltip"
+	placement="bottom"
+	[adaptivePosition]="true"
+	boundariesElement="viewport"
+	triggers="mouseenter:mouseleave focus:blur"
+	[delay]="250"
+	(keydown.escape)="actionTip.hide()"
+	(pointerdown)="actionTip.hide()"
+	[disabled]="loading() || context().busy || !context().selectedDocuments.length"
+	(click)="download()"
+>
+	<nx-webui-icon name="nuxeo:download" />
+	@if (label()) {
+		<span class="action-label">{{ label() }}</span>
+	}
+</button>
+@if (loading()) {
+	<span role="status">{{
+		phase() === 'cancelling'
+			? ('app.modules.selection-download.cancelling-preparation-c4abcd'
+				| webuiMessage: 'Cancelling preparation…')
+			: job()?.state === 'queued'
+				? ('app.modules.selection-download.archive-preparation-queued-9e00e4'
+					| webuiMessage: 'Archive preparation queued…')
+				: ('app.modules.selection-download.preparing-archive-e329af'
+					| webuiMessage: 'Preparing archive…')
+	}}</span>
+	@if (job()?.total) {
+		<progress
+			[value]="job()!.completed"
+			[max]="job()!.total"
+			[attr.aria-label]="
+				'app.modules.selection-download.archive-preparation-890e23'
+					| webuiMessage: 'Archive preparation'
+			"
+		></progress>
+		<span>{{
+			'download.prepared'
+				| webuiMessage
+					: '{completed, number} of {total, number} files prepared'
+					: { completed: job()!.completed, total: job()!.total }
+		}}</span>
+	}
+}
+@if (canCancel()) {
+	<button type="button" [disabled]="phase() === 'cancelling'" (click)="cancel()">
+		{{
+			'app.modules.selection-download.cancel-preparation-27620f'
+				| webuiMessage: 'Cancel preparation'
+		}}
+	</button>
+}
+@if (error()) {
+	<span role="alert">{{ error() }}</span>
+}
+@if (canRetry()) {
+	<button type="button" (click)="retryStatus()">
+		{{ 'app.modules.selection-download.retry-status-fa6296' | webuiMessage: 'Retry status' }}
+	</button>
+}
+@if (phase() === 'cancelled') {
+	<span role="status">{{
+		'app.modules.selection-download.archive-preparation-cancelled-8616cb'
+			| webuiMessage: 'Archive preparation cancelled.'
+	}}</span>
+}
+@if (started()) {
+	<span role="status">{{
+		'app.modules.selection-download.download-started-check-your-browser-s-down-019c3e'
+			| webuiMessage
+				: "Download started. Check your browser's downloads. If it failed or was interrupted,\n				regenerate the ZIP."
+	}}</span>
+}
+@if (canRegenerate()) {
+	<button type="button" (click)="regenerate()">
+		{{ 'app.modules.selection-download.regenerate-zip-c7a692' | webuiMessage: 'Regenerate ZIP' }}
+	</button>
+}

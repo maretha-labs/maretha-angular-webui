@@ -1,0 +1,706 @@
+{
+  "locale": "it",
+  "review": "Assistant review; independent native-speaker review remains pending.",
+  "unchanged": [
+    {
+      "key": "general.fileSize.kb",
+      "text": "KB",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "general.fileSize.mb",
+      "text": "MB",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "general.fileSize.gb",
+      "text": "GB",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "general.fileSize.tb",
+      "text": "TB",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "general.fileSize.pb",
+      "text": "PB",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "general.fileSize.eb",
+      "text": "EB",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "general.fileSize.zb",
+      "text": "ZB",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "general.fileSize.yb",
+      "text": "YB",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "pageProviders.nxql_search.label",
+      "text": "NXQL",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "pageProviders.nxql_search.queryParams",
+      "text": "Query",
+      "reason": "Valid Italian shared spelling or established loanword, reviewed for this exact UI context (for example file, account, email, schema and repository)."
+    },
+    {
+      "key": "directories.continent.africa",
+      "text": "Africa",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.continent.asia",
+      "text": "Asia",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.continent.oceania",
+      "text": "Oceania",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Afghanistan",
+      "text": "Afghanistan",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Albania",
+      "text": "Albania",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Algeria",
+      "text": "Algeria",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Andorra",
+      "text": "Andorra",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Angola",
+      "text": "Angola",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Anguilla",
+      "text": "Anguilla",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Argentina",
+      "text": "Argentina",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Armenia",
+      "text": "Armenia",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Aruba",
+      "text": "Aruba",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Australia",
+      "text": "Australia",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Austria",
+      "text": "Austria",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Bahamas",
+      "text": "Bahamas",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Bangladesh",
+      "text": "Bangladesh",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Barbados",
+      "text": "Barbados",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Belize",
+      "text": "Belize",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Benin",
+      "text": "Benin",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Bermuda",
+      "text": "Bermuda",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Bhutan",
+      "text": "Bhutan",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Bolivia",
+      "text": "Bolivia",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Botswana",
+      "text": "Botswana",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Bulgaria",
+      "text": "Bulgaria",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Burkina_Faso",
+      "text": "Burkina Faso",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Burundi",
+      "text": "Burundi",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Canada",
+      "text": "Canada",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Colombia",
+      "text": "Colombia",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Costa_Rica",
+      "text": "Costa Rica",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Cuba",
+      "text": "Cuba",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Dominica",
+      "text": "Dominica",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Ecuador",
+      "text": "Ecuador",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.El_Salvador",
+      "text": "El Salvador",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Eritrea",
+      "text": "Eritrea",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Estonia",
+      "text": "Estonia",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Gabon",
+      "text": "Gabon",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Gambia",
+      "text": "Gambia",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Georgia",
+      "text": "Georgia",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Ghana",
+      "text": "Ghana",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Grenada",
+      "text": "Grenada",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Guam",
+      "text": "Guam",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Guatemala",
+      "text": "Guatemala",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Guernsey",
+      "text": "Guernsey",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Guinea",
+      "text": "Guinea",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Haiti",
+      "text": "Haiti",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Honduras",
+      "text": "Honduras",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.India",
+      "text": "India",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Indonesia",
+      "text": "Indonesia",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Iran",
+      "text": "Iran",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Iraq",
+      "text": "Iraq",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Jersey",
+      "text": "Jersey",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Kenya",
+      "text": "Kenya",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Kiribati",
+      "text": "Kiribati",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Kuwait",
+      "text": "Kuwait",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Lesotho",
+      "text": "Lesotho",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Liberia",
+      "text": "Liberia",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Liechtenstein",
+      "text": "Liechtenstein",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Madagascar",
+      "text": "Madagascar",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Malawi",
+      "text": "Malawi",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Mali",
+      "text": "Mali",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Malta",
+      "text": "Malta",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Mauritania",
+      "text": "Mauritania",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Mauritius",
+      "text": "Mauritius",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Mayotte",
+      "text": "Mayotte",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Micronesia",
+      "text": "Micronesia",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Monaco",
+      "text": "Monaco",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Mongolia",
+      "text": "Mongolia",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Montenegro",
+      "text": "Montenegro",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Namibia",
+      "text": "Namibia",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Nauru",
+      "text": "Nauru",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Nepal",
+      "text": "Nepal",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Nicaragua",
+      "text": "Nicaragua",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Niger",
+      "text": "Niger",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Nigeria",
+      "text": "Nigeria",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Niue",
+      "text": "Niue",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Oman",
+      "text": "Oman",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Pakistan",
+      "text": "Pakistan",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Palau",
+      "text": "Palau",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Panama",
+      "text": "Panama",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Paraguay",
+      "text": "Paraguay",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Qatar",
+      "text": "Qatar",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Romania",
+      "text": "Romania",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Samoa",
+      "text": "Samoa",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.San_Marino",
+      "text": "San Marino",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Senegal",
+      "text": "Senegal",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Serbia",
+      "text": "Serbia",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Seychelles",
+      "text": "Seychelles",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Sierra_Leone",
+      "text": "Sierra Leone",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Singapore",
+      "text": "Singapore",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Slovenia",
+      "text": "Slovenia",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Somalia",
+      "text": "Somalia",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Sri_Lanka",
+      "text": "Sri Lanka",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Sudan",
+      "text": "Sudan",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Suriname",
+      "text": "Suriname",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Taiwan",
+      "text": "Taiwan",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Tanzania",
+      "text": "Tanzania",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Togo",
+      "text": "Togo",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Tonga",
+      "text": "Tonga",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Tunisia",
+      "text": "Tunisia",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Turkmenistan",
+      "text": "Turkmenistan",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Tuvalu",
+      "text": "Tuvalu",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Uganda",
+      "text": "Uganda",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Uruguay",
+      "text": "Uruguay",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Uzbekistan",
+      "text": "Uzbekistan",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Vanuatu",
+      "text": "Vanuatu",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Venezuela",
+      "text": "Venezuela",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Yemen",
+      "text": "Yemen",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Zambia",
+      "text": "Zambia",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.country.Zimbabwe",
+      "text": "Zimbabwe",
+      "reason": "Country or continent name has the same standard spelling in this locale; reviewed against the explicit geographic key rather than treating all equal text as translated."
+    },
+    {
+      "key": "directories.nature.fax",
+      "text": "Fax",
+      "reason": "Valid Italian shared spelling or established loanword, reviewed for this exact UI context (for example file, account, email, schema and repository)."
+    },
+    {
+      "key": "directories.subtopic.cinema",
+      "text": "Cinema",
+      "reason": "Valid Italian shared spelling or established loanword, reviewed for this exact UI context (for example file, account, email, schema and repository)."
+    },
+    {
+      "key": "directories.subtopic.sport",
+      "text": "Sport",
+      "reason": "Valid Italian shared spelling or established loanword, reviewed for this exact UI context (for example file, account, email, schema and repository)."
+    },
+    {
+      "key": "app.components.principal-page.email",
+      "text": "Email",
+      "reason": "Valid Italian shared spelling or established loanword, reviewed for this exact UI context (for example file, account, email, schema and repository)."
+    },
+    {
+      "key": "app.components.user-cloud-services-page.account-48d01e",
+      "text": "Account",
+      "reason": "Valid Italian shared spelling or established loanword, reviewed for this exact UI context (for example file, account, email, schema and repository)."
+    },
+    {
+      "key": "app.modules.document-navigation-bar.pdf-ec3812",
+      "text": "PDF",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "app.modules.document-navigation-bar.zip-45b8b4",
+      "text": "ZIP",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "app.modules.standard-content-editor.file-d0c84e",
+      "text": "File",
+      "reason": "Valid Italian shared spelling or established loanword, reviewed for this exact UI context (for example file, account, email, schema and repository)."
+    },
+    {
+      "key": "app.modules.note-richtext-editor.a-776e45",
+      "text": "A",
+      "reason": "Formatting symbol, technical unit or parameter-only composition has no language-specific prose to translate."
+    },
+    {
+      "key": "app.modules.note-richtext-editor.https-www-youtube-com-watch-v-fcedf3",
+      "text": "https://www.youtube.com/watch?v=…",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "app.modules.note-richtext-editor.https-2dc83c",
+      "text": "https://",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "app.modules.standard-document-permissions-view.email-6432e4",
+      "text": "Email",
+      "reason": "Valid Italian shared spelling or established loanword, reviewed for this exact UI context (for example file, account, email, schema and repository)."
+    },
+    {
+      "key": "app.modules.video-renderer.fps-c3b44a",
+      "text": "FPS",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "app.modules.analytics.default-domain-workspaces-b068de",
+      "text": "/default-domain/workspaces/",
+      "reason": "Technical unit, protocol/example URL, repository path or format identifier intentionally preserves its exact value."
+    },
+    {
+      "key": "app.modules.content-management.schema-0ce0fe",
+      "text": "Schema",
+      "reason": "Valid Italian shared spelling or established loanword, reviewed for this exact UI context (for example file, account, email, schema and repository)."
+    },
+    {
+      "key": "app.modules.metadata-policy.i-c68a5b",
+      "text": "i",
+      "reason": "Formatting symbol, technical unit or parameter-only composition has no language-specific prose to translate."
+    },
+    {
+      "key": "app.modules.metadata-policy.schema-18906d",
+      "text": "Schema",
+      "reason": "Valid Italian shared spelling or established loanword, reviewed for this exact UI context (for example file, account, email, schema and repository)."
+    },
+    {
+      "key": "app.modules.vocabularies.no-2256cf",
+      "text": "No",
+      "reason": "Valid Italian shared spelling or established loanword, reviewed for this exact UI context (for example file, account, email, schema and repository)."
+    },
+    {
+      "key": "validation.nested",
+      "text": "{field}: {error}",
+      "reason": "Formatting symbol, technical unit or parameter-only composition has no language-specific prose to translate."
+    },
+    {
+      "key": "picture.depth",
+      "text": "{colorSpace} · {depth, number} bit",
+      "reason": "Formatting symbol, technical unit or parameter-only composition has no language-specific prose to translate."
+    },
+    {
+      "key": "analytics.milliseconds",
+      "text": "{value, number} ms",
+      "reason": "Formatting symbol, technical unit or parameter-only composition has no language-specific prose to translate."
+    }
+  ]
+}

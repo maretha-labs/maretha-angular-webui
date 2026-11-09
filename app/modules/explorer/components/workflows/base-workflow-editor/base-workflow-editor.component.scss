@@ -1,0 +1,79 @@
+abbr {
+	border-block-end: 1px dotted;
+	cursor: help;
+}
+
+.card-body {
+	height: 200px;
+	overflow: auto;
+}
+
+.modal-footer .btn + .btn {
+	border-inline-start: 1px solid var(--bs-border-color);
+}
+
+.text-sentencecase {
+	text-transform: lowercase;
+
+	&::first-letter {
+		text-transform: uppercase;
+	}
+}
+
+// Inline on the task page (stock nuxeo-document-task): no dialog chrome; the task actions are
+// primary paper-buttons, end-aligned under the layout.
+:host(.nx-workflow-editor--embedded) {
+	display: block;
+
+	.modal-body {
+		padding: 0;
+	}
+}
+.nx-task-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: flex-end;
+	row-gap: 8px;
+}
+.nx-task-actions__primary,
+.nx-task-actions__discard {
+	min-width: 96px;
+	min-height: 40px;
+	margin: 0;
+	padding: 8px 16px;
+	border-radius: 0.1em;
+	font-family: var(--nuxeo-app-font);
+	font-size: 13px;
+	font-weight: 600;
+	text-transform: capitalize;
+	cursor: pointer;
+}
+.nx-task-actions__primary {
+	border: 1px solid var(--nuxeo-primary-color, #0066ff);
+	background-color: var(--nuxeo-button-primary, #0066ff);
+	color: var(--nuxeo-button-primary-text, #fff);
+}
+// Stock `paper-button + paper-button` spacing.
+.nx-task-actions__primary + .nx-task-actions__primary {
+	margin-inline: 8px;
+}
+.nx-task-actions__primary:hover,
+.nx-task-actions__primary:focus-visible {
+	border-color: var(--nuxeo-button-primary-focus, #1f28bf);
+	background-color: var(--nuxeo-button-primary-focus, #1f28bf);
+	outline: 0;
+}
+.nx-task-actions__discard {
+	margin-inline-end: auto;
+	border: 0;
+	background: transparent;
+	color: var(--nuxeo-button-secondary-text, var(--nuxeo-primary-color, #0066ff));
+}
+.nx-task-actions__primary:disabled,
+.nx-task-actions__discard:disabled {
+	border-color: transparent;
+	background-color: var(--nuxeo-button-disabled, rgba(0, 0, 0, 0.05));
+	color: var(--nuxeo-button-disabled-text, rgba(0, 0, 0, 0.1));
+	cursor: default;
+}

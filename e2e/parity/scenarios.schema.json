@@ -1,0 +1,843 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Maretha shared-feature visual parity capture inventory v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "format",
+    "version",
+    "metadata",
+    "scope",
+    "expectedBundleIdentities",
+    "bundleIdentityPolicy",
+    "captureDefaults",
+    "fixtures",
+    "exclusions",
+    "scenarios",
+    "requiredExpansionMatrix",
+    "inventoryCoverage"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "./scenarios.schema.json"
+    },
+    "format": {
+      "const": "maretha.visual-parity.scenarios"
+    },
+    "version": {
+      "const": 1
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["purpose", "inventoryDocument"],
+      "properties": {
+        "purpose": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "inventoryDocument": {
+          "$ref": "#/$defs/nonempty"
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidateSourceOnly",
+        "referenceReadOnly",
+        "sharedFeaturesOnly",
+        "copyReferenceBugs",
+        "allInventoryRowsImplemented"
+      ],
+      "properties": {
+        "candidateSourceOnly": {
+          "const": true
+        },
+        "referenceReadOnly": {
+          "const": true
+        },
+        "sharedFeaturesOnly": {
+          "const": true
+        },
+        "copyReferenceBugs": {
+          "const": false
+        },
+        "allInventoryRowsImplemented": {
+          "const": false
+        }
+      }
+    },
+    "expectedBundleIdentities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reference", "candidate"],
+      "properties": {
+        "reference": {
+          "$ref": "#/$defs/bundleIdentity"
+        },
+        "candidate": {
+          "$ref": "#/$defs/bundleIdentity"
+        }
+      }
+    },
+    "bundleIdentityPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pinnedSourceRevision", "requireRunCapture", "claim"],
+      "properties": {
+        "pinnedSourceRevision": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "requireRunCapture": {
+          "const": true
+        },
+        "claim": {
+          "$ref": "#/$defs/nonempty"
+        }
+      }
+    },
+    "captureDefaults": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifactRoot",
+        "baselinePolicy",
+        "maxAnchorDeltaCssPx",
+        "masks",
+        "captureSettle",
+        "parityClaimRequires",
+        "privacy"
+      ],
+      "properties": {
+        "artifactRoot": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "baselinePolicy": {
+          "const": "fixed-reference"
+        },
+        "maxAnchorDeltaCssPx": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "masks": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "captureSettle": {
+          "$ref": "#/$defs/nonemptyStrings"
+        },
+        "parityClaimRequires": {
+          "$ref": "#/$defs/nonemptyStrings"
+        },
+        "privacy": {
+          "$ref": "#/$defs/nonemptyStrings"
+        }
+      }
+    },
+    "fixtures": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/fixture"
+      }
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "capability", "reason", "evidence", "countsAsPass"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^X[0-9]{2}$"
+          },
+          "capability": {
+            "$ref": "#/$defs/nonempty"
+          },
+          "reason": {
+            "$ref": "#/$defs/nonempty"
+          },
+          "evidence": {
+            "$ref": "#/$defs/evidence"
+          },
+          "countsAsPass": {
+            "const": false
+          }
+        }
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/scenario"
+      }
+    },
+    "requiredExpansionMatrix": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "themes",
+        "locales",
+        "pseudoLocale",
+        "viewports",
+        "states",
+        "inputModes",
+        "documentLayouts",
+        "notInstantiatedYet"
+      ],
+      "properties": {
+        "themes": {
+          "$ref": "#/$defs/nonemptyStrings"
+        },
+        "locales": {
+          "$ref": "#/$defs/nonemptyStrings"
+        },
+        "pseudoLocale": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "viewports": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/viewport"
+          }
+        },
+        "states": {
+          "$ref": "#/$defs/nonemptyStrings"
+        },
+        "inputModes": {
+          "$ref": "#/$defs/nonemptyStrings"
+        },
+        "documentLayouts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["source", "registeredResourceCount", "claim"],
+          "properties": {
+            "source": {
+              "$ref": "#/$defs/nonempty"
+            },
+            "registeredResourceCount": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "claim": {
+              "$ref": "#/$defs/nonempty"
+            }
+          }
+        },
+        "notInstantiatedYet": {
+          "$ref": "#/$defs/nonemptyStrings"
+        }
+      }
+    },
+    "inventoryCoverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "declaredRowCount", "completeAccounting", "fullyVerified", "rows"],
+      "properties": {
+        "source": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "declaredRowCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "completeAccounting": {
+          "const": true
+        },
+        "fullyVerified": {
+          "const": false
+        },
+        "rows": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["inventory", "surface", "status", "scenarioIds", "remaining", "source"],
+            "properties": {
+              "inventory": {
+                "type": "string",
+                "pattern": "^(F0[1-6]|N0[1-8]|P0[1-6]|D(0[1-9]|1[0-4])|A0[1-9])$"
+              },
+              "surface": {
+                "$ref": "#/$defs/nonempty"
+              },
+              "status": {
+                "enum": ["representative-scenario-defined", "planned-placeholder"]
+              },
+              "scenarioIds": {
+                "$ref": "#/$defs/strings"
+              },
+              "remaining": {
+                "$ref": "#/$defs/nonemptyStrings"
+              },
+              "source": {
+                "$ref": "#/$defs/nonempty"
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "status": {
+                      "const": "planned-placeholder"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "scenarioIds": {
+                      "maxItems": 0,
+                      "type": "array"
+                    }
+                  }
+                },
+                "else": {
+                  "properties": {
+                    "scenarioIds": {
+                      "minItems": 1,
+                      "type": "array"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "nonempty": {
+      "type": "string",
+      "minLength": 1
+    },
+    "strings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/nonempty"
+      },
+      "uniqueItems": true
+    },
+    "nonemptyStrings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/nonempty"
+      },
+      "uniqueItems": true
+    },
+    "bundleIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "source"],
+      "properties": {
+        "path": {
+          "type": ["string", "null"],
+          "pattern": "^/(?!/)"
+        },
+        "sha256": {
+          "type": ["string", "null"],
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "source": {
+          "type": ["string", "null"],
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "sha256": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "path": {
+                "type": "null"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "sha256": {
+                "type": "null"
+              },
+              "source": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "source", "scope"],
+      "properties": {
+        "kind": {
+          "enum": ["deployed-observed", "source-only", "local-fixture"]
+        },
+        "source": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "scope": {
+          "$ref": "#/$defs/nonempty"
+        }
+      }
+    },
+    "fixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "availability",
+        "source",
+        "description",
+        "identity",
+        "requiredProperties"
+      ],
+      "properties": {
+        "kind": {
+          "enum": ["local-fixture", "hosted-binding"]
+        },
+        "availability": {
+          "enum": ["implemented", "unbound"]
+        },
+        "source": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "description": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "identity": {
+          "type": ["object", "null"]
+        },
+        "requiredProperties": {
+          "$ref": "#/$defs/nonemptyStrings"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "hosted-binding"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "availability": {
+                "const": "unbound"
+              },
+              "identity": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "local-fixture"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "availability": {
+                "const": "implemented"
+              },
+              "identity": {
+                "type": "object",
+                "minProperties": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "viewport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height"],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "rendering": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "viewport",
+        "locale",
+        "theme",
+        "direction",
+        "timezone",
+        "deviceScaleFactor",
+        "zoom"
+      ],
+      "properties": {
+        "viewport": {
+          "$ref": "#/$defs/viewport"
+        },
+        "locale": {
+          "enum": ["en-US", "es", "fr", "ar", "ro", "pt-PT", "it"]
+        },
+        "theme": {
+          "enum": ["default", "light", "dark", "kawaii"]
+        },
+        "direction": {
+          "enum": ["ltr", "rtl"]
+        },
+        "timezone": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "deviceScaleFactor": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "zoom": {
+          "const": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "locale": {
+                "const": "ar"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "direction": {
+                "const": "rtl"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "direction": {
+                "const": "ltr"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ready": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["selector", "state"],
+      "properties": {
+        "selector": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "state": {
+          "enum": ["visible", "attached", "hidden", "detached"]
+        }
+      }
+    },
+    "step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "selector", "safe"],
+      "properties": {
+        "type": {
+          "enum": ["hover", "focus", "click", "press"]
+        },
+        "selector": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "safe": {
+          "const": true
+        },
+        "key": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "ready": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ready"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "press"
+              }
+            }
+          },
+          "then": {
+            "required": ["key"],
+            "properties": {
+              "key": {
+                "$ref": "#/$defs/nonempty"
+              }
+            }
+          },
+          "else": {
+            "not": {
+              "required": ["key"],
+              "properties": {
+                "key": {
+                  "$ref": "#/$defs/nonempty"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "region": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "selector"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "selector": {
+          "$ref": "#/$defs/nonempty"
+        }
+      }
+    },
+    "measurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "selector", "property", "expected"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "selector": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "property": {
+          "enum": [
+            "width",
+            "height",
+            "font-size",
+            "line-height",
+            "padding",
+            "border-radius",
+            "opacity",
+            "background-color",
+            "color",
+            "font-weight",
+            "letter-spacing"
+          ]
+        },
+        "expected": {
+          "oneOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string",
+              "minLength": 1
+            }
+          ]
+        },
+        "tolerance": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runnable", "route", "ready", "steps", "regions", "measurements", "blockedBy"],
+      "properties": {
+        "runnable": {
+          "type": "boolean"
+        },
+        "route": {
+          "type": ["string", "null"],
+          "pattern": "^/(?!/)"
+        },
+        "ready": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ready"
+          }
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/step"
+          }
+        },
+        "regions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/region"
+          }
+        },
+        "measurements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/measurement"
+          }
+        },
+        "blockedBy": {
+          "$ref": "#/$defs/strings"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "runnable": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "route": {
+                "type": "string"
+              },
+              "blockedBy": {
+                "maxItems": 0,
+                "type": "array"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "blockedBy": {
+                "minItems": 1,
+                "type": "array"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "scenario": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "inventory",
+        "status",
+        "coverage",
+        "description",
+        "prerequisites",
+        "fixtures",
+        "rendering",
+        "evidenceBasis",
+        "targets",
+        "acceptance",
+        "excludedRegions"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]*$"
+        },
+        "inventory": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^(F0[1-6]|N0[1-8]|P0[1-6]|D(0[1-9]|1[0-4])|A0[1-9])$"
+          }
+        },
+        "status": {
+          "enum": ["pending", "in progress", "implemented", "verified", "excluded", "blocked"]
+        },
+        "coverage": {
+          "enum": ["component-only", "shared-feature"]
+        },
+        "description": {
+          "$ref": "#/$defs/nonempty"
+        },
+        "prerequisites": {
+          "$ref": "#/$defs/nonemptyStrings"
+        },
+        "fixtures": {
+          "$ref": "#/$defs/nonemptyStrings"
+        },
+        "rendering": {
+          "$ref": "#/$defs/rendering"
+        },
+        "evidenceBasis": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "targets": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["reference", "candidate"],
+          "properties": {
+            "reference": {
+              "$ref": "#/$defs/target"
+            },
+            "candidate": {
+              "$ref": "#/$defs/target"
+            },
+            "local": {
+              "$ref": "#/$defs/target"
+            }
+          }
+        },
+        "acceptance": {
+          "$ref": "#/$defs/nonemptyStrings"
+        },
+        "excludedRegions": {
+          "type": "array",
+          "maxItems": 0
+        }
+      }
+    }
+  }
+}

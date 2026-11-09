@@ -1,0 +1,67 @@
+<input
+	class="nx-grid-thumbnail__select"
+	type="checkbox"
+	[checked]="selected()"
+	[disabled]="selectionDisabled()"
+	[attr.aria-label]="'asset.select' | webuiMessage: 'Select {title}' : { title: document().title }"
+	(change)="toggleSelection.emit()"
+	data-nx-results-interactive
+/>
+@if (disabled()) {
+	<div class="nx-grid-thumbnail__body"><ng-container *ngTemplateOutlet="body" /></div>
+} @else if (href(); as address) {
+	<a
+		class="nx-grid-thumbnail__body"
+		[href]="address"
+		(click)="open.emit($event)"
+		data-nx-results-interactive
+		><ng-container *ngTemplateOutlet="body"
+	/></a>
+} @else {
+	<a
+		class="nx-grid-thumbnail__body"
+		[routerLink]="document() | documentLink"
+		data-nx-results-interactive
+		><ng-container *ngTemplateOutlet="body"
+	/></a>
+}
+<ng-template #body>
+	<span class="nx-grid-thumbnail__thumb">
+		@if (!thumbnailFailed()) {
+			<img [src]="thumbnail()" alt="" loading="lazy" (error)="thumbnailFailed.set(true)" />
+		}
+	</span>
+	<span class="nx-grid-thumbnail__title" [attr.title]="document().title">{{
+		document().title
+	}}</span>
+	<span class="nx-grid-thumbnail__tag">{{ typeKey() | webuiMessage: document().type }}</span>
+</ng-template>
+<div class="nx-grid-thumbnail__actions">
+	<button
+		type="button"
+		[attr.aria-pressed]="favorite()"
+		[attr.aria-label]="
+			favorite()
+				? ('favoritesToggleButton.tooltip.remove' | webuiMessage: 'Remove from favorites')
+				: ('favoritesToggleButton.tooltip.add' | webuiMessage: 'Add to favorites')
+		"
+		[attr.title]="
+			favorite()
+				? ('favoritesToggleButton.tooltip.remove' | webuiMessage: 'Remove from favorites')
+				: ('favoritesToggleButton.tooltip.add' | webuiMessage: 'Add to favorites')
+		"
+		(click)="toggleFavorite($event)"
+	>
+		<nx-webui-icon [name]="favorite() ? 'icons:star' : 'icons:star-border'" />
+	</button>
+	@if (canDownload()) {
+		<button
+			type="button"
+			[attr.aria-label]="'downloadButton.tooltip' | webuiMessage: 'Download'"
+			[attr.title]="'downloadButton.tooltip' | webuiMessage: 'Download'"
+			(click)="download($event)"
+		>
+			<nx-webui-icon name="nuxeo:download" />
+		</button>
+	}
+</div>

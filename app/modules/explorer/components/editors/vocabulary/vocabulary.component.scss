@@ -1,0 +1,24 @@
+:host ::ng-deep .ng-select:is(.ng-select-single, .ng-select-multiple) {
+	.ng-clear-wrapper,
+	button.ng-value-icon {
+		min-width: 24px;
+		min-height: 24px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.ng-select-container {
+		color: var(--nuxeo-text-default, var(--bs-body-color, #3a3a54));
+		background-color: var(--nuxeo-box, var(--bs-body-bg, #fff));
+
+		.ng-value-container .ng-input > input {
+			color: var(--nuxeo-text-default, var(--bs-body-color, #3a3a54));
+		}
+	}
+
+	&.ng-select-multiple .ng-select-container .ng-value-container .ng-value {
+		color: var(--nuxeo-text-default, var(--bs-body-color, #3a3a54));
+		background-color: var(--nuxeo-tag-background, transparent);
+	}
+}

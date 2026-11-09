@@ -1,0 +1,126 @@
+{
+  "format": "maretha.angular.projection-primitives.v1",
+  "scope": "Reusable SDK primitives. Source behavior is represented by explicit Angular TemplateRef projection points; visual acceptance remains root-reviewed.",
+  "occurrences": [
+    {
+      "sourceId": "projection:polymer_webui:elements/nuxeo-app/nuxeo-page.js:115",
+      "component": "NuxeoPageComponent",
+      "projection": "header",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_webui:elements/nuxeo-app/nuxeo-page.js:118",
+      "component": "NuxeoPageComponent",
+      "projection": "tabs",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_webui:elements/nuxeo-app/nuxeo-page.js:121",
+      "component": "NuxeoPageComponent",
+      "projection": "body",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_elements:ui/widgets/nuxeo-card.js:133",
+      "component": "NuxeoCardComponent",
+      "projection": "content (collapsed branch)",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_elements:ui/widgets/nuxeo-card.js:140",
+      "component": "NuxeoCardComponent",
+      "projection": "content (open branch)",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_elements:ui/widgets/nuxeo-dialog.js:70",
+      "component": "NuxeoDialogComponent",
+      "projection": "content",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_webui:elements/nuxeo-confirm-button/nuxeo-confirm-button.js:59",
+      "component": "NuxeoConfirmButtonComponent",
+      "projection": "trigger",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_elements:ui/nuxeo-document-permissions/nuxeo-popup-confirm.js:35",
+      "component": "NuxeoPopupConfirmComponent",
+      "projection": "trigger/content",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_elements:ui/widgets/nuxeo-select.js:152",
+      "component": "NuxeoSelectComponent",
+      "projection": "options",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_elements:ui/widgets/nuxeo-tag.js:69",
+      "component": "NuxeoTagComponent",
+      "projection": "content",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_elements:ui/widgets/nuxeo-tooltip.js:50",
+      "component": "NuxeoTooltipComponent",
+      "projection": "trigger",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_elements:ui/widgets/nuxeo-tooltip.js:121",
+      "component": "NuxeoTooltipComponent",
+      "projection": "content",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_elements:ui/widgets/nuxeo-actions-menu.js:89",
+      "component": "NuxeoActionsMenuComponent",
+      "projection": "content",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_elements:ui/widgets/nuxeo-actions-menu.js:107",
+      "component": "NuxeoActionsMenuComponent",
+      "projection": "dropdown",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_elements:ui/nuxeo-tree/nuxeo-tree.js:111",
+      "component": "NuxeoTreeComponent",
+      "projection": "content",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_elements:ui/nuxeo-tree/nuxeo-tree-node.js:71",
+      "component": "NuxeoTreeNodeComponent",
+      "projection": "content",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_webui:elements/bulk/nuxeo-bulk-widget.js:105",
+      "component": "NuxeoBulkWidgetComponent",
+      "projection": "content",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_webui:elements/nuxeo-document-versions/nuxeo-document-versions-list.js:49",
+      "component": "NuxeoVersionsListComponent",
+      "projection": "items",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_webui:elements/nuxeo-document-versions/nuxeo-document-versions-list.js:53",
+      "component": "NuxeoVersionsListComponent",
+      "projection": "actions",
+      "test": "projection-primitives.spec.ts"
+    },
+    {
+      "sourceId": "projection:polymer_elements:ui/nuxeo-document-permissions/nuxeo-document-acl-table.js:101",
+      "component": "NuxeoAclTableComponent",
+      "projection": "emptyResult",
+      "test": "projection-primitives.spec.ts"
+    }
+  ]
+}

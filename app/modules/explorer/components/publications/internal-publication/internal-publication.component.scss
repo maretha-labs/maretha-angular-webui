@@ -1,0 +1,29 @@
+form {
+	min-width: max(10vh, 400px);
+}
+
+.required {
+	position: relative;
+	display: inline-block;
+
+	&::after {
+		content: '*';
+		position: absolute;
+		inset-inline-end: -0.5rem;
+		inset-block-start: -0.25rem;
+		color: tomato;
+	}
+}
+
+ul li {
+	white-space: nowrap;
+	line-height: 1.4;
+	overflow: hidden;
+	max-width: 100%;
+	text-overflow: ellipsis;
+	font-size: 0.7rem;
+}
+
+h5 {
+	color: inherit;
+}

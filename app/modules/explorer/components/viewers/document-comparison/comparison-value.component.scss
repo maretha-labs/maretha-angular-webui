@@ -1,0 +1,51 @@
+:host {
+	display: block;
+}
+.comparison-line {
+	overflow-wrap: anywhere;
+	white-space: pre-wrap;
+}
+a {
+	overflow-wrap: anywhere;
+}
+.diff-badge {
+	border-radius: 0.2rem;
+	display: inline-block;
+	font-size: 0.7rem;
+	font-weight: 600;
+	margin-block-end: 0.25rem;
+	padding: 0.1rem 0.3rem;
+	text-transform: uppercase;
+}
+.addition {
+	background: #d1e7dd;
+	color: #0f5132;
+}
+.deletion {
+	background: #f8d7da;
+	color: #842029;
+}
+.modification {
+	background: #fff3cd;
+	color: #664d03;
+}
+.comparison-line.addition,
+.comparison-line.deletion {
+	display: inline-block;
+	padding: 2px 4px;
+	margin-inline-end: 8px;
+}
+.nested-value {
+	display: flex;
+	align-items: baseline;
+	gap: 8px;
+	margin-block: 3px;
+}
+.nested-label {
+	color: var(--nuxeo-secondary-text);
+	font-size: 12px;
+}
+.complex-value {
+	display: inline-block;
+	vertical-align: top;
+}

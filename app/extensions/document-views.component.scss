@@ -1,0 +1,117 @@
+:host {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-width: 0;
+	min-height: 0;
+}
+// Stock nuxeo-page paper-tabs at the 13px scale: 1px under the header, 46px items 16px apart, then
+// the 1px rule.
+.view-tabs {
+	display: flex;
+	flex-shrink: 0;
+	align-items: end;
+	gap: 16px;
+	overflow-x: auto;
+	margin-top: 1px;
+	padding-inline: 16px;
+	background: var(--nuxeo-box, #fff);
+	border-bottom: 1px solid var(--nuxeo-border, #e3e3e3);
+	scrollbar-width: thin;
+}
+.view-tabs--vertical {
+	flex-direction: column;
+	overflow-x: hidden;
+	overflow-y: auto;
+	border-bottom: 0;
+}
+.view-tabs__heading {
+	margin: 0;
+}
+
+// Stock nuxeo-page-item: grey label, 12px 6px padding over a 2px underline that hover and the
+// selected tab colour.
+.view-tabs:not(.view-tabs--vertical) ::ng-deep [role='tab'] {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	min-height: 46px;
+	padding: 12px 6px 14px;
+	letter-spacing: 0.16px;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	color: var(--nuxeo-document-tab-color, var(--disabled-text-color, #757575));
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 20px;
+	white-space: nowrap;
+
+	&::after {
+		position: absolute;
+		inset-inline: 0;
+		inset-block-end: 0;
+		height: 2px;
+		background: transparent;
+		content: '';
+	}
+
+	&:hover {
+		color: var(
+			--nuxeo-document-tab-hover-color,
+			var(--nuxeo-app-header-pill-hover, var(--nuxeo-primary-color))
+		);
+
+		&::after {
+			background: currentColor;
+		}
+	}
+
+	&[aria-selected='true'] {
+		color: var(
+			--nuxeo-document-tab-selected-color,
+			var(--nuxeo-app-header-pill-active, var(--nuxeo-primary-color))
+		);
+
+		&::after {
+			background: currentColor;
+		}
+	}
+
+	&:focus-visible {
+		z-index: 1;
+		outline: 2px solid var(--nuxeo-text-default, CanvasText);
+		outline-offset: -3px;
+	}
+}
+.view-page__header {
+	flex: 0 0 auto;
+}
+.view-page__header h1 {
+	margin: 0;
+}
+.view-page {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-width: 0;
+	min-height: 0;
+	// Stock `iron-pages#pages`: the view under the tabs is the scroll container; the document
+	// header and the tabs stay in place and views never scroll inside their own box.
+	overflow: auto;
+}
+
+@media (max-width: 575.98px) {
+	.view-tabs {
+		gap: 8px;
+		padding-inline: 8px;
+	}
+}
+.view-page[hidden] {
+	display: none;
+}
+
+.view-tabs ::ng-deep [role='tab']:focus-visible {
+	outline: 2px solid var(--nuxeo-text-default, CanvasText);
+	outline-offset: -3px;
+}

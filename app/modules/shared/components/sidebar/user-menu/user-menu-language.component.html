@@ -1,0 +1,18 @@
+<section
+	[attr.aria-label]="'app.modules.user-menu-language.language-382388' | webuiMessage: 'Language'"
+>
+	<p class="language-label">
+		{{ 'app.modules.user-menu-language.language-382388' | webuiMessage: 'Language' }}
+	</p>
+	@for (language of context().languages; track language.key) {
+		<button
+			type="button"
+			class="menu-row"
+			[disabled]="context().locale === language.key || context().user === null"
+			[attr.aria-current]="context().locale === language.key ? 'true' : null"
+			(click)="selectLanguage(language.key)"
+		>
+			{{ language.label }}
+		</button>
+	}
+</section>

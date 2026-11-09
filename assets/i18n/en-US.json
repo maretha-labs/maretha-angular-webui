@@ -1,0 +1,3176 @@
+{
+  "general": {
+    "title": "Hello {userName}!",
+    "and": "and",
+    "or": "or",
+    "date": {
+      "seconds": "{ value, plural, =1{one second} other{# seconds}}",
+      "minutes": "{ value, plural, =1{one minute} other{# minutes}}",
+      "hours": "{ value, plural, =1{one hour} other{# hours}}",
+      "days": "{ value, plural, =1{one day} other{# days}}",
+      "weeks": "{ value, plural, =1{one week} other{# weeks}}",
+      "months": "{ value, plural, =1{one month} other{# months}}",
+      "years": "{ value, plural, =1{one year} other{# years}}"
+    },
+    "fileSize": {
+      "bytes": "Bytes",
+      "kb": "KB",
+      "mb": "MB",
+      "gb": "GB",
+      "tb": "TB",
+      "pb": "PB",
+      "eb": "EB",
+      "zb": "ZB",
+      "yb": "YB"
+    }
+  },
+  "rights": {
+    "Read": "{ value, plural, =1{Can} other{Can}} read documents",
+    "ReadWrite": "{ value, plural, =1{Can} other{Can}} read & edit documents",
+    "Everything": "{ value, plural, =1{Can} other{Can}} manage everything",
+    "ManageLegalHold": "{ value, plural, =1{Can} other{Can}} manage legal hold",
+    "ManageRecord": "{ value, plural, =1{Can} other{Can}} manage records",
+    "Version": "{ value, plural, =1{Can} other{Can}} create snapshots"
+  },
+  "pageProviders": {
+    "default_search": {
+      "label": "default",
+      "fields": {
+        "ecm_fulltext": "Full text search"
+      },
+      "aggregations": {
+        "common_size_agg": {
+          "label": "Common size",
+          "buckets": {
+            "tiny": "Tiny",
+            "small": "Small",
+            "medium": "Medium",
+            "big": "Big",
+            "huge": "Huge"
+          }
+        },
+        "dc_coverage_agg": {
+          "label": "Coverage"
+        },
+        "dc_creator_agg": {
+          "label": "Created by"
+        },
+        "dc_modified_agg": {
+          "label": "Last modification",
+          "buckets": {
+            "last24h": "Last 24 hours",
+            "lastWeek": "Last week",
+            "lastMonth": "Last month",
+            "lastYear": "Last year",
+            "priorToLastYear": "More than a year ago"
+          }
+        },
+        "dc_nature_agg": {
+          "label": "Nature"
+        },
+        "dc_subjects_agg": {
+          "label": "Subjects"
+        }
+      },
+      "quickFilters": {
+        "mostRecent": "Recently modified",
+        "noFolder": "Not a folder",
+        "onlyValidated": "Validated"
+      }
+    },
+    "default_trash_search": {
+      "label": "trashed documents",
+      "fields": {
+        "ecm_fulltext": "Full text search"
+      },
+      "aggregations": {
+        "common_size_agg": {
+          "label": "Common size",
+          "buckets": {
+            "tiny": "Tiny",
+            "small": "Small",
+            "medium": "Medium",
+            "big": "Big",
+            "huge": "Huge"
+          }
+        },
+        "dc_coverage_agg": {
+          "label": "Coverage"
+        },
+        "dc_creator_agg": {
+          "label": "Created by"
+        },
+        "dc_modified_agg": {
+          "label": "Last modification",
+          "buckets": {
+            "last24h": "Last 24 hours",
+            "lastWeek": "Last week",
+            "lastMonth": "Last month",
+            "lastYear": "Last year",
+            "priorToLastYear": "More than a year ago"
+          }
+        },
+        "dc_nature_agg": {
+          "label": "Nature"
+        },
+        "dc_subjects_agg": {
+          "label": "Subjects"
+        }
+      }
+    },
+    "nxql_search": {
+      "label": "NXQL",
+      "queryParams": "Query"
+    },
+    "retention_search": {
+      "label": "retention",
+      "fields": {
+        "ecm_fulltext": "Full text search"
+      },
+      "aggregations": {
+        "doc_type_agg": {
+          "label": "Document type",
+          "buckets": {
+            "tiny": "Tiny",
+            "small": "Small",
+            "medium": "Medium",
+            "big": "Big",
+            "huge": "Huge"
+          }
+        },
+        "ecm_retain_agg": {
+          "label": "Retained for",
+          "buckets": {
+            "next24Hours": "The next 24 hours",
+            "beforeAWeek": "A week",
+            "beforeAMonth": "A month",
+            "beforeAYear": "A year",
+            "afterAYear": "More than a year",
+            "indeterminate": "Indeterminate"
+          }
+        },
+        "record_retain_agg": {
+          "label": "Retained until",
+          "buckets": {
+            "last24h": "The past 24 hours",
+            "lastWeek": "A week ago",
+            "lastMonth": "A month ago",
+            "lastYear": "A year ago",
+            "priorToLastYear": "More than a year ago"
+          }
+        },
+        "rules_agg": {
+          "label": "Applied rules"
+        }
+      },
+      "quickFilters": {
+        "withoutRule": "No rules applied",
+        "withRule": "One or more rules applied",
+        "hasLegalHold": "Is under legal hold",
+        "hasNotLegalHold": "Is not under legal hold",
+        "exceptTrashed": "Exclude trashed"
+      }
+    }
+  },
+  "search": {
+    "title": "Document finder",
+    "close": "Close search pane",
+    "searchFields": "Search fields",
+    "customFilters": "Custom filters",
+    "quickFilters": "Quick filters",
+    "nxql": "NXQL Search",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "enable": "click to enable",
+    "disable": "click to disable",
+    "options": "Options",
+    "optionsLocalOnly": "Search in current location only",
+    "optionsSaveSearch": "Save and reuse search parameters",
+    "optionsSavedSearches": "Saved searches",
+    "optionsReset": "Reset all fields and filters",
+    "optionsClearForm": "Clear form",
+    "optionsProviders": "Search providers",
+    "optionsPageProvider": "Search provider",
+    "deleteSavedSearch": "Delete this saved search",
+    "saveSearch": "Save current search",
+    "saveSearchTooltip": "Save current search for later...",
+    "savedSearches": "Previously saved searches",
+    "searchFieldsSaved": "Search fields saved",
+    "searchFieldsSavedAck": "The current search fields have been saved as <b>{title}</b>.",
+    "savedSearchRemoved": "Search fields removed",
+    "savedSearchRemovedAck": "The <b>{title}</b> saved search has been removed.",
+    "removeFilter": "Remove {label}",
+    "quick": {
+      "nofolder": "No Containers",
+      "mostrecent": "Most Recent",
+      "onlyvalidated": "Validated"
+    }
+  },
+  "tooltips": {
+    "created": "Created by {user} on {date}",
+    "lastModified": "Last modification by {user} on {date}",
+    "type": "Document type: {type}",
+    "trashed": "This document is in the trash bin",
+    "pendingTasks": "You have {value, plural, =1{one pending task} other{# pending tasks}} for this document",
+    "notifications": "You're currently receiving notifications when this document changes",
+    "locked": "Locked {timeago} and only modifiable by {user}",
+    "underLegalHold": "This document is placed under legal hold, so its main or attached files can't be altered",
+    "underRetention": "This document has one or more retention rules applied to it, so its main or attached files can't be altered",
+    "record": "This document is marked as a record"
+  },
+  "directories": {
+    "continent": {
+      "africa": "Africa",
+      "antarctica": "Antarctica",
+      "asia": "Asia",
+      "europe": "Europe",
+      "north-america": "North America",
+      "oceania": "Oceania",
+      "south-america": "South America"
+    },
+    "country": {
+      "Afghanistan": "Afghanistan",
+      "Aland_Islands": "Aland Islands",
+      "Albania": "Albania",
+      "Algeria": "Algeria",
+      "American_Samoa": "American Samoa",
+      "Andorra": "Andorra",
+      "Angola": "Angola",
+      "Anguilla": "Anguilla",
+      "Antarctica_the_territory_South_of_60_deg_S": "Antarctica (the territory South of 60 deg S)",
+      "Antigua_and_Barbuda": "Antigua and Barbuda",
+      "Argentina": "Argentina",
+      "Armenia": "Armenia",
+      "Aruba": "Aruba",
+      "Australia": "Australia",
+      "Austria": "Austria",
+      "Azerbaijan": "Azerbaijan",
+      "Bahamas": "Bahamas",
+      "Bahrain": "Bahrain",
+      "Bangladesh": "Bangladesh",
+      "Barbados": "Barbados",
+      "Belarus": "Belarus",
+      "Belgium": "Belgium",
+      "Belize": "Belize",
+      "Benin": "Benin",
+      "Bermuda": "Bermuda",
+      "Bhutan": "Bhutan",
+      "Bolivia": "Bolivia",
+      "Bosnia_and_Herzegovina": "Bosnia and Herzegovina",
+      "Botswana": "Botswana",
+      "Bouvet_Island_Bouvetoya": "Bouvet Island (Bouvetoya)",
+      "Brazil": "Brazil",
+      "British_Indian_Ocean_Territory_Chagos_Archipelago": "British Indian Ocean Territory (Chagos Archipelago)",
+      "British_Virgin_Islands": "British Virgin Islands",
+      "Brunei_Darussalam": "Brunei Darussalam",
+      "Bulgaria": "Bulgaria",
+      "Burkina_Faso": "Burkina Faso",
+      "Burundi": "Burundi",
+      "Cambodia": "Cambodia",
+      "Cameroon": "Cameroon",
+      "Canada": "Canada",
+      "Cape_Verde": "Cape Verde",
+      "Cayman_Islands": "Cayman Islands",
+      "Central_African_Republic": "Central African Republic",
+      "Chad": "Chad",
+      "Chile": "Chile",
+      "China": "China",
+      "Christmas_Island": "Christmas Island",
+      "Cocos_Keeling_Islands": "Cocos (Keeling) Islands",
+      "Colombia": "Colombia",
+      "Comoros": "Comoros",
+      "Congo_Democratic_Republic": "Congo Democratic Republic",
+      "Congo_Republic": "Congo Republic",
+      "Cook_Islands": "Cook Islands",
+      "Costa_Rica": "Costa Rica",
+      "Cote_D_Ivoire": "Cote D'Ivoire",
+      "Croatia": "Croatia",
+      "Cuba": "Cuba",
+      "Cyprus": "Cyprus",
+      "Czech_Republic": "Czech Republic",
+      "Denmark": "Denmark",
+      "Djibouti": "Djibouti",
+      "Dominica": "Dominica",
+      "Dominican_Republic": "Dominican Republic",
+      "Ecuador": "Ecuador",
+      "Egypt": "Egypt",
+      "El_Salvador": "El Salvador",
+      "Equatorial_Guinea": "Equatorial Guinea",
+      "Eritrea": "Eritrea",
+      "Estonia": "Estonia",
+      "Ethiopia": "Ethiopia",
+      "Falkland_Islands_Malvinas": "Falkland Islands (Malvinas)",
+      "Faroe_Islands": "Faroe Islands",
+      "Fiji": "Fiji",
+      "Finland": "Finland",
+      "France": "France",
+      "French_Guiana": "French Guiana",
+      "French_Polynesia": "French Polynesia",
+      "French_Southern_Territories": "French Southern Territories",
+      "Gabon": "Gabon",
+      "Gambia": "Gambia",
+      "Georgia": "Georgia",
+      "Germany": "Germany",
+      "Ghana": "Ghana",
+      "Gibraltar": "Gibraltar",
+      "Greece": "Greece",
+      "Greenland": "Greenland",
+      "Grenada": "Grenada",
+      "Guadaloupe": "Guadaloupe",
+      "Guam": "Guam",
+      "Guatemala": "Guatemala",
+      "Guernsey": "Guernsey",
+      "Guinea": "Guinea",
+      "Guinea_Bissau": "Guinea_Bissau",
+      "Guyana": "Guyana",
+      "Haiti": "Haiti",
+      "Heard_and_McDonald_Islands": "Heard and McDonald Islands",
+      "Holy_See_Vatican_City_State": "Holy See (Vatican City State)",
+      "Honduras": "Honduras",
+      "Hong_Kong": "Hong Kong",
+      "Hungary": "Hungary",
+      "Iceland": "Iceland",
+      "India": "India",
+      "Indonesia": "Indonesia",
+      "Iran": "Iran",
+      "Iraq": "Iraq",
+      "Ireland": "Ireland",
+      "Isle_of_Man": "Isle of Man",
+      "Israel": "Israel",
+      "Italy": "Italy",
+      "Jamaica": "Jamaica",
+      "Japan": "Japan",
+      "Jersey": "Jersey",
+      "Jordan": "Jordan",
+      "Kazakhstan": "Kazakhstan",
+      "Kenya": "Kenya",
+      "Kiribati": "Kiribati",
+      "Kuwait": "Kuwait",
+      "Kyrgyz_Republic": "Kyrgyz Republic",
+      "Lao_People_s_Democratic_Republic": "Lao People's Democratic Republic",
+      "Latvia": "Latvia",
+      "Lebanon": "Lebanon",
+      "Lesotho": "Lesotho",
+      "Liberia": "Liberia",
+      "Libyan_Arab_Jamahiriya": "Libyan Arab Jamahiriya",
+      "Liechtenstein": "Liechtenstein",
+      "Lithuania": "Lithuania",
+      "Luxembourg": "Luxembourg",
+      "Macao": "Macao",
+      "Macedonia": "Macedonia",
+      "Madagascar": "Madagascar",
+      "Malawi": "Malawi",
+      "Malaysia": "Malaysia",
+      "Maldives": "Maldives",
+      "Mali": "Mali",
+      "Malta": "Malta",
+      "Marshall_Islands": "Marshall Islands",
+      "Martinique": "Martinique",
+      "Mauritania": "Mauritania",
+      "Mauritius": "Mauritius",
+      "Mayotte": "Mayotte",
+      "Mexico": "Mexico",
+      "Micronesia": "Micronesia",
+      "Moldova": "Moldova",
+      "Monaco": "Monaco",
+      "Mongolia": "Mongolia",
+      "Montenegro": "Montenegro",
+      "Montserrat": "Montserrat",
+      "Morocco": "Morocco",
+      "Mozambique": "Mozambique",
+      "Myanmar": "Myanmar",
+      "Namibia": "Namibia",
+      "Nauru": "Nauru",
+      "Nepal": "Nepal",
+      "Netherlands": "Netherlands",
+      "Netherlands_Antilles": "Netherlands Antilles",
+      "New_Caledonia": "New Caledonia",
+      "New_Zealand": "New Zealand",
+      "Nicaragua": "Nicaragua",
+      "Niger": "Niger",
+      "Nigeria": "Nigeria",
+      "Niue": "Niue",
+      "Norfolk_Island": "Norfolk Island",
+      "North_Korea": "North Korea",
+      "Northern_Mariana_Islands": "Northern Mariana Islands",
+      "Norway": "Norway",
+      "Oman": "Oman",
+      "Pakistan": "Pakistan",
+      "Palau": "Palau",
+      "Palestinian_Territory": "Palestinian Territory",
+      "Panama": "Panama",
+      "Papua_New_Guinea": "Papua New Guinea",
+      "Paraguay": "Paraguay",
+      "Peru": "Peru",
+      "Philippines": "Philippines",
+      "Pitcairn_Island": "Pitcairn Island",
+      "Poland": "Poland",
+      "Portugal": "Portugal",
+      "Puerto_Rico": "Puerto Rico",
+      "Qatar": "Qatar",
+      "Reunion": "Reunion",
+      "Romania": "Romania",
+      "Russian_Federation": "Russian Federation",
+      "Rwanda": "Rwanda",
+      "Samoa": "Samoa",
+      "San_Marino": "San Marino",
+      "Sao_Tome_and_Principe": "Sao Tome and Principe",
+      "Saudi_Arabia": "Saudi Arabia",
+      "Senegal": "Senegal",
+      "Serbia": "Serbia",
+      "Seychelles": "Seychelles",
+      "Sierra_Leone": "Sierra Leone",
+      "Singapore": "Singapore",
+      "Slovakia_Slovak_Republic": "Slovakia (Slovak Republic)",
+      "Slovenia": "Slovenia",
+      "Solomon_Islands": "Solomon Islands",
+      "Somalia": "Somalia",
+      "South_Africa": "South Africa",
+      "South_Georgia_and_the_South_Sandwich_Islands": "South Georgia and the South Sandwich Islands",
+      "South_Korea": "South Korea",
+      "Spain": "Spain",
+      "Sri_Lanka": "Sri Lanka",
+      "St_Helena": "St. Helena",
+      "St_Kitts_and_Nevis": "St. Kitts and Nevis",
+      "St_Lucia": "St. Lucia",
+      "St_Pierre_and_Miquelon": "St. Pierre and Miquelon",
+      "St_Vincent_and_the_Grenadines": "St. Vincent and the Grenadines",
+      "Sudan": "Sudan",
+      "Suriname": "Suriname",
+      "Svalbard_Jan_Mayen_Islands": "Svalbard & Jan Mayen Islands",
+      "Swaziland": "Swaziland",
+      "Sweden": "Sweden",
+      "Switzerland": "Switzerland",
+      "Syrian_Arab_Republic": "Syrian Arab Republic",
+      "Taiwan": "Taiwan",
+      "Tajikistan": "Tajikistan",
+      "Tanzania": "Tanzania",
+      "Thailand": "Thailand",
+      "Timor_Leste": "Timor-Leste",
+      "Togo": "Togo",
+      "Tokelau_Tokelau_Islands": "Tokelau (Tokelau Islands)",
+      "Tonga": "Tonga",
+      "Trinidad_and_Tobago": "Trinidad and Tobago",
+      "Tunisia": "Tunisia",
+      "Turkey": "Turkey",
+      "Turkmenistan": "Turkmenistan",
+      "Turks_and_Caicos_Islands": "Turks and Caicos Islands",
+      "Tuvalu": "Tuvalu",
+      "US_Virgin_Islands": "US Virgin Islands",
+      "Uganda": "Uganda",
+      "Ukraine": "Ukraine",
+      "United_Arab_Emirates": "United Arab Emirates",
+      "United_Kingdom_of_Great_Britain_N_Ireland": "United Kingdom of Great Britain & N. Ireland",
+      "United_States_Minor_Outlying_Islands": "United States Minor Outlying Islands",
+      "United_States_of_America": "United States of America",
+      "Uruguay": "Uruguay",
+      "Uzbekistan": "Uzbekistan",
+      "Vanuatu": "Vanuatu",
+      "Venezuela": "Venezuela",
+      "Viet_Nam": "Viet Nam",
+      "Wallis_and_Futuna_Islands": "Wallis and Futuna Islands",
+      "Western_Sahara": "Western Sahara",
+      "Yemen": "Yemen",
+      "Zambia": "Zambia",
+      "Zimbabwe": "Zimbabwe"
+    },
+    "english": "English",
+    "french": "French",
+    "german": "German",
+    "italian": "Italian",
+    "japanese": "Japanese",
+    "nature": {
+      "CDRom": "CD Rom",
+      "accomodationApplicationForm": "Accomodation Application Form",
+      "acknowledgement": "Acknowledgement of receipt",
+      "application": "Application",
+      "article": "Article",
+      "assessment": "Assessment",
+      "bankAccountDetails": "Bank Account Details",
+      "booklet": "Booklet",
+      "card": "Card",
+      "certificate": "Certificate",
+      "contract": "Contract",
+      "convocation": "Convocation",
+      "credit": "Credit",
+      "decree": "Decree",
+      "deliveryNote": "Delivery Note",
+      "email": "Email",
+      "endorsement": "Endorsement",
+      "fax": "Fax",
+      "internshipReport": "Internship Report",
+      "invoice": "Invoice",
+      "leaveApplication": "Leave Application",
+      "letter": "Letter",
+      "loanApplication": "Loan Application",
+      "medicalCertificate": "Medical Certificate",
+      "memo": "Memo",
+      "note": "Note",
+      "notice": "Notice",
+      "notification": "Notification",
+      "order": "Order",
+      "pressReview": "Press Review",
+      "procedure": "Procedure",
+      "purchaseOrder": "Purchase Order",
+      "quotation": "Quotation",
+      "report": "Report",
+      "serviceCertificate": "Service Certificate",
+      "trainingApplication": "Training Application",
+      "worksheet": "Worksheet"
+    },
+    "portuguese": "Portuguese",
+    "russian": "Russia",
+    "spanish": "Spanish",
+    "subtopic": {
+      "architecture": "Architecture",
+      "arthistory": "Art history",
+      "astronautic": "Astronautic",
+      "astronomy": "Astronomy",
+      "biology": "Biology",
+      "chemistry": "Chemistry",
+      "cinema": "Cinema",
+      "collection": "Collection",
+      "comics": "Comics",
+      "company": "Company",
+      "culture": "Culture",
+      "danse": "Dance",
+      "earthscience": "Earth science",
+      "ecology": "Ecology",
+      "economy": "Economy",
+      "education": "Education",
+      "electronic": "Electronic",
+      "energy": "Energy",
+      "fashion": "Fashion",
+      "games": "Games",
+      "gardening": "Gardening",
+      "gastronomy": "Gastronomy",
+      "geography": "Geography",
+      "history": "History",
+      "humanitarian": "Humanitarian",
+      "industry": "Industry",
+      "information": "Information",
+      "it": "IT",
+      "languages": "Language",
+      "literature": "Literature",
+      "logic": "Logic",
+      "math": "Mathematics",
+      "medicine": "Medicine",
+      "minority": "Minority",
+      "music": "Music",
+      "paint": "Paint",
+      "photography": "Photography",
+      "phylosophy": "Philosophy",
+      "physic": "Physic",
+      "psychology": "Psychology",
+      "religion": "Religion",
+      "rights": "Rights",
+      "robotic": "Robotic",
+      "sexuality": "Sexuality",
+      "show": "Show",
+      "sociology": "Sociology",
+      "sport": "Sport",
+      "television": "Television",
+      "tourism": "Tourism",
+      "transport": "Transport",
+      "videogames": "Video games",
+      "women": "Women"
+    },
+    "topic": {
+      "art": "Art",
+      "dailylife": "Daily life",
+      "humansciences": "Human science",
+      "sciences": "Science",
+      "society": "Society",
+      "technology": "Technology"
+    }
+  },
+  "wf": {
+    "parallelDocumentReview": {
+      "ParallelDocumentReview": "Parallel document review",
+      "cancel": "Abandon workflow",
+      "startReview": "Start review",
+      "NA": "Postpone",
+      "approve": "Approve",
+      "reject": "Reject",
+      "chooseParticipants": {
+        "title": "Choose participants",
+        "directive": "Choose participants for this workflow"
+      },
+      "give_opinion": {
+        "title": "Give opinion",
+        "directive": "Give your opinion about this document"
+      }
+    },
+    "serialDocumentReview": {
+      "SerialDocumentReview": "Serial document review",
+      "cancel": "Abandon workflow",
+      "startReview": "Start review",
+      "Validate": "Approve",
+      "Reject": "Reject",
+      "chooseParticipants": "Choose participants",
+      "pleaseSelect": "Please select the participants",
+      "DocumentValidation": "Validate the Document",
+      "AcceptReject": "Accept or reject"
+    }
+  },
+  "documentInfo": {
+    "title": "Document info",
+    "publications": "Publications",
+    "documentPublications": "{ value, plural, =0{No copy} one{1 copy} other{# copies} } | of this document { value, plural, =0{has been} one{has been} other{have been} } published so far.",
+    "snapshots": "Snapshots",
+    "createSnapshot": "Create snapshot |version { minorVersion }| or |version { majorVersion }|, to indicate either a minor or respectively a major change of this document.",
+    "documentSnapshots": "{ value, plural, =0{No snapshot} one{1 snapshot} other{# snapshots} } | of this document { value, plural, =0{has been} one{has been} other{have been} } created so far.",
+    "viewSnapshot": "View version { version } of this document"
+  },
+  "clipboard": {
+    "selectSource": "Select some or | all | the documents that you wish to copy or move in this location.",
+    "selectAll": "Select all documents",
+    "cannotPaste": "Cannot paste"
+  },
+  "documentViewers": {
+    "noPreview": "No preview available for this file type: |{ fileType }|",
+    "noPreviewDownload": "You can |download the attachment| and use a dedicated application instead.",
+    "mainFileSize": "Main file size: { size }",
+    "modelVariant": "{ variant } variant"
+  },
+  "documentEditors": {
+    "documentImport": {
+      "auto": "Quickly create { fileCount } documents",
+      "autoNote": "(the system decides the underlying document type based on the selected files)",
+      "or": "or",
+      "manual": "Manually specify the underlying document type for all selected files"
+    },
+    "bulkCreate": {
+      "title": "Add multiple |{documentType}| documents",
+      "note": "Upload one or more files from your computer, to create multiple |{documentType}| documents at once.",
+      "createButtonTitle": "Create { fileCount, plural, =0{} one{one `{documentType}` document} other{# |{documentType}| documents} }"
+    },
+    "documentAttachments": {
+      "mainFile": "Main file",
+      "additionalAttachments": "{ fileCount, plural, =0{Additional attachments} one {1 additional attachment} other{# additional attachments} }"
+    }
+  },
+  "toolbar": {
+    "copyToClipboard": "Copy this document to the clipboard",
+    "copySelectionToClipboard": "Copy to the clipboard {count, plural, =1{the selected document} other{the # selected documents}}",
+    "addToCollection": "Add this document to a collection",
+    "addSelectionToCollection": "Add to a collection {count, plural, =1{the selected document} other{the # selected documents}}"
+  },
+  "app": {
+    "components": {
+      "application-page": {
+        "loading-your-session-2478e4": "Loading your session…"
+      },
+      "comparison-page": {
+        "compare-11a835": "Compare",
+        "loading-documents-24cc43": "Loading documents…",
+        "retry-b82db2": "Retry",
+        "left-document-b1d815": "Left document",
+        "right-document-06d484": "Right document",
+        "select-between-2-and-199-documents-to-compare": "Select between 2 and 199 documents to compare.",
+        "unable-to-load-these-documents-they-may-be-missing-or-yo": "Unable to load these documents. They may be missing or you may not have access.",
+        "split": "Split View",
+        "unified": "Unified View",
+        "no-differences-82d964": "No differences."
+      },
+      "principal-page": {
+        "loading-85be6b": "Loading…",
+        "retry-2971db": "Retry",
+        "first-name": "First name",
+        "last-name": "Last name",
+        "company": "Company",
+        "email": "Email",
+        "description": "Description",
+        "user": "User",
+        "group": "Group",
+        "groups": "Groups",
+        "subgroups": "Subgroups",
+        "invalid": "Select a valid user or group.",
+        "unavailable": "This user or group is unavailable, or you do not have permission to view it.",
+        "no-groups-to-display-b171c2": "No groups to display.",
+        "no-members-to-display-b4c708": "No members to display."
+      },
+      "themes-page": {
+        "themes-08df78": "Themes"
+      },
+      "user-authorized-apps-page": {
+        "authorized-applications-5a610e": "Authorized Applications",
+        "loading-authorized-applications-fa1f3b": "Loading authorized applications…",
+        "retry-2c6120": "Retry",
+        "name-9c4f0b": "Name",
+        "authorization-date-611fc3": "Authorization date",
+        "actions-880bd6": "Actions",
+        "you-haven-t-granted-any-application-access-63fd18": "You haven't granted any application access to your Nuxeo account yet.",
+        "authorized-applications-are-unavailable-or-you-do-not-ha": "Authorized applications are unavailable, or you do not have permission to view them.",
+        "confirm": "Revoke access for {name}?",
+        "failed": "Could not revoke {name}."
+      },
+      "user-cloud-services-page": {
+        "cloud-services-608216": "Cloud Services",
+        "loading-connected-accounts-04258f": "Loading connected accounts…",
+        "retry-0e8815": "Retry",
+        "connected-accounts-d80016": "Connected accounts",
+        "service-db5f28": "Service",
+        "account-48d01e": "Account",
+        "connected-ed01ad": "Connected",
+        "actions-6689fa": "Actions",
+        "disconnect-3e4528": "Disconnect",
+        "no-cloud-accounts-are-connected-b5c935": "No cloud accounts are connected.",
+        "cloud-services-are-unavailable-or-you-do-not-have-permis": "Cloud services are unavailable, or you do not have permission to view them.",
+        "confirm": "Disconnect {name}?",
+        "failed": "Could not disconnect {name}."
+      },
+      "dashboard": {
+        "unable-to-load-tasks-d875ae": "Unable to load tasks.",
+        "unable-to-load-recently-edited-documents-ca4f3d": "Unable to load recently edited documents.",
+        "unable-to-load-recently-viewed-documents-d4bff0": "Unable to load recently viewed documents.",
+        "unable-to-load-favorite-documents-93218c": "Unable to load favorite documents.",
+        "column-title": "Title",
+        "column-type": "Type",
+        "column-last-viewed": "Last Viewed",
+        "column-modified": "Modified",
+        "column-last-contributor": "Last Contributor"
+      },
+      "not-found": {
+        "document-not-found-95cb6b": "Document not found!"
+      },
+      "destination-create-dialog": {
+        "browse-folders-7f63e0": "Browse folders",
+        "loading-destination-7a6a46": "Loading destination…",
+        "retry-996e88": "Retry",
+        "you-cannot-create-documents-here-choose-a--f7a74b": "You cannot create documents here. Choose a writable folder.",
+        "create-content-91e6e2": "Create content",
+        "the-current-editor-could-not-be-closed-your-destination-": "The current editor could not be closed. Your destination has not changed.",
+        "this-folder-could-not-be-loaded-check-the-path-and-your-": "This folder could not be loaded. Check the path and your access.",
+        "the-current-editor-could-not-be-closed-your-changes-are-": "The current editor could not be closed. Your changes are still available.",
+        "select-a-different-container-to-import-your-content": "Select a different container to import your content.",
+        "invalid-destination": "Invalid destination.",
+        "creation-could-not-be-started": "Creation could not be started.",
+        "creation-not-allowed": "Creation is no longer allowed in this folder for the selected type.",
+        "creation-failed-detail": "Creation could not be started: {detail}"
+      },
+      "quick-search": {
+        "close-quick-search-13a285": "Close Quick Search",
+        "searching-9c5b46": "Searching…",
+        "retry-bb789f": "Retry",
+        "no-results-found-63260b": "No results found.",
+        "search-results-98c442": "Search results",
+        "search-could-not-be-completed-please-retry": "Search could not be completed. Please retry.",
+        "this-repository-is-not-supported-by-the-current-document": "This repository is not supported by the current document route.",
+        "this-result-could-not-be-opened-please-retry": "This result could not be opened. Please retry."
+      },
+      "tasks-page": {
+        "all-tasks-5c4e99": "All tasks",
+        "loading-tasks-be0909": "Loading tasks…",
+        "load-more-1e042c": "Load more",
+        "workflow-f7fa20": "Workflow",
+        "document-55ac8b": "Document",
+        "due-date-42b170": "Due date",
+        "assigned-actors-e8bdc2": "Assigned actors",
+        "delegated-actors-dcdd23": "Delegated actors",
+        "task-actions-64e75e": "Task actions",
+        "process-task-bd442e": "Process task",
+        "loading-workflow-graph-4f90a8": "Loading workflow graph…",
+        "workflow-graph-425fb0": "Workflow graph",
+        "none-ca3a8a": "None",
+        "task": "Task",
+        "workflow-task": "Workflow task",
+        "document": "Document",
+        "due": "Due {date}",
+        "count": "{count, plural, one {# task} other {# tasks}}",
+        "unknown-workflow": "Unknown workflow",
+        "process": "Process task",
+        "hide-graph": "Hide workflow graph",
+        "next": "next",
+        "tasks-could-not-be-loaded-check-your-connection-and-per": "Tasks could not be loaded. Check your connection and permissions, then retry.",
+        "this-task-is-unavailable-or-you-no-longer-have-permissi": "This task is unavailable or you no longer have permission to view it.",
+        "the-workflow-graph-could-not-be-loaded": "The workflow graph could not be loaded.",
+        "unknown-actor": "Unknown"
+      },
+      "unauthorized": {
+        "you-are-not-authorized-to-view-this-sectio-190263": "You are not authorized to view this section!"
+      },
+      "user-profile": {
+        "user-profile-e887dd": "User profile",
+        "close-835585": "Close",
+        "first-name-8ddd99": "First name",
+        "last-name-1c6695": "Last name",
+        "email-address-6fabb7": "Email address",
+        "company-a5599d": "Company",
+        "confirm-password-6c7fd2": "Confirm password",
+        "close-without-saving-939e73": "Close without saving",
+        "save-changes-b75610": "Save changes"
+      },
+      "home": {
+        "welcome": "Welcome {name}"
+      },
+      "shell-actions": {
+        "landmark": "Application actions"
+      }
+    },
+    "modules": {
+      "clipboard": {
+        "you-cannot-paste-this-document-in-this-loc-eb6acf": "You cannot paste this document in this location",
+        "there-are-no-items-in-the-clipboard-b77d17": "There are no items in the clipboard.",
+        "copy-the-selected-documents-to-the-current-ed255a": "Copy the selected documents to the current location",
+        "move-the-selected-documents-to-the-current-36d71d": "Move the selected documents to the current location",
+        "remove-the-selected-documents-from-the-cli-ea7dcc": "Remove the selected documents from the clipboard",
+        "remove-all-documents-from-clipboard-974976": "Remove all documents from clipboard",
+        "clear-clipboard-f3a9fb": "Clear clipboard"
+      },
+      "collections": {
+        "select-the-target-collection-or-specify-a--8979fa": "Select the target collection or specify a new one.",
+        "new-collection-c06c0e": "New collection...",
+        "add-to-this-new-collection-c91827": "Add to this new collection",
+        "loading-collections-b90eec": "Loading collections...",
+        "collection-documents-289d22": "collection documents",
+        "owner-fb74f4": "Owner",
+        "creation-date-5198df": "Creation date"
+      },
+      "comments": {
+        "be-the-first-to-leave-a-comment-11f1cb": "Be the first to leave a comment!",
+        "nobody-left-any-comments-00bafe": "Nobody left any comments!",
+        "write-a-comment-a51f2f": "Write a comment",
+        "edit-your-comment-488b78": "Edit your comment",
+        "post-your-comment-318363": "Post your comment",
+        "cancel-fe8eb5": "Cancel",
+        "tap-to-reply-to-this-comment-007309": "Tap to reply to this comment",
+        "edit-this-comment-3c85d8": "Edit this comment",
+        "delete-this-comment-f5a7c0": "Delete this comment",
+        "show-more-4333bd": "Show more ...",
+        "reply-to-this-comment-5c1d2e": "Reply to this comment"
+      },
+      "contributors": {
+        "created-2a3118": "Created:",
+        "by-648fbf": "by",
+        "modified-1e007d": "Modified:",
+        "contributors-bce1bc": "Contributors:"
+      },
+      "default-document-metadata-layout": {
+        "cancel-8bc5e9": "Cancel",
+        "customize-bf2d9d": "Customize",
+        "edit-metadata-d96a3a": "Edit metadata",
+        "customize-metadata-9cada1": "Customize metadata",
+        "visible-fields-5fafa0": "Visible fields",
+        "show-all-allowed-fields-20a225": "Show all allowed fields",
+        "metadata-is-hidden-in-your-display-prefere-684259": "Metadata is hidden in your display preferences.",
+        "show-empty-fields-16e57e": "Show empty fields",
+        "save-changes-baa2a7": "Save changes",
+        "descriptive-metadata-48a40e": "Descriptive metadata"
+      },
+      "display-settings": {
+        "create-button-location-a61897": "Create button location",
+        "lower-right-default-1142ed": "Lower right (default)",
+        "document-actions-toolbar-56379f": "Document actions toolbar",
+        "saved-automatically-for-this-browser-b1a4a4": "Saved automatically for this browser.",
+        "documents-use-the-folder-s-saved-order-sel-f84f19": "Documents use the folder’s saved order. Select documents to move them up or down.",
+        "sort-documents-by-42a33a": "Sort documents by",
+        "choose-a-different-sort-field-d69a49": "Choose a different sort field",
+        "remove-this-sort-field-b1557f": "Remove this sort field",
+        "add-a-new-sort-field-c194ef": "Add a new sort field",
+        "order-documents-789ad3": "Order documents",
+        "ascending-d0f651": "Ascending",
+        "descending-be46d2": "Descending",
+        "number-of-items-per-page-b5e90f": "Number of items per page",
+        "apply-changes-286792": "Apply changes"
+      },
+      "document-activity": {
+        "loading-history-94523a": "Loading history…",
+        "retry-7df2c7": "Retry",
+        "who-073bcd": "Who",
+        "filter-events-by-author-ac9166": "Filter events by author",
+        "when-08df18": "When",
+        "filter-events-by-date-bc7b85": "Filter events by date",
+        "what-114333": "What",
+        "filter-events-by-type-84f423": "Filter events by type",
+        "clear-filter-fda57d": "Clear filter",
+        "start-date-d95938": "Start date",
+        "end-date-e7e8ee": "End date"
+      },
+      "blob-action": {
+        "replace-file-256661": "Replace file",
+        "download-file-10ab9f": "Download file",
+        "drop-or-choose-a-file-1b3c4d": "Drop a file here or click to choose one"
+      },
+      "blob-preview": {
+        "loading-preview-d1d5c4": "Loading preview…",
+        "retry-2e4838": "Retry",
+        "pdf-preview-aa8636": "PDF preview",
+        "your-browser-cannot-display-this-pdf-downl-d8ac48": "Your browser cannot display this PDF. Download the file to view it."
+      },
+      "document-attachments": {
+        "remove-all-attachments-c80f70": "Remove all attachments",
+        "there-are-no-files-to-show-b87766": "There are no files to show.",
+        "add-files-b6082d": "Add files",
+        "add-a-file-b2d533": "Add a file"
+      },
+      "document-info": {
+        "close-719769": "Close",
+        "details-21a7f1": "Details",
+        "title-cda706": "Title:",
+        "document-type-221314": "Document type:",
+        "download-this-file-b861e7": "Download this file",
+        "this-document-doesn-t-have-a-main-file-att-87856c": "This document doesn't have a main file attached to it.",
+        "additional-attachments-12bac4": "Additional attachments",
+        "this-document-doesn-t-have-any-additional--8f304b": "This document doesn't have any additional files attached to it.",
+        "show-advanced-features-782d7f": "Show advanced features",
+        "you-cannot-create-snapshots-of-this-docume-e2384a": "You cannot create snapshots of this document because it's marked as a\n\t\t\t\t\t\t\t\t\t\t\t\t\t\trecord.",
+        "publish-this-document-438e81": "Publish this document",
+        "to-a-space-dedicated-to-the-distribution-f-7dfacd": "to a space dedicated to the distribution for a wider audience.",
+        "you-cannot-publish-this-document-because-i-d834dc": "You cannot publish this document because it's marked as a record.",
+        "workflows-340e4a": "Workflows",
+        "this-document-is-part-of-these-workflows-93567c": "This document is part of these workflows:",
+        "this-document-is-not-part-of-any-workflow-5d7a8d": "This document is not part of any workflow.",
+        "the-current-document-state-is-b398fc": "The current document state is:",
+        "current-document-state-5cb2c6": "Current document state",
+        "notifications-79d515": "Notifications",
+        "you-re-currently-receiving-notifications-w-9f57d8": "You're currently receiving notifications when this document changes.",
+        "disable-notifications-191a9e": "Disable notifications.",
+        "get-notified-9bd163": "Get notified",
+        "when-this-document-changes-9e268c": "when this document changes.",
+        "lock-4a568e": "Lock",
+        "unlock-f0a33d": "Unlock.",
+        "lock-this-document-a4cf29": "Lock this document",
+        "so-only-you-or-users-having-the-manage-eve-55d844": "so only you (or users having the 'Manage everything' permission) can\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tmodify it.",
+        "legal-hold-45f0e1": "Legal hold",
+        "this-document-is-placed-under-legal-hold-s-d3f82f": "This document is placed under legal hold, so the its main or additional\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tfiles can't be altered.",
+        "remove-legal-hold-8ac622": "Remove legal hold",
+        "place-under-legal-hold-ee0cf2": "Place under legal hold",
+        "to-prevent-altering-the-main-or-additional-d9dccd": "to prevent altering the main or additional files.",
+        "retention-abbeff": "Retention",
+        "this-document-has-the-following-retention--522d80": "This document has the following retention rules applied to it:",
+        "extend-retention-period-c99131": "Extend retention period",
+        "this-document-is-marked-as-a-record-264125": "This document is marked as a record.",
+        "apply-a-retention-rule-7651f4": "Apply a retention rule",
+        "permissions-72426f": "Permissions"
+      },
+      "document-info-panel": {
+        "close-info-panel-9488a4": "Close info panel"
+      },
+      "document-navigation-bar": {
+        "document-location-016fb0": "Document location",
+        "secondary-navigation-b9e96b": "Secondary navigation",
+        "edit-document-path-774d5a": "Edit document path",
+        "collections-7967ee": "Collections",
+        "export-as-df44df": "Export as",
+        "pdf-ec3812": "PDF",
+        "zip-45b8b4": "ZIP"
+      },
+      "document-permission-editor": {
+        "in-workspaces-92d93a": "In Workspaces",
+        "in-sections-44fef9": "In Sections",
+        "please-specify-the-permission-2ccb71": "Please specify the permission.",
+        "email-address-e869de": "Email address",
+        "user-group-e46734": "User/Group",
+        "make-this-permanent-0c8930": "Make this permanent",
+        "effectiveness-timeframe-c240e8": "Effectiveness timeframe",
+        "from-5fcc39": "From...",
+        "until-6b49cd": "Until...",
+        "send-a-notification-email-5188fd": "Send a notification email",
+        "message-96912a": "Message",
+        "save-changes-38725d": "Save changes",
+        "email-address-804fc3": "Email address...",
+        "user-or-group-f01b8e": "User or group..."
+      },
+      "document-permissions": {
+        "loading-permissions-2afc98": "Loading permissions…",
+        "retry-56f7b5": "Retry",
+        "the-shared-permissions-1-take-precedence-o-9bcd51": "The shared permissions (1) take precedence over the document specific ones (2), which have a\n\t\thigher precedence than the inherited permissions (3).",
+        "there-are-no-permissions-to-display-here-ce98b2": "There are no permissions to display here.",
+        "denied-c34db5": "Denied:",
+        "indefinitely-afbf88": "indefinitely",
+        "send-by-email-a-link-pointing-to-this-docu-d71653": "Send by email a link pointing to this document",
+        "edit-this-permission-aafe87": "Edit this permission",
+        "remove-this-permission-15d9a6": "Remove this permission",
+        "user-group-71f032": "User group",
+        "external-share-1b2dc9": "External share",
+        "user-37604c": "User"
+      },
+      "document-snapshots": {
+        "create-a-new-minor-snapshot-e5de17": "Create a new minor snapshot",
+        "create-a-new-major-snapshot-0db8bf": "Create a new major snapshot",
+        "this-is-the-displayed-version-996a56": "This is the displayed version",
+        "see-how-the-document-looked-like-when-this-09cbcf": "See how the document looked like when this snapshot was taken",
+        "compare-the-displayed-version-against-this-a1b12e": "Compare the displayed version against this one",
+        "restore-the-document-to-how-it-looked-like-b824fd": "Restore the document to how it looked like when this snapshot was taken"
+      },
+      "bulk-editor-modal": {
+        "edit-selected-documents-4e68d7": "Edit selected documents",
+        "close-5f021c": "Close",
+        "retry-choices-4483d7": "Retry choices",
+        "check-the-documents-marked-unknown-before--248f04": "Check the documents marked unknown before trying another bulk update; their last write\n\t\t\t\t\t\tmay have completed.",
+        "cancel-5e097e": "Cancel",
+        "retry-failed-473bba": "Retry failed"
+      },
+      "bulk-zip-download-dialog": {
+        "download-zip-204feb": "Download ZIP",
+        "close-6e89a7": "Close"
+      },
+      "create-popup": {
+        "create-9d65fb": "Create",
+        "close-7416a7": "Close",
+        "create-content-a04138": "Create content",
+        "from-files-a3510a": "From files",
+        "remove-aed227": "Remove",
+        "create-documents-from-uploaded-files-69fa7e": "Create documents from uploaded files.",
+        "select-files-ff2231": "Select files",
+        "no-creatable-document-types-are-available--e78ab3": "No creatable document types are available here."
+      },
+      "document-toolbar": {
+        "document-and-result-actions-adb2d1": "Document and result actions",
+        "choose-displayed-documents-to-apply-action-856d1b": "Choose displayed documents to apply actions.",
+        "actions-for-selected-documents-9706ed": "Actions for selected documents",
+        "selected-documents-525b90": "Selected documents",
+        "display-settings-876c92": "Display settings"
+      },
+      "query-edit": {
+        "edit-all-matching-dd782f": "Edit all matching",
+        "edit-all-matching-results-9374a6": "Edit all matching results",
+        "retry-choices-1aa187": "Retry choices",
+        "review-changes-79a82d": "Review changes",
+        "cancel-b0ff70": "Cancel",
+        "retry-status-538426": "Retry status",
+        "abort-job-0ab470": "Abort job"
+      },
+      "query-trash": {
+        "cancel-fe5a86": "Cancel",
+        "abort-job-a57a99": "Abort job",
+        "retry-status-0fca72": "Retry status"
+      },
+      "results-csv-export": {
+        "exporting-all-results-matching-the-applied-3db9b7": "Exporting all results matching the applied filters…",
+        "stop-waiting-5bc5b3": "Stop waiting",
+        "export-ready-d9bdeb": "Export ready.",
+        "save-export-430afe": "Save export"
+      },
+      "selection-download": {
+        "archive-preparation-890e23": "Archive preparation",
+        "cancel-preparation-27620f": "Cancel preparation",
+        "retry-status-fa6296": "Retry status",
+        "archive-preparation-cancelled-8616cb": "Archive preparation cancelled.",
+        "download-started-check-your-browser-s-down-019c3e": "Download started. Check your browser's downloads. If it failed or was interrupted,\n\t\t\t\tregenerate the ZIP.",
+        "regenerate-zip-c7a692": "Regenerate ZIP",
+        "cancelling-preparation-c4abcd": "Cancelling preparation…",
+        "archive-preparation-queued-9e00e4": "Archive preparation queued…",
+        "preparing-archive-e329af": "Preparing archive…"
+      },
+      "selection-publish": {
+        "publish-selection-cca260": "Publish selection",
+        "close-3f2518": "Close",
+        "publish-destinations-fdc9a4": "Publish destinations"
+      },
+      "toolbar-action": {
+        "close-d09c9d": "Close"
+      },
+      "base-editor": {
+        "close-925f1b": "Close",
+        "finishing-the-created-document-19ea05": "Finishing the created document…",
+        "retry-remaining-steps-9eb9f0": "Retry remaining steps"
+      },
+      "binary-editor": {
+        "add-a-new-544258": "Add a new",
+        "document-63ddb8": "document",
+        "title-03457e": "Title",
+        "please-specify-a-title-13ffed": "Please specify a title.",
+        "show-additional-fields-8ec178": "Show additional fields",
+        "description-e90fd2": "Description",
+        "leave-this-field-as-it-is-57d661": "Leave this field as it is",
+        "or-d25fe0": "OR",
+        "use-one-of-the-existing-values-a741e8": "Use one of the existing values",
+        "edit-multiple-documents-737077": "Edit multiple documents",
+        "main-file-readonly-because-document-is-und-26a2a5": "Main file (readonly because document is under retention or legal hold)",
+        "additional-attachments-readonly-because-do-155184": "Additional attachments (readonly because document is under retention or legal hold)"
+      },
+      "bulk-creation-results": {
+        "import-results-7892e6": "Import results",
+        "some-creation-results-are-uncertain-inspec-6e3dbc": "Some creation results are uncertain. Inspect the destination before importing those files\n\t\t\t\t\tagain. They will not be retried automatically.",
+        "inspect-created-document-1f8037": "Inspect created document",
+        "inspect-destination-79dd01": "Inspect destination",
+        "stopping-after-this-file-ad0d84": "Stopping after this file…",
+        "stop-after-this-file-178a6a": "Stop after this file"
+      },
+      "document-import": {
+        "add-documents-in-bulk-9c0c35": "Add documents in bulk",
+        "close-75eedb": "Close",
+        "retry-unfinished-files-9e1f9a": "Retry unfinished files",
+        "done-8db17f": "Done"
+      },
+      "document-type-editor": {
+        "this-document-layout-is-disabled-e8352e": "This document layout is disabled."
+      },
+      "domain-editor": {
+        "title-8d059d": "Title",
+        "please-specify-a-title-3997d0": "Please specify a title.",
+        "description-6f16f1": "Description",
+        "leave-this-field-as-it-is-72205a": "Leave this field as it is",
+        "or-e7490d": "OR",
+        "use-one-of-the-existing-values-3510fc": "Use one of the existing values",
+        "add-a-new-domain-363561": "Add a new domain",
+        "bulk-edit-multiple-domains-695fa0": "Bulk edit multiple domains",
+        "edit-domain-445e68": "Edit domain"
+      },
+      "editor-metadata-status": {
+        "close-89fadc": "Close",
+        "loading-document-type-information-0bbebb": "Loading document type information…",
+        "retry-efb1df": "Retry"
+      },
+      "generic-editor": {
+        "add-a-new-b71ecd": "Add a new",
+        "document-f378d0": "document",
+        "title-d77f00": "Title",
+        "please-specify-a-title-3b3b8e": "Please specify a title.",
+        "description-026aae": "Description",
+        "show-additional-fields-b71a33": "Show additional fields",
+        "leave-this-field-as-it-is-d6f050": "Leave this field as it is",
+        "or-1668a3": "OR",
+        "use-one-of-the-existing-values-6341ed": "Use one of the existing values",
+        "edit-multiple-documents-660dae": "Edit multiple documents"
+      },
+      "generic-type-bulk-create": {
+        "close-4773c2": "Close",
+        "loading-document-type-da9d0f": "Loading document type…",
+        "uploaded-files-0ecc41": "Uploaded files",
+        "description-0016e1": "Description",
+        "format-cd8604": "Format",
+        "detect-from-file-plain-text-fallback-138400": "Detect from file (plain text fallback)",
+        "retry-bb92d2": "Retry",
+        "done-b09b22": "Done",
+        "retry-unfinished-files-102904": "Retry unfinished files",
+        "create-documents-19d407": "Create documents"
+      },
+      "nature-subjects-coverage-expiration": {
+        "coverage-b69dad": "Coverage",
+        "nature-127a54": "Nature",
+        "subjects-fa5f98": "Subjects"
+      },
+      "note-editor": {
+        "add-a-new-8b056b": "Add a new",
+        "document-5bc54b": "document",
+        "title-d49c50": "Title",
+        "please-specify-a-title-27b6f5": "Please specify a title.",
+        "format-784891": "Format",
+        "show-additional-fields-8115e2": "Show additional fields",
+        "description-d5ff67": "Description",
+        "leave-this-field-as-it-is-803fb5": "Leave this field as it is",
+        "or-b5d62e": "OR",
+        "use-one-of-the-existing-values-9a9ea5": "Use one of the existing values",
+        "edit-multiple-documents-bf90ef": "Edit multiple documents",
+        "additional-attachments-readonly-because-do-275657": "Additional attachments (readonly because document is under retention or legal hold)"
+      },
+      "standard-content-editor": {
+        "title-fa99d2": "Title *",
+        "please-specify-a-title-92e0dc": "Please specify a title.",
+        "description-e65128": "Description",
+        "format-0c0c5d": "Format",
+        "file-d0c84e": "File",
+        "remove-file-73be3e": "Remove file"
+      },
+      "standard-content-fields": {
+        "nature-956217": "Nature",
+        "subjects-4d771b": "Subjects",
+        "coverage-745b7d": "Coverage"
+      },
+      "standard-content-import": {
+        "close-dd4b09": "Close",
+        "files-02bd9a": "Files",
+        "files-to-import-ceb0c5": "Files to import",
+        "remove-6abf4b": "Remove",
+        "title-516cb5": "Title *",
+        "description-19a3e3": "Description",
+        "format-213a92": "Format",
+        "apply-properties-to-other-files-fa2fdc": "Apply properties to other files",
+        "done-f9b04b": "Done",
+        "cancel-481624": "Cancel",
+        "retry-unfinished-files-3e3e56": "Retry unfinished files",
+        "create-4eefae": "Create"
+      },
+      "tags": {
+        "tags-d712fd": "Tags",
+        "add-a-new-tag-2689e6": "Add a new tag...",
+        "click-to-add-a-new-tag-519f35": "Click to add a new tag",
+        "remove-this-tag-c045a7": "Remove this tag",
+        "create-new-tag-1826bc": "Create new tag"
+      },
+      "vocabulary": {
+        "click-to-add-a-new-item-7dd2ea": "Click to add a new item",
+        "remove-this-item-799870": "Remove this item"
+      },
+      "history": {
+        "clear-history-5edc22": "Clear history"
+      },
+      "internal-publication": {
+        "location-6f2163": "Location",
+        "please-specify-the-target-location-1e3753": "Please specify the target location.",
+        "override-existing-publications-25d559": "Override existing publications"
+      },
+      "document-actions-toolbar": {
+        "primary-document-actions-5ad7c1": "Primary document actions",
+        "more-actions-d74c3b": "More actions",
+        "document-actions-72e786": "Document actions"
+      },
+      "document-command": {
+        "permanently-delete-this-document-this-cann-714721": "Permanently delete this document? This cannot be undone.",
+        "delete-permanently-9aa5b1": "Delete permanently",
+        "cancel-898478": "Cancel",
+        "add-to-collection-056bb3": "Add to collection",
+        "close-dab41f": "Close"
+      },
+      "document-create-action": {
+        "create-document-d81fdf": "Create document",
+        "create-9e51ba": "Create"
+      },
+      "document-info-action": {
+        "show-document-information-1e16c1": "Show document information",
+        "show-this-document-s-info-permissions-and--59c160": "Show this document's info, permissions and activity",
+        "document-information-003fe1": "Document information"
+      },
+      "document-share": {
+        "people-opening-this-link-need-permission-t-899177": "People opening this link need permission to access the document."
+      },
+      "standard-document-publish": {
+        "close-010a05": "Close",
+        "publish-destinations-b30e91": "Publish destinations"
+      },
+      "document-collections-panel": {
+        "collections-f8e852": "Collections"
+      },
+      "document-comparison": {
+        "document-comparison-b346d6": "Document comparison",
+        "close-49e1fc": "Close",
+        "property-c21545": "Property"
+      },
+      "document-details-panel": {
+        "document-details-1fbb8e": "Document details",
+        "document-information-2fb193": "Document information",
+        "state-60222a": "State",
+        "version-48d6d4": "Version",
+        "last-modified-c6e13b": "Last modified",
+        "created-1a5f57": "Created",
+        "contributors-a72898": "Contributors",
+        "collections-fc10ea": "Collections",
+        "metadata-is-unavailable-for-this-document-86572e": "Metadata is unavailable for this document."
+      },
+      "document-publication-view": {
+        "unpublish-all-fe13b2": "Unpublish all",
+        "retry-c04766": "Retry",
+        "loading-publications-df3a6c": "Loading publications…",
+        "publish-to-a-section-17072a": "Publish to a section",
+        "publish-destinations-adf342": "Publish destinations",
+        "load-more-d8986b": "Load more",
+        "cancel-11b260": "Cancel",
+        "remove-all-publications-you-are-allowed-to-6b5232": "Remove all publications you are allowed to delete, including publications on other pages?",
+        "remove-this-publication-892f4a": "Remove this publication?",
+        "replace-this-publication-with-the-current--bbfa2c": "Replace this publication with the current version?"
+      },
+      "document-snapshot-comparison": {
+        "document-snapshot-comparison-d3bd00": "Document snapshot comparison",
+        "close-a9cb86": "Close",
+        "property-8990fc": "Property",
+        "choose-snapshot-version-8640bf": "Choose snapshot version"
+      },
+      "document-tags-panel": {
+        "tags-37b901": "Tags",
+        "search-or-create-a-tag-95dc77": "Search or create a tag…",
+        "type-to-create-a-tag-ee4943": "Type to create a tag",
+        "existing-tag-dd78d9": "Existing tag",
+        "create-tag-0e4d76": "Create tag",
+        "search-or-create-a-tag-6a452c": "Search or create a tag"
+      },
+      "document-trash-view": {
+        "trash-98efdc": "Trash",
+        "retry-5ed674": "Retry",
+        "loading-trash-396607": "Loading trash…",
+        "load-more-cf108d": "Load more"
+      },
+      "document-type-viewer": {
+        "no-viewer-is-currently-available-for-this--88cd23": "No viewer is currently available for this document type!"
+      },
+      "folderish-details-panel": {
+        "details-00db34": "Details",
+        "document-information-b3e56c": "Document information",
+        "state-5a36fe": "State",
+        "last-modified-ee2ffc": "Last Modified",
+        "created-a2d2ce": "Created",
+        "contributors-d9470f": "Contributors",
+        "document-properties-70da59": "Document properties",
+        "document-activity-39f931": "Document activity",
+        "activity-could-not-be-loaded-027a60": "Activity could not be loaded.",
+        "retry-eca88a": "Retry"
+      },
+      "generic-folderish-viewer": {
+        "load-more-e7fc61": "Load more"
+      },
+      "generic-non-folderish-viewer": {
+        "show-metadata-82860c": "Show metadata",
+        "metadata-f5fc50": "Metadata",
+        "cancel-37e754": "Cancel",
+        "edit-metadata-276587": "Edit metadata",
+        "edit-89340f": "Edit",
+        "metadata-settings-2f7ba8": "Metadata settings",
+        "customize-fields-28c523": "Customize fields",
+        "hide-metadata-a82f55": "Hide metadata",
+        "technical-metadata-and-formats-13bd3b": "Technical metadata and formats",
+        "additional-attachments-d3c9f9": "Additional attachments",
+        "download-main-file-d39523": "Download main file",
+        "you-cannot-view-the-files-attached-to-this-286308": "You cannot view the files attached to this document because it's marked as a\n\t\t\t\t\t\t\t\t\t\trecord.",
+        "save-a1a911": "Save"
+      },
+      "generic-type-viewer": {
+        "loading-document-449c7c": "Loading document…"
+      },
+      "image-renderer": {
+        "loading-image-1bcab4": "Loading image…",
+        "image-viewing-controls-87b751": "Image viewing controls",
+        "fit-ba38ba": "Fit",
+        "actual-size-214301": "Actual size",
+        "download-original-file-99f0e9": "Download original file",
+        "additional-formats-cfc470": "Additional formats",
+        "image-f05cce": "Image",
+        "file-size-3dd6ce": "File size",
+        "view-this-rendition-949fdb": "View this rendition",
+        "download-this-rendition-77fb1f": "Download this rendition",
+        "view-original-ec2c8d": "View original",
+        "original-file-5e9116": "Original file",
+        "download-original-dd2dd0": "Download original",
+        "exit-fullscreen-a24ba2": "Exit fullscreen"
+      },
+      "picture-metadata-card": {
+        "not-available-c0e170": "Not available"
+      },
+      "note-renderer": {
+        "open-in-fullscreen-6399aa": "Open in fullscreen",
+        "edit-this-note-1ef67a": "Edit this note",
+        "save-changes-35d20a": "Save changes",
+        "cancel-bbd85b": "Cancel"
+      },
+      "note-richtext-editor": {
+        "note-formatting-8423d0": "Note formatting",
+        "heading-de437b": "Heading",
+        "normal-ffd063": "Normal",
+        "text-color-4f0dd2": "Text color",
+        "a-776e45": "A",
+        "insert-images-from-documents-fa2219": "Insert images from documents",
+        "images-from-documents-5a1664": "Images from documents",
+        "search-documents-6efdf1": "Search documents",
+        "search-image-documents-b26536": "Search image documents",
+        "search-5d86f9": "Search",
+        "cancel-5e0f36": "Cancel",
+        "loading-images-e7f358": "Loading images…",
+        "load-more-images-984aab": "Load more images",
+        "video-url-a3b073": "Video URL",
+        "https-www-youtube-com-watch-v-fcedf3": "https://www.youtube.com/watch?v=…",
+        "insert-034c6a": "Insert",
+        "link-url-ff56a8": "Link URL",
+        "https-2dc83c": "https://",
+        "note-rich-text-3912cc": "Note rich text"
+      },
+      "pdf-renderer": {
+        "loading-pdf-56ea16": "Loading PDF…",
+        "retry-c76e1b": "Retry",
+        "table-of-contents-9db724": "Table of contents",
+        "fullscreen-d80e4d": "Fullscreen",
+        "zoom-in-out-810965": "Zoom in/out",
+        "auto-9fb3e3": "Auto",
+        "actual-size-7daf66": "Actual size",
+        "fit-view-height-39b7a5": "Fit view height",
+        "fit-view-width-2d2e2d": "Fit view width",
+        "rotate-clockwise-bd9080": "Rotate clockwise",
+        "rotate-counter-clockwise-123e89": "Rotate counter clockwise",
+        "hand-tool-7bd658": "Hand tool",
+        "select-text-4a8ba9": "Select text",
+        "find-in-document-2c3d7a": "Find in document...",
+        "print-this-file-cd83da": "Print this file"
+      },
+      "picturebook-content-layout": {
+        "select-displayed-documents-7aa41d": "Select displayed documents",
+        "sort-by-f4f3f6": "Sort by",
+        "document-order-bb539a": "Document order",
+        "display-mode-023ca6": "Display mode",
+        "switch-to-thumbnail-grid-657afb": "Switch to thumbnail grid",
+        "switch-to-table-7efc0b": "Switch to table",
+        "visible-columns-8ec373": "Visible columns",
+        "done-b3f0e8": "Done",
+        "actions-for-selected-documents-38578b": "Actions for selected documents",
+        "retry-69f46b": "Retry",
+        "filter-by-title-fbe002": "Filter by title",
+        "title-93b066": "Title",
+        "modified-ddcca3": "Modified",
+        "last-contributor-4e366c": "Last Contributor",
+        "no-documents-found-4b2e0f": "No documents found.",
+        "load-more-ece950": "Load more",
+        "no-contributors-07948c": "No contributors",
+        "ascending-order-8ed711": "Ascending order",
+        "descending-order-909f98": "Descending order"
+      },
+      "selection-publication-page": {
+        "find-a-section-0d9ef0": "Find a section",
+        "find-ccf607": "Find",
+        "destination-5a3dc5": "Destination",
+        "choose-a-section-b665a6": "Choose a section",
+        "original-fb0e10": "Original",
+        "replace-existing-publications-3619e0": "Replace existing publications",
+        "stop-after-current-document-522eaa": "Stop after current document",
+        "loading-destinations-baf212": "Loading destinations…",
+        "published-4249bd": "Published",
+        "retry-remaining-9b99c4": "Retry remaining"
+      },
+      "standard-content-layout": {
+        "note-73b51c": "Note",
+        "note-content-faf20b": "Note content",
+        "write-your-note-here-0584dc": "Write your note here",
+        "cancel-9eb0de": "Cancel",
+        "video-player-1a1014": "Video player",
+        "video-storyboard-4d811f": "Video storyboard",
+        "audio-player-942539": "Audio player",
+        "remove-file-confirmation-707cea": "Remove file confirmation",
+        "remove-the-attached-file-172d95": "Remove the attached file?",
+        "remove-11de9f": "Remove",
+        "video-information-e0d6d4": "Video information",
+        "format-f33b6e": "Format",
+        "frame-rate-a9cf28": "Frame rate",
+        "video-conversions-73fd4a": "Video conversions",
+        "document-details-de920b": "Document details",
+        "metadata-793dcc": "Metadata",
+        "create-version-b32ae0": "Create Version",
+        "hide-metadata-f27738": "Hide metadata",
+        "show-metadata-23569d": "Show metadata",
+        "edit-html-source-55ee59": "Edit HTML source",
+        "edit-note-f221e4": "Edit note",
+        "visual-editor-640327": "Visual editor",
+        "html-source-d0ca4b": "HTML source",
+        "save-be43c4": "Save",
+        "uploading-97ce35": "Uploading…",
+        "click-to-upload-a-file-ce0a3b": "Click to upload a file",
+        "creating-6b4ee2": "Creating…"
+      },
+      "standard-content-metadata": {
+        "details-79a8eb": "Details",
+        "edit-metadata-8a9af9": "Edit metadata",
+        "cancel-ff3ca4": "Cancel",
+        "format-640546": "Format",
+        "expiration-date-a380a2": "Expiration date",
+        "save-ef93f6": "Save",
+        "uploading-021247": "Uploading…",
+        "click-to-upload-files-fd1ef8": "Click to upload files"
+      },
+      "audit": {
+        "username-50a839": "Username",
+        "from-de4c6e": "From",
+        "to-281ce9": "To",
+        "no-audit-records-match-these-filters-123b4e": "No audit records match these filters.",
+        "date-0e15dc": "Date",
+        "category-b0c237": "Category",
+        "document-e8ecfa": "Document",
+        "comment-393f03": "Comment",
+        "state-97bb2f": "State",
+        "audit-pages-f4500f": "Audit pages",
+        "previous-559496": "Previous",
+        "next-439df0": "Next",
+        "document-history-3ccc76": "Document history",
+        "audit-1aa3c7": "Audit",
+        "audit-records-728c4a": "Audit records",
+        "action-239b98": "Action"
+      },
+      "standard-document-permissions-view": {
+        "loading-permissions-cc511c": "Loading permissions…",
+        "retry-4b998d": "Retry",
+        "user-group-2ba655": "User / Group",
+        "time-frame-060052": "Time Frame",
+        "granted-by-c4dd81": "Granted by",
+        "actions-6f5083": "Actions",
+        "permanent-dd6100": "Permanent",
+        "edit-dfe788": "Edit",
+        "notify-db0252": "Notify",
+        "delete-4f05e5": "Delete",
+        "email-6432e4": "Email",
+        "select-a-permission-367243": "Select a permission",
+        "new-external-permission-a1be68": "New External Permission",
+        "new-local-permission-ed2bbb": "New Local Permission"
+      },
+      "standard-document-publication-view": {
+        "unpublish-all-c09fbd": "Unpublish all",
+        "retry-401902": "Retry",
+        "loading-publications-348857": "Loading publications…",
+        "load-more-e2f3be": "Load more",
+        "cancel-bd0410": "Cancel",
+        "remove-all-publications-you-are-allowed-to-8bf586": "Remove all publications you are allowed to delete, including publications on other pages?",
+        "remove-this-publication-e28ecf": "Remove this publication?",
+        "replace-this-publication-with-the-current--b4f7e2": "Replace this publication with the current version?"
+      },
+      "standard-document-trash-view": {
+        "grid-83b613": "Grid",
+        "table-5c0c78": "Table",
+        "clear-selection-ca8df1": "Clear selection",
+        "retry-07a813": "Retry",
+        "loading-trash-44f80c": "Loading trash…",
+        "title-579269": "Title",
+        "filter-title-c8e94b": "Filter Title",
+        "select-displayed-222c55": "Select displayed",
+        "sort-by-6d6873": "Sort by",
+        "created-32d811": "Created",
+        "last-modified-88c085": "Last modified",
+        "last-contributor-a63122": "Last contributor",
+        "load-more-1b4038": "Load more",
+        "no-values-1eb2d9": "No values"
+      },
+      "threed-renderer": {
+        "add-a-hotspot-459a1f": "Add a hotspot",
+        "auto-rotate-a660f4": "Auto rotate",
+        "play-pause-animation-111f1f": "Play/Pause animation",
+        "views-d0ef71": "Views",
+        "download-this-view-as-a-png-file-6a85ff": "Download this view as a PNG file",
+        "generating-export-896e58": "Generating export...",
+        "hotspot-label-35f3d4": "Hotspot label",
+        "edit-label-8ce71f": "Edit label",
+        "remove-hotspot-daf627": "Remove hotspot",
+        "remove-this-hotspot-d795ae": "Remove this hotspot",
+        "view-in-your-space-4330a2": "View in your space",
+        "move-your-device-to-place-the-3d-model-75d5c2": "Move your device to place the 3D model",
+        "format-209791": "Format",
+        "polygons-f884f0": "Polygons",
+        "vertices-d92606": "Vertices",
+        "textures-d6335e": "Textures",
+        "file-size-c21f3d": "File size",
+        "view-this-format-a41de5": "View this format",
+        "download-this-format-ef0778": "Download this format"
+      },
+      "trash-selection-action": {
+        "delete-permanently-7645e2": "Delete permanently",
+        "cancel-5b4eb8": "Cancel"
+      },
+      "video-renderer": {
+        "format-93ef1f": "Format",
+        "fps-c3b44a": "FPS",
+        "file-size-7f35df": "File size",
+        "view-this-format-1bd248": "View this format",
+        "download-this-format-a42b24": "Download this format",
+        "download-original-file-fae086": "Download original file"
+      },
+      "base-workflow-editor": {
+        "reassign-workflow-task-ed83f4": "Reassign workflow task",
+        "delegate-workflow-task-dc85c9": "Delegate workflow task",
+        "abandon-workflow-5d8350": "Abandon workflow",
+        "close-4235ba": "Close",
+        "go-back-8270af": "Go back",
+        "no-workflow-layout-is-registered-for-this--23161f": "No workflow layout is registered for this task.",
+        "select-the-users-groups-you-wish-to-reassi-27b9a9": "Select the users/groups you wish to reassign this task to:",
+        "are-you-sure-you-wish-to-abandon-this-wrok-1f9e1f": "Are you sure you wish to abandon this wrokflow before its completion?",
+        "discard-changes-27242c": "Discard changes",
+        "reassign-task-de4b88": "Reassign task",
+        "delegate-task-69a761": "Delegate task",
+        "users-7fda12": "Users",
+        "groups-d960c4": "Groups"
+      },
+      "parallel-wf-choose-participants-task": {
+        "participants-4b84b3": "Participants",
+        "comment-1a427e": "Comment",
+        "end-date-eb1790": "End date"
+      },
+      "parallel-wf-give-opinion-task": {
+        "initiator-comment-b60a28": "Initiator comment"
+      },
+      "serial-wf-choose-participants-task": {
+        "participants-298d26": "Participants",
+        "comment-31fb34": "Comment",
+        "simple-review-370c82": "Simple review",
+        "validation-09f8a5": "Validation",
+        "review-type-dc01c4": "Review type"
+      },
+      "serial-wf-document-validation-task": {
+        "participants-5ba3ce": "Participants",
+        "comment-3556c4": "Comment"
+      },
+      "workflow-info": {
+        "abandon-this-workflow-now-29a1a9": "abandon this workflow now",
+        "process-this-task-c69887": "Process this task",
+        "process-3c0e91": "process",
+        "invite-other-users-to-process-this-task-a367fb": "Invite other users to process this task",
+        "delegate-283977": "delegate",
+        "or-c1aa86": "or",
+        "reassign-this-task-to-other-users-cb96af": "Reassign this task to other users",
+        "reassign-0116bf": "reassign"
+      },
+      "default-search-results": {
+        "default-search-results-b94069": "Default search results",
+        "search-results-7cdb6e": "Search results",
+        "search-result-controls-c55327": "Search result controls",
+        "display-mode-05f129": "Display mode",
+        "switch-to-grid-view-cb21bb": "Switch to grid view",
+        "switch-to-table-view-3d04e9": "Switch to table view",
+        "switch-to-list-view-c6c837": "Switch to list view",
+        "sort-by-f62fb2": "Sort by",
+        "columns-settings-8c030a": "Columns settings",
+        "actions-for-selected-documents-ad45dd": "Actions for selected documents",
+        "select-all-matching-5f6e32": "Select all matching",
+        "stop-selecting-d8e63b": "Stop selecting",
+        "retry-fa6db0": "Retry",
+        "loading-results-b1421b": "Loading results…",
+        "no-results-3cc550": "No results.",
+        "loading-more-results-28e32c": "Loading more results…",
+        "load-more-a1dee0": "Load more",
+        "ascending-order-6c651e": "Ascending order",
+        "descending-order-aeba1d": "Descending order"
+      },
+      "assets-search-filters": {
+        "select-a-saved-search-26a626": "Select a saved search",
+        "delete-saved-search-49a28d": "Delete saved search",
+        "full-text-c1cf82": "Full Text",
+        "search-for-something-1de22c": "Search for something…",
+        "reset-448ef9": "Reset",
+        "search-73379e": "Search",
+        "no-values-ac4ab6": "No values"
+      },
+      "repository-search": {
+        "toggle-search-filters-bf1a5f": "Toggle search filters",
+        "search-results-140c5d": "Search Results",
+        "this-search-is-not-available-for-your-acco-2e6d56": "This search is not available for your account.",
+        "filters-e2acf9": "Filters",
+        "nxql-query-87b7f7": "NXQL Query",
+        "ctrl-enter-to-run-8ebe0c": "Ctrl+Enter to run",
+        "search-b0bde9": "Search",
+        "saved-search-d02426": "Saved search",
+        "select-a-saved-search-45f4ab": "Select a saved search",
+        "delete-saved-search-1294d4": "Delete saved search",
+        "expired-before-a47869": "Expired before",
+        "reset-53a22c": "Reset",
+        "search-results-abae80": "Search results",
+        "applied-filters-b46029": "Applied filters",
+        "actions-for-selected-documents-d3e110": "Actions for selected documents",
+        "selected-documents-164dce": "Selected documents",
+        "grid-view-906aa6": "Grid View",
+        "table-view-f3c31c": "Table View",
+        "switch-to-list-view-c12585": "Switch to List View",
+        "list-view-8724fc": "List View",
+        "sort-by-8c058a": "Sort by",
+        "sort-results-1c012e": "Sort results",
+        "default-order-2973d9": "Default order",
+        "select-all-matching-366850": "Select all matching",
+        "stop-selection-693486": "Stop selection",
+        "retry-22577e": "Retry",
+        "loading-results-f64c54": "Loading results…",
+        "load-more-6a65cf": "Load more",
+        "save-search-87f20a": "Save search",
+        "title-578690": "Title",
+        "cancel-32f1be": "Cancel",
+        "update-2b3327": "Update",
+        "save-e6d04b": "Save"
+      },
+      "search-pane": {
+        "search-current-location-913fe1": "Search current location",
+        "execute-this-nxql-query-ecd564": "Execute this NXQL query",
+        "update-selected-c03723": "Update selected",
+        "save-as-new-f9388f": "Save as new",
+        "user-or-group-eb65ae": "User or group",
+        "user-or-group-to-share-with-b0a54e": "User or group to share with",
+        "notify-4c7367": "Notify",
+        "share-56e599": "Share",
+        "search-f11f42": "Search",
+        "reset-47b365": "Reset"
+      },
+      "assets-search-queue": {
+        "assets-search-queue-394c0f": "Assets search queue",
+        "search-results-d9cb21": "Search Results",
+        "back-to-filters-5b2280": "Back to filters",
+        "queue-navigation-048949": "Queue navigation",
+        "previous-692dcf": "Previous",
+        "next-5aa3a2": "Next",
+        "retry-d5dae6": "Retry",
+        "assets-a3c992": "Assets",
+        "loading-results-45937e": "Loading results…",
+        "no-results-a194bb": "No results.",
+        "load-more-c9bff2": "Load more"
+      },
+      "search-queue": {
+        "search-results-queue-299854": "Search results queue",
+        "back-to-filters-8bba5e": "Back to filters",
+        "loading-results-23b60d": "Loading results…",
+        "no-results-3e0e7d": "No results.",
+        "loading-more-results-02d138": "Loading more results…",
+        "load-more-fdb971": "Load more",
+        "retry-a6b580": "Retry"
+      },
+      "analytics-workspace": {
+        "analytics-views-a2f7e3": "Analytics views"
+      },
+      "analytics": {
+        "loading-analytics-c4c1b7": "Loading analytics…",
+        "audit-analytics-are-unavailable-on-this-se-c56101": "Audit analytics are unavailable on this server. Repository counts are shown below; audit\n\t\t\t\tcharts require a supported audit aggregation backend.",
+        "workflow-6a6bab": "Workflow",
+        "no-workflow-model-is-available-c3da2f": "No workflow model is available",
+        "after-9d9e02": "After",
+        "before-7e5044": "Before",
+        "this-range-contains-more-than-1-000-releva-53bc00": "This range contains more than 1,000 relevant audit events. Narrow the date range; no partial\n\t\t\t\tmetrics are shown.",
+        "calls-per-page-provider-1b6788": "Calls per page provider",
+        "calls-per-hour-05eb92": "Calls per hour",
+        "results-per-call-270a11": "Results per call",
+        "popular-full-text-searches-3ad4e6": "Popular full-text searches",
+        "pages-displayed-4cb7c0": "Pages displayed",
+        "filters-used-b8e879": "Filters used",
+        "no-workflow-model-is-available-on-this-ser-f47bd1": "No workflow model is available on this server.",
+        "average-workflow-duration-898983": "Average workflow duration",
+        "workflow-initiators-22c731": "Workflow initiators",
+        "actions-per-user-57f209": "Actions per user",
+        "average-task-duration-c5478f": "Average task duration",
+        "path-60f8fc": "Path",
+        "default-domain-workspaces-b068de": "/default-domain/workspaces/",
+        "depth-351c8c": "Depth",
+        "enter-a-repository-path-ending-in-a-slash--55b4d3": "Enter a repository path ending in a slash to inspect its document hierarchy.",
+        "select-a-path-to-view-its-document-distrib-2a5295": "Select a path to view its document distribution.",
+        "distribution-analytics-is-disabled-because-108fb2": "Distribution analytics is disabled because the current query would impact the quality of\n\t\t\t\t\tthe service. Configure a positive server query threshold before selecting a path.",
+        "no-documents-match-this-path-7d22d4": "No documents match this path.",
+        "document-distribution-78f9fc": "Document distribution",
+        "total-documents-728507": "Total Documents",
+        "folders-2447c9": "Folders",
+        "users-3444c6": "Users",
+        "repository-activity-last-30-days-31a643": "Repository Activity — Last 30 Days",
+        "top-contributors-last-90-days-9abdca": "Top Contributors — Last 90 Days",
+        "no-completed-workflows-78d1d8": "No completed workflows"
+      },
+      "cloud": {
+        "oauth2-service-providers-7eb357": "OAuth2 Service Providers",
+        "add-a-new-service-provider-cc956d": "Add a new service provider",
+        "service-name-67e74a": "Service name",
+        "user-server-url-0d2f9b": "User Server URL",
+        "enabled-29ac97": "Enabled",
+        "actions-725338": "Actions",
+        "edit-this-service-provider-715912": "Edit this service provider",
+        "delete-this-service-provider-dffd18": "Delete this service provider",
+        "oauth2-clients-86b4f5": "OAuth2 Clients",
+        "add-a-new-client-5e8a4a": "Add a new client",
+        "name-c5432f": "Name",
+        "client-secret-26679e": "Client secret",
+        "redirect-uris-33300c": "Redirect URIs",
+        "auto-grant-767cec": "Auto grant",
+        "edit-this-client-7ee85f": "Edit this client",
+        "delete-this-client-4ad1f3": "Delete this client",
+        "authorized-applications-7f856f": "Authorized applications",
+        "nuxeo-login-adf30e": "Nuxeo login",
+        "service-login-4ae10c": "Service login",
+        "creation-date-273b56": "Creation date",
+        "edit-this-application-token-1dd5c5": "Edit this application token",
+        "revoke-this-application-token-bdd778": "Revoke this application token",
+        "cloud-accounts-46f8b6": "Cloud accounts",
+        "shared-3cf9a7": "Shared",
+        "edit-this-account-b58797": "Edit this account",
+        "delete-this-account-f23461": "Delete this account"
+      },
+      "cloud-account-editor": {
+        "edit-account-ed8f5f": "Edit account",
+        "close-6bc13c": "Close",
+        "nuxeo-login-c1a1ab": "Nuxeo login",
+        "service-login-2ec977": "Service login",
+        "creation-date-b646bb": "Creation date",
+        "close-without-saving-305dbe": "Close without saving",
+        "save-changes-9ad120": "Save changes"
+      },
+      "cloud-application-editor": {
+        "add-a-new-application-c6914a": "Add a new application",
+        "close-23d36f": "Close",
+        "nuxeo-login-42bae2": "Nuxeo login",
+        "service-login-b9a32e": "Service login",
+        "creation-date-26a8ce": "Creation date",
+        "close-without-saving-d03bb5": "Close without saving",
+        "save-changes-a3d49b": "Save changes"
+      },
+      "cloud-client-editor": {
+        "add-a-new-client-486978": "Add a new client",
+        "edit-client-129f20": "Edit client",
+        "close-16f491": "Close",
+        "name-bf5e9f": "Name",
+        "client-id-57b4c5": "Client Id",
+        "client-secret-620c32": "Client secret",
+        "redirect-uris-4559af": "Redirect URIs",
+        "add-a-new-scope-64d8d1": "Add a new scope...",
+        "click-to-add-a-new-scope-15fcc8": "Click to add a new scope",
+        "remove-this-scope-6796cc": "Remove this scope",
+        "auto-grant-f26d14": "Auto grant",
+        "enabled-c0fb07": "Enabled",
+        "close-without-saving-5decaa": "Close without saving",
+        "save-changes-403727": "Save changes"
+      },
+      "cloud-service-provider-editor": {
+        "add-a-new-service-provider-ebd9a0": "Add a new service provider",
+        "edit-service-provider-0bdcad": "Edit service provider",
+        "close-d5ba67": "Close",
+        "name-9261f5": "Name",
+        "client-id-15f622": "Client Id",
+        "client-secret-e09923": "Client Secret",
+        "user-server-url-f81ca5": "User Server URL",
+        "add-a-new-scope-358462": "Add a new scope...",
+        "click-to-add-a-new-scope-5ffaec": "Click to add a new scope",
+        "remove-this-scope-2ad6ac": "Remove this scope",
+        "description-070956": "Description",
+        "enabled-281b62": "Enabled",
+        "close-without-saving-a2fc47": "Close without saving",
+        "save-changes-1dfd69": "Save changes"
+      },
+      "content-management": {
+        "document-types-a2747a": "Document types",
+        "feature-id-aeee9b": "Feature ID",
+        "schemas-df6cb2": "Schemas",
+        "description-3319b6": "Description",
+        "name-bffcbd": "Name",
+        "prefix-858c09": "Prefix",
+        "total-fields-a96abe": "Total fields",
+        "metadata-c7ecb1": "Metadata",
+        "data-type-69136c": "Data type",
+        "multi-valued-1ee6e1": "Multi-valued",
+        "schema-0ce0fe": "Schema"
+      },
+      "metadata-policy": {
+        "metadata-access-rules-bd96f2": "Metadata access rules",
+        "choose-which-metadata-people-can-see-and-e-5951bb": "Choose which metadata people can see and edit, by document type and schema.",
+        "discard-changes-6da815": "Discard changes",
+        "i-c68a5b": "i",
+        "these-rules-customize-the-interface-nuxeo--356045": "These rules customize the interface. Nuxeo permissions still control access to documents.\n\t\t\tAdministrators retain full visibility.",
+        "only-administrators-can-change-metadata-la-0f9e24": "Only administrators can change metadata layouts.",
+        "retry-dc2510": "Retry",
+        "loading-metadata-rules-c57e91": "Loading metadata rules…",
+        "rules-d6c53d": "Rules",
+        "add-rule-ce6294": "Add rule",
+        "no-custom-rules-yet-091d8b": "No custom rules yet",
+        "start-with-a-document-type-choose-its-meta-22c9c3": "Start with a document type, choose its metadata, then decide who can view or edit it.",
+        "create-your-first-rule-8efa92": "Create your first rule",
+        "default-behavior-applies-until-you-save-a--538921": "Default behavior applies until you save a rule.",
+        "remove-d03630": "Remove",
+        "metadata-scope-e8d7be": "Metadata scope",
+        "choose-where-this-rule-applies-8afbf4": "Choose where this rule applies.",
+        "all-document-types-dd432c": "All document types",
+        "schema-18906d": "Schema",
+        "who-it-applies-to-0ba36d": "Who it applies to",
+        "leave-both-lists-empty-to-apply-to-everyon-a4f0b8": "Leave both lists empty to apply to everyone.",
+        "users-413c24": "Users",
+        "search-or-enter-a-user-id-959a22": "Search or enter a user ID",
+        "groups-db10f7": "Groups",
+        "search-or-enter-a-group-id-87caa3": "Search or enter a group ID",
+        "match-people-in-93ab4c": "Match people in",
+        "either-list-users-or-group-members-861bd6": "Either list — users OR group members",
+        "both-lists-users-who-also-belong-to-a-grou-f9aef9": "Both lists — users who also belong to a group",
+        "what-they-can-do-f9a070": "What they can do",
+        "metadata-access-29d75f": "Metadata access",
+        "visible-fields-b03150": "Visible fields",
+        "optional-679941": "Optional",
+        "all-fields-in-the-selected-schema-aa327f": "All fields in the selected schema",
+        "leave-empty-for-all-fields-when-you-select-008eee": "Leave empty for all fields. When you select fields, other fields in this\n\t\t\t\t\t\t\t\t\t\t\tscope are hidden.",
+        "how-rules-work-e134bd": "How rules work",
+        "a-matching-user-rule-takes-precedence-over-10d4fe": "A matching user rule takes precedence over group rules. Within that scope, specific\n\t\t\t\t\tdocument types and schemas take precedence over general rules. Ties use the most\n\t\t\t\t\trestrictive access.",
+        "editing-also-requires-document-write-permi-1a3786": "Editing also requires document write permission. Generated fields remain read-only. With\n\t\t\t\t\tno matching rule, Dublin Core fields are editable and other schemas are read-only, subject\n\t\t\t\t\tto document permissions.",
+        "unsaved-changes-59eed5": "Unsaved changes",
+        "changes-saved-173028": "Changes saved",
+        "save-changes-3e4f48": "Save changes",
+        "all-schemas-49b90b": "All schemas",
+        "everyone-56869f": "Everyone",
+        "editable-e43e43": "Editable",
+        "read-only-732595": "Read only",
+        "hidden-edf5f5": "Hidden",
+        "view-values-without-editing-78c08a": "View values without editing",
+        "view-and-edit-values-8eb418": "View and edit values",
+        "hide-metadata-from-view-4b99bd": "Hide metadata from view"
+      },
+      "retention-rule-editor": {
+        "add-a-new-retention-rule-85f53f": "Add a new retention rule",
+        "edit-retention-rule-9cf818": "Edit retention rule",
+        "close-346c5a": "Close",
+        "title-8c52bc": "Title",
+        "description-f06eaf": "Description",
+        "application-policy-e1a0d8": "Application policy",
+        "expression-508e02": "Expression",
+        "ex-document-gettype-file-de981b": "Ex: Document.getType() == 'File'",
+        "document-types-affected-by-this-retention--5780de": "Document types affected by this retention rule",
+        "click-to-add-a-new-document-type-83877b": "Click to add a new document type",
+        "remove-this-document-type-d37271": "Remove this document type",
+        "starting-point-policy-97ec77": "Starting point policy",
+        "the-retention-period-starts-automatically--155c7e": "The retention period starts automatically and synchronously when this retention\n\t\t\t\t\t\t\t\tpolicy is applied to a document.",
+        "starting-point-event-311383": "Starting point event",
+        "event-input-25b40c": "Event input",
+        "field-b67f12": "Field",
+        "the-specified-document-field-acts-as-the-r-361fdf": "The specified document field acts as the retention period starting point",
+        "end-actions-620f7a": "End actions",
+        "click-to-add-an-action-80cb71": "Click to add an action",
+        "remove-this-action-351616": "Remove this action",
+        "duration-in-years-6e254e": "Duration in years:",
+        "duration-in-months-676771": "Duration in months:",
+        "duration-in-days-68c14a": "Duration in days:",
+        "duration-in-seconds-5655eb": "Duration in seconds:",
+        "enabled-d0f365": "Enabled",
+        "close-without-saving-459436": "Close without saving",
+        "save-changes-02e866": "Save changes"
+      },
+      "retention-rule-picker": {
+        "apply-a-retention-rule-64dc5a": "Apply a retention rule",
+        "close-785662": "Close",
+        "pick-the-retention-rule-to-apply-to-this-d-61bc8f": "Pick the retention rule to apply to this document",
+        "only-the-retention-rules-that-are-applicab-7739a3": "Only the retention rules that are applicable to this document are displayed.",
+        "go-back-b44049": "Go back",
+        "apply-retention-rule-5d78e1": "Apply retention rule"
+      },
+      "retention-rules": {
+        "enable-or-disable-this-retention-rule-6cbb20": "Enable or disable this retention rule",
+        "the-retention-period-starts-immediately-6e34d8": "The retention period starts immediately",
+        "the-retention-period-starts-when-a-documen-a72d60": "The retention period starts when a document is modified based on this\n\t\t\t\t\t\t\t\t\t\t\texpression",
+        "the-retention-period-starts-when-a-documen-b5b568": "The retention period starts when a document is moved based on this expression",
+        "field-edd6b2": "field",
+        "once-the-retention-period-has-expired-the--1286e4": "Once the retention period has expired, the following actions will be performed:",
+        "it-affects-only-these-document-types-8aa390": "It affects only these document types:",
+        "edit-this-retention-rule-c5463f": "Edit this retention rule",
+        "edit-this-rule-d72c2d": "Edit this rule",
+        "add-a-new-retention-rule-addcbf": "Add a new retention rule"
+      },
+      "user-and-group-editor": {
+        "add-a-new-user-4bfb9e": "Add a new user",
+        "add-a-new-group-e40bd3": "Add a new group",
+        "edit-user-c60a44": "Edit user",
+        "edit-group-e854f1": "Edit group",
+        "close-117f66": "Close",
+        "loading-db71a4": "Loading…",
+        "retry-1679c8": "Retry",
+        "id-75b5b9": "Id",
+        "description-7b25bb": "Description",
+        "users-d1150b": "Users",
+        "groups-811eae": "Groups",
+        "a-group-cannot-be-a-member-of-itself-3535b9": "A group cannot be a member of itself.",
+        "username-d7ad7e": "Username",
+        "enter-a-username-a66b27": "Enter a username.",
+        "email-address-e8d2c5": "Email address",
+        "enter-a-valid-email-address-1b7789": "Enter a valid email address.",
+        "first-name-8750b5": "First name",
+        "last-name-fc6463": "Last name",
+        "company-3f1098": "Company",
+        "set-password-5309cf": "Set password",
+        "an-invitation-will-be-sent-to-the-email-ad-f69c22": "An invitation will be sent to the email address so the user can set a password.",
+        "confirm-password-e18441": "Confirm password",
+        "enter-and-confirm-the-same-password-16fcb4": "Enter and confirm the same password.",
+        "close-without-saving-2dee77": "Close without saving",
+        "create-another-e98481": "Create another",
+        "sending-28957e": "Sending…",
+        "send-invitation-423c57": "Send invitation",
+        "create-9b100a": "Create",
+        "save-changes-d32592": "Save changes"
+      },
+      "user-and-group-permissions": {
+        "user-permissions-c973f4": "User permissions",
+        "user-group-permissions-6cc2fb": "User group permissions",
+        "close-297e3f": "Close",
+        "list-of-permissions-for-user-9d65a3": "List of permissions for user",
+        "list-of-permissions-for-group-b74258": "List of permissions for group",
+        "path-cc2e71": "Path",
+        "granted-eeda8a": "Granted",
+        "effectiveness-c8b94f": "Effectiveness",
+        "local-permissions-913767": "Local permissions",
+        "permissions-inherited-from-the-c0d8ff": "Permissions inherited from the",
+        "group-8478f4": "group",
+        "permanent-f3cd27": "Permanent",
+        "press-hold-to-delete-this-permission-a0566e": "Press & hold to delete this permission"
+      },
+      "users-and-groups": {
+        "users-groups-6ea071": "Users & Groups",
+        "all-users-and-groups-eb23d6": "All users and groups",
+        "search-users-and-groups-e045c0": "Search users and groups",
+        "saving-changes-3a4931": "Saving changes…",
+        "groups-a87294": "Groups",
+        "add-a-new-group-ef054c": "Add a new group",
+        "edit-this-group-801528": "Edit this group",
+        "view-permissions-1212f0": "View permissions",
+        "delete-this-group-a07d8c": "Delete this group",
+        "user-members-6a3728": "User members",
+        "filter-user-members-3c0465": "Filter user members",
+        "remove-this-member-93c028": "Remove this member",
+        "group-members-cda1e8": "Group members",
+        "filter-group-members-44123e": "Filter group members",
+        "no-members-match-the-current-filters-7a3e73": "No members match the current filters.",
+        "there-are-no-user-groups-to-display-3020eb": "There are no user groups to display.",
+        "expand-any-user-group-to-show-its-members-5b2d31": "Expand any user group to show its members.",
+        "users-fb312e": "Users",
+        "add-a-new-user-247b06": "Add a new user",
+        "edit-this-user-6b36e3": "Edit this user",
+        "delete-this-user-88d18b": "Delete this user",
+        "this-user-is-not-part-of-any-group-yet-e63cdd": "This user is not part of any group yet.",
+        "detach-from-this-group-4947d3": "Detach from this group",
+        "there-are-no-users-to-display-2b6385": "There are no users to display.",
+        "loading-189714": "Loading…",
+        "retry-0938b3": "Retry",
+        "previous-b47147": "Previous",
+        "next-c6a5d5": "Next"
+      },
+      "vocabularies": {
+        "vocabulary-748809": "Vocabulary",
+        "select-a-vocabulary-256030": "Select a vocabulary",
+        "retry-c83dbb": "Retry",
+        "loading-a8b66a": "Loading…",
+        "add-entry-e500b3": "Add entry",
+        "actions-e7048e": "Actions",
+        "edit-a480d0": "Edit",
+        "delete-355662": "Delete",
+        "no-entries-8cd961": "No entries.",
+        "previous-43d317": "Previous",
+        "next-dc78ee": "Next",
+        "select-parent-73527c": "Select parent",
+        "english-label-856b69": "English label",
+        "french-label-3cdc0b": "French label",
+        "obsolete-1d87b4": "Obsolete",
+        "cancel-9bb10d": "Cancel",
+        "save-094e48": "Save",
+        "delete-entry-679cf9": "Delete entry",
+        "yes-ff114f": "Yes",
+        "no-2256cf": "No",
+        "edit-entry-a04b68": "Edit entry"
+      },
+      "settings": {
+        "administration-171b5e": "Administration",
+        "close-administration-navigation-fb0022": "Close administration navigation",
+        "open-administration-navigation-d9a095": "Open administration navigation"
+      },
+      "document-icon-and-title": {
+        "collection-documents-bb3355": "collection documents",
+        "owner-1ad6c7": "Owner",
+        "you-ve-added-this-document-to-your-collect-9bb13f": "You've added this document to your collections"
+      },
+      "document-tree": {
+        "loading-folders-147d99": "Loading folders…",
+        "retry-5090ea": "Retry",
+        "load-more-folders-09ae21": "Load more folders"
+      },
+      "header": {
+        "document-explorer-cbad34": "Document explorer",
+        "find-documents-43048a": "Find documents",
+        "settings-77665f": "Settings",
+        "user-profile-1c5d61": "User profile",
+        "sign-out-6fbf9e": "Sign out"
+      },
+      "administration-drawer": {
+        "administration-d96529": "Administration"
+      },
+      "clipboard-drawer": {
+        "clear-clipboard-e0be1d": "Clear clipboard"
+      },
+      "personal-workspace-drawer": {
+        "loading-workspace-67d517": "Loading workspace…",
+        "retry-2c78f7": "Retry"
+      },
+      "repository-search-drawer": {
+        "search-ee3075": "Search",
+        "open-results-to-refine-filters-and-select--bdd455": "Open results to refine filters and select documents."
+      },
+      "sidebar": {
+        "main-navigation-3f69d6": "Main navigation",
+        "application-navigation-6004e0": "Application navigation",
+        "account-and-administration-917406": "Account and administration",
+        "administration-6a4b44": "Administration",
+        "user-menu-b6f323": "User menu",
+        "navigation-details-7876a4": "Navigation details",
+        "close-navigation-8845ce": "Close navigation",
+        "drawer-controls-6ebb60": "Drawer controls"
+      },
+      "user-menu-language": {
+        "language-382388": "Language"
+      },
+      "users-and-groups-picker": {
+        "click-to-add-a-new-item-21dc83": "Click to add a new item",
+        "remove-this-item-ebd1ce": "Remove this item",
+        "users-afc181": "Users",
+        "user-groups-17ec0f": "User groups"
+      },
+      "document-info-bar": {
+        "unlock-6ebc32": "Unlock",
+        "this-document-is-placed-under-legal-hold-e9dca4": "This document is placed under legal hold."
+      },
+      "default-workflow-layout": {
+        "participants-e440e1": "Participants",
+        "search-users-and-groups-1b2dd3": "Search users and groups.",
+        "validation-c5668c": "Validation",
+        "comment-3dc08e": "Comment",
+        "end-date-3209f9": "End date",
+        "review-brief-08f9f7": "Review brief"
+      },
+      "default-drawer-page": {
+        "clear-clipboard-4bbb2b": "Clear clipboard"
+      },
+      "common": {
+        "unavailable": "Unavailable"
+      }
+    },
+    "services": {
+      "collections": {
+        "exists-title": "Collection already exists",
+        "create-failed": "Could not create the specified collection.",
+        "create-failed-title": "Error creating collection",
+        "limit": "You can't add more than 20 documents at a time to a collection.",
+        "update-failed-title": "Error updating collection",
+        "updating": "Updating collection...",
+        "updating-all": "Updating collections...",
+        "add-failed": "The document couldn't be added to the specified collection.",
+        "partially-updated": "Collection partially updated",
+        "remove-failed": "The document couldn't be removed from the specified collection.",
+        "some-remove-failed": "Some documents couldn't be removed from the specified collection.",
+        "updated": "Collection updated",
+        "exists": "A collection named “{name}” already exists.",
+        "many-add-failed": "{count, plural, one {# document could not be added to the specified collection.} other {# documents could not be added to the specified collection.}}",
+        "added": "{count, plural, one {# document has been added to the specified collection.} other {# documents have been added to the specified collection.}}",
+        "removed": "{count, plural, one {# document has been removed from the specified collection.} other {# documents have been removed from the specified collection.}}",
+        "favorite-added": "{count, plural, one {# document has been added to favorites.} other {# documents have been added to favorites.}}",
+        "favorite-removed": "{count, plural, one {# document has been removed from favorites.} other {# documents have been removed from favorites.}}"
+      },
+      "clipboard": {
+        "limit": "The clipboard can only accomodate a maximum of 100 documents for performance reasons.",
+        "not-updated": "Clipboard not updated",
+        "updated": "Clipboard updated",
+        "already-added": "The document is already on the clipboard.",
+        "add-failed": "The document couldn't be added to the clipboard.",
+        "empty-copy": "No document was copied to the clipboard.",
+        "all-removed": "All documents have been removed from the clipboard.",
+        "cleared": "Clipboard cleared",
+        "copied-title": "Documents copied",
+        "moved-title": "Documents moved",
+        "some-added": "{count, plural, one {# document out of {total, number} has been added to the clipboard; some were already present.} other {# documents out of {total, number} have been added to the clipboard; some were already present.}}",
+        "added": "{count, plural, one {# document has been added to the clipboard.} other {# documents have been added to the clipboard.}}",
+        "removed": "{count, plural, one {# document has been removed from the clipboard.} other {# documents have been removed from the clipboard.}}",
+        "copied": "{count, plural, one {# document has been copied to the current location.} other {# documents have been copied to the current location.}}",
+        "moved": "{count, plural, one {# document has been moved to the current location.} other {# documents have been moved to the current location.}}"
+      },
+      "attachments": {
+        "download-starting": "Your download is starting.",
+        "download-title": "File download",
+        "download-start-failed": "The download could not be started. Check your connection and permissions, then retry.",
+        "download-error": "Download error",
+        "export-failed": "There was an error exporting the specified document.",
+        "export-error": "Export error",
+        "exported-title": "Document exported",
+        "download-failed": "There was an error downloading the specified document.",
+        "uploading": "Uploading files…",
+        "upload-title": "File upload",
+        "upload-failed": "The files could not be uploaded. Check your connection and permissions, then retry.",
+        "upload-start-failed": "The upload could not be started. Check your connection and permissions, then retry.",
+        "upload-error": "File upload error",
+        "uploaded": "The files have been successfully uploaded.",
+        "exported": "The document was exported as a {format} file.",
+        "downloading": "Downloading file “{name}”…",
+        "uploading-file": "Uploading “{name}”…",
+        "file-too-large": "The file “{name}” could not be uploaded in time because it is too large.",
+        "file-failed": "The file “{name}” could not be uploaded.",
+        "file-uploaded": "The file “{name}” has been successfully uploaded.",
+        "invalid-chunk-size": "Upload chunk size must be a positive integer."
+      },
+      "documents": {
+        "unauthorized": "You are not authorized to view this document.",
+        "not-found": "The specified document couldn't be found.",
+        "error-title": "Error",
+        "notifications-title": "Document notifications",
+        "lock-title": "Document lock changed",
+        "legal-hold-title": "Document legal hold changed",
+        "destination-changed": "The destination or its creation permissions have changed. Refresh and try again.",
+        "unsubscribed": "You will no longer receive notifications when the document “{title}” changes.",
+        "subscribed": "You will receive notifications when the document “{title}” changes.",
+        "unlocked": "The document “{title}” has been unlocked.",
+        "locked": "The document “{title}” is now locked.",
+        "held": "The document “{title}” is now under legal hold and cannot be altered.",
+        "unheld": "The document “{title}” is no longer under legal hold."
+      },
+      "snapshots": {
+        "created": "The document snapshot has been succesfully created.",
+        "created-title": "Document snapshot created",
+        "create-failed": "There was an error creating the document snapshot.",
+        "create-failed-title": "Error creating snapshot",
+        "loaded-title": "Document snapshot loaded",
+        "restored-title": "Document snapshot restored",
+        "loaded": "Displaying snapshot version {version}.",
+        "restored": "The document has been restored to snapshot version {version}."
+      },
+      "trash": {
+        "removed-title": "Documents removed",
+        "restored-title": "Documents restored",
+        "purged-title": "Documents purged",
+        "emptied-title": "Trash emptied",
+        "moved": "{count, plural, one {# document has been moved to trash.} other {# documents have been moved to trash.}}",
+        "restored": "{count, plural, one {# document has been restored from trash.} other {# documents have been restored from trash.}}",
+        "purged": "{count, plural, one {# document has been permanently deleted.} other {# documents have been permanently deleted.}}",
+        "emptied-folder": "All trashed documents inside “{title}” have been permanently removed.",
+        "emptied-all": "All trashed documents have been permanently removed."
+      },
+      "automations": {
+        "error-title": "Bulk action error",
+        "progress": "Progress: {progress, number, percent}…",
+        "title": "Bulk action {operation}"
+      },
+      "http": {
+        "configuration": "The Maretha Angular WebUI is not properly configured in your Nuxeo instance.",
+        "error-title": "Error",
+        "expired-title": "Session expired",
+        "expired": "Your session has expired. Click here to return to the login page."
+      },
+      "import": {
+        "invalid-input": "Choose a destination and valid files.",
+        "leave": "Leave this import? Created documents will remain; unfinished files and recovery details will be discarded.",
+        "not-allowed": "Creation is no longer allowed for this destination and document type.",
+        "missing-upload-reference": "The upload did not return a file reference.",
+        "created-details-failed": "Created; details could not be loaded. Retry to reload this document.",
+        "failed": "This file could not be created. Retry when the problem is resolved.",
+        "too-large": "“{name}” is too large to import as a Note. Maximum size is {limit, number} MB.",
+        "invalid-text": "“{name}” could not be read as UTF-8 text."
+      },
+      "creation": {
+        "details-failed": "The document was created, but its details could not be loaded. Retry finishing this document.",
+        "unknown": "The server did not confirm whether creation finished. Inspect the destination before creating another document."
+      },
+      "search": {
+        "queue-not-open": "Run a search before opening its queue.",
+        "queue-load-failed": "Unable to load this search queue. Retry to continue.",
+        "queue-changed": "The search changed. Open the queue again to view its new results.",
+        "return-failed": "Unable to return to the search filters.",
+        "asset-open-failed": "Unable to open this asset.",
+        "assets-load-failed": "Unable to load the Assets queue. Retry to continue.",
+        "confirm-trash": "Move the selected documents to trash?"
+      },
+      "permissions": {
+        "link-sent": "A link to this document has been sent to {email}.",
+        "sent-title": "Notification sent"
+      },
+      "publication": {
+        "no-longer-publishable": "The document is no longer publishable. Refresh the selection and check permissions."
+      }
+    },
+    "columns": {
+      "title": "Title",
+      "status": "Status",
+      "path": "Path",
+      "version": "Version",
+      "rendition": "Rendition",
+      "publisher": "Publisher",
+      "published": "Published",
+      "type": "Type",
+      "modified": "Modified",
+      "file-size": "File size",
+      "state": "State",
+      "last-modification": "Last modification",
+      "last-modified": "Last modified",
+      "last-contributor": "Last contributor",
+      "created": "Created",
+      "author": "Author",
+      "nature": "Nature",
+      "coverage": "Coverage",
+      "subjects": "Subjects",
+      "publish-date": "Publish Date",
+      "flags": "Flags",
+      "size": "Size",
+      "performed-action": "Performed Action",
+      "date": "Date",
+      "username": "Username",
+      "category": "Category",
+      "comment": "Comment",
+      "format": "Format"
+    },
+    "notices": {
+      "failed-to-create-the-value-collection-4a1517": "Failed to create the “{value0}” collection.",
+      "error-creating-collection-f0f886": "Error creating collection",
+      "failed-to-add-the-specified-documents-to-the-74a129": "Failed to add the specified documents to the “{value0}” collection.",
+      "error-updating-collection-48250e": "Error updating collection",
+      "your-comment-was-removed-6e4bf3": "Your comment was removed.",
+      "comment-removed-f80ae1": "Comment removed",
+      "your-comment-was-saved-bccb02": "Your comment was saved.",
+      "comment-saved-dbb46c": "Comment saved",
+      "downloading-file-value-4ed119": "Downloading file “{value0}”…",
+      "file-download-c2574e": "File download",
+      "-value-plural-one-file-has-been-added-to-the-7162c5": "{value0, plural, one {# file has been added to the list.} other {# files have been added to the list.}}",
+      "files-attached-9fcc60": "Files attached",
+      "no-files-have-been-added-to-the-list-a4830a": "No files have been added to the list.",
+      "no-files-attached-367e69": "No files attached",
+      "a-copy-of-the-document-was-published-to-the-s-9821cf": "A copy of the document was published to the specified section.",
+      "document-published-6ffc86": "Document published",
+      "the-specified-path-is-invalid-703573": "The specified path is invalid.",
+      "error-54a0e8": "Error",
+      "error-saving-document-5886ac": "Error saving document",
+      "the-file-has-been-successfully-created-618e09": "The file has been successfully created.",
+      "the-file-has-been-successfully-modified-4128ae": "The file has been successfully modified.",
+      "document-saved-e81dde": "Document saved",
+      "fullscreen-is-not-available-in-your-browser-abce6c": "Fullscreen is not available in your browser.",
+      "fullscreen-not-available-bdc19a": "Fullscreen not available",
+      "changes-were-saved-but-the-document-could-not-7a41dc": "Changes were saved, but the document could not be refreshed.",
+      "the-note-has-been-successfully-modified-27f5e0": "The note has been successfully modified.",
+      "note-saved-123e3c": "Note saved",
+      "you-need-to-choose-a-point-on-the-d-model-its-d4b8d5": "You need to choose a point on the 3D model itself.",
+      "hotspot-outside-model-3cf200": "Hotspot outside model",
+      "error-loading-d-model-0755bd": "Error loading 3D model",
+      "an-error-occurred-please-try-again-in-a-few-m-5b0be8": "An error occurred, please try again in a few moments.",
+      "do-you-wish-to-create-a-snapshot-of-the-curre-3baa59": "Do you wish to create a snapshot of the current document before restoring it to a previous version?",
+      "discard-your-unsaved-changes-f117f1": "Discard your unsaved changes?",
+      "move-the-selected-documents-to-trash-7c970b": "Move the selected documents to trash?",
+      "discard-this-permission-change-2d35fc": "Discard this permission change?",
+      "delete-the-value-permission-for-value-ca37da": "Delete the {value0} permission for {value1}?",
+      "are-you-sure-f0762c": "Are you sure?",
+      "discard-unsaved-directory-entry-changes-146cb0": "Discard unsaved directory entry changes?",
+      "delete-saved-search-value-61ad3f": "Delete saved search “{value0}”?"
+    },
+    "state": {
+      "this-browser-could-not-display-the-file-downl-0b935c": "This browser could not display the file. Download it to use another viewer.",
+      "preview-is-unavailable-check-access-or-server-160777": "Preview is unavailable. Check access or server conversion support, or download the file.",
+      "unable-to-refresh-the-search-results-2e29d4": "Unable to refresh the search results.",
+      "unable-to-refresh-the-document-d06b97": "Unable to refresh the document.",
+      "the-accepted-job-is-still-pending-retry-its-s-4eb054": "The accepted job is still pending. Retry its status or abort it.",
+      "the-search-scope-changed-review-and-confirm-a-cfc692": "The search scope changed. Review and confirm again.",
+      "the-submission-outcome-is-unknown-do-not-subm-d63d25": "The submission outcome is unknown. Do not submit it again.",
+      "the-bulk-runaction-endpoint-was-not-found-che-7e29bd": "The Bulk.RunAction endpoint was not found. Check the server or proxy configuration before using query-wide actions.",
+      "the-job-was-accepted-but-status-could-not-be-210342": "The job was accepted but status could not be read.",
+      "unable-to-start-the-query-metadata-update-c12746": "Unable to start the query metadata update.",
+      "the-job-status-is-still-unavailable-7d9210": "The job status is still unavailable.",
+      "abort-requested-452edb": "Abort requested.",
+      "the-server-could-not-abort-this-job-db90a8": "The server could not abort this job.",
+      "directory-choices-could-not-be-loaded-retry-b-5c648e": "Directory choices could not be loaded. Retry before changing a directory field.",
+      "the-accepted-job-is-still-pending-retry-its-s-25239c": "The accepted job is still pending. Retry its status instead.",
+      "unable-to-start-the-query-trash-action-cfabb0": "Unable to start the query trash action.",
+      "csv-export-failed-retry-the-export-8c140a": "CSV export failed. Retry the export.",
+      "cancellation-could-not-be-confirmed-retry-can-e54119": "Cancellation could not be confirmed. Retry cancellation.",
+      "cancellation-could-not-be-confirmed-retry-can-5d2070": "Cancellation could not be confirmed. Retry cancellation if available.",
+      "unable-to-load-versions-please-try-again-e20f81": "Unable to load versions. Please try again.",
+      "the-action-failed-check-permissions-and-retry-5e8cad": "The action failed. Check permissions and retry.",
+      "link-copied-71af38": "Link copied.",
+      "copy-the-selected-link-using-your-keyboard-17309d": "Copy the selected link using your keyboard.",
+      "the-lock-could-not-be-removed-retry-after-che-55fe38": "The lock could not be removed. Retry after checking your permissions.",
+      "publications-could-not-be-loaded-4e082f": "Publications could not be loaded.",
+      "more-publications-could-not-be-loaded-86eb10": "More publications could not be loaded.",
+      "some-publications-remain-nuxeo-only-removes-p-81b56e": "Some publications remain. Nuxeo only removes publications you are allowed to delete.",
+      "publications-removed-e98c00": "Publications removed.",
+      "the-publication-action-failed-verify-your-per-8ec829": "The publication action failed. Verify your permissions and retry.",
+      "trash-could-not-be-loaded-b3ca80": "Trash could not be loaded.",
+      "fullscreen-is-unavailable-in-this-browser-aaff2c": "Fullscreen is unavailable in this browser.",
+      "no-browser-preview-is-available-this-image-ne-279e76": "No browser preview is available. This image needs server conversion before it can be viewed.",
+      "preview-is-unavailable-for-this-image-downloa-62a90e": "Preview is unavailable for this image. Download the file to view it.",
+      "the-selected-documents-could-not-be-moved-to-240f2c": "The selected documents could not be moved to trash. Check permissions and retry.",
+      "the-selected-documents-could-not-be-removed-f-94e7f8": "The selected documents could not be removed from this collection. Refresh and retry.",
+      "the-documents-could-not-be-reordered-refresh-0e0bf7": "The documents could not be reordered. Refresh and retry.",
+      "-value-content-could-not-be-loaded-check-your-2ea53d": "{value0} content could not be loaded. Check your access and retry.",
+      "destinations-could-not-be-loaded-retry-the-se-50a24a": "Destinations could not be loaded. Retry the search.",
+      "permissions-could-not-be-loaded-de0c27": "Permissions could not be loaded.",
+      "select-a-user-or-group-or-enter-a-valid-exter-87778b": "Select a user or group, or enter a valid external email.",
+      "select-a-permission-d82270": "Select a permission.",
+      "enter-a-valid-permission-time-frame-b2ebc5": "Enter a valid permission time frame.",
+      "permissions-updated-2674b9": "Permissions updated.",
+      "trash-could-not-be-emptied-04df71": "Trash could not be emptied.",
+      "unable-to-check-whether-this-version-can-be-r-dc052f": "Unable to check whether this version can be restored.",
+      "this-version-can-no-longer-be-restored-246e03": "This version can no longer be restored.",
+      "the-version-could-not-be-restored-2faf1c": "The version could not be restored.",
+      "search-failed-check-the-filters-and-retry-f73bdd": "Search failed. Check the filters and retry.",
+      "enter-an-nxql-query-22e2ac": "Enter an NXQL query.",
+      "enter-an-absolute-repository-path-d6ebeb": "Enter an absolute repository path.",
+      "enter-a-valid-expiration-date-2183d9": "Enter a valid expiration date.",
+      "unable-to-load-saved-searches-ac687d": "Unable to load saved searches.",
+      "search-saved-681246": "Search saved.",
+      "unable-to-save-this-search-265779": "Unable to save this search.",
+      "unable-to-delete-this-search-4ba973": "Unable to delete this search.",
+      "search-failed-check-the-query-permissions-and-48df75": "Search failed. Check the query, permissions and availability of this search provider, then retry.",
+      "metadata-layout-policy-could-not-be-saved-17476f": "Metadata layout policy could not be saved.",
+      "the-version-was-created-but-the-refreshed-doc-8e261a": "The version was created, but the refreshed document could not be loaded. Please reload.",
+      "the-version-could-not-be-created-please-try-a-71fe33": "The version could not be created. Please try again.",
+      "saved-but-the-refreshed-document-could-not-be-8ca637": "Saved, but the refreshed document could not be loaded. Please reload.",
+      "the-attachments-could-not-be-saved-please-try-5a9bdd": "The attachments could not be saved. Please try again.",
+      "the-attachment-could-not-be-removed-please-tr-0846e5": "The attachment could not be removed. Please try again.",
+      "saved-value-79e8db": "Saved {value0}.",
+      "unable-to-save-this-search-check-your-permiss-a7bdca": "Unable to save this search. Check your permissions and retry.",
+      "updated-value-064850": "Updated {value0}.",
+      "unable-to-update-this-search-check-your-permi-a85910": "Unable to update this search. Check your permissions and retry.",
+      "enter-one-user-or-group-name-without-line-bre-88f55c": "Enter one user or group name without line breaks.",
+      "granted-read-access-to-value-740215": "Granted Read access to {value0}.",
+      "unable-to-share-this-search-you-need-permissi-ef6a3e": "Unable to share this search. You need permission to manage it.",
+      "this-saved-search-has-invalid-parameters-b85643": "This saved search has invalid parameters.",
+      "restored-value-b065a7": "Restored {value0}.",
+      "deleted-value-93c1b6": "Deleted {value0}.",
+      "unable-to-delete-this-search-check-your-permi-4ab2af": "Unable to delete this search. Check your permissions and retry.",
+      "the-start-date-must-be-before-the-end-date-88c4c0": "The start date must be before the end date.",
+      "analytics-could-not-be-loaded-check-your-conn-b46033": "Analytics could not be loaded. Check your connection and permissions, then retry.",
+      "document-distribution-could-not-be-loaded-sel-02b1b2": "Document distribution could not be loaded. Select a smaller scope or check the search index.",
+      "enter-valid-audit-dates-e5ac7d": "Enter valid audit dates.",
+      "the-start-date-must-be-before-or-on-the-end-d-53a541": "The start date must be before or on the end date.",
+      "only-an-administrator-can-add-a-user-to-the-a-ee74ba": "Only an administrator can add a user to the administrators group.",
+      "invitation-queued-for-value-5bdcfd": "Invitation queued for {value0}.",
+      "-value-value-created-051fd5": "{value0} {value1} created.",
+      "unable-to-load-the-current-account-details-re-244ab4": "Unable to load the current account details. Retry to edit.",
+      "unable-to-load-users-and-groups-5ae278": "Unable to load users and groups.",
+      "unable-to-load-value-value-6ba643": "Unable to load {value0} {value1}.",
+      "metadata-could-not-be-saved-refresh-the-docum-c4fa8b": "Metadata could not be saved. Refresh the document and try again.",
+      "import-is-disabled-for-value-93eee7": "Import is disabled for {value0}.",
+      "the-import-could-not-be-started-4aad57": "The import could not be started.",
+      "the-custom-document-layout-must-declare-a-lay-f73b3d": "The custom document layout must declare a layoutContext input.",
+      "this-document-type-does-not-support-a-main-fi-c08948": "This document type does not support a main file. Choose another type.",
+      "document-type-information-could-not-be-loaded-877c5c": "Document type information could not be loaded.",
+      "publication-failed-verify-the-target-permissi-84fc63": "Publication failed. Verify the target permissions and try again.",
+      "suggestions-are-unavailable-you-can-still-add-859857": "Suggestions are unavailable. You can still add a new tag.",
+      "no-matching-images-on-this-page-load-more-ima-9fbfd6": "No matching images on this page. Load more images to continue.",
+      "no-matching-images-found-e070cd": "No matching images found.",
+      "images-could-not-be-loaded-please-try-again-9f030e": "Images could not be loaded. Please try again.",
+      "enter-a-youtube-or-vimeo-https-video-url-6cc690": "Enter a YouTube or Vimeo HTTPS video URL.",
+      "enter-an-https-http-or-email-link-50abcc": "Enter an https, http or email link.",
+      "history-could-not-be-loaded-check-your-access-ae2d65": "History could not be loaded. Check your access and try again.",
+      "permissions-could-not-be-loaded-check-your-ac-abce21": "Permissions could not be loaded. Check your access and try again.",
+      "the-permission-change-could-not-be-completed-ec522e": "The permission change could not be completed. Refresh and try again.",
+      "uploading-file-value-9d01a9": "Uploading file \"{value0}\"",
+      "creating-document-value-e8c827": "Creating document \"{value0}\"",
+      "collection-membership-could-not-be-updated-b86ce5": "Collection membership could not be updated.",
+      "tags-could-not-be-updated-3e7d4f": "Tags could not be updated.",
+      "this-task-action-is-no-longer-available-87150c": "This task action is no longer available.",
+      "unable-to-refresh-this-task-6c7927": "Unable to refresh this task.",
+      "this-workflow-can-no-longer-be-abandoned-6f4699": "This workflow can no longer be abandoned.",
+      "unable-to-refresh-this-workflow-72164e": "Unable to refresh this workflow.",
+      "unable-to-save-this-workflow-change-f3bddb": "Unable to save this workflow change.",
+      "this-task-can-no-longer-be-changed-a6f145": "This task can no longer be changed.",
+      "folders-could-not-be-loaded-check-your-access-4b610d": "Folders could not be loaded. Check your access and retry.",
+      "this-administration-page-could-not-be-opened-218a4c": "This administration page could not be opened. Try again.",
+      "the-document-could-not-be-opened-try-again-36410b": "The document could not be opened. Try again.",
+      "documents-copied-047a0c": "Documents copied.",
+      "documents-moved-00a77f": "Documents moved.",
+      "the-documents-were-saved-but-the-current-loca-c6e66d": "The documents were saved, but the current location could not be refreshed.",
+      "navigation-cancelled-your-collection-is-still-055691": "Navigation cancelled. Your collection is still available.",
+      "this-document-could-not-be-opened-try-again-2db5fc": "This document could not be opened. Try again.",
+      "this-document-is-no-longer-available-in-the-c-21585e": "This document is no longer available in the collection.",
+      "favorites-could-not-be-loaded-check-your-conn-8618b2": "Favorites could not be loaded. Check your connection and retry.",
+      "navigation-cancelled-your-favorites-are-still-706c48": "Navigation cancelled. Your favorites are still available.",
+      "the-favorite-was-removed-but-its-updated-list-f1c05b": "The favorite was removed, but its updated list could not be loaded. Please retry.",
+      "the-document-could-not-be-removed-from-favori-4afef1": "The document could not be removed from favorites. Please retry.",
+      "your-personal-workspace-could-not-be-loaded-c-101b54": "Your personal workspace could not be loaded. Check your access and retry.",
+      "save-or-discard-changes-in-the-open-drawer-be-7e7abf": "Save or discard changes in the open drawer before leaving.",
+      "renamed-value-2f1c7a": "Renamed to {value0}.",
+      "unable-to-rename-this-search-check-your-permi-5d0b3c": "Unable to rename this search. Check your permissions and retry."
+    },
+    "labels": {
+      "consult-content-b1dac7": "Consult content",
+      "comment-documents-22011f": "Comment documents",
+      "tag-documents-9a3dfd": "Tag documents",
+      "collect-content-8507cf": "Collect content",
+      "follow-content-897c1c": "Follow content",
+      "create-documents-5d5686": "Create documents",
+      "edit-documents-c06bd9": "Edit documents",
+      "add-remove-relations-36d72f": "Add / remove relations",
+      "start-a-workflow-6c6b2d": "Start a workflow",
+      "delete-documents-7e7d03": "Delete documents",
+      "read-actions-0b2cef": "+ Read actions",
+      "manage-permissions-2630ba": "Manage permissions",
+      "set-alerts-to-other-users-729faa": "Set alerts to other users",
+      "apply-a-preset-look-on-documents-75f209": "Apply a preset look on documents",
+      "manage-deleted-documents-0b23a2": "Manage deleted documents",
+      "define-publication-targets-63dcd6": "Define publication targets",
+      "edit-actions-a06a00": "+ Edit actions",
+      "permissions-for-people-outside-the-organizati-f93d74": "1. Permissions for people outside the organization",
+      "permissions-specific-to-this-document-a162dc": "2. Permissions specific to this document",
+      "permissions-inherited-from-the-parent-folder-3600b6": "3. Permissions inherited from the parent folder",
+      "add-a-new-permission-ddb3e4": "Add a new permission",
+      "sharing-to-external-users-does-not-create-new-eca5e2": "Sharing to external users does not create new user accounts, instead external users are provided a link to access this document.",
+      "enable-permission-inheritance-6da961": "Enable permission inheritance",
+      "disable-permission-inheritance-946455": "Disable permission inheritance",
+      "unknown-principal-edd139": "Unknown principal",
+      "pending-331551": "Pending",
+      "checking-destination-885a56": "Checking destination",
+      "reading-text-10c504": "Reading text",
+      "uploading-8b898c": "Uploading",
+      "creating-3b951e": "Creating",
+      "created-d70b9e": "Created",
+      "needs-attention-c1ebc7": "Needs attention",
+      "outcome-unknown-164557": "Outcome unknown",
+      "title-7e8cd2": "Title",
+      "description-526e00": "Description",
+      "nature-c71ce8": "Nature",
+      "subjects-1a7529": "Subjects",
+      "coverage-523487": "Coverage",
+      "expiration-date-8ccc3f": "Expiration date",
+      "bold-94fee6": "Bold",
+      "italic-9bf37c": "Italic",
+      "underline-02f843": "Underline",
+      "strikethrough-9aabbc": "Strikethrough",
+      "block-quote-cb1946": "Block quote",
+      "code-block-754538": "Code block",
+      "decrease-indent-88053f": "Decrease indent",
+      "increase-indent-b80a5d": "Increase indent",
+      "align-left-eac0f9": "Align left",
+      "align-center-e55c76": "Align center",
+      "align-right-8f4f8e": "Align right",
+      "subscript-cd512a": "Subscript",
+      "superscript-31a0ba": "Superscript",
+      "numbered-list-cc62f6": "Numbered list",
+      "bulleted-list-ce51b3": "Bulleted list",
+      "clear-formatting-9e75ec": "Clear formatting",
+      "picture-info-fc2deb": "Picture Info",
+      "dimensions-914182": "Dimensions",
+      "format-2f3436": "Format",
+      "color-profile-dacfe1": "Color profile",
+      "bit-depth-per-channel-e31b31": "Bit depth per channel",
+      "date-taken-a2f4fe": "Date taken",
+      "horizontal-resolution-cc9eae": "Horizontal resolution",
+      "vertical-resolution-415b15": "Vertical resolution",
+      "save-changes-dd0ae7": "Save changes",
+      "close-without-saving-bb5e6e": "Close without saving",
+      "you-can-either-manually-select-files-or-drag--ced9be": "You can either manually select files or drag them over"
+    },
+    "toolbar": {
+      "move-up": "Move up",
+      "move-down": "Move down",
+      "select-loaded": "Select displayed",
+      "clear-selection": "Clear selection",
+      "display": "Display settings",
+      "edit-selection": "Edit selection",
+      "compare": "Compare",
+      "clipboard": "Copy to clipboard",
+      "collect": "Add to collection",
+      "trash": "Move to trash",
+      "remove-collection": "Remove from collection",
+      "versions": "Versions",
+      "workflow": "Start a workflow"
+    },
+    "search": {
+      "favorite": "Favorite",
+      "cold-storage": "Cold storage",
+      "color-depth": "Color depth",
+      "facet-value": "{label}: {value}"
+    },
+    "runtime": {
+      "display-settings": {
+        "pick-a-sort-option-e53804": "Pick a sort option..."
+      },
+      "blob-preview": {
+        "document-preview-7d76d8": "Document preview"
+      },
+      "base-editor": {
+        "saving-document-d06e6b": "Saving document…"
+      },
+      "binary-editor": {
+        "save-changes-ae7d55": "Save changes",
+        "cancel-da793d": "Cancel",
+        "close-without-saving-e18793": "Close without saving"
+      },
+      "document-type-editor": {
+        "no-editor-is-currently-available-for-this--6d1647": "No editor is currently available for this document type!"
+      },
+      "domain-editor": {
+        "create-domain-8cd2df": "Create domain",
+        "save-changes-cfd8f1": "Save changes"
+      },
+      "editor-metadata-status": {
+        "document-8efccc": "Document"
+      },
+      "generic-editor": {
+        "save-changes-0b2bb7": "Save changes",
+        "cancel-c75bdc": "Cancel",
+        "close-without-saving-0f3176": "Close without saving"
+      },
+      "note-editor": {
+        "save-changes-3a9695": "Save changes",
+        "cancel-a751d6": "Cancel",
+        "close-without-saving-5c3bfb": "Close without saving"
+      },
+      "standard-content-editor": {
+        "create-049116": "Create",
+        "save-d06564": "Save",
+        "cancel-da79c8": "Cancel"
+      },
+      "empty-document-layout": {
+        "cancel-7e17e0": "Cancel"
+      },
+      "image-renderer": {
+        "image-preview-66403a": "Image preview",
+        "rendition-979e0b": "Rendition"
+      },
+      "picturebook-content-layout": {
+        "document-thumbnail-e00a5b": "Document thumbnail"
+      }
+    },
+    "settingsShared": {
+      "recently-viewed-eab19e": "Recently Viewed",
+      "collections-9f9fea": "Collections",
+      "favorites-7a1f2a": "Favorites",
+      "clipboard-285d69": "Clipboard",
+      "tasks-b3a60e": "Tasks",
+      "administration-4b42c6": "Administration",
+      "expanded-select-true-collapse-title-other-expan-22e5c6": "{expanded, select, true {Collapse {title}} other {Expand {title}}}",
+      "count-plural-one-you-have-pending-task-other-yo-82d0f1": "{count, plural, one {You have # pending task} other {You have # pending tasks}}",
+      "view-members-of-title-7b9c23": "View members of {title}",
+      "user-group-identifier-id-e1c575": "User group identifier: {id}",
+      "actions-for-group-name-1dc425": "Actions for group {name}",
+      "actions-for-user-name-c5458d": "Actions for user {name}",
+      "detach-from-group-name-a16a06": "Detach from group {name}",
+      "kind-select-users-user-pages-other-group-pages-605ea0": "{kind, select, users {User pages} other {Group pages}}",
+      "remove-rule-number-number-8707d6": "Remove rule {number, number}",
+      "users-number-users-groups-number-groups-ec7116": "{users, number} users · {groups, number} groups",
+      "seconds-number-precision-integer-seconds-d3070d": "{seconds, number, ::precision-integer} seconds",
+      "count-plural-one-audit-record-other-audit-recor-82d2ca": "{count, plural, one {# audit record} other {# audit records}}",
+      "field-select-eventid-sort-by-action-eventdate-s-679936": "{field, select, eventId {Sort by action} eventDate {Sort by date} principalName {Sort by user} other {Sort by category}}{sort, select, ASC {, sorted ascending} DESC {, sorted descending} other {}}",
+      "audit-records-are-unavailable-your-server-must-e-b42176": "Audit records are unavailable. Your server must expose the Audit.QueryWithPageProvider automation endpoint.",
+      "id-384397": "ID",
+      "parent-5f7953": "Parent",
+      "label-0e6637": "Label",
+      "english-label-100733": "English label",
+      "french-label-c8eef1": "French label",
+      "obsolete-a97fc8": "Obsolete",
+      "order-6be090": "Order",
+      "action-select-create-the-entry-could-not-be-cre-16ce3e": "{action, select, create {The entry could not be created.} other {The entry could not be updated.}}",
+      "directories-could-not-be-loaded-retry-the-reques-42d3cc": "Directories could not be loaded. Retry the request.",
+      "an-entry-id-and-a-valid-parent-are-needed-484ae9": "An entry ID and a valid parent are needed.",
+      "the-entry-could-not-be-deleted-it-may-be-referen-e2289b": "The entry could not be deleted. It may be referenced.",
+      "directory-entries-could-not-be-loaded-retry-the-031629": "Directory entries could not be loaded. Retry the request.",
+      "automatic-d461a4": "Automatic",
+      "manual-b0b9fe": "Manual",
+      "immediate-ed6cb0": "Immediate",
+      "based-on-events-b7ab69": "Based on events",
+      "based-on-a-document-s-field-6b32a5": "Based on a document's field",
+      "unable-to-send-the-invitation-check-the-values-a-3bf881": "Unable to send the invitation. Check the values and retry.",
+      "kind-select-group-unable-to-save-the-group-chec-03378d": "{kind, select, group {Unable to save the group. Check the values and retry.} other {Unable to save the user. Check the values and retry.}}",
+      "kind-select-group-group-id-created-other-user-i-225abd": "{kind, select, group {Group {id} created.} other {User {id} created.}}",
+      "operation-select-copy-the-documents-could-not-b-ea6d40": "{operation, select, Copy {The documents could not be copied. Check the destination and try again.} other {The documents could not be moved. Check the destination and try again.}}",
+      "kind-select-group-unable-to-delete-group-id-che-3e6542": "{kind, select, group {Unable to delete group {id}. Check permissions and retry.} other {Unable to delete user {id}. Check permissions and retry.}}",
+      "unable-to-add-user-to-group-check-permissions-an-d17955": "Unable to add {user} to {group}. Check permissions and retry.",
+      "unable-to-remove-user-from-group-check-permissio-e15a69": "Unable to remove {user} from {group}. Check permissions and retry.",
+      "kind-select-group-unable-to-load-group-id-other-8eaf44": "{kind, select, group {Unable to load group {id}.} other {Unable to load user {id}.}}",
+      "unable-to-load-this-directory-page-8ae94c": "Unable to load this directory page.",
+      "unable-to-load-group-members-retry-a1725f": "Unable to load group members. Retry.",
+      "unknown-b764cd": "Unknown",
+      "actorknown-select-true-actor-other-unknown-task-2940b7": "{actorKnown, select, true {{actor}} other {Unknown}} · {taskKnown, select, true {{task}} other {Task}}",
+      "no-result-c6008b": "No result",
+      "less-than-181ad0": "Less than 50",
+      "to-d5b660": "51 to 200",
+      "to-6b2752": "201 to 1000",
+      "more-than-016b89": "More than 1000",
+      "first-page-0bdbb7": "First page",
+      "page-794f70": "Page 2",
+      "pages-to-b3c307": "Pages 3 to 5",
+      "pages-to-ef2bc9": "Pages 6 to 10",
+      "after-pages-8280ea": "After 10 pages",
+      "events-8d14f6": "Events",
+      "apple-quicktime-91e566": "Apple Quicktime",
+      "excel-xlsx-9e97de": "Excel (xlsx)",
+      "google-docs-507e98": "Google Docs",
+      "google-drive-file-5a492f": "Google Drive file",
+      "google-drive-folder-edd32e": "Google Drive folder",
+      "google-earth-kml-54b869": "Google Earth (kml)",
+      "google-earth-kmz-72018f": "Google Earth (kmz)",
+      "google-form-44f53b": "Google Form",
+      "google-fusion-tables-d830eb": "Google Fusion Tables",
+      "google-presentation-ba3a6a": "Google Presentation",
+      "google-sites-66df01": "Google Sites",
+      "google-spreadsheet-6fa70d": "Google Spreadsheet",
+      "one-note-8ff8b1": "One Note",
+      "opendocument-chart-b5745c": "OpenDocument Chart",
+      "opendocument-chart-template-d1aa7c": "OpenDocument Chart Template",
+      "opendocument-database-232000": "OpenDocument Database",
+      "opendocument-formula-caaf5b": "OpenDocument Formula",
+      "opendocument-formula-template-0402ec": "OpenDocument Formula Template",
+      "opendocument-graphics-90a2b0": "OpenDocument Graphics",
+      "opendocument-graphics-template-5b39a6": "OpenDocument Graphics Template",
+      "opendocument-image-b43b24": "OpenDocument Image",
+      "opendocument-image-template-c847f7": "OpenDocument Image Template",
+      "opendocument-presentation-4af4e0": "OpenDocument Presentation",
+      "opendocument-presentation-template-ef2503": "OpenDocument Presentation Template",
+      "opendocument-spreadsheet-5bdb19": "OpenDocument Spreadsheet",
+      "opendocument-spreadsheet-template-e114bc": "OpenDocument Spreadsheet Template",
+      "opendocument-text-a531cc": "OpenDocument Text",
+      "opendocument-text-master-d3002f": "OpenDocument Text Master",
+      "opendocument-text-template-9f2401": "OpenDocument Text Template",
+      "opendocument-text-web-0ad7be": "OpenDocument Text Web",
+      "plain-text-7b5cb3": "Plain Text",
+      "word-template-9cb39c": "Word Template",
+      "folders-could-not-be-loaded-retry-to-continue-477df1": "Folders could not be loaded. Retry to continue.",
+      "collections-could-not-be-loaded-retry-the-reques-26a407": "Collections could not be loaded. Retry the request.",
+      "permission-to-update-this-collection-has-changed-a57520": "Permission to update this collection has changed.",
+      "the-member-could-not-be-removed-retry-the-reques-0d79fc": "The member could not be removed. Retry the request.",
+      "theme-default": "Default",
+      "retentionRules": "Retention Rules",
+      "metadataLayouts": "Metadata layouts"
+    },
+    "errors": {
+      "the-streaming-session-has-ended-sign-in--b8ce91": "The streaming session has ended. Sign in again.",
+      "invalid-archive-preparation-identifier--05b584": "Invalid archive preparation identifier.",
+      "the-server-returned-an-invalid-archive-p-ed80c0": "The server returned an invalid archive preparation status.",
+      "the-streaming-grant-changed-identity--a45585": "The streaming grant changed identity.",
+      "streaming-requires-this-application-and--eb55ea": "Streaming requires this application and Nuxeo on the same HTTPS origin.",
+      "the-server-returned-an-invalid-streaming-e61825": "The server returned an invalid streaming grant.",
+      "the-server-returned-an-invalid-streaming-4129b2": "The server returned an invalid streaming URL.",
+      "select-up-to-1-000-valid-documents-from--fe7e4f": "Select up to 1,000 valid documents from one repository.",
+      "cancellation-could-not-be-confirmed-retr-e54119": "Cancellation could not be confirmed. Retry cancellation.",
+      "a-complete-query-scope-is-required--5d108b": "A complete query scope is required.",
+      "download-cancelled--79310f": "Download cancelled.",
+      "the-server-did-not-expose-the-download-s-0012f8": "The server did not expose the download status URL. Allow the Location response header in the Nuxeo CORS configuration.",
+      "no-csv-export-was-returned--e3fe3f": "No CSV export was returned.",
+      "no-downloadable-content-was-returned--65d092": "No downloadable content was returned.",
+      "unexpected-nested-csv-result-url--5767cf": "Unexpected nested CSV result URL.",
+      "the-csv-export-stopped-or-completed-with-8f40bd": "The CSV export stopped or completed with errors.",
+      "missing-export-status-url--3dd5ac": "Missing export status URL.",
+      "missing-download-status-url--6d57df": "Missing download status URL.",
+      "the-server-could-not-prepare-the-selecte-6673f4": "The server could not prepare the selected files.",
+      "invalid-download-status-url--e4b0a6": "Invalid download status URL.",
+      "this-folder-can-no-longer-be-reordered-r-171dd8": "This folder can no longer be reordered. Refresh and check permissions.",
+      "the-folder-changed-before-reordering--9b771d": "The folder changed before reordering.",
+      "the-folder-contents-changed-refresh-befo-9737ec": "The folder contents changed. Refresh before reordering.",
+      "the-folder-order-changed-while-loading-r-75a30d": "The folder order changed while loading. Refresh and retry.",
+      "the-complete-sibling-order-is-unavailabl-0938f8": "The complete sibling order is unavailable. Refresh before reordering.",
+      "the-server-returned-an-incomplete-siblin-03bf2e": "The server returned an incomplete sibling page.",
+      "a-selected-document-moved-or-is-unavaila-b98287": "A selected document moved or is unavailable. Refresh the selection.",
+      "the-displayed-order-is-stale-refresh-the-97f922": "The displayed order is stale. Refresh the folder before reordering.",
+      "reordering-failed-or-its-outcome-is-unkn-857931": "Reordering failed or its outcome is unknown. Refresh the folder before retrying.",
+      "permission-to-empty-this-trash-has-chang-9c8d9d": "Permission to empty this trash has changed.",
+      "save-the-file-before-streaming-or-downlo-e2e304": "Save the file before streaming or downloading it.",
+      "the-saved-file-could-not-be-identified-u-ab5c25": "The saved file could not be identified uniquely. Refresh the document and try again.",
+      "the-saved-file-has-no-repository--d67912": "The saved file has no repository.",
+      "the-document-has-changed-refresh-and-try-955ef4": "The document has changed. Refresh and try again.",
+      "permission-to-manage-access-has-changed--8759b9": "Permission to manage access has changed.",
+      "the-selected-permission-is-no-longer-ava-ba220e": "The selected permission is no longer available.",
+      "this-permission-has-changed-refresh-and--167160": "This permission has changed. Refresh and try again."
+    },
+    "viewer": {
+      "embeddedVideo": "Embedded video",
+      "mediaPlaybackFailed": "This media could not be played. Check access or refresh the document to try again.",
+      "streamingExpired": "The streaming grant expired.",
+      "streamingUnavailable": "Streaming is unavailable. Refresh the document to try again.",
+      "comparisonMissing": "— missing —",
+      "comparisonEmpty": "— empty —",
+      "unnamedFile": "unnamed file",
+      "comparisonEmptyList": "— empty list —",
+      "comparisonEmptyObject": "— empty object —",
+      "comparisonAddition": "addition",
+      "comparisonDeletion": "deletion",
+      "comparisonModification": "modification",
+      "comparisonUnchanged": "unchanged",
+      "documentType": "Document type",
+      "state": "State",
+      "isModified": "Is modified",
+      "metadataRights": "Rights",
+      "metadataSource": "Source",
+      "metadataLanguage": "Language",
+      "metadataPublisher": "Publisher",
+      "metadataIssued": "Issued",
+      "metadataValid": "Valid"
+    },
+    "gateway": {
+      "changeToken": "A change token is required to save safely.",
+      "createTarget": "A parent and valid document name are required.",
+      "uploadBatch": "The server did not return an upload batch.",
+      "directoryTooLarge": "The directory has more than 1000 selectable entries. Refine it before bulk editing.",
+      "directoryLimit": "The directory reached the 1000-entry bulk choice limit. Refine it before bulk editing.",
+      "directoryRepeated": "The directory response repeated a page before lookup completed.",
+      "directoryTruncated": "The directory response was truncated before all entries were searched.",
+      "directoryPages": "The directory lookup exceeded its 100-page safety limit."
+    }
+  },
+  "widgets": {
+    "select": {
+      "notFound": "No items found",
+      "typeToSearch": "Type to search",
+      "addTag": "Add item",
+      "loading": "Loading…",
+      "clearAll": "Clear all",
+      "dropdown": "Open options"
+    },
+    "datepicker": {
+      "open": "Open calendar",
+      "placeholder": "mm/dd/yyyy",
+      "today": "Today",
+      "clear": "Clear",
+      "customRange": "Custom range"
+    }
+  },
+  "validation": {
+    "required": "This field is required.",
+    "list": "Use a list value.",
+    "boolean": "Use a boolean value.",
+    "number": "Enter a valid number.",
+    "minimum": "The minimum is {value}.",
+    "maximum": "The maximum is {value}.",
+    "date": "Enter a valid date.",
+    "object": "Use an object value.",
+    "nested": "{field}: {error}",
+    "unsupportedType": "{field}: unsupported schema type.",
+    "file": "Choose a file.",
+    "maxLength": "Use at most {count, plural, one {# character} other {# characters}}."
+  },
+  "dialog": {
+    "confirmation": "Confirmation",
+    "decline": "Decline",
+    "confirm": "Confirm",
+    "deleteTitle": "Deletion confirmation",
+    "keep": "No, keep it",
+    "delete": "Yes, delete it",
+    "revoke": "Yes, revoke it",
+    "unsavedChanges": "Unsaved changes"
+  },
+  "workflow": {
+    "started": "You started the {workflow} workflow for this document. You can end it before completion.",
+    "assigned": "You have been assigned the {task} task in the {workflow} workflow.",
+    "due": "Due {date}",
+    "initiator": "Initiated by: {user}",
+    "participantsRequired": "Participants are required.",
+    "participantsAndEndRequired": "Participants and end date are required.",
+    "initiatedBy": "Workflow initiated by {name}"
+  },
+  "retention": {
+    "start": {
+      "immediate": "The retention period starts immediately and lasts for {duration}.",
+      "modified": "The retention period starts when the document is modified according to {expression} and lasts for {duration}.",
+      "moved": "The retention period starts when the document is moved according to {expression} and lasts for {duration}.",
+      "metadata": "The retention period starts from the document’s {field} field and lasts for {duration}.",
+      "event": "The retention period starts with {event} and lasts for {duration}."
+    }
+  },
+  "shell": {
+    "closeUserMenu": "Close user menu",
+    "activity": "Application activity",
+    "loadingContent": "Loading content",
+    "loadingPage": "Loading page",
+    "drawerResize": "Resize navigation drawer",
+    "drawerResizeHelp": "Drag to resize. Use arrow keys to adjust; press Enter or double-click to reset."
+  },
+  "comments": {
+    "replyTo": "Reply to {author}",
+    "replies": "{count, plural, one {# reply} other {# replies}}",
+    "reply": "Reply"
+  },
+  "metadata": {
+    "chooseFields": "Choose fields shown for {type}. Administrator-restricted fields are not listed.",
+    "thisType": "this document type",
+    "editRule": "Edit rule {number, number}",
+    "typeLoadFailed": "Document type information could not be loaded. Retry or close this dialog.",
+    "loadFailed": "Metadata settings could not be loaded. Retry to display metadata.",
+    "conflict": "Settings changed on the server. Reload before saving.",
+    "saveFailed": "Could not save metadata settings.",
+    "savedRefreshFailed": "Saved, but the refreshed document could not be loaded. Please reload.",
+    "saveRetry": "Metadata could not be saved. Your changes have been kept; try again.",
+    "adminOnly": "Only administrators can change metadata settings.",
+    "changedBeforeSave": "Another administrator changed these settings. Reload before saving.",
+    "preferencesFailed": "Your browser could not save these preferences.",
+    "invalidPolicy": "Unsupported metadata policy format.",
+    "invalidRule": "Each rule needs a document type, schema, valid access, and user/group IDs.",
+    "cannotEdit": "You cannot edit {property} in this metadata layout."
+  },
+  "document": {
+    "version": "Version {version}",
+    "lockedDetails": "This document was locked {date} and can only be modified by {who, select, self {you} other {{user}}} or users having the “Manage everything” permission.",
+    "modifiedBy": "Last modified {date} by {user}",
+    "importType": "Import {type}",
+    "createType": "Create a {type} document",
+    "lockedBy": "This document was locked {date} by {user}.",
+    "retainedUntil": "This document is placed under retention until {date}.",
+    "by": "By {user}",
+    "developerTools": "Developer tools"
+  },
+  "permissions": {
+    "dates": "From {begin} until {end}",
+    "begin": "Starting with {begin}",
+    "end": "Until {end}",
+    "inheritanceAction": "{action, select, unblock {Unblock permissions inherited from upper levels} other {Block permissions inherited from upper levels}}",
+    "editFor": "Edit permission for {name}",
+    "notifyNamed": "Notify {name}",
+    "deleteFor": "Delete permission for {name}",
+    "read": "Read",
+    "edit": "Edit",
+    "everything": "Manage Everything",
+    "loadError": "Could not load permissions.",
+    "delete": {
+      "title": "Delete permission"
+    }
+  },
+  "selection": {
+    "files": "{count, plural, one {# file selected} other {# files selected}}",
+    "displayed": "{count, number} displayed",
+    "count": "{count, number} selected",
+    "all": "Select all {count, number} matching results",
+    "progress": "{known, select, true {Selecting {selected, number} of {total, number} matching documents…} other {Selecting {selected, number} matching documents…}}",
+    "more": "{count, number} more…",
+    "partial": "{count, plural, one {Only # document was selected.} other {Only # documents were selected.}} {reason, select, invalid {The search provider returned an invalid result page.} empty {The search provider reported another page without returning documents.} duplicate {The search provider repeated documents instead of advancing to a new page.} limit {The selection stopped after {pages, number} pages.} other {The search provider did not advance to a new page.}} You can run an action on this partial selection or retry.",
+    "capped": "{count, plural, one {Selected the first # matching document.} other {Selected the first # matching documents.}} Refine the filters before running an action on more results.",
+    "complete": "{count, plural, one {Selected the matching document.} other {Selected all # matching documents.}}",
+    "failed": "{count, plural, one {Only # document was selected before the query failed.} other {Only # documents were selected before the query failed.}} You can run an action on this partial selection or retry.",
+    "stopped": "{count, plural, one {Selection stopped after # document.} other {Selection stopped after # documents.}}",
+    "selecting": "Selecting matching documents… {count, number} selected.",
+    "repository": "The selected documents must belong to the current repository."
+  },
+  "query": {
+    "editScope": "Changes apply to all {count, number} matching results. Excluded matching results: {excluded, number}.",
+    "editConfirm": "Apply the reviewed metadata changes to all {count, number} results matching the captured filters?",
+    "job": "Job {id}",
+    "trashConfirm": "{operation, select, restore {Restore all {count, number} results from {repository}/{provider} matching the applied filters from trash?} other {Move all {count, number} results from {repository}/{provider} matching the applied filters to trash?}}",
+    "progress": "{state, select, SCHEDULED {Scheduled} RUNNING {Running} COMPLETED {Completed} ABORTED {Aborted} PARTIAL {Partially completed} FAILED {Failed} ERROR {Error} other {{state}}}: {processed, number} processed, {failed, number} failed.",
+    "restoreAll": "Restore all matching",
+    "trashAll": "Trash all matching"
+  },
+  "download": {
+    "prepared": "{completed, number} of {total, number} files prepared",
+    "preparationStopped": "{state, select, consumed {This archive download was already started.} cancelled {Archive preparation was cancelled.} expired {Archive preparation expired.} other {Archive preparation failed.}} Regenerate the ZIP to try again.",
+    "unsupportedFormat": "The server returned an unsupported export format ({format, select, unknown {unknown} other {{format}}}).",
+    "noZip": "The server did not return a ZIP download.",
+    "unconfirmed": "Archive preparation could not be confirmed. Retry status or regenerate the ZIP."
+  },
+  "editor": {
+    "useValue": "Use “{value}”",
+    "heading": "Heading {level, number}",
+    "creationUnknown": "The server did not confirm whether creation finished. Inspect the destination before creating another document.",
+    "creationIncomplete": "Your document was created. Some remaining steps failed; retry finishing this document without creating another copy.",
+    "saveFailed": "The document could not be saved. Your changes are still available.",
+    "changed": "This document changed. Reload it before saving again.",
+    "retrySave": "Unable to save the document. Your changes have been kept; try again.",
+    "typeHeading": "{action, select, create {Create {type}} other {Edit {type}}}",
+    "supplementalLoading": "Loading additional fields…",
+    "supplementalFailed": "Additional fields could not be loaded. Retry before saving."
+  },
+  "creation": {
+    "completed": "{completed, number} of {total, number} documents created."
+  },
+  "picture": {
+    "depth": "{colorSpace} · {depth, number} bit",
+    "noMetadata": "No {kind} metadata is available to display.",
+    "width": "Width",
+    "height": "Height",
+    "format": "Format",
+    "colorSpace": "Color space",
+    "bitDepth": "Bit depth"
+  },
+  "results": {
+    "count": "{count, plural, one {# result} other {# results}}",
+    "displaySelection": "Display selection"
+  },
+  "content": {
+    "loading": "Loading {type} content…",
+    "loadingMore": "Loading more {type} content…",
+    "named": "{type} content",
+    "resultControls": "{type} result controls",
+    "filter": "Filter {type} content",
+    "previewType": "{type} preview"
+  },
+  "publication": {
+    "confirm": "{count, plural, one {Publish # selected document.} other {Publish # selected documents.}}",
+    "completed": "{completed, number} of {total, number} published{busy, select, true {…} other {.}}",
+    "none": "None",
+    "defaultRendition": "Default rendition",
+    "failedRetry": "Publication failed. Completed documents will not be retried. If the connection was interrupted, check the destination before retrying the current document.",
+    "internal": "Internal publication"
+  },
+  "version": {
+    "createFor": "Create version for {title}",
+    "minor": "{version} — Minor version",
+    "major": "{version} — Major version",
+    "viewing": "You're viewing version {version}.",
+    "restore": "Restore {version}"
+  },
+  "trash": {
+    "deleteConfirm": "{count, plural, one {Permanently delete # selected document? This cannot be undone.} other {Permanently delete # selected documents? This cannot be undone.}}",
+    "actionFailed": "The trash action failed. Check permissions and retry.",
+    "confirmDocument": "Move this document to the trash?"
+  },
+  "analytics": {
+    "unsupported": "{section, select, search {Search analytics require the server audit aggregation backend.} other {Workflow analytics require the server audit aggregation backend.}} This server does not expose a supported aggregation API, so no metrics are shown.",
+    "milliseconds": "{value, number} ms",
+    "tooManyDocuments": "This path contains {count, number} documents, exceeding the configured limit of {limit, number}. Select a smaller path."
+  },
+  "pagination": {
+    "page": "Page {page, number}",
+    "position": "{known, select, true {Page {page, number} of {total, number}} other {Page {page, number}}}"
+  },
+  "principals": {
+    "loading": "{kind, select, users {Loading users…} groups {Loading groups…} user {Loading user…} group {Loading group…} other {Loading…}}",
+    "dragToGroup": "Assign a user to a group by dragging the user onto an expanded user group.",
+    "deleteConfirm": "{kind, select, user {Are you sure you wish to delete this user?} group {Are you sure you wish to delete this group?} other {Are you sure you wish to delete this entry?}}"
+  },
+  "vocabulary": {
+    "deleteConfirm": "Delete {id}?"
+  },
+  "cloud": {
+    "confirm": {
+      "provider": "Are you sure you wish to delete this OAuth2 service provider: “{name}”?",
+      "client": "Are you sure you wish to delete this OAuth2 client: “{name}”?",
+      "token": "Are you sure you wish to revoke this cloud application token: “{name}”?",
+      "account": "Are you sure you wish to delete this cloud account: “{name}”?"
+    }
+  },
+  "asset": {
+    "select": "Select {title}",
+    "action": "{action, select, deselect {Deselect {title}} select {Select {title}} other {Open {title}}}"
+  },
+  "eventCategory": {
+    "eventDocumentCategory": "Document",
+    "eventLifeCycleCategory": "Life cycle",
+    "eventWorkflowCategory": "Workflow",
+    "eventGroupCategory": "Group",
+    "eventUserCategory": "User"
+  },
+  "eventType": {
+    "documentCreated": "Document created",
+    "documentModified": "Document modified",
+    "documentRemoved": "Document removed",
+    "documentMoved": "Document moved",
+    "documentSecurityUpdated": "Document security updated",
+    "documentPublished": "Document published",
+    "documentCheckedIn": "Document checked in",
+    "documentCheckedOut": "Document checked out",
+    "loginSuccess": "Login successful",
+    "loginFailed": "Login failed"
+  },
+  "history": {
+    "loadFailed": "Document history could not be loaded. Check your connection and permissions, then retry."
+  },
+  "action": {
+    "failed": "The action failed. Check permissions and retry.",
+    "removeNamed": "Remove {name}",
+    "downloadNamed": "Download {name}",
+    "insertNamed": "Insert {name}",
+    "viewNamed": "View {name}"
+  },
+  "note": {
+    "plainText": "Text"
+  },
+  "permission": {
+    "changeFailed": "The permission change failed. Check the selected user and your access."
+  },
+  "create": {
+    "typeFromFiles": "Create {type} from files",
+    "newDocument": "New document",
+    "import": "Import"
+  },
+  "collection": {
+    "removeNamed": "Remove from {name}"
+  },
+  "comparison": {
+    "useBaseline": "Use {name} as comparison baseline",
+    "useVersionBaseline": "Use version {version} as comparison baseline"
+  },
+  "media": {
+    "seekSeconds": "Seek to {seconds, number} seconds"
+  },
+  "lifecycle": {
+    "project": "Draft",
+    "approved": "Approved",
+    "obsolete": "Obsolete",
+    "deleted": "Deleted"
+  },
+  "common": {
+    "yes": "Yes",
+    "no": "No"
+  },
+  "collectionRemoveAction": {
+    "tooltip": "Remove from collection"
+  },
+  "maretha": {
+    "export": {
+      "pdf": "Export PDF",
+      "xml": "Export XML",
+      "zip": "Export ZIP"
+    }
+  },
+  "documentTrashAction": {
+    "tooltip": "Move to trash",
+    "untrash": "Untrash document",
+    "delete": "Delete document permanently"
+  },
+  "publishButton": {
+    "tooltip": "Publish document"
+  },
+  "command": {
+    "retry": "Retry",
+    "actions": "Actions",
+    "createAnother": "Create Another",
+    "loading": "Loading…",
+    "new": "New",
+    "manage": "Manage",
+    "done": "Done"
+  },
+  "label": {
+    "loadMore": "Load more"
+  },
+  "addToCollectionDocumentsButton": {
+    "collection": "Collections *"
+  },
+  "documentDistributionChart": {
+    "onlyFolders": "Only folders"
+  },
+  "documentImportForm": {
+    "editNext": "Edit Next",
+    "editPrevious": "Edit Previous",
+    "includeFile": "Include {name}",
+    "type": "Type",
+    "retry": "Retry unfinished files"
+  },
+  "documentPermissions": {
+    "new": "New"
+  },
+  "documentTrashInfo": {
+    "message": "You are viewing a trashed document."
+  },
+  "workflowButton": {
+    "dialog": {
+      "process": "Process",
+      "selectProcess": "Select a process…"
+    },
+    "startError": "The process could not be started. Check permissions and retry."
+  },
+  "userManagement": {
+    "company": "Company",
+    "email": "Email",
+    "group": "Group",
+    "setUserPassword": "Set User Password",
+    "user": "User",
+    "users": "Users",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "newUser": "New User",
+    "newGroup": "New Group",
+    "manageUser": "Manage {user}",
+    "memberships": "Manage memberships",
+    "requiredField": "Enter a valid {field}.",
+    "searchResults": "Search Results",
+    "label": "Label",
+    "description": "Description"
+  },
+  "userProfile": {
+    "password": {
+      "noMatch": "Passwords do not match."
+    }
+  },
+  "table": {
+    "columnSettings": "Column settings"
+  },
+  "distributionAnalytics": {
+    "options": "Distribution options",
+    "path": "Distribution path",
+    "heading": "Document Distribution"
+  },
+  "documentCollections": {
+    "addError": "The documents could not be added to the collection. Check permissions and retry.",
+    "loadError": "Collections could not be loaded. Check permissions and retry.",
+    "search": "Search collections…"
+  },
+  "exportButton": {
+    "error": "The document could not be exported. Check permissions and retry."
+  },
+  "searchForm": {
+    "savedSearch": "Select a saved search",
+    "searchFilters": {
+      "placeholder": "Select a saved search"
+    }
+  },
+  "userGroupPermissions": {
+    "empty": "No permissions."
+  },
+  "tasksList": {
+    "viewTasksDashboard": "View Tasks Dashboard"
+  },
+  "themes": {
+    "nuxeo": "Nuxeo"
+  },
+  "imagePreviewer": {
+    "pan": {
+      "left": "Pan left",
+      "up": "Pan up",
+      "down": "Pan down",
+      "right": "Pan right"
+    }
+  },
+  "documentPage.resize.side": "Resize the information pane. Use Left/Right arrow keys to adjust width, Home or End for minimum or maximum, Enter or Space to reset.",
+  "versions": {
+    "restore": {
+      "confirm": "Restore this version? The current working copy will be replaced."
+    }
+  },
+  "blob": {
+    "remove": {
+      "title": "Remove file"
+    }
+  },
+  "attachments": {
+    "remove": {
+      "title": "Remove attachment",
+      "confirm": "Remove the attachment {name}?"
+    }
+  },
+  "breadcrumb": {
+    "parents": "Parent folders"
+  }
+}

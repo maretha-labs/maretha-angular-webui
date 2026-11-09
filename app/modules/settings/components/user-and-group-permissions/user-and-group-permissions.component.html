@@ -1,0 +1,176 @@
+<div class="modal-header">
+	<h4 class="modal-title pull-left">
+		@if (!isUserGroup) {
+			<span>{{
+				'app.modules.user-and-group-permissions.user-permissions-c973f4'
+					| webuiMessage: 'User permissions'
+			}}</span>
+		}
+		@if (isUserGroup) {
+			<span>{{
+				'app.modules.user-and-group-permissions.user-group-permissions-6cc2fb'
+					| webuiMessage: 'User group permissions'
+			}}</span>
+		}
+	</h4>
+
+	<button
+		type="button"
+		class="close btn-close pull-right"
+		[attr.aria-label]="
+			'app.modules.user-and-group-permissions.close-297e3f' | webuiMessage: 'Close'
+		"
+		(click)="close()"
+	>
+		<span aria-hidden="true" class="visually-hidden">&times;</span>
+	</button>
+</div>
+
+<div class="modal-body">
+	<table class="table table-sm caption-top mb-0">
+		@if (!isUserGroup) {
+			<caption>
+				{{
+					'app.modules.user-and-group-permissions.list-of-permissions-for-user-9d65a3'
+						| webuiMessage: 'List of permissions for user'
+				}}
+				<b>{{ userOrGroup.name }}</b>
+			</caption>
+		}
+		@if (isUserGroup) {
+			<caption>
+				{{
+					'app.modules.user-and-group-permissions.list-of-permissions-for-group-b74258'
+						| webuiMessage: 'List of permissions for group'
+				}}
+				<b>{{ userOrGroup.name }}</b>
+			</caption>
+		}
+		<colgroup>
+			<col width="30%" />
+			<col width="50%" />
+			<col width="10%" />
+			<col width="10%" />
+			<col width="0%" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th>{{ 'userGroupPermissions.on' | webuiMessage: 'On' }}</th>
+				<th>{{ 'app.modules.user-and-group-permissions.path-cc2e71' | webuiMessage: 'Path' }}</th>
+				<th>
+					{{ 'app.modules.user-and-group-permissions.granted-eeda8a' | webuiMessage: 'Granted' }}
+				</th>
+				<th>
+					{{
+						'app.modules.user-and-group-permissions.effectiveness-c8b94f'
+							| webuiMessage: 'Effectiveness'
+					}}
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@for (kv of acls | keyvalue; track kv) {
+				@if (kv.key === '$' && kv.value.length) {
+					<tr class="bg-light text-uppercase text-center">
+						<th colspan="5">
+							{{
+								'app.modules.user-and-group-permissions.local-permissions-913767'
+									| webuiMessage: 'Local permissions'
+							}}
+						</th>
+					</tr>
+				}
+				@if (kv.key !== '$' && kv.value.length) {
+					<tr class="bg-light text-uppercase text-center">
+						<th colspan="5">
+							{{
+								'app.modules.user-and-group-permissions.permissions-inherited-from-the-c0d8ff'
+									| webuiMessage: 'Permissions inherited from the'
+							}}
+							<b>{{ kv.key }}</b>
+							{{ 'app.modules.user-and-group-permissions.group-8478f4' | webuiMessage: 'group' }}
+						</th>
+					</tr>
+				}
+				@for (permission of kv.value; track permission) {
+					<tr>
+						<td>{{ permission.on }}</td>
+						<td class="trim-content">
+							<span class="badge bg-light">{{ permission.path }}</span>
+						</td>
+						<td>
+							<span class="badge" [ngClass]="permission.granted ? 'bg-success' : 'bg-danger'">
+								{{ permission.right }}
+							</span>
+							@if (permission.creator) {
+								<small class="ms-1">{{
+									'document.by' | webuiMessage: 'By {user}' : { user: permission.creator }
+								}}</small>
+							}
+						</td>
+						<td>
+							@if (permission.begin && permission.end) {
+								<span>
+									{{
+										'permissions.dates'
+											| webuiMessage
+												: 'From {begin} until {end}'
+												: {
+														begin: (permission.begin | webuiDate),
+														end: (permission.end | webuiDate),
+												  }
+									}}</span
+								>
+							}
+							@if (permission.begin && !permission.end) {
+								<span>
+									{{
+										'permissions.begin'
+											| webuiMessage
+												: 'Starting with {begin}'
+												: { begin: (permission.begin | webuiDate) }
+									}}</span
+								>
+							}
+							@if (!permission.begin && permission.end) {
+								<span>
+									{{
+										'permissions.end'
+											| webuiMessage: 'Until {end}' : { end: (permission.end | webuiDate) }
+									}}</span
+								>
+							}
+							@if (!permission.begin && !permission.end) {
+								<span>
+									{{
+										'app.modules.user-and-group-permissions.permanent-f3cd27'
+											| webuiMessage: 'Permanent'
+									}}
+								</span>
+							}
+						</td>
+						<td>
+							<nx-press-and-hold-button
+								(execute)="removePermission(kv.key, permission)"
+								[timeout]="1"
+							>
+								<ng-template nxPlaceholderTemplate>
+									<button
+										class="btn btn-link p-0"
+										[tooltip]="
+											'app.modules.user-and-group-permissions.press-hold-to-delete-this-permission-a0566e'
+												| webuiMessage: 'Press &amp; hold to delete this permission'
+										"
+									>
+										<fa-icon [fixedWidth]="true" icon="trash"></fa-icon>
+									</button>
+								</ng-template>
+							</nx-press-and-hold-button>
+						</td>
+					</tr>
+				}
+			}
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,3490 @@
+{
+  "$schema": "./scenarios.schema.json",
+  "format": "maretha.visual-parity.scenarios",
+  "version": 1,
+  "metadata": {
+    "purpose": "Executable capture inventory and acceptance prerequisites, not a claim of complete parity.",
+    "inventoryDocument": "e2e/parity/README.md"
+  },
+  "scope": {
+    "candidateSourceOnly": true,
+    "referenceReadOnly": true,
+    "sharedFeaturesOnly": true,
+    "copyReferenceBugs": false,
+    "allInventoryRowsImplemented": false
+  },
+  "expectedBundleIdentities": {
+    "reference": {
+      "path": null,
+      "sha256": null,
+      "source": null
+    },
+    "candidate": {
+      "path": null,
+      "sha256": null,
+      "source": null
+    }
+  },
+  "captureDefaults": {
+    "artifactRoot": "dist/verification/parity",
+    "baselinePolicy": "fixed-reference",
+    "maxAnchorDeltaCssPx": 1,
+    "masks": [],
+    "captureSettle": [
+      "document.fonts.ready",
+      "visible image decode/complete",
+      "finite component animations complete",
+      "declared target readiness conditions satisfied"
+    ],
+    "parityClaimRequires": [
+      "Captured and verified reference/candidate bundle identities.",
+      "Matched semantic fixture bindings, roles and rendering state.",
+      "Existing fixed reference artifacts; capture integrity alone is not parity.",
+      "All visible differences corrected or explicitly classified."
+    ],
+    "privacy": [
+      "No credentials, cookies, tokens, storage state, HAR, or browser profiles in manifest/reports.",
+      "Only synthetic/local fixture screenshots are safe by default; hosted capture requires explicit safe dataset binding."
+    ]
+  },
+  "fixtures": {
+    "a11y-shell-reader": {
+      "kind": "local-fixture",
+      "availability": "implemented",
+      "source": "e2e/a11y/main.ts",
+      "description": "Existing controlled shell fixture; no backend and no authentication secret.",
+      "identity": {
+        "principal": "fixture-reader",
+        "displayName": "Fixture Reader",
+        "administrator": false,
+        "taskCount": 0,
+        "documentHistoryCount": 0,
+        "collectionCount": 0,
+        "quickSearchDocument": "fixture-document"
+      },
+      "requiredProperties": [
+        "Local fixture marker visible.",
+        "Only en-US/ar and default/dark are supported by this a11y entry point."
+      ]
+    },
+    "a11y-runtime-tree": {
+      "kind": "local-fixture",
+      "availability": "implemented",
+      "source": "e2e/a11y/runtime-tree-fixture.ts",
+      "description": "Existing synthetic document-tree provider, not a hosted document binding.",
+      "identity": {
+        "repository": "default",
+        "root": "fixture-root",
+        "branch": "fixture-branch",
+        "children": ["fixture-first", "fixture-next", "fixture-last"]
+      },
+      "requiredProperties": [
+        "Production DocumentTreeComponent mounted by surface=runtime-document-tree."
+      ]
+    },
+    "hosted-reader": {
+      "kind": "hosted-binding",
+      "availability": "unbound",
+      "source": "e2e/parity/README.md#manifest-shape",
+      "description": "Same ordinary authorized principal across both deployed applications.",
+      "identity": null,
+      "requiredProperties": [
+        "Read access to selected synthetic shared content.",
+        "Roles, locale and theme equivalent in both applications.",
+        "Supply semantic-key bindings privately at run time; never commit deployed UIDs, paths, account identifiers or authentication state."
+      ]
+    },
+    "hosted-editor": {
+      "kind": "hosted-binding",
+      "availability": "unbound",
+      "source": "e2e/parity/README.md#manifest-shape",
+      "description": "Same authorized editor across both deployed applications.",
+      "identity": null,
+      "requiredProperties": [
+        "Required view/creation dialog permissions equivalent in both applications.",
+        "Hosted capture remains read-only.",
+        "Supply semantic-key bindings privately at run time; never commit deployed UIDs, paths, account identifiers or authentication state."
+      ]
+    },
+    "hosted-administrator": {
+      "kind": "hosted-binding",
+      "availability": "unbound",
+      "source": "e2e/parity/README.md#manifest-shape",
+      "description": "Explicitly authorized administration principal.",
+      "identity": null,
+      "requiredProperties": [
+        "Effective administrator/power-user access verified in both applications.",
+        "Synthetic principal data available for observation.",
+        "Supply semantic-key bindings privately at run time; never commit deployed UIDs, paths, account identifiers or authentication state."
+      ]
+    },
+    "hosted-dashboard-populated": {
+      "kind": "hosted-binding",
+      "availability": "unbound",
+      "source": "e2e/parity/README.md#manifest-shape",
+      "description": "Equivalent four-card dashboard dataset.",
+      "identity": null,
+      "requiredProperties": [
+        "Edited, recent, favorite and task rows match in identity, order and content.",
+        "Supply semantic-key bindings privately at run time; never commit deployed UIDs, paths, account identifiers or authentication state."
+      ]
+    },
+    "hosted-dashboard-empty": {
+      "kind": "hosted-binding",
+      "availability": "unbound",
+      "source": "e2e/parity/README.md#manifest-shape",
+      "description": "Already-empty dashboard account/data state.",
+      "identity": null,
+      "requiredProperties": [
+        "All four cards empty in both applications without deleting/clearing reference data.",
+        "Supply semantic-key bindings privately at run time; never commit deployed UIDs, paths, account identifiers or authentication state."
+      ]
+    },
+    "hosted-folder": {
+      "kind": "hosted-binding",
+      "availability": "unbound",
+      "source": "e2e/parity/README.md#manifest-shape",
+      "description": "Readable populated shared Folder with thumbnails and stable order.",
+      "identity": null,
+      "requiredProperties": [
+        "Same repository, document revision and result children.",
+        "Supply semantic-key bindings privately at run time; never commit deployed UIDs, paths, account identifiers or authentication state."
+      ]
+    },
+    "hosted-search-results": {
+      "kind": "hosted-binding",
+      "availability": "unbound",
+      "source": "e2e/parity/README.md#manifest-shape",
+      "description": "Fixed shared query and indexed synthetic result set.",
+      "identity": null,
+      "requiredProperties": [
+        "Same query/filters, ordering, counts, page and result identities.",
+        "Supply semantic-key bindings privately at run time; never commit deployed UIDs, paths, account identifiers or authentication state."
+      ]
+    },
+    "hosted-search-empty": {
+      "kind": "hosted-binding",
+      "availability": "unbound",
+      "source": "e2e/parity/README.md#manifest-shape",
+      "description": "Fixed query verified empty in both applications.",
+      "identity": null,
+      "requiredProperties": [
+        "Query does not require data mutation.",
+        "Supply semantic-key bindings privately at run time; never commit deployed UIDs, paths, account identifiers or authentication state."
+      ]
+    },
+    "hosted-pdf": {
+      "kind": "hosted-binding",
+      "availability": "unbound",
+      "source": "e2e/parity/README.md#manifest-shape",
+      "description": "Shared File document with application/pdf content.",
+      "identity": null,
+      "requiredProperties": [
+        "Same blob content digest/revision and loaded preview page.",
+        "Supply semantic-key bindings privately at run time; never commit deployed UIDs, paths, account identifiers or authentication state."
+      ]
+    },
+    "hosted-picture": {
+      "kind": "hosted-binding",
+      "availability": "unbound",
+      "source": "e2e/parity/README.md#manifest-shape",
+      "description": "Shared Picture document and rendition.",
+      "identity": null,
+      "requiredProperties": [
+        "Same blob/rendition identity and view state.",
+        "Supply semantic-key bindings privately at run time; never commit deployed UIDs, paths, account identifiers or authentication state."
+      ]
+    },
+    "hosted-note": {
+      "kind": "hosted-binding",
+      "availability": "unbound",
+      "source": "e2e/parity/README.md#manifest-shape",
+      "description": "Shared Note with representative details/tags/comments.",
+      "identity": null,
+      "requiredProperties": [
+        "Same text, metadata, visible comments and resolved principals.",
+        "Supply semantic-key bindings privately at run time; never commit deployed UIDs, paths, account identifiers or authentication state."
+      ]
+    },
+    "hosted-permissions": {
+      "kind": "hosted-binding",
+      "availability": "unbound",
+      "source": "e2e/parity/README.md#manifest-shape",
+      "description": "Shared document with known grants.",
+      "identity": null,
+      "requiredProperties": [
+        "Same local/inherited grants and effective access.",
+        "Supply semantic-key bindings privately at run time; never commit deployed UIDs, paths, account identifiers or authentication state."
+      ]
+    },
+    "hosted-versioned-document": {
+      "kind": "hosted-binding",
+      "availability": "unbound",
+      "source": "e2e/parity/README.md#manifest-shape",
+      "description": "Shared versioned document.",
+      "identity": null,
+      "requiredProperties": [
+        "Same current revision, versions and history entries.",
+        "Supply semantic-key bindings privately at run time; never commit deployed UIDs, paths, account identifiers or authentication state."
+      ]
+    },
+    "hosted-publishable-document": {
+      "kind": "hosted-binding",
+      "availability": "unbound",
+      "source": "e2e/parity/README.md#manifest-shape",
+      "description": "Shared publishable document and section tree.",
+      "identity": null,
+      "requiredProperties": [
+        "Publishable facet/targets exposed in both UIs.",
+        "Supply semantic-key bindings privately at run time; never commit deployed UIDs, paths, account identifiers or authentication state."
+      ]
+    },
+    "hosted-create-destination": {
+      "kind": "hosted-binding",
+      "availability": "unbound",
+      "source": "e2e/parity/README.md#manifest-shape",
+      "description": "Shared destination/type availability for open/cancel creation.",
+      "identity": null,
+      "requiredProperties": [
+        "AddChildren and allowed document types equivalent.",
+        "Supply semantic-key bindings privately at run time; never commit deployed UIDs, paths, account identifiers or authentication state."
+      ]
+    },
+    "hosted-tasks": {
+      "kind": "hosted-binding",
+      "availability": "unbound",
+      "source": "e2e/parity/README.md#manifest-shape",
+      "description": "Shared pending workflow tasks assigned to selected principal.",
+      "identity": null,
+      "requiredProperties": [
+        "Same workflow models/tasks/documents/due dates.",
+        "Supply semantic-key bindings privately at run time; never commit deployed UIDs, paths, account identifiers or authentication state."
+      ]
+    }
+  },
+  "exclusions": [
+    {
+      "id": "X01",
+      "capability": "AI Search",
+      "reason": "Deployed Polymer-only extra; no Angular feature construction or rail count matching.",
+      "evidence": {
+        "kind": "deployed-observed",
+        "source": "e2e/parity/README.md#extending-coverage",
+        "scope": "Observed representative deployment only."
+      },
+      "countsAsPass": false
+    },
+    {
+      "id": "X02",
+      "capability": "MSA Work Queue",
+      "reason": "Deployed Polymer-only extra; distinct from the shared Tasks feature.",
+      "evidence": {
+        "kind": "deployed-observed",
+        "source": "e2e/parity/README.md#extending-coverage",
+        "scope": "Observed representative deployment only."
+      },
+      "countsAsPass": false
+    },
+    {
+      "id": "X03",
+      "capability": "GLB 3D viewer",
+      "reason": "Exclude the observed unavailable GLB viewer body; shared document chrome and mutually supported previews remain in scope.",
+      "evidence": {
+        "kind": "deployed-observed",
+        "source": "e2e/parity/README.md#extending-coverage",
+        "scope": "Observed representative deployment only."
+      },
+      "countsAsPass": false
+    },
+    {
+      "id": "X04",
+      "capability": "AI document tab",
+      "reason": "Deployed Polymer-only tab/body is excluded.",
+      "evidence": {
+        "kind": "deployed-observed",
+        "source": "e2e/parity/README.md#extending-coverage",
+        "scope": "Observed representative deployment only."
+      },
+      "countsAsPass": false
+    },
+    {
+      "id": "X05",
+      "capability": "3D Annotations tab",
+      "reason": "Deployed Polymer-only tab/body is excluded.",
+      "evidence": {
+        "kind": "deployed-observed",
+        "source": "e2e/parity/README.md#extending-coverage",
+        "scope": "Observed representative deployment only."
+      },
+      "countsAsPass": false
+    },
+    {
+      "id": "X06",
+      "capability": "Nuxeo Drive add-on",
+      "reason": "Pinned edit/sync/upload/page/menu/selection-download contributions have no core Angular equivalent.",
+      "evidence": {
+        "kind": "source-only",
+        "source": "contracts/polymer-contribution-map.json",
+        "scope": "Pinned source contract only; deployed add-on presence not established."
+      },
+      "countsAsPass": false
+    },
+    {
+      "id": "X07",
+      "capability": "WOPI editing link",
+      "reason": "Pinned wopiLink add-on contribution has no core Angular equivalent.",
+      "evidence": {
+        "kind": "source-only",
+        "source": "contracts/polymer-contribution-map.json",
+        "scope": "Pinned source contract only; deployed add-on presence not established."
+      },
+      "countsAsPass": false
+    },
+    {
+      "id": "X08",
+      "capability": "CSV document creation/import add-on",
+      "reason": "Pinned csvDocumentCreatePopup has no core Angular equivalent; shared CSV results export is not excluded.",
+      "evidence": {
+        "kind": "source-only",
+        "source": "contracts/polymer-contribution-map.json",
+        "scope": "Pinned source contract only; deployed add-on presence not established."
+      },
+      "countsAsPass": false
+    },
+    {
+      "id": "X09",
+      "capability": "EasyShare add-on",
+      "reason": "Pinned EasyShare shareDocumentAction has no core Angular equivalent; actual shared link controls remain in scope.",
+      "evidence": {
+        "kind": "source-only",
+        "source": "contracts/polymer-contribution-map.json",
+        "scope": "Pinned source contract only; deployed add-on presence not established."
+      },
+      "countsAsPass": false
+    },
+    {
+      "id": "X10",
+      "capability": "IMAP sync email",
+      "reason": "Pinned syncEmailAction has no core Angular equivalent.",
+      "evidence": {
+        "kind": "source-only",
+        "source": "contracts/polymer-contribution-map.json",
+        "scope": "Pinned source contract only; deployed add-on presence not established."
+      },
+      "countsAsPass": false
+    },
+    {
+      "id": "X11",
+      "capability": "Template rendering add-on",
+      "reason": "Pinned template render/delete/view contributions have no core Angular equivalent; base document layouts remain in scope.",
+      "evidence": {
+        "kind": "source-only",
+        "source": "contracts/polymer-contribution-map.json",
+        "scope": "Pinned source contract only; deployed add-on presence not established."
+      },
+      "countsAsPass": false
+    },
+    {
+      "id": "X12",
+      "capability": "LiveConnect Box/Google Drive import",
+      "reason": "Pinned external-provider import contributions have no core Angular equivalent; local file import remains in scope.",
+      "evidence": {
+        "kind": "source-only",
+        "source": "contracts/polymer-contribution-map.json",
+        "scope": "Pinned source contract only; deployed add-on presence not established."
+      },
+      "countsAsPass": false
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "shell.rest.en-default",
+      "inventory": ["F01", "F02", "F03", "F04"],
+      "status": "pending",
+      "coverage": "component-only",
+      "description": "Closed drawer and production rail/shell at rest.",
+      "prerequisites": [
+        "Serve the existing deterministic a11y Angular fixture on the runner-owned loopback origin.",
+        "Do not compare fixture notice/content with hosted Polymer screenshots."
+      ],
+      "fixtures": ["a11y-shell-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "local-fixture",
+          "source": "e2e/a11y/main.ts",
+          "scope": "Production Angular components with controlled providers; capture integrity and regression evidence only."
+        },
+        {
+          "kind": "deployed-observed",
+          "source": "e2e/parity/README.md#what-each-result-can-establish",
+          "scope": "Representative rail appearance was observed; this local case does not verify the installed candidate."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This component fixture has no deployed Polymer counterpart. Use the matched hosted scenario for parity."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This scenario is local component evidence, not an installed-package comparison."
+          ]
+        },
+        "local": {
+          "runnable": true,
+          "route": "/",
+          "ready": [
+            {
+              "selector": "[data-fixture-notice]",
+              "state": "visible"
+            }
+          ],
+          "steps": [],
+          "regions": [
+            {
+              "id": "rail",
+              "selector": ".nx-sidebar"
+            },
+            {
+              "id": "shell-actions",
+              "selector": "nx-shell-actions"
+            }
+          ],
+          "measurements": [
+            {
+              "id": "rail-width",
+              "selector": ".nx-sidebar",
+              "property": "width",
+              "expected": 52,
+              "tolerance": 1
+            },
+            {
+              "id": "rail-action-height",
+              "selector": "nx-drawer-item > button[aria-label=\"Browse\"]",
+              "property": "height",
+              "expected": 48,
+              "tolerance": 1
+            }
+          ],
+          "blockedBy": []
+        }
+      },
+      "acceptance": [
+        "Rail is 52 CSS px wide and contributed action rows are 48 CSS px high.",
+        "No label or open drawer is present at rest; visible controls retain their semantic names."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "shell.rail-hover.en-default",
+      "inventory": ["F02", "F03", "F06"],
+      "status": "pending",
+      "coverage": "component-only",
+      "description": "Browse hover label in en-US / default.",
+      "prerequisites": [
+        "Serve the existing deterministic a11y Angular fixture on the runner-owned loopback origin.",
+        "Do not compare fixture notice/content with hosted Polymer screenshots."
+      ],
+      "fixtures": ["a11y-shell-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "local-fixture",
+          "source": "e2e/a11y/main.ts",
+          "scope": "Production Angular components with controlled providers; capture integrity and regression evidence only."
+        },
+        {
+          "kind": "deployed-observed",
+          "source": "e2e/parity/README.md#what-each-result-can-establish",
+          "scope": "Representative rail appearance was observed; this local case does not verify the installed candidate."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This component fixture has no deployed Polymer counterpart. Use the matched hosted scenario for parity."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This scenario is local component evidence, not an installed-package comparison."
+          ]
+        },
+        "local": {
+          "runnable": true,
+          "route": "/?locale=en-US&theme=default",
+          "ready": [
+            {
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"]",
+              "state": "visible"
+            }
+          ],
+          "steps": [
+            {
+              "type": "hover",
+              "selector": "nx-drawer-item > button[aria-label=\"Browse\"]",
+              "safe": true
+            }
+          ],
+          "regions": [
+            {
+              "id": "rail",
+              "selector": ".nx-sidebar"
+            },
+            {
+              "id": "label",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"]"
+            }
+          ],
+          "measurements": [
+            {
+              "id": "rail-width",
+              "selector": ".nx-sidebar",
+              "property": "width",
+              "expected": 52,
+              "tolerance": 1
+            },
+            {
+              "id": "label-font-size",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "font-size",
+              "expected": 13,
+              "tolerance": 0
+            },
+            {
+              "id": "label-line-height",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "line-height",
+              "expected": 13,
+              "tolerance": 0
+            },
+            {
+              "id": "label-padding",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "padding",
+              "expected": 8,
+              "tolerance": 0
+            },
+            {
+              "id": "label-radius",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "border-radius",
+              "expected": 2,
+              "tolerance": 0
+            },
+            {
+              "id": "label-opacity",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"]",
+              "property": "opacity",
+              "expected": 0.9,
+              "tolerance": 0.001
+            }
+          ],
+          "blockedBy": []
+        }
+      },
+      "acceptance": [
+        "Exactly one label uses the localized Browse text; no native title is present.",
+        "Label meets the rail edge with no arrow and is centered on the trigger; LTR opens right and RTL opens left.",
+        "Inter 13px / 13px, 8px padding, 2px radius, sidebar-token background, white foreground, 0.9 settled opacity.",
+        "Settle the 500ms animation before capture; keyboard/lifecycle assertions remain in the existing dedicated browser and unit tests."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "shell.rail-hover.ar-default",
+      "inventory": ["F02", "F03", "F06"],
+      "status": "pending",
+      "coverage": "component-only",
+      "description": "Browse hover label in ar / default.",
+      "prerequisites": [
+        "Serve the existing deterministic a11y Angular fixture on the runner-owned loopback origin.",
+        "Do not compare fixture notice/content with hosted Polymer screenshots."
+      ],
+      "fixtures": ["a11y-shell-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        },
+        "locale": "ar",
+        "theme": "default",
+        "direction": "rtl",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "local-fixture",
+          "source": "e2e/a11y/main.ts",
+          "scope": "Production Angular components with controlled providers; capture integrity and regression evidence only."
+        },
+        {
+          "kind": "deployed-observed",
+          "source": "e2e/parity/README.md#what-each-result-can-establish",
+          "scope": "Representative rail appearance was observed; this local case does not verify the installed candidate."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This component fixture has no deployed Polymer counterpart. Use the matched hosted scenario for parity."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This scenario is local component evidence, not an installed-package comparison."
+          ]
+        },
+        "local": {
+          "runnable": true,
+          "route": "/?locale=ar&theme=default",
+          "ready": [
+            {
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"]",
+              "state": "visible"
+            }
+          ],
+          "steps": [
+            {
+              "type": "hover",
+              "selector": "nx-drawer-item > button[aria-label=\"تصفح\"]",
+              "safe": true
+            }
+          ],
+          "regions": [
+            {
+              "id": "rail",
+              "selector": ".nx-sidebar"
+            },
+            {
+              "id": "label",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"]"
+            }
+          ],
+          "measurements": [
+            {
+              "id": "rail-width",
+              "selector": ".nx-sidebar",
+              "property": "width",
+              "expected": 52,
+              "tolerance": 1
+            },
+            {
+              "id": "label-font-size",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "font-size",
+              "expected": 13,
+              "tolerance": 0
+            },
+            {
+              "id": "label-line-height",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "line-height",
+              "expected": 13,
+              "tolerance": 0
+            },
+            {
+              "id": "label-padding",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "padding",
+              "expected": 8,
+              "tolerance": 0
+            },
+            {
+              "id": "label-radius",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "border-radius",
+              "expected": 2,
+              "tolerance": 0
+            },
+            {
+              "id": "label-opacity",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"]",
+              "property": "opacity",
+              "expected": 0.9,
+              "tolerance": 0.001
+            }
+          ],
+          "blockedBy": []
+        }
+      },
+      "acceptance": [
+        "Exactly one label uses the localized Browse text; no native title is present.",
+        "Label meets the rail edge with no arrow and is centered on the trigger; LTR opens right and RTL opens left.",
+        "Inter 13px / 13px, 8px padding, 2px radius, sidebar-token background, white foreground, 0.9 settled opacity.",
+        "Settle the 500ms animation before capture; keyboard/lifecycle assertions remain in the existing dedicated browser and unit tests."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "shell.rail-hover.en-dark",
+      "inventory": ["F02", "F03", "F06"],
+      "status": "pending",
+      "coverage": "component-only",
+      "description": "Browse hover label in en-US / dark.",
+      "prerequisites": [
+        "Serve the existing deterministic a11y Angular fixture on the runner-owned loopback origin.",
+        "Do not compare fixture notice/content with hosted Polymer screenshots."
+      ],
+      "fixtures": ["a11y-shell-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        },
+        "locale": "en-US",
+        "theme": "dark",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "local-fixture",
+          "source": "e2e/a11y/main.ts",
+          "scope": "Production Angular components with controlled providers; capture integrity and regression evidence only."
+        },
+        {
+          "kind": "deployed-observed",
+          "source": "e2e/parity/README.md#what-each-result-can-establish",
+          "scope": "Representative rail appearance was observed; this local case does not verify the installed candidate."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This component fixture has no deployed Polymer counterpart. Use the matched hosted scenario for parity."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This scenario is local component evidence, not an installed-package comparison."
+          ]
+        },
+        "local": {
+          "runnable": true,
+          "route": "/?locale=en-US&theme=dark",
+          "ready": [
+            {
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"]",
+              "state": "visible"
+            }
+          ],
+          "steps": [
+            {
+              "type": "hover",
+              "selector": "nx-drawer-item > button[aria-label=\"Browse\"]",
+              "safe": true
+            }
+          ],
+          "regions": [
+            {
+              "id": "rail",
+              "selector": ".nx-sidebar"
+            },
+            {
+              "id": "label",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"]"
+            }
+          ],
+          "measurements": [
+            {
+              "id": "rail-width",
+              "selector": ".nx-sidebar",
+              "property": "width",
+              "expected": 52,
+              "tolerance": 1
+            },
+            {
+              "id": "label-font-size",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "font-size",
+              "expected": 13,
+              "tolerance": 0
+            },
+            {
+              "id": "label-line-height",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "line-height",
+              "expected": 13,
+              "tolerance": 0
+            },
+            {
+              "id": "label-padding",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "padding",
+              "expected": 8,
+              "tolerance": 0
+            },
+            {
+              "id": "label-radius",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "border-radius",
+              "expected": 2,
+              "tolerance": 0
+            },
+            {
+              "id": "label-opacity",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"]",
+              "property": "opacity",
+              "expected": 0.9,
+              "tolerance": 0.001
+            }
+          ],
+          "blockedBy": []
+        }
+      },
+      "acceptance": [
+        "Exactly one label uses the localized Browse text; no native title is present.",
+        "Label meets the rail edge with no arrow and is centered on the trigger; LTR opens right and RTL opens left.",
+        "Inter 13px / 13px, 8px padding, 2px radius, sidebar-token background, white foreground, 0.9 settled opacity.",
+        "Settle the 500ms animation before capture; keyboard/lifecycle assertions remain in the existing dedicated browser and unit tests."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "shell.rail-hover.ar-dark",
+      "inventory": ["F02", "F03", "F06"],
+      "status": "pending",
+      "coverage": "component-only",
+      "description": "Browse hover label in ar / dark.",
+      "prerequisites": [
+        "Serve the existing deterministic a11y Angular fixture on the runner-owned loopback origin.",
+        "Do not compare fixture notice/content with hosted Polymer screenshots."
+      ],
+      "fixtures": ["a11y-shell-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        },
+        "locale": "ar",
+        "theme": "dark",
+        "direction": "rtl",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "local-fixture",
+          "source": "e2e/a11y/main.ts",
+          "scope": "Production Angular components with controlled providers; capture integrity and regression evidence only."
+        },
+        {
+          "kind": "deployed-observed",
+          "source": "e2e/parity/README.md#what-each-result-can-establish",
+          "scope": "Representative rail appearance was observed; this local case does not verify the installed candidate."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This component fixture has no deployed Polymer counterpart. Use the matched hosted scenario for parity."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This scenario is local component evidence, not an installed-package comparison."
+          ]
+        },
+        "local": {
+          "runnable": true,
+          "route": "/?locale=ar&theme=dark",
+          "ready": [
+            {
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"]",
+              "state": "visible"
+            }
+          ],
+          "steps": [
+            {
+              "type": "hover",
+              "selector": "nx-drawer-item > button[aria-label=\"تصفح\"]",
+              "safe": true
+            }
+          ],
+          "regions": [
+            {
+              "id": "rail",
+              "selector": ".nx-sidebar"
+            },
+            {
+              "id": "label",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"]"
+            }
+          ],
+          "measurements": [
+            {
+              "id": "rail-width",
+              "selector": ".nx-sidebar",
+              "property": "width",
+              "expected": 52,
+              "tolerance": 1
+            },
+            {
+              "id": "label-font-size",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "font-size",
+              "expected": 13,
+              "tolerance": 0
+            },
+            {
+              "id": "label-line-height",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "line-height",
+              "expected": 13,
+              "tolerance": 0
+            },
+            {
+              "id": "label-padding",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "padding",
+              "expected": 8,
+              "tolerance": 0
+            },
+            {
+              "id": "label-radius",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "border-radius",
+              "expected": 2,
+              "tolerance": 0
+            },
+            {
+              "id": "label-opacity",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"]",
+              "property": "opacity",
+              "expected": 0.9,
+              "tolerance": 0.001
+            }
+          ],
+          "blockedBy": []
+        }
+      },
+      "acceptance": [
+        "Exactly one label uses the localized Browse text; no native title is present.",
+        "Label meets the rail edge with no arrow and is centered on the trigger; LTR opens right and RTL opens left.",
+        "Inter 13px / 13px, 8px padding, 2px radius, sidebar-token background, white foreground, 0.9 settled opacity.",
+        "Settle the 500ms animation before capture; keyboard/lifecycle assertions remain in the existing dedicated browser and unit tests."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "shell.user-menu.en-default",
+      "inventory": ["F02", "A02"],
+      "status": "pending",
+      "coverage": "component-only",
+      "description": "Open the real contributed account drawer with fixture-reader identity.",
+      "prerequisites": [
+        "Serve the existing deterministic a11y Angular fixture on the runner-owned loopback origin.",
+        "Do not compare fixture notice/content with hosted Polymer screenshots."
+      ],
+      "fixtures": ["a11y-shell-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "local-fixture",
+          "source": "e2e/a11y/main.ts",
+          "scope": "Production Angular components with controlled providers; capture integrity and regression evidence only."
+        },
+        {
+          "kind": "deployed-observed",
+          "source": "e2e/parity/README.md#what-each-result-can-establish",
+          "scope": "Representative rail appearance was observed; this local case does not verify the installed candidate."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This component fixture has no deployed Polymer counterpart. Use the matched hosted scenario for parity."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This scenario is local component evidence, not an installed-package comparison."
+          ]
+        },
+        "local": {
+          "runnable": true,
+          "route": "/",
+          "ready": [
+            {
+              "selector": ".nx-user-menu-header",
+              "state": "visible"
+            }
+          ],
+          "steps": [
+            {
+              "type": "click",
+              "selector": "[data-maretha-navigation-action=\"account\"]",
+              "safe": true
+            }
+          ],
+          "regions": [
+            {
+              "id": "rail",
+              "selector": ".nx-sidebar"
+            },
+            {
+              "id": "drawer",
+              "selector": "#nx-sidebar-drawer"
+            }
+          ],
+          "measurements": [
+            {
+              "id": "drawer-panel-width",
+              "selector": "#nx-sidebar-drawer",
+              "property": "width",
+              "expected": 298,
+              "tolerance": 1
+            },
+            {
+              "id": "drawer-heading-size",
+              "selector": ".nx-user-menu-header h6",
+              "property": "font-size",
+              "expected": 26,
+              "tolerance": 0.01
+            },
+            {
+              "id": "drawer-heading-line-height",
+              "selector": ".nx-user-menu-header h6",
+              "property": "line-height",
+              "expected": 20.02,
+              "tolerance": 0.01
+            },
+            {
+              "id": "drawer-heading-weight",
+              "selector": ".nx-user-menu-header h6",
+              "property": "font-weight",
+              "expected": 500,
+              "tolerance": 0
+            },
+            {
+              "id": "drawer-heading-letter-spacing",
+              "selector": ".nx-user-menu-header h6",
+              "property": "letter-spacing",
+              "expected": 0.24,
+              "tolerance": 0.001
+            }
+          ],
+          "blockedBy": []
+        }
+      },
+      "acceptance": [
+        "Drawer has actual account contributions and a stable resolved Fixture Reader name.",
+        "Opening the drawer dismisses the account trigger label and preserves its navigation/accessible state.",
+        "Current desktop panel target is 298 CSS px; account heading uses 26px / 20.02px, weight 500 and 0.24px letter spacing (measured on the live reference). Reconfirm shared measurements against fixed reference evidence."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "shell.label-over-drawer.en-default",
+      "inventory": ["F02", "F03", "A02"],
+      "status": "pending",
+      "coverage": "component-only",
+      "description": "Browse label overlays the open populated account drawer.",
+      "prerequisites": [
+        "Serve the existing deterministic a11y Angular fixture on the runner-owned loopback origin.",
+        "Do not compare fixture notice/content with hosted Polymer screenshots."
+      ],
+      "fixtures": ["a11y-shell-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "local-fixture",
+          "source": "e2e/a11y/main.ts",
+          "scope": "Production Angular components with controlled providers; capture integrity and regression evidence only."
+        },
+        {
+          "kind": "deployed-observed",
+          "source": "e2e/parity/README.md#what-each-result-can-establish",
+          "scope": "Representative rail appearance was observed; this local case does not verify the installed candidate."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This component fixture has no deployed Polymer counterpart. Use the matched hosted scenario for parity."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This scenario is local component evidence, not an installed-package comparison."
+          ]
+        },
+        "local": {
+          "runnable": true,
+          "route": "/",
+          "ready": [
+            {
+              "selector": ".nx-user-menu-header",
+              "state": "visible"
+            },
+            {
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"]",
+              "state": "visible"
+            }
+          ],
+          "steps": [
+            {
+              "type": "click",
+              "selector": "[data-maretha-navigation-action=\"account\"]",
+              "safe": true
+            },
+            {
+              "type": "hover",
+              "selector": "nx-drawer-item > button[aria-label=\"Browse\"]",
+              "safe": true
+            }
+          ],
+          "regions": [
+            {
+              "id": "drawer",
+              "selector": "#nx-sidebar-drawer"
+            },
+            {
+              "id": "label",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"]"
+            }
+          ],
+          "measurements": [
+            {
+              "id": "label-font-size",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "font-size",
+              "expected": 13,
+              "tolerance": 0
+            },
+            {
+              "id": "label-line-height",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "line-height",
+              "expected": 13,
+              "tolerance": 0
+            },
+            {
+              "id": "label-padding",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "padding",
+              "expected": 8,
+              "tolerance": 0
+            },
+            {
+              "id": "label-radius",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"] .tooltip-inner",
+              "property": "border-radius",
+              "expected": 2,
+              "tolerance": 0
+            },
+            {
+              "id": "label-opacity",
+              "selector": ".nx-rail-tooltip[role=\"tooltip\"]",
+              "property": "opacity",
+              "expected": 0.9,
+              "tolerance": 0.001
+            },
+            {
+              "id": "drawer-panel-width",
+              "selector": "#nx-sidebar-drawer",
+              "property": "width",
+              "expected": 298,
+              "tolerance": 1
+            },
+            {
+              "id": "drawer-heading-size",
+              "selector": ".nx-user-menu-header h6",
+              "property": "font-size",
+              "expected": 26,
+              "tolerance": 0.01
+            },
+            {
+              "id": "drawer-heading-line-height",
+              "selector": ".nx-user-menu-header h6",
+              "property": "line-height",
+              "expected": 20.02,
+              "tolerance": 0.01
+            },
+            {
+              "id": "drawer-heading-weight",
+              "selector": ".nx-user-menu-header h6",
+              "property": "font-weight",
+              "expected": 500,
+              "tolerance": 0
+            },
+            {
+              "id": "drawer-heading-letter-spacing",
+              "selector": ".nx-user-menu-header h6",
+              "property": "letter-spacing",
+              "expected": 0.24,
+              "tolerance": 0.001
+            }
+          ],
+          "blockedBy": []
+        }
+      },
+      "acceptance": [
+        "Label remains visible above the open drawer and is not clipped by drawer overflow.",
+        "A settled screenshot is component evidence; drawer-width parity requires matched hosted evidence.",
+        "Current desktop panel target is 298 CSS px; account heading uses 26px / 20.02px, weight 500 and 0.24px letter spacing (measured on the live reference). Reconfirm shared measurements against fixed reference evidence."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "shell.quick-search.en-default",
+      "inventory": ["F04", "P04"],
+      "status": "pending",
+      "coverage": "component-only",
+      "description": "Real Quick Search dialog with an empty input before any result request.",
+      "prerequisites": [
+        "Serve the existing deterministic a11y Angular fixture on the runner-owned loopback origin.",
+        "Do not compare fixture notice/content with hosted Polymer screenshots."
+      ],
+      "fixtures": ["a11y-shell-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "local-fixture",
+          "source": "e2e/a11y/main.ts",
+          "scope": "Production Angular components with controlled providers; capture integrity and regression evidence only."
+        },
+        {
+          "kind": "deployed-observed",
+          "source": "e2e/parity/README.md#what-each-result-can-establish",
+          "scope": "Representative rail appearance was observed; this local case does not verify the installed candidate."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This component fixture has no deployed Polymer counterpart. Use the matched hosted scenario for parity."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This scenario is local component evidence, not an installed-package comparison."
+          ]
+        },
+        "local": {
+          "runnable": true,
+          "route": "/",
+          "ready": [
+            {
+              "selector": "nx-quick-search dialog",
+              "state": "visible"
+            }
+          ],
+          "steps": [
+            {
+              "type": "click",
+              "selector": "nx-quick-search > button",
+              "safe": true
+            }
+          ],
+          "regions": [
+            {
+              "id": "quick-search",
+              "selector": "nx-quick-search dialog"
+            }
+          ],
+          "measurements": [],
+          "blockedBy": []
+        }
+      },
+      "acceptance": [
+        "Dialog and search input are visible; focus containment/close/navigation remain covered by dedicated behavior tests.",
+        "No input is submitted and no Nuxeo network operation is allowed."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "shell.mobile-navigation.en-default",
+      "inventory": ["F02", "F03"],
+      "status": "pending",
+      "coverage": "component-only",
+      "description": "Narrow-layout navigation opened through the mobile toggle.",
+      "prerequisites": [
+        "Serve the existing deterministic a11y Angular fixture on the runner-owned loopback origin.",
+        "Do not compare fixture notice/content with hosted Polymer screenshots."
+      ],
+      "fixtures": ["a11y-shell-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "local-fixture",
+          "source": "e2e/a11y/main.ts",
+          "scope": "Production Angular components with controlled providers; capture integrity and regression evidence only."
+        },
+        {
+          "kind": "deployed-observed",
+          "source": "e2e/parity/README.md#what-each-result-can-establish",
+          "scope": "Representative rail appearance was observed; this local case does not verify the installed candidate."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This component fixture has no deployed Polymer counterpart. Use the matched hosted scenario for parity."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This scenario is local component evidence, not an installed-package comparison."
+          ]
+        },
+        "local": {
+          "runnable": true,
+          "route": "/",
+          "ready": [
+            {
+              "selector": ".nx-sidebar.mobile-open",
+              "state": "visible"
+            }
+          ],
+          "steps": [
+            {
+              "type": "click",
+              "selector": ".nx-mobile-toggle",
+              "safe": true
+            }
+          ],
+          "regions": [
+            {
+              "id": "rail",
+              "selector": ".nx-sidebar"
+            }
+          ],
+          "measurements": [
+            {
+              "id": "rail-width",
+              "selector": ".nx-sidebar",
+              "property": "width",
+              "expected": 52,
+              "tolerance": 1
+            },
+            {
+              "id": "rail-action-height",
+              "selector": "nx-drawer-item > button[aria-label=\"Browse\"]",
+              "property": "height",
+              "expected": 48,
+              "tolerance": 1
+            }
+          ],
+          "blockedBy": []
+        }
+      },
+      "acceptance": [
+        "Mobile toggle opens the actual rail at 390 CSS px width.",
+        "No horizontal document overflow; keyboard close and resize dismissal are separate behavior checks."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "controls.confirmation.en-default",
+      "inventory": ["D14"],
+      "status": "pending",
+      "coverage": "component-only",
+      "description": "Real confirmation dialog with synthetic text and no repository operation.",
+      "prerequisites": [
+        "Serve the existing deterministic a11y Angular fixture on the runner-owned loopback origin.",
+        "Do not compare fixture notice/content with hosted Polymer screenshots."
+      ],
+      "fixtures": ["a11y-shell-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "local-fixture",
+          "source": "e2e/a11y/main.ts",
+          "scope": "Production Angular components with controlled providers; capture integrity and regression evidence only."
+        },
+        {
+          "kind": "deployed-observed",
+          "source": "e2e/parity/README.md#what-each-result-can-establish",
+          "scope": "Representative rail appearance was observed; this local case does not verify the installed candidate."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This component fixture has no deployed Polymer counterpart. Use the matched hosted scenario for parity."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This scenario is local component evidence, not an installed-package comparison."
+          ]
+        },
+        "local": {
+          "runnable": true,
+          "route": "/",
+          "ready": [
+            {
+              "selector": "nx-confirmation-dialog",
+              "state": "visible"
+            }
+          ],
+          "steps": [
+            {
+              "type": "click",
+              "selector": "button:has-text(\"Open confirmation dialog\")",
+              "safe": true
+            }
+          ],
+          "regions": [
+            {
+              "id": "confirmation",
+              "selector": "nx-confirmation-dialog"
+            }
+          ],
+          "measurements": [],
+          "blockedBy": []
+        }
+      },
+      "acceptance": [
+        "Dialog heading and controls settle to full opacity before capture.",
+        "No confirmation is submitted; dismiss via existing fixture tests."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "navigation.runtime-tree.en-default",
+      "inventory": ["N01", "D14"],
+      "status": "pending",
+      "coverage": "component-only",
+      "description": "Production document tree backed by the existing synthetic local tree.",
+      "prerequisites": [
+        "Serve the existing deterministic a11y Angular fixture on the runner-owned loopback origin.",
+        "Do not compare fixture notice/content with hosted Polymer screenshots."
+      ],
+      "fixtures": ["a11y-shell-reader", "a11y-runtime-tree"],
+      "rendering": {
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "local-fixture",
+          "source": "e2e/a11y/runtime-tree-fixture.ts",
+          "scope": "Production Angular components with controlled providers; capture integrity and regression evidence only."
+        },
+        {
+          "kind": "deployed-observed",
+          "source": "e2e/parity/README.md#what-each-result-can-establish",
+          "scope": "Representative rail appearance was observed; this local case does not verify the installed candidate."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This component fixture has no deployed Polymer counterpart. Use the matched hosted scenario for parity."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "This scenario is local component evidence, not an installed-package comparison."
+          ]
+        },
+        "local": {
+          "runnable": true,
+          "route": "/?surface=runtime-document-tree",
+          "ready": [
+            {
+              "selector": "[data-runtime-tree-fixture] nx-document-tree",
+              "state": "visible"
+            }
+          ],
+          "steps": [],
+          "regions": [
+            {
+              "id": "document-tree",
+              "selector": "[data-runtime-tree-fixture]"
+            }
+          ],
+          "measurements": [],
+          "blockedBy": []
+        }
+      },
+      "acceptance": [
+        "Tree uses fixture-root/fixture-branch and stable synthetic child identities, not deployed document IDs.",
+        "No hosted comparison is inferred from this synthetic tree."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "hosted.shell.matched",
+      "inventory": ["F01", "F02", "F03", "F04", "F05", "F06"],
+      "status": "pending",
+      "coverage": "shared-feature",
+      "description": "Shared dashboard shell, closed drawer, and rail labels",
+      "prerequisites": [
+        "Bind the same authorized principal and effective roles without assuming administrator access.",
+        "Map each shared rail action by meaning; omit X01/X02 and other proven unmatched actions rather than inserting spacer rows.",
+        "Record top/bottom rail anchors and hover each mutually available action, including account/administration when authorized."
+      ],
+      "fixtures": ["hosted-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "deployed-observed",
+          "source": "e2e/parity/README.md#what-each-result-can-establish",
+          "scope": "Representative shared dashboard shell, closed drawer, and rail labels was inspected before implementation; exact matched captures and bundle identities remain pending."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/modules/shared/components/sidebar/sidebar.component.html",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/extensions/drawer.ts",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications.",
+            "Resolve and verify the reference route and selectors against the current deployed UI."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": "/dashboard",
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications."
+          ]
+        }
+      },
+      "acceptance": [
+        "Capture both applications with the same semantic data and state.",
+        "Compare unmasked full screenshots, named regions, typography, and agreed anchors within 1 CSS px.",
+        "Classify each visible difference; preserve working Angular behavior and accessibility."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "hosted.dashboard.populated",
+      "inventory": ["P01"],
+      "status": "pending",
+      "coverage": "shared-feature",
+      "description": "Populated dashboard with all four regions",
+      "prerequisites": [
+        "Bind matching Recently Edited, Tasks, Recently Viewed, and Favorite Items with fixed ordering and resolved principal labels.",
+        "Record exact loaded state and allow a narrow named timestamp mask only if a later explicitly approved capture contract permits it; initial runner supports no masks."
+      ],
+      "fixtures": ["hosted-dashboard-populated"],
+      "rendering": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "deployed-observed",
+          "source": "e2e/parity/README.md#what-each-result-can-establish",
+          "scope": "Representative populated dashboard with all four regions was inspected before implementation; exact matched captures and bundle identities remain pending."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/components/dashboard/dashboard.component.html",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/components/dashboard/dashboard-document-table.component.ts",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications.",
+            "Resolve and verify the reference route and selectors against the current deployed UI."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": "/dashboard",
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications."
+          ]
+        }
+      },
+      "acceptance": [
+        "Capture both applications with the same semantic data and state.",
+        "Compare unmasked full screenshots, named regions, typography, and agreed anchors within 1 CSS px.",
+        "Classify each visible difference; preserve working Angular behavior and accessibility."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "hosted.dashboard.empty",
+      "inventory": ["P01"],
+      "status": "pending",
+      "coverage": "shared-feature",
+      "description": "Empty dashboard cards with headings and empty messages",
+      "prerequisites": [
+        "Use an equivalent dedicated account/data state that is already empty; do not clear hosted user data to prepare the comparison."
+      ],
+      "fixtures": ["hosted-dashboard-empty"],
+      "rendering": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "source-only",
+          "source": "app/components/dashboard/dashboard.component.html",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications.",
+            "Resolve and verify the reference route and selectors against the current deployed UI."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": "/dashboard",
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications."
+          ]
+        }
+      },
+      "acceptance": [
+        "Capture both applications with the same semantic data and state.",
+        "Compare unmasked full screenshots, named regions, typography, and agreed anchors within 1 CSS px.",
+        "Classify each visible difference; preserve working Angular behavior and accessibility."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "hosted.browse.folder-table",
+      "inventory": ["N01", "P02", "P03", "P05"],
+      "status": "pending",
+      "coverage": "shared-feature",
+      "description": "Shared folder browse table and document shell",
+      "prerequisites": [
+        "Resolve the bound folder UID/native path separately for each application; require same repository/document identity.",
+        "Match list mode, columns, sorting, page size, selection, scroll, and expanded tree nodes."
+      ],
+      "fixtures": ["hosted-folder", "hosted-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "deployed-observed",
+          "source": "e2e/parity/README.md#what-each-result-can-establish",
+          "scope": "Representative shared folder browse table and document shell was inspected before implementation; exact matched captures and bundle identities remain pending."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/modules/explorer/explorer/explorer.component.html",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/modules/explorer/components/viewers/generic-folderish-viewer/generic-folderish-viewer.component.html",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications.",
+            "Resolve and verify the reference route and selectors against the current deployed UI."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications."
+          ]
+        }
+      },
+      "acceptance": [
+        "Capture both applications with the same semantic data and state.",
+        "Compare unmasked full screenshots, named regions, typography, and agreed anchors within 1 CSS px.",
+        "Classify each visible difference; preserve working Angular behavior and accessibility."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "hosted.browse.folder-grid",
+      "inventory": ["P02", "P03"],
+      "status": "pending",
+      "coverage": "shared-feature",
+      "description": "Shared folder grid, thumbnails, and display controls",
+      "prerequisites": [
+        "Use the same bound folder as folder-table and select a mutually supported grid view.",
+        "Wait for matching thumbnail content and tile labels; do not mask missing previews."
+      ],
+      "fixtures": ["hosted-folder", "hosted-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "source-only",
+          "source": "app/extensions/results-projection.component.ts",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/modules/explorer/components/display-settings/display-settings.component.ts",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications.",
+            "Resolve and verify the reference route and selectors against the current deployed UI."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications."
+          ]
+        }
+      },
+      "acceptance": [
+        "Capture both applications with the same semantic data and state.",
+        "Compare unmasked full screenshots, named regions, typography, and agreed anchors within 1 CSS px.",
+        "Classify each visible difference; preserve working Angular behavior and accessibility."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "hosted.search.results",
+      "inventory": ["N03", "P04", "P05"],
+      "status": "pending",
+      "coverage": "shared-feature",
+      "description": "Default search with matching populated results",
+      "prerequisites": [
+        "Bind equivalent criteria/filters and indexed synthetic results; require matching sort/page/count.",
+        "Do not use AI Search or MSA Work Queue as reference equivalents."
+      ],
+      "fixtures": ["hosted-search-results", "hosted-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "source-only",
+          "source": "app/modules/search/components/default-search-results/default-search-results.component.html",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/modules/search/components/search-pane/search-pane.component.html",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications.",
+            "Resolve and verify the reference route and selectors against the current deployed UI."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": "/search/default",
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications."
+          ]
+        }
+      },
+      "acceptance": [
+        "Capture both applications with the same semantic data and state.",
+        "Compare unmasked full screenshots, named regions, typography, and agreed anchors within 1 CSS px.",
+        "Classify each visible difference; preserve working Angular behavior and accessibility."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "hosted.search.empty",
+      "inventory": ["P04"],
+      "status": "pending",
+      "coverage": "shared-feature",
+      "description": "Default search empty results",
+      "prerequisites": [
+        "Use a fixed query verified to return zero results in both applications without changing data."
+      ],
+      "fixtures": ["hosted-search-empty", "hosted-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "source-only",
+          "source": "app/modules/search/components/default-search-results/default-search-results.component.html",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications.",
+            "Resolve and verify the reference route and selectors against the current deployed UI."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": "/search/default",
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications."
+          ]
+        }
+      },
+      "acceptance": [
+        "Capture both applications with the same semantic data and state.",
+        "Compare unmasked full screenshots, named regions, typography, and agreed anchors within 1 CSS px.",
+        "Classify each visible difference; preserve working Angular behavior and accessibility."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "hosted.document.pdf",
+      "inventory": ["D01", "D02", "D03", "D04", "D05", "D06", "D07"],
+      "status": "pending",
+      "coverage": "shared-feature",
+      "description": "Shared File/PDF preview, metadata, and actions",
+      "prerequisites": [
+        "Bind the same File with an application/pdf blob and identical content revision.",
+        "Resolve native paths and shared view/tab selection; wait for PDF page rendering and fonts.",
+        "Compare shared document chrome independently from the preview body; record permission-gated actions."
+      ],
+      "fixtures": ["hosted-pdf", "hosted-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "source-only",
+          "source": "app/modules/explorer/components/viewers/pdf-renderer/pdf-renderer.component.ts",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/modules/explorer/components/viewers/document-type-viewer/document-type-viewer.component.html",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications.",
+            "Resolve and verify the reference route and selectors against the current deployed UI."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications."
+          ]
+        }
+      },
+      "acceptance": [
+        "Capture both applications with the same semantic data and state.",
+        "Compare unmasked full screenshots, named regions, typography, and agreed anchors within 1 CSS px.",
+        "Classify each visible difference; preserve working Angular behavior and accessibility."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "hosted.document.picture",
+      "inventory": ["D01", "D04", "D05", "D06"],
+      "status": "pending",
+      "coverage": "shared-feature",
+      "description": "Shared Picture preview and metadata/renditions",
+      "prerequisites": [
+        "Bind the same Picture revision, thumbnail, and rendition; match fit/zoom if available in both applications."
+      ],
+      "fixtures": ["hosted-picture", "hosted-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "source-only",
+          "source": "app/modules/explorer/components/viewers/image-renderer/image-renderer.component.html",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/modules/explorer/components/viewers/image-renderer/picture-metadata-card.component.ts",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications.",
+            "Resolve and verify the reference route and selectors against the current deployed UI."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications."
+          ]
+        }
+      },
+      "acceptance": [
+        "Capture both applications with the same semantic data and state.",
+        "Compare unmasked full screenshots, named regions, typography, and agreed anchors within 1 CSS px.",
+        "Classify each visible difference; preserve working Angular behavior and accessibility."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "hosted.document.note",
+      "inventory": ["D01", "D04", "D05", "D07", "D08"],
+      "status": "pending",
+      "coverage": "shared-feature",
+      "description": "Shared Note content, details, tags, and comments",
+      "prerequisites": [
+        "Bind the same existing Note, long text, tags, comments and principal resolution.",
+        "Observe existing content; no comment/tag/membership writes during hosted capture."
+      ],
+      "fixtures": ["hosted-note", "hosted-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "source-only",
+          "source": "app/modules/explorer/components/viewers/standard-content-layout.component.html",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/modules/explorer/components/viewers/note-renderer/note-renderer.component.html",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/modules/explorer/components/comments/comments.component.html",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications.",
+            "Resolve and verify the reference route and selectors against the current deployed UI."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications."
+          ]
+        }
+      },
+      "acceptance": [
+        "Capture both applications with the same semantic data and state.",
+        "Compare unmasked full screenshots, named regions, typography, and agreed anchors within 1 CSS px.",
+        "Classify each visible difference; preserve working Angular behavior and accessibility."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "hosted.document.permissions",
+      "inventory": ["D01", "D09"],
+      "status": "pending",
+      "coverage": "shared-feature",
+      "description": "Shared document permissions view",
+      "prerequisites": [
+        "Bind the same document with known local/inherited grants and matching effective access.",
+        "Only open/read existing permission states; mutation coverage belongs to the isolated fixture."
+      ],
+      "fixtures": ["hosted-permissions", "hosted-editor"],
+      "rendering": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "source-only",
+          "source": "app/modules/explorer/components/viewers/default-document-views.ts",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/modules/explorer/components/document-permissions/document-permissions.component.html",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications.",
+            "Resolve and verify the reference route and selectors against the current deployed UI."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications."
+          ]
+        }
+      },
+      "acceptance": [
+        "Capture both applications with the same semantic data and state.",
+        "Compare unmasked full screenshots, named regions, typography, and agreed anchors within 1 CSS px.",
+        "Classify each visible difference; preserve working Angular behavior and accessibility."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "hosted.document.history",
+      "inventory": ["D01", "D10"],
+      "status": "pending",
+      "coverage": "shared-feature",
+      "description": "Shared document history and versions",
+      "prerequisites": [
+        "Bind the same versioned document and matching history filter/page.",
+        "Record version labels and selection; do not restore a version in the hosted comparison."
+      ],
+      "fixtures": ["hosted-versioned-document", "hosted-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "source-only",
+          "source": "app/modules/explorer/components/viewers/default-document-views.ts",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/modules/explorer/components/document-snapshots/document-snapshots.component.html",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications.",
+            "Resolve and verify the reference route and selectors against the current deployed UI."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications."
+          ]
+        }
+      },
+      "acceptance": [
+        "Capture both applications with the same semantic data and state.",
+        "Compare unmasked full screenshots, named regions, typography, and agreed anchors within 1 CSS px.",
+        "Classify each visible difference; preserve working Angular behavior and accessibility."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "hosted.document.publication",
+      "inventory": ["D01", "D11"],
+      "status": "pending",
+      "coverage": "shared-feature",
+      "description": "Shared publication state and destination tree",
+      "prerequisites": [
+        "Confirm both applications expose the same publication capability and target sections.",
+        "Observe status and open/cancel dialogs only; do not publish/unpublish hosted data."
+      ],
+      "fixtures": ["hosted-publishable-document", "hosted-editor"],
+      "rendering": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "source-only",
+          "source": "app/modules/explorer/components/viewers/default-publish-views.ts",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/modules/explorer/components/viewers/standard-document-publication-view.component.ts",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications.",
+            "Resolve and verify the reference route and selectors against the current deployed UI."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications."
+          ]
+        }
+      },
+      "acceptance": [
+        "Capture both applications with the same semantic data and state.",
+        "Compare unmasked full screenshots, named regions, typography, and agreed anchors within 1 CSS px.",
+        "Classify each visible difference; preserve working Angular behavior and accessibility."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "hosted.create.destination",
+      "inventory": ["F04", "D12", "D14"],
+      "status": "pending",
+      "coverage": "shared-feature",
+      "description": "Shared create destination and type chooser",
+      "prerequisites": [
+        "Bind a readable destination with equivalent AddChildren/type availability in both applications.",
+        "Open/cancel only; persistence, import, validation and upload failure states require deterministic or isolated fixtures."
+      ],
+      "fixtures": ["hosted-create-destination", "hosted-editor"],
+      "rendering": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "source-only",
+          "source": "app/components/quick-search/destination-create-dialog.component.ts",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/modules/explorer/components/document-toolbar/create-popup.component.ts",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications.",
+            "Resolve and verify the reference route and selectors against the current deployed UI."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": "/dashboard",
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications."
+          ]
+        }
+      },
+      "acceptance": [
+        "Capture both applications with the same semantic data and state.",
+        "Compare unmasked full screenshots, named regions, typography, and agreed anchors within 1 CSS px.",
+        "Classify each visible difference; preserve working Angular behavior and accessibility."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "hosted.tasks.list",
+      "inventory": ["N02", "A01"],
+      "status": "pending",
+      "coverage": "shared-feature",
+      "description": "Shared task list with representative pending tasks",
+      "prerequisites": [
+        "Bind the same task assignee, pending tasks, documents and due dates.",
+        "Exclude MSA Work Queue; do not claim an empty fixture covers populated task details."
+      ],
+      "fixtures": ["hosted-tasks", "hosted-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "source-only",
+          "source": "app/components/tasks/tasks-page.component.html",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/modules/explorer/components/workflows/default-workflow-layouts.ts",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications.",
+            "Resolve and verify the reference route and selectors against the current deployed UI."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": "/tasks",
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications."
+          ]
+        }
+      },
+      "acceptance": [
+        "Capture both applications with the same semantic data and state.",
+        "Compare unmasked full screenshots, named regions, typography, and agreed anchors within 1 CSS px.",
+        "Classify each visible difference; preserve working Angular behavior and accessibility."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "hosted.account.profile",
+      "inventory": ["A02", "A03", "A04"],
+      "status": "pending",
+      "coverage": "shared-feature",
+      "description": "Shared account profile and menu",
+      "prerequisites": [
+        "Bind the same display name, user properties and supported menu entries.",
+        "Observe profile without saving; external app/cloud connection writes are outside this capture."
+      ],
+      "fixtures": ["hosted-reader"],
+      "rendering": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "source-only",
+          "source": "app/components/application-pages/profile-page.component.ts",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/modules/shared/components/sidebar/user-menu/default-user-menu.ts",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications.",
+            "Resolve and verify the reference route and selectors against the current deployed UI."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": "/profile",
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications."
+          ]
+        }
+      },
+      "acceptance": [
+        "Capture both applications with the same semantic data and state.",
+        "Compare unmasked full screenshots, named regions, typography, and agreed anchors within 1 CSS px.",
+        "Classify each visible difference; preserve working Angular behavior and accessibility."
+      ],
+      "excludedRegions": []
+    },
+    {
+      "id": "hosted.admin.users",
+      "inventory": ["A05", "A06"],
+      "status": "pending",
+      "coverage": "shared-feature",
+      "description": "Shared Users and Groups administration",
+      "prerequisites": [
+        "Supply an explicitly authorized administrator or power-user role in both applications; do not infer it from a test account name.",
+        "Bind synthetic principals and the same filters/list page.",
+        "No users/groups/memberships are created, edited or deleted by capture."
+      ],
+      "fixtures": ["hosted-administrator"],
+      "rendering": {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "locale": "en-US",
+        "theme": "default",
+        "direction": "ltr",
+        "timezone": "UTC",
+        "deviceScaleFactor": 1,
+        "zoom": 1
+      },
+      "evidenceBasis": [
+        {
+          "kind": "source-only",
+          "source": "app/modules/settings/default-administration.ts",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        },
+        {
+          "kind": "source-only",
+          "source": "app/modules/settings/components/users-and-groups/users-and-groups.component.html",
+          "scope": "Implementation location and scenario contract; not a deployed visual acceptance result."
+        }
+      ],
+      "targets": {
+        "reference": {
+          "runnable": false,
+          "route": null,
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications.",
+            "Resolve and verify the reference route and selectors against the current deployed UI."
+          ]
+        },
+        "candidate": {
+          "runnable": false,
+          "route": "/settings?admin=users",
+          "ready": [],
+          "steps": [],
+          "regions": [],
+          "measurements": [],
+          "blockedBy": [
+            "Capture and verify current deployed bundle identities before collecting acceptance evidence.",
+            "Bind equivalent principal, permissions, locale, theme, and semantic fixture data for both applications."
+          ]
+        }
+      },
+      "acceptance": [
+        "Capture both applications with the same semantic data and state.",
+        "Compare unmasked full screenshots, named regions, typography, and agreed anchors within 1 CSS px.",
+        "Classify each visible difference; preserve working Angular behavior and accessibility."
+      ],
+      "excludedRegions": []
+    }
+  ],
+  "requiredExpansionMatrix": {
+    "themes": ["default", "light", "dark", "kawaii"],
+    "locales": ["en-US", "es", "fr", "ar", "ro", "pt-PT", "it"],
+    "pseudoLocale": "Use the existing development pseudo-language fixture; not a Polymer reference baseline.",
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "width": 1024,
+        "height": 768
+      },
+      {
+        "width": 719,
+        "height": 900
+      },
+      {
+        "width": 720,
+        "height": 900
+      },
+      {
+        "width": 721,
+        "height": 900
+      },
+      {
+        "width": 390,
+        "height": 844
+      },
+      {
+        "width": 1280,
+        "height": 699
+      },
+      {
+        "width": 1280,
+        "height": 700
+      },
+      {
+        "width": 1280,
+        "height": 701
+      }
+    ],
+    "states": [
+      "rest",
+      "hover",
+      "focus-visible",
+      "selected",
+      "disabled",
+      "expanded",
+      "modal",
+      "tooltip",
+      "overflow",
+      "empty",
+      "populated",
+      "loading",
+      "error",
+      "permission-restricted",
+      "read-only"
+    ],
+    "inputModes": ["pointer", "keyboard", "touch", "reduced-motion"],
+    "documentLayouts": {
+      "source": "app/modules/explorer/components/default-document-layouts.ts",
+      "registeredResourceCount": 76,
+      "claim": "Expand exact registered type/mode resources before claiming full document-layout coverage."
+    },
+    "notInstantiatedYet": [
+      "Every available rail contribution and administration role variant.",
+      "Drawer contents beyond the local account/tree representatives.",
+      "Light/Kawaii hosted captures, long labels, and the complete breakpoint/short-height matrix.",
+      "All registered per-type create/edit/import/metadata/view layouts and generic/custom fallback regressions.",
+      "Populated/empty/loading/error page combinations beyond the representative scenarios.",
+      "Bulk edit/import/upload lifecycle and permission mutation in isolated fixtures.",
+      "Collections/favorites/clipboard/trash/expired/assets and full result/selection action permutations.",
+      "Authorized apps/cloud, vocabulary/audit/analytics and remaining shared administration surfaces."
+    ]
+  },
+  "bundleIdentityPolicy": {
+    "pinnedSourceRevision": "e0ccb86615c692a3a60c557d363d4ce32f91c686",
+    "requireRunCapture": true,
+    "claim": "The reference and candidate origins come from PARITY_REFERENCE_ORIGIN and PARITY_CANDIDATE_ORIGIN at run time. The pinned source revision is a structural reference, not a matched-dataset screenshot approval. Actual loaded bundle identities must be captured for each run."
+  },
+  "inventoryCoverage": {
+    "source": "e2e/parity/README.md#extending-coverage",
+    "declaredRowCount": 43,
+    "completeAccounting": true,
+    "fullyVerified": false,
+    "rows": [
+      {
+        "inventory": "F01",
+        "surface": "Root typography/tokens: styles/, app/extensions/polymer-theme-tokens.generated.ts, app/extensions/webui-themes.ts",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["shell.rest.en-default", "hosted.shell.matched"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "F02",
+        "surface": "Rail and drawer: app/modules/shared/components/sidebar/sidebar.component.{html,scss,ts}, app/helpers/sidebar.service.ts",
+        "status": "representative-scenario-defined",
+        "scenarioIds": [
+          "shell.rest.en-default",
+          "shell.rail-hover.en-default",
+          "shell.rail-hover.ar-default",
+          "shell.rail-hover.en-dark",
+          "shell.rail-hover.ar-dark",
+          "shell.user-menu.en-default",
+          "shell.label-over-drawer.en-default",
+          "shell.mobile-navigation.en-default",
+          "hosted.shell.matched"
+        ],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "F03",
+        "surface": "Dynamic rail contributions: app/extensions/drawer.ts, app/modules/shared/components/sidebar/default-drawer.ts",
+        "status": "representative-scenario-defined",
+        "scenarioIds": [
+          "shell.rest.en-default",
+          "shell.rail-hover.en-default",
+          "shell.rail-hover.ar-default",
+          "shell.rail-hover.en-dark",
+          "shell.rail-hover.ar-dark",
+          "shell.label-over-drawer.en-default",
+          "shell.mobile-navigation.en-default",
+          "hosted.shell.matched"
+        ],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "F04",
+        "surface": "Shell actions: app/components/quick-search/default-shell-actions.ts, shell-actions.component.ts, global-create.component.ts, quick-search.component.{html,scss,ts}",
+        "status": "representative-scenario-defined",
+        "scenarioIds": [
+          "shell.rest.en-default",
+          "shell.quick-search.en-default",
+          "hosted.shell.matched",
+          "hosted.create.destination"
+        ],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "F05",
+        "surface": "Application route/page host: app/app-routing.module.ts, app/components/application-pages/default-pages.ts",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.shell.matched"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "F06",
+        "surface": "Shared icons: app/extensions/, app/modules/shared/components/sidebar/navigation-icons.generated.ts",
+        "status": "representative-scenario-defined",
+        "scenarioIds": [
+          "shell.rail-hover.en-default",
+          "shell.rail-hover.ar-default",
+          "shell.rail-hover.en-dark",
+          "shell.rail-hover.ar-dark",
+          "hosted.shell.matched"
+        ],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "N01",
+        "surface": "Browse tree: app/modules/shared/components/sidebar/default-drawer-page.component.{html,ts}, app/modules/shared/components/document-tree/",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["navigation.runtime-tree.en-default", "hosted.browse.folder-table"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "N02",
+        "surface": "Recently Viewed and Tasks drawers: app/modules/shared/components/sidebar/default-drawer-page.component.{html,ts}",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.tasks.list"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "N03",
+        "surface": "Search drawer: app/modules/search/components/search-pane/, app/modules/shared/components/sidebar/default-drawer-page.component.ts",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.search.results"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "N04",
+        "surface": "Expired/Assets/Trash drawers and pages: app/modules/shared/components/sidebar/repository-search-drawer.component.ts, app/modules/search/components/repository-search/",
+        "status": "planned-placeholder",
+        "scenarioIds": [],
+        "remaining": [
+          "Bind and expand Expired, Assets and Trash drawer/page states with equivalent filters/results/actions."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "N05",
+        "surface": "Favorites: app/modules/shared/components/sidebar/favorites-drawer.component.ts",
+        "status": "planned-placeholder",
+        "scenarioIds": [],
+        "remaining": [
+          "Bind and expand Favorites empty/populated/loading/error states and navigation."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "N06",
+        "surface": "Collections: app/modules/shared/components/sidebar/collections-drawer.component.ts, app/modules/explorer/components/collections/",
+        "status": "planned-placeholder",
+        "scenarioIds": [],
+        "remaining": [
+          "Bind and expand Collections list/member states and safe open/cancel dialogs."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "N07",
+        "surface": "Personal Space: app/modules/shared/components/sidebar/personal-workspace-drawer.component.ts",
+        "status": "planned-placeholder",
+        "scenarioIds": [],
+        "remaining": [
+          "Bind and expand Personal Space loading/available/unavailable/error tree states."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "N08",
+        "surface": "Clipboard: app/modules/shared/components/sidebar/clipboard-drawer.component.ts, app/modules/explorer/components/clipboard/",
+        "status": "planned-placeholder",
+        "scenarioIds": [],
+        "remaining": [
+          "Add isolated Clipboard copy/cut/paste/move/clear lifecycle and hosted read-only presentation."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "P01",
+        "surface": "Dashboard: app/components/dashboard/dashboard.component.{html,scss,ts}, dashboard-document-table.component.{html,scss,ts}",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.dashboard.populated", "hosted.dashboard.empty"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "P02",
+        "surface": "Folder/collection browse results: app/modules/explorer/explorer/explorer.component.*, app/modules/explorer/components/viewers/generic-folderish-viewer/, folderish-details-layout.component.ts, picturebook-content-layout.component.*",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.browse.folder-table", "hosted.browse.folder-grid"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "P03",
+        "surface": "Results projection: app/extensions/results-projection.component.ts, app/extensions/results-projection.ts, app/modules/explorer/components/display-settings/",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.browse.folder-table", "hosted.browse.folder-grid"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "P04",
+        "surface": "Search results: app/modules/search/components/default-search-results/, app/modules/search/components/repository-search/, app/modules/search/components/search-queue/",
+        "status": "representative-scenario-defined",
+        "scenarioIds": [
+          "shell.quick-search.en-default",
+          "hosted.search.results",
+          "hosted.search.empty"
+        ],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "P05",
+        "surface": "Results/selection tools: app/modules/explorer/components/document-toolbar/default-toolbar.ts, document-toolbar.component.*, toolbar-action.component.ts",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.browse.folder-table", "hosted.search.results"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "P06",
+        "surface": "Query/export tools: app/modules/explorer/components/document-toolbar/query-{edit,trash}.component.ts, results-{csv-export,spreadsheet}.component.ts",
+        "status": "planned-placeholder",
+        "scenarioIds": [],
+        "remaining": [
+          "Audit deployed equivalents for query/export/spreadsheet tools; add shared captures and preserve Angular-only tools."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "D01",
+        "surface": "Document shell: app/modules/explorer/components/viewers/document-type-viewer/, generic-{type,non-folderish}-viewer/, standard-content-layout.component.*, app/modules/explorer/components/document-navigation-bar/",
+        "status": "representative-scenario-defined",
+        "scenarioIds": [
+          "hosted.document.pdf",
+          "hosted.document.picture",
+          "hosted.document.note",
+          "hosted.document.permissions",
+          "hosted.document.history",
+          "hosted.document.publication"
+        ],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "D02",
+        "surface": "Document actions: app/modules/explorer/components/viewers/document-actions-toolbar/default-document-actions.ts, document-command-policy.ts, document-actions-toolbar.component.*",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.document.pdf"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "D03",
+        "surface": "Notices: app/modules/explorer/components/viewers/default-document-info-bar.ts, document-info-bar.component.ts, standard-version-notice.component.ts",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.document.pdf"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "D04",
+        "surface": "Supported previews: app/modules/explorer/components/viewers/{pdf,image,audio,video,note}-renderer/, document-content-view.component.ts",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.document.pdf", "hosted.document.picture", "hosted.document.note"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "D05",
+        "surface": "Metadata/details: app/modules/explorer/components/default-document-metadata-layout.component.ts, viewers/standard-content-metadata.component.ts, document-info/, document-info-panel/, viewers/folderish-details-panel.component.ts",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.document.pdf", "hosted.document.picture", "hosted.document.note"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "D06",
+        "surface": "Attachments/blobs/renditions: app/modules/explorer/components/document-attachments/, viewers/image-renderer/picture-metadata-card.component.ts, document-info/",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.document.pdf", "hosted.document.picture"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "D07",
+        "surface": "Tags, collections, contributors: app/modules/explorer/components/viewers/document-{tags,collections}-panel.component.ts, components/contributors/, components/editors/tags/",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.document.pdf", "hosted.document.note"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "D08",
+        "surface": "Comments/activity: app/modules/explorer/components/comments/, document-activity/",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.document.note"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "D09",
+        "surface": "Permissions: app/modules/explorer/components/viewers/{document,standard-document}-permissions-view.component.ts, document-permissions/, document-permission-editor/",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.document.permissions"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "D10",
+        "surface": "History/versions/comparison: app/modules/explorer/components/viewers/{document,standard-document}-history-view.component.ts, document-snapshots/, viewers/document-{comparison,snapshot-comparison}/",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.document.history"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "D11",
+        "surface": "Publication/trash: app/modules/explorer/components/viewers/default-{publish-views,trash-actions}.ts, {document,standard-document}-publication-view.component.ts, {document,standard-document}-trash-view.component.ts, publish-section-view.component.ts",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.document.publication"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "D12",
+        "surface": "Create/import: app/components/quick-search/destination-create-dialog.component.ts, app/modules/explorer/components/document-toolbar/create-popup.component.ts, app/modules/explorer/components/editors/, app/modules/shared/components/file-upload/",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.create.destination"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "D13",
+        "surface": "Edit/bulk edit: app/modules/explorer/components/editors/, app/modules/explorer/components/document-toolbar/bulk-editor-modal.component.*, app/extensions/default-bulk-layout.component.ts",
+        "status": "planned-placeholder",
+        "scenarioIds": [],
+        "remaining": [
+          "Add deterministic/isolated edit and bulk-edit forms for exact type/mode layouts; preserve unsaved departure behavior."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "D14",
+        "surface": "Shared dialogs/inputs: app/modules/shared/components/{confirmation-dialog,input-dialog,users-and-groups-picker,file-upload}/, app/modules/explorer/components/editors/vocabulary/",
+        "status": "representative-scenario-defined",
+        "scenarioIds": [
+          "controls.confirmation.en-default",
+          "navigation.runtime-tree.en-default",
+          "hosted.create.destination"
+        ],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "A01",
+        "surface": "Tasks and workflows: app/components/tasks/tasks-page.component.*, app/modules/explorer/components/workflows/, default-workflow-layouts.ts",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.tasks.list"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "A02",
+        "surface": "Account menu/profile/principals: app/modules/shared/components/sidebar/user-menu/, app/components/application-pages/{profile,principal}-page.component.ts, app/components/user-profile/",
+        "status": "representative-scenario-defined",
+        "scenarioIds": [
+          "shell.user-menu.en-default",
+          "shell.label-over-drawer.en-default",
+          "hosted.account.profile"
+        ],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "A03",
+        "surface": "Authorized apps/cloud accounts: app/components/application-pages/user-authorized-apps-page.component.ts, user-cloud-services-page.component.ts",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.account.profile"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "A04",
+        "surface": "Theme picker: app/components/application-pages/themes-page.component.ts, app/modules/shared/components/sidebar/user-menu/default-themes.ts, app/extensions/webui-themes.ts",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.account.profile"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "A05",
+        "surface": "Administration shell: app/modules/shared/components/sidebar/administration-drawer.component.ts, app/modules/settings/default-administration.ts, app/modules/settings/administration-page.component.ts",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.admin.users"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "A06",
+        "surface": "Users & Groups: app/modules/settings/components/{users-and-groups,user-and-group-editor,user-and-group-permissions}/",
+        "status": "representative-scenario-defined",
+        "scenarioIds": ["hosted.admin.users"],
+        "remaining": [
+          "Expand every state, role, theme, viewport and per-type variant named in this source row; representative recipes do not establish complete coverage."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "A07",
+        "surface": "Vocabularies/audit: app/modules/settings/components/{vocabularies,audit}/",
+        "status": "planned-placeholder",
+        "scenarioIds": [],
+        "remaining": [
+          "Bind safe vocabulary/audit datasets and expand lists, filters, editors, paging and failures."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "A08",
+        "surface": "Analytics: app/modules/settings/default-analytics.ts, app/modules/settings/components/analytics/",
+        "status": "planned-placeholder",
+        "scenarioIds": [],
+        "remaining": [
+          "Bind matching analytics/date/filter data and expand all shared chart/tab states."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      },
+      {
+        "inventory": "A09",
+        "surface": "Cloud/NXQL/conditional settings: app/modules/settings/components/cloud/, cloud-*-editor/, app/modules/search/components/repository-search/, app/modules/settings/default-administration.ts",
+        "status": "planned-placeholder",
+        "scenarioIds": [],
+        "remaining": [
+          "Audit shared Cloud/NXQL/conditional settings capabilities; add equivalent read-only capture recipes and retain Angular-only pages."
+        ],
+        "source": "e2e/parity/README.md#extending-coverage"
+      }
+    ]
+  }
+}

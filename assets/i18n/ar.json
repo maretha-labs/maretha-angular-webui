@@ -1,0 +1,3176 @@
+{
+  "general": {
+    "title": "مرحبًا {userName}!",
+    "and": "و",
+    "or": "أو",
+    "date": {
+      "seconds": "{value, plural, zero{0 ثانية} =1{ثانية واحدة} one{ثانية واحدة} two{ثانيتان} few{# ثوانٍ} many{# ثانية} other{# ثانية}}",
+      "minutes": "{value, plural, zero{0 دقيقة} =1{دقيقة واحدة} one{دقيقة واحدة} two{دقيقتان} few{# دقائق} many{# دقيقة} other{# دقيقة}}",
+      "hours": "{value, plural, zero{0 ساعة} =1{ساعة واحدة} one{ساعة واحدة} two{ساعتان} few{# ساعات} many{# ساعة} other{# ساعة}}",
+      "days": "{value, plural, zero{0 يومًا} =1{يوم واحد} one{يوم واحد} two{يومان} few{# أيام} many{# يومًا} other{# يومًا}}",
+      "weeks": "{value, plural, zero{0 أسبوعًا} =1{أسبوع واحد} one{أسبوع واحد} two{أسبوعان} few{# أسابيع} many{# أسبوعًا} other{# أسبوعًا}}",
+      "months": "{value, plural, zero{0 شهرًا} =1{شهر واحد} one{شهر واحد} two{شهران} few{# أشهر} many{# شهرًا} other{# شهرًا}}",
+      "years": "{value, plural, zero{0 سنة} =1{سنة واحدة} one{سنة واحدة} two{سنتان} few{# سنوات} many{# سنة} other{# سنة}}"
+    },
+    "fileSize": {
+      "bytes": "بايت",
+      "kb": "KB",
+      "mb": "MB",
+      "gb": "GB",
+      "tb": "TB",
+      "pb": "PB",
+      "eb": "EB",
+      "zb": "ZB",
+      "yb": "YB"
+    }
+  },
+  "pageProviders": {
+    "default_search": {
+      "aggregations": {
+        "common_size_agg": {
+          "buckets": {
+            "small": "صغير",
+            "medium": "متوسط",
+            "tiny": "صغير جدًا",
+            "big": "كبير",
+            "huge": "كبير جدًا"
+          },
+          "label": "الحجم الشائع"
+        },
+        "dc_coverage_agg": {
+          "label": "التغطية"
+        },
+        "dc_modified_agg": {
+          "buckets": {
+            "lastWeek": "الأسبوع الأخير",
+            "lastMonth": "الشهر الأخير",
+            "lastYear": "السنة الأخيرة",
+            "last24h": "آخر 24 ساعة",
+            "priorToLastYear": "منذ أكثر من سنة"
+          },
+          "label": "آخر تعديل"
+        },
+        "dc_nature_agg": {
+          "label": "طبيعة"
+        },
+        "dc_subjects_agg": {
+          "label": "المواضيع"
+        },
+        "dc_creator_agg": {
+          "label": "أنشأه"
+        }
+      },
+      "label": "الافتراضي",
+      "fields": {
+        "ecm_fulltext": "البحث في النص الكامل"
+      },
+      "quickFilters": {
+        "mostRecent": "المعدّلة مؤخرًا",
+        "noFolder": "ليس مجلدًا",
+        "onlyValidated": "معتمد"
+      }
+    },
+    "default_trash_search": {
+      "aggregations": {
+        "common_size_agg": {
+          "buckets": {
+            "small": "صغير",
+            "medium": "متوسط",
+            "tiny": "صغير جدًا",
+            "big": "كبير",
+            "huge": "كبير جدًا"
+          },
+          "label": "الحجم الشائع"
+        },
+        "dc_coverage_agg": {
+          "label": "التغطية"
+        },
+        "dc_modified_agg": {
+          "buckets": {
+            "lastWeek": "الأسبوع الأخير",
+            "lastMonth": "الشهر الأخير",
+            "lastYear": "السنة الأخيرة",
+            "last24h": "آخر 24 ساعة",
+            "priorToLastYear": "منذ أكثر من سنة"
+          },
+          "label": "آخر تعديل"
+        },
+        "dc_nature_agg": {
+          "label": "طبيعة"
+        },
+        "dc_subjects_agg": {
+          "label": "المواضيع"
+        },
+        "dc_creator_agg": {
+          "label": "أنشأه"
+        }
+      },
+      "label": "المستندات في سلة المهملات",
+      "fields": {
+        "ecm_fulltext": "البحث في النص الكامل"
+      }
+    },
+    "retention_search": {
+      "aggregations": {
+        "doc_type_agg": {
+          "buckets": {
+            "small": "صغير",
+            "medium": "متوسط",
+            "tiny": "صغير جدًا",
+            "big": "كبير",
+            "huge": "كبير جدًا"
+          },
+          "label": "نوع المستند"
+        },
+        "ecm_retain_agg": {
+          "label": "مدة الاحتفاظ",
+          "buckets": {
+            "next24Hours": "خلال الساعات الأربع والعشرين القادمة",
+            "beforeAWeek": "أسبوع",
+            "beforeAMonth": "شهر",
+            "beforeAYear": "سنة",
+            "afterAYear": "أكثر من سنة",
+            "indeterminate": "غير محدد"
+          }
+        },
+        "record_retain_agg": {
+          "label": "يُحتفظ به حتى",
+          "buckets": {
+            "last24h": "خلال الساعات الأربع والعشرين الماضية",
+            "lastWeek": "منذ أسبوع",
+            "lastMonth": "منذ شهر",
+            "lastYear": "منذ سنة",
+            "priorToLastYear": "منذ أكثر من سنة"
+          }
+        },
+        "rules_agg": {
+          "label": "القواعد المطبّقة"
+        }
+      },
+      "label": "الاحتفاظ",
+      "fields": {
+        "ecm_fulltext": "البحث في النص الكامل"
+      },
+      "quickFilters": {
+        "withoutRule": "لا توجد قواعد مطبّقة",
+        "withRule": "قاعدة واحدة أو أكثر مطبّقة",
+        "hasLegalHold": "خاضع للحفظ القانوني",
+        "hasNotLegalHold": "غير خاضع للحفظ القانوني",
+        "exceptTrashed": "استبعاد المستندات في سلة المهملات"
+      }
+    },
+    "nxql_search": {
+      "label": "NXQL",
+      "queryParams": "استعلام"
+    }
+  },
+  "search": {
+    "nxql": "بحث عن NXQL",
+    "enabled": "مُمكّن",
+    "options": "الخيارات",
+    "title": "البحث عن المستندات",
+    "close": "إغلاق لوحة البحث",
+    "searchFields": "حقول البحث",
+    "customFilters": "عوامل تصفية مخصصة",
+    "quickFilters": "عوامل تصفية سريعة",
+    "disabled": "معطّل",
+    "enable": "انقر للتفعيل",
+    "disable": "انقر للتعطيل",
+    "optionsLocalOnly": "البحث في الموقع الحالي فقط",
+    "optionsSaveSearch": "حفظ معلمات البحث وإعادة استخدامها",
+    "optionsSavedSearches": "عمليات البحث المحفوظة",
+    "optionsReset": "إعادة تعيين جميع الحقول وعوامل التصفية",
+    "optionsClearForm": "مسح النموذج",
+    "optionsProviders": "موفرو البحث",
+    "optionsPageProvider": "موفر البحث",
+    "deleteSavedSearch": "حذف هذا البحث المحفوظ",
+    "saveSearch": "حفظ البحث الحالي",
+    "saveSearchTooltip": "حفظ البحث الحالي لاستخدامه لاحقًا…",
+    "savedSearches": "عمليات البحث المحفوظة سابقًا",
+    "searchFieldsSaved": "تم حفظ حقول البحث",
+    "searchFieldsSavedAck": "تم حفظ حقول البحث الحالية باسم <b>{title}</b>.",
+    "savedSearchRemoved": "تم حذف حقول البحث",
+    "savedSearchRemovedAck": "تم حذف البحث المحفوظ <b>{title}</b>.",
+    "removeFilter": "إزالة {label}",
+    "quick": {
+      "nofolder": "لا توجد حاويات",
+      "mostrecent": "الأحدث",
+      "onlyvalidated": "معتمد"
+    }
+  },
+  "directories": {
+    "continent": {
+      "africa": "أفريقيا",
+      "antarctica": "أنتركتيكا",
+      "asia": "أسيا",
+      "europe": "أوروبا",
+      "north-america": "أمريكا الشمالية",
+      "oceania": "أوقيانوسيا",
+      "south-america": "أمريكا الجنوبية"
+    },
+    "country": {
+      "Afghanistan": "أفغانستان",
+      "Aland_Islands": "جزر آلاند",
+      "Albania": "ألبانيا",
+      "Algeria": "الجزائر",
+      "American_Samoa": "ساموا الأمريكية",
+      "Andorra": "أندورا",
+      "Angola": "أنجولا",
+      "Anguilla": "أنجيلا",
+      "Antarctica_the_territory_South_of_60_deg_S": "القارة القطبية الجنوبية (المنطقة الواقعة 60 درجة جنوبًا)",
+      "Antigua_and_Barbuda": "أنتيجوا وبربودا",
+      "Argentina": "الأرجنتين",
+      "Armenia": "أرمينيا",
+      "Aruba": "أروبا",
+      "Australia": "أستراليا",
+      "Austria": "النمسا",
+      "Azerbaijan": "أذربيجان",
+      "Bahamas": "جزر البهاما",
+      "Bahrain": "البحرين",
+      "Bangladesh": "بنجلاديش",
+      "Barbados": "بربادوس",
+      "Belarus": "بيلاروسيا",
+      "Belgium": "بلجيكا",
+      "Belize": "بليز",
+      "Benin": "بنين",
+      "Bermuda": "برمودا",
+      "Bhutan": "بوتان",
+      "Bolivia": "بوليفيا",
+      "Bosnia_and_Herzegovina": "البوسنة والهرسك",
+      "Botswana": "بوتسوانا",
+      "Bouvet_Island_Bouvetoya": "جزيرة بوفيت",
+      "Brazil": "البرازيل",
+      "British_Indian_Ocean_Territory_Chagos_Archipelago": "إقليم المحيط الهندي البريطاني (أرخبيل تشاغوس)",
+      "British_Virgin_Islands": "جزر فيرجن البريطانية",
+      "Brunei_Darussalam": "بروناي دار السلام",
+      "Bulgaria": "بلغاريا",
+      "Burkina_Faso": "بوركينا فاسو",
+      "Burundi": "بوروندي",
+      "Cambodia": "كمبوديا",
+      "Cameroon": "الكاميرون",
+      "Canada": "كندا",
+      "Cape_Verde": "الرأس الأخضر",
+      "Cayman_Islands": "جزر كايمان",
+      "Central_African_Republic": "جمهورية إفريقيا الوسطى",
+      "Chad": "تشاد",
+      "Chile": "شيلي",
+      "China": "الصين",
+      "Christmas_Island": "جزيرة كريسماس",
+      "Cocos_Keeling_Islands": "جزر كوكوس (كيلينج)",
+      "Colombia": "كولومبيا",
+      "Comoros": "جزر القمر",
+      "Congo_Democratic_Republic": "جمهورية الكونغو الديمقراطية",
+      "Congo_Republic": "جمهورية الكونغو",
+      "Cook_Islands": "جزر الكوك",
+      "Costa_Rica": "كوستاريكا",
+      "Cote_D_Ivoire": "ساحل العاج",
+      "Croatia": "كرواتيا",
+      "Cuba": "كوبا",
+      "Cyprus": "قبرص",
+      "Czech_Republic": "جمهورية التشيك",
+      "Denmark": "الدنمارك",
+      "Djibouti": "جيبوتي",
+      "Dominica": "دومينيكا",
+      "Dominican_Republic": "جمهورية الدومينيكان",
+      "Ecuador": "الإكوادور",
+      "Egypt": "مصر",
+      "El_Salvador": "السلفادور",
+      "Equatorial_Guinea": "غينيا الإستوائية",
+      "Eritrea": "إريتريا",
+      "Estonia": "إستونيا",
+      "Ethiopia": "أثيوبيا",
+      "Falkland_Islands_Malvinas": "جزر فوكلاند (مالفيناس)",
+      "Faroe_Islands": "جزر فاروس",
+      "Fiji": "فيجي",
+      "Finland": "فنلندا",
+      "France": "فرنسا",
+      "French_Guiana": "غينيا الفرنسية",
+      "French_Polynesia": "بولينيزيا الفرنسية",
+      "French_Southern_Territories": "أراضي فرنسية جنوبية وأنتارتيكية",
+      "Gabon": "الجابون",
+      "Gambia": "جامبيا",
+      "Georgia": "جورجيا",
+      "Germany": "ألمانيا",
+      "Ghana": "غانا",
+      "Gibraltar": "جبل طارق",
+      "Greece": "اليونان",
+      "Greenland": "جرين لاند",
+      "Grenada": "غرينادا",
+      "Guadaloupe": "جوادلوب",
+      "Guam": "غوام",
+      "Guatemala": "جواتيمالا",
+      "Guernsey": "غيرنزي",
+      "Guinea": "غينيا",
+      "Guinea_Bissau": "غينيا بيساو",
+      "Guyana": "غويانا",
+      "Haiti": "هايتي",
+      "Heard_and_McDonald_Islands": "جزيرة هيرد وجزر ماكدونالد",
+      "Holy_See_Vatican_City_State": "الكرسي الرسولي (دولة الفاتيكان)",
+      "Honduras": "هندوراس",
+      "Hong_Kong": "هونج كونج",
+      "Hungary": "المجر",
+      "Iceland": "أيسلندا",
+      "India": "الهند",
+      "Indonesia": "إندونسيا",
+      "Iran": "إيران",
+      "Iraq": "العراق",
+      "Ireland": "أيرلندا",
+      "Isle_of_Man": "جزيرة آيل أوف مان",
+      "Israel": "إسرائيل",
+      "Italy": "إيطاليا",
+      "Jamaica": "جامايكا",
+      "Japan": "اليابان",
+      "Jersey": "جيرسي",
+      "Jordan": "الأردن",
+      "Kazakhstan": "كازاخستان",
+      "Kenya": "كينيا",
+      "Kiribati": "كيريباتي",
+      "Kuwait": "الكويت",
+      "Kyrgyz_Republic": "جمهورية كوريا",
+      "Lao_People_s_Democratic_Republic": "جمهورية لاو الديمقراطية الشعبية",
+      "Latvia": "لاتفيا",
+      "Lebanon": "لبنان",
+      "Lesotho": "ليسوتو",
+      "Liberia": "ليبيريا",
+      "Libyan_Arab_Jamahiriya": "الجماهيرية العربية الليبية",
+      "Liechtenstein": "ليختنشتاين",
+      "Lithuania": "ليتوانيا",
+      "Luxembourg": "لوكسمبورج",
+      "Macao": "ماكاو",
+      "Macedonia": "مقدونيا",
+      "Madagascar": "مدغشقر",
+      "Malawi": "ملاوي",
+      "Malaysia": "ماليزيا",
+      "Maldives": "جزر المالديف",
+      "Mali": "مالي",
+      "Malta": "مالطا",
+      "Marshall_Islands": "جزر مارشال",
+      "Martinique": "مارتينيك",
+      "Mauritania": "موريتانيا",
+      "Mauritius": "موريشيوس",
+      "Mayotte": "مايوت",
+      "Mexico": "المكسيك",
+      "Micronesia": "ميكرونيزيا",
+      "Moldova": "مولدوفا",
+      "Monaco": "موناكو",
+      "Mongolia": "منغوليا",
+      "Montenegro": "الجبل الأسود",
+      "Montserrat": "مونتسيرات",
+      "Morocco": "المغرب",
+      "Mozambique": "موزمبيق",
+      "Myanmar": "ميانمار",
+      "Namibia": "نامبيا",
+      "Nauru": "ناورو",
+      "Nepal": "نيبال",
+      "Netherlands": "هولندا",
+      "Netherlands_Antilles": "جزر الأنتيل الهولندية",
+      "New_Caledonia": "كاليدونيا الجديدة",
+      "New_Zealand": "نيوزيلندا",
+      "Nicaragua": "نيكاراجوا",
+      "Niger": "النبيجر",
+      "Nigeria": "نيجيريا",
+      "Niue": "نيوي",
+      "Norfolk_Island": "جزيرة نورفولك",
+      "North_Korea": "كوريا الشمالية",
+      "Northern_Mariana_Islands": "جزر مريانا الشمالية",
+      "Norway": "النرويج",
+      "Oman": "عُمان",
+      "Pakistan": "باكستان",
+      "Palau": "بالاو",
+      "Palestinian_Territory": "الإقليم الشمالي",
+      "Panama": "بنما",
+      "Papua_New_Guinea": "بابوا غينيا الجديدة",
+      "Paraguay": "باراجواي",
+      "Peru": "بيرو",
+      "Philippines": "الفلبين",
+      "Pitcairn_Island": "جزيرة بيتكيرن",
+      "Poland": "بولندا",
+      "Portugal": "البرتغال",
+      "Puerto_Rico": "بورتوريكو",
+      "Qatar": "قطر",
+      "Reunion": "ريونيون",
+      "Romania": "رومانيا",
+      "Russian_Federation": "روسيا الاتحادية",
+      "Rwanda": "رواندا",
+      "Samoa": "ساموا",
+      "San_Marino": "سان مارينو",
+      "Sao_Tome_and_Principe": "ساو تومي وبرينسيبي",
+      "Saudi_Arabia": "السعودية",
+      "Senegal": "السنغال",
+      "Serbia": "صربيا",
+      "Seychelles": "سيشيل",
+      "Sierra_Leone": "سيراليون",
+      "Singapore": "سنغافورة",
+      "Slovakia_Slovak_Republic": "سلوفاكيا (الجمهورية السلوفاكية)",
+      "Slovenia": "سلوفينيا",
+      "Solomon_Islands": "جزر سليمان",
+      "Somalia": "الصومال",
+      "South_Africa": "جنوب أفريقيا",
+      "South_Georgia_and_the_South_Sandwich_Islands": "جورجيا الجنوبية وجزر ساندويتش الجنوبية",
+      "South_Korea": "كوريا الجنوبية",
+      "Spain": "إسبانيا",
+      "Sri_Lanka": "سريلانكا",
+      "St_Helena": "سانت هيلانة",
+      "St_Kitts_and_Nevis": "سانت كيتس ونيفيس",
+      "St_Lucia": "سانت لوسيا",
+      "St_Pierre_and_Miquelon": "سانت بيار وميكلون",
+      "St_Vincent_and_the_Grenadines": "سانت فنسنت والجرينادينز",
+      "Sudan": "السودان",
+      "Suriname": "سورينام",
+      "Svalbard_Jan_Mayen_Islands": "جزر سفالبارد ويان ماين",
+      "Swaziland": "سوازيلاند",
+      "Sweden": "السويد",
+      "Switzerland": "سويسرا",
+      "Syrian_Arab_Republic": "سوريا",
+      "Taiwan": "تايوان",
+      "Tajikistan": "طاجيكستان",
+      "Tanzania": "تنزانيا",
+      "Thailand": "تايلاند",
+      "Timor_Leste": "تيمور الشرقية",
+      "Togo": "توجو",
+      "Tokelau_Tokelau_Islands": "توكيلاو (جزر توكيلاو)",
+      "Tonga": "تونجا",
+      "Trinidad_and_Tobago": "ترينيداد وتوباجو",
+      "Tunisia": "تونس",
+      "Turkey": "تركيا",
+      "Turkmenistan": "تركمانستان",
+      "Turks_and_Caicos_Islands": "جزر تركس وكايكوس",
+      "Tuvalu": "توفالو",
+      "US_Virgin_Islands": "جزر فيرجن الأمريكية",
+      "Uganda": "أوغندا",
+      "Ukraine": "أوكرانيا",
+      "United_Arab_Emirates": "الإمارات العربية المتحدة",
+      "United_Kingdom_of_Great_Britain_N_Ireland": "المملكة المتحدة التي تضم بريطانيا العظمى وأيرلندا الشمالية",
+      "United_States_Minor_Outlying_Islands": "جزر الولايات المتحدة الصغيرة النائية",
+      "United_States_of_America": "الولايات المتحدة الأمريكية",
+      "Uruguay": "أوروجواي",
+      "Uzbekistan": "أوزبكستان",
+      "Vanuatu": "فانواتو",
+      "Venezuela": "فنزويلا",
+      "Viet_Nam": "فيتنام",
+      "Wallis_and_Futuna_Islands": "جزر واليس وفوتونا",
+      "Western_Sahara": "الصحراء الغربية",
+      "Yemen": "اليمن",
+      "Zambia": "زامبيا",
+      "Zimbabwe": "زيمبابوي"
+    },
+    "english": "الإنجليزية",
+    "french": "الفرنسية",
+    "german": "الألمانية",
+    "italian": "الإيطالية",
+    "japanese": "اليابانية",
+    "nature": {
+      "accomodationApplicationForm": "نموذج طلب إقامة",
+      "acknowledgement": "إقرار بالاستلام",
+      "application": "تطبيق",
+      "article": "مقال",
+      "assessment": "تقييم",
+      "bankAccountDetails": "تفاصيل الحساب البنكي",
+      "booklet": "كتيب",
+      "card": "بطاقة",
+      "certificate": "شهادة",
+      "contract": "عقد",
+      "convocation": "دعوة",
+      "credit": "ائتمان",
+      "decree": "مرسوم",
+      "deliveryNote": "ملاحظة تسليم",
+      "endorsement": "مصادقة",
+      "fax": "فاكس",
+      "internshipReport": "تقرير التدريب الداخلي",
+      "invoice": "فاتورة",
+      "leaveApplication": "طلب إستئذان",
+      "letter": "خطاب",
+      "loanApplication": "طلب قرض",
+      "medicalCertificate": "شهادة طبية",
+      "memo": "ذاكرة",
+      "note": "ملاحظة",
+      "notice": "ملاحظة",
+      "notification": "إشعار",
+      "order": "طلب",
+      "pressReview": "مراجعة الصحف",
+      "procedure": "إجراء",
+      "purchaseOrder": "أمر شراء",
+      "quotation": "اقتباس",
+      "report": "تقرير",
+      "serviceCertificate": "شهادة خدمة",
+      "trainingApplication": "طلب تدريب",
+      "worksheet": "ورقة عمل",
+      "CDRom": "قرص مدمج",
+      "email": "البريد الإلكتروني"
+    },
+    "portuguese": "البرتغالية",
+    "russian": "روسيا",
+    "spanish": "الإسبانية",
+    "subtopic": {
+      "architecture": "التصميم",
+      "arthistory": "تاريخ الفن",
+      "astronautic": "الفضاء",
+      "astronomy": "الفلك",
+      "biology": "علم الأحياء",
+      "chemistry": "كيمياء",
+      "cinema": "سينما",
+      "collection": "مجموعة",
+      "comics": "قصص مصورة",
+      "company": "الشركة",
+      "culture": "ثقافة",
+      "danse": "رقص",
+      "earthscience": "علم الأرض",
+      "ecology": "علم البيئة",
+      "economy": "اقتصاد",
+      "education": "التعليم",
+      "electronic": "الإلكترونيات",
+      "energy": "الطاقة",
+      "fashion": "الموضة",
+      "games": "الألعاب",
+      "gardening": "البستنة",
+      "gastronomy": "فن الطبخ",
+      "geography": "الجغرافيا",
+      "humanitarian": "العمل الإنساني",
+      "industry": "الصناعة",
+      "information": "المعلومات",
+      "it": "تكنولوجيا المعلومات",
+      "languages": "اللغة",
+      "literature": "الأدب",
+      "logic": "المنطق",
+      "math": "الرياضيات",
+      "medicine": "الطب",
+      "minority": "أقلية",
+      "music": "موسيقى",
+      "paint": "رسم",
+      "photography": "التصوير الفوتوغرافي",
+      "phylosophy": "فلسفة",
+      "physic": "الفيزياء",
+      "psychology": "علم النفس",
+      "religion": "الديانة",
+      "rights": "الحقوق",
+      "robotic": "الروبوتات",
+      "sexuality": "الجنس",
+      "show": "العرض",
+      "sociology": "علم الاجتماع",
+      "sport": "الرياضة",
+      "television": "تلفزيون",
+      "tourism": "سياحة",
+      "transport": "النقل",
+      "videogames": "ألعاب فيديو",
+      "women": "نساء",
+      "history": "التاريخ"
+    },
+    "topic": {
+      "art": "الفن",
+      "dailylife": "الحياة اليومية",
+      "humansciences": "العلوم الإنسانية",
+      "society": "المجتمع",
+      "technology": "التكنولوجيا",
+      "sciences": "العلوم"
+    }
+  },
+  "wf": {
+    "parallelDocumentReview": {
+      "ParallelDocumentReview": "مراجعة المستندات المتوازية",
+      "approve": "موافقة",
+      "reject": "رفض",
+      "cancel": "إلغاء سير العمل",
+      "startReview": "بدء المراجعة",
+      "NA": "تأجيل",
+      "chooseParticipants": {
+        "title": "اختيار المشاركين",
+        "directive": "اختر المشاركين في سير العمل هذا"
+      },
+      "give_opinion": {
+        "title": "إبداء الرأي",
+        "directive": "أبدِ رأيك في هذا المستند"
+      }
+    },
+    "serialDocumentReview": {
+      "Validate": "موافقة",
+      "Reject": "رفض",
+      "SerialDocumentReview": "مراجعة المستند بالتتابع",
+      "cancel": "إلغاء سير العمل",
+      "startReview": "بدء المراجعة",
+      "chooseParticipants": "اختيار المشاركين",
+      "pleaseSelect": "يرجى اختيار المشاركين",
+      "DocumentValidation": "اعتماد المستند",
+      "AcceptReject": "قبول أو رفض"
+    }
+  },
+  "documentInfo": {
+    "publications": "عمليات نشر",
+    "title": "معلومات المستند",
+    "documentPublications": "{value, plural, zero{لا نسخ} =0{لا نسخ} one{نسخة واحدة} two{نسختان} few{# نسخ} many{# نسخة} other{# نسخة}} | من هذا المستند {value, plural, zero{تم} =0{تم} one{تم} two{تم} few{تم} many{تم} other{تم}} نشرها حتى الآن.",
+    "snapshots": "لقطات",
+    "createSnapshot": "أنشئ لقطة |بالإصدار { minorVersion }| أو |بالإصدار { majorVersion }| للدلالة على تغيير طفيف أو رئيسي في هذا المستند على التوالي.",
+    "documentSnapshots": "{value, plural, zero{لا لقطات} =0{لا لقطات} one{لقطة واحدة} two{لقطتان} few{# لقطات} many{# لقطة} other{# لقطة}} | من هذا المستند {value, plural, zero{تم} =0{تم} one{تم} two{تم} few{تم} many{تم} other{تم}} إنشاؤها حتى الآن.",
+    "viewSnapshot": "عرض الإصدار { version } من هذا المستند"
+  },
+  "rights": {
+    "Read": "{value, plural, zero{يمكن} =1{يمكنه} one{يمكنه} two{يمكنهما} few{يمكنهم} many{يمكنهم} other{يمكنهم}} قراءة المستندات",
+    "ReadWrite": "{value, plural, zero{يمكن} =1{يمكنه} one{يمكنه} two{يمكنهما} few{يمكنهم} many{يمكنهم} other{يمكنهم}} قراءة المستندات وتعديلها",
+    "Everything": "{value, plural, zero{يمكن} =1{يمكنه} one{يمكنه} two{يمكنهما} few{يمكنهم} many{يمكنهم} other{يمكنهم}} إدارة كل شيء",
+    "ManageLegalHold": "{value, plural, zero{يمكن} =1{يمكنه} one{يمكنه} two{يمكنهما} few{يمكنهم} many{يمكنهم} other{يمكنهم}} إدارة الحفظ القانوني",
+    "ManageRecord": "{value, plural, zero{يمكن} =1{يمكنه} one{يمكنه} two{يمكنهما} few{يمكنهم} many{يمكنهم} other{يمكنهم}} إدارة السجلات",
+    "Version": "{value, plural, zero{يمكن} =1{يمكنه} one{يمكنه} two{يمكنهما} few{يمكنهم} many{يمكنهم} other{يمكنهم}} إنشاء لقطات"
+  },
+  "tooltips": {
+    "created": "أنشأه {user} في {date}",
+    "lastModified": "آخر تعديل بواسطة {user} في {date}",
+    "type": "نوع المستند: {type}",
+    "trashed": "هذا المستند في سلة المهملات",
+    "pendingTasks": "لديك {value, plural, zero{لا مهام معلّقة} =1{مهمة واحدة معلّقة} one{مهمة واحدة معلّقة} two{مهمتان معلّقتان} few{# مهام معلّقة} many{# مهمة معلّقة} other{# مهمة معلّقة}} لهذا المستند",
+    "notifications": "تتلقى حاليًا إشعارات عند تغيير هذا المستند",
+    "locked": "مقفل {timeago} ولا يمكن تعديله إلا بواسطة {user}",
+    "underLegalHold": "هذا المستند خاضع للحفظ القانوني، لذا لا يمكن تغيير ملفه الرئيسي أو مرفقاته",
+    "underRetention": "تُطبّق على هذا المستند قاعدة احتفاظ واحدة أو أكثر، لذا لا يمكن تغيير ملفه الرئيسي أو مرفقاته",
+    "record": "هذا المستند مصنّف كسجل"
+  },
+  "clipboard": {
+    "selectSource": "حدد بعض المستندات أو | جميع | المستندات التي تريد نسخها أو نقلها إلى هذا الموقع.",
+    "selectAll": "تحديد جميع المستندات",
+    "cannotPaste": "لا يمكن اللصق"
+  },
+  "documentViewers": {
+    "noPreview": "لا تتوفر معاينة لهذا النوع من الملفات: |{ fileType }|",
+    "noPreviewDownload": "يمكنك |تنزيل المرفق| واستخدام تطبيق مخصص بدلًا من ذلك.",
+    "mainFileSize": "حجم الملف الرئيسي: { size }",
+    "modelVariant": "النسخة { variant }"
+  },
+  "documentEditors": {
+    "documentImport": {
+      "auto": "إنشاء { fileCount } مستندات بسرعة",
+      "autoNote": "(يحدد النظام نوع المستند بناءً على الملفات المحددة)",
+      "or": "أو",
+      "manual": "تحديد نوع المستند يدويًا لجميع الملفات المحددة"
+    },
+    "bulkCreate": {
+      "title": "إضافة عدة مستندات من نوع |{documentType}|",
+      "note": "ارفع ملفًا واحدًا أو أكثر من جهازك لإنشاء عدة مستندات من نوع |{documentType}| دفعة واحدة.",
+      "createButtonTitle": "إنشاء {fileCount, plural, zero{# مستند من نوع |{documentType}|} =0{} one{مستند واحد من نوع `{documentType}`} two{مستندين من نوع |{documentType}|} few{# مستندات من نوع |{documentType}|} many{# مستند من نوع |{documentType}|} other{# مستند من نوع |{documentType}|}}"
+    },
+    "documentAttachments": {
+      "mainFile": "الملف الرئيسي",
+      "additionalAttachments": "{fileCount, plural, zero{مرفقات إضافية} =0{مرفقات إضافية} one{مرفق إضافي واحد} two{مرفقان إضافيان} few{# مرفقات إضافية} many{# مرفق إضافي} other{# مرفق إضافي}}"
+    }
+  },
+  "toolbar": {
+    "copyToClipboard": "نسخ هذا المستند إلى الحافظة",
+    "copySelectionToClipboard": "نسخ إلى الحافظة {count, plural, zero{المستندات المحددة وعددها #} =1{المستند المحدد} one{المستند المحدد} two{المستندين المحددين} few{المستندات المحددة وعددها #} many{المستندات المحددة وعددها #} other{المستندات المحددة وعددها #}}",
+    "addToCollection": "إضافة هذا المستند إلى مجموعة",
+    "addSelectionToCollection": "إضافة إلى مجموعة {count, plural, zero{المستندات المحددة وعددها #} =1{المستند المحدد} one{المستند المحدد} two{المستندين المحددين} few{المستندات المحددة وعددها #} many{المستندات المحددة وعددها #} other{المستندات المحددة وعددها #}}"
+  },
+  "app": {
+    "components": {
+      "comparison-page": {
+        "compare-11a835": "مقارنة",
+        "loading-documents-24cc43": "جارٍ تحميل المستندات…",
+        "retry-b82db2": "إعادة المحاولة",
+        "left-document-b1d815": "المستند الأيسر",
+        "right-document-06d484": "المستند الأيمن",
+        "unified": "عرض موحد",
+        "select-between-2-and-199-documents-to-compare": "اختر من مستندين إلى 199 مستندًا للمقارنة.",
+        "unable-to-load-these-documents-they-may-be-missing-or-yo": "تعذّر تحميل هذه المستندات. قد تكون غير موجودة أو قد لا تملك صلاحية الوصول إليها.",
+        "split": "عرض منقسم",
+        "no-differences-82d964": "لا توجد فروق."
+      },
+      "user-authorized-apps-page": {
+        "authorized-applications-5a610e": "التطبيقات المصرح بها",
+        "name-9c4f0b": "الاسم",
+        "actions-880bd6": "الإجراءات",
+        "authorization-date-611fc3": "تاريخ التصريح",
+        "loading-authorized-applications-fa1f3b": "جارٍ تحميل التطبيقات المصرّح لها…",
+        "retry-2c6120": "إعادة المحاولة",
+        "you-haven-t-granted-any-application-access-63fd18": "لم تمنح أي تطبيق حق الوصول إلى حسابك في Nuxeo حتى الآن.",
+        "authorized-applications-are-unavailable-or-you-do-not-ha": "التطبيقات المصرّح لها غير متوفرة، أو ليس لديك إذن بعرضها.",
+        "confirm": "هل تريد إلغاء وصول {name}؟",
+        "failed": "تعذّر إلغاء وصول {name}."
+      },
+      "user-cloud-services-page": {
+        "cloud-services-608216": "الخدمات السحابية",
+        "actions-6689fa": "الإجراءات",
+        "connected-accounts-d80016": "الحسابات المتصلة",
+        "loading-connected-accounts-04258f": "جارٍ تحميل الحسابات المتصلة…",
+        "retry-0e8815": "إعادة المحاولة",
+        "service-db5f28": "الخدمة",
+        "account-48d01e": "الحساب",
+        "connected-ed01ad": "متصل",
+        "disconnect-3e4528": "قطع الاتصال",
+        "no-cloud-accounts-are-connected-b5c935": "لا توجد حسابات سحابية متصلة.",
+        "cloud-services-are-unavailable-or-you-do-not-have-permis": "الخدمات السحابية غير متوفرة، أو ليس لديك إذن بعرضها.",
+        "confirm": "هل تريد قطع اتصال {name}؟",
+        "failed": "تعذّر قطع اتصال {name}."
+      },
+      "tasks-page": {
+        "workflow-f7fa20": "طريقة سير العمل",
+        "load-more-1e042c": "تحميل المزيد...",
+        "due-date-42b170": "تاريخ الاستحقاق",
+        "all-tasks-5c4e99": "جميع المهام",
+        "loading-tasks-be0909": "جارٍ تحميل المهام…",
+        "assigned-actors-e8bdc2": "المشاركون المكلّفون",
+        "delegated-actors-dcdd23": "المشاركون المفوّضون",
+        "task-actions-64e75e": "إجراءات المهمة",
+        "process-task-bd442e": "معالجة المهمة",
+        "loading-workflow-graph-4f90a8": "جارٍ تحميل مخطط سير العمل…",
+        "workflow-graph-425fb0": "مخطط سير العمل",
+        "none-ca3a8a": "لا يوجد",
+        "process": "معالجة المهمة",
+        "next": "التالي",
+        "task": "مهمة",
+        "workflow-task": "مهمة سير العمل",
+        "due": "موعد الاستحقاق {date}",
+        "count": "{count, plural, zero {لا مهام} one {مهمة واحدة} two {مهمتان} few {# مهام} many {# مهمة} other {# مهمة}}",
+        "unknown-workflow": "سير عمل غير معروف",
+        "hide-graph": "إخفاء مخطط سير العمل",
+        "tasks-could-not-be-loaded-check-your-connection-and-per": "تعذّر تحميل المهام. تحقق من الاتصال والأذونات ثم أعد المحاولة.",
+        "this-task-is-unavailable-or-you-no-longer-have-permissi": "هذه المهمة غير متوفرة أو لم يعد لديك إذن بعرضها.",
+        "the-workflow-graph-could-not-be-loaded": "تعذّر تحميل مخطط سير العمل.",
+        "unknown-actor": "غير معروف",
+        "document-55ac8b": "مستند",
+        "document": "مستند"
+      },
+      "user-profile": {
+        "close-835585": "إغلاق",
+        "company-a5599d": "الشركات",
+        "first-name-8ddd99": "الاسم الأول",
+        "last-name-1c6695": "الاسم الأخير",
+        "save-changes-b75610": "حفظ التغييرات",
+        "user-profile-e887dd": "ملف المستخدم",
+        "email-address-6fabb7": "عنوان البريد الإلكتروني",
+        "confirm-password-6c7fd2": "تأكيد كلمة المرور",
+        "close-without-saving-939e73": "إغلاق دون حفظ"
+      },
+      "quick-search": {
+        "no-results-found-63260b": "لم يتم العثور على أي نتائج",
+        "search-results-98c442": "نتائج البحث",
+        "close-quick-search-13a285": "إغلاق البحث السريع",
+        "searching-9c5b46": "جارٍ البحث…",
+        "retry-bb789f": "إعادة المحاولة",
+        "search-could-not-be-completed-please-retry": "تعذّر إكمال البحث. يرجى إعادة المحاولة.",
+        "this-repository-is-not-supported-by-the-current-document": "مسار المستند الحالي لا يدعم هذا المستودع.",
+        "this-result-could-not-be-opened-please-retry": "تعذّر فتح هذه النتيجة. يرجى إعادة المحاولة."
+      },
+      "application-page": {
+        "loading-your-session-2478e4": "جارٍ تحميل جلستك…"
+      },
+      "principal-page": {
+        "loading-85be6b": "جارٍ التحميل…",
+        "retry-2971db": "إعادة المحاولة",
+        "first-name": "الاسم الأول",
+        "last-name": "الاسم الأخير",
+        "company": "الشركات",
+        "email": "البريد الإلكتروني",
+        "description": "الوصف",
+        "user": "المستخدم",
+        "group": "المجموعة",
+        "groups": "المجموعات",
+        "subgroups": "المجموعات الفرعية",
+        "invalid": "اختر مستخدمًا أو مجموعة صالحة.",
+        "unavailable": "هذا المستخدم أو هذه المجموعة غير متوفرة، أو ليس لديك إذن بعرضها.",
+        "no-groups-to-display-b171c2": "لا توجد مجموعات لعرضها.",
+        "no-members-to-display-b4c708": "لا يوجد أعضاء لعرضهم."
+      },
+      "dashboard": {
+        "unable-to-load-tasks-d875ae": "تعذّر تحميل المهام.",
+        "unable-to-load-recently-edited-documents-ca4f3d": "تعذّر تحميل المستندات المعدّلة مؤخرًا.",
+        "unable-to-load-recently-viewed-documents-d4bff0": "تعذّر تحميل المستندات المعروضة مؤخرًا.",
+        "unable-to-load-favorite-documents-93218c": "تعذّر تحميل المستندات المفضلة.",
+        "column-title": "العنوان",
+        "column-type": "النوع",
+        "column-last-viewed": "آخر مشاهدة",
+        "column-modified": "تم التعديل",
+        "column-last-contributor": "المساهم الأخير"
+      },
+      "not-found": {
+        "document-not-found-95cb6b": "لم يُعثر على المستند!"
+      },
+      "destination-create-dialog": {
+        "browse-folders-7f63e0": "استعراض المجلدات",
+        "loading-destination-7a6a46": "جارٍ تحميل الوجهة…",
+        "retry-996e88": "إعادة المحاولة",
+        "you-cannot-create-documents-here-choose-a--f7a74b": "لا يمكنك إنشاء مستندات هنا. اختر مجلدًا تملك صلاحية الكتابة فيه.",
+        "create-content-91e6e2": "إنشاء محتوى",
+        "select-a-different-container-to-import-your-content": "حدد حاوية مختلفة لاستيراد المحتوى الخاص بك.",
+        "the-current-editor-could-not-be-closed-your-destination-": "تعذّر إغلاق المحرر الحالي. لم تتغير الوجهة.",
+        "this-folder-could-not-be-loaded-check-the-path-and-your-": "تعذّر تحميل هذا المجلد. تحقق من المسار وصلاحيات الوصول.",
+        "the-current-editor-could-not-be-closed-your-changes-are-": "تعذّر إغلاق المحرر الحالي. لا تزال تغييراتك متاحة.",
+        "invalid-destination": "وجهة غير صالحة.",
+        "creation-could-not-be-started": "تعذّر بدء الإنشاء.",
+        "creation-not-allowed": "لم يعد إنشاء مستندات من النوع المحدد مسموحًا في هذا المجلد.",
+        "creation-failed-detail": "تعذّر بدء الإنشاء: {detail}"
+      },
+      "unauthorized": {
+        "you-are-not-authorized-to-view-this-sectio-190263": "ليس لديك تصريح لعرض هذا القسم!"
+      },
+      "home": {
+        "welcome": "مرحبًا {name}"
+      },
+      "shell-actions": {
+        "landmark": "إجراءات التطبيق"
+      },
+      "themes-page": {
+        "themes-08df78": "السمات المرئية"
+      }
+    },
+    "modules": {
+      "comments": {
+        "cancel-fe8eb5": "إلغاء",
+        "be-the-first-to-leave-a-comment-11f1cb": "كن أول من يترك تعليقًا!",
+        "nobody-left-any-comments-00bafe": "لم يترك أحد أي تعليق بعد.",
+        "write-a-comment-a51f2f": "كتابة تعليق",
+        "edit-your-comment-488b78": "تعديل تعليقك",
+        "post-your-comment-318363": "نشر تعليقك",
+        "tap-to-reply-to-this-comment-007309": "انقر للرد على هذا التعليق",
+        "edit-this-comment-3c85d8": "تعديل هذا التعليق",
+        "delete-this-comment-f5a7c0": "حذف هذا التعليق",
+        "show-more-4333bd": "عرض المزيد…",
+        "reply-to-this-comment-5c1d2e": "الرد على هذا التعليق"
+      },
+      "default-document-metadata-layout": {
+        "cancel-8bc5e9": "إلغاء",
+        "customize-bf2d9d": "تخصيص",
+        "edit-metadata-d96a3a": "تعديل البيانات الوصفية",
+        "customize-metadata-9cada1": "تخصيص البيانات الوصفية",
+        "visible-fields-5fafa0": "الحقول المرئية",
+        "show-all-allowed-fields-20a225": "عرض جميع الحقول المسموح بها",
+        "metadata-is-hidden-in-your-display-prefere-684259": "البيانات الوصفية مخفية في تفضيلات العرض الخاصة بك.",
+        "show-empty-fields-16e57e": "عرض الحقول الفارغة",
+        "save-changes-baa2a7": "حفظ التغييرات",
+        "descriptive-metadata-48a40e": "البيانات الوصفية التوضيحية"
+      },
+      "document-info": {
+        "close-719769": "إغلاق",
+        "details-21a7f1": "التفاصيل",
+        "lock-4a568e": "تأمين",
+        "title-cda706": "العنوان",
+        "document-type-221314": "نوع المستند",
+        "you-re-currently-receiving-notifications-w-9f57d8": "تتلقى حاليًا إشعارات عند تغيير هذا المستند",
+        "unlock-f0a33d": "إلغاء التأمين",
+        "retention-abbeff": "الاحتفاظ",
+        "this-document-is-marked-as-a-record-264125": "هذا المستند مصنّف كسجل",
+        "download-this-file-b861e7": "تنزيل هذا الملف",
+        "this-document-doesn-t-have-a-main-file-att-87856c": "ليس لهذا المستند ملف رئيسي مرفق.",
+        "additional-attachments-12bac4": "مرفقات إضافية",
+        "this-document-doesn-t-have-any-additional--8f304b": "ليس لهذا المستند ملفات إضافية مرفقة.",
+        "show-advanced-features-782d7f": "عرض الميزات المتقدمة",
+        "you-cannot-create-snapshots-of-this-docume-e2384a": "لا يمكنك إنشاء لقطات لهذا المستند لأنه مصنّف كسجل.",
+        "publish-this-document-438e81": "نشر هذا المستند",
+        "to-a-space-dedicated-to-the-distribution-f-7dfacd": "في مساحة مخصصة لتوزيعه على جمهور أوسع.",
+        "you-cannot-publish-this-document-because-i-d834dc": "لا يمكنك نشر هذا المستند لأنه مصنّف كسجل.",
+        "workflows-340e4a": "عمليات سير العمل",
+        "this-document-is-part-of-these-workflows-93567c": "هذا المستند جزء من عمليات سير العمل التالية:",
+        "this-document-is-not-part-of-any-workflow-5d7a8d": "هذا المستند ليس جزءًا من أي سير عمل.",
+        "the-current-document-state-is-b398fc": "الحالة الحالية للمستند هي:",
+        "current-document-state-5cb2c6": "الحالة الحالية للمستند",
+        "notifications-79d515": "الإشعارات",
+        "disable-notifications-191a9e": "تعطيل الإشعارات.",
+        "get-notified-9bd163": "تلقي إشعارات",
+        "when-this-document-changes-9e268c": "عند تغيير هذا المستند.",
+        "lock-this-document-a4cf29": "قفل هذا المستند",
+        "so-only-you-or-users-having-the-manage-eve-55d844": "بحيث لا يستطيع تعديله إلا أنت أو المستخدمون الذين يملكون إذن «إدارة كل شيء».",
+        "legal-hold-45f0e1": "الحفظ القانوني",
+        "this-document-is-placed-under-legal-hold-s-d3f82f": "هذا المستند خاضع للحفظ القانوني، لذا لا يمكن تغيير ملفه الرئيسي أو ملفاته الإضافية.",
+        "remove-legal-hold-8ac622": "إزالة الحفظ القانوني",
+        "place-under-legal-hold-ee0cf2": "تطبيق الحفظ القانوني",
+        "to-prevent-altering-the-main-or-additional-d9dccd": "لمنع تغيير الملف الرئيسي أو الملفات الإضافية.",
+        "this-document-has-the-following-retention--522d80": "تُطبّق على هذا المستند قواعد الاحتفاظ التالية:",
+        "extend-retention-period-c99131": "تمديد مدة الاحتفاظ",
+        "apply-a-retention-rule-7651f4": "تطبيق قاعدة احتفاظ",
+        "permissions-72426f": "الأذونات"
+      },
+      "document-navigation-bar": {
+        "pdf-ec3812": "ملف (PDF)",
+        "document-location-016fb0": "موقع المستند",
+        "secondary-navigation-b9e96b": "التنقل الثانوي",
+        "edit-document-path-774d5a": "تعديل مسار المستند",
+        "export-as-df44df": "تصدير بصيغة",
+        "zip-45b8b4": "ZIP",
+        "collections-7967ee": "المجموعات"
+      },
+      "bulk-editor-modal": {
+        "close-5f021c": "إغلاق",
+        "cancel-5e097e": "إلغاء",
+        "edit-selected-documents-4e68d7": "تعديل المستندات المحددة",
+        "retry-choices-4483d7": "إعادة تحميل الخيارات",
+        "check-the-documents-marked-unknown-before--248f04": "تحقق من المستندات ذات الحالة غير المعروفة قبل محاولة تحديث جماعي آخر؛ ربما اكتملت عملية الكتابة الأخيرة.",
+        "retry-failed-473bba": "إعادة محاولة العمليات الفاشلة"
+      },
+      "bulk-zip-download-dialog": {
+        "close-6e89a7": "إغلاق",
+        "download-zip-204feb": "تنزيل ZIP"
+      },
+      "create-popup": {
+        "create-9d65fb": "إنشاء",
+        "close-7416a7": "إغلاق",
+        "remove-aed227": "إزالة",
+        "create-content-a04138": "إنشاء محتوى",
+        "from-files-a3510a": "من الملفات",
+        "create-documents-from-uploaded-files-69fa7e": "إنشاء مستندات من الملفات المرفوعة.",
+        "select-files-ff2231": "اختيار الملفات",
+        "no-creatable-document-types-are-available--e78ab3": "لا توجد هنا أنواع مستندات يمكنك إنشاؤها."
+      },
+      "query-edit": {
+        "cancel-b0ff70": "إلغاء",
+        "edit-all-matching-dd782f": "تعديل جميع المستندات المطابقة",
+        "edit-all-matching-results-9374a6": "تعديل جميع النتائج المطابقة",
+        "retry-choices-1aa187": "إعادة تحميل الخيارات",
+        "review-changes-79a82d": "مراجعة التغييرات",
+        "retry-status-538426": "إعادة الاستعلام عن الحالة",
+        "abort-job-0ab470": "إلغاء المهمة"
+      },
+      "query-trash": {
+        "cancel-fe5a86": "إلغاء",
+        "abort-job-a57a99": "إلغاء المهمة",
+        "retry-status-0fca72": "إعادة الاستعلام عن الحالة"
+      },
+      "selection-publish": {
+        "close-3f2518": "إغلاق",
+        "publish-selection-cca260": "نشر المستندات المحددة",
+        "publish-destinations-fdc9a4": "وجهات النشر"
+      },
+      "toolbar-action": {
+        "close-d09c9d": "إغلاق"
+      },
+      "base-editor": {
+        "close-925f1b": "إغلاق",
+        "finishing-the-created-document-19ea05": "جارٍ إكمال المستند الذي تم إنشاؤه…",
+        "retry-remaining-steps-9eb9f0": "إعادة محاولة الخطوات المتبقية"
+      },
+      "binary-editor": {
+        "title-03457e": "العنوان",
+        "description-e90fd2": "الوصف",
+        "or-d25fe0": "أو",
+        "add-a-new-544258": "إضافة عنصر جديد",
+        "please-specify-a-title-13ffed": "يرجى تحديد عنوان.",
+        "show-additional-fields-8ec178": "عرض الحقول الإضافية",
+        "leave-this-field-as-it-is-57d661": "ترك هذا الحقل كما هو",
+        "use-one-of-the-existing-values-a741e8": "استخدام إحدى القيم الموجودة",
+        "document-63ddb8": "مستند",
+        "edit-multiple-documents-737077": "تعديل عدة مستندات",
+        "main-file-readonly-because-document-is-und-26a2a5": "الملف الرئيسي (للقراءة فقط لأن المستند خاضع للاحتفاظ أو التحفظ القانوني)",
+        "additional-attachments-readonly-because-do-155184": "المرفقات الإضافية (للقراءة فقط لأن المستند خاضع للاحتفاظ أو التحفظ القانوني)"
+      },
+      "document-import": {
+        "close-75eedb": "إغلاق",
+        "add-documents-in-bulk-9c0c35": "إضافة مستندات بالجملة",
+        "done-8db17f": "تم",
+        "retry-unfinished-files-9e1f9a": "إعادة محاولة الملفات غير المكتملة"
+      },
+      "domain-editor": {
+        "title-8d059d": "العنوان",
+        "description-6f16f1": "الوصف",
+        "or-e7490d": "أو",
+        "please-specify-a-title-3997d0": "يرجى تحديد عنوان.",
+        "leave-this-field-as-it-is-72205a": "ترك هذا الحقل كما هو",
+        "use-one-of-the-existing-values-3510fc": "استخدام إحدى القيم الموجودة",
+        "add-a-new-domain-363561": "إضافة نطاق جديد",
+        "bulk-edit-multiple-domains-695fa0": "تعديل عدة نطاقات دفعة واحدة",
+        "edit-domain-445e68": "تعديل النطاق"
+      },
+      "editor-metadata-status": {
+        "close-89fadc": "إغلاق",
+        "retry-efb1df": "إعادة المحاولة",
+        "loading-document-type-information-0bbebb": "جارٍ تحميل معلومات نوع المستند…"
+      },
+      "generic-editor": {
+        "title-d77f00": "العنوان",
+        "description-026aae": "الوصف",
+        "or-1668a3": "أو",
+        "add-a-new-b71ecd": "إضافة عنصر جديد",
+        "please-specify-a-title-3b3b8e": "يرجى تحديد عنوان.",
+        "show-additional-fields-b71a33": "عرض الحقول الإضافية",
+        "leave-this-field-as-it-is-d6f050": "ترك هذا الحقل كما هو",
+        "use-one-of-the-existing-values-6341ed": "استخدام إحدى القيم الموجودة",
+        "document-f378d0": "مستند",
+        "edit-multiple-documents-660dae": "تعديل عدة مستندات"
+      },
+      "generic-type-bulk-create": {
+        "close-4773c2": "إغلاق",
+        "description-0016e1": "الوصف",
+        "format-cd8604": "الصيغة",
+        "retry-bb92d2": "إعادة المحاولة",
+        "loading-document-type-da9d0f": "جارٍ تحميل نوع المستند…",
+        "uploaded-files-0ecc41": "الملفات المرفوعة",
+        "detect-from-file-plain-text-fallback-138400": "اكتشاف النوع من الملف (نص عادي عند تعذّر الاكتشاف)",
+        "done-b09b22": "تم",
+        "retry-unfinished-files-102904": "إعادة محاولة الملفات غير المكتملة",
+        "create-documents-19d407": "إنشاء مستندات"
+      },
+      "nature-subjects-coverage-expiration": {
+        "coverage-b69dad": "التغطية",
+        "nature-127a54": "الطبيعة",
+        "subjects-fa5f98": "المواضيع"
+      },
+      "note-editor": {
+        "title-d49c50": "العنوان",
+        "format-784891": "الصيغة",
+        "description-d5ff67": "الوصف",
+        "or-b5d62e": "أو",
+        "add-a-new-8b056b": "إضافة عنصر جديد",
+        "please-specify-a-title-27b6f5": "يرجى تحديد عنوان.",
+        "show-additional-fields-8115e2": "عرض الحقول الإضافية",
+        "leave-this-field-as-it-is-803fb5": "ترك هذا الحقل كما هو",
+        "use-one-of-the-existing-values-9a9ea5": "استخدام إحدى القيم الموجودة",
+        "document-5bc54b": "مستند",
+        "edit-multiple-documents-bf90ef": "تعديل عدة مستندات",
+        "additional-attachments-readonly-because-do-275657": "المرفقات الإضافية (للقراءة فقط لأن المستند خاضع للاحتفاظ أو التحفظ القانوني)"
+      },
+      "standard-content-editor": {
+        "description-e65128": "الوصف",
+        "format-0c0c5d": "الصيغة",
+        "file-d0c84e": "ملف",
+        "remove-file-73be3e": "حذف الملف",
+        "title-fa99d2": "العنوان *",
+        "please-specify-a-title-92e0dc": "يرجى تحديد عنوان."
+      },
+      "standard-content-fields": {
+        "nature-956217": "الطبيعة",
+        "subjects-4d771b": "المواضيع",
+        "coverage-745b7d": "التغطية"
+      },
+      "standard-content-import": {
+        "close-dd4b09": "إغلاق",
+        "remove-6abf4b": "إزالة",
+        "description-19a3e3": "الوصف",
+        "format-213a92": "الصيغة",
+        "files-02bd9a": "الملفات",
+        "files-to-import-ceb0c5": "الملفات المراد استيرادها",
+        "title-516cb5": "العنوان *",
+        "apply-properties-to-other-files-fa2fdc": "تطبيق الخصائص على ملفات أخرى",
+        "done-f9b04b": "تم",
+        "cancel-481624": "إلغاء",
+        "create-4eefae": "إنشاء",
+        "retry-unfinished-files-3e3e56": "إعادة محاولة الملفات غير المكتملة"
+      },
+      "tags": {
+        "tags-d712fd": "علامات",
+        "add-a-new-tag-2689e6": "إضافة وسم جديد…",
+        "click-to-add-a-new-tag-519f35": "انقر لإضافة وسم جديد",
+        "remove-this-tag-c045a7": "إزالة هذا الوسم",
+        "create-new-tag-1826bc": "إنشاء وسم جديد"
+      },
+      "internal-publication": {
+        "location-6f2163": "الموقع",
+        "override-existing-publications-25d559": "تجاوز المنشورات الموجودة.",
+        "please-specify-the-target-location-1e3753": "يرجى تحديد الموقع المستهدف."
+      },
+      "document-command": {
+        "cancel-898478": "إلغاء",
+        "close-dab41f": "إغلاق",
+        "add-to-collection-056bb3": "إضافة إلى مجموعة",
+        "permanently-delete-this-document-this-cann-714721": "هل تريد حذف هذا المستند نهائيًا؟ لا يمكن التراجع عن هذا الإجراء.",
+        "delete-permanently-9aa5b1": "حذف نهائي"
+      },
+      "document-create-action": {
+        "create-9e51ba": "إنشاء",
+        "create-document-d81fdf": "إنشاء مستند"
+      },
+      "standard-document-publish": {
+        "close-010a05": "إغلاق",
+        "publish-destinations-b30e91": "وجهات النشر"
+      },
+      "document-comparison": {
+        "close-49e1fc": "إغلاق",
+        "document-comparison-b346d6": "مقارنة المستندات",
+        "property-c21545": "الخاصية"
+      },
+      "document-details-panel": {
+        "state-60222a": "الحالة",
+        "version-48d6d4": "الإصدار",
+        "contributors-a72898": "المساهمون",
+        "last-modified-c6e13b": "آخر تعديل",
+        "document-details-1fbb8e": "تفاصيل المستند",
+        "document-information-2fb193": "معلومات المستند",
+        "metadata-is-unavailable-for-this-document-86572e": "البيانات الوصفية لهذا المستند غير متوفرة.",
+        "created-1a5f57": "أُنشئ",
+        "collections-fc10ea": "المجموعات"
+      },
+      "document-publication-view": {
+        "cancel-11b260": "إلغاء",
+        "unpublish-all-fe13b2": "إلغاء نشر الكل",
+        "load-more-d8986b": "تحميل المزيد...",
+        "retry-c04766": "إعادة المحاولة",
+        "loading-publications-df3a6c": "جارٍ تحميل المنشورات…",
+        "publish-to-a-section-17072a": "نشر في قسم",
+        "publish-destinations-adf342": "وجهات النشر",
+        "remove-all-publications-you-are-allowed-to-6b5232": "هل تريد إزالة جميع المنشورات التي يحق لك حذفها، بما فيها المنشورات في الصفحات الأخرى؟",
+        "remove-this-publication-892f4a": "هل تريد إزالة هذا المنشور؟",
+        "replace-this-publication-with-the-current--bbfa2c": "هل تريد استبدال هذا المنشور بالنسخة الحالية؟"
+      },
+      "document-snapshot-comparison": {
+        "close-a9cb86": "إغلاق",
+        "document-snapshot-comparison-d3bd00": "مقارنة لقطات المستند",
+        "property-8990fc": "الخاصية",
+        "choose-snapshot-version-8640bf": "اختيار إصدار اللقطة"
+      },
+      "document-tags-panel": {
+        "tags-37b901": "علامات",
+        "search-or-create-a-tag-95dc77": "البحث عن وسم أو إنشاؤه",
+        "type-to-create-a-tag-ee4943": "اكتب لإنشاء وسم",
+        "existing-tag-dd78d9": "وسم موجود",
+        "create-tag-0e4d76": "إنشاء وسم",
+        "search-or-create-a-tag-6a452c": "البحث عن وسم أو إنشاؤه"
+      },
+      "document-trash-view": {
+        "trash-98efdc": "المهملات",
+        "load-more-cf108d": "تحميل المزيد...",
+        "retry-5ed674": "إعادة المحاولة",
+        "loading-trash-396607": "جارٍ تحميل سلة المهملات…"
+      },
+      "folderish-details-panel": {
+        "details-00db34": "التفاصيل",
+        "state-5a36fe": "الحالة",
+        "last-modified-ee2ffc": "آخر تعديل",
+        "contributors-d9470f": "المساهمون",
+        "retry-eca88a": "إعادة المحاولة",
+        "document-information-b3e56c": "معلومات المستند",
+        "document-properties-70da59": "خصائص المستند",
+        "document-activity-39f931": "نشاط المستند",
+        "activity-could-not-be-loaded-027a60": "تعذّر تحميل النشاط.",
+        "created-a2d2ce": "أُنشئ"
+      },
+      "generic-non-folderish-viewer": {
+        "cancel-37e754": "إلغاء",
+        "edit-metadata-276587": "تعديل البيانات الوصفية",
+        "additional-attachments-d3c9f9": "مرفقات إضافية",
+        "show-metadata-82860c": "عرض البيانات الوصفية",
+        "metadata-f5fc50": "البيانات الوصفية",
+        "metadata-settings-2f7ba8": "إعدادات البيانات الوصفية",
+        "customize-fields-28c523": "تخصيص الحقول",
+        "hide-metadata-a82f55": "إخفاء البيانات الوصفية",
+        "technical-metadata-and-formats-13bd3b": "البيانات الوصفية التقنية والصيغ",
+        "edit-89340f": "تعديل",
+        "download-main-file-d39523": "تنزيل الملف الرئيسي",
+        "you-cannot-view-the-files-attached-to-this-286308": "لا يمكنك عرض الملفات المرفقة بهذا المستند لأنه مصنّف كسجل.",
+        "save-a1a911": "حفظ"
+      },
+      "note-renderer": {
+        "cancel-bbd85b": "إلغاء",
+        "save-changes-35d20a": "حفظ التغييرات",
+        "open-in-fullscreen-6399aa": "فتح بملء الشاشة",
+        "edit-this-note-1ef67a": "تعديل هذه الملاحظة"
+      },
+      "note-richtext-editor": {
+        "search-5d86f9": "بحث",
+        "cancel-5e0f36": "إلغاء",
+        "note-formatting-8423d0": "تنسيق الملاحظة",
+        "heading-de437b": "عنوان",
+        "normal-ffd063": "عادي",
+        "text-color-4f0dd2": "لون النص",
+        "a-776e45": "A",
+        "insert-images-from-documents-fa2219": "إدراج صور من المستندات",
+        "images-from-documents-5a1664": "صور من المستندات",
+        "search-documents-6efdf1": "البحث عن مستندات",
+        "search-image-documents-b26536": "البحث عن مستندات الصور",
+        "loading-images-e7f358": "جارٍ تحميل الصور…",
+        "load-more-images-984aab": "تحميل مزيد من الصور",
+        "video-url-a3b073": "رابط الفيديو",
+        "https-www-youtube-com-watch-v-fcedf3": "https://www.youtube.com/watch?v=…",
+        "insert-034c6a": "إدراج",
+        "link-url-ff56a8": "عنوان الرابط",
+        "https-2dc83c": "https://",
+        "note-rich-text-3912cc": "النص المنسّق للملاحظة"
+      },
+      "picturebook-content-layout": {
+        "title-93b066": "العنوان",
+        "modified-ddcca3": "تم التعديل",
+        "last-contributor-4e366c": "المساهم الأخير",
+        "load-more-ece950": "تحميل المزيد...",
+        "retry-69f46b": "إعادة المحاولة",
+        "actions-for-selected-documents-38578b": "إجراءات للمستندات المحددة",
+        "select-displayed-documents-7aa41d": "تحديد المستندات المعروضة",
+        "sort-by-f4f3f6": "الترتيب حسب",
+        "document-order-bb539a": "ترتيب المستندات",
+        "display-mode-023ca6": "نمط العرض",
+        "switch-to-thumbnail-grid-657afb": "التبديل إلى شبكة الصور المصغّرة",
+        "switch-to-table-7efc0b": "التبديل إلى جدول",
+        "visible-columns-8ec373": "الأعمدة المرئية",
+        "filter-by-title-fbe002": "التصفية حسب العنوان",
+        "no-documents-found-4b2e0f": "لم يُعثر على مستندات.",
+        "no-contributors-07948c": "لا يوجد مساهمون",
+        "done-b3f0e8": "تم",
+        "ascending-order-8ed711": "ترتيب تصاعدي",
+        "descending-order-909f98": "ترتيب تنازلي"
+      },
+      "standard-content-layout": {
+        "note-73b51c": "ملاحظة",
+        "cancel-9eb0de": "إلغاء",
+        "remove-11de9f": "إزالة",
+        "format-f33b6e": "الصيغة",
+        "create-version-b32ae0": "إنشاء إصدار",
+        "frame-rate-a9cf28": "معدل الإطار",
+        "document-details-de920b": "تفاصيل المستند",
+        "metadata-793dcc": "البيانات الوصفية",
+        "hide-metadata-f27738": "إخفاء البيانات الوصفية",
+        "show-metadata-23569d": "عرض البيانات الوصفية",
+        "note-content-faf20b": "محتوى الملاحظة",
+        "write-your-note-here-0584dc": "اكتب ملاحظتك هنا",
+        "video-player-1a1014": "مشغّل الفيديو",
+        "video-storyboard-4d811f": "لوحة لقطات الفيديو",
+        "audio-player-942539": "مشغّل الصوت",
+        "remove-file-confirmation-707cea": "تأكيد إزالة الملف",
+        "remove-the-attached-file-172d95": "هل تريد إزالة الملف المرفق؟",
+        "video-information-e0d6d4": "معلومات الفيديو",
+        "video-conversions-73fd4a": "تحويلات الفيديو",
+        "save-be43c4": "حفظ",
+        "creating-6b4ee2": "جارٍ الإنشاء...",
+        "edit-html-source-55ee59": "تعديل مصدر HTML",
+        "edit-note-f221e4": "تعديل الملاحظة",
+        "visual-editor-640327": "المحرر المرئي",
+        "html-source-d0ca4b": "مصدر HTML",
+        "uploading-97ce35": "جارٍ الرفع…",
+        "click-to-upload-a-file-ce0a3b": "انقر لرفع ملف"
+      },
+      "standard-content-metadata": {
+        "details-79a8eb": "التفاصيل",
+        "cancel-ff3ca4": "إلغاء",
+        "edit-metadata-8a9af9": "تعديل البيانات الوصفية",
+        "format-640546": "الصيغة",
+        "expiration-date-a380a2": "تاريخ انتهاء الصلاحية",
+        "save-ef93f6": "حفظ",
+        "uploading-021247": "جارٍ الرفع…",
+        "click-to-upload-files-fd1ef8": "انقر لرفع ملفات"
+      },
+      "audit": {
+        "username-50a839": "اسم المستخدم",
+        "from-de4c6e": "من",
+        "to-281ce9": "إلى",
+        "date-0e15dc": "التاريخ",
+        "category-b0c237": "الفئة",
+        "comment-393f03": "التعليق",
+        "state-97bb2f": "الحالة",
+        "no-audit-records-match-these-filters-123b4e": "لا توجد سجلات تدقيق مطابقة لعوامل التصفية هذه.",
+        "audit-pages-f4500f": "صفحات التدقيق",
+        "previous-559496": "السابق",
+        "next-439df0": "التالي",
+        "document-e8ecfa": "مستند",
+        "audit-1aa3c7": "التدقيق",
+        "document-history-3ccc76": "سجل المستند",
+        "audit-records-728c4a": "سجلات التدقيق",
+        "action-239b98": "الإجراء"
+      },
+      "standard-document-permissions-view": {
+        "time-frame-060052": "الإطار الزمني",
+        "actions-6f5083": "الإجراءات",
+        "delete-4f05e5": "حذف",
+        "email-6432e4": "البريد الإلكتروني",
+        "loading-permissions-cc511c": "جارٍ تحميل الأذونات…",
+        "retry-4b998d": "إعادة المحاولة",
+        "notify-db0252": "إرسال إشعار",
+        "select-a-permission-367243": "اختيار إذن",
+        "user-group-2ba655": "المستخدم / المجموعة",
+        "granted-by-c4dd81": "منحه",
+        "permanent-dd6100": "دائم",
+        "edit-dfe788": "تعديل",
+        "new-external-permission-a1be68": "صلاحية خارجية جديدة",
+        "new-local-permission-ed2bbb": "صلاحية محلية جديدة"
+      },
+      "standard-document-publication-view": {
+        "cancel-bd0410": "إلغاء",
+        "unpublish-all-c09fbd": "إلغاء نشر الكل",
+        "load-more-e2f3be": "تحميل المزيد...",
+        "retry-401902": "إعادة المحاولة",
+        "loading-publications-348857": "جارٍ تحميل المنشورات…",
+        "remove-all-publications-you-are-allowed-to-8bf586": "هل تريد إزالة جميع المنشورات التي يحق لك حذفها، بما فيها المنشورات في الصفحات الأخرى؟",
+        "remove-this-publication-e28ecf": "هل تريد إزالة هذا المنشور؟",
+        "replace-this-publication-with-the-current--b4f7e2": "هل تريد استبدال هذا المنشور بالنسخة الحالية؟"
+      },
+      "standard-document-trash-view": {
+        "title-579269": "العنوان",
+        "last-contributor-a63122": "المساهم الأخير",
+        "last-modified-88c085": "آخر تعديل",
+        "load-more-1b4038": "تحميل المزيد...",
+        "retry-07a813": "إعادة المحاولة",
+        "loading-trash-44f80c": "جارٍ تحميل سلة المهملات…",
+        "grid-83b613": "شبكة",
+        "table-5c0c78": "جدول",
+        "clear-selection-ca8df1": "مسح التحديد",
+        "filter-title-c8e94b": "تصفية العنوان",
+        "select-displayed-222c55": "تحديد العناصر المعروضة",
+        "sort-by-6d6873": "الترتيب حسب",
+        "no-values-1eb2d9": "لا توجد قيم",
+        "created-32d811": "أُنشئ"
+      },
+      "threed-renderer": {
+        "format-209791": "الصيغة",
+        "polygons-f884f0": "مضلعات",
+        "file-size-c21f3d": "حجم الملف",
+        "add-a-hotspot-459a1f": "إضافة نقطة تفاعلية",
+        "auto-rotate-a660f4": "تدوير تلقائي",
+        "play-pause-animation-111f1f": "تشغيل/إيقاف الحركة مؤقتًا",
+        "views-d0ef71": "العروض",
+        "download-this-view-as-a-png-file-6a85ff": "تنزيل هذا العرض كملف PNG",
+        "generating-export-896e58": "جارٍ إنشاء ملف التصدير…",
+        "hotspot-label-35f3d4": "تسمية النقطة التفاعلية",
+        "edit-label-8ce71f": "تعديل التسمية",
+        "remove-hotspot-daf627": "إزالة النقطة التفاعلية",
+        "remove-this-hotspot-d795ae": "إزالة هذه النقطة التفاعلية",
+        "view-in-your-space-4330a2": "عرض في مساحتك",
+        "move-your-device-to-place-the-3d-model-75d5c2": "حرّك جهازك لوضع النموذج ثلاثي الأبعاد",
+        "vertices-d92606": "الرؤوس",
+        "textures-d6335e": "الأنسجة",
+        "view-this-format-a41de5": "عرض هذه الصيغة",
+        "download-this-format-ef0778": "تنزيل هذه الصيغة"
+      },
+      "trash-selection-action": {
+        "cancel-5b4eb8": "إلغاء",
+        "delete-permanently-7645e2": "حذف نهائي"
+      },
+      "video-renderer": {
+        "format-93ef1f": "الصيغة",
+        "file-size-7f35df": "حجم الملف",
+        "download-original-file-fae086": "تنزيل الملف الأصلي",
+        "fps-c3b44a": "FPS",
+        "view-this-format-1bd248": "عرض هذه الصيغة",
+        "download-this-format-a42b24": "تنزيل هذه الصيغة"
+      },
+      "base-workflow-editor": {
+        "abandon-workflow-5d8350": "إلغاء سير العمل",
+        "close-4235ba": "إغلاق",
+        "users-7fda12": "المستخدمين",
+        "groups-d960c4": "المجموعات",
+        "reassign-workflow-task-ed83f4": "إعادة إسناد مهمة سير العمل",
+        "delegate-workflow-task-dc85c9": "تفويض مهمة سير العمل",
+        "go-back-8270af": "رجوع",
+        "no-workflow-layout-is-registered-for-this--23161f": "لا يوجد تخطيط سير عمل مسجّل لهذه المهمة.",
+        "select-the-users-groups-you-wish-to-reassi-27b9a9": "اختر المستخدمين أو المجموعات الذين تريد إعادة إسناد هذه المهمة إليهم:",
+        "are-you-sure-you-wish-to-abandon-this-wrok-1f9e1f": "هل تريد بالتأكيد إلغاء سير العمل هذا قبل اكتماله؟",
+        "discard-changes-27242c": "تجاهل التغييرات",
+        "reassign-task-de4b88": "إعادة إسناد المهمة",
+        "delegate-task-69a761": "تفويض المهمة"
+      },
+      "parallel-wf-choose-participants-task": {
+        "participants-4b84b3": "مشاركون",
+        "comment-1a427e": "التعليق",
+        "end-date-eb1790": "تاريخ الانتهاء"
+      },
+      "serial-wf-choose-participants-task": {
+        "participants-298d26": "مشاركون",
+        "comment-31fb34": "التعليق",
+        "validation-09f8a5": "التحقق من الصحة",
+        "simple-review-370c82": "مراجعة بسيطة",
+        "review-type-dc01c4": "نوع المراجعة"
+      },
+      "serial-wf-document-validation-task": {
+        "participants-5ba3ce": "مشاركون",
+        "comment-3556c4": "التعليق"
+      },
+      "workflow-info": {
+        "or-c1aa86": "أو",
+        "process-3c0e91": "عملية",
+        "delegate-283977": "تفويض",
+        "reassign-0116bf": "إعادة التعيين",
+        "abandon-this-workflow-now-29a1a9": "إلغاء سير العمل هذا الآن",
+        "process-this-task-c69887": "معالجة هذه المهمة",
+        "invite-other-users-to-process-this-task-a367fb": "دعوة مستخدمين آخرين لمعالجة هذه المهمة",
+        "reassign-this-task-to-other-users-cb96af": "إعادة إسناد هذه المهمة إلى مستخدمين آخرين"
+      },
+      "default-search-results": {
+        "no-results-3cc550": "لا توجد نتائج.",
+        "search-results-7cdb6e": "نتائج البحث",
+        "switch-to-grid-view-cb21bb": "تبديل إلى عرض الشبكة",
+        "switch-to-table-view-3d04e9": "تبديل إلى عرض الجدول",
+        "switch-to-list-view-c6c837": "تبديل إلى عرض القائمة",
+        "columns-settings-8c030a": "إعدادات الأعمدة",
+        "load-more-a1dee0": "تحميل المزيد...",
+        "retry-fa6db0": "إعادة المحاولة",
+        "actions-for-selected-documents-ad45dd": "إجراءات للمستندات المحددة",
+        "default-search-results-b94069": "نتائج البحث الافتراضية",
+        "search-result-controls-c55327": "عناصر التحكم في نتائج البحث",
+        "display-mode-05f129": "نمط العرض",
+        "sort-by-f62fb2": "الترتيب حسب",
+        "select-all-matching-5f6e32": "تحديد جميع العناصر المطابقة",
+        "stop-selecting-d8e63b": "إيقاف التحديد",
+        "loading-results-b1421b": "جارٍ تحميل النتائج…",
+        "loading-more-results-28e32c": "جارٍ تحميل مزيد من النتائج…",
+        "ascending-order-6c651e": "ترتيب تصاعدي",
+        "descending-order-aeba1d": "ترتيب تنازلي"
+      },
+      "assets-search-filters": {
+        "full-text-c1cf82": "نص كامل",
+        "reset-448ef9": "إعادة الضبط",
+        "search-73379e": "بحث",
+        "search-for-something-1de22c": "جار البحث عن شيء...",
+        "select-a-saved-search-26a626": "اختيار بحث محفوظ",
+        "delete-saved-search-49a28d": "حذف البحث المحفوظ",
+        "no-values-ac4ab6": "لا توجد قيم"
+      },
+      "repository-search": {
+        "search-results-140c5d": "نتائج البحث",
+        "filters-e2acf9": "مرشحات",
+        "search-b0bde9": "بحث",
+        "reset-53a22c": "إعادة الضبط",
+        "title-578690": "العنوان",
+        "cancel-32f1be": "إلغاء",
+        "update-2b3327": "تحديث",
+        "save-e6d04b": "حفظ",
+        "search-results-abae80": "نتائج البحث",
+        "switch-to-list-view-c12585": "تبديل إلى عرض القائمة",
+        "load-more-6a65cf": "تحميل المزيد...",
+        "save-search-87f20a": "حفظ البحث",
+        "retry-22577e": "إعادة المحاولة",
+        "actions-for-selected-documents-d3e110": "إجراءات للمستندات المحددة",
+        "selected-documents-164dce": "المستندات المحددة",
+        "toggle-search-filters-bf1a5f": "إظهار عوامل تصفية البحث أو إخفاؤها",
+        "this-search-is-not-available-for-your-acco-2e6d56": "هذا البحث غير متاح لحسابك.",
+        "nxql-query-87b7f7": "استعلام NXQL",
+        "ctrl-enter-to-run-8ebe0c": "اضغط Ctrl+Enter للتنفيذ",
+        "saved-search-d02426": "بحث محفوظ",
+        "select-a-saved-search-45f4ab": "اختيار بحث محفوظ",
+        "delete-saved-search-1294d4": "حذف البحث المحفوظ",
+        "expired-before-a47869": "انتهت صلاحيته قبل",
+        "applied-filters-b46029": "عوامل التصفية المطبّقة",
+        "grid-view-906aa6": "عرض شبكي",
+        "table-view-f3c31c": "عرض جدولي",
+        "list-view-8724fc": "عرض قائمة",
+        "sort-by-8c058a": "الترتيب حسب",
+        "sort-results-1c012e": "ترتيب النتائج",
+        "default-order-2973d9": "الترتيب الافتراضي",
+        "select-all-matching-366850": "تحديد جميع العناصر المطابقة",
+        "stop-selection-693486": "إيقاف التحديد",
+        "loading-results-f64c54": "جارٍ تحميل النتائج…"
+      },
+      "search-pane": {
+        "share-56e599": "مشاركة",
+        "search-f11f42": "بحث",
+        "reset-47b365": "إعادة الضبط",
+        "search-current-location-913fe1": "البحث في الموقع الحالي",
+        "execute-this-nxql-query-ecd564": "تنفيذ استعلام NXQL هذا",
+        "update-selected-c03723": "تحديث العناصر المحددة",
+        "save-as-new-f9388f": "حفظ كعنصر جديد",
+        "user-or-group-eb65ae": "مستخدم أو مجموعة",
+        "user-or-group-to-share-with-b0a54e": "المستخدم أو المجموعة المراد المشاركة معهم",
+        "notify-4c7367": "إرسال إشعار"
+      },
+      "assets-search-queue": {
+        "search-results-d9cb21": "نتائج البحث",
+        "assets-a3c992": "أصول",
+        "no-results-a194bb": "لا توجد نتائج.",
+        "load-more-c9bff2": "تحميل المزيد...",
+        "retry-d5dae6": "إعادة المحاولة",
+        "assets-search-queue-394c0f": "قائمة انتظار البحث عن الأصول",
+        "back-to-filters-5b2280": "العودة إلى عوامل التصفية",
+        "queue-navigation-048949": "التنقل في قائمة الانتظار",
+        "previous-692dcf": "السابق",
+        "next-5aa3a2": "التالي",
+        "loading-results-45937e": "جارٍ تحميل النتائج…"
+      },
+      "search-queue": {
+        "no-results-3e0e7d": "لا توجد نتائج.",
+        "load-more-fdb971": "تحميل المزيد...",
+        "search-results-queue-299854": "قائمة انتظار نتائج البحث",
+        "back-to-filters-8bba5e": "العودة إلى عوامل التصفية",
+        "loading-results-23b60d": "جارٍ تحميل النتائج…",
+        "loading-more-results-02d138": "جارٍ تحميل مزيد من النتائج…",
+        "retry-a6b580": "إعادة المحاولة"
+      },
+      "analytics": {
+        "workflow-6a6bab": "طريقة سير العمل",
+        "after-9d9e02": "بعد",
+        "before-7e5044": "قبل",
+        "path-60f8fc": "مسار",
+        "users-3444c6": "المستخدمين",
+        "calls-per-hour-05eb92": "عدد المكالمات في الساعة",
+        "filters-used-b8e879": "المرشحات المستخدمة",
+        "average-workflow-duration-898983": "متوسط مدة سير العمل",
+        "workflow-initiators-22c731": "بدائو سير العمل",
+        "actions-per-user-57f209": "الإجراءات لكل مستخدم",
+        "document-distribution-78f9fc": "توزيع المستند",
+        "loading-analytics-c4c1b7": "جارٍ تحميل التحليلات…",
+        "audit-analytics-are-unavailable-on-this-se-c56101": "تحليلات التدقيق غير متوفرة على هذا الخادم. تظهر أدناه أعداد مستندات المستودع؛ تتطلب مخططات التدقيق خدمة تجميع تدعمها المنصة.",
+        "no-workflow-model-is-available-c3da2f": "لا يتوفر أي نموذج لسير العمل",
+        "this-range-contains-more-than-1-000-releva-53bc00": "تحتوي هذه الفترة على أكثر من 1000 حدث تدقيق ذي صلة. ضيّق نطاق التواريخ؛ لن تُعرض مقاييس جزئية.",
+        "calls-per-page-provider-1b6788": "الاستدعاءات حسب موفر الصفحات",
+        "results-per-call-270a11": "النتائج لكل استدعاء",
+        "popular-full-text-searches-3ad4e6": "عمليات البحث الشائعة في النص الكامل",
+        "pages-displayed-4cb7c0": "الصفحات المعروضة",
+        "no-workflow-model-is-available-on-this-ser-f47bd1": "لا يتوفر أي نموذج لسير العمل على هذا الخادم.",
+        "average-task-duration-c5478f": "متوسط مدة المهام",
+        "default-domain-workspaces-b068de": "/default-domain/workspaces/",
+        "depth-351c8c": "العمق",
+        "enter-a-repository-path-ending-in-a-slash--55b4d3": "أدخل مسارًا في المستودع ينتهي بشرطة مائلة لفحص البنية الهرمية لمستنداته.",
+        "select-a-path-to-view-its-document-distrib-2a5295": "اختر مسارًا لعرض توزيع مستنداته.",
+        "distribution-analytics-is-disabled-because-108fb2": "تحليلات التوزيع معطّلة لأن الاستعلام الحالي سيؤثر في جودة الخدمة. اضبط حدًا موجبًا للاستعلام على الخادم قبل اختيار مسار.",
+        "no-documents-match-this-path-7d22d4": "لا توجد مستندات تطابق هذا المسار.",
+        "total-documents-728507": "إجمالي المستندات",
+        "folders-2447c9": "المجلدات",
+        "repository-activity-last-30-days-31a643": "نشاط المستودع — آخر 30 يومًا",
+        "top-contributors-last-90-days-9abdca": "أبرز المساهمين — آخر 90 يومًا",
+        "no-completed-workflows-78d1d8": "لا توجد مسارات عمل مكتملة"
+      },
+      "cloud": {
+        "enabled-29ac97": "مفعّل",
+        "actions-725338": "الإجراءات",
+        "name-c5432f": "الاسم",
+        "redirect-uris-33300c": "إعادة توجيه عناوين URI",
+        "shared-3cf9a7": "مشترك",
+        "service-name-67e74a": "اسم الخدمة",
+        "client-secret-26679e": "سر العميل",
+        "authorized-applications-7f856f": "التطبيقات المصرح بها",
+        "nuxeo-login-adf30e": "تسجيل الدخول إلى Nuxeo",
+        "service-login-4ae10c": "تسجيل الدخول إلى الخدمة",
+        "creation-date-273b56": "تاريخ الإنشاء",
+        "cloud-accounts-46f8b6": "الحسابات السحابية",
+        "oauth2-service-providers-7eb357": "موفرو خدمات OAuth2",
+        "add-a-new-service-provider-cc956d": "إضافة موفر خدمة جديد",
+        "user-server-url-0d2f9b": "عنوان خادم المستخدمين",
+        "edit-this-service-provider-715912": "تعديل موفر الخدمة هذا",
+        "delete-this-service-provider-dffd18": "حذف موفر الخدمة هذا",
+        "oauth2-clients-86b4f5": "عملاء OAuth2",
+        "add-a-new-client-5e8a4a": "إضافة عميل جديد",
+        "auto-grant-767cec": "منح تلقائي",
+        "edit-this-client-7ee85f": "تعديل هذا العميل",
+        "delete-this-client-4ad1f3": "حذف هذا العميل",
+        "edit-this-application-token-1dd5c5": "تعديل رمز وصول التطبيق هذا",
+        "revoke-this-application-token-bdd778": "إبطال رمز وصول التطبيق هذا",
+        "edit-this-account-b58797": "تعديل هذا الحساب",
+        "delete-this-account-f23461": "حذف هذا الحساب"
+      },
+      "cloud-account-editor": {
+        "close-6bc13c": "إغلاق",
+        "nuxeo-login-c1a1ab": "تسجيل الدخول إلى Nuxeo",
+        "service-login-2ec977": "تسجيل الدخول إلى الخدمة",
+        "creation-date-b646bb": "تاريخ الإنشاء",
+        "save-changes-9ad120": "حفظ التغييرات",
+        "close-without-saving-305dbe": "إغلاق دون حفظ",
+        "edit-account-ed8f5f": "تعديل الحساب"
+      },
+      "cloud-application-editor": {
+        "close-23d36f": "إغلاق",
+        "nuxeo-login-42bae2": "تسجيل الدخول إلى Nuxeo",
+        "service-login-b9a32e": "تسجيل الدخول إلى الخدمة",
+        "creation-date-26a8ce": "تاريخ الإنشاء",
+        "save-changes-a3d49b": "حفظ التغييرات",
+        "close-without-saving-d03bb5": "إغلاق دون حفظ",
+        "add-a-new-application-c6914a": "إضافة تطبيق جديد"
+      },
+      "cloud-client-editor": {
+        "close-16f491": "إغلاق",
+        "name-bf5e9f": "الاسم",
+        "client-id-57b4c5": "معرِّف العميل",
+        "redirect-uris-4559af": "إعادة توجيه عناوين URI",
+        "enabled-c0fb07": "مفعّل",
+        "client-secret-620c32": "سر العميل",
+        "save-changes-403727": "حفظ التغييرات",
+        "close-without-saving-5decaa": "إغلاق دون حفظ",
+        "add-a-new-client-486978": "إضافة عميل جديد",
+        "edit-client-129f20": "تعديل العميل",
+        "add-a-new-scope-64d8d1": "إضافة نطاق جديد…",
+        "click-to-add-a-new-scope-15fcc8": "انقر لإضافة نطاق جديد",
+        "remove-this-scope-6796cc": "إزالة هذا النطاق",
+        "auto-grant-f26d14": "منح تلقائي"
+      },
+      "cloud-service-provider-editor": {
+        "close-d5ba67": "إغلاق",
+        "name-9261f5": "الاسم",
+        "client-id-15f622": "معرِّف العميل",
+        "client-secret-e09923": "سر العميل",
+        "description-070956": "الوصف",
+        "enabled-281b62": "مفعّل",
+        "save-changes-1dfd69": "حفظ التغييرات",
+        "close-without-saving-a2fc47": "إغلاق دون حفظ",
+        "add-a-new-service-provider-ebd9a0": "إضافة موفر خدمة جديد",
+        "edit-service-provider-0bdcad": "تعديل موفر الخدمة",
+        "user-server-url-f81ca5": "عنوان خادم المستخدمين",
+        "add-a-new-scope-358462": "إضافة نطاق جديد…",
+        "click-to-add-a-new-scope-5ffaec": "انقر لإضافة نطاق جديد",
+        "remove-this-scope-2ad6ac": "إزالة هذا النطاق"
+      },
+      "content-management": {
+        "description-3319b6": "الوصف",
+        "name-bffcbd": "الاسم",
+        "document-types-a2747a": "أنواع المُستندات",
+        "metadata-c7ecb1": "البيانات الوصفية",
+        "feature-id-aeee9b": "معرّف الميزة",
+        "schemas-df6cb2": "مخططات البيانات",
+        "prefix-858c09": "البادئة",
+        "total-fields-a96abe": "إجمالي الحقول",
+        "data-type-69136c": "نوع البيانات",
+        "multi-valued-1ee6e1": "متعدد القيم",
+        "schema-0ce0fe": "مخطط البيانات"
+      },
+      "metadata-policy": {
+        "remove-d03630": "إزالة",
+        "users-413c24": "المستخدمين",
+        "groups-db10f7": "المجموعات",
+        "retry-dc2510": "إعادة المحاولة",
+        "visible-fields-b03150": "الحقول المرئية",
+        "discard-changes-6da815": "تجاهل التغييرات",
+        "metadata-access-rules-bd96f2": "قواعد الوصول إلى البيانات الوصفية",
+        "choose-which-metadata-people-can-see-and-e-5951bb": "اختر البيانات الوصفية التي يمكن للأشخاص عرضها وتعديلها، بحسب نوع المستند ومخطط البيانات.",
+        "i-c68a5b": "i",
+        "these-rules-customize-the-interface-nuxeo--356045": "تخصّص هذه القواعد الواجهة. تظل أذونات Nuxeo هي التي تتحكم في الوصول إلى المستندات. يحتفظ المسؤولون بإمكانية عرض جميع البيانات.",
+        "only-administrators-can-change-metadata-la-0f9e24": "يمكن للمسؤولين فقط تغيير تخطيطات البيانات الوصفية.",
+        "loading-metadata-rules-c57e91": "جارٍ تحميل قواعد البيانات الوصفية…",
+        "rules-d6c53d": "القواعد",
+        "add-rule-ce6294": "إضافة قاعدة",
+        "no-custom-rules-yet-091d8b": "لا توجد قواعد مخصصة بعد",
+        "start-with-a-document-type-choose-its-meta-22c9c3": "ابدأ بنوع مستند، واختر بياناته الوصفية، ثم حدّد من يمكنه عرضها أو تعديلها.",
+        "create-your-first-rule-8efa92": "إنشاء قاعدتك الأولى",
+        "default-behavior-applies-until-you-save-a--538921": "يُطبّق السلوك الافتراضي إلى أن تحفظ قاعدة.",
+        "metadata-scope-e8d7be": "نطاق البيانات الوصفية",
+        "choose-where-this-rule-applies-8afbf4": "اختر المواضع التي تنطبق عليها هذه القاعدة.",
+        "all-document-types-dd432c": "جميع أنواع المستندات",
+        "schema-18906d": "مخطط البيانات",
+        "who-it-applies-to-0ba36d": "الأشخاص المعنيون",
+        "leave-both-lists-empty-to-apply-to-everyon-a4f0b8": "اترك القائمتين فارغتين لتطبيق القاعدة على الجميع.",
+        "search-or-enter-a-user-id-959a22": "ابحث عن معرّف مستخدم أو أدخله",
+        "search-or-enter-a-group-id-87caa3": "ابحث عن معرّف مجموعة أو أدخله",
+        "match-people-in-93ab4c": "مطابقة الأشخاص في",
+        "either-list-users-or-group-members-861bd6": "إحدى القائمتين — المستخدمون أو أعضاء المجموعات",
+        "both-lists-users-who-also-belong-to-a-grou-f9aef9": "القائمتان معًا — مستخدمون ينتمون أيضًا إلى مجموعة",
+        "what-they-can-do-f9a070": "الإجراءات المسموح بها",
+        "metadata-access-29d75f": "الوصول إلى البيانات الوصفية",
+        "optional-679941": "اختياري",
+        "all-fields-in-the-selected-schema-aa327f": "جميع حقول مخطط البيانات المحدد",
+        "leave-empty-for-all-fields-when-you-select-008eee": "اتركه فارغًا لتضمين جميع الحقول. عند اختيار حقول، تُخفى الحقول الأخرى في هذا النطاق.",
+        "how-rules-work-e134bd": "كيفية عمل القواعد",
+        "a-matching-user-rule-takes-precedence-over-10d4fe": "تتقدم قاعدة المستخدم المطابقة على قواعد المجموعات. ضمن هذا النطاق، تتقدم قواعد أنواع المستندات ومخططات البيانات المحددة على القواعد العامة. عند التعادل، يُطبّق مستوى الوصول الأكثر تقييدًا.",
+        "editing-also-requires-document-write-permi-1a3786": "يتطلب التعديل أيضًا إذن الكتابة في المستند. تظل الحقول المُنشأة تلقائيًا للقراءة فقط. عند عدم وجود قاعدة مطابقة، يمكن تعديل حقول Dublin Core وتكون مخططات البيانات الأخرى للقراءة فقط، وفقًا لأذونات المستند.",
+        "changes-saved-173028": "تم حفظ التغييرات.",
+        "save-changes-3e4f48": "حفظ التغييرات",
+        "unsaved-changes-59eed5": "تغييرات غير محفوظة",
+        "all-schemas-49b90b": "جميع المخططات",
+        "everyone-56869f": "الجميع",
+        "editable-e43e43": "قابل للتعديل",
+        "read-only-732595": "للقراءة فقط",
+        "hidden-edf5f5": "مخفي",
+        "view-values-without-editing-78c08a": "عرض القيم دون تعديلها",
+        "view-and-edit-values-8eb418": "عرض القيم وتعديلها",
+        "hide-metadata-from-view-4b99bd": "إخفاء البيانات الوصفية من العرض"
+      },
+      "retention-rule-editor": {
+        "close-346c5a": "إغلاق",
+        "title-8c52bc": "العنوان",
+        "description-f06eaf": "الوصف",
+        "enabled-d0f365": "مفعّل",
+        "save-changes-02e866": "حفظ التغييرات",
+        "close-without-saving-459436": "إغلاق دون حفظ",
+        "add-a-new-retention-rule-85f53f": "إضافة قاعدة احتفاظ جديدة",
+        "edit-retention-rule-9cf818": "تعديل قاعدة الاحتفاظ",
+        "application-policy-e1a0d8": "سياسة التطبيق",
+        "expression-508e02": "تعبير",
+        "ex-document-gettype-file-de981b": "مثال: Document.getType() == 'File'",
+        "document-types-affected-by-this-retention--5780de": "أنواع المستندات التي تتأثر بقاعدة الاحتفاظ هذه",
+        "click-to-add-a-new-document-type-83877b": "انقر لإضافة نوع مستند جديد",
+        "remove-this-document-type-d37271": "إزالة نوع المستند هذا",
+        "starting-point-policy-97ec77": "سياسة نقطة البدء",
+        "the-retention-period-starts-automatically--155c7e": "تبدأ مدة الاحتفاظ تلقائيًا وبشكل متزامن عند تطبيق هذه السياسة على مستند.",
+        "starting-point-event-311383": "حدث نقطة البدء",
+        "event-input-25b40c": "مدخلات الحدث",
+        "field-b67f12": "الحقل",
+        "the-specified-document-field-acts-as-the-r-361fdf": "يُستخدم حقل المستند المحدد كنقطة بدء لمدة الاحتفاظ",
+        "end-actions-620f7a": "إجراءات الانتهاء",
+        "click-to-add-an-action-80cb71": "انقر لإضافة إجراء",
+        "remove-this-action-351616": "إزالة هذا الإجراء",
+        "duration-in-years-6e254e": "المدة بالسنوات:",
+        "duration-in-months-676771": "المدة بالأشهر:",
+        "duration-in-days-68c14a": "المدة بالأيام:",
+        "duration-in-seconds-5655eb": "المدة بالثواني:"
+      },
+      "retention-rule-picker": {
+        "close-785662": "إغلاق",
+        "apply-a-retention-rule-64dc5a": "تطبيق قاعدة احتفاظ",
+        "go-back-b44049": "رجوع",
+        "pick-the-retention-rule-to-apply-to-this-d-61bc8f": "اختر قاعدة الاحتفاظ التي ستُطبّق على هذا المستند",
+        "only-the-retention-rules-that-are-applicab-7739a3": "تُعرض فقط قواعد الاحتفاظ التي تنطبق على هذا المستند.",
+        "apply-retention-rule-5d78e1": "تطبيق قاعدة الاحتفاظ"
+      },
+      "user-and-group-editor": {
+        "close-117f66": "إغلاق",
+        "description-7b25bb": "الوصف",
+        "users-d1150b": "المستخدمين",
+        "groups-811eae": "المجموعات",
+        "username-d7ad7e": "اسم المستخدم",
+        "company-3f1098": "الشركات",
+        "create-another-e98481": "إنشاء آخر",
+        "edit-user-c60a44": "تعديل المستخدم",
+        "edit-group-e854f1": "تعديل مجموعة",
+        "id-75b5b9": "المعرِّف",
+        "first-name-8750b5": "الاسم الأول",
+        "last-name-fc6463": "الاسم الأخير",
+        "loading-db71a4": "جارٍ التحميل…",
+        "retry-1679c8": "إعادة المحاولة",
+        "email-address-e8d2c5": "عنوان البريد الإلكتروني",
+        "confirm-password-e18441": "تأكيد كلمة المرور",
+        "close-without-saving-2dee77": "إغلاق دون حفظ",
+        "add-a-new-user-4bfb9e": "إضافة مستخدم جديد",
+        "add-a-new-group-e40bd3": "إضافة مجموعة جديدة",
+        "a-group-cannot-be-a-member-of-itself-3535b9": "لا يمكن أن تكون المجموعة عضوًا في نفسها.",
+        "enter-a-username-a66b27": "أدخل اسم مستخدم.",
+        "enter-a-valid-email-address-1b7789": "أدخل عنوان بريد إلكتروني صالحًا.",
+        "set-password-5309cf": "تعيين كلمة المرور",
+        "an-invitation-will-be-sent-to-the-email-ad-f69c22": "ستُرسل دعوة إلى عنوان البريد الإلكتروني ليتمكن المستخدم من تعيين كلمة مرور.",
+        "enter-and-confirm-the-same-password-16fcb4": "أدخل كلمة المرور نفسها وأكّدها.",
+        "create-9b100a": "إنشاء",
+        "save-changes-d32592": "حفظ التغييرات",
+        "sending-28957e": "جارٍ الإرسال…",
+        "send-invitation-423c57": "إرسال دعوة"
+      },
+      "user-and-group-permissions": {
+        "close-297e3f": "إغلاق",
+        "path-cc2e71": "مسار",
+        "local-permissions-913767": "الصلاحيات المحلية",
+        "group-8478f4": "المجموعة",
+        "user-permissions-c973f4": "أذونات المستخدم",
+        "user-group-permissions-6cc2fb": "أذونات مجموعة المستخدمين",
+        "list-of-permissions-for-user-9d65a3": "قائمة أذونات المستخدم",
+        "list-of-permissions-for-group-b74258": "قائمة أذونات المجموعة",
+        "granted-eeda8a": "ممنوح",
+        "effectiveness-c8b94f": "السريان",
+        "permissions-inherited-from-the-c0d8ff": "الأذونات الموروثة من",
+        "permanent-f3cd27": "دائم",
+        "press-hold-to-delete-this-permission-a0566e": "اضغط مطولًا لحذف هذا الإذن"
+      },
+      "users-and-groups": {
+        "users-groups-6ea071": "المستخدمين و المجموعات",
+        "groups-a87294": "المجموعات",
+        "users-fb312e": "المستخدمين",
+        "loading-189714": "جارٍ التحميل…",
+        "retry-0938b3": "إعادة المحاولة",
+        "previous-b47147": "السابق",
+        "next-c6a5d5": "التالي",
+        "all-users-and-groups-eb23d6": "جميع المستخدمين والمجموعات",
+        "search-users-and-groups-e045c0": "البحث عن مستخدمين ومجموعات",
+        "saving-changes-3a4931": "جارٍ حفظ التغييرات…",
+        "add-a-new-group-ef054c": "إضافة مجموعة جديدة",
+        "edit-this-group-801528": "تعديل هذه المجموعة",
+        "view-permissions-1212f0": "عرض الأذونات",
+        "delete-this-group-a07d8c": "حذف هذه المجموعة",
+        "user-members-6a3728": "المستخدمون الأعضاء",
+        "filter-user-members-3c0465": "تصفية المستخدمين الأعضاء",
+        "remove-this-member-93c028": "إزالة هذا العضو",
+        "group-members-cda1e8": "المجموعات الأعضاء",
+        "filter-group-members-44123e": "تصفية المجموعات الأعضاء",
+        "no-members-match-the-current-filters-7a3e73": "لا يوجد أعضاء مطابقون لعوامل التصفية الحالية.",
+        "there-are-no-user-groups-to-display-3020eb": "لا توجد مجموعات مستخدمين لعرضها.",
+        "expand-any-user-group-to-show-its-members-5b2d31": "وسّع أي مجموعة مستخدمين لعرض أعضائها.",
+        "add-a-new-user-247b06": "إضافة مستخدم جديد",
+        "edit-this-user-6b36e3": "تعديل هذا المستخدم",
+        "delete-this-user-88d18b": "حذف هذا المستخدم",
+        "this-user-is-not-part-of-any-group-yet-e63cdd": "هذا المستخدم ليس عضوًا في أي مجموعة بعد.",
+        "detach-from-this-group-4947d3": "إزالة العضوية في هذه المجموعة",
+        "there-are-no-users-to-display-2b6385": "لا يوجد مستخدمون لعرضهم."
+      },
+      "vocabularies": {
+        "vocabulary-748809": "مصطلح",
+        "actions-e7048e": "الإجراءات",
+        "delete-355662": "حذف",
+        "obsolete-1d87b4": "مهمل",
+        "cancel-9bb10d": "إلغاء",
+        "save-094e48": "حفظ",
+        "select-a-vocabulary-256030": "تحديد مصطلح",
+        "add-entry-e500b3": "إضافة إدخال",
+        "english-label-856b69": "التسمية الإنجليزية",
+        "french-label-3cdc0b": "التسمية الفرنسية",
+        "delete-entry-679cf9": "حذف إدخال",
+        "retry-c83dbb": "إعادة المحاولة",
+        "loading-a8b66a": "جارٍ التحميل…",
+        "previous-43d317": "السابق",
+        "next-dc78ee": "التالي",
+        "edit-a480d0": "تعديل",
+        "no-entries-8cd961": "لا توجد إدخالات.",
+        "select-parent-73527c": "اختيار العنصر الأب",
+        "yes-ff114f": "نعم",
+        "no-2256cf": "لا",
+        "edit-entry-a04b68": "تحرير إدخال"
+      },
+      "settings": {
+        "administration-171b5e": "الادارة",
+        "close-administration-navigation-fb0022": "إغلاق قائمة تنقل الإدارة",
+        "open-administration-navigation-d9a095": "فتح قائمة تنقل الإدارة"
+      },
+      "administration-drawer": {
+        "administration-d96529": "الادارة"
+      },
+      "repository-search-drawer": {
+        "search-ee3075": "بحث",
+        "open-results-to-refine-filters-and-select--bdd455": "افتح النتائج لضبط عوامل التصفية وتحديد المستندات."
+      },
+      "sidebar": {
+        "administration-6a4b44": "الادارة",
+        "main-navigation-3f69d6": "التنقل الرئيسي",
+        "application-navigation-6004e0": "التنقل في التطبيق",
+        "account-and-administration-917406": "الحساب والإدارة",
+        "user-menu-b6f323": "قائمة المستخدم",
+        "navigation-details-7876a4": "تفاصيل التنقل",
+        "close-navigation-8845ce": "إغلاق التنقل",
+        "drawer-controls-6ebb60": "عناصر التحكم في اللوحة الجانبية"
+      },
+      "user-menu-language": {
+        "language-382388": "اللغة"
+      },
+      "collections": {
+        "creation-date-5198df": "تاريخ الإنشاء",
+        "select-the-target-collection-or-specify-a--8979fa": "اختر المجموعة المستهدفة أو حدّد مجموعة جديدة.",
+        "new-collection-c06c0e": "مجموعة جديدة…",
+        "add-to-this-new-collection-c91827": "إضافة إلى هذه المجموعة الجديدة",
+        "loading-collections-b90eec": "جارٍ تحميل المجموعات…",
+        "collection-documents-289d22": "مستندات المجموعة",
+        "owner-fb74f4": "المالك"
+      },
+      "contributors": {
+        "by-648fbf": "بواسطة",
+        "modified-1e007d": "تم التعديل",
+        "contributors-bce1bc": "المساهمون",
+        "created-2a3118": "أُنشئ"
+      },
+      "document-activity": {
+        "end-date-e7e8ee": "تاريخ الانتهاء",
+        "loading-history-94523a": "جارٍ تحميل السجل…",
+        "retry-7df2c7": "إعادة المحاولة",
+        "who-073bcd": "مَن",
+        "filter-events-by-author-ac9166": "تصفية الأحداث حسب المستخدم",
+        "when-08df18": "متى",
+        "filter-events-by-date-bc7b85": "تصفية الأحداث حسب التاريخ",
+        "what-114333": "ماذا",
+        "filter-events-by-type-84f423": "تصفية الأحداث حسب النوع",
+        "clear-filter-fda57d": "مسح عامل التصفية",
+        "start-date-d95938": "تاريخ البدء"
+      },
+      "blob-action": {
+        "replace-file-256661": "استبدال ملف",
+        "download-file-10ab9f": "تنزيل الملف",
+        "drop-or-choose-a-file-1b3c4d": "أسقط ملفًا هنا أو انقر لاختيار ملف"
+      },
+      "document-permission-editor": {
+        "from-5fcc39": "من",
+        "until-6b49cd": "حتى",
+        "save-changes-38725d": "حفظ التغييرات",
+        "in-workspaces-92d93a": "في مساحات العمل",
+        "in-sections-44fef9": "في الأقسام",
+        "please-specify-the-permission-2ccb71": "يرجى تحديد الإذن.",
+        "email-address-e869de": "عنوان البريد الإلكتروني",
+        "user-group-e46734": "المستخدم/المجموعة",
+        "make-this-permanent-0c8930": "جعله دائمًا",
+        "effectiveness-timeframe-c240e8": "فترة السريان",
+        "send-a-notification-email-5188fd": "إرسال إشعار بالبريد الإلكتروني",
+        "message-96912a": "الرسالة",
+        "email-address-804fc3": "عنوان البريد الإلكتروني",
+        "user-or-group-f01b8e": "مستخدم أو مجموعة"
+      },
+      "document-permissions": {
+        "indefinitely-afbf88": "لأجل غير مسمى",
+        "loading-permissions-2afc98": "جارٍ تحميل الأذونات…",
+        "retry-56f7b5": "إعادة المحاولة",
+        "the-shared-permissions-1-take-precedence-o-9bcd51": "تتقدم الأذونات المشتركة (1) على أذونات المستند (2)، التي تتقدم بدورها على الأذونات الموروثة (3).",
+        "there-are-no-permissions-to-display-here-ce98b2": "لا توجد أذونات لعرضها هنا.",
+        "denied-c34db5": "مرفوض:",
+        "send-by-email-a-link-pointing-to-this-docu-d71653": "إرسال رابط إلى هذا المستند بالبريد الإلكتروني",
+        "edit-this-permission-aafe87": "تعديل هذا الإذن",
+        "remove-this-permission-15d9a6": "إزالة هذا الإذن",
+        "user-37604c": "المستخدم",
+        "user-group-71f032": "مجموعة مستخدمين",
+        "external-share-1b2dc9": "مشاركة خارجية"
+      },
+      "generic-folderish-viewer": {
+        "load-more-e7fc61": "تحميل المزيد..."
+      },
+      "image-renderer": {
+        "additional-formats-cfc470": "صيّغ إضافية",
+        "loading-image-1bcab4": "جارٍ تحميل الصورة…",
+        "image-viewing-controls-87b751": "عناصر التحكم في عرض الصور",
+        "fit-ba38ba": "ملاءمة",
+        "actual-size-214301": "الحجم الفعلي",
+        "download-original-file-99f0e9": "تنزيل الملف الأصلي",
+        "image-f05cce": "صورة",
+        "file-size-3dd6ce": "حجم الملف",
+        "view-this-rendition-949fdb": "عرض هذه النسخة",
+        "download-this-rendition-77fb1f": "تنزيل هذه النسخة",
+        "view-original-ec2c8d": "عرض الأصل",
+        "original-file-5e9116": "الملف الأصلي",
+        "download-original-dd2dd0": "تنزيل الأصل",
+        "exit-fullscreen-a24ba2": "الخروج من ملء الشاشة"
+      },
+      "parallel-wf-give-opinion-task": {
+        "initiator-comment-b60a28": "تعليق البادئ"
+      },
+      "header": {
+        "sign-out-6fbf9e": "تسجيل الخروج",
+        "user-profile-1c5d61": "ملف المستخدم",
+        "document-explorer-cbad34": "مستعرض المستندات",
+        "find-documents-43048a": "البحث عن مستندات",
+        "settings-77665f": "الإعدادات"
+      },
+      "clipboard": {
+        "you-cannot-paste-this-document-in-this-loc-eb6acf": "لا يمكنك لصق هذا المستند في هذا الموقع",
+        "there-are-no-items-in-the-clipboard-b77d17": "لا توجد عناصر في الحافظة.",
+        "copy-the-selected-documents-to-the-current-ed255a": "نسخ المستندات المحددة إلى الموقع الحالي",
+        "move-the-selected-documents-to-the-current-36d71d": "نقل المستندات المحددة إلى الموقع الحالي",
+        "remove-the-selected-documents-from-the-cli-ea7dcc": "إزالة المستندات المحددة من الحافظة",
+        "remove-all-documents-from-clipboard-974976": "إزالة جميع المستندات من الحافظة",
+        "clear-clipboard-f3a9fb": "مسح الحافظة"
+      },
+      "display-settings": {
+        "create-button-location-a61897": "موضع زر الإنشاء",
+        "lower-right-default-1142ed": "أسفل اليمين (الافتراضي)",
+        "document-actions-toolbar-56379f": "شريط إجراءات المستند",
+        "saved-automatically-for-this-browser-b1a4a4": "يُحفظ تلقائيًا في هذا المتصفح.",
+        "documents-use-the-folder-s-saved-order-sel-f84f19": "تُعرض المستندات بالترتيب المحفوظ للمجلد. حدّد مستندات لنقلها إلى أعلى أو أسفل.",
+        "sort-documents-by-42a33a": "ترتيب المستندات حسب",
+        "choose-a-different-sort-field-d69a49": "اختيار حقل ترتيب مختلف",
+        "remove-this-sort-field-b1557f": "إزالة حقل الترتيب هذا",
+        "add-a-new-sort-field-c194ef": "إضافة حقل ترتيب جديد",
+        "order-documents-789ad3": "ترتيب المستندات",
+        "ascending-d0f651": "تصاعدي",
+        "descending-be46d2": "تنازلي",
+        "number-of-items-per-page-b5e90f": "عدد العناصر في كل صفحة",
+        "apply-changes-286792": "تطبيق التغييرات"
+      },
+      "blob-preview": {
+        "loading-preview-d1d5c4": "جارٍ تحميل المعاينة…",
+        "retry-2e4838": "إعادة المحاولة",
+        "pdf-preview-aa8636": "معاينة PDF",
+        "your-browser-cannot-display-this-pdf-downl-d8ac48": "لا يستطيع متصفحك عرض ملف PDF هذا. نزّل الملف لعرضه."
+      },
+      "document-attachments": {
+        "remove-all-attachments-c80f70": "إزالة جميع المرفقات",
+        "there-are-no-files-to-show-b87766": "لا توجد ملفات لعرضها.",
+        "add-files-b6082d": "إضافة ملفات",
+        "add-a-file-b2d533": "إضافة ملف"
+      },
+      "document-info-panel": {
+        "close-info-panel-9488a4": "إغلاق لوحة المعلومات"
+      },
+      "document-snapshots": {
+        "create-a-new-minor-snapshot-e5de17": "إنشاء لقطة ثانوية جديدة",
+        "create-a-new-major-snapshot-0db8bf": "إنشاء لقطة رئيسية جديدة",
+        "this-is-the-displayed-version-996a56": "هذا هو الإصدار المعروض",
+        "see-how-the-document-looked-like-when-this-09cbcf": "عرض حالة المستند وقت إنشاء هذه اللقطة",
+        "compare-the-displayed-version-against-this-a1b12e": "مقارنة الإصدار المعروض بهذا الإصدار",
+        "restore-the-document-to-how-it-looked-like-b824fd": "استعادة المستند إلى حالته وقت إنشاء هذه اللقطة"
+      },
+      "pdf-renderer": {
+        "retry-c76e1b": "إعادة المحاولة",
+        "actual-size-7daf66": "الحجم الفعلي",
+        "loading-pdf-56ea16": "جارٍ تحميل PDF…",
+        "table-of-contents-9db724": "جدول المحتويات",
+        "fullscreen-d80e4d": "ملء الشاشة",
+        "zoom-in-out-810965": "تكبير/تصغير",
+        "auto-9fb3e3": "تلقائي",
+        "fit-view-height-39b7a5": "ملاءمة ارتفاع العرض",
+        "fit-view-width-2d2e2d": "ملاءمة عرض الصفحة",
+        "rotate-clockwise-bd9080": "تدوير باتجاه عقارب الساعة",
+        "rotate-counter-clockwise-123e89": "تدوير عكس عقارب الساعة",
+        "hand-tool-7bd658": "أداة اليد",
+        "select-text-4a8ba9": "تحديد النص",
+        "find-in-document-2c3d7a": "البحث في المستند…",
+        "print-this-file-cd83da": "طباعة هذا الملف"
+      },
+      "document-icon-and-title": {
+        "collection-documents-bb3355": "مستندات المجموعة",
+        "owner-1ad6c7": "المالك",
+        "you-ve-added-this-document-to-your-collect-9bb13f": "أضفت هذا المستند إلى مجموعاتك"
+      },
+      "document-tree": {
+        "retry-5090ea": "إعادة المحاولة",
+        "loading-folders-147d99": "جارٍ تحميل المجلدات…",
+        "load-more-folders-09ae21": "تحميل المزيد من المجلدات"
+      },
+      "clipboard-drawer": {
+        "clear-clipboard-e0be1d": "مسح الحافظة"
+      },
+      "personal-workspace-drawer": {
+        "retry-2c78f7": "إعادة المحاولة",
+        "loading-workspace-67d517": "جارٍ تحميل مساحة العمل…"
+      },
+      "document-toolbar": {
+        "document-and-result-actions-adb2d1": "إجراءات المستندات والنتائج",
+        "choose-displayed-documents-to-apply-action-856d1b": "اختر مستندات من المعروض لتطبيق الإجراءات عليها.",
+        "actions-for-selected-documents-9706ed": "إجراءات للمستندات المحددة",
+        "selected-documents-525b90": "المستندات المحددة",
+        "display-settings-876c92": "إعدادات العرض"
+      },
+      "results-csv-export": {
+        "exporting-all-results-matching-the-applied-3db9b7": "جارٍ تصدير جميع النتائج المطابقة لعوامل التصفية المطبّقة…",
+        "stop-waiting-5bc5b3": "إيقاف الانتظار",
+        "export-ready-d9bdeb": "ملف التصدير جاهز.",
+        "save-export-430afe": "حفظ ملف التصدير"
+      },
+      "selection-download": {
+        "archive-preparation-890e23": "إعداد الأرشيف",
+        "cancel-preparation-27620f": "إلغاء الإعداد",
+        "retry-status-fa6296": "إعادة الاستعلام عن الحالة",
+        "archive-preparation-cancelled-8616cb": "أُلغي إعداد الأرشيف.",
+        "download-started-check-your-browser-s-down-019c3e": "بدأ التنزيل. تحقق من تنزيلات المتصفح. إذا فشل التنزيل أو انقطع، فأعِد إنشاء ملف ZIP.",
+        "regenerate-zip-c7a692": "إعادة إنشاء ZIP",
+        "cancelling-preparation-c4abcd": "جارٍ إلغاء التحضير…",
+        "archive-preparation-queued-9e00e4": "تحضير الأرشيف في قائمة الانتظار…",
+        "preparing-archive-e329af": "جارٍ تحضير الأرشيف…"
+      },
+      "bulk-creation-results": {
+        "import-results-7892e6": "نتائج الاستيراد",
+        "some-creation-results-are-uncertain-inspec-6e3dbc": "نتائج إنشاء بعض المستندات غير مؤكدة. افحص الوجهة قبل استيراد تلك الملفات مجددًا. لن تُعاد المحاولة تلقائيًا.",
+        "inspect-created-document-1f8037": "فحص المستند المُنشأ",
+        "inspect-destination-79dd01": "فحص الوجهة",
+        "stopping-after-this-file-ad0d84": "جارٍ التوقف بعد هذا الملف…",
+        "stop-after-this-file-178a6a": "التوقف بعد هذا الملف"
+      },
+      "document-type-editor": {
+        "this-document-layout-is-disabled-e8352e": "تخطيط هذا المستند معطّل."
+      },
+      "vocabulary": {
+        "click-to-add-a-new-item-7dd2ea": "انقر لإضافة عنصر جديد",
+        "remove-this-item-799870": "إزالة هذا العنصر"
+      },
+      "history": {
+        "clear-history-5edc22": "مسح السجل"
+      },
+      "document-actions-toolbar": {
+        "primary-document-actions-5ad7c1": "الإجراءات الرئيسية للمستند",
+        "more-actions-d74c3b": "مزيد من الإجراءات",
+        "document-actions-72e786": "إجراءات المستند"
+      },
+      "document-info-action": {
+        "show-document-information-1e16c1": "عرض معلومات المستند",
+        "show-this-document-s-info-permissions-and--59c160": "عرض معلومات هذا المستند وأذوناته ونشاطه",
+        "document-information-003fe1": "معلومات المستند"
+      },
+      "document-share": {
+        "people-opening-this-link-need-permission-t-899177": "يحتاج من يفتح هذا الرابط إلى إذن للوصول إلى المستند."
+      },
+      "document-type-viewer": {
+        "no-viewer-is-currently-available-for-this--88cd23": "لا يتوفر عارض لهذا النوع من المستندات حاليًا!"
+      },
+      "generic-type-viewer": {
+        "loading-document-449c7c": "جارٍ تحميل المستند…"
+      },
+      "picture-metadata-card": {
+        "not-available-c0e170": "غير متوفر"
+      },
+      "users-and-groups-picker": {
+        "click-to-add-a-new-item-21dc83": "انقر لإضافة عنصر جديد",
+        "remove-this-item-ebd1ce": "إزالة هذا العنصر",
+        "users-afc181": "المستخدمين",
+        "user-groups-17ec0f": "مجموعات المستخدمين"
+      },
+      "selection-publication-page": {
+        "find-a-section-0d9ef0": "البحث عن قسم",
+        "find-ccf607": "بحث",
+        "destination-5a3dc5": "الوجهة",
+        "choose-a-section-b665a6": "اختيار قسم",
+        "original-fb0e10": "الأصل",
+        "replace-existing-publications-3619e0": "استبدال المنشورات الموجودة",
+        "stop-after-current-document-522eaa": "التوقف بعد المستند الحالي",
+        "loading-destinations-baf212": "جارٍ تحميل الوجهات…",
+        "published-4249bd": "منشور",
+        "retry-remaining-9b99c4": "إعادة محاولة العناصر المتبقية"
+      },
+      "analytics-workspace": {
+        "analytics-views-a2f7e3": "عروض التحليلات"
+      },
+      "retention-rules": {
+        "enable-or-disable-this-retention-rule-6cbb20": "تفعيل قاعدة الاحتفاظ هذه أو تعطيلها",
+        "the-retention-period-starts-immediately-6e34d8": "تبدأ مدة الاحتفاظ فورًا",
+        "the-retention-period-starts-when-a-documen-a72d60": "تبدأ مدة الاحتفاظ عند تعديل مستند وفقًا لهذا التعبير",
+        "the-retention-period-starts-when-a-documen-b5b568": "تبدأ مدة الاحتفاظ عند نقل مستند وفقًا لهذا التعبير",
+        "field-edd6b2": "الحقل",
+        "once-the-retention-period-has-expired-the--1286e4": "بعد انتهاء مدة الاحتفاظ، ستُنفذ الإجراءات التالية:",
+        "it-affects-only-these-document-types-8aa390": "تؤثر فقط في أنواع المستندات التالية:",
+        "edit-this-retention-rule-c5463f": "تعديل قاعدة الاحتفاظ هذه",
+        "edit-this-rule-d72c2d": "تعديل هذه القاعدة",
+        "add-a-new-retention-rule-addcbf": "إضافة قاعدة احتفاظ جديدة"
+      },
+      "document-collections-panel": {
+        "collections-f8e852": "المجموعات"
+      },
+      "document-info-bar": {
+        "unlock-6ebc32": "إلغاء التأمين",
+        "this-document-is-placed-under-legal-hold-e9dca4": "هذا المستند خاضع للتحفظ القانوني."
+      },
+      "default-workflow-layout": {
+        "participants-e440e1": "مشاركون",
+        "search-users-and-groups-1b2dd3": "البحث عن مستخدمين ومجموعات",
+        "validation-c5668c": "التحقق من الصحة",
+        "comment-3dc08e": "التعليق",
+        "end-date-3209f9": "تاريخ الانتهاء",
+        "review-brief-08f9f7": "موجز المراجعة"
+      },
+      "default-drawer-page": {
+        "clear-clipboard-4bbb2b": "مسح الحافظة"
+      },
+      "common": {
+        "unavailable": "غير متاح"
+      }
+    },
+    "services": {
+      "documents": {
+        "error-title": "خطأ",
+        "unauthorized": "ليس لديك تصريح لعرض هذا المستند.",
+        "not-found": "تعذّر العثور على المستند المحدد.",
+        "notifications-title": "إشعارات المستند",
+        "lock-title": "تم تغيير قفل المستند",
+        "legal-hold-title": "تم تغيير التحفظ القانوني على المستند",
+        "destination-changed": "تغيّرت الوجهة أو صلاحيات الإنشاء فيها. حدّث الصفحة ثم أعد المحاولة.",
+        "unsubscribed": "لن تتلقى إشعارات بعد الآن عند تغيير المستند «{title}».",
+        "subscribed": "ستتلقى إشعارات عند تغيير المستند «{title}».",
+        "unlocked": "تم إلغاء قفل المستند «{title}».",
+        "locked": "المستند «{title}» مقفل الآن.",
+        "held": "المستند «{title}» خاضع الآن للتحفظ القانوني ولا يمكن تعديله.",
+        "unheld": "لم يعد المستند «{title}» خاضعًا للتحفظ القانوني."
+      },
+      "collections": {
+        "exists-title": "المجموعة موجودة بالفعل",
+        "create-failed": "تعذّر إنشاء المجموعة المحددة.",
+        "create-failed-title": "خطأ في إنشاء المجموعة",
+        "limit": "لا يمكنك إضافة أكثر من 20 مستندًا إلى مجموعة في المرة الواحدة.",
+        "update-failed-title": "خطأ في تحديث المجموعة",
+        "updating": "جارٍ تحديث المجموعة…",
+        "updating-all": "جارٍ تحديث المجموعات…",
+        "add-failed": "تعذّرت إضافة المستند إلى المجموعة المحددة.",
+        "partially-updated": "تم تحديث المجموعة جزئيًا",
+        "remove-failed": "تعذّرت إزالة المستند من المجموعة المحددة.",
+        "some-remove-failed": "تعذّرت إزالة بعض المستندات من المجموعة المحددة.",
+        "updated": "تم تحديث المجموعة",
+        "exists": "توجد بالفعل مجموعة باسم «{name}».",
+        "many-add-failed": "{count, plural, zero {لم تتعذّر إضافة أي مستند إلى المجموعة المحددة.} one {تعذّرت إضافة مستند واحد إلى المجموعة المحددة.} two {تعذّرت إضافة مستندين إلى المجموعة المحددة.} few {تعذّرت إضافة # مستندات إلى المجموعة المحددة.} many {تعذّرت إضافة # مستندًا إلى المجموعة المحددة.} other {تعذّرت إضافة # مستند إلى المجموعة المحددة.}}",
+        "added": "{count, plural, zero {لم تتم إضافة أي مستند إلى المجموعة المحددة.} one {تمت إضافة مستند واحد إلى المجموعة المحددة.} two {تمت إضافة مستندين إلى المجموعة المحددة.} few {تمت إضافة # مستندات إلى المجموعة المحددة.} many {تمت إضافة # مستندًا إلى المجموعة المحددة.} other {تمت إضافة # مستند إلى المجموعة المحددة.}}",
+        "removed": "{count, plural, zero {لم تتم إزالة أي مستند من المجموعة المحددة.} one {تمت إزالة مستند واحد من المجموعة المحددة.} two {تمت إزالة مستندين من المجموعة المحددة.} few {تمت إزالة # مستندات من المجموعة المحددة.} many {تمت إزالة # مستندًا من المجموعة المحددة.} other {تمت إزالة # مستند من المجموعة المحددة.}}",
+        "favorite-added": "{count, plural, zero {لم تتم إضافة أي مستند إلى المفضلة.} one {تمت إضافة مستند واحد إلى المفضلة.} two {تمت إضافة مستندين إلى المفضلة.} few {تمت إضافة # مستندات إلى المفضلة.} many {تمت إضافة # مستندًا إلى المفضلة.} other {تمت إضافة # مستند إلى المفضلة.}}",
+        "favorite-removed": "{count, plural, zero {لم تتم إزالة أي مستند من المفضلة.} one {تمت إزالة مستند واحد من المفضلة.} two {تمت إزالة مستندين من المفضلة.} few {تمت إزالة # مستندات من المفضلة.} many {تمت إزالة # مستندًا من المفضلة.} other {تمت إزالة # مستند من المفضلة.}}"
+      },
+      "clipboard": {
+        "limit": "يمكن أن تحتوي الحافظة على 100 مستند كحد أقصى للحفاظ على الأداء.",
+        "not-updated": "لم يتم تحديث الحافظة",
+        "updated": "تم تحديث الحافظة",
+        "already-added": "المستند موجود بالفعل في الحافظة.",
+        "add-failed": "تعذّرت إضافة المستند إلى الحافظة.",
+        "empty-copy": "لم يتم نسخ أي مستند إلى الحافظة.",
+        "all-removed": "تمت إزالة جميع المستندات من الحافظة.",
+        "cleared": "تم مسح الحافظة",
+        "copied-title": "تم نسخ المستندات",
+        "moved-title": "تم نقل المستندات",
+        "some-added": "{count, plural, zero {لم يُضف أي مستند من أصل {total, number} إلى الحافظة؛ فبعضها موجود بالفعل.} one {تمت إضافة مستند واحد من أصل {total, number} إلى الحافظة؛ فبعضها موجود بالفعل.} two {تمت إضافة مستندين من أصل {total, number} إلى الحافظة؛ فبعضها موجود بالفعل.} few {تمت إضافة # مستندات من أصل {total, number} إلى الحافظة؛ فبعضها موجود بالفعل.} many {تمت إضافة # مستندًا من أصل {total, number} إلى الحافظة؛ فبعضها موجود بالفعل.} other {تمت إضافة # مستند من أصل {total, number} إلى الحافظة؛ فبعضها موجود بالفعل.}}",
+        "added": "{count, plural, zero {لم تتم إضافة أي مستند إلى الحافظة.} one {تمت إضافة مستند واحد إلى الحافظة.} two {تمت إضافة مستندين إلى الحافظة.} few {تمت إضافة # مستندات إلى الحافظة.} many {تمت إضافة # مستندًا إلى الحافظة.} other {تمت إضافة # مستند إلى الحافظة.}}",
+        "removed": "{count, plural, zero {لم تتم إزالة أي مستند من الحافظة.} one {تمت إزالة مستند واحد من الحافظة.} two {تمت إزالة مستندين من الحافظة.} few {تمت إزالة # مستندات من الحافظة.} many {تمت إزالة # مستندًا من الحافظة.} other {تمت إزالة # مستند من الحافظة.}}",
+        "copied": "{count, plural, zero {لم يتم نسخ أي مستند إلى الموقع الحالي.} one {تم نسخ مستند واحد إلى الموقع الحالي.} two {تم نسخ مستندين إلى الموقع الحالي.} few {تم نسخ # مستندات إلى الموقع الحالي.} many {تم نسخ # مستندًا إلى الموقع الحالي.} other {تم نسخ # مستند إلى الموقع الحالي.}}",
+        "moved": "{count, plural, zero {لم يتم نقل أي مستند إلى الموقع الحالي.} one {تم نقل مستند واحد إلى الموقع الحالي.} two {تم نقل مستندين إلى الموقع الحالي.} few {تم نقل # مستندات إلى الموقع الحالي.} many {تم نقل # مستندًا إلى الموقع الحالي.} other {تم نقل # مستند إلى الموقع الحالي.}}"
+      },
+      "attachments": {
+        "download-starting": "جارٍ بدء التنزيل.",
+        "download-title": "تنزيل ملف",
+        "download-start-failed": "تعذّر بدء التنزيل. تحقّق من اتصالك وصلاحياتك ثم أعد المحاولة.",
+        "download-error": "خطأ في التنزيل",
+        "export-failed": "حدث خطأ أثناء تصدير المستند المحدد.",
+        "export-error": "خطأ في التصدير",
+        "exported-title": "تم تصدير المستند",
+        "download-failed": "حدث خطأ أثناء تنزيل المستند المحدد.",
+        "uploading": "جارٍ رفع الملفات…",
+        "upload-title": "رفع الملفات",
+        "upload-failed": "تعذّر رفع الملفات. تحقّق من اتصالك وصلاحياتك ثم أعد المحاولة.",
+        "upload-start-failed": "تعذّر بدء الرفع. تحقّق من اتصالك وصلاحياتك ثم أعد المحاولة.",
+        "upload-error": "خطأ في رفع الملفات",
+        "uploaded": "تم رفع الملفات بنجاح.",
+        "exported": "تم تصدير المستند بصيغة {format}.",
+        "downloading": "جارٍ تنزيل الملف «{name}»…",
+        "uploading-file": "جارٍ رفع «{name}»…",
+        "file-too-large": "تعذّر رفع الملف «{name}» في الوقت المحدد لأنه كبير جدًا.",
+        "file-failed": "تعذّر رفع الملف «{name}».",
+        "file-uploaded": "تم رفع الملف «{name}» بنجاح.",
+        "invalid-chunk-size": "يجب أن يكون حجم جزء الرفع عددًا صحيحًا موجبًا."
+      },
+      "trash": {
+        "emptied-title": "تم إفراغ سلة المحذوفات",
+        "removed-title": "تمت إزالة المستندات",
+        "restored-title": "تمت استعادة المستندات",
+        "purged-title": "تم حذف المستندات نهائيًا",
+        "moved": "{count, plural, zero {لم يتم نقل أي مستند إلى سلة المهملات.} one {تم نقل مستند واحد إلى سلة المهملات.} two {تم نقل مستندين إلى سلة المهملات.} few {تم نقل # مستندات إلى سلة المهملات.} many {تم نقل # مستندًا إلى سلة المهملات.} other {تم نقل # مستند إلى سلة المهملات.}}",
+        "restored": "{count, plural, zero {لم تتم استعادة أي مستند من سلة المهملات.} one {تمت استعادة مستند واحد من سلة المهملات.} two {تمت استعادة مستندين من سلة المهملات.} few {تمت استعادة # مستندات من سلة المهملات.} many {تمت استعادة # مستندًا من سلة المهملات.} other {تمت استعادة # مستند من سلة المهملات.}}",
+        "purged": "{count, plural, zero {لم يتم حذف أي مستند نهائيًا.} one {تم حذف مستند واحد نهائيًا.} two {تم حذف مستندين نهائيًا.} few {تم حذف # مستندات نهائيًا.} many {تم حذف # مستندًا نهائيًا.} other {تم حذف # مستند نهائيًا.}}",
+        "emptied-folder": "تم حذف جميع المستندات الموجودة في سلة المهملات داخل «{title}» نهائيًا.",
+        "emptied-all": "تم حذف جميع المستندات الموجودة في سلة المهملات نهائيًا."
+      },
+      "http": {
+        "error-title": "خطأ",
+        "configuration": "لم يتم إعداد Maretha Angular WebUI بشكل صحيح في مثيل Nuxeo لديك.",
+        "expired-title": "انتهت صلاحية الجلسة",
+        "expired": "انتهت صلاحية جلستك. انقر هنا للعودة إلى صفحة تسجيل الدخول."
+      },
+      "snapshots": {
+        "created": "تم إنشاء لقطة المستند بنجاح.",
+        "created-title": "تم إنشاء لقطة المستند",
+        "create-failed": "حدث خطأ أثناء إنشاء لقطة المستند.",
+        "create-failed-title": "خطأ في إنشاء اللقطة",
+        "loaded-title": "تم تحميل لقطة المستند",
+        "restored-title": "تمت استعادة لقطة المستند",
+        "loaded": "عرض نسخة اللقطة {version}.",
+        "restored": "تمت استعادة المستند إلى نسخة اللقطة {version}."
+      },
+      "automations": {
+        "error-title": "خطأ في الإجراء الجماعي",
+        "progress": "التقدم: {progress, number, percent}…",
+        "title": "الإجراء الجماعي {operation}"
+      },
+      "import": {
+        "invalid-input": "اختر وجهة وملفات صالحة.",
+        "leave": "هل تريد مغادرة عملية الاستيراد؟ ستبقى المستندات التي تم إنشاؤها، وسيتم تجاهل الملفات غير المكتملة وتفاصيل الاسترداد.",
+        "not-allowed": "لم يعد الإنشاء مسموحًا لهذه الوجهة وهذا النوع من المستندات.",
+        "missing-upload-reference": "لم تُرجع عملية الرفع مرجعًا للملف.",
+        "created-details-failed": "تم الإنشاء؛ تعذّر تحميل التفاصيل. أعد المحاولة لإعادة تحميل هذا المستند.",
+        "failed": "تعذّر إنشاء هذا الملف. أعد المحاولة بعد حل المشكلة.",
+        "too-large": "حجم «{name}» أكبر من المسموح لاستيراده كملاحظة. الحد الأقصى للحجم هو {limit, number} ميغابايت.",
+        "invalid-text": "تعذّرت قراءة «{name}» كنص UTF-8."
+      },
+      "creation": {
+        "details-failed": "تم إنشاء المستند، لكن تعذّر تحميل تفاصيله. أعد محاولة إكمال هذا المستند.",
+        "unknown": "لم يؤكد الخادم اكتمال الإنشاء. افحص الوجهة قبل إنشاء مستند آخر."
+      },
+      "search": {
+        "queue-not-open": "أجرِ بحثًا قبل فتح قائمة نتائجه.",
+        "queue-load-failed": "تعذّر تحميل قائمة نتائج البحث. أعد المحاولة للمتابعة.",
+        "queue-changed": "تغيّر البحث. افتح قائمة النتائج مجددًا لعرض النتائج الجديدة.",
+        "return-failed": "تعذّرت العودة إلى عوامل تصفية البحث.",
+        "asset-open-failed": "تعذّر فتح هذا الأصل.",
+        "assets-load-failed": "تعذّر تحميل قائمة الأصول. أعد المحاولة للمتابعة.",
+        "confirm-trash": "هل تريد نقل المستندات المحددة إلى سلة المهملات؟"
+      },
+      "permissions": {
+        "link-sent": "تم إرسال رابط لهذا المستند إلى {email}.",
+        "sent-title": "تم إرسال الإشعار"
+      },
+      "publication": {
+        "no-longer-publishable": "لم يعد من الممكن نشر المستند. حدّث التحديد وتحقّق من الأذونات."
+      }
+    },
+    "columns": {
+      "title": "العنوان",
+      "path": "مسار",
+      "version": "الإصدار",
+      "rendition": "التنسيق البديل",
+      "publisher": "الناشر",
+      "type": "النوع",
+      "modified": "تم التعديل",
+      "file-size": "حجم الملف",
+      "state": "الحالة",
+      "last-modification": "آخر تعديل",
+      "last-modified": "آخر تعديل",
+      "last-contributor": "المساهم الأخير",
+      "created": "أُنشئ",
+      "author": "المؤلِف",
+      "nature": "الطبيعة",
+      "coverage": "التغطية",
+      "subjects": "المواضيع",
+      "publish-date": "تاريخ النشر",
+      "flags": "العلامات",
+      "size": "الحجم",
+      "performed-action": "الإجراء المُنفّذ",
+      "date": "التاريخ",
+      "username": "اسم المستخدم",
+      "category": "الفئة",
+      "comment": "التعليق",
+      "status": "الحالة",
+      "published": "منشور",
+      "format": "التنسيق"
+    },
+    "notices": {
+      "error-creating-collection-f0f886": "خطأ في إنشاء المجموعة",
+      "error-updating-collection-48250e": "خطأ في تحديث المجموعة",
+      "file-download-c2574e": "تنزيل ملف",
+      "document-published-6ffc86": "تم نشر مستند",
+      "error-54a0e8": "خطأ",
+      "failed-to-create-the-value-collection-4a1517": "تعذّر إنشاء المجموعة «{value0}».",
+      "failed-to-add-the-specified-documents-to-the-74a129": "تعذّرت إضافة المستندات المحددة إلى المجموعة «{value0}».",
+      "your-comment-was-removed-6e4bf3": "تمت إزالة تعليقك.",
+      "comment-removed-f80ae1": "تمت إزالة التعليق",
+      "your-comment-was-saved-bccb02": "تم حفظ تعليقك.",
+      "comment-saved-dbb46c": "تم حفظ التعليق",
+      "downloading-file-value-4ed119": "جارٍ تنزيل الملف «{value0}»…",
+      "-value-plural-one-file-has-been-added-to-the-7162c5": "{value0, plural, zero {لم تتم إضافة أي ملف إلى القائمة.} one {تمت إضافة ملف واحد إلى القائمة.} two {تمت إضافة ملفين إلى القائمة.} few {تمت إضافة # ملفات إلى القائمة.} many {تمت إضافة # ملفًا إلى القائمة.} other {تمت إضافة # ملف إلى القائمة.}}",
+      "files-attached-9fcc60": "تم إرفاق الملفات",
+      "no-files-have-been-added-to-the-list-a4830a": "لم تتم إضافة أي ملفات إلى القائمة.",
+      "no-files-attached-367e69": "لم يتم إرفاق أي ملفات",
+      "a-copy-of-the-document-was-published-to-the-s-9821cf": "تم نشر نسخة من المستند في القسم المحدد.",
+      "the-specified-path-is-invalid-703573": "المسار المحدد غير صالح.",
+      "error-saving-document-5886ac": "خطأ في حفظ المستند",
+      "the-file-has-been-successfully-created-618e09": "تم إنشاء الملف بنجاح.",
+      "the-file-has-been-successfully-modified-4128ae": "تم تعديل الملف بنجاح.",
+      "document-saved-e81dde": "تم حفظ المستند",
+      "fullscreen-is-not-available-in-your-browser-abce6c": "وضع ملء الشاشة غير متاح في متصفحك.",
+      "fullscreen-not-available-bdc19a": "ملء الشاشة غير متاح",
+      "changes-were-saved-but-the-document-could-not-7a41dc": "تم حفظ التغييرات، لكن تعذّر تحديث المستند.",
+      "the-note-has-been-successfully-modified-27f5e0": "تم تعديل الملاحظة بنجاح.",
+      "note-saved-123e3c": "تم حفظ الملاحظة",
+      "you-need-to-choose-a-point-on-the-d-model-its-d4b8d5": "يجب اختيار نقطة على النموذج ثلاثي الأبعاد نفسه.",
+      "hotspot-outside-model-3cf200": "نقطة تفاعلية خارج النموذج",
+      "error-loading-d-model-0755bd": "خطأ في تحميل النموذج ثلاثي الأبعاد",
+      "an-error-occurred-please-try-again-in-a-few-m-5b0be8": "حدث خطأ. أعد المحاولة بعد قليل.",
+      "are-you-sure-f0762c": "هل أنت متأكد؟",
+      "move-the-selected-documents-to-trash-7c970b": "هل تريد نقل المستندات المحددة إلى سلة المهملات؟",
+      "do-you-wish-to-create-a-snapshot-of-the-curre-3baa59": "هل تريد إنشاء لقطة للمستند الحالي قبل استعادته إلى إصدار سابق؟",
+      "discard-your-unsaved-changes-f117f1": "هل تريد تجاهل التغييرات غير المحفوظة؟",
+      "discard-this-permission-change-2d35fc": "هل تريد تجاهل هذا التغيير في الأذونات؟",
+      "delete-the-value-permission-for-value-ca37da": "هل تريد حذف الإذن {value0} الممنوح لـ {value1}؟",
+      "discard-unsaved-directory-entry-changes-146cb0": "هل تريد تجاهل التغييرات غير المحفوظة في إدخال الدليل؟",
+      "delete-saved-search-value-61ad3f": "هل تريد حذف البحث المحفوظ «{value0}»؟"
+    },
+    "state": {
+      "link-copied-71af38": "تم نسخ الرابط",
+      "select-a-permission-d82270": "اختيار إذن",
+      "this-browser-could-not-display-the-file-downl-0b935c": "تعذّر على هذا المتصفح عرض الملف. نزّله لاستخدام عارض آخر.",
+      "preview-is-unavailable-check-access-or-server-160777": "المعاينة غير متاحة. تحقّق من صلاحية الوصول أو دعم التحويل على الخادم، أو نزّل الملف.",
+      "unable-to-refresh-the-search-results-2e29d4": "تعذّر تحديث نتائج البحث.",
+      "unable-to-refresh-the-document-d06b97": "تعذّر تحديث المستند.",
+      "the-accepted-job-is-still-pending-retry-its-s-4eb054": "لا تزال المهمة المقبولة قيد الانتظار. أعد محاولة الاستعلام عن حالتها أو أوقفها.",
+      "the-search-scope-changed-review-and-confirm-a-cfc692": "تغيّر نطاق البحث. راجع الاختيار وأكّده مجددًا.",
+      "the-submission-outcome-is-unknown-do-not-subm-d63d25": "نتيجة الإرسال غير معروفة. لا تُرسله مجددًا.",
+      "the-bulk-runaction-endpoint-was-not-found-che-7e29bd": "لم يُعثر على نقطة الوصول Bulk.RunAction. تحقّق من إعدادات الخادم أو الوكيل قبل استخدام الإجراءات التي تشمل جميع نتائج الاستعلام.",
+      "the-job-was-accepted-but-status-could-not-be-210342": "تم قبول المهمة، لكن تعذّرت قراءة حالتها.",
+      "unable-to-start-the-query-metadata-update-c12746": "تعذّر بدء تحديث البيانات الوصفية لنتائج الاستعلام.",
+      "the-job-status-is-still-unavailable-7d9210": "لا تزال حالة المهمة غير متاحة.",
+      "abort-requested-452edb": "تم طلب الإيقاف.",
+      "the-server-could-not-abort-this-job-db90a8": "تعذّر على الخادم إيقاف هذه المهمة.",
+      "directory-choices-could-not-be-loaded-retry-b-5c648e": "تعذّر تحميل خيارات الدليل. أعد المحاولة قبل تغيير حقل من حقول الدليل.",
+      "the-accepted-job-is-still-pending-retry-its-s-25239c": "لا تزال المهمة المقبولة قيد الانتظار. أعد محاولة الاستعلام عن حالتها بدلًا من ذلك.",
+      "unable-to-start-the-query-trash-action-cfabb0": "تعذّر بدء إجراء سلة المهملات لنتائج الاستعلام.",
+      "csv-export-failed-retry-the-export-8c140a": "فشل تصدير CSV. أعد محاولة التصدير.",
+      "cancellation-could-not-be-confirmed-retry-can-e54119": "تعذّر تأكيد الإلغاء. أعد محاولة الإلغاء.",
+      "cancellation-could-not-be-confirmed-retry-can-5d2070": "تعذّر تأكيد الإلغاء. أعد محاولة الإلغاء إذا كان متاحًا.",
+      "unable-to-load-versions-please-try-again-e20f81": "تعذّر تحميل النسخ. أعد المحاولة.",
+      "the-action-failed-check-permissions-and-retry-5e8cad": "فشل الإجراء. تحقّق من الصلاحيات ثم أعد المحاولة.",
+      "copy-the-selected-link-using-your-keyboard-17309d": "انسخ الرابط المحدد باستخدام لوحة المفاتيح.",
+      "the-lock-could-not-be-removed-retry-after-che-55fe38": "تعذّرت إزالة القفل. تحقّق من صلاحياتك ثم أعد المحاولة.",
+      "publications-could-not-be-loaded-4e082f": "تعذّر تحميل المنشورات.",
+      "more-publications-could-not-be-loaded-86eb10": "تعذّر تحميل المزيد من المنشورات.",
+      "some-publications-remain-nuxeo-only-removes-p-81b56e": "لا تزال بعض المنشورات موجودة. يزيل Nuxeo المنشورات التي يحق لك حذفها فقط.",
+      "publications-removed-e98c00": "تمت إزالة المنشورات.",
+      "the-publication-action-failed-verify-your-per-8ec829": "فشل إجراء النشر. تحقّق من صلاحياتك ثم أعد المحاولة.",
+      "trash-could-not-be-loaded-b3ca80": "تعذّر تحميل سلة المهملات.",
+      "fullscreen-is-unavailable-in-this-browser-aaff2c": "ملء الشاشة غير متاح في هذا المتصفح.",
+      "no-browser-preview-is-available-this-image-ne-279e76": "لا تتوفر معاينة في المتصفح. تتطلب هذه الصورة تحويلًا على الخادم قبل عرضها.",
+      "preview-is-unavailable-for-this-image-downloa-62a90e": "المعاينة غير متاحة لهذه الصورة. نزّل الملف لعرضه.",
+      "the-selected-documents-could-not-be-moved-to-240f2c": "تعذّر نقل المستندات المحددة إلى سلة المهملات. تحقّق من الصلاحيات ثم أعد المحاولة.",
+      "the-selected-documents-could-not-be-removed-f-94e7f8": "تعذّرت إزالة المستندات المحددة من هذه المجموعة. حدّث الصفحة ثم أعد المحاولة.",
+      "the-documents-could-not-be-reordered-refresh-0e0bf7": "تعذّرت إعادة ترتيب المستندات. حدّث الصفحة ثم أعد المحاولة.",
+      "-value-content-could-not-be-loaded-check-your-2ea53d": "تعذّر تحميل محتوى {value0}. تحقّق من صلاحية وصولك ثم أعد المحاولة.",
+      "destinations-could-not-be-loaded-retry-the-se-50a24a": "تعذّر تحميل الوجهات. أعد محاولة البحث.",
+      "permissions-could-not-be-loaded-de0c27": "تعذّر تحميل الصلاحيات.",
+      "select-a-user-or-group-or-enter-a-valid-exter-87778b": "اختر مستخدمًا أو مجموعة، أو أدخل عنوان بريد إلكتروني خارجيًا صالحًا.",
+      "enter-a-valid-permission-time-frame-b2ebc5": "أدخل فترة زمنية صالحة للصلاحية.",
+      "permissions-updated-2674b9": "تم تحديث الصلاحيات.",
+      "trash-could-not-be-emptied-04df71": "تعذّر إفراغ سلة المهملات.",
+      "unable-to-check-whether-this-version-can-be-r-dc052f": "تعذّر التحقق من إمكانية استعادة هذه النسخة.",
+      "this-version-can-no-longer-be-restored-246e03": "لم يعد من الممكن استعادة هذه النسخة.",
+      "the-version-could-not-be-restored-2faf1c": "تعذّرت استعادة النسخة.",
+      "search-failed-check-the-filters-and-retry-f73bdd": "فشل البحث. تحقّق من عوامل التصفية ثم أعد المحاولة.",
+      "enter-an-nxql-query-22e2ac": "أدخل استعلام NXQL.",
+      "enter-an-absolute-repository-path-d6ebeb": "أدخل مسارًا مطلقًا في المستودع.",
+      "enter-a-valid-expiration-date-2183d9": "أدخل تاريخ انتهاء صلاحية صالحًا.",
+      "unable-to-load-saved-searches-ac687d": "تعذّر تحميل عمليات البحث المحفوظة.",
+      "search-saved-681246": "تم حفظ البحث.",
+      "unable-to-save-this-search-265779": "تعذّر حفظ هذا البحث.",
+      "unable-to-delete-this-search-4ba973": "تعذّر حذف هذا البحث.",
+      "search-failed-check-the-query-permissions-and-48df75": "فشل البحث. تحقّق من الاستعلام والصلاحيات وتوفر موفّر البحث هذا، ثم أعد المحاولة.",
+      "metadata-layout-policy-could-not-be-saved-17476f": "تعذّر حفظ سياسة تخطيط البيانات الوصفية.",
+      "the-version-was-created-but-the-refreshed-doc-8e261a": "تم إنشاء النسخة، لكن تعذّر تحميل المستند المحدّث. أعد التحميل.",
+      "the-version-could-not-be-created-please-try-a-71fe33": "تعذّر إنشاء النسخة. أعد المحاولة.",
+      "saved-but-the-refreshed-document-could-not-be-8ca637": "تم الحفظ، لكن تعذّر تحميل المستند المحدّث. أعد التحميل.",
+      "the-attachments-could-not-be-saved-please-try-5a9bdd": "تعذّر حفظ المرفقات. أعد المحاولة.",
+      "the-attachment-could-not-be-removed-please-tr-0846e5": "تعذّرت إزالة المرفق. أعد المحاولة.",
+      "saved-value-79e8db": "تم حفظ {value0}.",
+      "unable-to-save-this-search-check-your-permiss-a7bdca": "تعذّر حفظ هذا البحث. تحقّق من صلاحياتك ثم أعد المحاولة.",
+      "updated-value-064850": "تم تحديث {value0}.",
+      "unable-to-update-this-search-check-your-permi-a85910": "تعذّر تحديث هذا البحث. تحقّق من صلاحياتك ثم أعد المحاولة.",
+      "enter-one-user-or-group-name-without-line-bre-88f55c": "أدخل اسم مستخدم أو مجموعة واحدًا دون فواصل أسطر.",
+      "granted-read-access-to-value-740215": "تم منح صلاحية القراءة لـ {value0}.",
+      "unable-to-share-this-search-you-need-permissi-ef6a3e": "تعذّرت مشاركة هذا البحث. تحتاج إلى صلاحية إدارته.",
+      "this-saved-search-has-invalid-parameters-b85643": "يحتوي هذا البحث المحفوظ على معلمات غير صالحة.",
+      "restored-value-b065a7": "تمت استعادة {value0}.",
+      "deleted-value-93c1b6": "تم حذف {value0}.",
+      "unable-to-delete-this-search-check-your-permi-4ab2af": "تعذّر حذف هذا البحث. تحقّق من صلاحياتك ثم أعد المحاولة.",
+      "the-start-date-must-be-before-the-end-date-88c4c0": "يجب أن يسبق تاريخ البدء تاريخ الانتهاء.",
+      "analytics-could-not-be-loaded-check-your-conn-b46033": "تعذّر تحميل التحليلات. تحقّق من اتصالك وصلاحياتك ثم أعد المحاولة.",
+      "document-distribution-could-not-be-loaded-sel-02b1b2": "تعذّر تحميل توزيع المستندات. اختر نطاقًا أصغر أو تحقّق من فهرس البحث.",
+      "enter-valid-audit-dates-e5ac7d": "أدخل تواريخ صالحة للتدقيق.",
+      "the-start-date-must-be-before-or-on-the-end-d-53a541": "يجب أن يسبق تاريخ البدء تاريخ الانتهاء أو يوافقه.",
+      "only-an-administrator-can-add-a-user-to-the-a-ee74ba": "لا يمكن إضافة مستخدم إلى مجموعة المسؤولين إلا بواسطة مسؤول.",
+      "invitation-queued-for-value-5bdcfd": "تم إدراج الدعوة إلى {value0} في قائمة الانتظار.",
+      "-value-value-created-051fd5": "تم إنشاء {value0} {value1}.",
+      "unable-to-load-the-current-account-details-re-244ab4": "تعذّر تحميل تفاصيل الحساب الحالي. أعد المحاولة للتعديل.",
+      "unable-to-load-users-and-groups-5ae278": "تعذّر تحميل المستخدمين والمجموعات.",
+      "unable-to-load-value-value-6ba643": "تعذّر تحميل {value0} {value1}.",
+      "metadata-could-not-be-saved-refresh-the-docum-c4fa8b": "تعذّر حفظ البيانات الوصفية. حدّث المستند ثم أعد المحاولة.",
+      "import-is-disabled-for-value-93eee7": "الاستيراد معطّل لـ {value0}.",
+      "the-import-could-not-be-started-4aad57": "تعذّر بدء الاستيراد.",
+      "the-custom-document-layout-must-declare-a-lay-f73b3d": "يجب أن يصرّح تخطيط المستند المخصص بمدخل layoutContext.",
+      "this-document-type-does-not-support-a-main-fi-c08948": "لا يدعم هذا النوع من المستندات ملفًا رئيسيًا. اختر نوعًا آخر.",
+      "document-type-information-could-not-be-loaded-877c5c": "تعذّر تحميل معلومات نوع المستند.",
+      "publication-failed-verify-the-target-permissi-84fc63": "فشل النشر. تحقّق من صلاحيات الوجهة ثم أعد المحاولة.",
+      "suggestions-are-unavailable-you-can-still-add-859857": "الاقتراحات غير متاحة. لا يزال بإمكانك إضافة وسم جديد.",
+      "no-matching-images-on-this-page-load-more-ima-9fbfd6": "لا توجد صور مطابقة في هذه الصفحة. حمّل المزيد من الصور للمتابعة.",
+      "no-matching-images-found-e070cd": "لم يُعثر على صور مطابقة.",
+      "images-could-not-be-loaded-please-try-again-9f030e": "تعذّر تحميل الصور. أعد المحاولة.",
+      "enter-a-youtube-or-vimeo-https-video-url-6cc690": "أدخل رابط فيديو HTTPS من YouTube أو Vimeo.",
+      "enter-an-https-http-or-email-link-50abcc": "أدخل رابط https أو http أو بريد إلكتروني.",
+      "history-could-not-be-loaded-check-your-access-ae2d65": "تعذّر تحميل السجل. تحقّق من صلاحية وصولك وأعد المحاولة.",
+      "permissions-could-not-be-loaded-check-your-ac-abce21": "تعذّر تحميل الأذونات. تحقّق من صلاحية وصولك وأعد المحاولة.",
+      "the-permission-change-could-not-be-completed-ec522e": "تعذّر إكمال تغيير الإذن. حدّث الصفحة وأعد المحاولة.",
+      "uploading-file-value-9d01a9": "جارٍ رفع الملف «{value0}»",
+      "creating-document-value-e8c827": "جارٍ إنشاء المستند «{value0}»",
+      "collection-membership-could-not-be-updated-b86ce5": "تعذّر تحديث عضوية المجموعة.",
+      "tags-could-not-be-updated-3e7d4f": "تعذّر تحديث الوسوم.",
+      "this-task-action-is-no-longer-available-87150c": "لم يعد هذا الإجراء متاحًا للمهمة.",
+      "unable-to-refresh-this-task-6c7927": "تعذّر تحديث هذه المهمة.",
+      "this-workflow-can-no-longer-be-abandoned-6f4699": "لم يعد من الممكن إلغاء سير العمل هذا.",
+      "unable-to-refresh-this-workflow-72164e": "تعذّر تحديث سير العمل هذا.",
+      "unable-to-save-this-workflow-change-f3bddb": "تعذّر حفظ هذا التغيير في سير العمل.",
+      "this-task-can-no-longer-be-changed-a6f145": "لم يعد من الممكن تغيير هذه المهمة.",
+      "documents-copied-047a0c": "تم نسخ المستندات",
+      "documents-moved-00a77f": "تم نقل المستندات",
+      "folders-could-not-be-loaded-check-your-access-4b610d": "تعذّر تحميل المجلدات. تحقّق من صلاحية وصولك وأعد المحاولة.",
+      "this-administration-page-could-not-be-opened-218a4c": "تعذّر فتح صفحة الإدارة هذه. أعد المحاولة.",
+      "the-document-could-not-be-opened-try-again-36410b": "تعذّر فتح المستند. أعد المحاولة.",
+      "the-documents-were-saved-but-the-current-loca-c6e66d": "تم حفظ المستندات، لكن تعذّر تحديث الموقع الحالي.",
+      "navigation-cancelled-your-collection-is-still-055691": "أُلغي الانتقال. ما زالت مجموعتك متاحة.",
+      "this-document-could-not-be-opened-try-again-2db5fc": "تعذّر فتح هذا المستند. أعد المحاولة.",
+      "this-document-is-no-longer-available-in-the-c-21585e": "لم يعد هذا المستند متاحًا في المجموعة.",
+      "favorites-could-not-be-loaded-check-your-conn-8618b2": "تعذّر تحميل المفضّلة. تحقّق من اتصالك وأعد المحاولة.",
+      "navigation-cancelled-your-favorites-are-still-706c48": "أُلغي الانتقال. ما زالت مفضّلتك متاحة.",
+      "the-favorite-was-removed-but-its-updated-list-f1c05b": "أُزيل العنصر من المفضّلة، لكن تعذّر تحميل القائمة المحدّثة. يرجى إعادة المحاولة.",
+      "the-document-could-not-be-removed-from-favori-4afef1": "تعذّرت إزالة المستند من المفضّلة. يرجى إعادة المحاولة.",
+      "your-personal-workspace-could-not-be-loaded-c-101b54": "تعذّر تحميل مساحة عملك الشخصية. تحقّق من صلاحية وصولك وأعد المحاولة.",
+      "save-or-discard-changes-in-the-open-drawer-be-7e7abf": "احفظ التغييرات في اللوحة المفتوحة أو تجاهلها قبل المغادرة.",
+      "renamed-value-2f1c7a": "تمت إعادة التسمية إلى {value0}.",
+      "unable-to-rename-this-search-check-your-permi-5d0b3c": "تعذر إعادة تسمية هذا البحث. تحقق من أذوناتك وأعد المحاولة."
+    },
+    "labels": {
+      "create-documents-5d5686": "إنشاء مستندات",
+      "uploading-8b898c": "جارٍ الرفع…",
+      "creating-3b951e": "جارٍ الإنشاء...",
+      "created-d70b9e": "أُنشئ",
+      "title-7e8cd2": "العنوان",
+      "description-526e00": "الوصف",
+      "nature-c71ce8": "الطبيعة",
+      "subjects-1a7529": "المواضيع",
+      "coverage-523487": "التغطية",
+      "expiration-date-8ccc3f": "تاريخ انتهاء الصلاحية",
+      "bold-94fee6": "غامق",
+      "italic-9bf37c": "مائل",
+      "underline-02f843": "تسطير",
+      "code-block-754538": "حجب التعليمات البرمجية",
+      "decrease-indent-88053f": "تقليل المسافة البادئة",
+      "increase-indent-b80a5d": "زيادة المسافة البادئة",
+      "align-left-eac0f9": "محاذاة لليسار",
+      "align-center-e55c76": "محاذة للوسط",
+      "align-right-8f4f8e": "محاذاة لليمين",
+      "subscript-cd512a": "منخفض",
+      "superscript-31a0ba": "مرتفع",
+      "numbered-list-cc62f6": "قائمة مرقمة",
+      "bulleted-list-ce51b3": "قائمة نقطية",
+      "clear-formatting-9e75ec": "مسح التنسيق",
+      "picture-info-fc2deb": "معلومات الصور",
+      "dimensions-914182": "الأبعاد",
+      "format-2f3436": "الصيغة",
+      "color-profile-dacfe1": "ملف تعريف اللون",
+      "bit-depth-per-channel-e31b31": "عمق البت لكل قناة",
+      "save-changes-dd0ae7": "حفظ التغييرات",
+      "close-without-saving-bb5e6e": "إغلاق دون حفظ",
+      "consult-content-b1dac7": "عرض المحتوى",
+      "comment-documents-22011f": "التعليق على المستندات",
+      "tag-documents-9a3dfd": "إضافة وسوم إلى المستندات",
+      "collect-content-8507cf": "إضافة المحتوى إلى المجموعات",
+      "follow-content-897c1c": "متابعة المحتوى",
+      "edit-documents-c06bd9": "تحرير المستندات",
+      "add-remove-relations-36d72f": "إضافة علاقات أو إزالتها",
+      "start-a-workflow-6c6b2d": "بدء سير عمل",
+      "delete-documents-7e7d03": "حذف المستندات",
+      "read-actions-0b2cef": "+ إجراءات القراءة",
+      "manage-permissions-2630ba": "إدارة الأذونات",
+      "set-alerts-to-other-users-729faa": "تعيين تنبيهات لمستخدمين آخرين",
+      "apply-a-preset-look-on-documents-75f209": "تطبيق مظهر مُعدّ مسبقًا على المستندات",
+      "manage-deleted-documents-0b23a2": "إدارة المستندات المحذوفة",
+      "define-publication-targets-63dcd6": "تحديد وجهات النشر",
+      "edit-actions-a06a00": "+ إجراءات التحرير",
+      "permissions-for-people-outside-the-organizati-f93d74": "١. أذونات الأشخاص من خارج المؤسسة",
+      "permissions-specific-to-this-document-a162dc": "٢. الأذونات الخاصة بهذا المستند",
+      "permissions-inherited-from-the-parent-folder-3600b6": "٣. الأذونات الموروثة من المجلد الأب",
+      "add-a-new-permission-ddb3e4": "إضافة إذن جديد",
+      "sharing-to-external-users-does-not-create-new-eca5e2": "لا تؤدي المشاركة مع مستخدمين خارجيين إلى إنشاء حسابات مستخدمين جديدة، بل يُزوَّد المستخدمون الخارجيون برابط للوصول إلى هذا المستند.",
+      "enable-permission-inheritance-6da961": "تفعيل وراثة الأذونات",
+      "disable-permission-inheritance-946455": "تعطيل وراثة الأذونات",
+      "unknown-principal-edd139": "مستخدم أو مجموعة غير معروفين",
+      "pending-331551": "قيد الانتظار",
+      "checking-destination-885a56": "جارٍ التحقق من الوجهة",
+      "reading-text-10c504": "جارٍ قراءة النص",
+      "needs-attention-c1ebc7": "يحتاج إلى انتباه",
+      "outcome-unknown-164557": "النتيجة غير معروفة",
+      "strikethrough-9aabbc": "يتوسطه خط",
+      "block-quote-cb1946": "اقتباس كتلي",
+      "date-taken-a2f4fe": "تاريخ الالتقاط",
+      "horizontal-resolution-cc9eae": "الدقة الأفقية",
+      "vertical-resolution-415b15": "الدقة الرأسية",
+      "you-can-either-manually-select-files-or-drag--ced9be": "يمكنك تحديد الملفات يدويًا أو سحبها إلى هنا"
+    },
+    "toolbar": {
+      "move-up": "تحريك للأعلى",
+      "move-down": "تحريك للأسفل",
+      "select-loaded": "تحديد العناصر المعروضة",
+      "clear-selection": "مسح التحديد",
+      "display": "إعدادات العرض",
+      "compare": "مقارنة",
+      "collect": "إضافة إلى مجموعة",
+      "remove-collection": "إزالة من المجموعة",
+      "edit-selection": "تحرير التحديد",
+      "clipboard": "نسخ إلى الحافظة",
+      "trash": "نقل إلى سلة المهملات",
+      "versions": "الإصدارات",
+      "workflow": "بدء سير عمل"
+    },
+    "search": {
+      "favorite": "مفضّل",
+      "cold-storage": "تخزين بارد",
+      "color-depth": "عمق اللون",
+      "facet-value": "{label}: {value}"
+    },
+    "runtime": {
+      "binary-editor": {
+        "save-changes-ae7d55": "حفظ التغييرات",
+        "cancel-da793d": "إلغاء",
+        "close-without-saving-e18793": "إغلاق دون حفظ"
+      },
+      "domain-editor": {
+        "save-changes-cfd8f1": "حفظ التغييرات",
+        "create-domain-8cd2df": "إنشاء نطاق"
+      },
+      "editor-metadata-status": {
+        "document-8efccc": "مستند"
+      },
+      "generic-editor": {
+        "save-changes-0b2bb7": "حفظ التغييرات",
+        "cancel-c75bdc": "إلغاء",
+        "close-without-saving-0f3176": "إغلاق دون حفظ"
+      },
+      "note-editor": {
+        "save-changes-3a9695": "حفظ التغييرات",
+        "cancel-a751d6": "إلغاء",
+        "close-without-saving-5c3bfb": "إغلاق دون حفظ"
+      },
+      "standard-content-editor": {
+        "create-049116": "إنشاء",
+        "save-d06564": "حفظ",
+        "cancel-da79c8": "إلغاء"
+      },
+      "empty-document-layout": {
+        "cancel-7e17e0": "إلغاء"
+      },
+      "image-renderer": {
+        "rendition-979e0b": "التنسيق البديل",
+        "image-preview-66403a": "معاينة الصورة"
+      },
+      "display-settings": {
+        "pick-a-sort-option-e53804": "اختر طريقة ترتيب..."
+      },
+      "blob-preview": {
+        "document-preview-7d76d8": "معاينة المستند"
+      },
+      "base-editor": {
+        "saving-document-d06e6b": "جارٍ حفظ المستند…"
+      },
+      "document-type-editor": {
+        "no-editor-is-currently-available-for-this--6d1647": "لا يتوفّر حاليًا محرّر لهذا النوع من المستندات!"
+      },
+      "picturebook-content-layout": {
+        "document-thumbnail-e00a5b": "صورة مصغّرة للمستند"
+      }
+    },
+    "settingsShared": {
+      "recently-viewed-eab19e": "تمت مشاهدته مؤخرًا",
+      "collections-9f9fea": "المجموعات",
+      "clipboard-285d69": "ذاكرة التخزين المؤقتة",
+      "tasks-b3a60e": "المهام",
+      "administration-4b42c6": "الادارة",
+      "id-384397": "المعرّف",
+      "parent-5f7953": "أصلي",
+      "label-0e6637": "التسمية",
+      "english-label-100733": "التسمية الإنجليزية",
+      "french-label-c8eef1": "التسمية الفرنسية",
+      "obsolete-a97fc8": "مهمل",
+      "order-6be090": "أمر",
+      "automatic-d461a4": "تشعيل تلقائي",
+      "unknown-b764cd": "غير معروف",
+      "first-page-0bdbb7": "الصفحة الأولى",
+      "theme-default": "الافتراضي",
+      "favorites-7a1f2a": "المفضّلة",
+      "expanded-select-true-collapse-title-other-expan-22e5c6": "{expanded, select, true {طيّ {title}} other {توسيع {title}}}",
+      "count-plural-one-you-have-pending-task-other-yo-82d0f1": "{count, plural, zero {ليس لديك أي مهمة معلّقة} one {لديك مهمة واحدة معلّقة} two {لديك مهمتان معلّقتان} few {لديك # مهام معلّقة} many {لديك # مهمة معلّقة} other {لديك # مهمة معلّقة}}",
+      "view-members-of-title-7b9c23": "عرض أعضاء {title}",
+      "user-group-identifier-id-e1c575": "معرّف مجموعة المستخدمين: {id}",
+      "actions-for-group-name-1dc425": "إجراءات المجموعة {name}",
+      "actions-for-user-name-c5458d": "إجراءات المستخدم {name}",
+      "detach-from-group-name-a16a06": "إزالة من المجموعة {name}",
+      "kind-select-users-user-pages-other-group-pages-605ea0": "{kind, select, users {صفحات المستخدمين} other {صفحات المجموعات}}",
+      "remove-rule-number-number-8707d6": "إزالة القاعدة {number, number}",
+      "users-number-users-groups-number-groups-ec7116": "عدد المستخدمين: {users, number} · عدد المجموعات: {groups, number}",
+      "seconds-number-precision-integer-seconds-d3070d": "بالثواني: {seconds, number, ::precision-integer}",
+      "count-plural-one-audit-record-other-audit-recor-82d2ca": "{count, plural, zero {لا توجد سجلات تدقيق} one {سجل تدقيق واحد} two {سجلا تدقيق} few {# سجلات تدقيق} many {# سجل تدقيق} other {# سجل تدقيق}}",
+      "field-select-eventid-sort-by-action-eventdate-s-679936": "{field, select, eventId {ترتيب حسب الإجراء} eventDate {ترتيب حسب التاريخ} principalName {ترتيب حسب المستخدم} other {ترتيب حسب الفئة}}{sort, select, ASC {، مرتّب تصاعديًا} DESC {، مرتّب تنازليًا} other {}}",
+      "audit-records-are-unavailable-your-server-must-e-b42176": "سجلات التدقيق غير متاحة. يجب أن يوفّر خادمك نقطة نهاية الأتمتة Audit.QueryWithPageProvider.",
+      "action-select-create-the-entry-could-not-be-cre-16ce3e": "{action, select, create {تعذّر إنشاء الإدخال.} other {تعذّر تحديث الإدخال.}}",
+      "directories-could-not-be-loaded-retry-the-reques-42d3cc": "تعذّر تحميل الأدلة. أعد محاولة الطلب.",
+      "an-entry-id-and-a-valid-parent-are-needed-484ae9": "يلزم معرّف إدخال وعنصر أب صالح.",
+      "the-entry-could-not-be-deleted-it-may-be-referen-e2289b": "تعذّر حذف الإدخال. قد توجد مراجع إليه.",
+      "directory-entries-could-not-be-loaded-retry-the-031629": "تعذّر تحميل إدخالات الدليل. أعد محاولة الطلب.",
+      "manual-b0b9fe": "يدوي",
+      "immediate-ed6cb0": "فوري",
+      "based-on-events-b7ab69": "استنادًا إلى الأحداث",
+      "based-on-a-document-s-field-6b32a5": "استنادًا إلى حقل في المستند",
+      "unable-to-send-the-invitation-check-the-values-a-3bf881": "تعذّر إرسال الدعوة. تحقّق من القيم وأعد المحاولة.",
+      "kind-select-group-unable-to-save-the-group-chec-03378d": "{kind, select, group {تعذّر حفظ المجموعة. تحقّق من القيم وأعد المحاولة.} other {تعذّر حفظ المستخدم. تحقّق من القيم وأعد المحاولة.}}",
+      "kind-select-group-group-id-created-other-user-i-225abd": "{kind, select, group {تم إنشاء المجموعة {id}.} other {تم إنشاء المستخدم {id}.}}",
+      "operation-select-copy-the-documents-could-not-b-ea6d40": "{operation, select, Copy {تعذّر نسخ المستندات. تحقّق من الوجهة وأعد المحاولة.} other {تعذّر نقل المستندات. تحقّق من الوجهة وأعد المحاولة.}}",
+      "kind-select-group-unable-to-delete-group-id-che-3e6542": "{kind, select, group {تعذّر حذف المجموعة {id}. تحقّق من الأذونات وأعد المحاولة.} other {تعذّر حذف المستخدم {id}. تحقّق من الأذونات وأعد المحاولة.}}",
+      "unable-to-add-user-to-group-check-permissions-an-d17955": "تعذّرت إضافة {user} إلى {group}. تحقّق من الأذونات وأعد المحاولة.",
+      "unable-to-remove-user-from-group-check-permissio-e15a69": "تعذّرت إزالة {user} من {group}. تحقّق من الأذونات وأعد المحاولة.",
+      "kind-select-group-unable-to-load-group-id-other-8eaf44": "{kind, select, group {تعذّر تحميل المجموعة {id}.} other {تعذّر تحميل المستخدم {id}.}}",
+      "unable-to-load-this-directory-page-8ae94c": "تعذّر تحميل صفحة الدليل هذه.",
+      "unable-to-load-group-members-retry-a1725f": "تعذّر تحميل أعضاء المجموعة. أعد المحاولة.",
+      "actorknown-select-true-actor-other-unknown-task-2940b7": "{actorKnown, select, true {{actor}} other {غير معروف}} · {taskKnown, select, true {{task}} other {مهمة}}",
+      "no-result-c6008b": "لا توجد نتيجة",
+      "less-than-181ad0": "أقل من ٥٠",
+      "to-d5b660": "من ٥١ إلى ٢٠٠",
+      "to-6b2752": "من ٢٠١ إلى ١٠٠٠",
+      "more-than-016b89": "أكثر من ١٠٠٠",
+      "page-794f70": "الصفحة ٢",
+      "pages-to-b3c307": "الصفحات من ٣ إلى ٥",
+      "pages-to-ef2bc9": "الصفحات من ٦ إلى ١٠",
+      "after-pages-8280ea": "بعد ١٠ صفحات",
+      "events-8d14f6": "الأحداث",
+      "apple-quicktime-91e566": "Apple Quicktime",
+      "excel-xlsx-9e97de": "Excel (xlsx)",
+      "google-docs-507e98": "مستندات Google",
+      "google-drive-file-5a492f": "ملف Google Drive",
+      "google-drive-folder-edd32e": "مجلد Google Drive",
+      "google-earth-kml-54b869": "Google Earth (kml)",
+      "google-earth-kmz-72018f": "Google Earth (kmz)",
+      "google-form-44f53b": "نموذج Google",
+      "google-fusion-tables-d830eb": "Google Fusion Tables",
+      "google-presentation-ba3a6a": "عرض تقديمي من Google",
+      "google-sites-66df01": "مواقع Google",
+      "google-spreadsheet-6fa70d": "جدول بيانات Google",
+      "one-note-8ff8b1": "One Note",
+      "opendocument-chart-b5745c": "مخطط OpenDocument",
+      "opendocument-chart-template-d1aa7c": "قالب مخطط OpenDocument",
+      "opendocument-database-232000": "قاعدة بيانات OpenDocument",
+      "opendocument-formula-caaf5b": "صيغة OpenDocument",
+      "opendocument-formula-template-0402ec": "قالب صيغة OpenDocument",
+      "opendocument-graphics-90a2b0": "رسومات OpenDocument",
+      "opendocument-graphics-template-5b39a6": "قالب رسومات OpenDocument",
+      "opendocument-image-b43b24": "صورة OpenDocument",
+      "opendocument-image-template-c847f7": "قالب صورة OpenDocument",
+      "opendocument-presentation-4af4e0": "عرض تقديمي OpenDocument",
+      "opendocument-presentation-template-ef2503": "قالب عرض تقديمي OpenDocument",
+      "opendocument-spreadsheet-5bdb19": "جدول بيانات OpenDocument",
+      "opendocument-spreadsheet-template-e114bc": "قالب جدول بيانات OpenDocument",
+      "opendocument-text-a531cc": "نص OpenDocument",
+      "opendocument-text-master-d3002f": "مستند رئيسي OpenDocument",
+      "opendocument-text-template-9f2401": "قالب نص OpenDocument",
+      "opendocument-text-web-0ad7be": "صفحة ويب OpenDocument",
+      "plain-text-7b5cb3": "نص عادي",
+      "word-template-9cb39c": "قالب Word",
+      "folders-could-not-be-loaded-retry-to-continue-477df1": "تعذّر تحميل المجلدات. أعد المحاولة للمتابعة.",
+      "collections-could-not-be-loaded-retry-the-reques-26a407": "تعذّر تحميل المجموعات. أعد محاولة الطلب.",
+      "permission-to-update-this-collection-has-changed-a57520": "تغيّر الإذن بتحديث هذه المجموعة.",
+      "the-member-could-not-be-removed-retry-the-reques-0d79fc": "تعذّرت إزالة العضو. أعد محاولة الطلب.",
+      "retentionRules": "قواعد الاحتفاظ",
+      "metadataLayouts": "تخطيطات البيانات الوصفية"
+    },
+    "errors": {
+      "cancellation-could-not-be-confirmed-retr-e54119": "تعذّر تأكيد الإلغاء. أعد محاولة الإلغاء.",
+      "the-streaming-session-has-ended-sign-in--b8ce91": "انتهت جلسة البث. سجّل الدخول مجددًا.",
+      "invalid-archive-preparation-identifier--05b584": "معرّف إعداد الأرشيف غير صالح.",
+      "the-server-returned-an-invalid-archive-p-ed80c0": "أعاد الخادم حالة غير صالحة لإعداد الأرشيف.",
+      "the-streaming-grant-changed-identity--a45585": "تغيّرت هوية تصريح البث.",
+      "streaming-requires-this-application-and--eb55ea": "يتطلّب البث وجود هذا التطبيق وNuxeo على أصل HTTPS نفسه.",
+      "the-server-returned-an-invalid-streaming-e61825": "أعاد الخادم تصريح بث غير صالح.",
+      "the-server-returned-an-invalid-streaming-4129b2": "أعاد الخادم عنوان URL غير صالح للبث.",
+      "select-up-to-1-000-valid-documents-from--fe7e4f": "حدّد ما يصل إلى ١٠٠٠ مستند صالح من مستودع واحد.",
+      "a-complete-query-scope-is-required--5d108b": "يلزم نطاق استعلام كامل.",
+      "download-cancelled--79310f": "أُلغي التنزيل.",
+      "the-server-did-not-expose-the-download-s-0012f8": "لم يوفّر الخادم عنوان URL لحالة التنزيل. اسمح برأس الاستجابة Location في إعدادات CORS في Nuxeo.",
+      "no-csv-export-was-returned--e3fe3f": "لم تتم إعادة أي تصدير بتنسيق CSV.",
+      "no-downloadable-content-was-returned--65d092": "لم تتم إعادة أي محتوى قابل للتنزيل.",
+      "unexpected-nested-csv-result-url--5767cf": "عنوان URL متداخل غير متوقّع لنتيجة CSV.",
+      "the-csv-export-stopped-or-completed-with-8f40bd": "توقّف تصدير CSV أو اكتمل مع أخطاء.",
+      "missing-export-status-url--3dd5ac": "عنوان URL لحالة التصدير مفقود.",
+      "missing-download-status-url--6d57df": "عنوان URL لحالة التنزيل مفقود.",
+      "the-server-could-not-prepare-the-selecte-6673f4": "تعذّر على الخادم إعداد الملفات المحددة.",
+      "invalid-download-status-url--e4b0a6": "عنوان URL لحالة التنزيل غير صالح.",
+      "this-folder-can-no-longer-be-reordered-r-171dd8": "لم يعد من الممكن إعادة ترتيب هذا المجلد. حدّث الصفحة وتحقّق من الأذونات.",
+      "the-folder-changed-before-reordering--9b771d": "تغيّر المجلد قبل إعادة الترتيب.",
+      "the-folder-contents-changed-refresh-befo-9737ec": "تغيّرت محتويات المجلد. حدّث الصفحة قبل إعادة الترتيب.",
+      "the-folder-order-changed-while-loading-r-75a30d": "تغيّر ترتيب المجلد أثناء التحميل. حدّث الصفحة وأعد المحاولة.",
+      "the-complete-sibling-order-is-unavailabl-0938f8": "الترتيب الكامل للعناصر الشقيقة غير متاح. حدّث الصفحة قبل إعادة الترتيب.",
+      "the-server-returned-an-incomplete-siblin-03bf2e": "أعاد الخادم صفحة غير مكتملة من العناصر الشقيقة.",
+      "a-selected-document-moved-or-is-unavaila-b98287": "نُقل أحد المستندات المحددة أو لم يعد متاحًا. حدّث التحديد.",
+      "the-displayed-order-is-stale-refresh-the-97f922": "الترتيب المعروض قديم. حدّث المجلد قبل إعادة الترتيب.",
+      "reordering-failed-or-its-outcome-is-unkn-857931": "فشلت إعادة الترتيب أو أن نتيجتها غير معروفة. حدّث المجلد قبل إعادة المحاولة.",
+      "permission-to-empty-this-trash-has-chang-9c8d9d": "تغيّر الإذن بإفراغ سلة المهملات هذه.",
+      "save-the-file-before-streaming-or-downlo-e2e304": "احفظ الملف قبل بثّه أو تنزيله.",
+      "the-saved-file-could-not-be-identified-u-ab5c25": "تعذّر تحديد الملف المحفوظ بشكل فريد. حدّث المستند وأعد المحاولة.",
+      "the-saved-file-has-no-repository--d67912": "ليس للملف المحفوظ مستودع.",
+      "the-document-has-changed-refresh-and-try-955ef4": "تغيّر المستند. حدّث الصفحة وأعد المحاولة.",
+      "permission-to-manage-access-has-changed--8759b9": "تغيّر الإذن بإدارة الوصول.",
+      "the-selected-permission-is-no-longer-ava-ba220e": "لم يعد الإذن المحدد متاحًا.",
+      "this-permission-has-changed-refresh-and--167160": "تغيّر هذا الإذن. حدّث الصفحة وأعد المحاولة."
+    },
+    "viewer": {
+      "documentType": "نوع المستند",
+      "state": "الحالة",
+      "embeddedVideo": "فيديو مضمن",
+      "mediaPlaybackFailed": "تعذّر تشغيل هذا المحتوى الإعلامي. تحقّق من صلاحية الوصول أو حدّث المستند لإعادة المحاولة.",
+      "streamingExpired": "انتهت صلاحية تصريح البث.",
+      "streamingUnavailable": "البث غير متاح. حدّث المستند لإعادة المحاولة.",
+      "comparisonMissing": "— مفقود —",
+      "comparisonEmpty": "— فارغ —",
+      "unnamedFile": "ملف بلا اسم",
+      "comparisonEmptyList": "— قائمة فارغة —",
+      "comparisonEmptyObject": "— كائن فارغ —",
+      "comparisonAddition": "إضافة",
+      "comparisonDeletion": "حذف",
+      "comparisonModification": "تعديل",
+      "comparisonUnchanged": "دون تغيير",
+      "isModified": "تم تعديله",
+      "metadataRights": "الحقوق",
+      "metadataSource": "المصدر",
+      "metadataLanguage": "اللغة",
+      "metadataPublisher": "الناشر",
+      "metadataIssued": "تاريخ الإصدار",
+      "metadataValid": "الصلاحية"
+    },
+    "gateway": {
+      "changeToken": "يلزم رمز تغيير للحفظ بأمان.",
+      "createTarget": "يلزم موقع أصل واسم مستند صالح.",
+      "uploadBatch": "لم يُرجع الخادم دفعة تحميل.",
+      "directoryTooLarge": "يحتوي القاموس على أكثر من 1000 إدخال قابل للاختيار. ضيّق نطاقه قبل التحرير الجماعي.",
+      "directoryLimit": "بلغ القاموس حد 1000 خيار للتحرير الجماعي. ضيّق نطاقه قبل التحرير.",
+      "directoryRepeated": "كررت استجابة القاموس صفحة قبل اكتمال البحث.",
+      "directoryTruncated": "اقتُطعت استجابة القاموس قبل البحث في جميع الإدخالات.",
+      "directoryPages": "تجاوز البحث في القاموس حد الأمان البالغ 100 صفحة."
+    }
+  },
+  "widgets": {
+    "datepicker": {
+      "open": "فتح التقويم",
+      "placeholder": "dd/mm/yyyy",
+      "today": "اليوم",
+      "clear": "مسح",
+      "customRange": "نطاق مخصص"
+    },
+    "select": {
+      "loading": "جارٍ التحميل…",
+      "notFound": "لم يُعثر على عناصر",
+      "typeToSearch": "اكتب للبحث",
+      "addTag": "إضافة عنصر",
+      "clearAll": "مسح الكل",
+      "dropdown": "فتح الخيارات"
+    }
+  },
+  "dialog": {
+    "confirm": "تأكيد",
+    "confirmation": "تأكيد",
+    "decline": "رفض",
+    "deleteTitle": "تأكيد الحذف",
+    "keep": "لا، احتفظ به",
+    "delete": "نعم، احذفه",
+    "revoke": "نعم، أبطله",
+    "unsavedChanges": "تغييرات غير محفوظة"
+  },
+  "workflow": {
+    "due": "موعد الاستحقاق {date}",
+    "started": "بدأت سير العمل {workflow} لهذا المستند. يمكنك إنهاؤه قبل اكتماله.",
+    "assigned": "أُسندت إليك المهمة {task} في سير العمل {workflow}.",
+    "initiator": "بدأه: {user}",
+    "participantsRequired": "يجب تحديد المشاركين.",
+    "participantsAndEndRequired": "يجب تحديد المشاركين وتاريخ الانتهاء.",
+    "initiatedBy": "بدأ {name} سير العمل"
+  },
+  "validation": {
+    "required": "هذا الحقل مطلوب.",
+    "list": "استخدم قيمة قائمة.",
+    "boolean": "استخدم قيمة منطقية.",
+    "number": "أدخل رقمًا صالحًا.",
+    "minimum": "الحد الأدنى هو {value}.",
+    "maximum": "الحد الأقصى هو {value}.",
+    "date": "أدخل تاريخًا صالحًا.",
+    "object": "استخدم قيمة كائن.",
+    "nested": "{field}: {error}",
+    "unsupportedType": "{field}: نوع مخطط غير مدعوم.",
+    "file": "اختر ملفًا.",
+    "maxLength": "استخدم بحد أقصى {count, plural, zero {0 أحرف} one {حرفًا واحدًا} two {حرفين} few {# أحرف} many {# حرفًا} other {# حرفًا}}."
+  },
+  "retention": {
+    "start": {
+      "immediate": "تبدأ مدة الاحتفاظ فورًا وتستمر {duration}.",
+      "modified": "تبدأ مدة الاحتفاظ عند تعديل المستند وفقًا للتعبير {expression} وتستمر {duration}.",
+      "moved": "تبدأ مدة الاحتفاظ عند نقل المستند وفقًا للتعبير {expression} وتستمر {duration}.",
+      "metadata": "تبدأ مدة الاحتفاظ من حقل {field} في المستند وتستمر {duration}.",
+      "event": "تبدأ مدة الاحتفاظ بحدث {event} وتستمر {duration}."
+    }
+  },
+  "shell": {
+    "closeUserMenu": "إغلاق قائمة المستخدم",
+    "activity": "نشاط التطبيق",
+    "loadingContent": "جارٍ تحميل المحتوى",
+    "loadingPage": "جارٍ تحميل الصفحة",
+    "drawerResize": "تغيير حجم لوحة التنقل",
+    "drawerResizeHelp": "اسحب لتغيير الحجم. استخدم مفاتيح الأسهم للضبط؛ اضغط على Enter أو انقر نقرًا مزدوجًا لإعادة التعيين."
+  },
+  "comments": {
+    "replyTo": "الرد على {author}",
+    "replies": "{count, plural, zero {لا توجد ردود} one {رد واحد} two {ردّان} few {# ردود} many {# ردًا} other {# رد}}",
+    "reply": "رد"
+  },
+  "metadata": {
+    "chooseFields": "اختر الحقول المعروضة لـ {type}. لا تتضمن القائمة الحقول المقيّدة من قِبل المسؤول.",
+    "editRule": "تعديل القاعدة {number, number}",
+    "thisType": "هذا النوع من المستندات",
+    "typeLoadFailed": "تعذّر تحميل معلومات نوع المستند. أعد المحاولة أو أغلق مربع الحوار هذا.",
+    "loadFailed": "تعذّر تحميل إعدادات البيانات الوصفية. أعد المحاولة لعرض البيانات الوصفية.",
+    "conflict": "تغيّرت الإعدادات على الخادم. أعد التحميل قبل الحفظ.",
+    "saveFailed": "تعذّر حفظ إعدادات البيانات الوصفية.",
+    "savedRefreshFailed": "تم الحفظ، لكن تعذّر تحميل المستند المحدّث. أعد التحميل.",
+    "saveRetry": "تعذّر حفظ البيانات الوصفية. تم الاحتفاظ بتغييراتك؛ أعد المحاولة.",
+    "adminOnly": "يمكن للمسؤولين فقط تغيير إعدادات البيانات الوصفية.",
+    "changedBeforeSave": "غيّر مسؤول آخر هذه الإعدادات. أعد تحميلها قبل الحفظ.",
+    "preferencesFailed": "تعذّر على متصفحك حفظ هذه التفضيلات.",
+    "invalidPolicy": "تنسيق سياسة البيانات الوصفية غير مدعوم.",
+    "invalidRule": "تتطلب كل قاعدة نوع مستند ومخططًا وصلاحية وصول صالحة ومعرّفات مستخدمين أو مجموعات.",
+    "cannotEdit": "لا يمكنك تعديل {property} في تخطيط البيانات الوصفية هذا."
+  },
+  "document": {
+    "lockedDetails": "تم قفل هذا المستند {date} ولا يمكن تعديله إلا بواسطة {who, select, self {أنت} other {{user}}} أو المستخدمين الذين لديهم صلاحية «إدارة كل شيء».",
+    "modifiedBy": "آخر تعديل {date} بواسطة {user}",
+    "importType": "استيراد {type}",
+    "createType": "إنشاء مستند من نوع {type}",
+    "lockedBy": "تم قفل هذا المستند {date} بواسطة {user}.",
+    "retainedUntil": "هذا المستند خاضع للاحتفاظ حتى {date}.",
+    "by": "بواسطة {user}",
+    "developerTools": "أدوات المطور",
+    "version": "النسخة {version}"
+  },
+  "permissions": {
+    "dates": "من {begin} حتى {end}",
+    "begin": "ابتداءً من {begin}",
+    "end": "حتى {end}",
+    "inheritanceAction": "{action, select, unblock {إلغاء حظر الأذونات الموروثة من المستويات الأعلى} other {حظر الأذونات الموروثة من المستويات الأعلى}}",
+    "editFor": "تحرير الإذن الممنوح لـ {name}",
+    "notifyNamed": "إشعار {name}",
+    "deleteFor": "حذف الإذن الممنوح لـ {name}",
+    "read": "قراءة",
+    "edit": "تعديل",
+    "everything": "إدارة كل شيء",
+    "loadError": "تعذر تحميل الصلاحيات.",
+    "delete": {
+      "title": "حذف الإذن"
+    }
+  },
+  "selection": {
+    "files": "{count, plural, zero {لم يتم تحديد أي ملف} one {تم تحديد ملف واحد} two {تم تحديد ملفين} few {تم تحديد # ملفات} many {تم تحديد # ملفًا} other {تم تحديد # ملف}}",
+    "displayed": "المعروض: {count, number}",
+    "count": "المحدد: {count, number}",
+    "all": "تحديد جميع النتائج المطابقة وعددها {count, number}",
+    "progress": "{known, select, true {جارٍ تحديد {selected, number} من أصل {total, number} مستند مطابق…} other {جارٍ تحديد {selected, number} مستند مطابق…}}",
+    "more": "{count, number} أخرى…",
+    "partial": "{count, plural, zero {لم يتم تحديد أي مستند.} one {تم تحديد مستند واحد فقط.} two {تم تحديد مستندين فقط.} few {تم تحديد # مستندات فقط.} many {تم تحديد # مستندًا فقط.} other {تم تحديد # مستند فقط.}} {reason, select, invalid {أعاد موفّر البحث صفحة نتائج غير صالحة.} empty {أشار موفّر البحث إلى وجود صفحة أخرى دون إرجاع مستندات.} duplicate {كرّر موفّر البحث المستندات بدلًا من الانتقال إلى صفحة جديدة.} limit {توقّف التحديد بعد {pages, number} من الصفحات.} other {لم ينتقل موفّر البحث إلى صفحة جديدة.}} يمكنك تنفيذ إجراء على هذا التحديد الجزئي أو إعادة المحاولة.",
+    "capped": "{count, plural, zero {لم يتم تحديد أي مستند مطابق.} one {تم تحديد أول مستند مطابق.} two {تم تحديد أول مستندين مطابقين.} few {تم تحديد أول # مستندات مطابقة.} many {تم تحديد أول # مستندًا مطابقًا.} other {تم تحديد أول # مستند مطابق.}} ضيّق نطاق عوامل التصفية قبل تنفيذ إجراء على مزيد من النتائج.",
+    "complete": "{count, plural, zero {لم يتم تحديد أي مستند مطابق.} one {تم تحديد المستند المطابق.} two {تم تحديد المستندين المطابقين.} few {تم تحديد جميع المستندات المطابقة وعددها #.} many {تم تحديد جميع المستندات المطابقة وعددها #.} other {تم تحديد جميع المستندات المطابقة وعددها #.}}",
+    "failed": "{count, plural, zero {لم يتم تحديد أي مستند قبل فشل الاستعلام.} one {تم تحديد مستند واحد فقط قبل فشل الاستعلام.} two {تم تحديد مستندين فقط قبل فشل الاستعلام.} few {تم تحديد # مستندات فقط قبل فشل الاستعلام.} many {تم تحديد # مستندًا فقط قبل فشل الاستعلام.} other {تم تحديد # مستند فقط قبل فشل الاستعلام.}} يمكنك تنفيذ إجراء على هذا التحديد الجزئي أو إعادة المحاولة.",
+    "stopped": "{count, plural, zero {توقّف التحديد قبل تحديد أي مستند.} one {توقّف التحديد بعد مستند واحد.} two {توقّف التحديد بعد مستندين.} few {توقّف التحديد بعد # مستندات.} many {توقّف التحديد بعد # مستندًا.} other {توقّف التحديد بعد # مستند.}}",
+    "selecting": "جارٍ تحديد المستندات المطابقة… تم تحديد {count, number}.",
+    "repository": "يجب أن تنتمي المستندات المحددة إلى المستودع الحالي."
+  },
+  "query": {
+    "editScope": "تنطبق التغييرات على جميع النتائج المطابقة وعددها {count, number}. النتائج المطابقة المستبعدة: {excluded, number}.",
+    "editConfirm": "هل تريد تطبيق تغييرات البيانات الوصفية التي تمت مراجعتها على جميع النتائج المطابقة لعوامل التصفية المحفوظة وعددها {count, number}؟",
+    "job": "المهمة {id}",
+    "trashConfirm": "{operation, select, restore {هل تريد استعادة جميع النتائج من {repository}/{provider} المطابقة لعوامل التصفية المطبقة وعددها {count, number} من سلة المهملات؟} other {هل تريد نقل جميع النتائج من {repository}/{provider} المطابقة لعوامل التصفية المطبقة وعددها {count, number} إلى سلة المهملات؟}}",
+    "progress": "{state, select, SCHEDULED {مجدول} RUNNING {قيد التنفيذ} COMPLETED {مكتمل} ABORTED {أُلغي} PARTIAL {مكتمل جزئيًا} FAILED {فشل} ERROR {خطأ} other {{state}}}: تمت معالجة {processed, number}، وفشل {failed, number}.",
+    "restoreAll": "استعادة جميع المستندات المطابقة",
+    "trashAll": "نقل جميع المستندات المطابقة إلى سلة المهملات"
+  },
+  "download": {
+    "prepared": "تم تحضير {completed, number} من أصل {total, number} ملف",
+    "preparationStopped": "{state, select, consumed {بدأ تنزيل هذا الأرشيف بالفعل.} cancelled {أُلغي إعداد الأرشيف.} expired {انتهت مهلة إعداد الأرشيف.} other {فشل إعداد الأرشيف.}} أعد إنشاء ملف ZIP للمحاولة مجددًا.",
+    "unsupportedFormat": "أعاد الخادم تنسيق تصدير غير مدعوم ({format, select, unknown {غير معروف} other {{format}}}).",
+    "noZip": "لم يُعد الخادم تنزيلًا بتنسيق ZIP.",
+    "unconfirmed": "تعذّر تأكيد إعداد الأرشيف. أعد محاولة التحقق من الحالة أو أعد إنشاء ملف ZIP."
+  },
+  "editor": {
+    "useValue": "استخدام «{value}»",
+    "heading": "عنوان من المستوى {level, number}",
+    "creationUnknown": "لم يؤكد الخادم اكتمال الإنشاء. افحص الوجهة قبل إنشاء مستند آخر.",
+    "creationIncomplete": "تم إنشاء مستندك. فشلت بعض الخطوات المتبقية؛ أعد محاولة إكمال هذا المستند دون إنشاء نسخة أخرى.",
+    "saveFailed": "تعذّر حفظ المستند. ما زالت تغييراتك متاحة.",
+    "changed": "تغيّر هذا المستند. أعد تحميله قبل الحفظ مجددًا.",
+    "retrySave": "تعذّر حفظ المستند. تم الاحتفاظ بتغييراتك؛ أعد المحاولة.",
+    "typeHeading": "{action, select, create {إنشاء {type}} other {تحرير {type}}}",
+    "supplementalLoading": "جارٍ تحميل الحقول الإضافية…",
+    "supplementalFailed": "تعذّر تحميل الحقول الإضافية. أعد المحاولة قبل الحفظ."
+  },
+  "creation": {
+    "completed": "تم إنشاء {completed, number} من أصل {total, number} مستند."
+  },
+  "picture": {
+    "depth": "{colorSpace} · {depth, number} بت",
+    "noMetadata": "لا تتوفر بيانات وصفية من نوع {kind} لعرضها.",
+    "width": "العرض",
+    "height": "الارتفاع",
+    "format": "الصيغة",
+    "colorSpace": "فضاء اللون",
+    "bitDepth": "عمق البت"
+  },
+  "results": {
+    "count": "{count, plural, zero {لا توجد نتائج} one {نتيجة واحدة} two {نتيجتان} few {# نتائج} many {# نتيجة} other {# نتيجة}}",
+    "displaySelection": "عرض التحديد"
+  },
+  "content": {
+    "loading": "جارٍ تحميل محتوى {type}…",
+    "loadingMore": "جارٍ تحميل المزيد من محتوى {type}…",
+    "named": "محتوى {type}",
+    "resultControls": "عناصر التحكم في نتائج {type}",
+    "filter": "تصفية محتوى {type}",
+    "previewType": "معاينة {type}"
+  },
+  "publication": {
+    "confirm": "{count, plural, zero {لا توجد مستندات محددة للنشر.} one {نشر مستند واحد محدد.} two {نشر مستندين محددين.} few {نشر # مستندات محددة.} many {نشر # مستندًا محددًا.} other {نشر # مستند محدد.}}",
+    "completed": "تم نشر {completed, number} من أصل {total, number}{busy, select, true {…} other {.}}",
+    "none": "لا يوجد",
+    "defaultRendition": "التنسيق البديل الافتراضي",
+    "failedRetry": "فشل النشر. لن تتم إعادة محاولة المستندات المكتملة. إذا انقطع الاتصال، فتحقّق من الوجهة قبل إعادة محاولة المستند الحالي.",
+    "internal": "النشر الداخلي"
+  },
+  "version": {
+    "createFor": "إنشاء نسخة من {title}",
+    "minor": "{version} — نسخة ثانوية",
+    "major": "{version} — نسخة رئيسية",
+    "viewing": "أنت تعرض النسخة {version}.",
+    "restore": "استعادة {version}"
+  },
+  "trash": {
+    "deleteConfirm": "{count, plural, zero {لا توجد مستندات محددة لحذفها نهائيًا. لا يمكن التراجع عن هذا الإجراء.} one {هل تريد حذف مستند واحد محدد نهائيًا؟ لا يمكن التراجع عن هذا الإجراء.} two {هل تريد حذف مستندين محددين نهائيًا؟ لا يمكن التراجع عن هذا الإجراء.} few {هل تريد حذف # مستندات محددة نهائيًا؟ لا يمكن التراجع عن هذا الإجراء.} many {هل تريد حذف # مستندًا محددًا نهائيًا؟ لا يمكن التراجع عن هذا الإجراء.} other {هل تريد حذف # مستند محدد نهائيًا؟ لا يمكن التراجع عن هذا الإجراء.}}",
+    "actionFailed": "فشل إجراء سلة المهملات. تحقّق من الأذونات وأعد المحاولة.",
+    "confirmDocument": "هل تريد نقل هذا المستند إلى سلة المهملات؟"
+  },
+  "analytics": {
+    "unsupported": "{section, select, search {تتطلب تحليلات البحث خدمة تجميع بيانات التدقيق على الخادم.} other {تتطلب تحليلات مسارات العمل خدمة تجميع بيانات التدقيق على الخادم.}} لا يوفّر هذا الخادم واجهة تجميع مدعومة، لذا لا تُعرض أي مقاييس.",
+    "milliseconds": "{value, number} مللي ثانية",
+    "tooManyDocuments": "يحتوي هذا المسار على {count, number} مستند، وهو ما يتجاوز الحد المُعدّ وهو {limit, number}. اختر مسارًا أصغر."
+  },
+  "pagination": {
+    "page": "الصفحة {page, number}",
+    "position": "{known, select, true {الصفحة {page, number} من {total, number}} other {الصفحة {page, number}}}"
+  },
+  "principals": {
+    "loading": "{kind, select, users {جارٍ تحميل المستخدمين…} groups {جارٍ تحميل المجموعات…} user {جارٍ تحميل المستخدم…} group {جارٍ تحميل المجموعة…} other {جارٍ التحميل…}}",
+    "dragToGroup": "عيّن مستخدمًا لمجموعة بسحبه إلى مجموعة مستخدمين موسّعة.",
+    "deleteConfirm": "{kind, select, user {هل أنت متأكد من رغبتك في حذف هذا المستخدم؟} group {هل أنت متأكد من رغبتك في حذف هذه المجموعة؟} other {هل أنت متأكد من رغبتك في حذف هذا الإدخال؟}}"
+  },
+  "vocabulary": {
+    "deleteConfirm": "هل تريد حذف {id}؟"
+  },
+  "cloud": {
+    "confirm": {
+      "provider": "هل أنت متأكد من رغبتك في حذف موفّر خدمة OAuth2 هذا: «{name}»؟",
+      "client": "هل أنت متأكد من رغبتك في حذف عميل OAuth2 هذا: «{name}»؟",
+      "token": "هل أنت متأكد من رغبتك في إبطال رمز تطبيق السحابة هذا: «{name}»؟",
+      "account": "هل أنت متأكد من رغبتك في حذف حساب السحابة هذا: «{name}»؟"
+    }
+  },
+  "asset": {
+    "select": "تحديد {title}",
+    "action": "{action, select, deselect {إلغاء تحديد {title}} select {تحديد {title}} other {فتح {title}}}"
+  },
+  "eventCategory": {
+    "eventDocumentCategory": "مستند",
+    "eventLifeCycleCategory": "دورة الحياة",
+    "eventGroupCategory": "المجموعة",
+    "eventUserCategory": "المستخدم",
+    "eventWorkflowCategory": "سير العمل"
+  },
+  "eventType": {
+    "documentCreated": "تم إنشاء مستند",
+    "documentModified": "تم تعديل المستند",
+    "documentRemoved": "تمت إزالة مستند",
+    "documentMoved": "تم نقل المستند",
+    "documentSecurityUpdated": "تم تحديث أمان المستندات",
+    "documentPublished": "تم نشر مستند",
+    "documentCheckedIn": "تم إنشاء إصدار",
+    "documentCheckedOut": "تم فحص المستند",
+    "loginSuccess": "نجح تسجيل الدخول",
+    "loginFailed": "فشل تسجيل الدخول"
+  },
+  "action": {
+    "failed": "فشل الإجراء. تحقّق من الصلاحيات ثم أعد المحاولة.",
+    "removeNamed": "إزالة {name}",
+    "downloadNamed": "تنزيل {name}",
+    "insertNamed": "إدراج {name}",
+    "viewNamed": "عرض {name}"
+  },
+  "note": {
+    "plainText": "نص"
+  },
+  "lifecycle": {
+    "project": "مسوّدة",
+    "obsolete": "مهمل",
+    "deleted": "محذوف",
+    "approved": "معتمَد"
+  },
+  "history": {
+    "loadFailed": "تعذّر تحميل سجل المستند. تحقّق من اتصالك والأذونات، ثم أعد المحاولة."
+  },
+  "permission": {
+    "changeFailed": "فشل تغيير الإذن. تحقّق من المستخدم المحدد وصلاحية وصولك."
+  },
+  "create": {
+    "typeFromFiles": "إنشاء {type} من ملفات",
+    "import": "استيراد",
+    "newDocument": "مستند جديد"
+  },
+  "collection": {
+    "removeNamed": "إزالة من {name}"
+  },
+  "comparison": {
+    "useBaseline": "استخدام {name} كأساس للمقارنة",
+    "useVersionBaseline": "استخدام الإصدار {version} كأساس للمقارنة"
+  },
+  "media": {
+    "seekSeconds": "الانتقال إلى الموضع بالثواني: {seconds, number}"
+  },
+  "common": {
+    "yes": "نعم",
+    "no": "لا"
+  },
+  "collectionRemoveAction": {
+    "tooltip": "إزالة من المجموعة"
+  },
+  "documentTrashAction": {
+    "tooltip": "نقل إلى سلة المهملات",
+    "untrash": "إعادة المستند من سلة المهملات",
+    "delete": "حذف المستند نهائيًا"
+  },
+  "publishButton": {
+    "tooltip": "نشر المستند"
+  },
+  "command": {
+    "retry": "إعادة المحاولة",
+    "actions": "الإجراءات",
+    "createAnother": "إنشاء آخر",
+    "loading": "جاري التحميل...",
+    "new": "جديد",
+    "manage": "إدارة",
+    "done": "تم"
+  },
+  "label": {
+    "loadMore": "تحميل المزيد"
+  },
+  "maretha": {
+    "export": {
+      "pdf": "تصدير PDF",
+      "xml": "تصدير XML",
+      "zip": "تصدير ZIP"
+    }
+  },
+  "addToCollectionDocumentsButton": {
+    "collection": "المجموعات *"
+  },
+  "documentDistributionChart": {
+    "onlyFolders": "مجلدات فقط"
+  },
+  "documentImportForm": {
+    "editNext": "تحرير التالي",
+    "editPrevious": "تحرير السابق",
+    "includeFile": "تضمين {name}",
+    "type": "النوع",
+    "retry": "إعادة محاولة الملفات غير المكتملة"
+  },
+  "documentPermissions": {
+    "new": "جديد"
+  },
+  "documentTrashInfo": {
+    "message": "أنت تستعرض مستندًا محذوفًا."
+  },
+  "workflowButton": {
+    "dialog": {
+      "process": "عملية",
+      "selectProcess": "بدء عملية"
+    },
+    "startError": "تعذر بدء العملية. تحقق من الصلاحيات وأعد المحاولة."
+  },
+  "userManagement": {
+    "company": "الشركة",
+    "email": "البريد الإلكتروني",
+    "group": "المجموعة",
+    "setUserPassword": "تعيين كلمة مرور للمستخدم",
+    "user": "المستخدم",
+    "users": "المستخدمين",
+    "firstName": "الاسم الأول",
+    "lastName": "الاسم الأخير",
+    "newUser": "مستخدم جديد",
+    "newGroup": "مجموعة جديدة",
+    "manageUser": "إدارة {user}",
+    "memberships": "إدارة العضويات",
+    "requiredField": "أدخل قيمة صالحة للحقل {field}.",
+    "searchResults": "نتائج البحث",
+    "label": "التسمية",
+    "description": "الوصف"
+  },
+  "userProfile": {
+    "password": {
+      "noMatch": "كلمات المرور غير متطابقة."
+    }
+  },
+  "table": {
+    "columnSettings": "إعدادات الأعمدة"
+  },
+  "distributionAnalytics": {
+    "options": "خيارات التوزيع",
+    "path": "مسار التوزيع",
+    "heading": "توزيع المستندات"
+  },
+  "documentCollections": {
+    "addError": "تعذرت إضافة المستندات إلى المجموعة. تحقق من الصلاحيات وأعد المحاولة.",
+    "loadError": "تعذر تحميل المجموعات. تحقق من الصلاحيات وأعد المحاولة.",
+    "search": "البحث في المجموعات…"
+  },
+  "exportButton": {
+    "error": "تعذر تصدير المستند. تحقق من الصلاحيات وأعد المحاولة."
+  },
+  "searchForm": {
+    "savedSearch": "اختيار بحث محفوظ",
+    "searchFilters": {
+      "placeholder": "اختر بحثًا محفوظًا"
+    }
+  },
+  "userGroupPermissions": {
+    "empty": "لا توجد صلاحيات."
+  },
+  "tasksList": {
+    "viewTasksDashboard": "عرض لوحة معلومات المهام"
+  },
+  "themes": {
+    "nuxeo": "Nuxeo"
+  },
+  "imagePreviewer": {
+    "pan": {
+      "left": "تحريك إلى اليسار",
+      "up": "تحريك إلى الأعلى",
+      "down": "تحريك إلى الأسفل",
+      "right": "تحريك إلى اليمين"
+    }
+  },
+  "documentPage.resize.side": "غيّر حجم لوحة المعلومات. استخدم السهمين الأيسر والأيمن لضبط العرض، ومفتاحي Home أو End للحد الأدنى أو الأقصى، وEnter أو المسافة لإعادة الضبط.",
+  "versions": {
+    "restore": {
+      "confirm": "هل تريد استعادة هذه النسخة؟ سيتم استبدال نسخة العمل الحالية."
+    }
+  },
+  "blob": {
+    "remove": {
+      "title": "إزالة الملف"
+    }
+  },
+  "attachments": {
+    "remove": {
+      "title": "إزالة المرفق",
+      "confirm": "هل تريد إزالة المرفق {name}؟"
+    }
+  },
+  "breadcrumb": {
+    "parents": "المجلدات الأصل"
+  }
+}

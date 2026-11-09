@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<component name="io.maretha.maretha-angular-webui.authentication">
+  <!-- After login, Nuxeo returns to /ng/ URLs. -->
+  <extension point="startURL"
+    target="org.nuxeo.ecm.platform.ui.web.auth.service.PluggableAuthenticationService">
+    <startURLPattern>
+      <patterns>
+        <pattern>ng</pattern>
+      </patterns>
+    </startURLPattern>
+  </extension>
+</component>

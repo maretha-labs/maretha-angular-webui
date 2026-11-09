@@ -1,0 +1,143 @@
+@if (isInitializing()) {
+	<p class="tree-loading" role="status">
+		{{ 'app.modules.document-tree.loading-folders-147d99' | webuiMessage: 'Loading folders…' }}
+	</p>
+}
+@if (error()) {
+	<p role="alert">{{ error() }}</p>
+	<button type="button" (click)="retry()">
+		{{ 'app.modules.document-tree.retry-5090ea' | webuiMessage: 'Retry' }}
+	</button>
+}
+@if (showRootLink() || parents().length) {
+	<nav
+		class="tree-parents"
+		[attr.aria-label]="'breadcrumb.parents' | webuiMessage: 'Parent folders'"
+	>
+		@if (showRootLink() && root()?.document?.type !== 'Root') {
+			<button type="button" class="tree-parent" (click)="navigateToDocument(rootDocument)">
+				<fa-icon icon="chevron-left" size="xs" class="tree-parent-icon flex-shrink-0" />
+				<span class="text-truncate">{{ labelFor(rootDocument) }}</span>
+			</button>
+		}
+		@for (parent of parents(); track parent.uid) {
+			<button
+				type="button"
+				class="tree-parent"
+				(click)="navigateToDocument(parent)"
+				[title]="labelFor(parent)"
+			>
+				<fa-icon icon="chevron-left" size="xs" class="tree-parent-icon flex-shrink-0" />
+				<span class="text-truncate">{{ labelFor(parent) }}</span>
+			</button>
+		}
+	</nav>
+}
+<nx-tree>
+	@for (node of rootNodes; track node.document.uid) {
+		<ng-container *ngTemplateOutlet="treeNode; context: { $implicit: node }" />
+	}
+	@if (!showRoot() && root(); as rootNode) {
+		<ng-container *ngTemplateOutlet="pageStatus; context: { $implicit: rootNode }" />
+	}
+</nx-tree>
+<ng-template #treeNode let-node>
+	<div
+		role="treeitem"
+		[attr.aria-level]="node.level + 1"
+		[attr.aria-expanded]="node.expandable ? node.isExpanded : null"
+		[attr.aria-selected]="node.document.uid === selectedDocUid()"
+		tabindex="-1"
+		[attr.aria-labelledby]="labelId(node.document.uid)"
+		[attr.data-tree-node]="node.document.uid"
+		class="tree-node"
+		[class.active]="node.document.uid === selectedDocUid()"
+		(focus)="onTreeItemFocus(node)"
+		(click)="onTreeItemClick($event)"
+		(keydown)="onTreeItemKeydown($event, node)"
+	>
+		<div class="tree-item d-flex" [class.active]="node.document.uid === selectedDocUid()">
+			<span [style.--nx-document-tree-level]="node.level" class="tree-indent flex-shrink-0"></span>
+			@if (node.expandable) {
+				<button
+					type="button"
+					class="tree-toggle flex-shrink-0"
+					tabindex="-1"
+					(click)="toggleNode(node)"
+					[attr.aria-expanded]="node.isExpanded"
+					[attr.aria-label]="
+						'app.settingsShared.expanded-select-true-collapse-title-other-expan-22e5c6'
+							| webuiMessage
+								: '{expanded, select, true {Collapse {title}} other {Expand {title}}}'
+								: { expanded: node.isExpanded, title: labelFor(node.document) }
+					"
+				>
+					<fa-icon [icon]="node.isExpanded ? 'chevron-down' : 'chevron-right'" size="xs" />
+				</button>
+			} @else {
+				<span class="tree-toggle-spacer flex-shrink-0"></span>
+			}
+			<button
+				type="button"
+				class="tree-link"
+				tabindex="-1"
+				(click)="navigateTo(node)"
+				[attr.aria-current]="node.document.uid === currentDocUid() ? 'page' : null"
+				[title]="labelFor(node.document)"
+			>
+				<fa-icon
+					[icon]="node.isFolderish ? (node.isExpanded ? 'folder-open' : 'folder') : 'file'"
+					class="tree-icon flex-shrink-0 me-1"
+					size="sm"
+				/>
+				<span [id]="labelId(node.document.uid)" class="tree-label text-truncate">{{
+					labelFor(node.document)
+				}}</span>
+			</button>
+		</div>
+		@if (node.isExpanded) {
+			<div role="group">
+				@for (child of node.children; track child.document.uid) {
+					<ng-container *ngTemplateOutlet="treeNode; context: { $implicit: child }" />
+				}
+				<ng-container *ngTemplateOutlet="pageStatus; context: { $implicit: node }" />
+			</div>
+		}
+	</div>
+</ng-template>
+<ng-template #pageStatus let-node>
+	<div [style.--nx-document-tree-level]="node.level + 1" class="tree-page-status">
+		@if (node.isLoading) {
+			<p class="tree-loading" role="status">
+				{{ 'app.modules.document-tree.loading-folders-147d99' | webuiMessage: 'Loading folders…' }}
+			</p>
+		}
+		@if (node.error) {
+			<p role="alert">
+				{{
+					'app.settingsShared.folders-could-not-be-loaded-retry-to-continue-477df1'
+						| webuiMessage: 'Folders could not be loaded. Retry to continue.'
+				}}
+			</p>
+		}
+		@if (node.error || node.hasMore) {
+			<button
+				type="button"
+				role="treeitem"
+				aria-selected="false"
+				tabindex="-1"
+				[attr.aria-level]="node.level + 2"
+				class="tree-more"
+				[attr.aria-disabled]="node.isLoading"
+				(click)="more(node)"
+			>
+				{{
+					node.error
+						? ('app.modules.document-tree.retry-5090ea' | webuiMessage: 'Retry')
+						: ('app.modules.document-tree.load-more-folders-09ae21'
+							| webuiMessage: 'Load more folders')
+				}}
+			</button>
+		}
+	</div>
+</ng-template>

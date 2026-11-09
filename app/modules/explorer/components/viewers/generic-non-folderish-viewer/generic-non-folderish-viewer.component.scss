@@ -1,0 +1,323 @@
+@import '../../../../../../styles/_variables';
+
+:host {
+	display: block;
+	height: 100%;
+	min-height: 0;
+}
+.document-page {
+	height: 100%;
+	min-height: 0;
+}
+.page-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 300px;
+	grid-template-areas: 'preview metadata';
+	position: relative;
+	gap: 0;
+	height: 100%;
+	min-height: 0;
+}
+.page-layout.metadata-hidden {
+	grid-template-columns: minmax(0, 1fr);
+	grid-template-areas: 'preview';
+}
+.preview-main {
+	grid-area: preview;
+	min-width: 0;
+	min-height: 0;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+.details-side {
+	grid-area: metadata;
+	border-inline-start: 1px solid var(--bs-border-color);
+	min-width: 0;
+	min-height: 0;
+	overflow: auto;
+	background: var(--nuxeo-box);
+}
+.metadata-heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.75rem 0.75rem 0;
+	border-block-end: 1px solid var(--bs-border-color);
+}
+.metadata-heading h2 {
+	font-size: 1rem;
+	margin: 0;
+}
+.show-metadata {
+	position: absolute;
+	inset-inline-end: 0.75rem;
+	inset-block-start: 0.75rem;
+	z-index: 2;
+	display: inline-flex;
+	gap: 0.4rem;
+	align-items: center;
+	border: 1px solid var(--bs-border-color);
+	border-radius: 0.25rem;
+	background: var(--nuxeo-box);
+	padding: 0.35rem 0.55rem;
+}
+
+@media (max-width: 1024px) {
+	.document-page,
+	.page-layout {
+		height: auto;
+	}
+	.show-metadata {
+		position: absolute;
+	}
+	// Stock Web UI at <= 1024px: main column full width, information pane below it, resize handle gone.
+	.page-layout {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+	.page-layout .preview-main {
+		align-self: stretch;
+		width: 100%;
+		min-height: 40vh;
+	}
+	.page-layout .details-side {
+		width: 100%;
+		min-height: initial;
+		border-inline-start: 0;
+	}
+	.page-layout nx-document-pane-resize-handle {
+		display: none;
+	}
+}
+
+.fullscreen {
+	&:-webkit-full-screen,
+	&:-moz-full-screen,
+	&::-ms-fullscreen {
+		width: auto !important;
+		height: auto !important;
+		margin: auto !important;
+	}
+}
+
+.preview-main {
+	.binary {
+		min-width: 0;
+		flex: 1;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+
+		> * {
+			min-width: 0;
+			max-width: 100%;
+			flex-grow: 1;
+		}
+	}
+}
+
+.projected-content {
+	text-align: start;
+}
+.main-file-upload {
+	position: relative;
+	display: block;
+	padding: 32px;
+	margin: 16px;
+	border: 1px dashed var(--nuxeo-border, #ccc);
+	color: var(--nuxeo-link-color, #0066cc);
+	text-decoration: underline;
+}
+.main-file-upload input {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	opacity: 0;
+	cursor: pointer;
+}
+.main-file-upload:focus-within {
+	outline: 2px solid var(--nuxeo-primary-color, #0066ff);
+}
+
+.spinner {
+	position: absolute;
+	inset-block-start: 50%;
+	inset-inline-start: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	font-size: 2rem;
+}
+
+.card-title .ng-select {
+	display: inline-block;
+	margin-inline-start: 0.25rem;
+}
+
+button.badge {
+	cursor: pointer;
+}
+
+.btn-group + .btn-group {
+	margin-inline-start: 0.5rem;
+}
+
+.btn-download-alt {
+	position: absolute;
+	inset-block-end: 0.25rem;
+	inset-inline-end: 0.25rem;
+}
+
+.overflow-none {
+	overflow: hidden;
+}
+
+.badge.rounded-pill {
+	line-height: 1.2;
+
+	> * {
+		line-height: 1;
+	}
+}
+
+.btn .badge {
+	inset-block-start: 0;
+	margin-inline-start: 0.25rem;
+}
+
+.alert {
+	line-height: 1.4;
+}
+
+.details-side[hidden] {
+	display: none;
+}
+
+.metadata-heading {
+	position: sticky;
+	top: 0;
+	z-index: 4;
+	gap: 8px;
+	padding: 12px 16px;
+	background: var(--nuxeo-box, #fff);
+}
+.metadata-heading h2 {
+	flex: 1;
+	font-size: 14px;
+	font-weight: 600;
+}
+.inspector-button {
+	border: 1px solid var(--nuxeo-border);
+	background: var(--nuxeo-box, #fff);
+	color: var(--nuxeo-text-default);
+	padding: 5px 10px;
+	border-radius: 4px;
+	font-size: 12px;
+}
+.inspector-button--primary {
+	background: var(--nuxeo-primary-color);
+	color: white;
+}
+.metadata-settings {
+	position: relative;
+}
+.metadata-settings summary {
+	cursor: pointer;
+	list-style: none;
+	padding: 5px;
+}
+.metadata-settings summary::-webkit-details-marker {
+	display: none;
+}
+.metadata-settings button {
+	position: absolute;
+	inset-inline-end: 0;
+	top: 100%;
+	width: 160px;
+	text-align: start;
+	padding: 12px;
+	background: var(--nuxeo-box, #fff);
+	color: var(--nuxeo-text-default);
+	border: 1px solid var(--nuxeo-border);
+	box-shadow: 0 4px 12px #0001;
+	border-radius: 4px;
+	font-size: 13px;
+}
+
+.document-page {
+	overflow: auto;
+}
+.page-layout {
+	height: auto;
+	min-height: 100%;
+	padding: 16px;
+	gap: 16px;
+	align-items: stretch;
+	grid-template-columns: minmax(0, 7fr) var(--nx-document-side-width, minmax(320px, 3fr));
+	grid-template-areas: 'preview metadata' 'technical technical';
+}
+.page-layout.metadata-hidden {
+	grid-template-areas: 'preview' 'technical';
+}
+.preview-main {
+	align-self: start;
+}
+.main-file-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 12px 16px;
+	background: var(--nuxeo-box, #fff);
+}
+.main-file-description {
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+.main-file-description small {
+	display: block;
+	color: var(--nuxeo-secondary-text, #666);
+}
+.main-file-actions {
+	display: flex;
+	align-items: center;
+}
+.details-side {
+	border: 0;
+	position: relative;
+}
+// Desktop, as stock Web UI: the information pane is exactly as tall as the preview card beside it
+// (`contain: size` keeps its content out of the row height) and scrolls on its own when taller;
+// the technical cards run full width underneath both.
+@media (min-width: 1024.02px) {
+	.page-layout .details-side {
+		align-self: stretch;
+		contain: size;
+		min-height: 0;
+		overflow: auto;
+		overscroll-behavior: contain;
+	}
+}
+.metadata-heading {
+	position: sticky;
+	top: 0;
+	border-bottom: 0;
+	padding: 12px 16px 4px;
+}
+.metadata-heading h2 {
+	font-size: 13px;
+	color: var(--bs-secondary-color);
+	font-weight: 500;
+}
+.asset-technical-cards {
+	grid-area: technical;
+	min-width: 0;
+}
+@media (max-width: 900px) {
+	.page-layout {
+		display: flex;
+		flex-direction: column;
+		padding: 12px;
+	}
+}

@@ -1,0 +1,241 @@
+<h5 class="text-center text-muted mb-0">
+	{{ 'documentPage.comments' | webuiMessage: 'Comments' }}
+</h5>
+
+@if (documentComments.length) {
+	<div class="comments p-2">
+		<ng-container
+			*ngTemplateOutlet="
+				commentList;
+				context: { comments: documentComments, canLoadMore: canLoadMore }
+			"
+		>
+		</ng-container>
+	</div>
+}
+
+@if (!documentComments.length && !readOnly) {
+	<small class="opacity-75">
+		{{
+			'app.modules.comments.be-the-first-to-leave-a-comment-11f1cb'
+				| webuiMessage: 'Be the first to leave a comment!'
+		}}
+	</small>
+}
+
+@if (!documentComments.length && readOnly) {
+	<small class="opacity-75">
+		{{
+			'app.modules.comments.nobody-left-any-comments-00bafe'
+				| webuiMessage: 'Nobody left any comments!'
+		}}
+	</small>
+}
+
+@if (form && !readOnly) {
+	<ul class="list-unstyled mb-0">
+		<li class="px-0 pb-0 pt-0">
+			<form class="d-flex align-items-end" [formGroup]="form">
+				<div
+					class="form-floating flex-grow-1"
+					[class.form-floating-sm]="!form.get('reply')?.value && !form.get('edit')?.value"
+				>
+					<textarea
+						id="commentBox"
+						[attr.placeholder]="
+							'comments.writePlaceholder.comment' | webuiMessage: 'Write a comment here'
+						"
+						[attr.aria-label]="
+							'app.modules.comments.write-a-comment-a51f2f' | webuiMessage: 'Write a comment'
+						"
+						class="form-control"
+						rows="1"
+						[nxAutofocus]="focus"
+						formControlName="text"
+						(blur)="focus = false"
+					></textarea>
+					@if (form.get('reply')?.value) {
+						<label for="commentBox">
+							{{
+								'comments.replyTo'
+									| webuiMessage: 'Reply to {author}' : { author: form.get('reply')?.value?.author }
+							}}</label
+						>
+					}
+					@if (form.get('edit')?.value) {
+						<label for="commentBox">
+							{{
+								'app.modules.comments.edit-your-comment-488b78' | webuiMessage: 'Edit your comment'
+							}}
+						</label>
+					}
+				</div>
+				<button
+					type="button"
+					(click)="save()"
+					[attr.aria-label]="
+						'app.modules.comments.post-your-comment-318363' | webuiMessage: 'Post your comment'
+					"
+					[disabled]="form.invalid"
+					class="btn btn-link ps-2-3 pe-1"
+					[tooltip]="
+						'app.modules.comments.post-your-comment-318363' | webuiMessage: 'Post your comment'
+					"
+				>
+					<fa-icon icon="check"></fa-icon>
+				</button>
+				<button
+					type="button"
+					(click)="clear()"
+					[attr.aria-label]="'app.modules.comments.cancel-fe8eb5' | webuiMessage: 'Cancel'"
+					[disabled]="form.invalid && !form.get('reply')?.value && !form.get('edit')?.value"
+					class="btn btn-link ps-2-3 pe-1"
+					[tooltip]="'app.modules.comments.cancel-fe8eb5' | webuiMessage: 'Cancel'"
+				>
+					<fa-icon icon="times"></fa-icon>
+				</button>
+			</form>
+		</li>
+	</ul>
+}
+
+<ng-template
+	#commentList
+	let-comments="comments"
+	let-loadMore="canLoadMore"
+	let-replies="commentReplies"
+>
+	<ul class="list-unstyled m-0">
+		@for (comment of comments; track comment; let index = $index) {
+			<li>
+				<div
+					[class.selected]="
+						comment.id === (form?.get('reply')?.value?.id || form?.get('edit')?.value?.id)
+					"
+				>
+					<div class="d-flex">
+						<fa-icon
+							icon="circle-user"
+							size="lg"
+							[fixedWidth]="true"
+							[ngClass]="'user-' + users[comment.author]"
+						>
+						</fa-icon>
+						<div class="ps-1">
+							<b>{{ comment.author }}</b>
+							<small class="opacity-50 text-nowrap mx-1">
+								{{ comment.creationDate || comment.modificationDate | timeago }}
+							</small>
+							<!-- <small *ngIf="comment.modificationDate" class="opacity-50"> • edited</small> -->
+						</div>
+					</div>
+					<div class="ms-4 ps-1 d-flex justify-content-between align-items-start comment">
+						<button
+							type="button"
+							(click)="reply(comment); comment.expanded = true"
+							class="comment-reply mb-0 flex-grow-1 small"
+							[class.collapsed]="!comment.expanded"
+							[tooltip]="
+								'app.modules.comments.tap-to-reply-to-this-comment-007309'
+									| webuiMessage: 'Tap to reply to this comment'
+							"
+							placement="top left"
+						>
+							{{ comment.text | unescape }}
+						</button>
+						@if (!replies) {
+							<button
+								type="button"
+								class="btn btn-sm btn-link py-0 comment-reply-action"
+								(click)="reply(comment); comment.expanded = true"
+								[attr.aria-label]="
+									'app.modules.comments.reply-to-this-comment-5c1d2e'
+										| webuiMessage: 'Reply to this comment'
+								"
+							>
+								{{ 'comments.reply' | webuiMessage: 'Reply' }}
+							</button>
+						}
+						@if (comment.author === currentUser()) {
+							<div class="btn-group btn-group-sm actions" role="group">
+								<div
+									dropdown
+									placement="bottom right"
+									container="body"
+									class="btn-group"
+									role="group"
+								>
+									<button
+										type="button"
+										class="btn btn-sm btn-link py-0"
+										dropdownToggle
+										[attr.aria-label]="
+											'app.modules.document-actions-toolbar.more-actions-d74c3b'
+												| webuiMessage: 'More actions'
+										"
+									>
+										<fa-icon icon="ellipsis-vertical" size="xs"></fa-icon>
+									</button>
+									<ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
+										<li role="menuitem">
+											<button (click)="edit(comment)" class="dropdown-item">
+												{{
+													'app.modules.comments.edit-this-comment-3c85d8'
+														| webuiMessage: 'Edit this comment'
+												}}
+											</button>
+										</li>
+										<li role="menuitem">
+											<button (click)="remove(comment)" class="dropdown-item">
+												{{
+													'app.modules.comments.delete-this-comment-f5a7c0'
+														| webuiMessage: 'Delete this comment'
+												}}
+											</button>
+										</li>
+									</ul>
+								</div>
+							</div>
+						}
+					</div>
+				</div>
+				<div class="ms-4 ps-1 flex-grow-1">
+					@if (comment.numberOfReplies) {
+						<div>
+							<ng-container
+								*ngTemplateOutlet="
+									commentList;
+									context: {
+										comments: comment.replies,
+										canLoadMore: comment.canLoadMore,
+										commentReplies: true,
+									}
+								"
+							>
+							</ng-container>
+							@if (comment.canLoadMore) {
+								<!-- Keep quoted ICU braces intact: Prettier misreads them as Angular interpolation endings. -->
+								<!-- prettier-ignore -->
+								<button
+									(click)="loadReplies(comment)"
+									class="btn btn-sm btn-link p-0"
+									[tooltip]="comment.lastReplyDate | timeago"
+								>
+									{{ 'comments.replies' | webuiMessage:'{count, plural, one {# reply} other {# replies}}': {count: (comment.numberOfReplies)} }}
+								</button>
+							}
+						</div>
+					}
+				</div>
+			</li>
+		}
+
+		@if (loadMore && !replies) {
+			<li class="list-group-item">
+				<button (click)="loadComments()" class="btn btn-sm btn-link text-decoration-none p-0">
+					{{ 'app.modules.comments.show-more-4333bd' | webuiMessage: 'Show more ...' }}
+				</button>
+			</li>
+		}
+	</ul>
+</ng-template>

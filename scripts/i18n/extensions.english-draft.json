@@ -1,0 +1,22 @@
+{
+  "app.sdk.contribution-outlet.extension-unavailable-b430d2": "Extension unavailable",
+  "app.sdk.document-views.no-views-are-available-757ef3": "No views are available.",
+  "app.sdk.pages.this-page-is-unavailable-81350e": "This page is unavailable.",
+  "app.sdk.projection-primitives.page-tabs-76a8ee": "Page tabs",
+  "app.sdk.projection-primitives.keep-b2de44": "Keep",
+  "app.sdk.projection-primitives.replace-127aef": "Replace",
+  "app.sdk.projection-primitives.add-values-6baf35": "Add values",
+  "app.sdk.projection-primitives.remove-de63e1": "Remove",
+  "app.sdk.results-projection.no-results-e8d3f0": "No results.",
+  "app.sdk.schema-field.move-up-025ce1": "Move up",
+  "app.sdk.schema-field.move-down-d7d110": "Move down",
+  "app.sdk.schema-field.remove-7bd9fb": "Remove",
+  "app.sdk.schema-field.loading-matches-388fb6": "Loading matches…",
+  "app.sdk.schema-field.no-matches-found-1c9c32": "No matches found.",
+  "app.sdk.schema-layout.loading-layout-d4f8db": "Loading layout…",
+  "app.sdk.schema-layout.reload-from-server-a062a5": "Reload from server",
+  "app.sdk.schema-layout.discard-changes-dfb9e7": "Discard changes",
+  "app.sdk.schema-layout.there-are-unsaved-changes-750d7c": "There are unsaved changes.",
+  "app.sdk.schema-layout.keep-editing-cc7530": "Keep editing",
+  "app.sdk.schema-layout.discard-and-leave-7ee5f7": "Discard and leave"
+}

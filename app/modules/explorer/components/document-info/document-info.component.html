@@ -1,0 +1,829 @@
+<div class="modal-header">
+	<h4 class="modal-title text-truncate">
+		{{ 'documentInfo.title' | webuiMessage: 'Document info' }}
+	</h4>
+
+	<button
+		type="button"
+		class="btn-close close pull-right"
+		[attr.aria-label]="'app.modules.document-info.close-719769' | webuiMessage: 'Close'"
+		(click)="close()"
+	>
+		<span aria-hidden="true" class="visually-hidden">&times;</span>
+	</button>
+</div>
+
+<div class="modal-body pt-0">
+	<tabset [justified]="true">
+		<tab [heading]="'documentPage.info' | webuiMessage: 'Info'">
+			@if (!document) {
+				<fa-icon [fixedWidth]="true" icon="spinner" [fixedWidth]="true" animation="spin"></fa-icon>
+			}
+
+			<div class="row g-3 pt-3">
+				<div class="col-sm-3">
+					<div
+						class="media-container d-inline-block"
+						[class.loading]="document.ng.thumbnailLoadingStatus === 1"
+					>
+						@if (document.ng.thumbnailLoadingStatus === 1) {
+							<div class="skeleton"></div>
+						}
+
+						<img
+							nxLazyLoad
+							(willLoadMedia)="document.ng.thumbnailLoadingStatus = 1"
+							(didLoadMedia)="document.ng.thumbnailLoadingStatus = 2"
+							(loadError)="document.ng.thumbnailLoadingStatus = 3"
+							[src]="document.contextParameters?.thumbnail?.url"
+							[alt]="document.title"
+							class="img-thumbnail"
+						/>
+					</div>
+				</div>
+
+				<!-- Stats -->
+				<div class="col-sm-9">
+					<div class="card border shadow-lg h-100">
+						<div class="card-body">
+							<div class="card-title">
+								<fa-icon [fixedWidth]="true" icon="info-circle" class="text-success"></fa-icon>
+
+								{{ 'app.modules.document-info.details-21a7f1' | webuiMessage: 'Details' }}
+							</div>
+							<div class="small">
+								{{ 'app.modules.document-info.title-cda706' | webuiMessage: 'Title:' }}
+								<strong class="bg-light">{{ document.title }}</strong>
+							</div>
+							<div class="small">
+								{{
+									'app.modules.document-info.document-type-221314' | webuiMessage: 'Document type:'
+								}}
+								<strong class="bg-light">{{ document.type }}</strong>
+							</div>
+							<nx-contributors [document]="document" [compact]="true"></nx-contributors>
+						</div>
+					</div>
+				</div>
+
+				<!-- Main file -->
+				@if (!document.ng.facets.superSpace && !document.ng.facets.collection) {
+					<div class="col-sm-6">
+						<div class="card border shadow-lg h-100">
+							<div class="card-body">
+								<div class="card-title">
+									<fa-icon [fixedWidth]="true" icon="file-invoice"></fa-icon>
+
+									{{ 'documentEditors.documentAttachments.mainFile' | webuiMessage: 'Main file' }}
+								</div>
+								@if (document.ng.attachment) {
+									<div class="card-text small w-100">
+										<ul class="mb-0">
+											<li>
+												<div class="d-flex justify-content-between">
+													@if (!document.isUnderRetentionOrLegalHold) {
+														<a
+															[href]="document.ng.attachment.data"
+															class="d-flex justify-content-between w-100 text-decoration-none mb-1"
+															[tooltip]="
+																'app.modules.document-info.download-this-file-b861e7'
+																	| webuiMessage: 'Download this file'
+															"
+														>
+															<div class="text-overflow">
+																{{ document.ng.attachment.name }}
+															</div>
+															<small class="badge bg-light border ms-1">
+																{{ document.ng.attachment.length | fileSize }}
+															</small>
+														</a>
+													}
+													@if (document.isUnderRetentionOrLegalHold) {
+														<div class="d-flex justify-content-between w-100">
+															<div class="text-overflow flex-grow-1">
+																{{ document.ng.attachment.name }}
+															</div>
+															<small class="badge bg-light text-muted border ms-1">
+																{{ document.ng.attachment.length | fileSize }}
+															</small>
+														</div>
+													}
+												</div>
+											</li>
+										</ul>
+									</div>
+								}
+								@if (!document.ng.attachment) {
+									<div class="card-text small">
+										{{
+											'app.modules.document-info.this-document-doesn-t-have-a-main-file-att-87856c'
+												| webuiMessage: "This document doesn't have a main file attached to it."
+										}}
+									</div>
+								}
+							</div>
+						</div>
+					</div>
+				}
+
+				<!-- Additional attachments -->
+				@if (!document.ng.facets.superSpace && !document.ng.facets.collection) {
+					<div class="col-sm-6">
+						<div class="card border shadow-lg h-100">
+							<div class="card-body">
+								<div class="card-title">
+									<fa-icon [fixedWidth]="true" icon="paperclip"></fa-icon>
+
+									{{
+										'app.modules.document-info.additional-attachments-12bac4'
+											| webuiMessage: 'Additional attachments'
+									}}
+								</div>
+								@if (document.ng.attachments?.length) {
+									<div class="card-text small w-100">
+										<ul class="mb-0">
+											@for (attachment of document.ng.attachments; track attachment) {
+												<li>
+													<div class="d-flex justify-content-between">
+														@if (!document.isUnderRetentionOrLegalHold) {
+															<a
+																[href]="attachment.data"
+																[tooltip]="
+																	'app.modules.document-info.download-this-file-b861e7'
+																		| webuiMessage: 'Download this file'
+																"
+																class="d-flex justify-content-between w-100 text-decoration-none mb-1"
+															>
+																<div class="text-overflow">{{ attachment.name }}</div>
+																<small class="badge bg-light border ms-1">
+																	{{ attachment.length | fileSize }}
+																</small>
+															</a>
+														}
+														@if (document.isUnderRetentionOrLegalHold) {
+															<div class="d-flex justify-content-between w-100">
+																<div class="text-overflow">{{ attachment.name }}</div>
+																<small class="badge bg-light text-muted border ms-1">
+																	{{ attachment.length | fileSize }}
+																</small>
+															</div>
+														}
+													</div>
+												</li>
+											}
+										</ul>
+									</div>
+								}
+								@if (!document.ng.attachments.length) {
+									<div class="card-text small">
+										{{
+											'app.modules.document-info.this-document-doesn-t-have-any-additional--8f304b'
+												| webuiMessage
+													: "This document doesn't have any additional files attached to it."
+										}}
+									</div>
+								}
+							</div>
+						</div>
+					</div>
+				}
+
+				@if ((!document.ng.facets.superSpace && !document.ng.facets.collection) || retentionAddon) {
+					<div class="col-12">
+						<nx-collapsible [class.collapsed]="!hideAdvancedFeatures">
+							<button
+								class="btn btn-link d-block mx-auto"
+								(click)="hideAdvancedFeatures = !hideAdvancedFeatures"
+							>
+								{{
+									'app.modules.document-info.show-advanced-features-782d7f'
+										| webuiMessage: 'Show advanced features'
+								}}
+							</button>
+						</nx-collapsible>
+						<nx-collapsible [class.collapsed]="hideAdvancedFeatures" style="max-height: 800px">
+							<div class="row g-3">
+								<!-- Snapshots -->
+								@if (!document.ng.facets.superSpace && !document.ng.facets.collection) {
+									<div class="col-sm-6">
+										<div class="card border shadow-lg h-100">
+											<div class="card-body">
+												<div class="card-title">
+													<fa-icon [fixedWidth]="true" icon="camera-retro"></fa-icon>
+
+													{{ 'documentInfo.snapshots' | webuiMessage: 'Snapshots' }}
+												</div>
+												@if (document.ng.canCreateSnapshot && document.ng.nextMinorVersion) {
+													<div class="card-text small mb-1">
+														{{
+															'documentInfo.createSnapshot'
+																| translate
+																	: {
+																			minorVersion: document.ng.nextMinorVersion,
+																			majorVersion: document.ng.nextMajorVersion,
+																	  }
+																| translateCut: 0
+														}}
+														<a
+															(click)="createSnapshot()"
+															href="javascript:void(0)"
+															class="card-link"
+															>{{
+																'documentInfo.createSnapshot'
+																	| translate
+																		: {
+																				minorVersion: document.ng.nextMinorVersion,
+																				majorVersion: document.ng.nextMajorVersion,
+																		  }
+																	| translateCut: 1
+															}}</a
+														>
+														<span class="px-1">{{
+															'documentInfo.createSnapshot'
+																| translate
+																	: {
+																			minorVersion: document.ng.nextMinorVersion,
+																			majorVersion: document.ng.nextMajorVersion,
+																	  }
+																| translateCut: 2
+														}}</span>
+														<a
+															(click)="createSnapshot(true)"
+															href="javascript:void(0)"
+															class="card-link"
+															>{{
+																'documentInfo.createSnapshot'
+																	| translate
+																		: {
+																				minorVersion: document.ng.nextMinorVersion,
+																				majorVersion: document.ng.nextMajorVersion,
+																		  }
+																	| translateCut: 3
+															}}</a
+														>{{
+															'documentInfo.createSnapshot'
+																| translate
+																	: {
+																			minorVersion: document.ng.nextMinorVersion,
+																			majorVersion: document.ng.nextMajorVersion,
+																	  }
+																| translateCut: 4
+														}}
+													</div>
+												}
+												@if (document.isRecord) {
+													<div class="card-text small">
+														{{
+															'app.modules.document-info.you-cannot-create-snapshots-of-this-docume-e2384a'
+																| webuiMessage
+																	: "You cannot create snapshots of this document because it's marked as a\n														record."
+														}}
+													</div>
+												}
+												<div class="card-text small mt-2">
+													<b>
+														{{
+															'documentInfo.documentSnapshots'
+																| translate: { value: document.ng.snapshots?.length }
+																| translateCut: 0
+														}}
+													</b>
+													{{
+														'documentInfo.documentSnapshots'
+															| translate: { value: document.ng.snapshots?.length }
+															| translateCut: 1
+													}}
+												</div>
+												<ul class="card-text small">
+													@for (snapshot of document.ng.snapshots; track snapshot) {
+														<li class="mb-1">
+															@if (document.ng.version === snapshot.ng.version) {
+																<div class="d-flex justify-content-between w-100 mb-1">
+																	<span>{{
+																		'document.version'
+																			| webuiMessage
+																				: 'Version {version}'
+																				: { version: snapshot.ng.version }
+																	}}</span>
+																	<span
+																		class="badge bg-light me-1 border text-truncate align-middle"
+																		[tooltip]="
+																			'tooltips.lastModified'
+																				| translate
+																					: {
+																							user: snapshot.ng.lastModifiedBy,
+																							date: snapshot.lastModified | webuiDate: 'medium',
+																					  }
+																		"
+																	>
+																		{{ snapshot.lastModified || snapshot.ng.createdOn | timeago }}
+																	</span>
+																</div>
+															}
+															@if (document.ng.version !== snapshot.ng.version) {
+																<a
+																	[routerLink]="snapshot | documentLink"
+																	class="d-flex justify-content-between w-100 text-decoration-none mb-1"
+																>
+																	<span
+																		class="flex-grow-1"
+																		[tooltip]="
+																			'documentInfo.viewSnapshot'
+																				| translate: { version: snapshot.ng.version }
+																		"
+																	>
+																		{{
+																			'document.version'
+																				| webuiMessage
+																					: 'Version {version}'
+																					: { version: snapshot.ng.version }
+																		}}</span
+																	>
+																	<span
+																		class="badge bg-light me-1 border text-truncate align-middle"
+																		[tooltip]="
+																			'tooltips.lastModified'
+																				| translate
+																					: {
+																							user: snapshot.ng.lastModifiedBy,
+																							date: snapshot.lastModified | webuiDate: 'medium',
+																					  }
+																		"
+																	>
+																		{{ snapshot.lastModified || snapshot.ng.createdOn | timeago }}
+																	</span>
+																</a>
+															}
+														</li>
+													}
+												</ul>
+											</div>
+										</div>
+									</div>
+								}
+								<!-- Publications -->
+								@if (!document.ng.facets.superSpace && !document.ng.facets.collection) {
+									<div class="col-sm-6">
+										<div class="card border shadow-lg h-100">
+											<div class="card-body">
+												<div class="card-title">
+													<fa-icon [fixedWidth]="true" icon="boxes-packing"></fa-icon>
+
+													{{ 'documentInfo.publications' | webuiMessage: 'Publications' }}
+												</div>
+												@if (document.ng.canPublish) {
+													<div class="card-text small">
+														<a
+															href="javascript:void(0)"
+															[popover]="internalPublications"
+															popoverTitle="Publish document"
+															triggers=""
+															[nxClickOutside]="internalPublicationsPopover"
+															(nxClickedOutside)="internalPublicationsPopover = false"
+															nxClickOutsideDisabledWhenParentSelectorIs=".popover"
+															container="body"
+															containerClass="menu-item"
+															placement="bottom left"
+															[isOpen]="internalPublicationsPopover"
+															(onShown)="internalPublicationsPopover = true"
+															(onHidden)="internalPublicationsPopover = false"
+															(click)="showInternalPublicationsPopover()"
+															class="card-link"
+														>
+															{{
+																'app.modules.document-info.publish-this-document-438e81'
+																	| webuiMessage: 'Publish this document'
+															}}
+														</a>
+
+														{{
+															'app.modules.document-info.to-a-space-dedicated-to-the-distribution-f-7dfacd'
+																| webuiMessage
+																	: 'to a space dedicated to the distribution for a wider audience.'
+														}}
+													</div>
+												}
+												<div class="card-text small mt-2">
+													<b>
+														{{
+															'documentInfo.documentPublications'
+																| translate
+																	: {
+																			value: document.contextParameters?.publications?.resultsCount,
+																	  }
+																| translateCut: 0
+														}}
+													</b>
+													{{
+														'documentInfo.documentPublications'
+															| translate
+																: { value: document.contextParameters?.publications?.resultsCount }
+															| translateCut: 1
+													}}
+												</div>
+												@if (document.isRecord) {
+													<div class="card-text small opacity-75">
+														{{
+															'app.modules.document-info.you-cannot-publish-this-document-because-i-d834dc'
+																| webuiMessage
+																	: "You cannot publish this document because it's marked as a record."
+														}}
+													</div>
+												}
+											</div>
+										</div>
+									</div>
+								}
+								<!-- Workflows -->
+								@if (!document.ng.facets.superSpace && !document.ng.facets.collection) {
+									<div class="col-sm-12">
+										<div class="card border shadow-lg h-100">
+											<div class="card-body">
+												<div class="card-title">
+													<fa-icon [fixedWidth]="true" icon="project-diagram"></fa-icon>
+
+													{{
+														'app.modules.document-info.workflows-340e4a' | webuiMessage: 'Workflows'
+													}}
+												</div>
+												@if (document.contextParameters?.runningWorkflows?.length) {
+													<div class="card-text small">
+														{{
+															'app.modules.document-info.this-document-is-part-of-these-workflows-93567c'
+																| webuiMessage: 'This document is part of these workflows:'
+														}}
+														<ul>
+															@for (
+																workflow of document.contextParameters.runningWorkflows;
+																track workflow
+															) {
+																<li>
+																	<span
+																		[tooltip]="
+																			'workflow.initiatedBy'
+																				| webuiMessage
+																					: 'Workflow initiated by {name}'
+																					: { name: workflow.initiator }
+																		"
+																	>
+																		{{
+																			workflow.titleKey
+																				? (workflow.titleKey | webuiMessage: workflow.title)
+																				: workflow.title
+																		}}
+																	</span>
+																	@if (document.ng.pendingTasks[workflow.id]) {
+																		<ul>
+																			@for (
+																				task of document.ng.pendingTasks[workflow.id];
+																				track task
+																			) {
+																				<li>
+																					<a
+																						[routerLink]="
+																							task.targetDocumentIds[0].id | documentLink
+																						"
+																					>
+																						<b>{{
+																							task.nameKey
+																								? (task.nameKey | webuiMessage: task.name)
+																								: task.name
+																						}}</b>
+																						(<small>{{
+																							'workflow.due'
+																								| webuiMessage
+																									: 'Due {date}'
+																									: { date: (task.dueDate | timeago) }
+																						}}</small
+																						>)
+																					</a>
+																				</li>
+																			}
+																		</ul>
+																	}
+																</li>
+															}
+														</ul>
+													</div>
+												}
+												@if (!document.contextParameters?.runningWorkflows?.length) {
+													<div class="card-text small">
+														{{
+															'app.modules.document-info.this-document-is-not-part-of-any-workflow-5d7a8d'
+																| webuiMessage: 'This document is not part of any workflow.'
+														}}
+													</div>
+												}
+												<div class="card-text small mt-1">
+													{{
+														'app.modules.document-info.the-current-document-state-is-b398fc'
+															| webuiMessage: 'The current document state is:'
+													}}
+													@if (document.state) {
+														<small
+															class="badge bg-dark border ms-1 d-inline-flex align-items-center gap-1"
+															[tooltip]="
+																'app.modules.document-info.current-document-state-5cb2c6'
+																	| webuiMessage: 'Current document state'
+															"
+														>
+															<fa-icon icon="flag" size="xs"></fa-icon>
+															{{
+																(['project', 'approved', 'obsolete', 'deleted'].includes(
+																	document.state
+																)
+																	? 'lifecycle.' + document.state
+																	: ''
+																) | webuiMessage: document.state
+															}}
+														</small>
+													}
+												</div>
+											</div>
+										</div>
+									</div>
+								}
+								<!-- Notifications -->
+								@if (!document.ng.facets.collection) {
+									<div class="col-sm-6">
+										<div class="card border shadow-lg h-100">
+											<div class="card-body">
+												<div class="card-title">
+													<fa-icon [fixedWidth]="true" icon="bell"></fa-icon>
+
+													{{
+														'app.modules.document-info.notifications-79d515'
+															| webuiMessage: 'Notifications'
+													}}
+												</div>
+												@if (document.ng.canNotify) {
+													<div class="card-text small">
+														{{
+															'app.modules.document-info.you-re-currently-receiving-notifications-w-9f57d8'
+																| webuiMessage
+																	: "You're currently receiving notifications when this document changes."
+														}}
+														<a
+															(click)="toggleNotification()"
+															href="javascript:void(0)"
+															class="card-link"
+														>
+															{{
+																'app.modules.document-info.disable-notifications-191a9e'
+																	| webuiMessage: 'Disable notifications.'
+															}}
+														</a>
+													</div>
+												}
+												@if (!document.ng.canNotify) {
+													<div class="card-text small">
+														<a
+															(click)="toggleNotification()"
+															href="javascript:void(0)"
+															class="card-link ms-1"
+														>
+															{{
+																'app.modules.document-info.get-notified-9bd163'
+																	| webuiMessage: 'Get notified'
+															}}
+														</a>
+
+														{{
+															'app.modules.document-info.when-this-document-changes-9e268c'
+																| webuiMessage: 'when this document changes.'
+														}}
+													</div>
+												}
+											</div>
+										</div>
+									</div>
+								}
+								<!-- Lock -->
+								@if (!document.ng.facets.collection) {
+									<div class="col-sm-6">
+										<div class="card border shadow-lg h-100">
+											<div class="card-body">
+												<div class="card-title">
+													<fa-icon [fixedWidth]="true" icon="lock"></fa-icon>
+
+													{{ 'app.modules.document-info.lock-4a568e' | webuiMessage: 'Lock' }}
+												</div>
+												@if (document.ng.lockedBy) {
+													<!-- Keep quoted ICU braces intact: Prettier misreads them as Angular interpolation endings. -->
+													<!-- prettier-ignore -->
+													<div class="card-text small">
+														{{ 'document.lockedDetails' | webuiMessage:'This document was locked {date} and can only be modified by {who, select, self {you} other {{user}}} or users having the “Manage everything” permission.': {date:
+														(document.lockCreated | timeago), who: (document.ng.lockedBy === user ?
+														'self' : 'other'), user: (document.ng.lockedBy)} }}
+														@if (document.ng.lockedBy === user) {
+															<a (click)="toggleLock()" href="javascript:void(0)" class="card-link">
+																{{
+																	'app.modules.document-info.unlock-f0a33d'
+																		| webuiMessage: 'Unlock.'
+																}}
+															</a>
+														}
+													</div>
+												}
+												@if (!document.ng.lockedBy) {
+													<div class="card-text small">
+														<a
+															(click)="toggleLock()"
+															href="javascript:void(0)"
+															class="card-link ms-1"
+														>
+															{{
+																'app.modules.document-info.lock-this-document-a4cf29'
+																	| webuiMessage: 'Lock this document'
+															}}
+														</a>
+
+														{{
+															'app.modules.document-info.so-only-you-or-users-having-the-manage-eve-55d844'
+																| webuiMessage
+																	: "so only you (or users having the 'Manage everything' permission) can\n														modify it."
+														}}
+													</div>
+												}
+											</div>
+										</div>
+									</div>
+								}
+								<!-- Legal hold -->
+								@if (retentionAddon && !document.ng.facets.collection) {
+									<div class="col-sm-6">
+										<div class="card border shadow-lg h-100">
+											<div class="card-body">
+												<div class="card-title text-danger">
+													<fa-icon [fixedWidth]="true" icon="gavel"></fa-icon>
+
+													{{
+														'app.modules.document-info.legal-hold-45f0e1'
+															| webuiMessage: 'Legal hold'
+													}}
+												</div>
+												@if (document.hasLegalHold) {
+													<div class="card-text small">
+														{{
+															'app.modules.document-info.this-document-is-placed-under-legal-hold-s-d3f82f'
+																| webuiMessage
+																	: "This document is placed under legal hold, so the its main or additional\n														files can't be altered."
+														}}
+														<a
+															(click)="toggleLegalHold()"
+															href="javascript:void(0)"
+															class="card-link d-block"
+														>
+															{{
+																'app.modules.document-info.remove-legal-hold-8ac622'
+																	| webuiMessage: 'Remove legal hold'
+															}}
+														</a>
+													</div>
+												}
+												@if (!document.hasLegalHold) {
+													<div class="card-text small">
+														<a
+															(click)="toggleLegalHold()"
+															href="javascript:void(0)"
+															class="card-link ms-1"
+														>
+															{{
+																'app.modules.document-info.place-under-legal-hold-ee0cf2'
+																	| webuiMessage: 'Place under legal hold'
+															}}
+														</a>
+
+														{{
+															'app.modules.document-info.to-prevent-altering-the-main-or-additional-d9dccd'
+																| webuiMessage: 'to prevent altering the main or additional files.'
+														}}
+													</div>
+												}
+											</div>
+										</div>
+									</div>
+								}
+								<!-- Retention -->
+								@if (retentionAddon && !document.ng.facets.collection) {
+									<div class="col-sm-6">
+										<div class="card border shadow-lg h-100">
+											<div class="card-body">
+												<div class="card-title text-danger">
+													<fa-icon [fixedWidth]="true" icon="shield"></fa-icon>
+
+													{{
+														'app.modules.document-info.retention-abbeff' | webuiMessage: 'Retention'
+													}}
+												</div>
+												@if (document.retainUntil) {
+													<div class="card-text small">
+														{{
+															'app.modules.document-info.this-document-has-the-following-retention--522d80'
+																| webuiMessage
+																	: 'This document has the following retention rules applied to it:'
+														}}
+														<ul class="mb-2">
+															@for (
+																retentionRule of document.properties['record:ruleIds'];
+																track retentionRule
+															) {
+																<li>
+																	{{ retentionRule.title }}
+																</li>
+															}
+														</ul>
+														<a
+															href="javascript:void(0)"
+															(click)="extendRetentionPeriod()"
+															class="card-link"
+															>{{
+																'app.modules.document-info.extend-retention-period-c99131'
+																	| webuiMessage: 'Extend retention period'
+															}}</a
+														>
+													</div>
+												}
+												@if (!document.retainUntil && document.isRecord) {
+													<div class="card-text small opacity-75t">
+														{{
+															'app.modules.document-info.this-document-is-marked-as-a-record-264125'
+																| webuiMessage: 'This document is marked as a record.'
+														}}
+													</div>
+												}
+												@if (!document.retainUntil && !document.isRecord) {
+													<a
+														(click)="applyRetentionRule()"
+														href="javascript:void(0)"
+														class="card-link small ms-1"
+													>
+														{{
+															'app.modules.document-info.apply-a-retention-rule-7651f4'
+																| webuiMessage: 'Apply a retention rule'
+														}}
+													</a>
+												}
+											</div>
+										</div>
+									</div>
+								}
+							</div>
+						</nx-collapsible>
+					</div>
+				}
+			</div>
+		</tab>
+
+		<tab
+			[heading]="'app.modules.document-info.permissions-72426f' | webuiMessage: 'Permissions'"
+			(selectTab)="permissionsTabActivated = true"
+		>
+			@if (!document) {
+				<fa-icon [fixedWidth]="true" icon="spinner" [fixedWidth]="true" animation="spin"></fa-icon>
+			}
+
+			<nx-document-permissions [document]="document"></nx-document-permissions>
+		</tab>
+
+		<tab
+			[heading]="'documentPage.activity' | webuiMessage: 'Activity'"
+			(selectTab)="activityTabActivated = true"
+		>
+			@if (activityTabActivated) {
+				<nx-document-activity [document]="document"></nx-document-activity>
+			}
+		</tab>
+
+		@if (showDevTab) {
+			<tab>
+				<ng-template tabHeading>
+					<fa-icon icon="flask"></fa-icon>
+
+					{{ 'document.developerTools' | webuiMessage: 'Developer tools' }}
+				</ng-template>
+				@if (!document) {
+					<fa-icon
+						[fixedWidth]="true"
+						icon="spinner"
+						[fixedWidth]="true"
+						animation="spin"
+					></fa-icon>
+				}
+				@if (document) {
+					<div class="viewer">
+						<ngx-json-viewer [json]="document" [expanded]="false"></ngx-json-viewer>
+					</div>
+				}
+			</tab>
+		}
+	</tabset>
+</div>
+
+<ng-template #internalPublications>
+	<ng-container
+		[ngComponentOutlet]="internalPublicationsComponent"
+		[ngComponentOutletInjector]="injector"
+	>
+	</ng-container>
+</ng-template>

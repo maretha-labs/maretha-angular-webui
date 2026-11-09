@@ -1,0 +1,105 @@
+<section
+	class="search-queue"
+	[attr.aria-label]="
+		'app.modules.search-queue.search-results-queue-299854' | webuiMessage: 'Search results queue'
+	"
+>
+	<header class="search-queue__header">
+		<span class="search-queue__count" aria-live="polite"
+			>{{ 'results.count' | webuiMessage:'{count, plural, one {# result} other {# results}}':
+			{count: (queue.total() ?? queue.rows().length)} }}</span
+		>
+		<button
+			type="button"
+			class="search-queue__filters"
+			[disabled]="returningToFilters()"
+			(click)="backToFilters()"
+			[attr.aria-label]="
+				'app.modules.search-queue.back-to-filters-8bba5e' | webuiMessage: 'Back to filters'
+			"
+			[attr.title]="
+				'app.modules.search-queue.back-to-filters-8bba5e' | webuiMessage: 'Back to filters'
+			"
+		>
+			<nx-webui-icon name="nuxeo:filter" />
+		</button>
+	</header>
+	@if (quickFilterKeys().length) {
+		<div class="search-queue__quick-filters">
+			@for (key of quickFilterKeys(); track key) {
+				<button
+					type="button"
+					[attr.aria-pressed]="quickFilters()[key]"
+					[disabled]="queue.loading()"
+					(click)="toggleQuickFilter(key)"
+				>
+					{{ quickFilterLabel(key) }}
+				</button>
+			}
+		</div>
+	}
+	@if (returnError() || queue.error()) {
+		<p role="alert">{{ returnError() || queue.error() }}</p>
+		<button
+			type="button"
+			class="search-queue__more"
+			[disabled]="returningToFilters() || (!returnError() && queue.loading())"
+			(click)="returnError() || queue.reopenRequired() ? backToFilters() : queue.retry()"
+		>
+			{{
+				queue.reopenRequired()
+					? ('app.modules.search-queue.back-to-filters-8bba5e' | webuiMessage: 'Back to filters')
+					: ('app.modules.search-queue.retry-a6b580' | webuiMessage: 'Retry')
+			}}
+		</button>
+	}
+	@if (queue.loading() && !queue.rows().length) {
+		<p role="status">
+			{{ 'app.modules.search-queue.loading-results-23b60d' | webuiMessage: 'Loading results…' }}
+		</p>
+	}
+	<ul class="search-queue__list queue-scroll" (scroll)="onScroll($event)">
+		@for (row of queue.rows(); track row.uid) {
+			<li>
+				<a
+					class="search-queue__item"
+					[class.search-queue__item--selected]="queue.selectedUid() === row.uid"
+					[attr.aria-current]="queue.selectedUid() === row.uid ? 'page' : null"
+					[routerLink]="row | documentLink"
+					(click)="queue.select(row.uid)"
+				>
+					@if (thumbnail(row)) {
+						<img [src]="thumbnail(row)" alt="" loading="lazy" />
+					} @else {
+						<span class="search-queue__placeholder" aria-hidden="true"></span>
+					}
+					<span class="search-queue__title">{{ row.title }}</span>
+				</a>
+			</li>
+		} @empty {
+			@if (!queue.loading() && !queue.error()) {
+				<li class="search-queue__empty">
+					{{ 'app.modules.search-queue.no-results-3e0e7d' | webuiMessage: 'No results.' }}
+				</li>
+			}
+		}
+	</ul>
+	@if (queue.loading() && queue.rows().length) {
+		<p role="status">
+			{{
+				'app.modules.search-queue.loading-more-results-02d138'
+					| webuiMessage: 'Loading more results…'
+			}}
+		</p>
+	}
+	@if (queue.hasMore()) {
+		<button
+			type="button"
+			class="search-queue__more"
+			[disabled]="queue.loading()"
+			(click)="queue.more()"
+		>
+			{{ 'app.modules.search-queue.load-more-fdb971' | webuiMessage: 'Load more' }}
+		</button>
+	}
+</section>

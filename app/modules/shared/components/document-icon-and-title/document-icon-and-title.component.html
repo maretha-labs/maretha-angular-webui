@@ -1,0 +1,222 @@
+@if (!disabled) {
+	<a
+		[routerLink]="document | documentLink"
+		class="text-decoration-none d-flex justify-content-between align-items-center root"
+		[class.compact]="compact"
+	>
+		<ng-container *ngTemplateOutlet="content"></ng-container>
+	</a>
+}
+
+@if (disabled) {
+	<div
+		class="text-decoration-none d-flex justify-content-between align-items-center root opacity-50"
+		[class.compact]="compact"
+	>
+		<ng-container *ngTemplateOutlet="content"></ng-container>
+	</div>
+}
+
+<ng-template #content>
+	@if (showIcon) {
+		<div
+			class="media-container"
+			[class.loading]="document.ng.thumbnailLoadingStatus === 1"
+			[class.pe-2]="!compact"
+		>
+			@if (document.ng.thumbnailLoadingStatus === 1) {
+				<div class="skeleton"></div>
+			}
+			@if (document.contextParameters?.thumbnail?.url && document.ng.thumbnailLoadingStatus !== 3) {
+				<img
+					nxLazyLoad
+					(willLoadMedia)="document.ng.thumbnailLoadingStatus = 1"
+					fetchpriority="low"
+					(didLoadMedia)="document.ng.thumbnailLoadingStatus = 2"
+					(loadError)="document.ng.thumbnailLoadingStatus = 3"
+					[src]="document.contextParameters?.thumbnail?.url"
+					[alt]="document.title"
+					class="img-contain"
+				/>
+			} @else if (typeIconUrl(document); as iconUrl) {
+				<img class="thumbnail-fallback type-icon" [src]="iconUrl" alt="" />
+			} @else {
+				<nx-webui-icon class="thumbnail-fallback" [name]="typeIcon(document)" />
+			}
+		</div>
+	}
+
+	<div class="no-overflow d-flex flex-column-reverse justify-content-center gap-1">
+		@if (!compact) {
+			<div class="small text-muted d-flex flex-nowrap align-items-center">
+				<ng-container *ngTemplateOutlet="indicators"></ng-container>
+			</div>
+		}
+
+		<h6
+			class="text-truncate d-inline-block mb-0"
+			[tooltip]="document.isTrashed ? ('tooltips.trashed' | translate) : ''"
+			placement="top left"
+		>
+			<span [class.trashed]="documentManagerMode === 1 && document.isTrashed">
+				{{ document.type === 'Root' ? ('browse.root' | webuiMessage: 'Root') : document.title }}
+
+				@if (['Favorites', 'Collection'].includes(document.type) && document.totalCount) {
+					<span class="position-absolute badge rounded-pill bg-light border">
+						{{ document.totalCount | webuiNumber }}
+						<span class="visually-hidden">{{
+							'app.modules.document-icon-and-title.collection-documents-bb3355'
+								| webuiMessage: 'collection documents'
+						}}</span>
+					</span>
+				}
+			</span>
+
+			@if (documentManagerMode === 1 && document.isTrashed) {
+				<div class="tiny opacity-75">
+					{{ document.path }}
+				</div>
+			}
+		</h6>
+	</div>
+</ng-template>
+
+<ng-template #indicators>
+	@if (!['Favorites', 'Collection'].includes(document.type)) {
+		<span
+			class="badge bg-light me-1 border text-truncate faded"
+			[tooltip]="'tooltips.type' | translate: { type: document.type }"
+		>
+			<fa-icon icon="sitemap"></fa-icon>
+			{{ document.type }}
+		</span>
+	}
+
+	@if (['Favorites', 'Collection'].includes(document.type)) {
+		<span
+			class="badge bg-light me-1 border text-truncate faded"
+			[tooltip]="'app.modules.document-icon-and-title.owner-1ad6c7' | webuiMessage: 'Owner'"
+		>
+			<fa-icon icon="user"></fa-icon>
+			{{ document.ng.createdBy }}
+		</span>
+	}
+
+	@if (document.ng.attachment) {
+		<small
+			class="badge bg-light me-1 border text-truncate faded"
+			[tooltip]="
+				'documentViewers.mainFileSize'
+					| translate: { size: (document.ng.attachment.length | fileSize: 2) }
+			"
+		>
+			<fa-icon icon="paperclip"></fa-icon>
+			{{ document.ng.attachment.length | fileSize: 1 }}
+		</small>
+	}
+
+	@if (document.lastModified) {
+		<span
+			class="badge bg-light me-1 border text-truncate faded"
+			[tooltip]="
+				document.lastModified
+					? ('tooltips.lastModified'
+						| translate
+							: {
+									user: document.ng.lastModifiedBy,
+									date: document.lastModified | webuiDate: 'medium',
+							  })
+					: ('tooltips.created'
+						| translate
+							: { user: document.ng.createdBy, date: document.createdOn | webuiDate: 'medium' })
+			"
+		>
+			<fa-icon icon="clock"></fa-icon>
+			{{ document.lastModified || document.ng.createdOn | timeago }}
+		</span>
+	}
+
+	<div class="text-nowrap">
+		@if (document.properties && document.properties['collectionMember:collectionIds']?.length) {
+			<fa-icon
+				[fixedWidth]="true"
+				icon="bookmark"
+				size="sm"
+				class="text-dark mx-1 help"
+				[tooltip]="
+					'app.modules.document-icon-and-title.you-ve-added-this-document-to-your-collect-9bb13f'
+						| webuiMessage: 'You\'ve added this document to your collections'
+				"
+			>
+			</fa-icon>
+		}
+
+		@if (document.ng.pendingTasks?.length) {
+			<fa-icon
+				[fixedWidth]="true"
+				icon="project-diagram"
+				size="sm"
+				class="text-dark mx-1 help"
+				[tooltip]="'tooltips.pendingTasks' | translate: { value: document.ng.pendingTasks?.length }"
+			>
+			</fa-icon>
+		}
+
+		@if (document.ng.canNotify) {
+			<fa-icon
+				[fixedWidth]="true"
+				icon="bell"
+				size="sm"
+				class="text-dark mx-1 help"
+				[tooltip]="'tooltips.notifications' | translate"
+			></fa-icon>
+		}
+
+		@if (document.ng.lockedBy) {
+			<fa-icon
+				[fixedWidth]="true"
+				icon="lock"
+				size="sm"
+				class="text-dark mx-1 help"
+				[tooltip]="
+					'tooltips.locked'
+						| translate: { user: document.ng.lockedBy, timeago: document.lockCreated | timeago }
+				"
+			>
+			</fa-icon>
+		}
+
+		@if (document.hasLegalHold) {
+			<fa-icon
+				[fixedWidth]="true"
+				icon="gavel"
+				size="sm"
+				class="text-dark mx-1 help"
+				[tooltip]="'tooltips.underLegalHold' | translate"
+			>
+			</fa-icon>
+		}
+
+		@if (document.retainUntil) {
+			<fa-icon
+				[fixedWidth]="true"
+				icon="shield"
+				size="sm"
+				class="text-dark mx-1 help"
+				[tooltip]="'tooltips.underRetention' | translate"
+			>
+			</fa-icon>
+		}
+
+		@if (!document.retainUntil && document.isRecord) {
+			<fa-icon
+				[fixedWidth]="true"
+				icon="compact-disc"
+				size="xs"
+				class="text-dark mx-1 help"
+				[tooltip]="'tooltips.record' | translate"
+			>
+			</fa-icon>
+		}
+	</div>
+</ng-template>

@@ -1,0 +1,1511 @@
+@import '_variables.scss';
+@import 'node_modules/@ng-select/ng-select/themes/default.theme.css';
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/ngx-bootstrap/datepicker/bs-datepicker';
+@import 'toastr.scss';
+@import 'bootswatch.scss';
+
+// Inter font-face declarations (self-hosted)
+@font-face {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src:
+		url('../assets/fonts/Inter-Regular.woff2') format('woff2'),
+		url('../assets/fonts/Inter-Regular.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src:
+		url('../assets/fonts/Inter-SemiBold.woff2') format('woff2'),
+		url('../assets/fonts/Inter-SemiBold.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src:
+		url('../assets/fonts/Inter-Bold.woff2') format('woff2'),
+		url('../assets/fonts/Inter-Bold.woff') format('woff');
+}
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	overflow: hidden;
+}
+
+:root {
+	font-size: var(--maretha-style-base-font-size, 15px);
+
+	// Runtime theme tokens (THEMES slot). Current SCSS values remain the fallbacks.
+	--maretha-style-color-primary: #{$primary};
+	--maretha-style-color-primary-rgb: #{$primary-rgb};
+	--maretha-style-color-primary-focus: #{$primary-focus};
+	--maretha-style-color-primary-dark-15: #{$primary-dark-15};
+	--maretha-style-color-primary-dark-30: #{$primary-dark-30};
+	--maretha-style-color-primary-light-5: #{$primary-light-5};
+	--maretha-style-color-accent: #{$nuxeo-secondary};
+	--maretha-style-color-background: #{$nuxeo-page-bg};
+	--maretha-style-color-surface: #{$nuxeo-box};
+	--maretha-style-color-text: #{$nuxeo-text};
+	--maretha-style-color-muted: #{$gray-600};
+	--maretha-style-color-muted-subtle: #{$gray-500};
+	--maretha-style-color-muted-strong: #{$gray-700};
+	--maretha-style-color-heading: #{$gray-900};
+	--maretha-style-color-border: #{$nuxeo-border};
+	--maretha-style-color-link: #{$nuxeo-text};
+	--maretha-style-color-link-hover: #{$primary};
+	--maretha-style-color-success: #{$success};
+	--maretha-style-color-success-rgb: #{$success-rgb};
+	--maretha-style-color-success-light-35: #{$success-light-35};
+	--maretha-style-color-warning: #{$warning};
+	--maretha-style-color-warning-rgb: #{$warning-rgb};
+	--maretha-style-color-danger: #{$danger};
+	--maretha-style-color-danger-rgb: #{$danger-rgb};
+	--maretha-style-color-info: #{$info};
+	--maretha-style-color-info-rgb: #{$info-rgb};
+	--maretha-style-color-light: #{$light};
+	--maretha-style-color-dark: #{$dark};
+	--maretha-style-color-dark-dark-10: #{$dark-dark-10};
+	--maretha-style-color-white: #{$white};
+	--maretha-style-color-black: #{$black};
+	--maretha-style-color-gray-100: #{$gray-100};
+	--maretha-style-color-gray-200: #{$gray-200};
+	--maretha-style-color-gray-300: #{$gray-300};
+	--maretha-style-color-gray-400: #{$gray-400};
+	--maretha-style-color-gray-800: #{$gray-800};
+	--maretha-style-color-sidebar-background: #{$nuxeo-sidebar-bg};
+	--maretha-style-color-sidebar-item: #ababae;
+	--maretha-style-color-sidebar-item-hover: #fff;
+	--maretha-style-color-table-header-background: #fafafa;
+	--maretha-style-color-disabled-background: #f1f3f3;
+	--maretha-style-color-tag-background: rgba(0, 0, 0, 0.05);
+	--maretha-style-color-scrollbar-thumb: #{$scrollbar-thumb};
+	--maretha-style-base-font-size: 15px;
+	--maretha-style-font-family: #{$font-family};
+	--maretha-style-radius: #{$border-radius};
+	--maretha-style-radius-sm: #{$border-radius-sm};
+	--maretha-style-shadow-card: #{$box-shadow-lg};
+	--maretha-style-header-height: #{$header-height};
+	--maretha-style-sidebar-width: #{$nuxeo-sidebar-width};
+	--maretha-style-drawer-width: #{$nuxeo-drawer-width};
+
+	--bs-primary: #{$runtime-primary};
+	--bs-primary-rgb: #{$runtime-primary-rgb};
+	--bs-secondary: #{$runtime-surface};
+	--bs-success: #{$runtime-success};
+	--bs-success-rgb: #{$runtime-success-rgb};
+	--bs-info: #{$runtime-info};
+	--bs-info-rgb: #{$runtime-info-rgb};
+	--bs-warning: #{$runtime-warning};
+	--bs-warning-rgb: #{$runtime-warning-rgb};
+	--bs-danger: #{$runtime-danger};
+	--bs-danger-rgb: #{$runtime-danger-rgb};
+	--bs-light: #{$runtime-light};
+	--bs-dark: #{$runtime-dark};
+	--bs-white: #{$runtime-white};
+	--bs-black: #{$runtime-black};
+	--bs-gray-100: #{$runtime-gray-100};
+	--bs-gray-200: #{$runtime-gray-200};
+	--bs-gray-300: #{$runtime-gray-300};
+	--bs-gray-400: #{$runtime-gray-400};
+	--bs-gray-500: #{$runtime-gray-500};
+	--bs-gray-600: #{$runtime-gray-600};
+	--bs-gray-700: #{$runtime-gray-700};
+	--bs-gray-800: #{$runtime-gray-800};
+	--bs-gray-900: #{$runtime-gray-900};
+	--bs-body-bg: #{$runtime-surface};
+	--bs-body-color: #{$runtime-text};
+	--bs-body-font-family: #{$runtime-font-family};
+	--bs-border-color: #{$runtime-border};
+	--bs-link-color: #{$runtime-link};
+	--bs-link-hover-color: #{$runtime-link-hover};
+	--bs-dropdown-link-hover-bg: var(--nuxeo-primary-color, #{$primary});
+	--bs-dropdown-link-hover-color: #{$runtime-white};
+
+	// Nuxeo design token aliases retained for existing components.
+	--nuxeo-primary-color: #{$runtime-primary};
+	--nuxeo-primary-rgb: #{$runtime-primary-rgb};
+	--nuxeo-secondary-color: #{$runtime-secondary};
+	--nuxeo-text-default: #{$runtime-text};
+	--nuxeo-text-muted: #{$runtime-gray-600};
+	--nuxeo-page-background: #{$runtime-page-bg};
+	--nuxeo-sidebar-background: #{$runtime-sidebar-bg};
+	--nuxeo-sidebar-item-color: #{$runtime-sidebar-item};
+	--nuxeo-sidebar-item-hover-color: #{$runtime-sidebar-item-hover};
+	--nuxeo-sidebar-width: #{$runtime-sidebar-width};
+	--nuxeo-drawer-width: #{$runtime-drawer-width};
+	--nuxeo-header-height: #{$runtime-header-height};
+	--nuxeo-box: #{$runtime-surface};
+	--nuxeo-border: #{$runtime-border};
+	--nuxeo-app-font: #{$runtime-font-family};
+	--nuxeo-link-color: #{$runtime-link};
+	--nuxeo-link-hover-color: #{$runtime-link-hover};
+	--nuxeo-tag-background: #{$runtime-tag-bg};
+	--nuxeo-button-primary: #{$runtime-primary};
+	--nuxeo-button-primary-focus: #{$runtime-primary-focus};
+	--nuxeo-card-shadow: #{$runtime-card-shadow};
+}
+
+body {
+	overflow: auto;
+	font-family: var(--nuxeo-app-font);
+	line-height: 1.54;
+	letter-spacing: 0.16px;
+	color: var(--nuxeo-text-default);
+	background-color: var(--nuxeo-page-background);
+}
+
+// The late-loaded Bootstrap RTL stylesheet must not replace the active theme.
+html[dir='rtl'] {
+	--bs-body-color: var(--nuxeo-text-default);
+	--bs-body-bg: var(--nuxeo-box);
+	--bs-body-font-family: var(--nuxeo-app-font);
+	--bs-border-color: var(--nuxeo-border);
+}
+
+html[data-maretha-edit-mode-active='true'] [data-maretha-edit-mode='true'] {
+	cursor: crosshair;
+}
+
+html[data-maretha-edit-mode-active='true'] [data-maretha-selected='true'] {
+	outline: 3px solid #1f6feb;
+	outline-offset: 2px;
+	box-shadow: 0 0 0 4px rgb(31 111 235 / 0.16);
+}
+
+::-webkit-scrollbar {
+	height: 3px;
+	width: 3px;
+	background: transparent;
+	box-shadow: none;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #{$runtime-scrollbar-thumb};
+	box-shadow: none;
+	border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+div:empty:after {
+	content: attr(empty);
+	color: #{$runtime-gray-400};
+	display: block;
+}
+
+.list-group-flush > .list-group-item:last-of-type {
+	border-bottom-width: 0;
+}
+
+.tooltip {
+	position: fixed;
+	--bs-tooltip-bg: #292b40;
+	--bs-tooltip-color: #fff;
+	--bs-tooltip-opacity: 1;
+
+	.tooltip-inner {
+		color: var(--bs-tooltip-color);
+		background-color: var(--bs-tooltip-bg);
+	}
+
+	.arrow {
+		position: absolute;
+		margin: 0 0.5rem;
+	}
+}
+
+.popover {
+	position: fixed;
+	max-width: 600px;
+	min-width: 400px;
+
+	.popover-body {
+		padding: 0.5rem 0;
+
+		.list-group-item {
+			white-space: nowrap;
+		}
+	}
+
+	.popover-arrow {
+		position: absolute;
+	}
+}
+
+.list-group-item {
+	input[type='checkbox'],
+	input[type='radio'] {
+		position: absolute;
+		inset-inline-start: 1rem;
+		inset-block-start: 50%;
+		transform: translateY(-50%);
+		margin-block-start: 0;
+
+		+ label {
+			border-radius: 0.5rem;
+			padding-inline-start: 2rem;
+		}
+	}
+
+	input:checked + label {
+		transition: box-shadow 0.3s ease-in-out;
+	}
+}
+
+.slim-edge {
+	.popover-body {
+		padding: 0.5rem;
+	}
+}
+
+.btn-group .btn + .btn {
+	margin-inline-start: 0;
+	border-inline-start: none;
+}
+
+.modal-header {
+	border-block-end: none;
+	padding-block-end: 0;
+}
+
+.media-container {
+	width: 50px;
+	height: 100%;
+	text-align: center;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 0 0 50px;
+
+	img,
+	video {
+		transition: opacity 0.6s ease-in-out;
+		opacity: 1;
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+	&.loading {
+		.skeleton {
+			opacity: 1;
+		}
+
+		img,
+		video {
+			opacity: 0;
+		}
+	}
+}
+
+.skeleton {
+	transition: all 0.2s ease-in-out;
+	position: absolute;
+	inset-block-start: 0;
+	inset-inline-start: 2px;
+	width: 100%;
+	height: 100%;
+	max-height: 100vh;
+	display: block;
+	overflow: hidden;
+
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		inset-inline-start: -150px;
+		inset-block-start: 0;
+		height: 100%;
+		width: 150px;
+		background: linear-gradient(
+			to right,
+			transparent 0%,
+			rgba(207, 207, 207, 0.5) 50%,
+			transparent 100%
+		);
+		animation: skeleton-animation 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+	}
+}
+
+@keyframes skeleton-animation {
+	from {
+		inset-inline-start: -150px;
+	}
+
+	to {
+		inset-inline-start: 100%;
+	}
+}
+
+.ps-2-3 {
+	padding-inline-start: 0.75rem;
+}
+
+.toast-container {
+	font-size: 0.85rem;
+	max-width: 50vw;
+
+	.ngx-toastr {
+		width: auto;
+
+		ul {
+			margin: 0;
+			padding: 0 0 0 1rem;
+		}
+	}
+}
+
+.ng-trigger-horizontalInOutAnimation.ng-animating {
+	overflow: hidden;
+}
+
+.form-control {
+	position: relative;
+}
+
+// Text fields focus like stock paper-input: no outline box, no shadow; the underline (where a
+// field has one) turns the primary colour. Applies application-wide.
+:where(html)
+	:is(
+		input:not([type='checkbox'], [type='radio'], [type='range'], [type='file']),
+		textarea,
+		select,
+		.ng-select .ng-input > input
+	):is(:focus, :focus-visible) {
+	outline: none;
+	box-shadow: none;
+	border-bottom-color: var(--nuxeo-primary-color, #0066ff);
+}
+
+// Editors keep a visible 2px focus ring on their fields (accessibility spec); the app-wide
+// paper-input rule above applies everywhere else.
+nx-base-editor {
+	:is(input.form-control, textarea.form-control, select.form-select, .btn):focus-visible,
+	.form-control:has(.ng-select input:focus-visible) {
+		outline: 2px solid var(--nuxeo-text-default, var(--bs-body-color));
+		outline-offset: 2px;
+		box-shadow: none;
+	}
+
+	.ng-select :is(.ng-value-icon, .ng-clear-wrapper):focus-visible {
+		outline: 2px solid var(--nuxeo-text-default, var(--bs-body-color));
+		outline-offset: -2px;
+	}
+}
+
+@media (forced-colors: active) {
+	nx-base-editor {
+		:is(.form-control, .form-select),
+		:is(.form-control, .form-select):is(:focus, :disabled) {
+			color: FieldText;
+			background-color: Field;
+			border-color: FieldText;
+		}
+
+		:is(input.form-control, textarea.form-control, select.form-select, .btn):focus-visible,
+		.form-control:has(.ng-select input:focus-visible),
+		.ng-select :is(.ng-value-icon, .ng-clear-wrapper):focus-visible {
+			outline-color: Highlight;
+		}
+	}
+}
+
+.form-control.required:after,
+.form-floating.required:after {
+	content: '◉';
+	position: absolute;
+	inset-inline-start: 0.2rem;
+	inset-block-start: 0;
+	font-size: 0.5rem;
+	color: tomato;
+}
+
+ngx-extended-pdf-viewer {
+	> * {
+		box-sizing: border-box;
+	}
+
+	.html .toolbar *,
+	.html .treeItem * {
+		margin: unset;
+		padding: unset;
+	}
+
+	.doorHanger:after,
+	.doorHangerRight:after {
+		border-bottom-color: #{$runtime-dark} !important;
+	}
+
+	#loadingBar {
+		background-color: transparent !important;
+		border-block-end: none !important;
+	}
+
+	.findbar {
+		color: #{$runtime-dark};
+		background-color: #{$runtime-white} !important;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		transform: none !important;
+		border-radius: 0 !important;
+		border: none !important;
+		inset-inline-start: 0rem !important;
+		inset-inline-end: 0rem !important;
+		inset-block-start: 2.9rem !important;
+		margin: 0 !important;
+		padding: 0.25rem 0.5rem 0.5rem !important;
+		z-index: 1000;
+		overflow-y: auto;
+		@extend .shadow-lg;
+
+		&::before,
+		&::after {
+			content: none !important;
+		}
+
+		> * {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.125rem;
+
+			input,
+			label {
+				margin-top: 0;
+				margin-bottom: 0;
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+		}
+
+		input {
+			box-sizing: content-box;
+
+			&[type='checkbox'] {
+				@extend .form-check-input;
+				width: 0.25em;
+				height: 0.75em;
+			}
+
+			&:not([type='checkbox']) {
+				@extend .form-control;
+				padding: 0.25rem 0.5rem !important;
+				font: inherit !important;
+				font-size: 0.85rem !important;
+			}
+		}
+
+		#findbarInputContainer {
+			display: flex;
+			align-items: center;
+		}
+
+		.toolbarLabel {
+			color: #{$runtime-dark} !important;
+			font-variant: all-small-caps;
+			font-size: 0.9rem !important;
+			font-weight: bold;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+
+		#findRange {
+			max-width: 150px;
+		}
+
+		#findInput {
+			margin: 0 !important;
+			height: 100%;
+			border: 1px solid #dee2e6;
+			border-radius: 0.5rem 0 0 0.5rem;
+		}
+
+		.loadingInput {
+			height: 100%;
+		}
+
+		pdf-find-next button {
+			border-radius: 0 0.5rem 0.5rem 0;
+		}
+
+		button.toolbarButton#findPrevious {
+			margin: 0 !important;
+			width: unset !important;
+			border-left-width: 0;
+			border-right-width: 0;
+		}
+
+		button.toolbarButton#findNext {
+			margin: 0 !important;
+			width: unset !important;
+		}
+
+		pdf-find-input-area {
+			button.toolbarButton {
+				margin: 0 !important;
+				padding: 0 0.25rem;
+				border: 1px solid #dee2e6;
+
+				> svg {
+					color: #{$runtime-dark} !important;
+				}
+			}
+
+			textarea {
+				@extend .form-control;
+				padding: 0.375rem 0.7rem !important;
+				border-radius: 0.375rem !important;
+				border: 1px solid #{$runtime-gray-400} !important;
+				font-size: 0.875rem !important;
+				line-height: 1.4 !important;
+				resize: both;
+			}
+		}
+
+		#findResultsCount {
+			background-color: #{$runtime-success} !important;
+			color: #{$runtime-light} !important;
+			padding: 0.125rem 0.5rem 0.325rem;
+		}
+
+		#findMsg {
+			background-color: #{$runtime-danger} !important;
+			color: #{$runtime-light} !important;
+			font-variant: all-small-caps;
+			padding: 0.125rem 0.5rem 0.325rem;
+		}
+	}
+
+	#toolbarContainer,
+	.findbar,
+	.secondaryToolbar,
+	.editorParamsToolbar {
+		height: 0;
+		font-family: #{$runtime-font-family};
+	}
+
+	button.btn:focus,
+	a.btn:focus,
+	input:focus,
+	select:focus {
+		border-color: #{$runtime-gray-300};
+	}
+
+	.html .toolbar {
+		font-family: #{$runtime-font-family};
+		z-index: 1000;
+
+		.dropdown-menu {
+			padding: var(--bs-dropdown-padding-y) var(--bs-dropdown-padding-x);
+			overflow: hidden;
+
+			.dropdown-item {
+				padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
+			}
+		}
+
+		.btn-group {
+			.btn {
+				padding: 0.25rem 0.5rem;
+				min-height: 0;
+
+				&:not(:last-child) {
+					border-top-right-radius: 0;
+					border-bottom-right-radius: 0;
+				}
+			}
+
+			+ .btn-group {
+				margin-inline-start: 0.5rem;
+			}
+		}
+	}
+
+	.pdfViewer .page {
+		border: none !important;
+		box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+	}
+
+	#viewerContainer {
+		top: 3rem !important;
+		margin: -1px 0 0 0;
+
+		.pdfViewer {
+			// Stock nuxeo-pdf-viewer: light grey gutter around the pages.
+			background-color: var(--nuxeo-page-background, #d4d4d4);
+		}
+	}
+
+	#mainContainer {
+		background-color: #{$runtime-white};
+	}
+
+	.pdfViewer#viewer,
+	.html #thumbnailView {
+		background-color: var(--nuxeo-page-background, #d4d4d4) !important;
+	}
+
+	.html #thumbnailView div[data-loaded='true'] .thumbnail.selected img.thumbnailImage {
+		opacity: 1 !important;
+	}
+
+	.html #thumbnailView > a {
+		text-decoration: none;
+
+		&:focus {
+			border: none !important;
+		}
+	}
+
+	.thumbnail.selected {
+		border-color: var(--nuxeo-primary-color, #{$primary}) !important;
+
+		img.thumbnailImage {
+			opacity: 1 !important;
+		}
+	}
+
+	#toolbarSidebar,
+	#sidebarContent {
+		background-color: #{$runtime-dark} !important;
+	}
+
+	.toolbarButton > svg,
+	.treeItemToggler,
+	.treeItem > a {
+		color: #{$runtime-light} !important;
+	}
+
+	.treeItem > a {
+		text-align: left;
+
+		&:focus {
+			border: none !important;
+		}
+	}
+
+	.treeItemToggler::before {
+		filter: invert(1);
+	}
+
+	.treeItem.selected {
+		background-color: #{$runtime-light} !important;
+		box-shadow:
+			0 0 0 3px var(--nuxeo-primary-color, #{$primary}),
+			0 0 0 2px var(--nuxeo-primary-color, #{$primary}) inset;
+
+		a {
+			color: #{$runtime-dark} !important;
+		}
+	}
+}
+
+pdf-find-input-area,
+pdf-find-highlight-all,
+pdf-find-match-case,
+pdf-find-current-page-only,
+pdf-find-range,
+pdf-find-entire-word,
+pdf-find-entire-phrase,
+pdf-find-ignore-accents,
+pdf-find-fuzzily,
+pdf-match-diacritics {
+	display: inline-flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.ng-select.ng-select-multiple .ng-select-container {
+	.ng-value-container {
+		padding-block-start: 0.55rem;
+
+		.ng-value {
+			margin-inline-end: 0.45rem;
+			margin-block-end: 0.45rem;
+			overflow: hidden;
+			max-width: 80%;
+
+			.ng-value-icon.right {
+				border-inline-start-color: #{$runtime-gray-300};
+				vertical-align: middle;
+			}
+
+			.ng-value-label {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				max-width: 100%;
+				white-space: nowrap;
+				vertical-align: middle;
+				padding: 0 0.5rem;
+			}
+		}
+
+		// Selected values are muted pills like stock nuxeo-selectivity, and do not react to hover.
+		.ng-value,
+		.ng-value .ng-value-icon {
+			background-color: #{$runtime-gray-100};
+			color: #{$runtime-dark};
+			border: 1px solid #{$runtime-gray-300};
+			box-shadow: none;
+
+			&:hover,
+			&:focus {
+				background-color: #{$runtime-gray-100};
+				color: #{$runtime-dark};
+			}
+		}
+
+		.ng-value {
+			border-radius: 50rem;
+		}
+
+		.ng-value .ng-value-icon {
+			border-width: 0 1px 0 0;
+			border-radius: 50rem 0 0 50rem;
+			padding: 0 0.5rem;
+		}
+	}
+
+	&.ng-has-value .ng-value-container {
+		padding-block-start: 0.35rem;
+	}
+
+	// Stock selectivity has one remove control per value and no clear-all.
+	.ng-clear-wrapper {
+		display: none;
+	}
+}
+
+.ng-dropdown-panel {
+	font-size: 0.85rem;
+
+	.ng-dropdown-panel-items .ng-option.ng-option-selected {
+		background-color: var(--nuxeo-primary-color, #{$primary});
+		color: #{$runtime-light};
+	}
+
+	// Stock selectivity: the highlighted option is a light tint, not a filled block.
+	.ng-dropdown-panel-items .ng-option.ng-option-marked {
+		background-color: color-mix(in srgb, var(--nuxeo-primary-color, #{$primary}) 10%, transparent);
+		color: inherit;
+	}
+	.ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked {
+		background-color: var(--nuxeo-primary-color, #{$primary});
+		color: #{$runtime-light};
+	}
+}
+
+.ng-select-dark {
+	@extend .bg-dark;
+
+	.ng-select-container,
+	.ng-select.ng-select-opened > .ng-select-container,
+	&.ng-dropdown-panel,
+	&.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+		@extend .bg-dark;
+		color: #{$runtime-light} !important;
+	}
+
+	.ng-select-container {
+		border-color: #{$runtime-light};
+	}
+}
+
+.ng-select-container {
+	transition: all 0.3s ease-in-out;
+}
+
+.ng-select.ng-select-opened > .ng-select-container,
+.ng-select.ng-select-focused > .ng-select-container {
+	border-color: rgba(var(--nuxeo-primary-rgb, #{$primary-rgb}), 0.5) !important;
+	// No focus halo around the field (no blue boxes anywhere).
+	box-shadow: none !important;
+}
+
+// ng-select's theme paints placeholders #999 (2.85:1 on white). Vocabulary pickers take the active
+// theme's text colour at 75% in every context, which clears WCAG AA on each shipped theme.
+nx-vocabulary .ng-select .ng-select-container .ng-value-container .ng-placeholder {
+	color: var(--nuxeo-text-default, #3a3a54);
+	opacity: 0.75;
+}
+
+.ng-select.ng-select-sm {
+	font-size: 0.875rem;
+
+	&.ng-select-multiple .ng-select-container {
+		min-height: 24px;
+
+		.ng-value-container {
+			.ng-placeholder {
+				inset-block-start: 0.25rem;
+				padding-block-end: 0.25rem;
+				padding-inline-start: 0.25rem;
+			}
+
+			.ng-value {
+				margin-inline-end: 0.25rem;
+				margin-block-end: 0.25rem;
+			}
+		}
+	}
+}
+
+.ng-select.ng-select-discreet {
+	&.ng-select-multiple .ng-select-container {
+		border: none;
+		background: transparent;
+		cursor: text;
+
+		.ng-input > input {
+			cursor: text;
+		}
+
+		&:hover {
+			box-shadow: none;
+		}
+
+		.ng-arrow-wrapper {
+			display: none;
+		}
+
+		.ng-value-container {
+			.ng-value {
+				background-color: #{$runtime-gray-100};
+				color: #{$runtime-dark};
+				border: 1px solid #{$runtime-gray-300};
+				box-shadow: none;
+				border-radius: 50rem;
+
+				.ng-value-icon {
+					background-color: inherit;
+					color: inherit;
+					border: 1px solid #{$runtime-gray-100};
+					border-inline-start-color: #{$runtime-gray-300};
+					border-radius: 0;
+					border-start-end-radius: 50rem;
+					border-end-end-radius: 50rem;
+					padding: 0 0.5rem 0 0.5rem;
+
+					&:hover {
+						background-color: #{$runtime-gray-300};
+						border-color: #{$runtime-gray-300};
+					}
+				}
+			}
+		}
+	}
+}
+
+.ng-option-disabled {
+	opacity: 0.5;
+	cursor: default !important;
+
+	input {
+		pointer-events: none;
+	}
+}
+
+.form-control .ng-select {
+	position: static;
+	margin-inline-end: -0.5rem;
+
+	.ng-select-container {
+		border: none;
+		min-height: 24px;
+		height: auto;
+		box-shadow: none !important;
+
+		.ng-value-container {
+			padding-inline-start: 0;
+
+			.ng-input {
+				padding-inline-start: 0;
+			}
+		}
+	}
+
+	&.ng-select-opened > .ng-select-container,
+	&.ng-select-focused > .ng-select-container {
+		border-color: transparent !important;
+		box-shadow: none !important;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		inset-block-start: -1px;
+		inset-inline-start: -1px;
+		inset-block-end: -1px;
+		inset-inline-end: -1px;
+		pointer-events: none;
+		border-radius: 0.375rem;
+		border: 1px solid transparent;
+		transition:
+			border-color 0.15s ease-in-out,
+			box-shadow 0.15s ease-in-out;
+	}
+
+	&:focus:after,
+	&:active:after,
+	&.ng-select-focused:after {
+		border-color: rgba(var(--nuxeo-primary-rgb, #{$primary-rgb}), 0.5);
+		outline-color: initial;
+		box-shadow: 0 0 0 0.2rem rgba(var(--nuxeo-primary-rgb, #{$primary-rgb}), 0.1);
+	}
+}
+
+.carousel-control.disabled {
+	visibility: hidden;
+	pointer-events: none;
+}
+
+.carousel-control-prev-icon {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' %3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+}
+
+.carousel-control-next-icon {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' %3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.modal-title {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+ng-progress {
+	position: relative;
+
+	.ng-bar {
+		background-color: var(--nuxeo-primary-color) !important;
+	}
+
+	.ng-spinner-icon {
+		border-top-color: var(--nuxeo-primary-color) !important;
+		border-left-color: var(--nuxeo-primary-color) !important;
+	}
+}
+
+.cdk-virtual-scroll-content-wrapper {
+	width: 100%;
+}
+
+.dts-select-container:not(.dts-custom) .dts-select-item.dts-range-start {
+	border: inherit;
+	box-shadow: inherit;
+}
+
+.dts-select-container:not(.dts-custom) .dts-select-item.selected {
+	border: inherit;
+	box-shadow: inherit;
+}
+
+progressbar {
+	background-image: linear-gradient(
+		45deg,
+		rgba(255, 255, 255, 0.15) 25%,
+		transparent 25%,
+		transparent 50%,
+		rgba(255, 255, 255, 0.15) 50%,
+		rgba(255, 255, 255, 0.15) 75%,
+		transparent 75%,
+		transparent
+	);
+	background-size: var(--bs-progress-height) var(--bs-progress-height);
+
+	&.active {
+		animation: 1s linear infinite progress-bar-stripes;
+	}
+
+	.progress-bar {
+		display: block;
+		line-height: 1.4;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+.tab-content {
+	flex-grow: 1;
+}
+
+.text-truncate {
+	max-width: 100%;
+}
+
+.carousel {
+	.carousel-inner {
+		align-items: center;
+		justify-content: center;
+
+		.carousel-item {
+			width: auto !important;
+			min-height: 170px;
+			margin: 0 0.25rem;
+			background-color: #{$runtime-dark};
+		}
+
+		.carousel-caption {
+			inset-block-end: 0.5rem;
+			inset-inline-start: 1rem;
+			inset-inline-end: 1rem;
+		}
+	}
+
+	.carousel-control-prev,
+	.carousel-control-next {
+		border-radius: 50%;
+		background: #{$runtime-black};
+		box-shadow: 0 0 0 2px #{$runtime-white};
+		inset-block-start: 50%;
+		width: 2.5rem;
+		height: 2.5rem;
+		transform: translateY(-50%);
+	}
+
+	.carousel-control-prev {
+		inset-inline-start: 1rem;
+
+		.carousel-control-prev-icon {
+			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+		}
+	}
+
+	.carousel-control-next {
+		inset-inline-end: 1rem;
+
+		.carousel-control-next-icon {
+			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+		}
+	}
+}
+
+.ngx-json-viewer {
+	overflow: visible !important;
+}
+
+markdown {
+	// background-color: $dark;
+	// color: $light;
+
+	> * {
+		color: inherit;
+	}
+}
+
+.loading-spinner {
+	position: absolute;
+	inset-block-start: 60%;
+	inset-inline-start: 50%;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+}
+
+.border-radius-inherit {
+	border-radius: inherit;
+}
+
+.theme-dark-blue {
+	.bs-datepicker-head {
+		background-color: #{$runtime-gray-500};
+
+		button {
+			&:not(:disabled) {
+				color: #{$runtime-dark};
+			}
+
+			&:disabled {
+				background-color: transparent;
+				opacity: 0.5;
+			}
+		}
+	}
+
+	.bs-datepicker-body {
+		border: none;
+
+		table {
+			th {
+				color: #{$runtime-gray-500};
+			}
+
+			td {
+				color: var(--nuxeo-primary-color, #{$primary});
+
+				span {
+					padding: 0 1px;
+
+					&.disabled {
+						color: #{$runtime-gray-500};
+					}
+				}
+
+				&.is-other-month span,
+				span.is-other-month {
+					color: #{$runtime-gray-300};
+				}
+
+				&.week span {
+					color: #{$runtime-gray-500};
+				}
+
+				span.selected,
+				&.selected span,
+				span[class*='select-']:after,
+				[class*='select-'] span:after {
+					background-color: var(--nuxeo-primary-color, #{$primary});
+				}
+			}
+		}
+	}
+}
+
+.dropdown-item:disabled {
+	opacity: 0.35;
+}
+
+// ============================================================================
+// Nuxeo Global Utility Styles
+// ============================================================================
+
+// FAB (Floating Action Button) — blue circle, fixed bottom-right
+.nx-fab {
+	position: fixed;
+	inset-block-end: 24px;
+	inset-inline-end: 24px;
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	background-color: var(--nuxeo-primary-color);
+	color: #{$runtime-white};
+	border: none;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5rem;
+	cursor: pointer;
+	z-index: 1030;
+	transition:
+		background-color 0.2s,
+		box-shadow 0.2s;
+	min-height: auto;
+	padding: 0;
+
+	&:hover {
+		background-color: var(--nuxeo-button-primary-focus);
+		box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+	}
+}
+
+// User Avatar — circle with colored background + white initials
+.nx-user-avatar {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	font-size: 0.65rem;
+	font-weight: 700;
+	color: #{$runtime-white};
+	text-transform: uppercase;
+	flex-shrink: 0;
+	line-height: 1;
+
+	&--sm {
+		width: 20px;
+		height: 20px;
+		font-size: 0.55rem;
+	}
+
+	&--lg {
+		width: 32px;
+		height: 32px;
+		font-size: 0.75rem;
+	}
+}
+
+// Selection Circle — empty circle outline, filled blue when selected
+.nx-selection-circle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 2px solid #{$runtime-gray-400};
+	background: transparent;
+	cursor: pointer;
+	transition: all 0.15s;
+	flex-shrink: 0;
+
+	&:hover {
+		border-color: var(--nuxeo-primary-color);
+	}
+
+	&.selected,
+	&.active {
+		background-color: var(--nuxeo-primary-color);
+		border-color: var(--nuxeo-primary-color);
+
+		&::after {
+			content: '';
+			display: block;
+			width: 8px;
+			height: 8px;
+			background: #{$runtime-white};
+			border-radius: 50%;
+		}
+	}
+}
+
+// Underline-style inputs (admin search bars)
+.nx-input-underline {
+	border: none;
+	border-bottom: 1px solid var(--nuxeo-border);
+	border-radius: 0;
+	padding-inline-start: 0;
+	background: transparent;
+	transition: border-color 0.2s;
+
+	&:focus {
+		border-color: var(--nuxeo-primary-color);
+		box-shadow: none;
+		outline: none;
+	}
+}
+
+// Document type icon (gray, consistent sizing)
+.nx-doc-icon {
+	width: 20px;
+	height: 20px;
+	color: #{$runtime-gray-500};
+	flex-shrink: 0;
+
+	&--lg {
+		width: 24px;
+		height: 24px;
+	}
+}
+
+// Nuxeo card header with icon + title pattern
+.nx-card-header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 16px 0;
+	font-weight: 700;
+	font-size: 0.95rem;
+	color: var(--nuxeo-text-default);
+
+	fa-icon {
+		color: #{$runtime-gray-500};
+		font-size: 1rem;
+	}
+}
+
+// Quick filter pills
+.nx-filter-pill {
+	display: inline-flex;
+	align-items: center;
+	padding: 4px 12px;
+	border-radius: 16px;
+	font-size: 0.8rem;
+	font-weight: 500;
+	background: #{$runtime-gray-200};
+	color: var(--nuxeo-text-default);
+	border: 1px solid transparent;
+	cursor: pointer;
+	transition: all 0.15s;
+
+	&:hover {
+		background: #{$runtime-gray-300};
+	}
+
+	&.active {
+		background: var(--nuxeo-primary-color);
+		color: #{$runtime-white};
+	}
+}
+
+// Result count text
+.nx-result-count {
+	font-size: 0.85rem;
+	color: #{$runtime-gray-600};
+	font-weight: 500;
+}
+
+// View mode toggle icons
+.nx-view-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 2px;
+
+	.nx-view-toggle__btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		background: transparent;
+		border: none;
+		color: #{$runtime-gray-500};
+		cursor: pointer;
+		min-height: auto;
+		padding: 0;
+		transition: color 0.15s;
+
+		&:hover {
+			color: var(--nuxeo-text-default);
+		}
+
+		&.active {
+			color: var(--nuxeo-primary-color);
+		}
+	}
+}
+
+// Stock nuxeo-data-grid: rows of fixed 220px document thumbnails (234.4px with frame and margins),
+// centred, in every results grid that shows nx-document-grid-thumbnail cards. Global: the cards
+// come from each host's template, so the results projection's scoped styles cannot see them.
+nx-results-projection
+	.nx-results-projection__grid
+	.nx-results-projection__grid-row:has(> nx-document-grid-thumbnail) {
+	grid-template-columns: repeat(auto-fill, 234.4px);
+	justify-content: center;
+	gap: 0;
+}
+
+// Sort arrow styling for table headers
+.nx-sort-header {
+	cursor: pointer;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+
+	&:hover {
+		color: var(--nuxeo-primary-color);
+	}
+}
+
+.text-break-spaces {
+	white-space: break-spaces;
+}
+
+[data-maretha-structural-layout-active='true'] [data-maretha-layout-grid-container='true'] {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	column-gap: var(--maretha-style-layout-column-gap, 1rem);
+	row-gap: var(--maretha-style-layout-row-gap, 1rem);
+}
+
+[data-maretha-structural-layout-active='true'] [data-maretha-layout-block] {
+	grid-column: var(--maretha-layout-column-start, 1) / span var(--maretha-layout-column-span, 12);
+	order: var(--maretha-layout-order, 0);
+	min-width: 0;
+}
+
+// The shared confirmation stacks over the in-app editors that open it (vocabulary entries at 1080,
+// permissions at 1100), as stock paper-dialog confirmations do, so a pointer can reach Discard.
+modal-container:has(> .modal-dialog.nx-confirmation-dialog) {
+	z-index: 1150;
+}
+// Its card: 440px wide with soft corners and shadow. The component lays out the question, any
+// supporting text and both buttons on this one surface, without a grey footer band.
+.modal-dialog.nx-confirmation-dialog {
+	--bs-modal-width: 440px;
+
+	> .modal-content {
+		border: 0;
+		border-radius: 6px;
+		box-shadow:
+			0 16px 40px rgb(0 0 0 / 18%),
+			0 2px 8px rgb(0 0 0 / 8%);
+	}
+}
+
+// Consistent labels for document actions; rendered outside clipped toolbars. Stock paper-tooltip
+// look: 14px text, 8px radius, and it sits above the fixed selection bar (z 1100) with a gap
+// below it.
+.tooltip.document-action-tooltip {
+	--bs-tooltip-bg: #292b40;
+	--bs-tooltip-color: #fff;
+	--bs-tooltip-opacity: 1;
+	z-index: 1200;
+	pointer-events: none;
+	// Include an edge gutter in ngx-bootstrap's outer-size calculation.
+	margin-inline: 8px;
+	.tooltip-inner {
+		max-width: min(260px, calc(100vw - 16px));
+		padding: 10px 16px;
+		border-radius: 8px;
+		background: #292b40;
+		color: #fff;
+		font-family: inherit;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 1.4;
+		box-shadow: 0 3px 10px #14152824;
+	}
+	&.bs-tooltip-bottom {
+		margin-top: 8px;
+	}
+}
+
+// The mobile navigation toggle floats right of the rail; page headings start after it.
+@media (max-width: 720px) {
+	.dashboard-header,
+	.document-identity,
+	.view-page__header,
+	.nx-tasks-page__header,
+	main > header:first-child,
+	main > * > header:first-child {
+		padding-inline-start: 56px;
+	}
+}
+
+// Document editing uses a centered stock-sized modal, independently of its toolbar trigger.
+.modal-dialog.nx-document-edit-dialog {
+	width: 915px;
+	max-width: calc(100vw - 32px);
+	min-height: calc(100% - 32px);
+	margin: 16px auto;
+
+	> .modal-content {
+		font-size: 13px;
+		line-height: 1.54;
+		height: 60vh;
+		max-height: calc(100dvh - 32px);
+		border: 0;
+		border-radius: 0;
+		background: var(--nuxeo-box, #fff);
+		box-shadow:
+			0 16px 24px 2px #00000024,
+			0 6px 30px 5px #0000001f,
+			0 8px 10px -5px #0006;
+	}
+}
+body:has(modal-container > .nx-document-edit-dialog) > .modal-backdrop {
+	opacity: 0.6;
+}

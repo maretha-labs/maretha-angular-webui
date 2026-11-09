@@ -1,0 +1,9 @@
+# gitleaks configuration: the default rules plus one documented false positive.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "core.manifest.json maps locked source files to their SHA-256 digests; a 64-character hex digest is not a credential."
+paths = ['''core\.manifest\.json$''']
+regexTarget = "match"
+regexes = ['''\b[a-f0-9]{64}\b''']

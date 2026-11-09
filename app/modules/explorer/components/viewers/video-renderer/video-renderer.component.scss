@@ -1,0 +1,87 @@
+@import '../../../../../../styles/_variables';
+
+:host {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: 0.5rem;
+}
+
+.media {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	// background-color: $dark;
+	border-radius: 0.325rem;
+
+	.info {
+		position: absolute;
+		inset-inline-start: 0;
+		inset-inline-end: 0;
+		inset-block-end: 0;
+	}
+}
+
+@media (min-width: 768px) {
+	.media {
+		overflow: auto;
+		flex: 0 1 20vh;
+	}
+}
+
+img {
+	object-fit: contain;
+	width: 100%;
+	max-height: 85%;
+	border-radius: 0;
+}
+
+video {
+	max-width: 100%;
+	border-radius: 0;
+	flex-grow: 1;
+}
+
+.table {
+	thead {
+		th:last-child {
+			text-align: end;
+		}
+	}
+
+	tbody {
+		th {
+			width: 0;
+			padding: 0.25rem 1rem;
+
+			&:first-child {
+				text-align: start;
+
+				.form-check-input {
+					cursor: pointer;
+				}
+			}
+		}
+
+		td {
+			padding: 0.25rem 0.5rem;
+
+			&:last-child {
+				text-align: end;
+			}
+		}
+	}
+}
+
+.form-switch {
+	padding-inline-start: 3em;
+	min-height: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.link-primary {
+	filter: brightness(1.5);
+}

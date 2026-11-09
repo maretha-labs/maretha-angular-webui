@@ -1,0 +1,158 @@
+:host {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	min-height: 0;
+	min-width: 0;
+	overflow: hidden;
+	color: var(--nuxeo-text-default);
+}
+.dashboard-header {
+	margin: 0;
+	font-weight: normal;
+	flex-shrink: 0;
+	height: 53px;
+	display: flex;
+	align-items: center;
+	padding-inline: 16px 76px;
+	background: var(--nuxeo-app-header-background, var(--nuxeo-box, #fff));
+	box-shadow: 0 2px 4px #0002;
+	font-size: 26px;
+}
+.nx-dashboard {
+	flex: 1;
+	min-height: 0;
+	overflow: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-content: flex-start;
+	padding: 16px;
+	gap: 16px 2%;
+}
+.dashboard-card {
+	width: 49%;
+	min-width: 0;
+	padding: 16px;
+	background: var(--nuxeo-box, #fff);
+	border-radius: 14px;
+	box-shadow: 0 2px 4px #0001;
+	h2 {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin: 0 0 12px;
+		font-size: 1rem;
+		font-weight: 700;
+		line-height: 20px;
+		nx-webui-icon {
+			width: 14px;
+			height: 14px;
+		}
+	}
+}
+.card-body {
+	height: 350px;
+	overflow: auto;
+	padding: 0;
+}
+.dashboard-document-grid {
+	display: block;
+	height: 100%;
+	min-height: 0;
+	--nx-results-projection-grid-height: 350px;
+}
+.document-title {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	min-width: 0;
+}
+.document-title img,
+.document-title nx-webui-icon {
+	flex: 0 0 32px;
+	width: 32px;
+	height: 32px;
+	object-fit: contain;
+}
+a {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: inherit;
+	text-decoration: none;
+}
+a:hover {
+	color: var(--nuxeo-primary-color);
+}
+a:focus-visible {
+	outline: 2px solid var(--nuxeo-primary-color);
+}
+.type-tag,
+.contributor-tag {
+	border-radius: 20px;
+	background: var(--nuxeo-tag-background, #f5f5f5);
+	font-size: 0.85rem;
+}
+.type-tag {
+	padding: 2px 6px;
+}
+.contributor-tag {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	padding-inline-end: 6px;
+	max-width: 100%;
+	line-height: 14px;
+}
+.avatar {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	width: 22px;
+	height: 22px;
+	flex: 0 0 22px;
+	color: white;
+	font-size: 10px;
+}
+.empty {
+	padding: 24px 16px;
+	text-align: center;
+	font-size: 1.1rem;
+	color: var(--nuxeo-text-default);
+	opacity: 0.8;
+	border: 0;
+}
+.task {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	width: 100%;
+	text-align: start;
+	border: 0;
+	border-bottom: 1px solid var(--nuxeo-border);
+	background: transparent;
+	color: inherit;
+	padding: 13px;
+}
+h3 {
+	font-size: 1rem;
+	padding: 12px;
+}
+@media (max-width: 1024px) {
+	.dashboard-card {
+		width: 100%;
+	}
+}
+@media (max-width: 720px) {
+	.dashboard-header {
+		padding-inline-start: 56px;
+	}
+	.nx-dashboard {
+		flex: 1;
+		min-height: 0;
+		overflow: auto;
+		padding: 12px;
+	}
+}

@@ -1,0 +1,286 @@
+.tree-indent {
+	width: calc(var(--nx-document-tree-level) * var(--nx-document-tree-indent, 14px));
+}
+
+.tree-page-status {
+	padding-inline-start: calc(
+		8px + var(--nx-document-tree-level) * var(--nx-document-tree-indent, 14px)
+	);
+}
+
+.tree-item {
+	cursor: pointer;
+	align-items: center;
+	min-height: 30px;
+	padding-inline-end: 8px;
+	padding-block: 2px;
+	color: var(--nuxeo-text-default);
+	transition: background-color 0.12s;
+	border-radius: 0.1em;
+
+	&:hover {
+		background-color: rgba(var(--nuxeo-primary-rgb), 0.07);
+		color: var(--nuxeo-text-default);
+
+		.tree-icon {
+			opacity: 1;
+		}
+	}
+
+	&.active {
+		background-color: rgba(var(--nuxeo-primary-rgb), 0.1);
+		color: var(--nuxeo-text-default);
+		font-weight: 600;
+
+		.tree-icon {
+			opacity: 1;
+		}
+	}
+}
+
+.tree-toggle {
+	width: 20px;
+	height: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	color: inherit;
+}
+
+.tree-toggle-spacer {
+	width: 20px;
+}
+
+.tree-icon {
+	color: var(--nuxeo-primary-color);
+	opacity: 0.65;
+}
+
+.tree-label {
+	flex: 1;
+	min-width: 0;
+	line-height: 1.2;
+}
+
+.tree-parents {
+	display: flex;
+	flex-direction: column;
+	margin-block-end: 4px;
+}
+
+.tree-parent {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	min-height: 24px;
+	min-width: 0;
+	border: 0;
+	padding: 0 4px;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	text-align: start;
+
+	&:hover {
+		color: var(--nuxeo-link-hover-color, var(--nuxeo-primary-color));
+	}
+}
+
+.tree-parent-icon {
+	opacity: 0.65;
+}
+
+:host-context([dir='rtl']) .tree-parent-icon {
+	transform: scaleX(-1);
+}
+
+// Loading text never takes flow space: folders stay where they are when it disappears.
+:host {
+	position: relative;
+}
+.tree-page-status {
+	position: relative;
+}
+.tree-loading {
+	position: absolute;
+	inset-inline-start: inherit;
+	top: 100%;
+	margin: 0;
+	color: var(--bs-gray-400);
+	font-size: 0.78rem;
+	line-height: 22px;
+	white-space: nowrap;
+	pointer-events: none;
+}
+:host > .tree-loading {
+	top: auto;
+	bottom: 0;
+}
+
+.tree-link {
+	display: flex;
+	align-items: center;
+	flex: 1;
+	min-width: 0;
+	text-align: start;
+	border: 0;
+	padding: 4px;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+}
+button:focus-visible {
+	outline: 2px solid var(--nuxeo-primary-color);
+	outline-offset: -2px;
+}
+.tree-more {
+	border: 0;
+	background: transparent;
+	color: var(--nuxeo-primary-color);
+	padding: 8px;
+}
+
+:host-context([dir='rtl']) .tree-toggle[aria-expanded='false'] fa-icon {
+	transform: scaleX(-1);
+}
+
+.tree-node:focus-visible {
+	outline: none;
+}
+.tree-node:focus-visible > .tree-item {
+	outline: 2px solid var(--nuxeo-text-default, CanvasText);
+	outline-offset: -2px;
+}
+
+// Drawer trees follow the reference density; destination pickers retain their existing layout.
+:host-context(.nx-drawer) {
+	display: block;
+	padding: 11px 5px;
+	color: var(--nuxeo-drawer-text, var(--nuxeo-text-default));
+	--nx-document-tree-indent: 13px;
+
+	nx-tree {
+		display: block;
+	}
+
+	// The SDK owns this projected list. Keep its padding reset local to this drawer tree.
+	nx-tree ::ng-deep > ul {
+		padding: 0;
+	}
+
+	.tree-node {
+		display: flow-root;
+	}
+
+	.tree-item {
+		min-height: 24px;
+		margin-block: 1px;
+		padding: 0;
+		border-radius: 0;
+	}
+
+	.tree-toggle,
+	.tree-toggle-spacer {
+		width: 24px;
+		height: 24px;
+	}
+
+	.tree-toggle fa-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 16.9px;
+		height: 16.9px;
+	}
+
+	.tree-link {
+		min-height: 24px;
+		padding: 0;
+		line-height: 1.3em;
+	}
+
+	.tree-label {
+		line-height: 1.3em;
+	}
+}
+
+// Refine the Browse contribution without changing personal workspace or destination pickers.
+:host(.nx-browse-tree) {
+	.tree-item {
+		align-items: flex-start;
+		margin-block: 0.1rem 0;
+		color: var(--nuxeo-drawer-text, var(--nuxeo-text-default));
+
+		&:hover,
+		&.active {
+			background: transparent;
+			color: inherit;
+			font-weight: 400;
+		}
+	}
+
+	.tree-toggle,
+	.tree-toggle-spacer {
+		// Consume the existing gutter, retaining a full 24px target inside the drawer edge.
+		margin-inline-start: -5px;
+	}
+
+	.tree-toggle {
+		align-items: flex-start;
+		justify-content: flex-start;
+		padding-inline-start: 5px;
+		// Items top-align so wrapped labels keep the chevron on their first line; this offset puts
+		// the chevron's centre on that first line's centre (link padding 0.2rem + half of 1.3em).
+		padding-block-start: 0.27rem;
+	}
+
+	.tree-link {
+		align-items: flex-start;
+		padding-block-start: 0.2rem;
+
+		&:hover {
+			color: var(--nuxeo-link-hover-color, var(--nuxeo-primary-color));
+		}
+	}
+
+	.tree-label {
+		white-space: normal;
+		overflow: visible;
+		text-overflow: clip;
+		overflow-wrap: anywhere;
+	}
+
+	// Stock nuxeo-document-tree: no folder icons, no underline on the current node; each parent
+	// row is a full-width drawer item with a 1px separator, the tree sits 6px below.
+	.tree-icon {
+		display: none;
+	}
+
+	.tree-parents {
+		margin: -11px -5px 14px;
+	}
+
+	.tree-parents + nx-tree {
+		padding-inline-start: 8px;
+	}
+
+	.tree-parent {
+		gap: 0.35em;
+		min-height: 34px;
+		padding: 0.35em 0.35em 0.35em 0.6em;
+		border-bottom: 1px solid var(--nuxeo-border);
+		line-height: 20px;
+	}
+
+	.tree-parent-icon {
+		opacity: 0.7;
+	}
+
+	.tree-node:focus-visible > .tree-item {
+		outline-color: var(--nuxeo-drawer-text, var(--nuxeo-text-default));
+	}
+}

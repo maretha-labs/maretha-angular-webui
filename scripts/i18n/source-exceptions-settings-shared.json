@@ -1,0 +1,2670 @@
+{
+  "version": 1,
+  "scopes": ["app/modules/settings/", "app/modules/shared/"],
+  "exceptions": [
+    {
+      "id": "fe69f7cd18ad93ac",
+      "file": "app/modules/settings/components/analytics/analytics.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ error }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "2372561fa0878603",
+      "file": "app/modules/settings/components/analytics/analytics.component.ts",
+      "kind": "typescript-string",
+      "text": "${ctx.label}: ${(ctx.parsed as number).toLocaleString(this.i18n.locale())}",
+      "ownership": "technical-token",
+      "reason": "Chart tooltip combines an already localized label and locale-formatted number, or serializes a backend ISO date/path query; it adds no source-language prose.",
+      "maximum": 1
+    },
+    {
+      "id": "0de2e902fc6537c4",
+      "file": "app/modules/settings/components/analytics/analytics.component.ts",
+      "kind": "typescript-string",
+      "text": "${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}",
+      "ownership": "technical-token",
+      "reason": "Chart tooltip combines an already localized label and locale-formatted number, or serializes a backend ISO date/path query; it adds no source-language prose.",
+      "maximum": 1
+    },
+    {
+      "id": "ed1a4f100dca5852",
+      "file": "app/modules/settings/components/analytics/analytics.component.ts",
+      "kind": "typescript-string",
+      "text": "${normalized.replace(/\\/+$/, '')}/",
+      "ownership": "technical-token",
+      "reason": "Chart tooltip combines an already localized label and locale-formatted number, or serializes a backend ISO date/path query; it adds no source-language prose.",
+      "maximum": 1
+    },
+    {
+      "id": "e4df3b5a6c1384df",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "bound-attribute-literal",
+      "text": "audit.usernamePlaceholder",
+      "ownership": "technical-token",
+      "reason": "Audit message key, sort-field identifier, directory kind or date-format argument; the field selects data or an explicitly localized label.",
+      "maximum": 1
+    },
+    {
+      "id": "41828e880d34dfb6",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "bound-attribute-literal",
+      "text": "Filter by username",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to AuditComponent.text/translated with an explicit audit message key; no customer value is inferred as a key.",
+      "maximum": 1
+    },
+    {
+      "id": "ffa19c6ddfebe619",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "template-expression-literal",
+      "text": "audit.eventTypes",
+      "ownership": "technical-token",
+      "reason": "Audit message key, sort-field identifier, directory kind or date-format argument; the field selects data or an explicitly localized label.",
+      "maximum": 1
+    },
+    {
+      "id": "14715a3e236285fa",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "template-expression-literal",
+      "text": "Performed Actions",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to AuditComponent.text/translated with an explicit audit message key; no customer value is inferred as a key.",
+      "maximum": 1
+    },
+    {
+      "id": "51aae49ab05ac2c6",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ text('audit.eventTypes', 'Performed Actions') }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed display helper resolves explicit app-owned message keys and preserves unknown repository labels/customer inputs; this template displays that result without a second implicit lookup.",
+      "maximum": 1
+    },
+    {
+      "id": "387d86eb1f6c4566",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "bound-attribute-literal",
+      "text": "audit.selectEventTypes",
+      "ownership": "technical-token",
+      "reason": "Audit message key, sort-field identifier, directory kind or date-format argument; the field selects data or an explicitly localized label.",
+      "maximum": 1
+    },
+    {
+      "id": "b477c2dc1b796d2f",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "bound-attribute-literal",
+      "text": "Select event actions",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to AuditComponent.text/translated with an explicit audit message key; no customer value is inferred as a key.",
+      "maximum": 1
+    },
+    {
+      "id": "b89670fc881946d7",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "template-expression-literal",
+      "text": "eventType",
+      "ownership": "technical-token",
+      "reason": "Audit message key, sort-field identifier, directory kind or date-format argument; the field selects data or an explicitly localized label.",
+      "maximum": 2
+    },
+    {
+      "id": "e28eac8d3d4f9794",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "dynamic-template",
+      "text": "{{\n\t\t\t\t\tdirectoryLabel(item, 'eventType')\n\t\t\t\t}}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed display helper resolves explicit app-owned message keys and preserves unknown repository labels/customer inputs; this template displays that result without a second implicit lookup.",
+      "maximum": 2
+    },
+    {
+      "id": "0c864536835b8c57",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "template-expression-literal",
+      "text": "audit.eventCategory",
+      "ownership": "technical-token",
+      "reason": "Audit message key, sort-field identifier, directory kind or date-format argument; the field selects data or an explicitly localized label.",
+      "maximum": 1
+    },
+    {
+      "id": "7f7792e3548e8f78",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "template-expression-literal",
+      "text": "Event Category",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to AuditComponent.text/translated with an explicit audit message key; no customer value is inferred as a key.",
+      "maximum": 1
+    },
+    {
+      "id": "c4ba30359cc1c64b",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ text('audit.eventCategory', 'Event Category') }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed display helper resolves explicit app-owned message keys and preserves unknown repository labels/customer inputs; this template displays that result without a second implicit lookup.",
+      "maximum": 1
+    },
+    {
+      "id": "6049d1e977cb1028",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "bound-attribute-literal",
+      "text": "audit.selectEventCategory",
+      "ownership": "technical-token",
+      "reason": "Audit message key, sort-field identifier, directory kind or date-format argument; the field selects data or an explicitly localized label.",
+      "maximum": 1
+    },
+    {
+      "id": "83c070a183a147fd",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "bound-attribute-literal",
+      "text": "Select event category",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to AuditComponent.text/translated with an explicit audit message key; no customer value is inferred as a key.",
+      "maximum": 1
+    },
+    {
+      "id": "0de659dee077ec6a",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "template-expression-literal",
+      "text": "eventCategory",
+      "ownership": "technical-token",
+      "reason": "Audit message key, sort-field identifier, directory kind or date-format argument; the field selects data or an explicitly localized label.",
+      "maximum": 2
+    },
+    {
+      "id": "1ca4712dc3999e4e",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "dynamic-template",
+      "text": "{{\n\t\t\t\t\tdirectoryLabel(item, 'eventCategory')\n\t\t\t\t}}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed display helper resolves explicit app-owned message keys and preserves unknown repository labels/customer inputs; this template displays that result without a second implicit lookup.",
+      "maximum": 2
+    },
+    {
+      "id": "0de09932ebccfb44",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ error }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "fb66e279ae6c5602",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "bound-attribute-literal",
+      "text": "eventId",
+      "ownership": "technical-token",
+      "reason": "Audit message key, sort-field identifier, directory kind or date-format argument; the field selects data or an explicitly localized label.",
+      "maximum": 1
+    },
+    {
+      "id": "ad3adca9edc9b6d8",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "template-expression-literal",
+      "text": "audit.performedAction",
+      "ownership": "technical-token",
+      "reason": "Audit message key, sort-field identifier, directory kind or date-format argument; the field selects data or an explicitly localized label.",
+      "maximum": 1
+    },
+    {
+      "id": "6e384f2283a76156",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "template-expression-literal",
+      "text": "Performed Action",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to AuditComponent.text/translated with an explicit audit message key; no customer value is inferred as a key.",
+      "maximum": 1
+    },
+    {
+      "id": "8b975fb267cad434",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "bound-attribute-literal",
+      "text": "eventDate",
+      "ownership": "technical-token",
+      "reason": "Audit message key, sort-field identifier, directory kind or date-format argument; the field selects data or an explicitly localized label.",
+      "maximum": 1
+    },
+    {
+      "id": "d99294c2e6e0cb78",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "bound-attribute-literal",
+      "text": "principalName",
+      "ownership": "technical-token",
+      "reason": "Audit message key, sort-field identifier, directory kind or date-format argument; the field selects data or an explicitly localized label.",
+      "maximum": 1
+    },
+    {
+      "id": "1bb9782b61a9ae96",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "bound-attribute-literal",
+      "text": "category",
+      "ownership": "technical-token",
+      "reason": "Audit message key, sort-field identifier, directory kind or date-format argument; the field selects data or an explicitly localized label.",
+      "maximum": 1
+    },
+    {
+      "id": "97f7e67dce897464",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ eventLabel(entry.eventId) }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed display helper resolves explicit app-owned message keys and preserves unknown repository labels/customer inputs; this template displays that result without a second implicit lookup.",
+      "maximum": 1
+    },
+    {
+      "id": "8a8b778cced8745d",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "template-expression-literal",
+      "text": "longDate",
+      "ownership": "technical-token",
+      "reason": "Audit message key, sort-field identifier, directory kind or date-format argument; the field selects data or an explicitly localized label.",
+      "maximum": 1
+    },
+    {
+      "id": "a836446240d89f21",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "template-expression-literal",
+      "text": "medium",
+      "ownership": "technical-token",
+      "reason": "Audit message key, sort-field identifier, directory kind or date-format argument; the field selects data or an explicitly localized label.",
+      "maximum": 1
+    },
+    {
+      "id": "12afdf9707098875",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ categoryLabel(entry.category) }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed display helper resolves explicit app-owned message keys and preserves unknown repository labels/customer inputs; this template displays that result without a second implicit lookup.",
+      "maximum": 1
+    },
+    {
+      "id": "3686dddb6152b744",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ stateLabel(entry) }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "cb2abb127ebf7b2d",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "template-expression-literal",
+      "text": "audit.empty",
+      "ownership": "technical-token",
+      "reason": "Audit message key, sort-field identifier, directory kind or date-format argument; the field selects data or an explicitly localized label.",
+      "maximum": 1
+    },
+    {
+      "id": "19c8b32a89d74b8c",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "template-expression-literal",
+      "text": "No results found.",
+      "ownership": "localized-fallback",
+      "reason": "English fallback passed to AuditComponent.text/translated with an explicit audit message key; no customer value is inferred as a key.",
+      "maximum": 1
+    },
+    {
+      "id": "6573d6c8446ea5ef",
+      "file": "app/modules/settings/components/audit/audit.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ text('audit.empty', 'No results found.') }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed display helper resolves explicit app-owned message keys and preserves unknown repository labels/customer inputs; this template displays that result without a second implicit lookup.",
+      "maximum": 1
+    },
+    {
+      "id": "67262c89f4c0f8b9",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-string",
+      "text": "Audit records are unavailable. Your server must expose the Audit.QueryWithPageProvider automation endpoint.",
+      "ownership": "localized-fallback",
+      "reason": "Authored audit fallback paired with auditErrorKey, known eventType/eventCategory keys or explicit column labelKey; unknown directory labels and event IDs bypass translation.",
+      "maximum": 1
+    },
+    {
+      "id": "364c23e243d541fb",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Performed Action",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "54742fdaa2b33889",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Date",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "d0d22093b700ba7a",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Username",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "f048b4b58ac333c1",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Category",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "9f197ba0fe9d8ac9",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Comment",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "e59e6712e74ff055",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "State",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "b68dbe1f79527a09",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-string",
+      "text": "Life cycle",
+      "ownership": "localized-fallback",
+      "reason": "Authored audit fallback paired with auditErrorKey, known eventType/eventCategory keys or explicit column labelKey; unknown directory labels and event IDs bypass translation.",
+      "maximum": 1
+    },
+    {
+      "id": "cd19b7016e94421f",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-string",
+      "text": "Document created",
+      "ownership": "localized-fallback",
+      "reason": "Authored audit fallback paired with auditErrorKey, known eventType/eventCategory keys or explicit column labelKey; unknown directory labels and event IDs bypass translation.",
+      "maximum": 1
+    },
+    {
+      "id": "535141712ef3f55f",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-string",
+      "text": "Document modified",
+      "ownership": "localized-fallback",
+      "reason": "Authored audit fallback paired with auditErrorKey, known eventType/eventCategory keys or explicit column labelKey; unknown directory labels and event IDs bypass translation.",
+      "maximum": 1
+    },
+    {
+      "id": "380b22e65eff7dc1",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-string",
+      "text": "Document removed",
+      "ownership": "localized-fallback",
+      "reason": "Authored audit fallback paired with auditErrorKey, known eventType/eventCategory keys or explicit column labelKey; unknown directory labels and event IDs bypass translation.",
+      "maximum": 1
+    },
+    {
+      "id": "97a0bd4bbfa1c45e",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-string",
+      "text": "Document moved",
+      "ownership": "localized-fallback",
+      "reason": "Authored audit fallback paired with auditErrorKey, known eventType/eventCategory keys or explicit column labelKey; unknown directory labels and event IDs bypass translation.",
+      "maximum": 1
+    },
+    {
+      "id": "6a8cc76f92e23189",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-string",
+      "text": "Document security updated",
+      "ownership": "localized-fallback",
+      "reason": "Authored audit fallback paired with auditErrorKey, known eventType/eventCategory keys or explicit column labelKey; unknown directory labels and event IDs bypass translation.",
+      "maximum": 1
+    },
+    {
+      "id": "c697f5f12b98c96f",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-string",
+      "text": "Document published",
+      "ownership": "localized-fallback",
+      "reason": "Authored audit fallback paired with auditErrorKey, known eventType/eventCategory keys or explicit column labelKey; unknown directory labels and event IDs bypass translation.",
+      "maximum": 1
+    },
+    {
+      "id": "a0d7759b466d70fe",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-string",
+      "text": "Document checked out",
+      "ownership": "localized-fallback",
+      "reason": "Authored audit fallback paired with auditErrorKey, known eventType/eventCategory keys or explicit column labelKey; unknown directory labels and event IDs bypass translation.",
+      "maximum": 1
+    },
+    {
+      "id": "42c6ffb7caac3d5f",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-string",
+      "text": "Login successful",
+      "ownership": "localized-fallback",
+      "reason": "Authored audit fallback paired with auditErrorKey, known eventType/eventCategory keys or explicit column labelKey; unknown directory labels and event IDs bypass translation.",
+      "maximum": 1
+    },
+    {
+      "id": "50080c37a3da4d88",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-string",
+      "text": "Login failed",
+      "ownership": "localized-fallback",
+      "reason": "Authored audit fallback paired with auditErrorKey, known eventType/eventCategory keys or explicit column labelKey; unknown directory labels and event IDs bypass translation.",
+      "maximum": 1
+    },
+    {
+      "id": "4908320b7847b074",
+      "file": "app/modules/settings/components/cloud-client-editor/cloud-client-editor.component.ts",
+      "kind": "typescript-string",
+      "text": "[object String]",
+      "ownership": "technical-token",
+      "reason": "Object.prototype.toString type discriminator used to validate backend values; not a UI message.",
+      "maximum": 1
+    },
+    {
+      "id": "4d612cf252b963ef",
+      "file": "app/modules/settings/components/cloud-service-provider-editor/cloud-service-provider-editor.component.ts",
+      "kind": "typescript-string",
+      "text": "[object String]",
+      "ownership": "technical-token",
+      "reason": "Object.prototype.toString type discriminator used to validate backend values; not a UI message.",
+      "maximum": 1
+    },
+    {
+      "id": "51bb43c51b171d87",
+      "file": "app/modules/settings/components/cloud/cloud.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ oauthProvider.serviceName }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "7921c353ec52f607",
+      "file": "app/modules/settings/components/cloud/cloud.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ client.name }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "a0241573292afcf8",
+      "file": "app/modules/settings/components/cloud/cloud.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ client.id }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "607c895874137c8d",
+      "file": "app/modules/settings/components/cloud/cloud.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ client.secret }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "1c694d52ae08f6da",
+      "file": "app/modules/settings/components/cloud/cloud.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ uri }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "b86857d25ec64a08",
+      "file": "app/modules/settings/components/cloud/cloud.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ application.nuxeoLogin }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "0ab7ee8cbd0e7ad0",
+      "file": "app/modules/settings/components/cloud/cloud.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ application.serviceLogin }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "e51014b6e9241660",
+      "file": "app/modules/settings/components/cloud/cloud.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ account.serviceName }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "cb3c14c89400d72a",
+      "file": "app/modules/settings/components/cloud/cloud.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ account.nuxeoLogin }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "9ef29e8889e7c510",
+      "file": "app/modules/settings/components/cloud/cloud.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ account.serviceLogin }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "26d3a72f26eaaf70",
+      "file": "app/modules/settings/components/cloud/cloud.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Are you sure you wish to delete this OAuth2 service provider: “{name}”?",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "c44a3562fe8bf9ff",
+      "file": "app/modules/settings/components/cloud/cloud.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Deletion confirmation",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 4
+    },
+    {
+      "id": "bf7566df2dcd4ae1",
+      "file": "app/modules/settings/components/cloud/cloud.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Yes, delete it",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 3
+    },
+    {
+      "id": "74c20b3a3b12f523",
+      "file": "app/modules/settings/components/cloud/cloud.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "No, keep it",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 4
+    },
+    {
+      "id": "cc3f828d138e3287",
+      "file": "app/modules/settings/components/cloud/cloud.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Are you sure you wish to delete this OAuth2 client: “{name}”?",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "c4d5ff52685a3536",
+      "file": "app/modules/settings/components/cloud/cloud.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Are you sure you wish to revoke this cloud application token: “{name}”?",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "5acecabf4191fb80",
+      "file": "app/modules/settings/components/cloud/cloud.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Yes, revoke it",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "7d0d76b8774a8d81",
+      "file": "app/modules/settings/components/cloud/cloud.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Are you sure you wish to delete this cloud account: “{name}”?",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "1f2ad11f57da6639",
+      "file": "app/modules/settings/components/metadata-policy/metadata-policy.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ error() }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "e42593308a6b993a",
+      "file": "app/modules/settings/components/metadata-policy/metadata-policy.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ saveError() }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "c6157fb7602f2f3b",
+      "file": "app/modules/settings/components/metadata-policy/metadata-policy.component.html",
+      "kind": "dynamic-template",
+      "text": "{{\n\t\t\t\t\t\t\t\texpandedRule() === rule.id ? '⌄' : '›'\n\t\t\t\t\t\t\t}}",
+      "ownership": "technical-token",
+      "reason": "Decorative disclosure glyph only; the control has a separate translated accessible name.",
+      "maximum": 1
+    },
+    {
+      "id": "5aa36cf5693bf597",
+      "file": "app/modules/settings/components/metadata-policy/metadata-policy.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ type }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "a4736002f089fc04",
+      "file": "app/modules/settings/components/metadata-policy/metadata-policy.component.ts",
+      "kind": "typescript-string",
+      "text": "${schema.prefix || schema['@prefix'] || schema.name}:${name}",
+      "ownership": "technical-token",
+      "reason": "Qualified schema property identifier composed from configured schema prefix and field name; not a display-label translation.",
+      "maximum": 1
+    },
+    {
+      "id": "870b028e1670c63b",
+      "file": "app/modules/settings/components/retention-rule-editor/retention-rule-editor.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ docType }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "7fc1506f06f2ca9c",
+      "file": "app/modules/settings/components/retention-rule-editor/retention-rule-editor.component.html",
+      "kind": "template-expression-literal",
+      "text": "durationYears",
+      "ownership": "technical-token",
+      "reason": "Reviewed property lookup, form-control name or date format argument; this string selects data or formatting and is not user-facing prose.",
+      "maximum": 1
+    },
+    {
+      "id": "894f020f095c11ae",
+      "file": "app/modules/settings/components/retention-rule-editor/retention-rule-editor.component.html",
+      "kind": "template-expression-literal",
+      "text": "durationMonths",
+      "ownership": "technical-token",
+      "reason": "Reviewed property lookup, form-control name or date format argument; this string selects data or formatting and is not user-facing prose.",
+      "maximum": 1
+    },
+    {
+      "id": "fafa607341967c2c",
+      "file": "app/modules/settings/components/retention-rule-editor/retention-rule-editor.component.html",
+      "kind": "template-expression-literal",
+      "text": "durationDays",
+      "ownership": "technical-token",
+      "reason": "Reviewed property lookup, form-control name or date format argument; this string selects data or formatting and is not user-facing prose.",
+      "maximum": 1
+    },
+    {
+      "id": "51b6a79bb06ee411",
+      "file": "app/modules/settings/components/retention-rule-editor/retention-rule-editor.component.html",
+      "kind": "template-expression-literal",
+      "text": "durationMillis",
+      "ownership": "technical-token",
+      "reason": "Reviewed property lookup, form-control name or date format argument; this string selects data or formatting and is not user-facing prose.",
+      "maximum": 1
+    },
+    {
+      "id": "30e34c269406549e",
+      "file": "app/modules/settings/components/retention-rule-picker/retention-rule-picker.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ item.title }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "1e0d8396405984d9",
+      "file": "app/modules/settings/components/retention-rule-picker/retention-rule-picker.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ item.properties['dc:description'] }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "f186d1f82e0f64a7",
+      "file": "app/modules/settings/components/retention-rule-picker/retention-rule-picker.component.ts",
+      "kind": "typescript-string",
+      "text": "You must specify the document id",
+      "ownership": "diagnostic",
+      "reason": "Required-input developer guard throws when a component is configured incorrectly; no built-in template renders this exception text.",
+      "maximum": 1
+    },
+    {
+      "id": "3803ecb2ec5a5c52",
+      "file": "app/modules/settings/components/retention-rules/retention-rules.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ retentionRule.title }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "c968d00506914632",
+      "file": "app/modules/settings/components/retention-rules/retention-rules.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ endAction }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "8de0e1de556ad5d2",
+      "file": "app/modules/settings/components/retention-rules/retention-rules.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ docType }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "ebf5b389539fa55b",
+      "file": "app/modules/settings/components/retention-rules/retention-rules.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ retentionRule.description }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "5ae6f2bd372351db",
+      "file": "app/modules/settings/components/user-and-group-editor/user-and-group-editor.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ error }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 3
+    },
+    {
+      "id": "25dad00add6d826b",
+      "file": "app/modules/settings/components/user-and-group-editor/user-and-group-editor.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ status }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 2
+    },
+    {
+      "id": "95ab98449907d815",
+      "file": "app/modules/settings/components/user-and-group-editor/user-and-group-editor.component.ts",
+      "kind": "typescript-string",
+      "text": "nx-user-and-group-editor: you must specify the user or group",
+      "ownership": "diagnostic",
+      "reason": "Required-input developer guard throws when a component is configured incorrectly; no built-in template renders this exception text.",
+      "maximum": 1
+    },
+    {
+      "id": "0aa05ba5812d7229",
+      "file": "app/modules/settings/components/user-and-group-permissions/user-and-group-permissions.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ userOrGroup.name }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 2
+    },
+    {
+      "id": "af900b487776a524",
+      "file": "app/modules/settings/components/user-and-group-permissions/user-and-group-permissions.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ kv.key }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "fdcba2e080d95db3",
+      "file": "app/modules/settings/components/user-and-group-permissions/user-and-group-permissions.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ permission.on }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "3a7611dfb34a2d34",
+      "file": "app/modules/settings/components/user-and-group-permissions/user-and-group-permissions.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ permission.path }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "8214da464b2b5983",
+      "file": "app/modules/settings/components/user-and-group-permissions/user-and-group-permissions.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ permission.right }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "8b4512e96129ce8d",
+      "file": "app/modules/settings/components/user-and-group-permissions/user-and-group-permissions.component.ts",
+      "kind": "typescript-string",
+      "text": "nx-user-and-group-editor: you must specify the user or group",
+      "ownership": "diagnostic",
+      "reason": "Required-input developer guard throws when a component is configured incorrectly; no built-in template renders this exception text.",
+      "maximum": 1
+    },
+    {
+      "id": "ab99350ce18f950e",
+      "file": "app/modules/settings/components/users-and-groups/users-and-groups.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ actionError }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "dfca5262f796b754",
+      "file": "app/modules/settings/components/users-and-groups/users-and-groups.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ group.name }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "f245f0900d99005e",
+      "file": "app/modules/settings/components/users-and-groups/users-and-groups.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ user.name }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 3
+    },
+    {
+      "id": "17257b61b65b52b2",
+      "file": "app/modules/settings/components/users-and-groups/users-and-groups.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ pageError(kind) }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "23e92ef85a4608f9",
+      "file": "app/modules/settings/components/users-and-groups/users-and-groups.component.ts",
+      "kind": "typescript-string",
+      "text": "Unable to load this directory page.",
+      "ownership": "localized-fallback",
+      "reason": "Known page-load status token is localized by pageError before display; the stored English token remains stable for existing directory load state.",
+      "maximum": 2
+    },
+    {
+      "id": "97d9ba1ade4a72bb",
+      "file": "app/modules/settings/components/users-and-groups/users-and-groups.component.ts",
+      "kind": "typescript-string",
+      "text": "Unable to load group members. Retry.",
+      "ownership": "localized-fallback",
+      "reason": "Known page-load status token is localized by pageError before display; the stored English token remains stable for existing directory load state.",
+      "maximum": 2
+    },
+    {
+      "id": "1a0d8a57e5700bee",
+      "file": "app/modules/settings/components/users-and-groups/users-and-groups.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "{kind, select, user {Are you sure you wish to delete this user?} group {Are you sure you wish to delete this group?} other {Are you sure you wish to delete this entry?}}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "3bf17f42ee1c8872",
+      "file": "app/modules/settings/components/users-and-groups/users-and-groups.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "No, keep it",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "4657a9a58afbe71c",
+      "file": "app/modules/settings/components/users-and-groups/users-and-groups.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Yes, delete it",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "a4aa4141d9514838",
+      "file": "app/modules/settings/components/users-and-groups/users-and-groups.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Deletion confirmation",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "d699fc92e4791231",
+      "file": "app/modules/settings/components/vocabularies/vocabularies.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ directory.name }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "f07b936b7a3fd172",
+      "file": "app/modules/settings/components/vocabularies/vocabularies.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ error }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "910d1ad701b7998d",
+      "file": "app/modules/settings/components/vocabularies/vocabularies.component.html",
+      "kind": "template-expression-literal",
+      "text": "label",
+      "ownership": "technical-token",
+      "reason": "Reviewed property lookup, form-control name or date format argument; this string selects data or formatting and is not user-facing prose.",
+      "maximum": 1
+    },
+    {
+      "id": "4b6c947a040b412d",
+      "file": "app/modules/settings/components/vocabularies/vocabularies.component.html",
+      "kind": "template-expression-literal",
+      "text": "label_en",
+      "ownership": "technical-token",
+      "reason": "Reviewed property lookup, form-control name or date format argument; this string selects data or formatting and is not user-facing prose.",
+      "maximum": 1
+    },
+    {
+      "id": "8224fb5433ed7103",
+      "file": "app/modules/settings/components/vocabularies/vocabularies.component.html",
+      "kind": "template-expression-literal",
+      "text": "id",
+      "ownership": "technical-token",
+      "reason": "Reviewed property lookup, form-control name or date format argument; this string selects data or formatting and is not user-facing prose.",
+      "maximum": 1
+    },
+    {
+      "id": "2e7bf6be21414b98",
+      "file": "app/modules/settings/default-administration.ts",
+      "kind": "typescript-ui-field",
+      "text": "Analytics",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "36d1b44b1c619386",
+      "file": "app/modules/settings/default-administration.ts",
+      "kind": "typescript-ui-field",
+      "text": "Users & Groups",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "8a114268902ed438",
+      "file": "app/modules/settings/default-administration.ts",
+      "kind": "typescript-ui-field",
+      "text": "Vocabularies",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "b7b2eb95a1acfd10",
+      "file": "app/modules/settings/default-administration.ts",
+      "kind": "typescript-ui-field",
+      "text": "Audit",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "2a777d258463e82b",
+      "file": "app/modules/settings/default-administration.ts",
+      "kind": "typescript-ui-field",
+      "text": "Cloud Services",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "f768ce312f826241",
+      "file": "app/modules/settings/default-administration.ts",
+      "kind": "typescript-ui-field",
+      "text": "NXQL Search",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "7347598a0be7c843",
+      "file": "app/modules/settings/default-administration.ts",
+      "kind": "typescript-ui-field",
+      "text": "Retention Rules",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "3b03b40c8499b05a",
+      "file": "app/modules/settings/default-administration.ts",
+      "kind": "typescript-ui-field",
+      "text": "Metadata layouts",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "efd6ec06bc247f0b",
+      "file": "app/modules/settings/default-analytics.ts",
+      "kind": "typescript-ui-field",
+      "text": "Document Distribution",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "b60696d77264c82f",
+      "file": "app/modules/settings/default-analytics.ts",
+      "kind": "typescript-ui-field",
+      "text": "Repository",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "bb43c7e0bb25a075",
+      "file": "app/modules/settings/default-analytics.ts",
+      "kind": "typescript-ui-field",
+      "text": "Search",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "eaa8aa4237131522",
+      "file": "app/modules/settings/default-analytics.ts",
+      "kind": "typescript-ui-field",
+      "text": "Workflow",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "ec45555784123997",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "SELECT * FROM Document WHERE ecm:isVersion = 0 AND ecm:isTrashed = 0",
+      "ownership": "technical-token",
+      "reason": "NXQL query/path syntax sent to the repository and never translated.",
+      "maximum": 1
+    },
+    {
+      "id": "293dccafcc6dab0f",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "SELECT * FROM Document WHERE ecm:mixinType = 'Folderish' AND ecm:isVersion = 0 AND ecm:isTrashed = 0",
+      "ownership": "technical-token",
+      "reason": "NXQL query/path syntax sent to the repository and never translated.",
+      "maximum": 1
+    },
+    {
+      "id": "0cc85e25be8442d3",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "SELECT * FROM Document WHERE ecm:primaryType = '${type}' AND ecm:isVersion = 0 AND ecm:isProxy = 0 AND ecm:isTrashed = 0",
+      "ownership": "technical-token",
+      "reason": "NXQL query/path syntax sent to the repository and never translated.",
+      "maximum": 1
+    },
+    {
+      "id": "b9af7ed86d32d51e",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "${normalized.replace(/\\/+$/, '')}/",
+      "ownership": "technical-token",
+      "reason": "NXQL query/path syntax sent to the repository and never translated.",
+      "maximum": 1
+    },
+    {
+      "id": "9e25215ce643bdf9",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "SELECT * FROM Document",
+      "ownership": "technical-token",
+      "reason": "NXQL query/path syntax sent to the repository and never translated.",
+      "maximum": 1
+    },
+    {
+      "id": "5f011b0c46bbba18",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "WHERE ecm:mixinType != 'HiddenInNavigation'",
+      "ownership": "technical-token",
+      "reason": "NXQL query/path syntax sent to the repository and never translated.",
+      "maximum": 1
+    },
+    {
+      "id": "ec7c11867ca2f986",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "AND ecm:isProxy = 0 AND",
+      "ownership": "technical-token",
+      "reason": "NXQL query/path syntax sent to the repository and never translated.",
+      "maximum": 1
+    },
+    {
+      "id": "a8a2619df66bd36a",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "No result",
+      "ownership": "localized-fallback",
+      "reason": "Finite result/page range bucket token retained for analytics API compatibility; AnalyticsComponent.rangeLabel maps this exact bucket to an app-owned catalog key.",
+      "maximum": 1
+    },
+    {
+      "id": "1c40f0ad1e61d34e",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "Less than 50",
+      "ownership": "localized-fallback",
+      "reason": "Finite result/page range bucket token retained for analytics API compatibility; AnalyticsComponent.rangeLabel maps this exact bucket to an app-owned catalog key.",
+      "maximum": 1
+    },
+    {
+      "id": "7715a152861debcb",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "51 to 200",
+      "ownership": "localized-fallback",
+      "reason": "Finite result/page range bucket token retained for analytics API compatibility; AnalyticsComponent.rangeLabel maps this exact bucket to an app-owned catalog key.",
+      "maximum": 1
+    },
+    {
+      "id": "d47ad37ef7f7cf4e",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "201 to 1000",
+      "ownership": "localized-fallback",
+      "reason": "Finite result/page range bucket token retained for analytics API compatibility; AnalyticsComponent.rangeLabel maps this exact bucket to an app-owned catalog key.",
+      "maximum": 1
+    },
+    {
+      "id": "e1c327a0499734dd",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "More than 1000",
+      "ownership": "localized-fallback",
+      "reason": "Finite result/page range bucket token retained for analytics API compatibility; AnalyticsComponent.rangeLabel maps this exact bucket to an app-owned catalog key.",
+      "maximum": 1
+    },
+    {
+      "id": "902043dc94bd01bd",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "First page",
+      "ownership": "localized-fallback",
+      "reason": "Finite result/page range bucket token retained for analytics API compatibility; AnalyticsComponent.rangeLabel maps this exact bucket to an app-owned catalog key.",
+      "maximum": 1
+    },
+    {
+      "id": "290c0b5f2cf19583",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "Page 2",
+      "ownership": "localized-fallback",
+      "reason": "Finite result/page range bucket token retained for analytics API compatibility; AnalyticsComponent.rangeLabel maps this exact bucket to an app-owned catalog key.",
+      "maximum": 1
+    },
+    {
+      "id": "85ab5fa576b20130",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "Pages 3 to 5",
+      "ownership": "localized-fallback",
+      "reason": "Finite result/page range bucket token retained for analytics API compatibility; AnalyticsComponent.rangeLabel maps this exact bucket to an app-owned catalog key.",
+      "maximum": 1
+    },
+    {
+      "id": "289af6dff25f34d3",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "Pages 6 to 10",
+      "ownership": "localized-fallback",
+      "reason": "Finite result/page range bucket token retained for analytics API compatibility; AnalyticsComponent.rangeLabel maps this exact bucket to an app-owned catalog key.",
+      "maximum": 1
+    },
+    {
+      "id": "6005310298b2129c",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "After 10 pages",
+      "ownership": "localized-fallback",
+      "reason": "Finite result/page range bucket token retained for analytics API compatibility; AnalyticsComponent.rangeLabel maps this exact bucket to an app-owned catalog key.",
+      "maximum": 1
+    },
+    {
+      "id": "d294fae165fd4822",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "One Note",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "edf8d37c96103d5c",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "Google Docs",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "0e5ea9c11aed15b6",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "Google Presentation",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "bda8d3d6bec5c3ec",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "Google Spreadsheet",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "c3e271c5446bf145",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "Google Earth (kml)",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "9108603a1440efb8",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "Google Earth (kmz)",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "091594a419f11040",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "Google Drive folder",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "130dd97154c13b6d",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "Google Drive file",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "46be87bce555209c",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "Google Form",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "0d34bf6e406aa2e4",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "Google Fusion Tables",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "21bcd96a65761383",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "Google Sites",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "97f3de71ea8d3533",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "OpenDocument Chart",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "b498ae4364ec956a",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "OpenDocument Chart Template",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "57ac7873926fa55c",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "OpenDocument Database",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "02a0ffad9755eaf4",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "OpenDocument Formula",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "a1063f7f42792d02",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "OpenDocument Formula Template",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "1bf275ea8d1130b9",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "OpenDocument Graphics",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "45363b5b1348fc4c",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "OpenDocument Graphics Template",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "2e182c549e112651",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "OpenDocument Image",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "bbc815b0f17ba74e",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "OpenDocument Image Template",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "5de37953af02c53d",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "OpenDocument Presentation",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "df3b0b76c2970510",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "OpenDocument Presentation Template",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "032b12760e200f4b",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "OpenDocument Spreadsheet",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "31cc7edc53bc679c",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "OpenDocument Spreadsheet Template",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "21cba9aa11c9d1af",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "OpenDocument Text",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "1be6cb3197af8e7e",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "OpenDocument Text Master",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "a4c10bb950c16ceb",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "OpenDocument Text Template",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "d58add1f5152cc62",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "OpenDocument Text Web",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "b983005f73344ac8",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "Excel (xlsx)",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "dec0b9115a4f0bfa",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "Word Template",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "17d236cde3173775",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "Plain Text",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "e552759ea08bf03a",
+      "file": "app/modules/settings/helpers/mime-type-labels.ts",
+      "kind": "typescript-string",
+      "text": "Apple Quicktime",
+      "ownership": "localized-fallback",
+      "reason": "MIME display fallback has an explicit MIME_LABEL_KEYS mapping and is localized by AnalyticsComponent; the MIME identifier itself and unknown values remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "dbb0efb27912e8de",
+      "file": "app/modules/settings/helpers/retention.service.ts",
+      "kind": "typescript-string",
+      "text": "Retention addon is not enabled",
+      "ownership": "diagnostic",
+      "reason": "Programmatic guard for calling retention APIs while the addon is disabled; built-in retention navigation is gated and this exception is not a rendered UI label.",
+      "maximum": 6
+    },
+    {
+      "id": "a98a4aa6d76d6129",
+      "file": "app/modules/settings/helpers/retention.service.ts",
+      "kind": "typescript-string",
+      "text": "&sortBy=${encodeURIComponent('ecm:pos')}&sortOrder=${this.layoutService.sortAscending ? 'asc' : 'desc'}",
+      "ownership": "technical-token",
+      "reason": "Repository URL query, sort field or enrichment header; changing it would change the API contract.",
+      "maximum": 1
+    },
+    {
+      "id": "f94285d38667c5a6",
+      "file": "app/modules/settings/helpers/retention.service.ts",
+      "kind": "typescript-string",
+      "text": "thumbnail, permissions",
+      "ownership": "technical-token",
+      "reason": "Repository URL query, sort field or enrichment header; changing it would change the API contract.",
+      "maximum": 1
+    },
+    {
+      "id": "59a8e7ddcfecef71",
+      "file": "app/modules/settings/helpers/users-and-groups.service.ts",
+      "kind": "typescript-string",
+      "text": "group/${encodeURIComponent(groupId)}/@${kind === 'user' ? 'users' : 'groups'}",
+      "ownership": "technical-token",
+      "reason": "Repository user/group endpoint or NXQL query syntax; principal IDs are escaped and remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "83d0c8677588f199",
+      "file": "app/modules/settings/helpers/users-and-groups.service.ts",
+      "kind": "typescript-string",
+      "text": "SELECT * FROM Document WHERE NOT (ecm:path STARTSWITH \"/maretha\") AND ecm:isProxy = 0 AND ecm:isVersion = 0 AND ecm:isTrashed = 0 AND ecm:acl/*1/principal = \"${userOrGroupId}\"",
+      "ownership": "technical-token",
+      "reason": "Repository user/group endpoint or NXQL query syntax; principal IDs are escaped and remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "f864cd4b94526585",
+      "file": "app/modules/settings/settings.component.ts",
+      "kind": "typescript-string",
+      "text": "(max-width: 720px)",
+      "ownership": "technical-token",
+      "reason": "CSS media query controlling mobile layout, never rendered as prose.",
+      "maximum": 1
+    },
+    {
+      "id": "23de1fdbd258f028",
+      "file": "app/modules/shared/components/confirmation-dialog/confirmation-dialog.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ titleText }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed display helper resolves explicit app-owned message keys and preserves unknown repository labels/customer inputs; this template displays that result without a second implicit lookup.",
+      "maximum": 1
+    },
+    {
+      "id": "b38a7fe81bcfbcb6",
+      "file": "app/modules/shared/components/confirmation-dialog/confirmation-dialog.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ messageText }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed display helper resolves explicit app-owned message keys and preserves unknown repository labels/customer inputs; this template displays that result without a second implicit lookup.",
+      "maximum": 1
+    },
+    {
+      "id": "780644c314bbd830",
+      "file": "app/modules/shared/components/confirmation-dialog/confirmation-dialog.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ declineText }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed display helper resolves explicit app-owned message keys and preserves unknown repository labels/customer inputs; this template displays that result without a second implicit lookup.",
+      "maximum": 1
+    },
+    {
+      "id": "1bb77bbf96af4aa2",
+      "file": "app/modules/shared/components/confirmation-dialog/confirmation-dialog.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ confirmText }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed display helper resolves explicit app-owned message keys and preserves unknown repository labels/customer inputs; this template displays that result without a second implicit lookup.",
+      "maximum": 1
+    },
+    {
+      "id": "89886ee4b88d79cb",
+      "file": "app/modules/shared/components/confirmation-dialog/confirmation-dialog.component.ts",
+      "kind": "typescript-string",
+      "text": "nx-confirmation-dialog: You must specify the message",
+      "ownership": "diagnostic",
+      "reason": "Required-input developer guard throws when a component is configured incorrectly; no built-in template renders this exception text.",
+      "maximum": 1
+    },
+    {
+      "id": "130a74e512dc7b40",
+      "file": "app/modules/shared/components/document-icon-and-title/document-icon-and-title.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ document.path }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "dabd689820159082",
+      "file": "app/modules/shared/components/document-icon-and-title/document-icon-and-title.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ document.type }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "fb26b2438bf16806",
+      "file": "app/modules/shared/components/document-icon-and-title/document-icon-and-title.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ document.ng.createdBy }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "489e85e73af7c063",
+      "file": "app/modules/shared/components/document-tree/document-tree.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ error() }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "77676db4f76e06eb",
+      "file": "app/modules/shared/components/document-tree/document-tree.component.html",
+      "kind": "dynamic-template",
+      "text": "{{\n\t\t\t\t\tlabelFor(node.document)\n\t\t\t\t}}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "daafcc6f4bf14f01",
+      "file": "app/modules/shared/components/document-tree/document-tree.component.ts",
+      "kind": "typescript-string",
+      "text": "Folders could not be loaded. Retry to continue.",
+      "ownership": "localized-fallback",
+      "reason": "Known per-node loading failure token retained in tree state; its template renders the explicit translated retry message instead of this token.",
+      "maximum": 1
+    },
+    {
+      "id": "014b52715fcc2aab",
+      "file": "app/modules/shared/components/file-upload/file-upload.component.ts",
+      "kind": "typescript-string",
+      "text": "Invalid MIME type",
+      "ownership": "diagnostic",
+      "reason": "Legacy public error event value for invalid MIME input; no built-in template renders this event token, and changing the public event contract would break consumers.",
+      "maximum": 2
+    },
+    {
+      "id": "ef764312edcbacb3",
+      "file": "app/modules/shared/components/footer/footer.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ language.label }}",
+      "ownership": "technical-token",
+      "reason": "Reviewed language autonym from the fixed supported-locale list; language names retain their native writing so users can find their language.",
+      "maximum": 1
+    },
+    {
+      "id": "7930aac6793b1fe1",
+      "file": "app/modules/shared/components/sidebar/administration-drawer.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ label(view) }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed display helper resolves explicit app-owned message keys and preserves unknown repository labels/customer inputs; this template displays that result without a second implicit lookup.",
+      "maximum": 1
+    },
+    {
+      "id": "49956d99ad77af7a",
+      "file": "app/modules/shared/components/sidebar/administration-drawer.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ error() }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "42b9ddfa14516fa5",
+      "file": "app/modules/shared/components/sidebar/administration-drawer.component.ts",
+      "kind": "typescript-string",
+      "text": "(max-width: 720px)",
+      "ownership": "technical-token",
+      "reason": "CSS media query controlling mobile layout, never rendered as prose.",
+      "maximum": 1
+    },
+    {
+      "id": "b03b82704014e61b",
+      "file": "app/modules/shared/components/sidebar/clipboard-drawer.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ document.title }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "33d77b2cb9772eef",
+      "file": "app/modules/shared/components/sidebar/clipboard-drawer.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ error() }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "2c0d0ff9cad2a19f",
+      "file": "app/modules/shared/components/sidebar/clipboard-drawer.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ status() }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "fc4f2c506056ce41",
+      "file": "app/modules/shared/components/sidebar/clipboard-drawer.component.ts",
+      "kind": "diagnostic",
+      "text": "destination",
+      "ownership": "diagnostic",
+      "reason": "Internal thrown/logged validation detail; the associated component catches failure and renders a separately keyed app-owned message.",
+      "maximum": 1
+    },
+    {
+      "id": "fa8ca78b5fb24b50",
+      "file": "app/modules/shared/components/sidebar/collections-drawer.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ member.title }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "7ef27c07c4855bfd",
+      "file": "app/modules/shared/components/sidebar/collections-drawer.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ member.type }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "b1178f5c9a0a7cd7",
+      "file": "app/modules/shared/components/sidebar/collections-drawer.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ navigationError() }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "42909d6dddcff077",
+      "file": "app/modules/shared/components/sidebar/collections-drawer.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ positionMessage() }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "d09b9a0aa1688cbd",
+      "file": "app/modules/shared/components/sidebar/collections-drawer.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ error() }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "32a4f93f7514c2c7",
+      "file": "app/modules/shared/components/sidebar/collections-drawer.component.ts",
+      "kind": "typescript-string",
+      "text": "${this.api}/repo/${encodeURIComponent(repository)}/search/pp/${kind === 'collections' ? 'user_collections' : 'default_content_collection'}/execute",
+      "ownership": "technical-token",
+      "reason": "Encoded repository page-provider URL selecting collection data; not displayed text.",
+      "maximum": 1
+    },
+    {
+      "id": "8f1e61a02414ce3d",
+      "file": "app/modules/shared/components/sidebar/default-drawer-page.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Title",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "35fc02a4f523ec3a",
+      "file": "app/modules/shared/components/sidebar/default-drawer.ts",
+      "kind": "typescript-ui-field",
+      "text": "Browse",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "30f6d710c52e583b",
+      "file": "app/modules/shared/components/sidebar/default-drawer.ts",
+      "kind": "typescript-ui-field",
+      "text": "Recently Viewed",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "8176fdd01aa23f06",
+      "file": "app/modules/shared/components/sidebar/default-drawer.ts",
+      "kind": "typescript-ui-field",
+      "text": "Search",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "bf110830b61d1909",
+      "file": "app/modules/shared/components/sidebar/default-drawer.ts",
+      "kind": "typescript-ui-field",
+      "text": "Tasks",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "d669ad9396100e22",
+      "file": "app/modules/shared/components/sidebar/default-drawer.ts",
+      "kind": "typescript-ui-field",
+      "text": "Favorites",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "5fa2573859dc56ac",
+      "file": "app/modules/shared/components/sidebar/default-drawer.ts",
+      "kind": "typescript-ui-field",
+      "text": "Collections",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "143c28389853dbf0",
+      "file": "app/modules/shared/components/sidebar/default-drawer.ts",
+      "kind": "typescript-ui-field",
+      "text": "Personal Space",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "99553c9eada1b238",
+      "file": "app/modules/shared/components/sidebar/default-drawer.ts",
+      "kind": "typescript-ui-field",
+      "text": "Clipboard",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "ea27aaf26dc0b3cd",
+      "file": "app/modules/shared/components/sidebar/favorites-drawer.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ document.title }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "39fe91d20486ee40",
+      "file": "app/modules/shared/components/sidebar/favorites-drawer.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ navigationError() }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "0a48da5730d681c4",
+      "file": "app/modules/shared/components/sidebar/favorites-drawer.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ error() }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "581743365505179d",
+      "file": "app/modules/shared/components/sidebar/favorites-drawer.component.ts",
+      "kind": "typescript-string",
+      "text": "${this.userId() ?? ''}/${this.repository()}",
+      "ownership": "technical-token",
+      "reason": "Cache identity composed from user and repository identifiers; translation would break scoping.",
+      "maximum": 1
+    },
+    {
+      "id": "63ca6a1b5393e2e1",
+      "file": "app/modules/shared/components/sidebar/personal-workspace-drawer.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ error() }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "42e0220fee635d7e",
+      "file": "app/modules/shared/components/sidebar/sidebar.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ drawerDepartureMessage() }}",
+      "ownership": "localized-fallback",
+      "reason": "Presentation reads the reviewed reactive localized message state; app-owned descriptors update with locale, while explicitly supplied server/customer messages remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "91b9e2fb5c3356cb",
+      "file": "app/modules/shared/components/sidebar/sidebar.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ userMenuContext().user?.displayName }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed display helper resolves explicit app-owned message keys and preserves unknown repository labels/customer inputs; this template displays that result without a second implicit lookup.",
+      "maximum": 1
+    },
+    {
+      "id": "ed9cb9bc4b680753",
+      "file": "app/modules/shared/components/sidebar/user-menu/default-themes.ts",
+      "kind": "typescript-string",
+      "text": "url(assets/themes/kawaii-background.png) repeat #f8d3e0",
+      "ownership": "technical-token",
+      "reason": "CSS background declaration for the built-in Kawaii theme; its explicit theme labelKey is separate.",
+      "maximum": 1
+    },
+    {
+      "id": "b4f04029c89ee8a7",
+      "file": "app/modules/shared/components/sidebar/user-menu/default-user-menu.ts",
+      "kind": "typescript-ui-field",
+      "text": "Profile",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "c6815bcec3658385",
+      "file": "app/modules/shared/components/sidebar/user-menu/default-user-menu.ts",
+      "kind": "typescript-ui-field",
+      "text": "Authorized Applications",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "ee592cc8f01e8018",
+      "file": "app/modules/shared/components/sidebar/user-menu/default-user-menu.ts",
+      "kind": "typescript-ui-field",
+      "text": "Cloud Services",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "483b27c83b775df5",
+      "file": "app/modules/shared/components/sidebar/user-menu/default-user-menu.ts",
+      "kind": "typescript-ui-field",
+      "text": "Themes",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "d516666a12fb1d42",
+      "file": "app/modules/shared/components/sidebar/user-menu/default-user-menu.ts",
+      "kind": "typescript-ui-field",
+      "text": "Sign Out",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed built-in label or confirmation fallback paired with an explicit labelKey/titleKey/messageKey/button key at its rendering boundary; custom literal labels retain their original text.",
+      "maximum": 1
+    },
+    {
+      "id": "2e488197fcf3586c",
+      "file": "app/modules/shared/components/sidebar/user-menu/user-menu-language.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ language.label }}",
+      "ownership": "technical-token",
+      "reason": "Reviewed language autonym from the fixed supported-locale list; language names retain their native writing so users can find their language.",
+      "maximum": 1
+    },
+    {
+      "id": "4bf5712e9fd7e9b7",
+      "file": "app/modules/shared/components/sidebar/user-menu/user-menu-row.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ messages.text(labelKey(), label(), context().locale) }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed display helper resolves explicit app-owned message keys and preserves unknown repository labels/customer inputs; this template displays that result without a second implicit lookup.",
+      "maximum": 1
+    },
+    {
+      "id": "292ca8979e12095f",
+      "file": "app/modules/shared/components/users-and-groups-picker/users-and-groups-picker.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ label }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "a00ace0d0a6a667d",
+      "file": "app/modules/shared/components/users-and-groups-picker/users-and-groups-picker.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ item[bindLabel] }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed repository/contribution/form value rendered verbatim: titles, schema names, principal identities, directory labels, paths and task/workflow data are customer-owned and must not be translated by matching catalog keys.",
+      "maximum": 3
+    },
+    {
+      "id": "65a64fb384a6486e",
+      "file": "app/modules/shared/components/users-and-groups-picker/users-and-groups-picker.component.ts",
+      "kind": "typescript-string",
+      "text": "nx-users-and-groups: You must specify what to search for",
+      "ownership": "diagnostic",
+      "reason": "Required-input developer guard throws when a component is configured incorrectly; no built-in template renders this exception text.",
+      "maximum": 1
+    },
+    {
+      "id": "9aced1a31c0849f0",
+      "file": "app/modules/shared/shared.module.ts",
+      "kind": "typescript-string",
+      "text": "hover click",
+      "ownership": "technical-token",
+      "reason": "Third-party popover trigger configuration naming hover and click events; not user-facing prose.",
+      "maximum": 1
+    },
+    {
+      "id": "618dd9a6decbbebd",
+      "file": "app/modules/shared/components/file-upload/file-upload.component.ts",
+      "kind": "typescript-string",
+      "text": "nx-webui-slot button:not(:disabled), nx-webui-slot input:not(:disabled), nx-webui-slot [href], nx-webui-slot [tabindex=\"0\"]",
+      "ownership": "technical-token",
+      "reason": "This DOM selector finds the visible contributed upload control to apply requested focus; it is not displayed text.",
+      "maximum": 1
+    },
+    {
+      "id": "7c259a1d401e7e68",
+      "file": "app/modules/settings/components/analytics/admin-analytics-icons.ts",
+      "kind": "typescript-string",
+      "text": "M19.07 4.93l-1.41 1.41C19.1 7.79 20 9.79 20 12c0 4.42-3.58 8-8 8s-8-3.58-8-8c0-4.08 3.05-7.44 7-7.93v2.02C8.16 6.57 6 9.03 6 12c0 3.31 2.69 6 6 6s6-2.69 6-6c0-1.66-.67-3.16-1.76-4.24l-1.41 1.41C15.55 9.9 16 10.9 16 12c0 2.21-1.79 4-4 4s-4-1.79-4-4c0-1.86 1.28-3.41 3-3.86v2.14c-.6.35-1 .98-1 1.72 0 1.1.9 2 2 2s2-.9 2-2c0-.74-.4-1.38-1-1.72V2h-1C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10c0-2.76-1.12-5.26-2.93-7.07z",
+      "ownership": "technical-token",
+      "reason": "Reviewed parity change: internal query, selector, message key, SVG/CSS geometry, format token, sort indicator or numeric page position; this exact occurrence is not translatable prose.",
+      "maximum": 1
+    },
+    {
+      "id": "81dff809f51b465c",
+      "file": "app/modules/settings/components/analytics/admin-analytics-icons.ts",
+      "kind": "typescript-string",
+      "text": "M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z",
+      "ownership": "technical-token",
+      "reason": "Reviewed parity change: internal query, selector, message key, SVG/CSS geometry, format token, sort indicator or numeric page position; this exact occurrence is not translatable prose.",
+      "maximum": 1
+    },
+    {
+      "id": "bacf4f6b1946c6c4",
+      "file": "app/modules/settings/components/analytics/analytics-metric.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ heading() }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "480d0dbbd98f5277",
+      "file": "app/modules/settings/components/analytics/analytics-metric.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ resolvedNameHeader() }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "bcc9d484c081259c",
+      "file": "app/modules/settings/components/analytics/analytics-metric.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ resolvedValueHeader() }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 2
+    },
+    {
+      "id": "0e65501c9f8936c2",
+      "file": "app/modules/settings/components/analytics/analytics-metric.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ row.key }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed parity change: repository names, paths, values, principal labels or server facet values are preserved. Any surrounding UI labels are resolved separately through WebUiMessages.",
+      "maximum": 1
+    },
+    {
+      "id": "6651dfba57c25a2b",
+      "file": "app/modules/settings/components/analytics/analytics-metric.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{\n\t\t\t\t\t\t\tresolvedNameHeader()\n\t\t\t\t\t\t}}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "8f3802b83a797601",
+      "file": "app/modules/settings/components/analytics/analytics.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ workflowLabel(item) }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 2
+    },
+    {
+      "id": "bba83f20ce074b61",
+      "file": "app/modules/settings/components/analytics/analytics-metric.component.ts",
+      "kind": "typescript-string",
+      "text": "${Chart.defaults.font.size ?? 12}px ${Chart.defaults.font.family ?? 'sans-serif'}",
+      "ownership": "technical-token",
+      "reason": "Canvas font for the values drawn in pie slices (stock chart-pie _drawValuesInPie): Chart.js's default size and family, not displayed text.",
+      "maximum": 1
+    },
+    {
+      "id": "9d1312c931c13eea",
+      "file": "app/modules/settings/components/analytics/analytics-metric.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ durationText(row.value) }}",
+      "ownership": "localized-fallback",
+      "reason": "durationText formats milliseconds as stock _asDuration (2h 8m 35s) with Intl.DurationFormat, or Intl.NumberFormat units, for the active locale.",
+      "maximum": 1
+    },
+    {
+      "id": "2eb370e2b41c6157",
+      "file": "app/modules/settings/components/analytics/analytics.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ durationLabel(summary.averageWorkflowDurationMs) }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "2b3cc8cd5944357b",
+      "file": "app/modules/settings/components/analytics/analytics.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ parent.name }} /",
+      "ownership": "customer-content",
+      "reason": "Reviewed parity change: repository names, paths, values, principal labels or server facet values are preserved. Any surrounding UI labels are resolved separately through WebUiMessages.",
+      "maximum": 1
+    },
+    {
+      "id": "2135e6c5db7076f2",
+      "file": "app/modules/settings/components/analytics/analytics.component.ts",
+      "kind": "typescript-string",
+      "text": "Parallel Document Review",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "083fe69faf7dd14b",
+      "file": "app/modules/settings/components/analytics/analytics.component.ts",
+      "kind": "typescript-string",
+      "text": "Serial Document Review",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "ce549dc9c9a61dee",
+      "file": "app/modules/settings/components/analytics/distribution-chart.component.ts",
+      "kind": "typescript-string",
+      "text": "${radius * Math.cos(a)},${radius * Math.sin(a)}",
+      "ownership": "technical-token",
+      "reason": "Reviewed parity change: internal query, selector, message key, SVG/CSS geometry, format token, sort indicator or numeric page position; this exact occurrence is not translatable prose.",
+      "maximum": 1
+    },
+    {
+      "id": "4d99d3c5872371b9",
+      "file": "app/modules/settings/components/analytics/distribution-chart.component.ts",
+      "kind": "typescript-string",
+      "text": "${prefix.replace(/\\/$/, '')}/${node.name}/",
+      "ownership": "technical-token",
+      "reason": "Reviewed parity change: internal query, selector, message key, SVG/CSS geometry, format token, sort indicator or numeric page position; this exact occurrence is not translatable prose.",
+      "maximum": 1
+    },
+    {
+      "id": "740cd04a36502711",
+      "file": "app/modules/settings/components/analytics/distribution-chart.component.ts",
+      "kind": "typescript-string",
+      "text": "M${point(inner, a)} L${point(outer, a)} A${outer},${outer} 0 ${large} 1 ${point(outer, b)} L${point(inner, b)} A${inner},${inner} 0 ${large} 0 ${point(inner, a)} Z",
+      "ownership": "technical-token",
+      "reason": "Reviewed parity change: internal query, selector, message key, SVG/CSS geometry, format token, sort indicator or numeric page position; this exact occurrence is not translatable prose.",
+      "maximum": 1
+    },
+    {
+      "id": "43da91d8bbf225be",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-string",
+      "text": "Created a version",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "828b23d509de64a0",
+      "file": "app/modules/settings/components/audit/audit.component.ts",
+      "kind": "typescript-string",
+      "text": "Document added to collection",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "0942a46059c84f8d",
+      "file": "app/modules/settings/components/user-and-group-editor/user-and-group-editor.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Username",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "53f414dbf6cd78fc",
+      "file": "app/modules/settings/components/user-and-group-editor/user-and-group-editor.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "First Name",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "4bc106f13674889d",
+      "file": "app/modules/settings/components/user-and-group-editor/user-and-group-editor.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Last Name",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "dd93a4bb76d0c7b8",
+      "file": "app/modules/settings/components/user-and-group-editor/user-and-group-editor.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Company",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "735a4e5fbeafae0e",
+      "file": "app/modules/settings/components/user-and-group-editor/user-and-group-editor.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Email",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "405687a5a2272365",
+      "file": "app/modules/settings/components/user-and-group-editor/user-and-group-editor.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Identifier",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "6daf7ab149b959c5",
+      "file": "app/modules/settings/components/user-and-group-editor/user-and-group-editor.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Label",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "66c171102146ebfd",
+      "file": "app/modules/settings/components/user-and-group-editor/user-and-group-editor.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Description",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "79133ca019f5ca4f",
+      "file": "app/modules/settings/components/users-and-groups/users-and-groups.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ row.name }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed parity change: repository names, paths, values, principal labels or server facet values are preserved. Any surrounding UI labels are resolved separately through WebUiMessages.",
+      "maximum": 1
+    },
+    {
+      "id": "1022f563d5931b81",
+      "file": "app/modules/settings/components/users-and-groups/users-and-groups.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ row.id }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed parity change: repository names, paths, values, principal labels or server facet values are preserved. Any surrounding UI labels are resolved separately through WebUiMessages.",
+      "maximum": 1
+    },
+    {
+      "id": "6d13d4627aee2e40",
+      "file": "app/modules/settings/components/users-and-groups/users-and-groups.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ row.email }}",
+      "ownership": "customer-content",
+      "reason": "Reviewed parity change: repository names, paths, values, principal labels or server facet values are preserved. Any surrounding UI labels are resolved separately through WebUiMessages.",
+      "maximum": 1
+    },
+    {
+      "id": "3a8633bd2b5b1f0f",
+      "file": "app/modules/settings/components/users-and-groups/users-and-groups.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ pages[kind].pageIndex + 1\n\t\t\t\t\t\t\t\t}}",
+      "ownership": "technical-token",
+      "reason": "Reviewed parity change: internal query, selector, message key, SVG/CSS geometry, format token, sort indicator or numeric page position; this exact occurrence is not translatable prose.",
+      "maximum": 1
+    },
+    {
+      "id": "078f53d4d370719c",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "'${row.key.replace(/'/g, \"\\\\'\")}'",
+      "ownership": "technical-token",
+      "reason": "Reviewed parity change: internal query, selector, message key, SVG/CSS geometry, format token, sort indicator or numeric page position; this exact occurrence is not translatable prose.",
+      "maximum": 1
+    },
+    {
+      "id": "3670eaae4fd2fa10",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "SELECT * FROM Document WHERE ecm:uuid IN (${ids})",
+      "ownership": "technical-token",
+      "reason": "Reviewed parity change: internal query, selector, message key, SVG/CSS geometry, format token, sort indicator or numeric page position; this exact occurrence is not translatable prose.",
+      "maximum": 1
+    },
+    {
+      "id": "ffe33b000e831f03",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "typescript-string",
+      "text": "SELECT * FROM Document WHERE ecm:mixinType = 'Folderish' AND ecm:mixinType != 'HiddenInNavigation' AND ecm:isTrashed = 0 AND ecm:isVersion = 0 AND ecm:parentId = '${String(scope.uid).replace(/'/g, \"\\\\'\")}'",
+      "ownership": "technical-token",
+      "reason": "Reviewed parity change: internal query, selector, message key, SVG/CSS geometry, format token, sort indicator or numeric page position; this exact occurrence is not translatable prose.",
+      "maximum": 1
+    },
+    {
+      "id": "51d8168a6871c7dd",
+      "file": "app/modules/settings/helpers/analytics.service.ts",
+      "kind": "diagnostic",
+      "text": "Incomplete analytics aggregation response",
+      "ownership": "diagnostic",
+      "reason": "Internal analytics response-shape diagnostic; the user-facing failure state is separately localized.",
+      "maximum": 1
+    },
+    {
+      "id": "f388d788bece1a96",
+      "file": "app/modules/shared/components/sidebar/collections-drawer.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{\n\t\t\t\t\t\t\t\t\tcollection.title\n\t\t\t\t\t\t\t\t}}",
+      "ownership": "customer-content",
+      "reason": "Reviewed parity change: repository names, paths, values, principal labels or server facet values are preserved. Any surrounding UI labels are resolved separately through WebUiMessages.",
+      "maximum": 1
+    },
+    {
+      "id": "7cf73143cc89e610",
+      "file": "app/modules/shared/components/sidebar/repository-search-drawer.component.ts",
+      "kind": "typescript-string",
+      "text": "assetsQueue.active() && assetsQueue.kind() === definition().queue?.kind",
+      "ownership": "technical-token",
+      "reason": "Reviewed parity change: internal query, selector, message key, SVG/CSS geometry, format token, sort indicator or numeric page position; this exact occurrence is not translatable prose.",
+      "maximum": 1
+    },
+    {
+      "id": "0ed68cdd7442b99a",
+      "file": "app/modules/shared/components/sidebar/sidebar.component.ts",
+      "kind": "typescript-string",
+      "text": "(max-width: 720px)",
+      "ownership": "technical-token",
+      "reason": "Reviewed parity change: internal query, selector, message key, SVG/CSS geometry, format token, sort indicator or numeric page position; this exact occurrence is not translatable prose.",
+      "maximum": 1
+    },
+    {
+      "id": "7087a1ac96dfd124",
+      "file": "app/modules/shared/components/sidebar/user-menu/user-menu-row.component.ts",
+      "kind": "typescript-string",
+      "text": "(max-width: 720px)",
+      "ownership": "technical-token",
+      "reason": "Reviewed parity change: internal query, selector, message key, SVG/CSS geometry, format token, sort indicator or numeric page position; this exact occurrence is not translatable prose.",
+      "maximum": 1
+    },
+    {
+      "id": "e28eb431e511c05e",
+      "file": "app/modules/shared/components/user-tag/user-tag.component.ts",
+      "kind": "typescript-string",
+      "text": "hsl(${Math.abs(hash % 360)}, 70%, 30%)",
+      "ownership": "technical-token",
+      "reason": "HSL color geometry for a deterministic, readable principal avatar; not translatable prose.",
+      "maximum": 1
+    },
+    {
+      "id": "960c795c8fe4b4f6",
+      "file": "app/modules/settings/components/cloud/cloud.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ oauthProvider.description }}",
+      "ownership": "customer-content",
+      "reason": "OAuth service provider description comes from backend administrator configuration and must preserve that authored description.",
+      "maximum": 1
+    },
+    {
+      "id": "c03ab704666e6eee",
+      "file": "app/modules/settings/components/cloud/cloud.component.html",
+      "kind": "template-expression-literal",
+      "text": "longDate",
+      "ownership": "technical-token",
+      "reason": "Angular date-format argument selects locale-aware calendar formatting; translating the format identifier would break date rendering.",
+      "maximum": 2
+    },
+    {
+      "id": "867414d5c76e2ad0",
+      "file": "app/modules/shared/components/sidebar/collections-drawer.component.ts",
+      "kind": "template-expression-literal",
+      "text": "longDate",
+      "ownership": "technical-token",
+      "reason": "Angular date-format argument selects locale-aware calendar formatting; translating the format identifier would break date rendering.",
+      "maximum": 1
+    },
+    {
+      "id": "967dff325989c4a4",
+      "file": "app/modules/shared/components/document-list-item/document-list-item.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{\n\t\t\t\t\tcontext().row.title\n\t\t\t\t}}",
+      "ownership": "customer-content",
+      "reason": "The stock list card displays a repository title or server highlight text segment literally; Angular escapes the text and only matching segments receive emphasis.",
+      "maximum": 1
+    },
+    {
+      "id": "0a8b708998fa877a",
+      "file": "app/modules/shared/components/document-list-item/document-list-item.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ part.pre }}",
+      "ownership": "customer-content",
+      "reason": "The stock list card displays a repository title or server highlight text segment literally; Angular escapes the text and only matching segments receive emphasis.",
+      "maximum": 1
+    },
+    {
+      "id": "6b9586925ee6c8e5",
+      "file": "app/modules/shared/components/document-list-item/document-list-item.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ part.hit }}",
+      "ownership": "customer-content",
+      "reason": "The stock list card displays a repository title or server highlight text segment literally; Angular escapes the text and only matching segments receive emphasis.",
+      "maximum": 1
+    },
+    {
+      "id": "873ff39b793a1ee7",
+      "file": "app/modules/shared/components/document-list-item/document-list-item.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ part.post }}",
+      "ownership": "customer-content",
+      "reason": "The stock list card displays a repository title or server highlight text segment literally; Angular escapes the text and only matching segments receive emphasis.",
+      "maximum": 1
+    },
+    {
+      "id": "c236ecf0303e06ef",
+      "file": "app/modules/shared/components/document-list-item/document-list-item.component.ts",
+      "kind": "typescript-string",
+      "text": "context().selection.size > 0",
+      "ownership": "technical-token",
+      "reason": "This exact expression supplies a CSS geometry value, Angular class binding or stock document-type catalog key; it is not displayed as UI prose.",
+      "maximum": 1
+    },
+    {
+      "id": "ad8cc56ed1ee0f7e",
+      "file": "app/modules/shared/components/document-list-item/document-list-item.component.ts",
+      "kind": "typescript-string",
+      "text": "label.document.type.${String(this.context().row.type ?? '').toLowerCase()}",
+      "ownership": "technical-token",
+      "reason": "This exact expression supplies a CSS geometry value, Angular class binding or stock document-type catalog key; it is not displayed as UI prose.",
+      "maximum": 1
+    },
+    {
+      "id": "23ac9d5f36a92426",
+      "file": "app/modules/settings/components/users-and-groups/users-and-groups.component.html",
+      "kind": "template-expression-literal",
+      "text": "name",
+      "ownership": "technical-token",
+      "reason": "Recent directory table sort column key; the visible column heading is separately translated.",
+      "maximum": 1
+    },
+    {
+      "id": "1433952d4f4c5198",
+      "file": "app/modules/settings/components/users-and-groups/users-and-groups.component.html",
+      "kind": "template-expression-literal",
+      "text": "id",
+      "ownership": "technical-token",
+      "reason": "Recent directory table sort column key; the visible column heading is separately translated.",
+      "maximum": 1
+    },
+    {
+      "id": "2c7707696ee8dcfe",
+      "file": "app/modules/settings/components/users-and-groups/users-and-groups.component.html",
+      "kind": "template-expression-literal",
+      "text": "email",
+      "ownership": "technical-token",
+      "reason": "Recent directory table sort column key; the visible column heading is separately translated.",
+      "maximum": 1
+    },
+    {
+      "id": "dac95ad9b64bc04b",
+      "file": "app/modules/shared/components/sidebar/default-drawer-page.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ label(task.name) }}",
+      "ownership": "localized-fallback",
+      "reason": "Workflow label resolver maps known stock task and workflow identifiers through existing wf catalogue messages; custom workflow names remain repository-owned literal values.",
+      "maximum": 1
+    },
+    {
+      "id": "e70305d4e65a96a5",
+      "file": "app/modules/shared/components/sidebar/default-drawer-page.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ task.targetDocumentIds?.[0]?.title }}",
+      "ownership": "customer-content",
+      "reason": "Title of the task's target document from the fetched task entity; repository content shown literally.",
+      "maximum": 1
+    },
+    {
+      "id": "c2abe6c2865e723d",
+      "file": "app/modules/shared/components/sidebar/default-drawer-page.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ label(task.workflowModelName) }}",
+      "ownership": "localized-fallback",
+      "reason": "Workflow label resolver maps known stock task and workflow identifiers through existing wf catalogue messages; custom workflow names remain repository-owned literal values.",
+      "maximum": 1
+    },
+    {
+      "id": "288b17819fdcf083",
+      "file": "app/modules/shared/components/user-tag/user-tag.component.ts",
+      "kind": "typescript-string",
+      "text": "${parts[0].charAt(0)}${parts[parts.length - 1].charAt(0)}",
+      "ownership": "customer-content",
+      "reason": "Builds avatar initials from the user or group names in the response, as stock nuxeo-user-avatar does.",
+      "maximum": 1
+    },
+    {
+      "id": "f5a5a5b5671fe1c2",
+      "file": "app/modules/shared/components/user-tag/user-tag.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ name(entity) }}",
+      "ownership": "customer-content",
+      "reason": "The user's full name, email or username from the resolved user entity, or the raw id, as stock nuxeo-user-tag shows.",
+      "maximum": 2
+    },
+    {
+      "id": "1be41a7c85c138f1",
+      "file": "app/modules/settings/components/vocabularies/vocabularies.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Unsaved changes",
+      "ownership": "localized-fallback",
+      "reason": "English fallback paired with the explicit titleKey/messageKey/confirmKey passed to ConfirmDialogService.confirm at opening time; the dialog formats the key through WebUiMessages and shows this literal only when the key is absent from every catalog.",
+      "maximum": 1
+    },
+    {
+      "id": "67c646df27df67cd",
+      "file": "app/modules/settings/components/vocabularies/vocabularies.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Discard unsaved directory entry changes?",
+      "ownership": "localized-fallback",
+      "reason": "English fallback paired with the explicit titleKey/messageKey/confirmKey passed to ConfirmDialogService.confirm at opening time; the dialog formats the key through WebUiMessages and shows this literal only when the key is absent from every catalog.",
+      "maximum": 1
+    },
+    {
+      "id": "cc1018893252038b",
+      "file": "app/modules/shared/components/document-tree/document-tree.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ labelFor(rootDocument) }}",
+      "ownership": "customer-content",
+      "reason": "labelFor resolves the repository root through the browse.root key in WebUiMessages and otherwise returns the document's own title as supplied by the server; customer titles are preserved literally and never looked up as catalog keys.",
+      "maximum": 1
+    },
+    {
+      "id": "377b3a2c5fbc846b",
+      "file": "app/modules/shared/components/document-tree/document-tree.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ labelFor(parent) }}",
+      "ownership": "customer-content",
+      "reason": "labelFor resolves the repository root through the browse.root key in WebUiMessages and otherwise returns the document's own title as supplied by the server; customer titles are preserved literally and never looked up as catalog keys.",
+      "maximum": 1
+    }
+  ]
+}

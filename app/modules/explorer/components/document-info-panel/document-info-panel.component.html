@@ -1,0 +1,17 @@
+<div class="card mb-4">
+	<div class="card-header d-flex justify-content-between align-items-center">
+		<span>{{ 'documentInfo.title' | webuiMessage: 'Document info' }}</span>
+
+		<button
+			(click)="closeInfoPanel()"
+			class="btn btn-sm btn-link link-dark"
+			[tooltip]="
+				'app.modules.document-info-panel.close-info-panel-9488a4' | webuiMessage: 'Close info panel'
+			"
+		>
+			<fa-icon icon="times"></fa-icon>
+		</button>
+	</div>
+
+	<div class="card-body"></div>
+</div>

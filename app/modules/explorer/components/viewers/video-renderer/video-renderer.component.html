@@ -1,0 +1,142 @@
+<div class="btn-toolbar align-items-center justify-content-between mb-2 flex-nowrap">
+	<ng-content></ng-content>
+</div>
+
+<div class="media flex-grow-1">
+	<span class="flex-grow-1"></span>
+
+	<video
+		[nxStreamMedia]="mediaBlob"
+		[streamDocument]="document"
+		(streamError)="mediaError = $event"
+		(streamReady)="mediaError = ''"
+		[poster]="thumbnailUrl"
+		controls
+		playsinline="true"
+		webkit-playsinline="webkit-playsinline"
+		preload="none"
+	></video>
+	@if (mediaError) {
+		<p role="alert">{{ mediaError }}</p>
+	}
+
+	<span class="flex-grow-1"></span>
+
+	@if (document.properties['vid:transcodedVideos']?.length) {
+		<table class="table table-sm table-hover align-middle mb-0">
+			<thead>
+				<tr>
+					<th class="text-start ps-3">
+						{{ 'app.modules.video-renderer.format-93ef1f' | webuiMessage: 'Format' }}
+					</th>
+					<th>{{ 'pictureViewLayout.dimensions' | webuiMessage: 'Dimensions' }}</th>
+					<th>{{ 'app.modules.video-renderer.fps-c3b44a' | webuiMessage: 'FPS' }}</th>
+					<th>{{ 'videoViewLayout.duration' | webuiMessage: 'Duration' }}</th>
+					<th>{{ 'app.modules.video-renderer.file-size-7f35df' | webuiMessage: 'File size' }}</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (
+					video of document.properties['vid:transcodedVideos'];
+					track video;
+					let index = $index
+				) {
+					<tr [class.table-active]="contentUrl === video.content.data">
+						<td>
+							<div class="d-flex align-items-center">
+								<div
+									class="form-check form-switch"
+									[tooltip]="
+										'app.modules.video-renderer.view-this-format-1bd248'
+											| webuiMessage: 'View this format'
+									"
+								>
+									<input
+										[id]="index"
+										class="form-check-input"
+										type="radio"
+										name="contentUrl"
+										(click)="selectSource(video.content)"
+									/>
+									<label [for]="index">{{ video.info.format }}</label>
+								</div>
+							</div>
+						</td>
+						<td>{{ video.info.width | webuiNumber }}×{{ video.info.height | webuiNumber }}</td>
+						<td>{{ video.info.frameRate | webuiNumber }}</td>
+						<td>{{ video.info.duration | duration }}</td>
+						<td>{{ video.content.length | fileSize: 1 }}</td>
+						<td>
+							<button
+								type="button"
+								[attr.aria-label]="
+									'app.modules.video-renderer.download-this-format-a42b24'
+										| webuiMessage: 'Download this format'
+								"
+								(click)="download($event, video.content)"
+								class="btn btn-sm btn-link link-primary"
+								[tooltip]="
+									'app.modules.video-renderer.download-this-format-a42b24'
+										| webuiMessage: 'Download this format'
+								"
+							>
+								<fa-icon [fixedWidth]="true" icon="download" size="sm"></fa-icon>
+							</button>
+						</td>
+					</tr>
+				}
+				@if (document.properties['vid:info'] && document.properties['vid:info'].width) {
+					<tr [class.table-active]="contentUrl === document.ng.attachment.data">
+						<td>
+							<div class="d-flex align-items-center">
+								<div
+									class="form-check form-switch"
+									[tooltip]="
+										'app.modules.video-renderer.view-this-format-1bd248'
+											| webuiMessage: 'View this format'
+									"
+								>
+									<input
+										id="-1"
+										class="form-check-input"
+										type="radio"
+										name="contentUrl"
+										checked
+										(click)="selectSource(document.ng.attachment)"
+									/>
+									<label for="-1">{{ document.properties['vid:info'].format }}</label>
+								</div>
+							</div>
+						</td>
+						<td>
+							{{ document.properties['vid:info'].width | webuiNumber }}×{{
+								document.properties['vid:info'].height | webuiNumber
+							}}
+						</td>
+						<td>{{ document.properties['vid:info'].frameRate | webuiNumber }}</td>
+						<td>{{ document.properties['vid:info'].duration | duration }}</td>
+						<td>{{ document.ng.attachment.length | fileSize: 1 }}</td>
+						<td>
+							<button
+								type="button"
+								[attr.aria-label]="
+									'app.modules.video-renderer.download-original-file-fae086'
+										| webuiMessage: 'Download original file'
+								"
+								(click)="download($event, document.ng.attachment)"
+								class="btn btn-sm btn-link link-primary"
+								[tooltip]="
+									'app.modules.video-renderer.download-this-format-a42b24'
+										| webuiMessage: 'Download this format'
+								"
+							>
+								<fa-icon [fixedWidth]="true" icon="download" size="sm"></fa-icon>
+							</button>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	}
+</div>

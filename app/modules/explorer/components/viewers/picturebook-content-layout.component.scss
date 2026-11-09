@@ -1,0 +1,197 @@
+@use '../document-toolbar/selection-toolbar' as *;
+:host {
+	display: block;
+	flex: 1;
+	min-height: 0;
+	min-width: 0;
+}
+
+.picturebook-content {
+	position: relative;
+	min-width: 0;
+}
+// Loading status: anchored under the results, absolutely positioned so it takes no flow space.
+.picturebook-content__status {
+	position: absolute;
+	inset-inline-start: 0;
+	top: 100%;
+	margin: 0.4rem 0 0;
+	color: var(--nuxeo-text-light, #767676);
+	pointer-events: none;
+}
+// The details panel spans the page; results keep a gutter from the navigation rail.
+.picturebook-content > :not(nx-folderish-details-panel, .picturebook-content__selection) {
+	margin-inline: 16px;
+}
+.picturebook-content__controls,
+.picturebook-content__quick-filters {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	flex-wrap: wrap;
+}
+.picturebook-content__quick-filters {
+	padding: 0.75rem 0;
+}
+// Stock nuxeo-results commonActions: a 40px row with the count centred, right under the card.
+.picturebook-content__controls {
+	min-height: 40px;
+	padding: 0;
+}
+.picturebook-content__actions {
+	margin-inline-start: auto;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+.picturebook-content__actions > div[role='group'] {
+	display: inline-flex;
+	gap: 0.25rem;
+}
+button,
+select,
+input[type='search'] {
+	border: 1px solid var(--nuxeo-border, #ddd);
+	background: var(--nuxeo-box, #fff);
+	color: inherit;
+	padding: 0.45rem 0.65rem;
+}
+.picturebook-content__actions > div[role='group'] button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	padding: 0.4rem;
+	border: 0;
+}
+// Icon buttons in the actions row (CSV export, display mode) sit flat on the panel;
+// only the pressed mode and hover get a tint.
+.picturebook-content__actions button {
+	border: 0;
+	background: transparent;
+	border-radius: 0.2rem;
+}
+.picturebook-content__actions button:hover {
+	background: color-mix(in srgb, var(--nuxeo-primary-color, #06c) 5%, transparent);
+}
+// View switcher only, as stock Web UI: the selected mode is just a primary-coloured glyph; an
+// unselected mode shows a hairline circle on hover. CSV export and columns keep the flat hover.
+.picturebook-content__actions > div[role='group'] button {
+	// 20px glyphs read lighter than the 24px default; the ring is a hairline, not a border.
+	--webui-icon-size: 20px;
+	border-radius: 50%;
+	box-shadow: 0 0 0 1px transparent;
+	transition: box-shadow 0.12s;
+}
+.picturebook-content__actions > div[role='group'] button[aria-pressed='true'] {
+	background: transparent;
+	color: var(--nuxeo-primary-color, #06c);
+}
+.picturebook-content__actions > div[role='group'] button:not([aria-pressed='true']):hover {
+	background: transparent;
+	box-shadow: 0 0 0 1px var(--nuxeo-primary-color, #06c);
+}
+button[aria-pressed='true'] {
+	color: var(--nuxeo-primary-color, #06c);
+}
+.picturebook-content__controls label,
+.picturebook-content__quick-filters label {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+.picturebook-content__filters {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	padding-block: 0.5rem;
+	padding-inline: 48px 0.75rem;
+	border-bottom: 1px solid var(--nuxeo-border, #ddd);
+}
+.picturebook-content__title-filter {
+	flex: 2;
+	min-width: 0;
+}
+.picturebook-content__title-filter input {
+	width: 100%;
+	min-width: 0;
+	border: 0;
+	border-bottom: 1px solid var(--nuxeo-border, #ddd);
+}
+.picturebook-content__aggregate {
+	flex: 1;
+	min-width: 0;
+}
+.picturebook-content__aggregate summary {
+	padding: 0.45rem 0;
+	cursor: pointer;
+}
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+}
+@media (max-width: 680px) {
+	.picturebook-content__filters {
+		padding-inline-start: 0.75rem;
+		flex-wrap: wrap;
+	}
+	.picturebook-content__title-filter {
+		flex-basis: 100%;
+	}
+	.picturebook-content__actions {
+		margin-inline-start: 0;
+	}
+}
+.picturebook-content__quick-filters label {
+	padding: 0.2rem 0.4rem;
+	border-radius: 0.2rem;
+	background: color-mix(in srgb, var(--nuxeo-primary-color, #06c) 8%, var(--nuxeo-box, #fff));
+}
+.picturebook-content__table-title {
+	display: flex;
+	min-width: 0;
+	align-items: center;
+	gap: 0.6rem;
+}
+.picturebook-content__table-title img {
+	width: 32px;
+	height: 32px;
+	object-fit: cover;
+	border-radius: 2px;
+}
+.picturebook-content__table-title a {
+	overflow: hidden;
+	text-decoration: none;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.picturebook-content__selection {
+	@include selection-toolbar;
+}
+:host ::ng-deep .ag-header-cell {
+	overflow: visible;
+}
+:host ::ng-deep .ag-header-viewport {
+	overflow: visible;
+}
+:host ::ng-deep .ag-header {
+	overflow: visible;
+	z-index: 4;
+}
+
+// Stock nuxeo-results: a 13px result count; in grid view the sort bar sits under it and the
+// thumbnails start 16px below the bar.
+.picturebook-content__count {
+	font-size: 13px;
+	line-height: 20px;
+}
+// Stock delegatedActions: 13px under the 40px count row, 16px above the cards.
+.picturebook-content__sort {
+	margin-top: 13px;
+	margin-bottom: 16px;
+}

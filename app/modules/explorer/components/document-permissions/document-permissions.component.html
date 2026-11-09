@@ -1,0 +1,261 @@
+@if (loading) {
+	<p role="status">
+		{{
+			'app.modules.document-permissions.loading-permissions-2afc98'
+				| webuiMessage: 'Loading permissions…'
+		}}
+	</p>
+}
+@if (error) {
+	<p role="alert">
+		{{ error }}
+		<button type="button" (click)="getPermissions()">
+			{{ 'app.modules.document-permissions.retry-56f7b5' | webuiMessage: 'Retry' }}
+		</button>
+	</p>
+}
+@if (document?.type !== 'Root') {
+	<p class="small alert alert-info mt-3 px-3 py-2">
+		<fa-icon icon="exclamation-triangle" class="me-1"></fa-icon>
+
+		{{
+			'app.modules.document-permissions.the-shared-permissions-1-take-precedence-o-9bcd51'
+				| webuiMessage
+					: 'The shared permissions (1) take precedence over the document specific ones (2), which have a\n		higher precedence than the inherited permissions (3).'
+		}}
+	</p>
+}
+
+<ng-container *ngTemplateOutlet="permissionsTable; context: sharedPermissionsTableContext">
+</ng-container>
+
+<ng-container *ngTemplateOutlet="permissionsTable; context: localPermissionsTableContext">
+</ng-container>
+
+<ng-container *ngTemplateOutlet="permissionsTable; context: inheritedPermissionsTableContext">
+</ng-container>
+
+<ng-template #permissionEditor>
+	<ng-container
+		[ngComponentOutlet]="permissionEditorComponent"
+		[ngComponentOutletInjector]="injector"
+	>
+	</ng-container>
+</ng-template>
+
+<ng-template
+	#permissionsTable
+	let-permissions="permissions"
+	let-isOpen="isEditorOpen"
+	let-isOpenFn="isEditorOpenFn"
+	let-editorFn="editorFn"
+	let-canEdit="canEdit"
+	let-title="title"
+	let-primaryButtonTitle="primaryButtonTitle"
+	let-primaryButtonTooltip="primaryButtonTooltip"
+>
+	<div class="mb-0 mt-3 px-0 shadow-lg border rounded">
+		<div
+			class="d-flex justify-content-between align-items-center small ps-3 pe-2 py-2 border-bottom rounded-top text-bg-light"
+		>
+			{{ title }}
+
+			@if (canEdit && canManagePermissions) {
+				<div
+					class="btn-broup flex-shrink-0"
+					role="group"
+					[popover]="permissionEditor"
+					container="body"
+					containerClass="menu-item"
+					placement="bottom right"
+					triggers=""
+					[isOpen]="isOpen"
+					(onShown)="isOpenFn(true)"
+					(onHidden)="isOpenFn(false)"
+					[nxClickOutside]="isOpen"
+					(nxClickedOutside)="isOpenFn(false)"
+					nxClickOutsideDisabledWhenParentSelectorIs=".popover"
+				>
+					<button
+						(click)="editorFn()"
+						class="btn btn-sm btn-link fw-bold dropdown-toggle"
+						[tooltip]="primaryButtonTooltip"
+					>
+						<span>{{ primaryButtonTitle }}</span>
+					</button>
+				</div>
+			}
+
+			@if (!canEdit && canManagePermissions && document?.type !== 'Root') {
+				<button
+					(click)="editorFn()"
+					class="btn btn-sm btn-link fw-bold flex-shrink-0"
+					[tooltip]="primaryButtonTooltip"
+				>
+					{{ primaryButtonTitle }}
+				</button>
+			}
+		</div>
+
+		@if (!permissions.length) {
+			@if (aclEmptyProjection(permissions); as projection) {
+				@if (!projection.disabled && projection.component) {
+					<ng-container
+						[ngComponentOutlet]="projection.component"
+						[ngComponentOutletInputs]="{ projectionContext: aclProjectionContext(permissions) }"
+					/>
+				}
+			} @else {
+				<p class="small px-3 py-2 mb-0 opacity-75">
+					{{
+						'app.modules.document-permissions.there-are-no-permissions-to-display-here-ce98b2'
+							| webuiMessage: 'There are no permissions to display here.'
+					}}
+				</p>
+			}
+		}
+
+		@if (permissions.length) {
+			<ul class="list-group list-group-flush permission-list px-1 pb-1">
+				@for (permission of permissions; track permission) {
+					<li
+						class="list-group-item list-group-item-action d-flex gap-2 py-1 ps-3 pe-2 align-items-center"
+					>
+						<fa-icon
+							[fixedWidth]="true"
+							size="lg"
+							[icon]="
+								permission.username.grouplabel
+									? 'users'
+									: permission.externalUser
+										? 'user-clock'
+										: 'user'
+							"
+							[tooltip]="
+								permission.username.grouplabel
+									? ('app.modules.document-permissions.user-group-71f032'
+										| webuiMessage: 'User group')
+									: permission.externalUser
+										? ('app.modules.document-permissions.external-share-1b2dc9'
+											| webuiMessage: 'External share')
+										: ('app.modules.document-permissions.user-37604c' | webuiMessage: 'User')
+							"
+						>
+						</fa-icon>
+						<div class="d-flex gap-2 flex-grow-1 justify-content-between align-items-center small">
+							<div>
+								<div class="mb-0 fw-semibold">{{ permission.username.label }}</div>
+								<p class="mb-0">
+									@if (!permission.granted) {
+										<strong
+											>{{
+												'app.modules.document-permissions.denied-c34db5' | webuiMessage: 'Denied:'
+											}}
+										</strong>
+									}
+									<span class="fw-semibold">
+										{{
+											'rights.' + permission.permission
+												| translate: { value: permission.username.grouplabel ? 0 : 1 }
+										}}
+									</span>
+									@if (permission.begin && permission.end) {
+										<span>
+											{{
+												'permissions.dates'
+													| webuiMessage
+														: 'From {begin} until {end}'
+														: {
+																begin: (permission.begin | webuiDate),
+																end: (permission.end | webuiDate),
+														  }
+											}}</span
+										>
+									}
+									@if (permission.begin && !permission.end) {
+										<span>
+											{{
+												'permissions.begin'
+													| webuiMessage
+														: 'Starting with {begin}'
+														: { begin: (permission.begin | webuiDate) }
+											}}</span
+										>
+									}
+									@if (!permission.begin && permission.end) {
+										<span>
+											{{
+												'permissions.end'
+													| webuiMessage: 'Until {end}' : { end: (permission.end | webuiDate) }
+											}}</span
+										>
+									}
+									@if (!permission.begin && !permission.end) {
+										<span>
+											{{
+												'app.modules.document-permissions.indefinitely-afbf88'
+													| webuiMessage: 'indefinitely'
+											}}
+										</span>
+									}
+								</p>
+							</div>
+							@if (canEdit && canManagePermissions) {
+								<div class="btn-group btn-group-sm" role="group">
+									@if (permission.externalUser && permission.notify) {
+										<button
+											(click)="sendLink(permission)"
+											class="btn btn-link py-0"
+											[tooltip]="
+												'app.modules.document-permissions.send-by-email-a-link-pointing-to-this-docu-d71653'
+													| webuiMessage: 'Send by email a link pointing to this document'
+											"
+										>
+											<fa-icon icon="envelope" size="xs"></fa-icon>
+										</button>
+									}
+									<div
+										class="btn-broup"
+										role="group"
+										[popover]="permissionEditor"
+										container="body"
+										containerClass="menu-item"
+										placement="bottom right"
+										[isOpen]="permission.editorPopover"
+										(onShown)="permission.editorPopover = true"
+										(onHidden)="permission.editorPopover = false"
+										[nxClickOutside]="permission.editorPopover"
+										(nxClickedOutside)="permission.editorPopover = false"
+										triggers=""
+										nxClickOutsideDisabledWhenParentSelectorIs=".popover"
+									>
+										<button
+											(click)="editorFn(permission)"
+											class="btn btn-link py-0"
+											[tooltip]="
+												'app.modules.document-permissions.edit-this-permission-aafe87'
+													| webuiMessage: 'Edit this permission'
+											"
+										>
+											<fa-icon icon="pencil" size="xs"></fa-icon>
+										</button>
+									</div>
+									<button
+										(click)="removePermission(permission.id)"
+										class="btn btn-link py-0"
+										[tooltip]="
+											'app.modules.document-permissions.remove-this-permission-15d9a6'
+												| webuiMessage: 'Remove this permission'
+										"
+									>
+										<fa-icon icon="times" size="sm"></fa-icon>
+									</button>
+								</div>
+							}
+						</div>
+					</li>
+				}
+			</ul>
+		}
+	</div>
+</ng-template>

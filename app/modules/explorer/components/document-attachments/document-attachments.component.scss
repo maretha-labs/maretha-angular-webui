@@ -1,0 +1,53 @@
+@import '../../../../../styles/variables';
+
+.card {
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.2s ease-in-out;
+		inset-block-start: -0.5rem;
+		inset-inline-start: -0.5rem;
+		inset-inline-end: -0.5rem;
+		inset-block-end: -0.5rem;
+		border-radius: 0.3rem;
+		background-color: rgba(var(--nuxeo-primary-rgb, #{$primary-rgb}), 0.1);
+	}
+
+	&.file-over::after {
+		border: 3px dashed var(--nuxeo-primary-color, #{$primary});
+		opacity: 1;
+	}
+
+	+ .card {
+		margin-block-start: 1rem;
+	}
+}
+
+#attachment,
+#attachments {
+	position: relative;
+}
+
+.scrollable {
+	max-height: max(200px, 25vh);
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 3px 2px 0px 2px;
+}
+
+.btn-hidden {
+	visibility: hidden;
+}
+
+.list-group-item {
+	padding-block: 0.5rem !important;
+	padding-inline: 0.55rem 0.25rem !important;
+
+	+ .list-group-item {
+		margin-top: 0 !important;
+	}
+}

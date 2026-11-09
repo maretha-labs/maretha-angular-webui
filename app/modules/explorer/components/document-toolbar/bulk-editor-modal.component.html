@@ -1,0 +1,74 @@
+<div class="modal-header">
+	<h4 class="modal-title">
+		{{
+			'app.modules.bulk-editor-modal.edit-selected-documents-4e68d7'
+				| webuiMessage: 'Edit selected documents'
+		}}
+	</h4>
+	<button
+		type="button"
+		class="btn-close"
+		[disabled]="busy"
+		[attr.aria-label]="'app.modules.bulk-editor-modal.close-5f021c' | webuiMessage: 'Close'"
+		(click)="close()"
+	></button>
+</div>
+<div class="modal-body">
+	<p>
+		{{ 'bulk.selection' | webuiMessage:'{count, plural, one {# displayed document.} other {# displayed documents.}}
+		Changes apply only to this selection.':{count: ids.length} }}
+	</p>
+	<fieldset [disabled]="busy || completed || operationStarted">
+		<ng-container *ngComponentOutlet="layoutComponent; inputs: layoutInputs"></ng-container>
+	</fieldset>
+	@if (directoryError) {
+		<p class="text-warning" role="alert">
+			{{ directoryError }}
+			<button type="button" class="btn btn-link p-0" (click)="loadDirectories()">
+				{{ 'app.modules.bulk-editor-modal.retry-choices-4483d7' | webuiMessage: 'Retry choices' }}
+			</button>
+		</p>
+	}
+	@if (error) {
+		<p class="text-danger" role="alert">{{ error }}</p>
+	}
+	@if (statuses.length) {
+		<p role="status">{{ summary }}</p>
+		@if (unknownIds.length) {
+			<p class="text-warning" role="alert">
+				{{
+					'app.modules.bulk-editor-modal.check-the-documents-marked-unknown-before--248f04'
+						| webuiMessage
+							: 'Check the documents marked unknown before trying another bulk update; their last write\n						may have completed.'
+				}}
+			</p>
+		}
+		<ul>
+			@for (status of statuses; track status.uid) {
+				<li>
+					{{ status.uid }}: {{ statusLabel(status) }}
+					@if (status.error) {
+						— {{ statusError(status) }}
+					}
+				</li>
+			}
+		</ul>
+	}
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-secondary" [disabled]="busy" (click)="close()">
+		{{ 'app.modules.bulk-editor-modal.cancel-5e097e' | webuiMessage: 'Cancel' }}
+	</button>
+	@if (failedIds.length) {
+		<button type="button" class="btn btn-outline-primary" [disabled]="busy" (click)="retryFailed()">
+			{{ 'app.modules.bulk-editor-modal.retry-failed-473bba' | webuiMessage: 'Retry failed' }}
+		</button>
+	}
+	<button type="button" class="btn btn-primary" [disabled]="busy || !canSave" (click)="save()">
+		{{
+			busy
+				? ('sdk.layout.saving' | webuiMessage: 'Saving…')
+				: ('sdk.layout.save' | webuiMessage: 'Save')
+		}}
+	</button>
+</div>

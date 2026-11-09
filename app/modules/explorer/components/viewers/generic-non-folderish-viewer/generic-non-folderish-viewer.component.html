@@ -1,0 +1,395 @@
+@if (document) {
+	<div @itemsAnimation class="document-page h-100">
+		<div class="page-layout" [class.metadata-hidden]="metadataHidden">
+			<main class="preview-main">
+				<div class="binary">
+					@if (loading) {
+						<fa-icon
+							[fixedWidth]="true"
+							class="spinner"
+							icon="spinner"
+							[fixedWidth]="true"
+							animation="spin-pulse"
+						>
+						</fa-icon>
+					}
+
+					@if (mainContentTemplate) {
+						<div class="projected-content">
+							<ng-container *ngTemplateOutlet="mainContentTemplate" />
+						</div>
+					}
+					@switch (mimeType) {
+						@default {
+							<div class="flex-grow-1 d-flex flex-column justify-content-center">
+								@if (document.ng.attachment) {
+									<div class="btn-toolbar align-items-center p-2">
+										<span class="flex-grow-1"></span>
+
+										<div class="btn-group btn-group-sm">
+											<button
+												(click)="downloadAttachment()"
+												class="btn btn-dark"
+												[tooltip]="document.ng.attachment.name"
+											>
+												<fa-icon [fixedWidth]="true" icon="download"></fa-icon>
+
+												{{
+													'app.modules.generic-non-folderish-viewer.download-main-file-d39523'
+														| webuiMessage: 'Download main file'
+												}}
+												<span class="badge text-bg-light p-1">{{
+													document.ng.attachment.length | fileSize
+												}}</span>
+											</button>
+										</div>
+									</div>
+								}
+
+								<span class="flex-grow-1"></span>
+
+								@if (document.retainUntil || document.isRecord) {
+									<div class="alert alert-danger small mb-0 align-self-center">
+										{{
+											'app.modules.generic-non-folderish-viewer.you-cannot-view-the-files-attached-to-this-286308'
+												| webuiMessage
+													: "You cannot view the files attached to this document because it's marked as a\n										record."
+										}}
+									</div>
+								}
+
+								@if (!document.retainUntil && !document.isRecord) {
+									@if (document.properties['note:mime_type']) {
+										<div class="h-100">
+											<nx-note-renderer [document]="document">
+												<ng-container *ngTemplateOutlet="attachments"></ng-container>
+											</nx-note-renderer>
+										</div>
+									}
+
+									@if (!document.properties['note:mime_type']) {
+										@if (document.ng.attachment) {
+											<div class="alert alert-dark small mb-0 align-self-center">
+												<div class="alert-heading text-center">
+													<fa-icon icon="eye-slash" class="me-1"></fa-icon>
+													{{
+														'documentViewers.noPreview'
+															| translate: { fileType: document.ng.attachmentType }
+															| translateCut: 0
+													}}
+													<b>{{
+														'documentViewers.noPreview'
+															| translate: { fileType: document.ng.attachmentType }
+															| translateCut: 1
+													}}</b>
+												</div>
+												{{ 'documentViewers.noPreviewDownload' | translate | translateCut: 0 }}
+												<a
+													href="javascript:void(0)"
+													(click)="downloadAttachment()"
+													[tooltip]="document.ng.attachment.name"
+													>{{
+														'documentViewers.noPreviewDownload' | translate | translateCut: 1
+													}}</a
+												>
+												{{ 'documentViewers.noPreviewDownload' | translate | translateCut: 2 }}
+											</div>
+										}
+
+										@if (!document.ng.attachment) {
+											@if (canModifyMainBlob()) {
+												<label class="main-file-upload">
+													{{ 'fileViewLayout.upload' | webuiMessage: 'Upload main file' }}
+													<input
+														type="file"
+														[disabled]="savingBlob"
+														(change)="selectMainBlob($event)"
+													/>
+												</label>
+											} @else {
+												<div class="alert alert-dark small mb-0 align-self-center">
+													{{
+														'app.modules.document-info.this-document-doesn-t-have-a-main-file-att-87856c'
+															| webuiMessage
+																: "This document doesn't have a main file attached to it."
+													}}
+												</div>
+											}
+										}
+									}
+								}
+
+								<span class="flex-grow-1"></span>
+							</div>
+						}
+
+						@case ('image') {
+							<div id="media">
+								<nx-image-renderer
+									[document]="document"
+									[contentUrl]="contentUrl"
+									[externalCards]="true"
+									[inlineBlobActions]="true"
+								>
+									<div imageBlobActions class="main-file-actions">
+										@if (document.ng.attachment) {
+											<nx-webui-slot
+												name="BLOB_ACTIONS"
+												[context]="blobContext(document.ng.attachment, 'file:content')"
+											/>
+										}
+									</div>
+									@if (document.ng.attachments?.length) {
+										<ng-container *ngTemplateOutlet="attachments; context: { hideMain: true }" />
+									}
+								</nx-image-renderer>
+							</div>
+						}
+
+						@case ('video') {
+							<div id="media">
+								<nx-video-renderer
+									[document]="document"
+									[thumbnailUrl]="thumbnailUrl"
+									[contentUrl]="contentUrl"
+								>
+									<div class="btn-group btn-group-sm" role="group">
+										<button
+											(click)="openInFullscreen()"
+											class="btn btn-dark"
+											[tooltip]="
+												'app.modules.note-renderer.open-in-fullscreen-6399aa'
+													| webuiMessage: 'Open in fullscreen'
+											"
+										>
+											<fa-icon [fixedWidth]="true" icon="expand"></fa-icon>
+										</button>
+									</div>
+
+									<ng-container *ngTemplateOutlet="attachments"></ng-container>
+								</nx-video-renderer>
+							</div>
+						}
+
+						@case ('audio') {
+							<div id="media">
+								<nx-audio-renderer [document]="document" [contentUrl]="contentUrl">
+									<ng-container *ngTemplateOutlet="attachments"></ng-container>
+								</nx-audio-renderer>
+							</div>
+						}
+
+						@case ('pdf') {
+							<div>
+								<nx-pdf-renderer
+									[document]="document"
+									[contentUrl]="contentUrl"
+									(loading)="pdfLoading($event)"
+								>
+								</nx-pdf-renderer>
+							</div>
+						}
+
+						@case ('3d') {
+							<div id="media">
+								<nx-threed-renderer [document]="document" [contentUrl]="contentUrl">
+									<ng-container *ngTemplateOutlet="attachments"></ng-container>
+								</nx-threed-renderer>
+							</div>
+						}
+					}
+				</div>
+				@if (blobError) {
+					<p role="alert">{{ blobError }}</p>
+				}
+				@if (mimeType === 'pdf' && document.ng.attachment) {
+					<footer class="main-file-row">
+						<div class="main-file-description">
+							<span>{{ document.ng.attachment?.name || document.title }}</span>
+							<small>{{ document.ng.attachment?.length | fileSize: 2 }}</small>
+						</div>
+						<nx-webui-slot
+							name="BLOB_ACTIONS"
+							[context]="blobContext(document.ng.attachment, 'file:content')"
+						/>
+					</footer>
+				}
+			</main>
+			@if (metadataHidden) {
+				<button
+					class="show-metadata"
+					type="button"
+					(click)="toggleMetadata()"
+					[attr.aria-label]="
+						'app.modules.generic-non-folderish-viewer.show-metadata-82860c'
+							| webuiMessage: 'Show metadata'
+					"
+				>
+					<fa-icon [fixedWidth]="true" icon="sidebar"></fa-icon>
+					<span>{{
+						'app.modules.generic-non-folderish-viewer.metadata-f5fc50' | webuiMessage: 'Metadata'
+					}}</span>
+				</button>
+			}
+			<aside [hidden]="metadataHidden" class="details-side">
+				<nx-document-pane-resize-handle />
+				<header class="metadata-heading">
+					<h2>
+						{{
+							'app.modules.generic-non-folderish-viewer.metadata-f5fc50' | webuiMessage: 'Metadata'
+						}}
+					</h2>
+					@if (detailsPanel.metadataEditor; as editor) {
+						@if (editor.editing) {
+							<button
+								type="button"
+								class="inspector-button"
+								[disabled]="editor.saving"
+								(click)="editor.cancelEdit()"
+							>
+								{{
+									'app.modules.generic-non-folderish-viewer.cancel-37e754' | webuiMessage: 'Cancel'
+								}}
+							</button>
+							<button
+								type="button"
+								class="inspector-button inspector-button--primary"
+								[disabled]="editor.saving || !editor.dirty"
+								(click)="editor.save()"
+							>
+								{{
+									editor.saving
+										? ('sdk.layout.saving' | webuiMessage: 'Saving…')
+										: ('app.modules.generic-non-folderish-viewer.save-a1a911'
+											| webuiMessage: 'Save')
+								}}
+							</button>
+						} @else {
+							@if (editor.hasEditableFields) {
+								<button
+									type="button"
+									class="inspector-button"
+									(click)="editor.beginEdit()"
+									[attr.aria-label]="
+										'app.modules.generic-non-folderish-viewer.edit-metadata-276587'
+											| webuiMessage: 'Edit metadata'
+									"
+								>
+									{{
+										'app.modules.generic-non-folderish-viewer.edit-89340f' | webuiMessage: 'Edit'
+									}}
+								</button>
+							}
+							<details class="metadata-settings">
+								<summary
+									[attr.aria-label]="
+										'app.modules.generic-non-folderish-viewer.metadata-settings-2f7ba8'
+											| webuiMessage: 'Metadata settings'
+									"
+									[attr.title]="
+										'app.modules.generic-non-folderish-viewer.metadata-settings-2f7ba8'
+											| webuiMessage: 'Metadata settings'
+									"
+								>
+									<fa-icon icon="gear" />
+								</summary>
+								<button
+									type="button"
+									(click)="
+										editor.toggleCustomize(); $any($event.target).closest('details').open = false
+									"
+								>
+									{{
+										'app.modules.generic-non-folderish-viewer.customize-fields-28c523'
+											| webuiMessage: 'Customize fields'
+									}}
+								</button>
+							</details>
+						}
+					}
+					<button
+						type="button"
+						class="btn btn-sm btn-link"
+						(click)="toggleMetadata()"
+						[attr.aria-label]="
+							'app.modules.generic-non-folderish-viewer.hide-metadata-a82f55'
+								| webuiMessage: 'Hide metadata'
+						"
+					>
+						<fa-icon [fixedWidth]="true" icon="chevron-right"></fa-icon>
+					</button>
+				</header>
+				<nx-document-details-panel
+					#detailsPanel
+					[document]="metadataDocument()"
+					[noEdit]="noEdit"
+					[externalToolbar]="true"
+				/>
+			</aside>
+			@if (pictureRenderer()?.technicalCards; as cards) {
+				<section
+					class="asset-technical-cards"
+					[attr.aria-label]="
+						'app.modules.generic-non-folderish-viewer.technical-metadata-and-formats-13bd3b'
+							| webuiMessage: 'Technical metadata and formats'
+					"
+				>
+					<ng-container *ngTemplateOutlet="cards" />
+				</section>
+			}
+		</div>
+	</div>
+}
+
+<ng-template #attachments let-hideMain="hideMain">
+	@if (document.ng.attachment || document.ng.attachments.length) {
+		<div class="btn-group btn-group-sm overflow-none">
+			@if (document.ng.attachment && !hideMain) {
+				<span class="text-truncate">{{ document.ng.attachment.name }}</span>
+				<nx-webui-slot
+					name="BLOB_ACTIONS"
+					[context]="blobContext(document.ng.attachment, 'file:content')"
+				/>
+			}
+
+			@if (document.ng.attachments.length) {
+				<div dropdown placement="bottom right" container="body" class="btn-group btn-group-sm">
+					<button
+						dropdownToggle
+						id="button_attachments"
+						class="btn btn-outline-dark dropdown-toggle"
+						[tooltip]="
+							'app.modules.generic-non-folderish-viewer.additional-attachments-d3c9f9'
+								| webuiMessage: 'Additional attachments'
+						"
+					>
+						<fa-icon [fixedWidth]="true" icon="paperclip"></fa-icon>
+						× {{ document.ng.attachments.length | webuiNumber }}
+					</button>
+					<ul
+						*dropdownMenu
+						id="dropdown_start_workflow"
+						class="dropdown-menu dropdown-menu-right"
+						role="menu"
+						aria-labelledby="button_attachments"
+					>
+						@for (attachment of document.ng.attachments; track attachment) {
+							<li role="menuitem">
+								<span>{{ attachment.name }}</span>
+								<nx-webui-slot
+									name="BLOB_ACTIONS"
+									[context]="
+										blobContext(
+											attachment,
+											'files:files/' + document.ng.attachments.indexOf(attachment) + '/file'
+										)
+									"
+								/>
+							</li>
+						}
+					</ul>
+				</div>
+			}
+		</div>
+	}
+</ng-template>

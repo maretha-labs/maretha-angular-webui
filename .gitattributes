@@ -1,0 +1,16 @@
+# Every checkout gets LF: core.manifest.json hashes working-tree bytes and the Nuxeo package
+# is assembled from them, so a core.autocrlf=true clone would otherwise fail npm run verify.
+* text=auto eol=lf
+
+# Binary: never converted, never diffed as text.
+*.gif -text
+*.ico -text
+*.jar -text
+*.jpg -text
+*.pdf -text
+*.png -text
+*.tgz -text
+*.ttf -text
+*.woff -text
+*.woff2 -text
+*.zip -text

@@ -1,0 +1,7 @@
+<div class="container h-100 text-center">
+	<h2 class="mt-5">
+		{{
+			'app.components.home.welcome' | webuiMessage: 'Welcome {name}' : { name: userName() || '' }
+		}}
+	</h2>
+</div>

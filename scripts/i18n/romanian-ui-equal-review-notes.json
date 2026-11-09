@@ -1,0 +1,804 @@
+{
+  "locale": "ro",
+  "review": "Agent source and terminology review; no independent linguistic approval.",
+  "corrections": {
+    "directories.nature.card": "Fișă"
+  },
+  "unchanged": [
+    {
+      "key": "general.fileSize.kb",
+      "value": "KB",
+      "reason": "Standard file unit, format abbreviation or query-language identifier; unchanged across UI locales."
+    },
+    {
+      "key": "general.fileSize.mb",
+      "value": "MB",
+      "reason": "Standard file unit, format abbreviation or query-language identifier; unchanged across UI locales."
+    },
+    {
+      "key": "general.fileSize.gb",
+      "value": "GB",
+      "reason": "Standard file unit, format abbreviation or query-language identifier; unchanged across UI locales."
+    },
+    {
+      "key": "general.fileSize.tb",
+      "value": "TB",
+      "reason": "Standard file unit, format abbreviation or query-language identifier; unchanged across UI locales."
+    },
+    {
+      "key": "general.fileSize.pb",
+      "value": "PB",
+      "reason": "Standard file unit, format abbreviation or query-language identifier; unchanged across UI locales."
+    },
+    {
+      "key": "general.fileSize.eb",
+      "value": "EB",
+      "reason": "Standard file unit, format abbreviation or query-language identifier; unchanged across UI locales."
+    },
+    {
+      "key": "general.fileSize.zb",
+      "value": "ZB",
+      "reason": "Standard file unit, format abbreviation or query-language identifier; unchanged across UI locales."
+    },
+    {
+      "key": "general.fileSize.yb",
+      "value": "YB",
+      "reason": "Standard file unit, format abbreviation or query-language identifier; unchanged across UI locales."
+    },
+    {
+      "key": "pageProviders.nxql_search.label",
+      "value": "NXQL",
+      "reason": "Standard file unit, format abbreviation or query-language identifier; unchanged across UI locales."
+    },
+    {
+      "key": "directories.continent.africa",
+      "value": "Africa",
+      "reason": "This continent name has the same standard spelling in Romanian and English."
+    },
+    {
+      "key": "directories.continent.antarctica",
+      "value": "Antarctica",
+      "reason": "This continent name has the same standard spelling in Romanian and English."
+    },
+    {
+      "key": "directories.continent.asia",
+      "value": "Asia",
+      "reason": "This continent name has the same standard spelling in Romanian and English."
+    },
+    {
+      "key": "directories.continent.oceania",
+      "value": "Oceania",
+      "reason": "This continent name has the same standard spelling in Romanian and English."
+    },
+    {
+      "key": "directories.country.Albania",
+      "value": "Albania",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Algeria",
+      "value": "Algeria",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Andorra",
+      "value": "Andorra",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Angola",
+      "value": "Angola",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Anguilla",
+      "value": "Anguilla",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Argentina",
+      "value": "Argentina",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Armenia",
+      "value": "Armenia",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Aruba",
+      "value": "Aruba",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Australia",
+      "value": "Australia",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Austria",
+      "value": "Austria",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Bahamas",
+      "value": "Bahamas",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Bahrain",
+      "value": "Bahrain",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Bangladesh",
+      "value": "Bangladesh",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Barbados",
+      "value": "Barbados",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Belarus",
+      "value": "Belarus",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Belize",
+      "value": "Belize",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Benin",
+      "value": "Benin",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Bermuda",
+      "value": "Bermuda",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Bhutan",
+      "value": "Bhutan",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Bolivia",
+      "value": "Bolivia",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Botswana",
+      "value": "Botswana",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Bulgaria",
+      "value": "Bulgaria",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Burkina_Faso",
+      "value": "Burkina Faso",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Burundi",
+      "value": "Burundi",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Canada",
+      "value": "Canada",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Chile",
+      "value": "Chile",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.China",
+      "value": "China",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Costa_Rica",
+      "value": "Costa Rica",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Cuba",
+      "value": "Cuba",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Djibouti",
+      "value": "Djibouti",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Dominica",
+      "value": "Dominica",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Ecuador",
+      "value": "Ecuador",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.El_Salvador",
+      "value": "El Salvador",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Estonia",
+      "value": "Estonia",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Fiji",
+      "value": "Fiji",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Gabon",
+      "value": "Gabon",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Gambia",
+      "value": "Gambia",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Georgia",
+      "value": "Georgia",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Ghana",
+      "value": "Ghana",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Gibraltar",
+      "value": "Gibraltar",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Grenada",
+      "value": "Grenada",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Guam",
+      "value": "Guam",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Guatemala",
+      "value": "Guatemala",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Guernsey",
+      "value": "Guernsey",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Guyana",
+      "value": "Guyana",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Haiti",
+      "value": "Haiti",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Honduras",
+      "value": "Honduras",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.India",
+      "value": "India",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Iran",
+      "value": "Iran",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Israel",
+      "value": "Israel",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Jamaica",
+      "value": "Jamaica",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Jersey",
+      "value": "Jersey",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Kenya",
+      "value": "Kenya",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Kiribati",
+      "value": "Kiribati",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Lesotho",
+      "value": "Lesotho",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Liberia",
+      "value": "Liberia",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Liechtenstein",
+      "value": "Liechtenstein",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Madagascar",
+      "value": "Madagascar",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Malawi",
+      "value": "Malawi",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Malaysia",
+      "value": "Malaysia",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Mali",
+      "value": "Mali",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Malta",
+      "value": "Malta",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Mauritania",
+      "value": "Mauritania",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Mauritius",
+      "value": "Mauritius",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Mayotte",
+      "value": "Mayotte",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Monaco",
+      "value": "Monaco",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Mongolia",
+      "value": "Mongolia",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Montserrat",
+      "value": "Montserrat",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Namibia",
+      "value": "Namibia",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Nauru",
+      "value": "Nauru",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Nepal",
+      "value": "Nepal",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Nicaragua",
+      "value": "Nicaragua",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Niger",
+      "value": "Niger",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Nigeria",
+      "value": "Nigeria",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Niue",
+      "value": "Niue",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Oman",
+      "value": "Oman",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Pakistan",
+      "value": "Pakistan",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Palau",
+      "value": "Palau",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Panama",
+      "value": "Panama",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Paraguay",
+      "value": "Paraguay",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Peru",
+      "value": "Peru",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Puerto_Rico",
+      "value": "Puerto Rico",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Qatar",
+      "value": "Qatar",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Rwanda",
+      "value": "Rwanda",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Samoa",
+      "value": "Samoa",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.San_Marino",
+      "value": "San Marino",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Senegal",
+      "value": "Senegal",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Serbia",
+      "value": "Serbia",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Seychelles",
+      "value": "Seychelles",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Sierra_Leone",
+      "value": "Sierra Leone",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Singapore",
+      "value": "Singapore",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Slovenia",
+      "value": "Slovenia",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Somalia",
+      "value": "Somalia",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Sri_Lanka",
+      "value": "Sri Lanka",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Sudan",
+      "value": "Sudan",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Suriname",
+      "value": "Suriname",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Taiwan",
+      "value": "Taiwan",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Tanzania",
+      "value": "Tanzania",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Timor_Leste",
+      "value": "Timor-Leste",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Togo",
+      "value": "Togo",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Tonga",
+      "value": "Tonga",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Tunisia",
+      "value": "Tunisia",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Turkmenistan",
+      "value": "Turkmenistan",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Tuvalu",
+      "value": "Tuvalu",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Uganda",
+      "value": "Uganda",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Uruguay",
+      "value": "Uruguay",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Uzbekistan",
+      "value": "Uzbekistan",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Vanuatu",
+      "value": "Vanuatu",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Venezuela",
+      "value": "Venezuela",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Yemen",
+      "value": "Yemen",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Zambia",
+      "value": "Zambia",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.country.Zimbabwe",
+      "value": "Zimbabwe",
+      "reason": "Romanian country name is unchanged in the installed Intl/CLDR display-name data; retaining this proper name deliberately."
+    },
+    {
+      "key": "directories.nature.contract",
+      "value": "Contract",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "directories.nature.credit",
+      "value": "Credit",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "directories.nature.fax",
+      "value": "Fax",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "directories.subtopic.cinema",
+      "value": "Cinema",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "directories.subtopic.sport",
+      "value": "Sport",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "directories.subtopic.transport",
+      "value": "Transport",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.components.tasks-page.document-55ac8b",
+      "value": "Document",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.components.tasks-page.document",
+      "value": "Document",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.modules.document-navigation-bar.pdf-ec3812",
+      "value": "PDF",
+      "reason": "Standard file unit, format abbreviation or query-language identifier; unchanged across UI locales."
+    },
+    {
+      "key": "app.modules.document-navigation-bar.zip-45b8b4",
+      "value": "ZIP",
+      "reason": "Standard file unit, format abbreviation or query-language identifier; unchanged across UI locales."
+    },
+    {
+      "key": "app.modules.binary-editor.document-63ddb8",
+      "value": "document",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.modules.generic-editor.document-f378d0",
+      "value": "document",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.modules.generic-type-bulk-create.format-cd8604",
+      "value": "Format",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.modules.note-editor.document-5bc54b",
+      "value": "document",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.modules.note-editor.format-784891",
+      "value": "Format",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.modules.standard-content-editor.format-0c0c5d",
+      "value": "Format",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.modules.standard-content-import.format-213a92",
+      "value": "Format",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.modules.note-richtext-editor.normal-ffd063",
+      "value": "Normal",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.modules.note-richtext-editor.a-776e45",
+      "value": "A",
+      "reason": "Literal URL/path example or control symbol; translating it would alter the technical example or glyph."
+    },
+    {
+      "key": "app.modules.note-richtext-editor.https-www-youtube-com-watch-v-fcedf3",
+      "value": "https://www.youtube.com/watch?v=…",
+      "reason": "Literal URL/path example or control symbol; translating it would alter the technical example or glyph."
+    },
+    {
+      "key": "app.modules.note-richtext-editor.https-2dc83c",
+      "value": "https://",
+      "reason": "Literal URL/path example or control symbol; translating it would alter the technical example or glyph."
+    },
+    {
+      "key": "app.modules.selection-publication-page.original-fb0e10",
+      "value": "Original",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.modules.standard-content-layout.format-f33b6e",
+      "value": "Format",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.modules.standard-content-metadata.format-640546",
+      "value": "Format",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.modules.audit.document-e8ecfa",
+      "value": "Document",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.modules.audit.audit-1aa3c7",
+      "value": "Audit",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.modules.threed-renderer.format-209791",
+      "value": "Format",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.modules.video-renderer.format-93ef1f",
+      "value": "Format",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.modules.video-renderer.fps-c3b44a",
+      "value": "FPS",
+      "reason": "Standard file unit, format abbreviation or query-language identifier; unchanged across UI locales."
+    },
+    {
+      "key": "app.modules.analytics.default-domain-workspaces-b068de",
+      "value": "/default-domain/workspaces/",
+      "reason": "Literal URL/path example or control symbol; translating it would alter the technical example or glyph."
+    },
+    {
+      "key": "app.modules.content-management.prefix-858c09",
+      "value": "Prefix",
+      "reason": "Reviewed Romanian cognate/shared UI term with the same spelling; no English sentence is being used as a translation fallback."
+    },
+    {
+      "key": "app.modules.metadata-policy.i-c68a5b",
+      "value": "i",
+      "reason": "Literal URL/path example or control symbol; translating it would alter the technical example or glyph."
+    },
+    {
+      "key": "validation.nested",
+      "value": "{field}: {error}",
+      "reason": "This message contains only preserved customer parameters, punctuation and the standard ms unit."
+    },
+    {
+      "key": "analytics.milliseconds",
+      "value": "{value, number} ms",
+      "reason": "This message contains only preserved customer parameters, punctuation and the standard ms unit."
+    }
+  ]
+}

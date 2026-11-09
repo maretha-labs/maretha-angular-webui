@@ -1,0 +1,77 @@
+h5 {
+	color: inherit;
+}
+
+.list-group {
+	max-height: 50vh;
+	overflow: auto;
+}
+.compact-versions {
+	min-width: 220px;
+	max-height: 50vh;
+	overflow: auto;
+	background: var(--nuxeo-box, #fff);
+	box-shadow: 0 3px 8px #0002;
+}
+.compact-versions button {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	text-align: start;
+	gap: 4px;
+	border: 0;
+	border-top: 1px solid var(--nuxeo-border, #ddd);
+	padding: 8px;
+	background: transparent;
+	color: inherit;
+}
+.compact-versions button:hover {
+	background: var(--nuxeo-background, #f3f5f8);
+}
+.compact-versions small {
+	opacity: 0.5;
+}
+.create-version {
+	border: 0;
+	border-radius: 20px;
+	padding: 3px 9px;
+	background: var(--nuxeo-primary-color, #06f);
+	color: #fff;
+	font-size: 11px;
+}
+dialog {
+	border: 0;
+	padding: 24px;
+	min-width: 340px;
+	max-width: 90vw;
+	box-shadow: 0 6px 28px #0004;
+}
+dialog::backdrop {
+	background: #0005;
+}
+dialog h2 {
+	font-size: 16px;
+	margin: 0 0 24px;
+}
+dialog label {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	margin: 16px 0;
+}
+dialog footer {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+	margin-top: 24px;
+}
+dialog footer button {
+	border: 0;
+	background: transparent;
+	color: inherit;
+	padding: 8px 16px;
+}
+dialog footer button:last-child {
+	background: var(--nuxeo-primary-color, #06f);
+	color: #fff;
+}

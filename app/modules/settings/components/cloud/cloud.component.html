@@ -1,0 +1,476 @@
+<nav
+	role="tablist"
+	[attr.aria-label]="'cloudServices.heading' | webuiMessage: 'Cloud Services'"
+	class="cloud-tabs"
+>
+	@for (tab of tabs; track tab; let index = $index) {
+		<button
+			type="button"
+			role="tab"
+			[id]="tabId + '-tab-' + tab"
+			[attr.aria-controls]="tabId + '-panel-' + tab"
+			[attr.aria-selected]="activeTab === tab"
+			[tabindex]="activeTab === tab ? 0 : -1"
+			(click)="activeTab = tab"
+			(keydown)="cloudTabKeyDown($event, index)"
+		>
+			{{ 'cloudServices.' + tab | webuiMessage: tabLabels[tab] }}
+		</button>
+	}
+</nav>
+<section
+	role="tabpanel"
+	[id]="tabId + '-panel-providers'"
+	[attr.aria-labelledby]="tabId + '-tab-providers'"
+	[hidden]="activeTab !== 'providers'"
+>
+	<div class="card">
+		<div class="card-header d-flex justify-content-between align-items-center">
+			<span>{{
+				'cloudProviders.OAuth2ServiceProviders' | webuiMessage: 'OAuth 2 Service Providers'
+			}}</span>
+
+			<div class="btn-group btn-group-sm" role="group">
+				<button
+					(click)="editServiceProvider()"
+					class="btn btn-link px-0"
+					[tooltip]="
+						'app.modules.cloud.add-a-new-service-provider-cc956d'
+							| webuiMessage: 'Add a new service provider'
+					"
+					[attr.aria-label]="
+						'app.modules.cloud.add-a-new-service-provider-cc956d'
+							| webuiMessage: 'Add a new service provider'
+					"
+				>
+					{{ 'cloudProviders.add' | webuiMessage: 'Add' }}
+				</button>
+			</div>
+		</div>
+
+		<table class="table table-sm mb-0 flex-grow-1">
+			<thead>
+				<tr>
+					<th>{{ 'app.modules.cloud.service-name-67e74a' | webuiMessage: 'Service name' }}</th>
+					<th>{{ 'cloudProviders.description' | webuiMessage: 'Description' }}</th>
+					<th class="w-0">{{ 'app.modules.cloud.enabled-29ac97' | webuiMessage: 'Enabled' }}</th>
+					<th>{{ 'app.modules.cloud.actions-725338' | webuiMessage: 'Actions' }}</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				@for (oauthProvider of oauthProviders; track oauthProvider) {
+					<tr>
+						<td>{{ oauthProvider.serviceName }}</td>
+						<td>{{ oauthProvider.description }}</td>
+						<td class="text-center">
+							<div class="form-check form-switch">
+								<input
+									class="form-check-input"
+									type="checkbox"
+									role="switch"
+									[(ngModel)]="oauthProvider.isEnabled"
+									(ngModelChange)="toggleProvider(oauthProvider)"
+								/>
+							</div>
+						</td>
+						<td class="py-1">
+							<div
+								class="btn-group btn-group-sm"
+								role="group"
+								dropdown
+								#dropdownMenu="bs-dropdown"
+								placement="bottom right"
+								container="body"
+							>
+								<button
+									(click)="editServiceProvider(oauthProvider)"
+									class="btn btn-link text-decoration-none"
+									[tooltip]="
+										'app.modules.cloud.edit-this-service-provider-715912'
+											| webuiMessage: 'Edit this service provider'
+									"
+									[attr.aria-label]="
+										'app.modules.cloud.edit-this-service-provider-715912'
+											| webuiMessage: 'Edit this service provider'
+									"
+								>
+									<fa-icon [fixedWidth]="true" icon="pencil"></fa-icon>
+								</button>
+								<button
+									[attr.aria-label]="'app.modules.cloud.actions-725338' | webuiMessage: 'Actions'"
+									[id]="tabId + '-provider-' + $index + '-actions'"
+									class="btn btn-link text-dark text-decoration-none"
+									dropdownToggle
+									[attr.aria-controls]="tabId + '-provider-' + $index + '-menu'"
+								>
+									<fa-icon [fixedWidth]="true" icon="ellipsis-h"></fa-icon>
+								</button>
+								<ul
+									[id]="tabId + '-provider-' + $index + '-menu'"
+									*dropdownMenu
+									class="dropdown-menu dropdown-menu-right"
+									role="menu"
+									[attr.aria-labelledby]="tabId + '-provider-' + $index + '-actions'"
+								>
+									<li role="menuitem">
+										<button (click)="deleteServiceProvider(oauthProvider)" class="dropdown-item">
+											<fa-icon [fixedWidth]="true" icon="trash"></fa-icon>
+
+											{{
+												'app.modules.cloud.delete-this-service-provider-dffd18'
+													| webuiMessage: 'Delete this service provider'
+											}}
+										</button>
+									</li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+				}
+				@if (!oauthProviders.length) {
+					<tr>
+						<td colspan="4">
+							{{ 'cloudProviders.emptyResult' | webuiMessage: 'No provider defined' }}
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</section>
+<section
+	role="tabpanel"
+	[id]="tabId + '-panel-consumers'"
+	[attr.aria-labelledby]="tabId + '-tab-consumers'"
+	[hidden]="activeTab !== 'consumers'"
+>
+	<div class="card">
+		<div class="card-header d-flex justify-content-between align-items-center">
+			<span>{{ 'app.modules.cloud.oauth2-clients-86b4f5' | webuiMessage: 'OAuth2 Clients' }}</span>
+
+			<div class="btn-group btn-group-sm" role="group">
+				<button
+					(click)="editClient()"
+					class="btn btn-link px-0"
+					[tooltip]="'app.modules.cloud.add-a-new-client-5e8a4a' | webuiMessage: 'Add a new client'"
+					[attr.aria-label]="
+						'app.modules.cloud.add-a-new-client-5e8a4a' | webuiMessage: 'Add a new client'
+					"
+				>
+					{{ 'cloudProviders.add' | webuiMessage: 'Add' }}
+				</button>
+			</div>
+		</div>
+
+		<table class="table table-sm mb-0 flex-grow-1">
+			<thead>
+				<tr>
+					<th>{{ 'app.modules.cloud.name-c5432f' | webuiMessage: 'Name' }}</th>
+					<th>{{ 'cloudProviderEdit.clientId' | webuiMessage: 'Client ID' }}</th>
+					<th>{{ 'app.modules.cloud.client-secret-26679e' | webuiMessage: 'Client secret' }}</th>
+					<th>{{ 'app.modules.cloud.redirect-uris-33300c' | webuiMessage: 'Redirect URIs' }}</th>
+					<th class="w-0">
+						{{ 'app.modules.cloud.auto-grant-767cec' | webuiMessage: 'Auto grant' }}
+					</th>
+					<th class="w-0">{{ 'app.modules.cloud.enabled-29ac97' | webuiMessage: 'Enabled' }}</th>
+					<th class="text-end">
+						{{ 'app.modules.cloud.actions-725338' | webuiMessage: 'Actions' }}
+					</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				@for (client of clients; track client) {
+					<tr>
+						<td>{{ client.name }}</td>
+						<td>{{ client.id }}</td>
+						<td>{{ client.secret }}</td>
+						<td>
+							@for (uri of client.redirectURIs; track uri) {
+								<span class="badge bg-light border">{{ uri }}</span>
+							}
+						</td>
+						<td class="text-center">
+							<div class="form-check form-switch">
+								<input
+									class="form-check-input"
+									type="checkbox"
+									role="switch"
+									[(ngModel)]="client.isAutoGrant"
+									(ngModelChange)="toggleClientAutoGrant(client)"
+								/>
+							</div>
+						</td>
+						<td class="text-center">
+							<div class="form-check form-switch">
+								<input
+									class="form-check-input"
+									type="checkbox"
+									role="switch"
+									[(ngModel)]="client.isEnabled"
+									(ngModelChange)="toggleClient(client)"
+								/>
+							</div>
+						</td>
+						<td class="py-1">
+							<div
+								class="btn-group btn-group-sm"
+								role="group"
+								dropdown
+								#dropdownMenu="bs-dropdown"
+								placement="bottom right"
+								container="body"
+							>
+								<button
+									(click)="editClient(client)"
+									class="btn btn-link text-decoration-none"
+									[tooltip]="
+										'app.modules.cloud.edit-this-client-7ee85f' | webuiMessage: 'Edit this client'
+									"
+									[attr.aria-label]="
+										'app.modules.cloud.edit-this-client-7ee85f' | webuiMessage: 'Edit this client'
+									"
+								>
+									<fa-icon [fixedWidth]="true" icon="pencil"></fa-icon>
+								</button>
+								<button
+									[attr.aria-label]="'app.modules.cloud.actions-725338' | webuiMessage: 'Actions'"
+									[id]="tabId + '-client-' + $index + '-actions'"
+									class="btn btn-link text-dark text-decoration-none"
+									dropdownToggle
+									[attr.aria-controls]="tabId + '-client-' + $index + '-menu'"
+								>
+									<fa-icon [fixedWidth]="true" icon="ellipsis-h"></fa-icon>
+								</button>
+								<ul
+									[id]="tabId + '-client-' + $index + '-menu'"
+									*dropdownMenu
+									class="dropdown-menu dropdown-menu-right"
+									role="menu"
+									[attr.aria-labelledby]="tabId + '-client-' + $index + '-actions'"
+								>
+									<li role="menuitem">
+										<button (click)="deleteClient(client)" class="dropdown-item">
+											<fa-icon [fixedWidth]="true" icon="trash"></fa-icon>
+
+											{{
+												'app.modules.cloud.delete-this-client-4ad1f3'
+													| webuiMessage: 'Delete this client'
+											}}
+										</button>
+									</li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</section>
+<section
+	role="tabpanel"
+	[id]="tabId + '-panel-tokens'"
+	[attr.aria-labelledby]="tabId + '-tab-tokens'"
+	[hidden]="activeTab !== 'tokens'"
+>
+	<div class="row row-cols-1">
+		<div class="col">
+			<div class="card h-100">
+				<div class="card-header">
+					{{
+						'app.modules.cloud.authorized-applications-7f856f'
+							| webuiMessage: 'Authorized applications'
+					}}
+				</div>
+
+				<table class="table table-sm mb-0 flex-grow-1">
+					<thead>
+						<tr>
+							<th>{{ 'app.modules.cloud.nuxeo-login-adf30e' | webuiMessage: 'Nuxeo login' }}</th>
+							<th>
+								{{ 'app.modules.cloud.service-login-4ae10c' | webuiMessage: 'Service login' }}
+							</th>
+							<th>
+								{{ 'app.modules.cloud.creation-date-273b56' | webuiMessage: 'Creation date' }}
+							</th>
+							<th class="text-end">
+								{{ 'app.modules.cloud.actions-725338' | webuiMessage: 'Actions' }}
+							</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						@for (application of applications; track application) {
+							<tr>
+								<td>{{ application.nuxeoLogin }}</td>
+								<td>{{ application.serviceLogin }}</td>
+								<td>{{ application.creationDate | webuiDate: 'longDate' }}</td>
+								<td class="py-1">
+									<div
+										class="btn-group btn-group-sm"
+										role="group"
+										dropdown
+										#dropdownMenu="bs-dropdown"
+										placement="bottom right"
+										container="body"
+									>
+										<button
+											(click)="editApplication(application)"
+											class="btn btn-link text-decoration-none"
+											[tooltip]="
+												'app.modules.cloud.edit-this-application-token-1dd5c5'
+													| webuiMessage: 'Edit this application token'
+											"
+											[attr.aria-label]="
+												'app.modules.cloud.edit-this-application-token-1dd5c5'
+													| webuiMessage: 'Edit this application token'
+											"
+										>
+											<fa-icon [fixedWidth]="true" icon="pencil"></fa-icon>
+										</button>
+										<button
+											[attr.aria-label]="
+												'app.modules.cloud.actions-725338' | webuiMessage: 'Actions'
+											"
+											[id]="tabId + '-application-' + $index + '-actions'"
+											class="btn btn-link text-dark text-decoration-none"
+											dropdownToggle
+											[attr.aria-controls]="tabId + '-application-' + $index + '-menu'"
+										>
+											<fa-icon [fixedWidth]="true" icon="ellipsis-h"></fa-icon>
+										</button>
+										<ul
+											[id]="tabId + '-application-' + $index + '-menu'"
+											*dropdownMenu
+											class="dropdown-menu dropdown-menu-right"
+											role="menu"
+											[attr.aria-labelledby]="tabId + '-application-' + $index + '-actions'"
+										>
+											<li role="menuitem">
+												<button (click)="revokeApplication(application)" class="dropdown-item">
+													<fa-icon [fixedWidth]="true" icon="trash"></fa-icon>
+
+													{{
+														'app.modules.cloud.revoke-this-application-token-bdd778'
+															| webuiMessage: 'Revoke this application token'
+													}}
+												</button>
+											</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+						}
+						@if (!applications.length) {
+							<tr>
+								<td colspan="4">
+									{{ 'cloudTokens.emptyResult' | webuiMessage: 'No tokens defined' }}
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="col">
+			<div class="card h-100">
+				<div class="card-header">
+					{{ 'app.modules.cloud.cloud-accounts-46f8b6' | webuiMessage: 'Cloud accounts' }}
+				</div>
+
+				<table class="table table-sm mb-0 flex-grow-1">
+					<thead>
+						<tr>
+							<th>{{ 'app.modules.cloud.service-name-67e74a' | webuiMessage: 'Service name' }}</th>
+							<th>{{ 'app.modules.cloud.nuxeo-login-adf30e' | webuiMessage: 'Nuxeo login' }}</th>
+							<th>
+								{{ 'app.modules.cloud.service-login-4ae10c' | webuiMessage: 'Service login' }}
+							</th>
+							<th>
+								{{ 'app.modules.cloud.creation-date-273b56' | webuiMessage: 'Creation date' }}
+							</th>
+							<th class="text-end">
+								{{ 'app.modules.cloud.shared-3cf9a7' | webuiMessage: 'Shared' }}
+							</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						@for (account of accounts; track account) {
+							<tr>
+								<td>{{ account.serviceName }}</td>
+								<td>{{ account.nuxeoLogin }}</td>
+								<td>{{ account.serviceLogin }}</td>
+								<td>{{ account.creationDate | webuiDate: 'longDate' }}</td>
+								<td class="py-1">
+									<div
+										class="btn-group btn-group-sm"
+										role="group"
+										dropdown
+										#dropdownMenu="bs-dropdown"
+										placement="bottom right"
+										container="body"
+									>
+										<button
+											(click)="editAccount(account)"
+											class="btn btn-link text-decoration-none"
+											[tooltip]="
+												'app.modules.cloud.edit-this-account-b58797'
+													| webuiMessage: 'Edit this account'
+											"
+											[attr.aria-label]="
+												'app.modules.cloud.edit-this-account-b58797'
+													| webuiMessage: 'Edit this account'
+											"
+										>
+											<fa-icon [fixedWidth]="true" icon="pencil"></fa-icon>
+										</button>
+										<button
+											[attr.aria-label]="
+												'app.modules.cloud.actions-725338' | webuiMessage: 'Actions'
+											"
+											[id]="tabId + '-account-' + $index + '-actions'"
+											class="btn btn-link text-dark text-decoration-none"
+											dropdownToggle
+											[attr.aria-controls]="tabId + '-account-' + $index + '-menu'"
+										>
+											<fa-icon [fixedWidth]="true" icon="ellipsis-h"></fa-icon>
+										</button>
+										<ul
+											[id]="tabId + '-account-' + $index + '-menu'"
+											*dropdownMenu
+											class="dropdown-menu dropdown-menu-right"
+											role="menu"
+											[attr.aria-labelledby]="tabId + '-account-' + $index + '-actions'"
+										>
+											<li role="menuitem">
+												<button (click)="deleteAccount(account)" class="dropdown-item">
+													<fa-icon [fixedWidth]="true" icon="trash"></fa-icon>
+
+													{{
+														'app.modules.cloud.delete-this-account-f23461'
+															| webuiMessage: 'Delete this account'
+													}}
+												</button>
+											</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+						}
+						@if (!accounts.length) {
+							<tr>
+								<td colspan="5">
+									{{ 'cloudTokens.emptyResult' | webuiMessage: 'No tokens defined' }}
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>

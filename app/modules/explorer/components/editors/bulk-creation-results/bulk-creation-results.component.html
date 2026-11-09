@@ -1,0 +1,63 @@
+@if (batch().started()) {
+	<section
+		[attr.aria-label]="
+			'app.modules.bulk-creation-results.import-results-7892e6' | webuiMessage: 'Import results'
+		"
+	>
+		<p role="status">
+			{{
+				'creation.completed'
+					| webuiMessage
+						: '{completed, number} of {total, number} documents created.'
+						: { completed: batch().createdCount(), total: batch().items().length }
+			}}
+		</p>
+		@if (batch().unknownCount()) {
+			<p role="alert">
+				{{
+					'app.modules.bulk-creation-results.some-creation-results-are-uncertain-inspec-6e3dbc'
+						| webuiMessage
+							: 'Some creation results are uncertain. Inspect the destination before importing those files\n					again. They will not be retried automatically.'
+				}}
+			</p>
+		}
+		<ol>
+			@for (item of batch().items(); track item.key) {
+				<li>
+					<strong>{{ item.file.name }}</strong>
+					<span>{{ item.type ? item.type + ' · ' : '' }}{{ labels[item.state] }}</span>
+					@if (item.message) {
+						<p>{{ batch().messageFor(item) }}</p>
+					}
+					@if (item.documentId) {
+						<a [routerLink]="item.documentId | documentLink" target="_blank" rel="noopener">{{
+							'app.modules.bulk-creation-results.inspect-created-document-1f8037'
+								| webuiMessage: 'Inspect created document'
+						}}</a>
+					} @else if (item.state === 'unknown') {
+						<a [routerLink]="batch().destinationId | documentLink" target="_blank" rel="noopener">{{
+							'app.modules.bulk-creation-results.inspect-destination-79dd01'
+								| webuiMessage: 'Inspect destination'
+						}}</a>
+					}
+				</li>
+			}
+		</ol>
+		@if (batch().working()) {
+			<button
+				type="button"
+				class="btn btn-outline-secondary"
+				[disabled]="batch().stopping()"
+				(click)="batch().stop()"
+			>
+				{{
+					batch().stopping()
+						? ('app.modules.bulk-creation-results.stopping-after-this-file-ad0d84'
+							| webuiMessage: 'Stopping after this file…')
+						: ('app.modules.bulk-creation-results.stop-after-this-file-178a6a'
+							| webuiMessage: 'Stop after this file')
+				}}
+			</button>
+		}
+	</section>
+}

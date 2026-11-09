@@ -1,0 +1,56 @@
+@if (tabs().length) {
+	@if (navigationVisible()) {
+		<div
+			class="view-tabs"
+			tabindex="-1"
+			role="tablist"
+			[attr.aria-label]="effectiveLabel()"
+			[attr.aria-orientation]="orientation()"
+			[class.view-tabs--vertical]="orientation() === 'vertical'"
+			[attr.aria-busy]="pending()"
+			(keydown)="keyDown($event)"
+			(focusin)="onTabFocus($event)"
+		>
+			@if (presentation() === 'administration') {
+				<h2 class="view-tabs__heading">{{ effectiveLabel() }}</h2>
+			}
+			@for (tab of tabs(); track tab.viewId) {
+				<nx-contribution-outlet [contribution]="tab.item" [context]="tab.context" />
+			}
+		</div>
+	}
+	<ng-content select="[paired-views-header]" />
+	@for (view of panels(); track view.renderKey) {
+		<section
+			class="view-page"
+			role="tabpanel"
+			[hidden]="view.viewId !== visibleViewId()"
+			[attr.inert]="view.viewId !== visibleViewId() ? '' : null"
+			[id]="panelId(view.viewId)"
+			[attr.aria-labelledby]="navigationVisible() ? tabId(view.viewId) : null"
+			[attr.aria-label]="navigationVisible() ? null : activeLabel()"
+			tabindex="0"
+		>
+			@if (
+				view.mounted && presentation() === 'administration' && view.page.pageHeading !== 'component'
+			) {
+				<header class="view-page__header">
+					<h1>{{ activeLabel() }}</h1>
+				</header>
+			}
+			@if (view.mounted) {
+				<nx-contribution-outlet class="page" [contribution]="view.page" [context]="slotContext()" />
+			}
+		</section>
+	}
+} @else {
+	<p class="view-empty" role="status" tabindex="-1">
+		{{
+			'app.sdk.document-views.no-views-are-available-757ef3'
+				| webuiMessage: 'No views are available.'
+		}}
+	</p>
+}
+@if (departureMessage()) {
+	<p role="status">{{ departureMessage() }}</p>
+}

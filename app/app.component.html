@@ -1,0 +1,21 @@
+<nx-sidebar></nx-sidebar>
+<nx-shell-actions />
+
+<div class="nx-main" [class.drawer-open]="drawerOpen()">
+	<div role="region" [attr.aria-label]="'shell.activity' | webuiMessage: 'Application activity'">
+		<ng-progress
+			ngProgressHttp
+			[attr.aria-label]="'shell.loadingContent' | webuiMessage: 'Loading content'"
+		></ng-progress>
+		<ng-progress
+			ngProgressRouter
+			[attr.aria-label]="'shell.loadingPage' | webuiMessage: 'Loading page'"
+		></ng-progress>
+	</div>
+
+	<div class="nx-main__content">
+		<router-outlet></router-outlet>
+	</div>
+</div>
+
+<div aria-live="polite" toastContainer class="toastr"></div>

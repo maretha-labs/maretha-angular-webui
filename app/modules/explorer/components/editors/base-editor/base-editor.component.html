@@ -1,0 +1,92 @@
+<div class="modal-header">
+	<h2 class="h4 modal-title flex-grow-1">
+		<ng-content select="[modalTitle]"></ng-content>
+	</h2>
+
+	<button
+		type="button"
+		class="close btn-close pull-right"
+		[attr.aria-disabled]="working ? 'true' : null"
+		[attr.aria-label]="'app.modules.base-editor.close-925f1b' | webuiMessage: 'Close'"
+		(click)="closeWithoutSaving()"
+	>
+		<span aria-hidden="true" class="visually-hidden">&times;</span>
+	</button>
+</div>
+
+<p
+	class="save-status"
+	[class.visually-hidden]="!statusText"
+	role="status"
+	[attr.aria-live]="statusPoliteness"
+	aria-atomic="true"
+>
+	{{ statusText }}
+</p>
+<div
+	[class.save-error]="!!saveError"
+	[class.visually-hidden]="!saveError"
+	role="alert"
+	aria-live="assertive"
+	aria-atomic="true"
+>
+	@if (saveError) {
+		<p>{{ saveError }}</p>
+		@if (saveErrorDetails) {
+			<pre class="mb-0">{{ saveErrorDetails }}</pre>
+		}
+		@if (creationDocumentId || creationUncertain) {
+			<a
+				[routerLink]="creationDocumentId || parentDocument | documentLink"
+				target="_blank"
+				rel="noopener"
+				>{{
+					creationDocumentId
+						? ('app.modules.bulk-creation-results.inspect-created-document-1f8037'
+							| webuiMessage: 'Inspect created document')
+						: ('app.modules.bulk-creation-results.inspect-destination-79dd01'
+							| webuiMessage: 'Inspect destination')
+				}}</a
+			>
+		}
+	}
+</div>
+<div
+	class="modal-body"
+	[attr.inert]="working || creationDocumentId || creationUncertain ? '' : null"
+	[attr.aria-busy]="working"
+>
+	<ng-content select="[modalBody]"></ng-content>
+</div>
+
+<div class="modal-footer p-0">
+	<button
+		(click)="closeWithoutSaving()"
+		type="button"
+		class="btn btn-lg btn-link fs-6 text-decoration-none m-0 rounded-0 border-end"
+		[class.me-auto]="wizard"
+		[attr.aria-disabled]="working ? 'true' : null"
+	>
+		<span>{{ cancelButtonLabel }}</span>
+	</button>
+	@if (wizard) {
+		<button type="button" class="btn btn-link" [disabled]="working" (click)="back()">
+			{{ 'command.back' | webuiMessage: 'Back' }}
+		</button>
+	}
+
+	<button
+		(click)="saveChanges()"
+		type="button"
+		[attr.aria-disabled]="saveDisabled"
+		[class.disabled]="saveDisabled"
+		class="btn btn-primary fs-6 text-decoration-none m-2"
+	>
+		<strong>{{
+			creationDocumentId
+				? ('app.modules.base-editor.retry-remaining-steps-9eb9f0'
+					| webuiMessage: 'Retry remaining steps')
+				: saveButtonLabel
+		}}</strong>
+	</button>
+</div>

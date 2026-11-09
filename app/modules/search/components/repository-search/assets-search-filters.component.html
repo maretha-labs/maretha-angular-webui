@@ -1,0 +1,186 @@
+<form (ngSubmit)="search().submit()">
+	<fieldset [disabled]="search().busy() || search().selectingQuery()">
+		<div class="asset-filters-heading">
+			@if (search().definition().savedSearches) {
+				<label [attr.for]="search().definition().id + '-saved-search'"
+					>{{ 'searchForm.searchFilters' | webuiMessage: 'Search Filters' }}
+					<select
+						name="savedSearch"
+						[id]="search().definition().id + '-saved-search'"
+						[ngModel]="search().selectedSavedSearch"
+						(ngModelChange)="search().loadSavedSearch($event)"
+					>
+						<option value="">
+							{{
+								'app.modules.assets-search-filters.select-a-saved-search-26a626'
+									| webuiMessage: 'Select a saved search'
+							}}
+						</option>
+						@for (saved of search().savedSearches(); track saved.id) {
+							<option [value]="saved.id">{{ saved.title }}</option>
+						}
+					</select>
+				</label>
+			} @else {
+				<span class="asset-filters-title">{{
+					'searchForm.searchFilters' | webuiMessage: 'Search Filters'
+				}}</span>
+			}
+			<button
+				type="button"
+				class="asset-queue-switch"
+				[hidden]="!search().definition().queue"
+				[attr.aria-label]="'searchForm.displayQueueView' | webuiMessage: 'Switch to Queue View'"
+				[attr.title]="'searchForm.displayQueueView' | webuiMessage: 'Switch to Queue View'"
+				[disabled]="search().loading()"
+				(click)="search().openQueue()"
+			>
+				<nx-webui-icon name="nuxeo:view-list" />
+			</button>
+		</div>
+		<div class="asset-filter-fields">
+			@if (search().selectedSavedSearch) {
+				<button
+					type="button"
+					(click)="search().deleteSearch()"
+					[disabled]="search().savingSearch()"
+				>
+					{{
+						'app.modules.assets-search-filters.delete-saved-search-49a28d'
+							| webuiMessage: 'Delete saved search'
+					}}
+				</button>
+			}
+			@if (search().savedSearchError()) {
+				<p role="alert">{{ search().savedSearchError() }}</p>
+			}
+			@if (search().drawerOnly() && search().error()) {
+				<p role="alert">{{ search().error() }}</p>
+			}
+			@if (search().definition().request.text) {
+				<label
+					>{{ 'app.modules.assets-search-filters.full-text-c1cf82' | webuiMessage: 'Full Text'
+					}}<input
+						name="text"
+						type="search"
+						[attr.placeholder]="
+							'app.modules.assets-search-filters.search-for-something-1de22c'
+								| webuiMessage: 'Search for something…'
+						"
+						[(ngModel)]="search().text"
+						(ngModelChange)="search().filtersChanged()"
+				/></label>
+			}
+			@if (search().definition().request.path) {
+				<label
+					>{{ 'defaultSearch.path' | webuiMessage: 'Path'
+					}}<input name="path" [(ngModel)]="search().path" (change)="search().filtersChanged()"
+				/></label>
+			}
+			<div class="additional-fields"><ng-content /></div>
+			@for (key of facetKeys(); track key) {
+				<div class="asset-facet">
+					<button
+						type="button"
+						class="asset-facet__toggle"
+						[attr.aria-expanded]="search().facetExpanded(key)"
+						[attr.aria-controls]="'asset-facet-' + key"
+						(click)="search().toggleFacetExpanded(key)"
+					>
+						<span
+							>{{ search().assetLabels[key] }}
+							@if (search().facets[key]?.length) {
+								<span class="asset-facet__count"
+									>({{ search().facets[key].length | webuiNumber }})</span
+								>
+							}
+						</span>
+						<nx-webui-icon
+							aria-hidden="true"
+							[name]="
+								search().facetExpanded(key)
+									? 'hardware:keyboard-arrow-up'
+									: 'hardware:keyboard-arrow-down'
+							"
+						/>
+					</button>
+					@if (search().facetExpanded(key)) {
+						<div
+							class="asset-facet__options"
+							[id]="'asset-facet-' + key"
+							role="group"
+							[attr.aria-label]="search().assetLabels[key]"
+						>
+							@for (bucket of search().assetBuckets(key); track bucket.key) {
+								<label
+									><input
+										type="checkbox"
+										[checked]="search().facets[key]?.includes(bucket.key) || false"
+										(change)="search().toggleFacet(key, bucket.key)"
+									/>
+									<span
+										>{{ 'label.ui.aggregate.' + bucket.key | webuiMessage: bucket.label }} ({{
+											bucket.count
+										}})</span
+									>
+								</label>
+							} @empty {
+								<p class="asset-facet__empty">
+									{{
+										'app.modules.assets-search-filters.no-values-ac4ab6' | webuiMessage: 'No values'
+									}}
+								</p>
+							}
+							@if (search().hasExtraBuckets(key)) {
+								<button
+									type="button"
+									class="asset-facet__more"
+									(click)="search().toggleFacetShowAll(key)"
+								>
+									{{
+										search().facetShowAll(key)
+											? ('checkboxAggregation.showLess' | webuiMessage: 'Show less')
+											: ('checkboxAggregation.showAll' | webuiMessage: 'Show all')
+									}}
+								</button>
+							}
+						</div>
+					}
+				</div>
+			}
+		</div>
+		<footer class="asset-filter-actions">
+			<!-- Only stock Assets (`display-auto-control`) has the toggle; Expired and Trash are plain `auto`. -->
+			<div class="form-check form-switch auto-search-toggle" [hidden]="!autoControl()">
+				<input
+					id="asset-search-auto"
+					class="form-check-input"
+					type="checkbox"
+					role="switch"
+					name="autoSearch"
+					[ngModel]="search().autoSearch()"
+					(ngModelChange)="search().setAutoSearch($event)"
+				/>
+				<label class="form-check-label" for="asset-search-auto">{{
+					'searchForm.auto' | webuiMessage: 'Auto-search'
+				}}</label>
+			</div>
+			<div class="buttons">
+				<!-- Stock paper-button.reset.secondary: disabled until the form holds input. -->
+				<button
+					type="button"
+					class="button--stock"
+					[disabled]="!search().hasFormInput()"
+					(click)="search().reset()"
+				>
+					{{ 'app.modules.assets-search-filters.reset-448ef9' | webuiMessage: 'Reset' }}
+				</button>
+				@if (!search().autoSearch()) {
+					<button type="submit" class="button--primary">
+						{{ 'app.modules.assets-search-filters.search-73379e' | webuiMessage: 'Search' }}
+					</button>
+				}
+			</div>
+		</footer>
+	</fieldset>
+</form>

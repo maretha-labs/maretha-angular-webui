@@ -1,0 +1,46 @@
+:host {
+	position: fixed;
+	inset-block: 0;
+	inset-inline-start: calc(
+		var(--nuxeo-sidebar-width) + var(--nx-shell-drawer-width, var(--nuxeo-drawer-width)) - 4px
+	);
+	width: 8px;
+	z-index: 1041;
+	cursor: col-resize;
+	touch-action: none;
+	user-select: none;
+	transition: inset-inline-start 0.3s ease;
+
+	&::after {
+		content: '';
+		position: absolute;
+		inset-block: 0;
+		inset-inline-start: 3px;
+		width: 2px;
+		background: transparent;
+	}
+
+	&:hover::after,
+	&:focus-visible::after {
+		background: var(--nuxeo-primary-color);
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--nuxeo-primary-color);
+		outline-offset: -2px;
+	}
+}
+
+:host-context(.drawer-resizing) {
+	transition: none;
+
+	&::after {
+		background: var(--nuxeo-primary-color);
+	}
+}
+
+@media (max-width: 720px) {
+	:host {
+		display: none;
+	}
+}

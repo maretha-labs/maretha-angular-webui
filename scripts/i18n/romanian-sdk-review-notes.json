@@ -1,0 +1,190 @@
+{
+  "scope": "Assistant-authored Romanian UI translations; not independently linguistically reviewed. Customer data is not translated.",
+  "source": "/private/tmp/maretha-w6-ro-sdk-review.json",
+  "unchanged": {
+    "documentDistributionChart.document": {
+      "text": "Document",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "exportButton.imageToPDF": {
+      "text": "PDF",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "exportButton.pdf": {
+      "text": "PDF",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "exportButton.FullHD": {
+      "text": "Full HD",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "tree.loadMore": {
+      "text": "...",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "videoViewLayout.format": {
+      "text": "Format",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "activity.eventDocumentCategory": {
+      "text": "Document",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "app.clipboard": {
+      "text": "Clipboard",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "app.title.admin.audit": {
+      "text": "Audit",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "app.title.drive": {
+      "text": "Nuxeo Drive",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "app.user.drive": {
+      "text": "Nuxeo Drive",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "audit.document": {
+      "text": "Document",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "audit.heading": {
+      "text": "Audit",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "authenticationTokensManagement.token": {
+      "text": "Token",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "csv.import": {
+      "text": "CSV",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "drivePage.heading": {
+      "text": "Nuxeo Drive",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "eventCategory.eventDocumentCategory": {
+      "text": "Document",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "label.document.type.audio": {
+      "text": "Audio",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "label.document.type.threed": {
+      "text": "3D",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "label.document.type.video": {
+      "text": "Video",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "label.mail.folder.port": {
+      "text": "Port",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "label.mail.folder.protocol_type": {
+      "text": "Protocol",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "liveconnectImportActions.box": {
+      "text": "Box",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "liveconnectImportActions.dropbox": {
+      "text": "Dropbox",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "liveconnectImportActions.googledrive": {
+      "text": "Google Drive",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "liveconnectImportActions.onedrive": {
+      "text": "OneDrive",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "mimetype.text/html": {
+      "text": "HTML",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "mimetype.text/plain": {
+      "text": "Text",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "mimetype.text/x-web-markdown": {
+      "text": "Markdown",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "mimetype.text/xml": {
+      "text": "XML",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "noteEditLayout.format": {
+      "text": "Format",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "noteMetadataLayout.format": {
+      "text": "Format",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "pictureViewLayout.exif": {
+      "text": "EXIF",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "pictureViewLayout.format": {
+      "text": "Format",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "pictureViewLayout.iptc": {
+      "text": "IPTC",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "pictureViewLayout.iso": {
+      "text": "ISO",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "templateRenderingPage.paramType.content": {
+      "text": "Include",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "themes.default": {
+      "text": "Nuxeo",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "themes.kawaii": {
+      "text": "Kawaii",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "versions.version": {
+      "text": "{0}.{1}",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "vocabularyManagement.edit.id": {
+      "text": "ID",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "wf.parallelDocumentReview.NA": {
+      "text": "N/A",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "wopiLink.excel.tooltip": {
+      "text": "Microsoft Excel Online",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "wopiLink.powerpoint.tooltip": {
+      "text": "Microsoft PowerPoint Online",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "wopiLink.wopitest.tooltip": {
+      "text": "Microsoft WOPI Test",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    },
+    "wopiLink.word.tooltip": {
+      "text": "Microsoft Word Online",
+      "reason": "Established product/protocol/format name, technical notation, or identical accepted Romanian term."
+    }
+  }
+}

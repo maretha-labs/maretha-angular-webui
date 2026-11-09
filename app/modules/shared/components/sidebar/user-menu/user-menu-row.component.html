@@ -1,0 +1,15 @@
+<button
+	type="button"
+	class="menu-row"
+	[class.active]="route() && context().route.split('?')[0] === route()"
+	[attr.aria-current]="route() && context().route.split('?')[0] === route() ? 'page' : null"
+	[attr.aria-expanded]="action() === 'themes' ? themesOpen() : null"
+	[disabled]="action() === 'unavailable' || context().user === null"
+	(click)="activate()"
+>
+	{{ messages.text(labelKey(), label(), context().locale) }}
+</button>
+
+@if (themesOpen() && action() === 'themes' && context().user) {
+	<nx-webui-theme-picker />
+}

@@ -1,0 +1,224 @@
+@import '../../../styles/_variables';
+
+:host {
+	display: block;
+	height: 100%;
+	position: relative;
+}
+
+.nx-admin {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	background: var(--nuxeo-page-background);
+
+	&__tabs {
+		flex-direction: column;
+		display: flex;
+		flex-grow: 1;
+		height: 100%;
+
+		::ng-deep > nx-paired-views {
+			flex-direction: row;
+			overflow: hidden;
+
+			> .view-tabs {
+				width: 300px;
+				min-width: 300px;
+				background: var(--nuxeo-box);
+				border-inline-end: 1px solid var(--nuxeo-border);
+				box-shadow: 1px 0 2px color-mix(in srgb, var(--nuxeo-text-default) 8%, transparent);
+			}
+
+			> .view-tabs .view-tabs__heading {
+				display: flex;
+				align-items: center;
+				height: var(--nuxeo-header-height, 54px);
+				min-height: var(--nuxeo-header-height, 54px);
+				padding: 0 16px;
+				border-bottom: 1px solid var(--nuxeo-border);
+				color: var(--nuxeo-text-default);
+				font-size: 1rem;
+				font-weight: 600;
+			}
+
+			> .view-tabs nx-contribution-outlet {
+				display: flex;
+				width: 100%;
+			}
+
+			> .view-tabs nx-document-view-tab,
+			> .view-tabs nx-document-view-tab > button {
+				display: flex;
+				width: 100%;
+			}
+
+			> .view-tabs nx-document-view-tab > button {
+				align-items: center;
+				min-height: 47px;
+				padding: 0 16px;
+				border: 0;
+				border-bottom: 1px solid var(--nuxeo-border);
+				border-inline-start: 4px solid transparent;
+				color: var(--nuxeo-text-default);
+				font-size: 14px;
+				font-weight: 400;
+				text-align: start;
+			}
+
+			> .view-tabs nx-document-view-tab > button:hover {
+				background: color-mix(in srgb, var(--nuxeo-primary-color) 6%, var(--nuxeo-box));
+			}
+
+			> .view-tabs nx-document-view-tab > button[aria-selected='true'] {
+				border-bottom-color: var(--nuxeo-border);
+				border-inline-start-color: var(--nuxeo-primary-color);
+				color: var(--nuxeo-text-default);
+				background: var(--nuxeo-box);
+				font-weight: 600;
+			}
+
+			> .view-page {
+				padding: 0;
+				overflow: auto;
+				background: var(--nuxeo-page-background);
+			}
+
+			// Stock nuxeo-page: the heading, under the shell's search button, stays in place while
+			// the page scrolls.
+			> .view-page .view-page__header {
+				position: sticky;
+				top: 0;
+				z-index: 2;
+				display: flex;
+				align-items: center;
+				height: var(--nuxeo-header-height, 54px);
+				min-height: var(--nuxeo-header-height, 54px);
+				padding: 0 16px;
+				background: var(--nuxeo-box);
+				border-bottom: 1px solid var(--nuxeo-border);
+				box-shadow: 0 1px 2px color-mix(in srgb, var(--nuxeo-text-default) 8%, transparent);
+			}
+
+			> .view-page .view-page__header h1 {
+				min-width: 0;
+				margin: 0;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				font-size: 0.95rem;
+				font-weight: 400;
+				color: var(--nuxeo-text-default);
+			}
+
+			// The heading's height is not the page's, so a page that fits does not scroll.
+			> .view-page > .page {
+				min-height: calc(100% - var(--nuxeo-header-height, 54px));
+			}
+		}
+	}
+
+	&--drawer-open &__tabs ::ng-deep > nx-paired-views > .view-tabs {
+		display: none;
+	}
+}
+
+.nx-admin__mobile-toggle,
+.nx-admin__backdrop,
+.nx-admin__primary-navigation {
+	display: none;
+}
+
+@media (max-width: 720px) {
+	.nx-admin {
+		&__mobile-toggle {
+			display: block;
+			position: absolute;
+			inset: 8px auto auto 8px;
+			z-index: 3;
+			width: 38px;
+			height: 38px;
+			padding: 0;
+			background: transparent;
+			border: 0;
+			color: var(--nuxeo-text-default);
+			&-icon,
+			&-icon::before,
+			&-icon::after {
+				display: block;
+				width: 18px;
+				height: 2px;
+				margin: auto;
+				background: currentColor;
+				content: '';
+			}
+			&-icon {
+				position: relative;
+			}
+			&-icon::before,
+			&-icon::after {
+				position: absolute;
+				inset-inline-start: 0;
+			}
+			&-icon::before {
+				inset-block-start: -6px;
+			}
+			&-icon::after {
+				inset-block-start: 6px;
+			}
+		}
+		&__backdrop {
+			display: none;
+			position: absolute;
+			inset: 0;
+			z-index: 1;
+			border: 0;
+			background: transparent;
+			pointer-events: none;
+		}
+		&__primary-navigation {
+			display: block;
+			position: absolute;
+			inset: auto auto 12px 12px;
+			z-index: 3;
+			border: 0;
+			background: transparent;
+			color: var(--nuxeo-primary-color);
+			font: inherit;
+			font-weight: 600;
+		}
+		&__tabs ::ng-deep > nx-paired-views {
+			position: relative;
+			overflow: visible;
+			> .view-tabs {
+				position: absolute;
+				inset: 0 auto 0 0;
+				z-index: 2;
+				width: min(300px, calc(100vw - var(--nuxeo-sidebar-width)));
+				min-width: 0;
+				box-shadow: var(--maretha-style-shadow-card);
+				transform: translateX(-105%);
+				transition: transform 0.2s ease;
+			}
+
+			> .view-page {
+				width: 100%;
+				min-width: 0;
+				margin-inline-start: 0;
+			}
+
+			> .view-page .view-page__header {
+				padding-inline: 48px 60px;
+			}
+		}
+		&--navigation-open &__tabs ::ng-deep > nx-paired-views > .view-tabs {
+			transform: translateX(0);
+		}
+		&--navigation-open &__backdrop {
+			display: block;
+			background: color-mix(in srgb, var(--nuxeo-text-default) 20%, transparent);
+			pointer-events: auto;
+		}
+	}
+}

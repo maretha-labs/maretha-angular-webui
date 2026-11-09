@@ -1,0 +1,33 @@
+{
+  "$comment": "Route paths for gate.mjs. maintainers and customerPaths are added at run time. maintainers: the PR author and every labeled-event actor whose repository permission is admin or write (maintain maps to write), from GET /repos/{owner}/{repo}/collaborators/{username}/permission with GITHUB_TOKEN (Metadata: read). customerPaths: CUSTOMER_PATHS from scripts/core-manifest.mjs.",
+  "alwaysAllowed": ["core.manifest.json"],
+  "labels": { "fix": "confirmed:bug", "feat": "confirmed:feature" },
+  "bots": { "dependabot": "dependabot[bot]" },
+  "routes": {
+    "docs": {
+      "allow": ["**/*.md", "docs/**", "agent-guides/**"],
+      "deny": ["docs/third-party/**", ".github/**", "LICENSE", "NOTICE"]
+    },
+    "test": {
+      "allow": ["**/*.spec.ts", "**/*.test.mjs", "**/*.test.ts", "e2e/**"],
+      "deny": [".github/**"]
+    },
+    "chore": {
+      "issueRequiredFor": [
+        "app/**",
+        "assets/**",
+        "styles/**",
+        "environments/**",
+        "contracts/**",
+        "nuxeo/**",
+        "main.ts",
+        "index.html",
+        "env.js",
+        "polyfills.ts"
+      ]
+    },
+    "dependabot": {
+      "allow": ["package.json", "package-lock.json", ".github/workflows/*.yml"]
+    }
+  }
+}

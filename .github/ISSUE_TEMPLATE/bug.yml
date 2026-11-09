@@ -1,0 +1,70 @@
+name: Bug report
+description: Something in the released Web UI behaves differently from the stock Nuxeo Web UI or from its documentation.
+labels: ['needs-triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Triage confirms the bug with the `confirmed:bug` label. Only then can a `fix:` pull
+        request that says `Closes #<issue>` pass the contribution gate. Security problems go through
+        SECURITY.md, never here.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Release tag or commit you run.
+      placeholder: v1.0.0
+    validations:
+      required: true
+  - type: input
+    id: nuxeo
+    attributes:
+      label: Nuxeo version
+      placeholder: '2025.x'
+    validations:
+      required: true
+  - type: dropdown
+    id: deployment
+    attributes:
+      label: Deployment
+      options:
+        - Nuxeo package (served under /nuxeo/ng/)
+        - Standalone build
+        - Local development server
+    validations:
+      required: true
+  - type: dropdown
+    id: customized
+    attributes:
+      label: Does the build contain code in custom/?
+      options:
+        - 'No'
+        - 'Yes, and the bug reproduces without it'
+        - 'Yes, and I have not tried without it'
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Numbered steps from a signed-in start page. No credentials, hostnames or production data.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      description: What the stock Nuxeo Web UI does for the same steps, if you know.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots, console output or verify report
+      description: '`dist/verification/verify-report.json` helps when the bug is in a build or check.'

@@ -1,0 +1,43 @@
+@for (workflow of workflows(); track workflow.id) {
+	<div class="bar workflow">
+		<div class="item">
+			<nx-webui-icon class="icon" name="icons:perm-data-setting" />
+			@if (isCurrentUser(workflow.initiator)) {
+				<span>{{
+					'documentPage.initiated.workflow.currentUser'
+						| webuiMessage: 'You started a {0} workflow on this document.' : label(workflow.title)
+				}}</span>
+			} @else {
+				<nx-user-tag [user]="workflow.initiator" [lookup]="lookup(workflow.initiator)" />
+				<span>{{
+					'documentPage.initiated.workflow'
+						| webuiMessage: ' started a {0} workflow on this document.' : label(workflow.title)
+				}}</span>
+			}
+		</div>
+		<button type="button" class="view-graph" (click)="viewGraph(workflow)">
+			{{ 'documentPage.route.view.graph' | webuiMessage: 'View Graph' }}
+		</button>
+		@if (canAbandon(workflow)) {
+			<button type="button" class="primary" (click)="abandon(workflow)">
+				{{ 'documentPage.abandon.workflow' | webuiMessage: 'Abandon' }}
+			</button>
+		}
+	</div>
+}
+@for (task of tasks(); track task.id) {
+	<div class="bar task">
+		<div class="item">
+			<nx-webui-icon class="icon" name="icons:assignment-turned-in" />
+			<span
+				>{{ 'documentPage.to.process' | webuiMessage: 'You have a task to process before '
+				}}<span [tooltip]="(task.dueDate | webuiDate: 'MMMM d, y h:mm a') ?? ''">{{
+					task.dueDate | webuiDate: 'longDate'
+				}}</span></span
+			>
+		</div>
+		<button type="button" class="primary" (click)="process(task)">
+			{{ 'documentPage.process.task' | webuiMessage: 'Process' }}
+		</button>
+	</div>
+}

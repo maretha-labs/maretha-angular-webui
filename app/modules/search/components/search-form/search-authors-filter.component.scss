@@ -1,0 +1,22 @@
+:host {
+	display: contents;
+}
+label {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin: 16px 0;
+	font-size: 13px;
+}
+// Stock dropdown aggregation: the underline field used by the default search drawer.
+:host ::ng-deep .ng-select .ng-select-container {
+	min-height: 34px;
+	border: 0;
+	border-bottom: 1px solid var(--nuxeo-border, #e3e3e3);
+	border-radius: 0;
+	background: transparent;
+	box-shadow: none !important;
+	.ng-value-container {
+		padding-inline-start: 0;
+	}
+}

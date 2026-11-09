@@ -1,0 +1,1707 @@
+{
+  "version": 1,
+  "scopes": ["app/extensions/"],
+  "exceptions": [
+    {
+      "id": "f0494571fea78bff",
+      "file": "app/extensions/schema-field.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ directoryLabel(value) }}",
+      "ownership": "customer-content",
+      "reason": "Directory chips display gateway-provided vocabulary labels or stable saved IDs; these are repository values and must remain literal rather than being inferred as application message keys.",
+      "maximum": 1
+    },
+    {
+      "id": "64e9eb9343018ad2",
+      "file": "app/extensions/schema-field.component.ts",
+      "kind": "typescript-string",
+      "text": "${props.identity}:${props.field.directoryName ?? ''}",
+      "ownership": "technical-token",
+      "reason": "Internal directory-label cache scope combining the caller's document field identity and directory name; never rendered as application prose.",
+      "maximum": 1
+    },
+    {
+      "id": "cf4f724c9c69dc36",
+      "file": "app/extensions/saved-search-gateway.ts",
+      "kind": "diagnostic",
+      "text": "This host does not support saved searches.",
+      "ownership": "diagnostic",
+      "reason": "The absent-adapter fallback rejects with a host capability diagnostic for integration debugging; the SDK does not render this Error as application prose.",
+      "maximum": 1
+    },
+    {
+      "id": "c4cafb42cdaf4bdd",
+      "file": "app/extensions/ag-grid-projection-cells.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ params.host.value(row, column) }}",
+      "ownership": "customer-content",
+      "reason": "Grid cell values come from the caller-supplied column.value formatter or row[column.id]; the SDK does not infer a catalogue key from repository text.",
+      "maximum": 2
+    },
+    {
+      "id": "80d5232b5f45f26b",
+      "file": "app/extensions/ag-grid-projection-cells.component.ts",
+      "kind": "typescript-string",
+      "text": "minmax(${column.minWidth ?? 100}px, ${flex}fr)",
+      "ownership": "technical-token",
+      "reason": "This exact string is a CSS selector, CSS value or internal DOM/scope identity; it is not rendered as application prose.",
+      "maximum": 1
+    },
+    {
+      "id": "6cd7f6645b3432f1",
+      "file": "app/extensions/bulk-layout.ts",
+      "kind": "typescript-string",
+      "text": "Unsupported bulk mode: {mode}",
+      "ownership": "localized-fallback",
+      "reason": "BulkValidationError associates this compatibility English message with a stable sdk.bulk.validation code and parameters; the default modal formats the identifier reactively.",
+      "maximum": 1
+    },
+    {
+      "id": "55fb5d548fdceb55",
+      "file": "app/extensions/bulk-layout.ts",
+      "kind": "typescript-string",
+      "text": "Cannot clear required property: {property}",
+      "ownership": "localized-fallback",
+      "reason": "BulkValidationError associates this compatibility English message with a stable sdk.bulk.validation code and parameters; the default modal formats the identifier reactively.",
+      "maximum": 1
+    },
+    {
+      "id": "f53be866da1524f8",
+      "file": "app/extensions/bulk-layout.ts",
+      "kind": "typescript-string",
+      "text": "Cannot add values to scalar property: {property}",
+      "ownership": "localized-fallback",
+      "reason": "BulkValidationError associates this compatibility English message with a stable sdk.bulk.validation code and parameters; the default modal formats the identifier reactively.",
+      "maximum": 1
+    },
+    {
+      "id": "c9847d7cfe9310c7",
+      "file": "app/extensions/bulk-layout.ts",
+      "kind": "typescript-string",
+      "text": "Use a list value for addValues: {property}",
+      "ownership": "localized-fallback",
+      "reason": "BulkValidationError associates this compatibility English message with a stable sdk.bulk.validation code and parameters; the default modal formats the identifier reactively.",
+      "maximum": 1
+    },
+    {
+      "id": "0090471e882bea6b",
+      "file": "app/extensions/bulk-layout.ts",
+      "kind": "diagnostic",
+      "text": "unsupported-mode",
+      "ownership": "technical-token",
+      "reason": "This is the stable BulkValidationError code passed to its typed constructor, not a displayed message; messageKey and parameters drive localized rendering.",
+      "maximum": 1
+    },
+    {
+      "id": "b10f2d7edcab88ce",
+      "file": "app/extensions/bulk-layout.ts",
+      "kind": "diagnostic",
+      "text": "clear-required",
+      "ownership": "technical-token",
+      "reason": "This is the stable BulkValidationError code passed to its typed constructor, not a displayed message; messageKey and parameters drive localized rendering.",
+      "maximum": 1
+    },
+    {
+      "id": "1f64e320c482df48",
+      "file": "app/extensions/bulk-layout.ts",
+      "kind": "diagnostic",
+      "text": "add-scalar",
+      "ownership": "technical-token",
+      "reason": "This is the stable BulkValidationError code passed to its typed constructor, not a displayed message; messageKey and parameters drive localized rendering.",
+      "maximum": 1
+    },
+    {
+      "id": "023952f8ceb561e4",
+      "file": "app/extensions/bulk-layout.ts",
+      "kind": "diagnostic",
+      "text": "add-values-list",
+      "ownership": "technical-token",
+      "reason": "This is the stable BulkValidationError code passed to its typed constructor, not a displayed message; messageKey and parameters drive localized rendering.",
+      "maximum": 1
+    },
+    {
+      "id": "0cffecb029329862",
+      "file": "app/extensions/comparison-layout.ts",
+      "kind": "typescript-string",
+      "text": "Comparison layouts",
+      "ownership": "diagnostic",
+      "reason": "Angular InjectionToken debug description only; this literal identifies a provider contract and is not part of a rendered application message.",
+      "maximum": 1
+    },
+    {
+      "id": "666fd9c7f22ad64f",
+      "file": "app/extensions/comparison-layout.ts",
+      "kind": "diagnostic",
+      "text": "A comparison layout must target a property or value type.",
+      "ownership": "diagnostic",
+      "reason": "Invalid SDK registration throws at provider construction; this developer contract error is not displayed in the application UI.",
+      "maximum": 1
+    },
+    {
+      "id": "014fa10d3c3dd0d8",
+      "file": "app/extensions/contribution-outlet.component.ts",
+      "kind": "diagnostic",
+      "text": "Contribution inputs do not match its component.",
+      "ownership": "diagnostic",
+      "reason": "ContributionOutlet records this sanitized SDK diagnostic; its rendered status uses the separate localized Extension unavailable message, without exposing component errors.",
+      "maximum": 1
+    },
+    {
+      "id": "4f1b83cd1b30290a",
+      "file": "app/extensions/contribution-outlet.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Contribution could not be loaded or initialized.",
+      "ownership": "diagnostic",
+      "reason": "ContributionOutlet records this sanitized SDK diagnostic; its rendered status uses the separate localized Extension unavailable message, without exposing component errors.",
+      "maximum": 1
+    },
+    {
+      "id": "143a5f96792d25d2",
+      "file": "app/extensions/default-bulk-layout.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ option.label }}",
+      "ownership": "customer-content",
+      "reason": "Directory option.label is supplied by the caller/provider in the bulk-layout options map; it is repository vocabulary content, not an implicit catalogue key.",
+      "maximum": 2
+    },
+    {
+      "id": "af73c0b106893c0c",
+      "file": "app/extensions/default-bulk-layout.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Nature",
+      "ownership": "localized-fallback",
+      "reason": "This built-in field descriptor also declares an explicit labelKey; fieldLabel uses WebUiMessages.text and retains the English string solely as fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "14093a12dd6a47bd",
+      "file": "app/extensions/default-bulk-layout.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Subjects",
+      "ownership": "localized-fallback",
+      "reason": "This built-in field descriptor also declares an explicit labelKey; fieldLabel uses WebUiMessages.text and retains the English string solely as fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "ab8f040635cf468b",
+      "file": "app/extensions/default-bulk-layout.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Coverage",
+      "ownership": "localized-fallback",
+      "reason": "This built-in field descriptor also declares an explicit labelKey; fieldLabel uses WebUiMessages.text and retains the English string solely as fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "a3a22e8664f941ac",
+      "file": "app/extensions/default-bulk-layout.component.ts",
+      "kind": "typescript-ui-field",
+      "text": "Expiration date",
+      "ownership": "localized-fallback",
+      "reason": "This built-in field descriptor also declares an explicit labelKey; fieldLabel uses WebUiMessages.text and retains the English string solely as fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "d6809c0fdcd432db",
+      "file": "app/extensions/document-layout-registry.ts",
+      "kind": "diagnostic",
+      "text": "Document layout extension needs an id.",
+      "ownership": "diagnostic",
+      "reason": "Invalid SDK layout/projection registrations throw this developer-facing contract diagnostic before component rendering; default UI status text is separately localized.",
+      "maximum": 1
+    },
+    {
+      "id": "7641ff4666f97dc4",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "typescript-string",
+      "text": "Document layout gateway",
+      "ownership": "diagnostic",
+      "reason": "Angular InjectionToken debug description only; this literal identifies a provider contract and is not part of a rendered application message.",
+      "maximum": 1
+    },
+    {
+      "id": "2865c14442625d9e",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "typescript-string",
+      "text": "Document layout widgets",
+      "ownership": "diagnostic",
+      "reason": "Angular InjectionToken debug description only; this literal identifies a provider contract and is not part of a rendered application message.",
+      "maximum": 1
+    },
+    {
+      "id": "21a91a0a78a79d70",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "diagnostic",
+      "text": "sdk.layout.unsupportedType",
+      "ownership": "technical-token",
+      "reason": "This is the explicit message key passed to LocalizedUiError; the translated message is rendered later with its structured values.",
+      "maximum": 1
+    },
+    {
+      "id": "4492c06f898331e1",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "diagnostic",
+      "text": "Unsupported server schema type: {type}",
+      "ownership": "localized-fallback",
+      "reason": "LocalizedUiError retains this English compatibility fallback with an explicit sdk message key; SchemaLayout formats that identifier reactively for display.",
+      "maximum": 1
+    },
+    {
+      "id": "38b4adb5e08812cd",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "diagnostic",
+      "text": "sdk.layout.metadataMismatch",
+      "ownership": "technical-token",
+      "reason": "This is the explicit message key passed to LocalizedUiError; the translated message is rendered later with its structured values.",
+      "maximum": 1
+    },
+    {
+      "id": "ab6847ffe30ae575",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "diagnostic",
+      "text": "The layout does not match the document type.",
+      "ownership": "localized-fallback",
+      "reason": "LocalizedUiError retains this English compatibility fallback with an explicit sdk message key; SchemaLayout formats that identifier reactively for display.",
+      "maximum": 1
+    },
+    {
+      "id": "b83aa9f5bd9cd119",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "diagnostic",
+      "text": "sdk.layout.duplicateProperty",
+      "ownership": "technical-token",
+      "reason": "This is the explicit message key passed to LocalizedUiError; the translated message is rendered later with its structured values.",
+      "maximum": 1
+    },
+    {
+      "id": "20f4063c31e365da",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "diagnostic",
+      "text": "Duplicate layout property: {property}",
+      "ownership": "localized-fallback",
+      "reason": "LocalizedUiError retains this English compatibility fallback with an explicit sdk message key; SchemaLayout formats that identifier reactively for display.",
+      "maximum": 1
+    },
+    {
+      "id": "06ae590c49fbb1b7",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "diagnostic",
+      "text": "sdk.layout.missingProperty",
+      "ownership": "technical-token",
+      "reason": "This is the explicit message key passed to LocalizedUiError; the translated message is rendered later with its structured values.",
+      "maximum": 1
+    },
+    {
+      "id": "5f71b1f9fa4da1d8",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "diagnostic",
+      "text": "Property is missing from the server schema: {property}",
+      "ownership": "localized-fallback",
+      "reason": "LocalizedUiError retains this English compatibility fallback with an explicit sdk message key; SchemaLayout formats that identifier reactively for display.",
+      "maximum": 1
+    },
+    {
+      "id": "0e32dadb3afedbb6",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "typescript-string",
+      "text": "This field is required.",
+      "ownership": "localized-fallback",
+      "reason": "layoutFieldError passes this compatibility fallback plus an explicit validation key and arguments to its formatter; app-owned SchemaLayout supplies WebUiMessages.format.",
+      "maximum": 1
+    },
+    {
+      "id": "6382da259d206f52",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "typescript-string",
+      "text": "Use a list value.",
+      "ownership": "localized-fallback",
+      "reason": "layoutFieldError passes this compatibility fallback plus an explicit validation key and arguments to its formatter; app-owned SchemaLayout supplies WebUiMessages.format.",
+      "maximum": 1
+    },
+    {
+      "id": "00b67ce0082282b1",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "typescript-string",
+      "text": "Use a boolean value.",
+      "ownership": "localized-fallback",
+      "reason": "layoutFieldError passes this compatibility fallback plus an explicit validation key and arguments to its formatter; app-owned SchemaLayout supplies WebUiMessages.format.",
+      "maximum": 1
+    },
+    {
+      "id": "61d1bf8c07e328a9",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "typescript-string",
+      "text": "Enter a valid number.",
+      "ownership": "localized-fallback",
+      "reason": "layoutFieldError passes this compatibility fallback plus an explicit validation key and arguments to its formatter; app-owned SchemaLayout supplies WebUiMessages.format.",
+      "maximum": 1
+    },
+    {
+      "id": "62de009a1015309a",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "typescript-string",
+      "text": "The minimum is ${field.min}.",
+      "ownership": "localized-fallback",
+      "reason": "layoutFieldError passes this compatibility fallback plus an explicit validation key and arguments to its formatter; app-owned SchemaLayout supplies WebUiMessages.format.",
+      "maximum": 1
+    },
+    {
+      "id": "38c02f4b5bbf4ceb",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "typescript-string",
+      "text": "The maximum is ${field.max}.",
+      "ownership": "localized-fallback",
+      "reason": "layoutFieldError passes this compatibility fallback plus an explicit validation key and arguments to its formatter; app-owned SchemaLayout supplies WebUiMessages.format.",
+      "maximum": 1
+    },
+    {
+      "id": "74367ab138a10f08",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "typescript-string",
+      "text": "Enter a valid date.",
+      "ownership": "localized-fallback",
+      "reason": "layoutFieldError passes this compatibility fallback plus an explicit validation key and arguments to its formatter; app-owned SchemaLayout supplies WebUiMessages.format.",
+      "maximum": 1
+    },
+    {
+      "id": "72a06593d953dd8a",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "typescript-string",
+      "text": "Use an object value.",
+      "ownership": "localized-fallback",
+      "reason": "layoutFieldError passes this compatibility fallback plus an explicit validation key and arguments to its formatter; app-owned SchemaLayout supplies WebUiMessages.format.",
+      "maximum": 1
+    },
+    {
+      "id": "700f1b86fe75a9dd",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "typescript-string",
+      "text": "${name}: ${error}",
+      "ownership": "localized-fallback",
+      "reason": "layoutFieldError passes this compatibility fallback plus an explicit validation key and arguments to its formatter; app-owned SchemaLayout supplies WebUiMessages.format.",
+      "maximum": 1
+    },
+    {
+      "id": "9bec3ced00f14e2c",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "typescript-string",
+      "text": "${name}: unsupported schema type.",
+      "ownership": "localized-fallback",
+      "reason": "layoutFieldError passes this compatibility fallback plus an explicit validation key and arguments to its formatter; app-owned SchemaLayout supplies WebUiMessages.format.",
+      "maximum": 1
+    },
+    {
+      "id": "401018c35996513d",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "typescript-string",
+      "text": "Choose a file.",
+      "ownership": "localized-fallback",
+      "reason": "layoutFieldError passes this compatibility fallback plus an explicit validation key and arguments to its formatter; app-owned SchemaLayout supplies WebUiMessages.format.",
+      "maximum": 1
+    },
+    {
+      "id": "8d8b0f5b8855c5b6",
+      "file": "app/extensions/document-layout.ts",
+      "kind": "typescript-string",
+      "text": "Use at most ${field.maxLength} characters.",
+      "ownership": "localized-fallback",
+      "reason": "layoutFieldError passes this compatibility fallback plus an explicit validation key and arguments to its formatter; app-owned SchemaLayout supplies WebUiMessages.format.",
+      "maximum": 1
+    },
+    {
+      "id": "90eb6da902eb0520",
+      "file": "app/extensions/document-projection-registry.ts",
+      "kind": "diagnostic",
+      "text": "Document projection needs an id.",
+      "ownership": "diagnostic",
+      "reason": "Invalid SDK layout/projection registrations throw this developer-facing contract diagnostic before component rendering; default UI status text is separately localized.",
+      "maximum": 1
+    },
+    {
+      "id": "eb788d05d2016362",
+      "file": "app/extensions/document-projection-registry.ts",
+      "kind": "diagnostic",
+      "text": "Document projection components must declare a projectionContext input.",
+      "ownership": "diagnostic",
+      "reason": "Invalid SDK layout/projection registrations throw this developer-facing contract diagnostic before component rendering; default UI status text is separately localized.",
+      "maximum": 1
+    },
+    {
+      "id": "ba2de1ccea60a349",
+      "file": "app/extensions/document-view.ts",
+      "kind": "dynamic-template",
+      "text": "{{ messages.text(labelKey(), label()) }}",
+      "ownership": "localized-fallback",
+      "reason": "DocumentViewTab uses messages.text with the explicit labelKey and a literal caller fallback; omitting labelKey intentionally preserves customer-authored labels.",
+      "maximum": 1
+    },
+    {
+      "id": "c6226d827396a271",
+      "file": "app/extensions/document-view.ts",
+      "kind": "diagnostic",
+      "text": "A paired view requires a label.",
+      "ownership": "diagnostic",
+      "reason": "Paired-view registration/resolution emits this developer contract diagnostic for invalid pairs; it is not the rendered tab or document-view label.",
+      "maximum": 1
+    },
+    {
+      "id": "b23db477d92ab77c",
+      "file": "app/extensions/document-view.ts",
+      "kind": "typescript-ui-field",
+      "text": "A paired view requires exactly one eligible item and page with the same pair key.",
+      "ownership": "diagnostic",
+      "reason": "Paired-view registration/resolution emits this developer contract diagnostic for invalid pairs; it is not the rendered tab or document-view label.",
+      "maximum": 1
+    },
+    {
+      "id": "81bc10e852533908",
+      "file": "app/extensions/document-view.ts",
+      "kind": "diagnostic",
+      "text": "View variants require a non-empty list of unique IDs.",
+      "ownership": "diagnostic",
+      "reason": "Paired-view registration/resolution emits this developer contract diagnostic for invalid pairs; it is not the rendered tab or document-view label.",
+      "maximum": 1
+    },
+    {
+      "id": "4ebf9a027f4570fe",
+      "file": "app/extensions/document-views.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ effectiveLabel() }}",
+      "ownership": "localized-fallback",
+      "reason": "effectiveLabel localizes sdk.views.label only when the caller did not supply a label; explicitly supplied customer labels remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "347634589f2702fb",
+      "file": "app/extensions/document-views.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ activeLabel() }}",
+      "ownership": "localized-fallback",
+      "reason": "activeLabel resolves the selected contribution labelKey through WebUiMessages, falling back to its literal label or the localized default host label.",
+      "maximum": 1
+    },
+    {
+      "id": "8e713bccab89ec18",
+      "file": "app/extensions/document-views.component.html",
+      "kind": "dynamic-template",
+      "text": "{{ departureMessage() }}",
+      "ownership": "localized-fallback",
+      "reason": "departureMessage is a localizedState signal retaining message identifiers and values, so pending navigation notices update with the active locale.",
+      "maximum": 1
+    },
+    {
+      "id": "97890769d8165cdd",
+      "file": "app/extensions/document-views.component.ts",
+      "kind": "typescript-string",
+      "text": "Document views",
+      "ownership": "localized-fallback",
+      "reason": "This public input retains its historical English default; effectiveLabel translates the omitted-input default using sdk.views.label and preserves explicit customer input.",
+      "maximum": 1
+    },
+    {
+      "id": "bed701a5ac868e98",
+      "file": "app/extensions/document-views.component.ts",
+      "kind": "typescript-string",
+      "text": "Review this view’s unsaved changes before leaving.",
+      "ownership": "localized-fallback",
+      "reason": "This English fallback is passed to departureMessage.setMessage with an explicit SDK key; the visible notice is formatted reactively.",
+      "maximum": 1
+    },
+    {
+      "id": "62320a74ed88e488",
+      "file": "app/extensions/document-views.component.ts",
+      "kind": "typescript-string",
+      "text": "Navigation cancelled. Your changes are still available.",
+      "ownership": "localized-fallback",
+      "reason": "This English fallback is passed to departureMessage.setMessage with an explicit SDK key; the visible notice is formatted reactively.",
+      "maximum": 1
+    },
+    {
+      "id": "c8589e27615f3697",
+      "file": "app/extensions/document-views.component.ts",
+      "kind": "typescript-string",
+      "text": ":scope > .view-tabs [role=\"tab\"]",
+      "ownership": "technical-token",
+      "reason": "This exact string is a CSS selector, CSS value or internal DOM/scope identity; it is not rendered as application prose.",
+      "maximum": 2
+    },
+    {
+      "id": "68f22ec26afd4501",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "typescript-string",
+      "text": "Slot context is invalid.",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 1
+    },
+    {
+      "id": "faba5d75e7f0cf49",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "typescript-string",
+      "text": "Required visibility rule ${id} is not registered.",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 1
+    },
+    {
+      "id": "3f1070bb0e88ebce",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "typescript-string",
+      "text": "Visibility rule ${id} could not be evaluated.",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 1
+    },
+    {
+      "id": "afff1f1bbb23f380",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "typescript-string",
+      "text": "Contribution condition could not be evaluated.",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 1
+    },
+    {
+      "id": "84afbda2d00fd69c",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "typescript-string",
+      "text": "Visibility rule",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 2
+    },
+    {
+      "id": "39eb29f3fbdc94ba",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "diagnostic",
+      "text": "Visibility rule requires an evaluate function.",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 1
+    },
+    {
+      "id": "dd126261da783963",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "diagnostic",
+      "text": "Duplicate visibility rule: ${rule.id}",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 2
+    },
+    {
+      "id": "63c92a2020fccb72",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "typescript-string",
+      "text": "Required visibility rule",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 1
+    },
+    {
+      "id": "dc36959133841df4",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "diagnostic",
+      "text": "Contribution retain must be a boolean.",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 1
+    },
+    {
+      "id": "7ddb09b976eda88d",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "diagnostic",
+      "text": "Duplicate contribution: ${item.slot}/${item.id}",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 1
+    },
+    {
+      "id": "e2a43af978d520c3",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "diagnostic",
+      "text": "Contribution disabled must be a boolean.",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 1
+    },
+    {
+      "id": "f36848149b0c9f8d",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "diagnostic",
+      "text": "Contribution requires one component source and valid context/condition functions.",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 1
+    },
+    {
+      "id": "2cb747c7fd03bb30",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "diagnostic",
+      "text": "Contribution inputs must be a record.",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 1
+    },
+    {
+      "id": "8aee012fb44cd8f7",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "diagnostic",
+      "text": "The context input is supplied by the slot host.",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 1
+    },
+    {
+      "id": "2883e1c3e5423d04",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "diagnostic",
+      "text": "Override disabled must be a boolean.",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 1
+    },
+    {
+      "id": "ce1ca26727b3ec1e",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "typescript-ui-field",
+      "text": "Override was skipped: visibility rule ${patch.visibilityRule} is not registered.",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 1
+    },
+    {
+      "id": "49c5e4221173b1c2",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "diagnostic",
+      "text": "Unknown override target: ${patch.slot}/${patch.id}",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 1
+    },
+    {
+      "id": "4fb030f605edc061",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "typescript-ui-field",
+      "text": "Override target is no longer registered.",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 1
+    },
+    {
+      "id": "3d955c9ced48b739",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "diagnostic",
+      "text": "${kind} identifier is invalid.",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 1
+    },
+    {
+      "id": "9eb4ef158ed445ac",
+      "file": "app/extensions/extension-registry.service.ts",
+      "kind": "diagnostic",
+      "text": "Contribution ${field} must be finite.",
+      "ownership": "diagnostic",
+      "reason": "ExtensionRegistry exposes this exact string as a sanitized developer registration/resolution diagnostic; rendered contribution failures use their own localized status, not this diagnostic message.",
+      "maximum": 1
+    },
+    {
+      "id": "00f1369f5f078375",
+      "file": "app/extensions/files.ts",
+      "kind": "template-expression-literal",
+      "text": "fileUpload.chooseFile",
+      "ownership": "technical-token",
+      "reason": "This literal is the fileUpload.chooseFile catalogue key passed explicitly to WebUiMessages.text.",
+      "maximum": 1
+    },
+    {
+      "id": "8ca2de6c2f7ef0b1",
+      "file": "app/extensions/files.ts",
+      "kind": "template-expression-literal",
+      "text": "Choose files",
+      "ownership": "localized-fallback",
+      "reason": "The native file chooser button explicitly resolves fileUpload.chooseFile via WebUiMessages.text; Choose files is its fixed English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "a488efb39577f84e",
+      "file": "app/extensions/files.ts",
+      "kind": "dynamic-template",
+      "text": "{{ messages.text('fileUpload.chooseFile', 'Choose files') }}",
+      "ownership": "localized-fallback",
+      "reason": "The native file chooser button explicitly resolves fileUpload.chooseFile via WebUiMessages.text; Choose files is its fixed English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "5944a495a3cf341c",
+      "file": "app/extensions/i18n/webui-locale.ts",
+      "kind": "typescript-ui-field",
+      "text": "English",
+      "ownership": "catalogue-metadata",
+      "reason": "This supported-language selector label is the language autonym by design; it remains recognizable regardless of the currently selected interface language.",
+      "maximum": 1
+    },
+    {
+      "id": "20dc21023ee73f18",
+      "file": "app/extensions/i18n/webui-locale.ts",
+      "kind": "typescript-ui-field",
+      "text": "Español",
+      "ownership": "catalogue-metadata",
+      "reason": "This supported-language selector label is the language autonym by design; it remains recognizable regardless of the currently selected interface language.",
+      "maximum": 1
+    },
+    {
+      "id": "73abca82f6e1a73c",
+      "file": "app/extensions/i18n/webui-locale.ts",
+      "kind": "typescript-ui-field",
+      "text": "Français",
+      "ownership": "catalogue-metadata",
+      "reason": "This supported-language selector label is the language autonym by design; it remains recognizable regardless of the currently selected interface language.",
+      "maximum": 1
+    },
+    {
+      "id": "45fb2612ab513183",
+      "file": "app/extensions/i18n/webui-locale.ts",
+      "kind": "typescript-ui-field",
+      "text": "العربية",
+      "ownership": "catalogue-metadata",
+      "reason": "This supported-language selector label is the language autonym by design; it remains recognizable regardless of the currently selected interface language.",
+      "maximum": 1
+    },
+    {
+      "id": "8d668ff1846c98b2",
+      "file": "app/extensions/i18n/webui-locale.ts",
+      "kind": "typescript-ui-field",
+      "text": "Română",
+      "ownership": "catalogue-metadata",
+      "reason": "This supported-language selector label is the language autonym by design; it remains recognizable regardless of the currently selected interface language.",
+      "maximum": 1
+    },
+    {
+      "id": "d177b6a8dc9c4f7b",
+      "file": "app/extensions/i18n/webui-locale.ts",
+      "kind": "typescript-ui-field",
+      "text": "Português",
+      "ownership": "catalogue-metadata",
+      "reason": "This supported-language selector label is the language autonym by design; it remains recognizable regardless of the currently selected interface language.",
+      "maximum": 1
+    },
+    {
+      "id": "3d208adcde48c178",
+      "file": "app/extensions/i18n/webui-locale.ts",
+      "kind": "typescript-ui-field",
+      "text": "Italiano",
+      "ownership": "catalogue-metadata",
+      "reason": "This supported-language selector label is the language autonym by design; it remains recognizable regardless of the currently selected interface language.",
+      "maximum": 1
+    },
+    {
+      "id": "4d8a33423222a6c1",
+      "file": "app/extensions/i18n/webui-locale.ts",
+      "kind": "diagnostic",
+      "text": "Unsupported WebUI locale.",
+      "ownership": "diagnostic",
+      "reason": "WebUiLocale rejects unsupported programmatic locale writes with a developer contract error; the selector only offers validated registry entries.",
+      "maximum": 1
+    },
+    {
+      "id": "7b2d1e9cbb71904f",
+      "file": "app/extensions/package.json",
+      "kind": "typescript-ui-field",
+      "text": "Angular 21 contribution contracts, registry and hosts for Maretha WebUI",
+      "ownership": "catalogue-metadata",
+      "reason": "This package.json description documents the distributable SDK for package tooling; it is not shipped as a rendered application label.",
+      "maximum": 1
+    },
+    {
+      "id": "3f3cbdaeb766c83a",
+      "file": "app/extensions/polymer-assets.provenance.json",
+      "kind": "typescript-string",
+      "text": "Closed the malformed unretain path element; all path data and transforms retained.",
+      "ownership": "catalogue-metadata",
+      "reason": "This generated provenance note describes catalogue/import normalization and review status for maintainers; it is not application UI text.",
+      "maximum": 1
+    },
+    {
+      "id": "be07166978e061bd",
+      "file": "app/extensions/polymer-assets.provenance.json",
+      "kind": "typescript-string",
+      "text": "ASCII quotes around positional parameters become typographic quotes, preserving interpolation when moving from Polymer to ICU.",
+      "ownership": "catalogue-metadata",
+      "reason": "This generated provenance note describes catalogue/import normalization and review status for maintainers; it is not application UI text.",
+      "maximum": 1
+    },
+    {
+      "id": "31fe45fcfa323551",
+      "file": "app/extensions/polymer-assets.provenance.json",
+      "kind": "typescript-string",
+      "text": "Agent-authored translations; independent native-speaker review is pending.",
+      "ownership": "catalogue-metadata",
+      "reason": "This generated provenance note describes catalogue/import normalization and review status for maintainers; it is not application UI text.",
+      "maximum": 1
+    },
+    {
+      "id": "1e8c56080e5652d5",
+      "file": "app/extensions/primitives/projection-occurrence-manifest.json",
+      "kind": "typescript-string",
+      "text": "content (collapsed branch)",
+      "ownership": "catalogue-metadata",
+      "reason": "This occurrence-manifest branch annotation is build-time projection inventory metadata, not content rendered by the projection components.",
+      "maximum": 1
+    },
+    {
+      "id": "d803818544700499",
+      "file": "app/extensions/primitives/projection-occurrence-manifest.json",
+      "kind": "typescript-string",
+      "text": "content (open branch)",
+      "ownership": "catalogue-metadata",
+      "reason": "This occurrence-manifest branch annotation is build-time projection inventory metadata, not content rendered by the projection components.",
+      "maximum": 1
+    },
+    {
+      "id": "d2baa227225b755e",
+      "file": "app/extensions/primitives/projection-primitives.ts",
+      "kind": "dynamic-template",
+      "text": "{{ heading() }}",
+      "ownership": "customer-content",
+      "reason": "The card heading input is caller-authored display content; the SDK preserves it literally and does not infer a translation key.",
+      "maximum": 2
+    },
+    {
+      "id": "4d51c28aa038db3c",
+      "file": "app/extensions/primitives/projection-primitives.ts",
+      "kind": "dynamic-template",
+      "text": "{{ opened() ? '⌃' : '⌄' }}",
+      "ownership": "technical-token",
+      "reason": "These symbols are disclosure/expansion glyphs; accessible control names are separate localized Collapse/Expand labels.",
+      "maximum": 1
+    },
+    {
+      "id": "8af36b9a02d902a9",
+      "file": "app/extensions/primitives/projection-primitives.ts",
+      "kind": "dynamic-template",
+      "text": "{{ effectiveTitle() }}",
+      "ownership": "localized-fallback",
+      "reason": "The effective dialog label method translates omitted SDK defaults with explicit sdk.dialog keys and preserves labels explicitly supplied by customers.",
+      "maximum": 1
+    },
+    {
+      "id": "dc726675cff210ca",
+      "file": "app/extensions/primitives/projection-primitives.ts",
+      "kind": "dynamic-template",
+      "text": "{{ effectiveDismiss() }}",
+      "ownership": "localized-fallback",
+      "reason": "The effective dialog label method translates omitted SDK defaults with explicit sdk.dialog keys and preserves labels explicitly supplied by customers.",
+      "maximum": 1
+    },
+    {
+      "id": "6436e437ff261c59",
+      "file": "app/extensions/primitives/projection-primitives.ts",
+      "kind": "dynamic-template",
+      "text": "{{ effectiveConfirm() }}",
+      "ownership": "localized-fallback",
+      "reason": "The effective dialog label method translates omitted SDK defaults with explicit sdk.dialog keys and preserves labels explicitly supplied by customers.",
+      "maximum": 1
+    },
+    {
+      "id": "88cb27ac35b68bc4",
+      "file": "app/extensions/primitives/projection-primitives.ts",
+      "kind": "typescript-string",
+      "text": "Are you sure?",
+      "ownership": "localized-fallback",
+      "reason": "Historical confirmation input default retained for API compatibility; effectiveTitle/effectiveMessage translate the omitted-input default with sdk.dialog.sure.",
+      "maximum": 2
+    },
+    {
+      "id": "4a4ff989b3e814a7",
+      "file": "app/extensions/primitives/projection-primitives.ts",
+      "kind": "dynamic-template",
+      "text": "{{ label() }}",
+      "ownership": "customer-content",
+      "reason": "This primitive/command label is explicitly supplied by its consumer; caller-owned literal labels must not be treated as implicit message keys.",
+      "maximum": 3
+    },
+    {
+      "id": "b2b10a85042ad2fe",
+      "file": "app/extensions/primitives/projection-primitives.ts",
+      "kind": "dynamic-template",
+      "text": "{{ opened() ? '−' : '+' }}",
+      "ownership": "technical-token",
+      "reason": "These symbols are disclosure/expansion glyphs; accessible control names are separate localized Collapse/Expand labels.",
+      "maximum": 1
+    },
+    {
+      "id": "4c11c29461556c71",
+      "file": "app/extensions/primitives/projection-primitives.ts",
+      "kind": "dynamic-template",
+      "text": "{{ effectiveMessage() }}",
+      "ownership": "localized-fallback",
+      "reason": "The effective dialog label method translates omitted SDK defaults with explicit sdk.dialog keys and preserves labels explicitly supplied by customers.",
+      "maximum": 1
+    },
+    {
+      "id": "6526b96695764d2a",
+      "file": "app/extensions/quick-search.ts",
+      "kind": "dynamic-template",
+      "text": "{{ label() }}",
+      "ownership": "customer-content",
+      "reason": "This primitive/command label is explicitly supplied by its consumer; caller-owned literal labels must not be treated as implicit message keys.",
+      "maximum": 1
+    },
+    {
+      "id": "c552d801f1375a64",
+      "file": "app/extensions/quick-search.ts",
+      "kind": "dynamic-template",
+      "text": "{{ error() }}",
+      "ownership": "localized-fallback",
+      "reason": "Quick-search command failures set a localizedState signal with sdk.command.failed; internal thrown details are not rendered by this boundary.",
+      "maximum": 1
+    },
+    {
+      "id": "50a2a43add6ecc5c",
+      "file": "app/extensions/quick-search.ts",
+      "kind": "typescript-string",
+      "text": "This command could not be completed. Please retry.",
+      "ownership": "localized-fallback",
+      "reason": "This command failure fallback is passed to localizedState with sdk.command.failed; the visible error updates reactively when the active locale changes.",
+      "maximum": 1
+    },
+    {
+      "id": "a690c50acf93cebe",
+      "file": "app/extensions/results-projection-template-context.invalid.ts",
+      "kind": "dynamic-template",
+      "text": "{{ rows.length }}",
+      "ownership": "diagnostic",
+      "reason": "This intentionally invalid Angular template is a compile-failure fixture used only by the SDK template-context verifier; it is excluded from production rendering.",
+      "maximum": 1
+    },
+    {
+      "id": "1411b456508dd7f4",
+      "file": "app/extensions/results-projection-template-context.invalid.ts",
+      "kind": "dynamic-template",
+      "text": "{{ row.uid }}",
+      "ownership": "diagnostic",
+      "reason": "This intentionally invalid Angular template is a compile-failure fixture used only by the SDK template-context verifier; it is excluded from production rendering.",
+      "maximum": 1
+    },
+    {
+      "id": "f3d1865665a93147",
+      "file": "app/extensions/results-projection.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ label(row) }}",
+      "ownership": "customer-content",
+      "reason": "Result label returns row.title or row.uid from caller/repository data; it must not be looked up as a catalogue key.",
+      "maximum": 1
+    },
+    {
+      "id": "45b03ed6639acbbf",
+      "file": "app/extensions/results-projection.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ row.type }}",
+      "ownership": "technical-token",
+      "reason": "row.type is the repository document-type identifier displayed as source metadata; arbitrary customer-defined types remain unchanged.",
+      "maximum": 1
+    },
+    {
+      "id": "a074bbb0e5998097",
+      "file": "app/extensions/results-projection.component.ts",
+      "kind": "typescript-string",
+      "text": "var(--nuxeo-primary-color, #0066cc)",
+      "ownership": "technical-token",
+      "reason": "This exact string is a CSS selector, CSS value or internal DOM/scope identity; it is not rendered as application prose.",
+      "maximum": 1
+    },
+    {
+      "id": "9d86603383391cba",
+      "file": "app/extensions/results-projection.component.ts",
+      "kind": "typescript-string",
+      "text": "var(--nuxeo-box, #fff)",
+      "ownership": "technical-token",
+      "reason": "This exact string is a CSS selector, CSS value or internal DOM/scope identity; it is not rendered as application prose.",
+      "maximum": 2
+    },
+    {
+      "id": "563bf26c48d0427c",
+      "file": "app/extensions/results-projection.component.ts",
+      "kind": "typescript-string",
+      "text": "var(--nuxeo-text-default, #222)",
+      "ownership": "technical-token",
+      "reason": "This exact string is a CSS selector, CSS value or internal DOM/scope identity; it is not rendered as application prose.",
+      "maximum": 1
+    },
+    {
+      "id": "045d782ee1570499",
+      "file": "app/extensions/results-projection.component.ts",
+      "kind": "typescript-string",
+      "text": "var(--nuxeo-border, #ddd)",
+      "ownership": "technical-token",
+      "reason": "This exact string is a CSS selector, CSS value or internal DOM/scope identity; it is not rendered as application prose.",
+      "maximum": 2
+    },
+    {
+      "id": "994bbe3c35251312",
+      "file": "app/extensions/schema-field.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ fieldLabel() }}{{ field().required ? ' *' : '' }}",
+      "ownership": "localized-fallback",
+      "reason": "fieldLabel translates only explicit field.labelKey and otherwise preserves the customer schema label; the appended asterisk is a required-field marker.",
+      "maximum": 5
+    },
+    {
+      "id": "4c9beaa5dc56e790",
+      "file": "app/extensions/schema-field.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ blobName() }}",
+      "ownership": "customer-content",
+      "reason": "blobName returns the customer file name when available; its missing-name File selected fallback is separately keyed and localized.",
+      "maximum": 1
+    },
+    {
+      "id": "bf24e3eadd346b36",
+      "file": "app/extensions/schema-field.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ currentError() }}",
+      "ownership": "localized-fallback",
+      "reason": "Field errors come from the keyed layoutFieldError formatter or LocalizedUiError; explicitly supplied caller validation strings retain literal semantics.",
+      "maximum": 1
+    },
+    {
+      "id": "8dacbf243f4f1ee6",
+      "file": "app/extensions/schema-field.component.ts",
+      "kind": "typescript-string",
+      "text": "This widget has no upload gateway.",
+      "ownership": "localized-fallback",
+      "reason": "This fallback is passed with an explicit SDK key to localizedState.setMessage/setError; identified errors rerender on locale changes.",
+      "maximum": 1
+    },
+    {
+      "id": "e550630e95e958ba",
+      "file": "app/extensions/schema-field.component.ts",
+      "kind": "typescript-string",
+      "text": "The file could not be uploaded.",
+      "ownership": "localized-fallback",
+      "reason": "This fallback is passed with an explicit SDK key to localizedState.setMessage/setError; identified errors rerender on locale changes.",
+      "maximum": 1
+    },
+    {
+      "id": "21f52100050e9ba4",
+      "file": "app/extensions/schema-field.component.ts",
+      "kind": "typescript-string",
+      "text": "This application has no reference search.",
+      "ownership": "localized-fallback",
+      "reason": "This fallback is passed with an explicit SDK key to localizedState.setMessage/setError; identified errors rerender on locale changes.",
+      "maximum": 2
+    },
+    {
+      "id": "9e4d257259c2368e",
+      "file": "app/extensions/schema-field.component.ts",
+      "kind": "typescript-string",
+      "text": "References could not be loaded.",
+      "ownership": "localized-fallback",
+      "reason": "This fallback is passed with an explicit SDK key to localizedState.setMessage/setError; identified errors rerender on locale changes.",
+      "maximum": 1
+    },
+    {
+      "id": "fe5e29a9e8e5204c",
+      "file": "app/extensions/schema-field.component.ts",
+      "kind": "typescript-string",
+      "text": "${props.identity}:${props.revision ?? 0}",
+      "ownership": "technical-token",
+      "reason": "This exact string is a CSS selector, CSS value or internal DOM/scope identity; it is not rendered as application prose.",
+      "maximum": 1
+    },
+    {
+      "id": "377930176edffb40",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ error() }}",
+      "ownership": "localized-fallback",
+      "reason": "SchemaLayout error/status signals retain message identifiers via localizedState; ordinary server/custom error text is not auto-translated.",
+      "maximum": 1
+    },
+    {
+      "id": "89575cef77c4db86",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ fieldLabel(field) }}",
+      "ownership": "localized-fallback",
+      "reason": "fieldLabel translates only explicit field.labelKey and otherwise preserves the customer schema label; the appended asterisk is a required-field marker.",
+      "maximum": 1
+    },
+    {
+      "id": "09e5137be12a6b43",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ display(field) }}",
+      "ownership": "customer-content",
+      "reason": "Readonly display formats app booleans, dates and numbers with the active locale; source strings, directory labels, file names and serialized objects remain customer content.",
+      "maximum": 1
+    },
+    {
+      "id": "f550254e982764c2",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ fieldLabel(field) }}{{ field.required ? ' *' : '' }}",
+      "ownership": "localized-fallback",
+      "reason": "fieldLabel translates only explicit field.labelKey and otherwise preserves the customer schema label; the appended asterisk is a required-field marker.",
+      "maximum": 1
+    },
+    {
+      "id": "ddf2e3d9a4cd9f64",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ status() }}",
+      "ownership": "localized-fallback",
+      "reason": "SchemaLayout error/status signals retain message identifiers via localizedState; ordinary server/custom error text is not auto-translated.",
+      "maximum": 1
+    },
+    {
+      "id": "c11a6b759209ca2f",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "diagnostic",
+      "text": "sdk.layout.missingDocument",
+      "ownership": "technical-token",
+      "reason": "This is the explicit message key passed to LocalizedUiError; the translated message is rendered later with its structured values.",
+      "maximum": 1
+    },
+    {
+      "id": "74c9b40f497124d0",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "diagnostic",
+      "text": "A document or parent folder is required.",
+      "ownership": "localized-fallback",
+      "reason": "LocalizedUiError retains this English compatibility fallback with an explicit sdk message key; SchemaLayout formats that identifier reactively for display.",
+      "maximum": 1
+    },
+    {
+      "id": "2d511b77ce6b2334",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "diagnostic",
+      "text": "sdk.layout.wrongType",
+      "ownership": "technical-token",
+      "reason": "This is the explicit message key passed to LocalizedUiError; the translated message is rendered later with its structured values.",
+      "maximum": 1
+    },
+    {
+      "id": "a173ef05be62ad45",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "diagnostic",
+      "text": "The document type does not match this layout.",
+      "ownership": "localized-fallback",
+      "reason": "LocalizedUiError retains this English compatibility fallback with an explicit sdk message key; SchemaLayout formats that identifier reactively for display.",
+      "maximum": 1
+    },
+    {
+      "id": "610ea08cc24f6be0",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "typescript-string",
+      "text": "The layout could not be loaded.",
+      "ownership": "localized-fallback",
+      "reason": "This SchemaLayout load/save/discard fallback is passed to keyed localizedState; the UI formats it with the selected locale without changing the draft.",
+      "maximum": 1
+    },
+    {
+      "id": "7f3f15a800d95581",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "typescript-string",
+      "text": "${this.id}-${field.property.replace(/[^a-z0-9_-]/gi, '-')}",
+      "ownership": "technical-token",
+      "reason": "This exact string is a CSS selector, CSS value or internal DOM/scope identity; it is not rendered as application prose.",
+      "maximum": 1
+    },
+    {
+      "id": "33e4b585528015ca",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "typescript-string",
+      "text": "${this.document()?.uid || this.parentId() || 'new'}:${field.property}:${generation}",
+      "ownership": "technical-token",
+      "reason": "This exact string is a CSS selector, CSS value or internal DOM/scope identity; it is not rendered as application prose.",
+      "maximum": 1
+    },
+    {
+      "id": "9ec869566611ff77",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "diagnostic",
+      "text": "sdk.layout.uploadTargetChanged",
+      "ownership": "technical-token",
+      "reason": "This is the explicit message key passed to LocalizedUiError; the translated message is rendered later with its structured values.",
+      "maximum": 1
+    },
+    {
+      "id": "7e1cd0a052844a7a",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "diagnostic",
+      "text": "The upload target changed.",
+      "ownership": "localized-fallback",
+      "reason": "LocalizedUiError retains this English compatibility fallback with an explicit sdk message key; SchemaLayout formats that identifier reactively for display.",
+      "maximum": 1
+    },
+    {
+      "id": "bac0c66ab557f2ae",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "diagnostic",
+      "text": "sdk.field.uploadFailed",
+      "ownership": "technical-token",
+      "reason": "This is the explicit message key passed to LocalizedUiError; the translated message is rendered later with its structured values.",
+      "maximum": 1
+    },
+    {
+      "id": "b62f90ef299ecb2d",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "diagnostic",
+      "text": "The file could not be uploaded.",
+      "ownership": "localized-fallback",
+      "reason": "LocalizedUiError retains this English compatibility fallback with an explicit sdk message key; SchemaLayout formats that identifier reactively for display.",
+      "maximum": 1
+    },
+    {
+      "id": "da1498da2495f0c8",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "diagnostic",
+      "text": "sdk.field.noResolver",
+      "ownership": "technical-token",
+      "reason": "This is the explicit message key passed to LocalizedUiError; the translated message is rendered later with its structured values.",
+      "maximum": 1
+    },
+    {
+      "id": "c4b9c68277f39507",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "diagnostic",
+      "text": "This application has no reference resolver.",
+      "ownership": "localized-fallback",
+      "reason": "LocalizedUiError retains this English compatibility fallback with an explicit sdk message key; SchemaLayout formats that identifier reactively for display.",
+      "maximum": 1
+    },
+    {
+      "id": "51ffd1e20fba2475",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "diagnostic",
+      "text": "not found",
+      "ownership": "diagnostic",
+      "reason": "Internal reference-validation sentinel is caught immediately and replaced by the keyed sdk.field.invalidReference error; this literal is never displayed.",
+      "maximum": 1
+    },
+    {
+      "id": "05d5b234819c7aa3",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "diagnostic",
+      "text": "sdk.field.invalidReference",
+      "ownership": "technical-token",
+      "reason": "This is the explicit message key passed to LocalizedUiError; the translated message is rendered later with its structured values.",
+      "maximum": 1
+    },
+    {
+      "id": "5a41aa458113911c",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "diagnostic",
+      "text": "Choose a valid reference.",
+      "ownership": "localized-fallback",
+      "reason": "LocalizedUiError retains this English compatibility fallback with an explicit sdk message key; SchemaLayout formats that identifier reactively for display.",
+      "maximum": 1
+    },
+    {
+      "id": "af1a50c7adddcf3e",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "typescript-string",
+      "text": "Changes saved.",
+      "ownership": "localized-fallback",
+      "reason": "This SchemaLayout load/save/discard fallback is passed to keyed localizedState; the UI formats it with the selected locale without changing the draft.",
+      "maximum": 1
+    },
+    {
+      "id": "ba080d03d4bd1b46",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "typescript-string",
+      "text": "This document changed on the server. Your draft is preserved. Reload to review the latest version.",
+      "ownership": "localized-fallback",
+      "reason": "This SchemaLayout load/save/discard fallback is passed to keyed localizedState; the UI formats it with the selected locale without changing the draft.",
+      "maximum": 1
+    },
+    {
+      "id": "42aa7a0f93d08633",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "typescript-string",
+      "text": "You no longer have permission to save this document.",
+      "ownership": "localized-fallback",
+      "reason": "This SchemaLayout load/save/discard fallback is passed to keyed localizedState; the UI formats it with the selected locale without changing the draft.",
+      "maximum": 1
+    },
+    {
+      "id": "f3303ec52d2c6398",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "typescript-string",
+      "text": "Saving failed. Your draft is preserved; retry when the server is available.",
+      "ownership": "localized-fallback",
+      "reason": "This SchemaLayout load/save/discard fallback is passed to keyed localizedState; the UI formats it with the selected locale without changing the draft.",
+      "maximum": 1
+    },
+    {
+      "id": "c4018364c15ec9ad",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "typescript-string",
+      "text": "Changes discarded.",
+      "ownership": "localized-fallback",
+      "reason": "This SchemaLayout load/save/discard fallback is passed to keyed localizedState; the UI formats it with the selected locale without changing the draft.",
+      "maximum": 1
+    },
+    {
+      "id": "0aab134a76e7da09",
+      "file": "app/extensions/webui-icons.ts",
+      "kind": "diagnostic",
+      "text": "Unsupported SVG node.",
+      "ownership": "diagnostic",
+      "reason": "SVG registration validation throws this developer diagnostic for unsafe/invalid icon definitions; SVG content is never treated as catalogue text.",
+      "maximum": 1
+    },
+    {
+      "id": "b9d3f745b1a6a092",
+      "file": "app/extensions/webui-icons.ts",
+      "kind": "diagnostic",
+      "text": "Unsupported SVG attribute.",
+      "ownership": "diagnostic",
+      "reason": "SVG registration validation throws this developer diagnostic for unsafe/invalid icon definitions; SVG content is never treated as catalogue text.",
+      "maximum": 1
+    },
+    {
+      "id": "247a0c0b054221a8",
+      "file": "app/extensions/webui-icons.ts",
+      "kind": "diagnostic",
+      "text": "SVG text must be a string.",
+      "ownership": "diagnostic",
+      "reason": "SVG registration validation throws this developer diagnostic for unsafe/invalid icon definitions; SVG content is never treated as catalogue text.",
+      "maximum": 1
+    },
+    {
+      "id": "2e2357102da57740",
+      "file": "app/extensions/webui-icons.ts",
+      "kind": "diagnostic",
+      "text": "Invalid icon name or view box.",
+      "ownership": "diagnostic",
+      "reason": "SVG registration validation throws this developer diagnostic for unsafe/invalid icon definitions; SVG content is never treated as catalogue text.",
+      "maximum": 1
+    },
+    {
+      "id": "98279a88ee885f5b",
+      "file": "app/extensions/webui-messages.ts",
+      "kind": "diagnostic",
+      "text": "Invalid message priority.",
+      "ownership": "diagnostic",
+      "reason": "Catalogue registration rejects invalid entries with this developer diagnostic; registration errors are not normal rendered app notifications.",
+      "maximum": 1
+    },
+    {
+      "id": "45026fe9b24a99a1",
+      "file": "app/extensions/webui-messages.ts",
+      "kind": "diagnostic",
+      "text": "Invalid message locale.",
+      "ownership": "diagnostic",
+      "reason": "Catalogue registration rejects invalid entries with this developer diagnostic; registration errors are not normal rendered app notifications.",
+      "maximum": 1
+    },
+    {
+      "id": "6a30c88831fc26d5",
+      "file": "app/extensions/webui-messages.ts",
+      "kind": "diagnostic",
+      "text": "Invalid message entry.",
+      "ownership": "diagnostic",
+      "reason": "Catalogue registration rejects invalid entries with this developer diagnostic; registration errors are not normal rendered app notifications.",
+      "maximum": 1
+    },
+    {
+      "id": "27629cd8bff74705",
+      "file": "app/extensions/webui-slot.component.ts",
+      "kind": "typescript-string",
+      "text": "layout() === 'stack'",
+      "ownership": "technical-token",
+      "reason": "This exact string is a CSS selector, CSS value or internal DOM/scope identity; it is not rendered as application prose.",
+      "maximum": 1
+    },
+    {
+      "id": "97746a0db8699df6",
+      "file": "app/extensions/webui-themes.ts",
+      "kind": "diagnostic",
+      "text": "Unsupported theme token.",
+      "ownership": "diagnostic",
+      "reason": "Theme registration validation rejects unsupported CSS tokens with a developer contract error, not a displayed application message.",
+      "maximum": 1
+    },
+    {
+      "id": "f3ce08c2eba81834",
+      "file": "app/extensions/workflow-layout.ts",
+      "kind": "typescript-string",
+      "text": "Workflow layouts",
+      "ownership": "diagnostic",
+      "reason": "Angular InjectionToken debug description only; this literal identifies a provider contract and is not part of a rendered application message.",
+      "maximum": 1
+    },
+    {
+      "id": "5beec2c6dac21824",
+      "file": "app/extensions/primitives/projection-primitives.ts",
+      "kind": "dynamic-template",
+      "text": "{{ accessibleLabel() }}",
+      "ownership": "customer-content",
+      "reason": "accessibleLabel preserves the supplied customer label literally; an omitted or empty label resolves the existing actionsMenu.more SDK message reactively.",
+      "maximum": 1
+    },
+    {
+      "id": "3e22cab2e89a5a9a",
+      "file": "app/extensions/primitives/projection-primitives.ts",
+      "kind": "typescript-string",
+      "text": "[role=\"menuitem\"], [role=\"menuitemcheckbox\"], [role=\"menuitemradio\"], [role=\"option\"], button:not([role]), a[href]:not([role])",
+      "ownership": "technical-token",
+      "reason": "This exact DOM selector identifies projected action controls for menu semantics and keyboard navigation; it is never rendered as prose.",
+      "maximum": 1
+    },
+    {
+      "id": "ba7b2bb4f132d5c4",
+      "file": "app/extensions/primitives/projection-primitives.ts",
+      "kind": "typescript-string",
+      "text": "[hidden], [inert], [aria-hidden=\"true\"], [aria-disabled=\"true\"]",
+      "ownership": "technical-token",
+      "reason": "This exact DOM selector filters hidden, inert and unavailable ancestors from keyboard targets; its ARIA tokens are technical identifiers, not UI text.",
+      "maximum": 1
+    },
+    {
+      "id": "63afc67d450b177b",
+      "file": "app/extensions/primitives/projection-primitives.ts",
+      "kind": "bound-attribute-literal",
+      "text": "app.browse",
+      "ownership": "catalogue-metadata",
+      "reason": "The tree name fallback explicitly passes this stable SDK catalogue key to WebUiMessages.text; supplied customer tree labels remain literal.",
+      "maximum": 1
+    },
+    {
+      "id": "7d07b782b90aa74a",
+      "file": "app/extensions/primitives/projection-primitives.ts",
+      "kind": "bound-attribute-literal",
+      "text": "Browse",
+      "ownership": "localized-fallback",
+      "reason": "The tree name uses WebUiMessages.text with the existing app.browse key in all seven SDK catalogs; Browse is only its English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "f0dd7516fc19fefa",
+      "file": "app/extensions/primitives/projection-primitives.ts",
+      "kind": "typescript-string",
+      "text": "[hidden], [inert]",
+      "ownership": "technical-token",
+      "reason": "This exact CSS selector excludes hidden or inert tree items from the keyboard focus order; it is not displayed UI text.",
+      "maximum": 1
+    },
+    {
+      "id": "906dfff6c274bec5",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ sectionLabel(section) }}",
+      "ownership": "localized-fallback",
+      "reason": "sectionLabel resolves an explicit labelKey or preserves the customer label; fieldError formats the typed validation code through WebUiMessages. This is the reviewed multiline form of those existing bindings.",
+      "maximum": 1
+    },
+    {
+      "id": "c6c3af8c61f77461",
+      "file": "app/extensions/schema-layout.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{\n\t\t\t\t\t\t\t\t\t\t\tfieldError(field)\n\t\t\t\t\t\t\t\t\t\t}}",
+      "ownership": "localized-fallback",
+      "reason": "sectionLabel resolves an explicit labelKey or preserves the customer label; fieldError formats the typed validation code through WebUiMessages. This is the reviewed multiline form of those existing bindings.",
+      "maximum": 1
+    },
+    {
+      "id": "6f7191454348893e",
+      "file": "app/extensions/nuxeo-filter.ts",
+      "kind": "diagnostic",
+      "text": "nuxeo-filter conditions must be an object.",
+      "ownership": "diagnostic",
+      "reason": "nuxeoFilter throws this developer definition error while extensions are compiled and registered; it is never rendered to end users.",
+      "maximum": 1
+    },
+    {
+      "id": "8fbb7f3fc49b0553",
+      "file": "app/extensions/nuxeo-filter.ts",
+      "kind": "diagnostic",
+      "text": "Unknown nuxeo-filter condition: ${key}.",
+      "ownership": "diagnostic",
+      "reason": "nuxeoFilter throws this developer definition error while extensions are compiled and registered; it is never rendered to end users.",
+      "maximum": 1
+    },
+    {
+      "id": "1c6c41aee43ae144",
+      "file": "app/extensions/nuxeo-filter.ts",
+      "kind": "diagnostic",
+      "text": "nuxeo-filter condition ${key} has the wrong type.",
+      "ownership": "diagnostic",
+      "reason": "nuxeoFilter throws this developer definition error while extensions are compiled and registered; it is never rendered to end users.",
+      "maximum": 1
+    },
+    {
+      "id": "e056a59632dda551",
+      "file": "app/extensions/rail-tooltip.directive.ts",
+      "kind": "dynamic-template",
+      "text": "{{ text() }}",
+      "ownership": "localized-fallback",
+      "reason": "The producing drawer and sidebar resolve built-in keys through WebUiMessages or WebUiMessagePipe before passing this text; customer labels and the account display name remain caller-owned literals, verified in the locale and pseudo browser cases.",
+      "maximum": 1
+    },
+    {
+      "id": "b0757dd9c0ee7082",
+      "file": "app/extensions/rail-tooltip.directive.ts",
+      "kind": "typescript-string",
+      "text": "[hidden], [inert], [aria-hidden=\"true\"]",
+      "ownership": "technical-token",
+      "reason": "This exact CSS selector checks whether the trigger has a hidden or inert ancestor; it is not rendered as application prose.",
+      "maximum": 1
+    },
+    {
+      "id": "dc196f05631fa3eb",
+      "file": "app/extensions/webui-themes.ts",
+      "kind": "dynamic-template",
+      "text": "{{ messages.text(labelKey(), label()) }}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "6df96588290d7205",
+      "file": "app/extensions/webui-themes.ts",
+      "kind": "template-expression-literal",
+      "text": "themes.current",
+      "ownership": "technical-token",
+      "reason": "Reviewed parity change: internal query, selector, message key, SVG/CSS geometry, format token, sort indicator or numeric page position; this exact occurrence is not translatable prose.",
+      "maximum": 1
+    },
+    {
+      "id": "6f40d011f36e814e",
+      "file": "app/extensions/webui-themes.ts",
+      "kind": "template-expression-literal",
+      "text": "Current",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "7964c27f304204f3",
+      "file": "app/extensions/webui-themes.ts",
+      "kind": "template-expression-literal",
+      "text": "themes.apply",
+      "ownership": "technical-token",
+      "reason": "Reviewed parity change: internal query, selector, message key, SVG/CSS geometry, format token, sort indicator or numeric page position; this exact occurrence is not translatable prose.",
+      "maximum": 1
+    },
+    {
+      "id": "350f47fcae52e211",
+      "file": "app/extensions/webui-themes.ts",
+      "kind": "template-expression-literal",
+      "text": "Apply",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "e76c6358449e435f",
+      "file": "app/extensions/webui-themes.ts",
+      "kind": "dynamic-template",
+      "text": "{{\n\t\t\t\t\tcontext().selected === themeId()\n\t\t\t\t\t\t? messages.text('themes.current', 'Current')\n\t\t\t\t\t\t: messages.text('themes.apply', 'Apply')\n\t\t\t\t}}",
+      "ownership": "localized-fallback",
+      "reason": "Reviewed parity change: the displayed value is produced by WebUiMessages/localized state, a locale formatter, or a caller that supplies a localized heading. Literal text here is the bounded English fallback.",
+      "maximum": 1
+    },
+    {
+      "id": "7613acbdf9953bdb",
+      "file": "app/extensions/document-field-extensions.ts",
+      "kind": "typescript-string",
+      "text": "Document field extensions",
+      "ownership": "technical-token",
+      "reason": "Angular injection-token diagnostic identity; never displayed as a UI label.",
+      "maximum": 1
+    },
+    {
+      "id": "7ace84c1593a2e8b",
+      "file": "app/extensions/document-field-extensions.ts",
+      "kind": "typescript-string",
+      "text": "Document content renderer",
+      "ownership": "technical-token",
+      "reason": "Angular injection-token diagnostic identity; never displayed as a UI label.",
+      "maximum": 1
+    },
+    {
+      "id": "17d9f0be2d24cdf9",
+      "file": "app/extensions/document-field-extensions.ts",
+      "kind": "typescript-string",
+      "text": "Results command gateway",
+      "ownership": "technical-token",
+      "reason": "Angular injection-token diagnostic identity; never displayed as a UI label.",
+      "maximum": 1
+    },
+    {
+      "id": "c53d1c1f61c77604",
+      "file": "app/extensions/webui-themes.ts",
+      "kind": "bound-attribute-literal",
+      "text": "themes.current",
+      "ownership": "technical-token",
+      "reason": "Exact theme action key or English fallback is consumed by WebUiMessages.text; the accessible name combines localized action and theme labels, never untranslated app text.",
+      "maximum": 1
+    },
+    {
+      "id": "9094189b3360d228",
+      "file": "app/extensions/webui-themes.ts",
+      "kind": "bound-attribute-literal",
+      "text": "Current",
+      "ownership": "localized-fallback",
+      "reason": "Exact theme action key or English fallback is consumed by WebUiMessages.text; the accessible name combines localized action and theme labels, never untranslated app text.",
+      "maximum": 1
+    },
+    {
+      "id": "b04c8af177678352",
+      "file": "app/extensions/webui-themes.ts",
+      "kind": "bound-attribute-literal",
+      "text": "themes.apply",
+      "ownership": "technical-token",
+      "reason": "Exact theme action key or English fallback is consumed by WebUiMessages.text; the accessible name combines localized action and theme labels, never untranslated app text.",
+      "maximum": 1
+    },
+    {
+      "id": "0e54abf75cf8d651",
+      "file": "app/extensions/webui-themes.ts",
+      "kind": "bound-attribute-literal",
+      "text": "Apply",
+      "ownership": "localized-fallback",
+      "reason": "Exact theme action key or English fallback is consumed by WebUiMessages.text; the accessible name combines localized action and theme labels, never untranslated app text.",
+      "maximum": 1
+    },
+    {
+      "id": "fbe3f7936db4818b",
+      "file": "app/extensions/results-projection.component.ts",
+      "kind": "typescript-string",
+      "text": "min(${Math.max(128, this.tableHeaderHeight() + 2 + this.rows().length * this.tableRowHeight())}px, var(--nx-results-projection-grid-height, min(60vh, 600px)))",
+      "ownership": "technical-token",
+      "reason": "This exact expression supplies a CSS geometry value, Angular class binding or stock document-type catalog key; it is not displayed as UI prose.",
+      "maximum": 1
+    },
+    {
+      "id": "ec55cd37aff1220f",
+      "file": "app/extensions/schema-field.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ lookupHint() }}",
+      "ownership": "localized-fallback",
+      "reason": "lookupHint holds suggestionMinCharsText: the stock selectivity.minChars catalogue message with the configured minimum substituted.",
+      "maximum": 1
+    },
+    {
+      "id": "76e36716816a81df",
+      "file": "app/extensions/suggestion-settings.ts",
+      "kind": "typescript-string",
+      "text": "Please enter {0} or more characters",
+      "ownership": "localized-fallback",
+      "reason": "English fallback of the stock selectivity.minChars catalogue key read through WebUiMessages.text; {0} is replaced by the configured minimum.",
+      "maximum": 1
+    },
+    {
+      "id": "770bdd8e4108e42b",
+      "file": "app/extensions/package.json",
+      "kind": "typescript-string",
+      "text": "Apache-2.0 AND BSD-3-Clause",
+      "ownership": "technical-token",
+      "reason": "SPDX licence expression in the SDK package manifest, read by npm and the licence inventory; it is never rendered as UI text.",
+      "maximum": 1
+    }
+  ]
+}

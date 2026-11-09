@@ -1,0 +1,310 @@
+@if (localeNotice()) {
+	<p class="pdf-status" role="status">
+		{{
+			localeNotice() === 'direction'
+				? ('pdf.directionDeferred'
+					| webuiMessage
+						: 'PDF controls use the selected language. Reopen this preview after saving annotations to apply its reading direction.')
+				: ('pdf.localeUnavailable'
+					| webuiMessage
+						: 'PDF controls keep their previous language. Reopen this preview after saving annotations to apply the selected language.')
+		}}
+	</p>
+}
+@if (fetching()) {
+	<p class="pdf-status" role="status">
+		{{ 'app.modules.pdf-renderer.loading-pdf-56ea16' | webuiMessage: 'Loading PDF…' }}
+	</p>
+}
+@if (error()) {
+	<div class="pdf-status" role="alert">
+		<p>{{ error() }}</p>
+		<button type="button" class="btn btn-outline-primary" (click)="loadPdf()">
+			{{ 'app.modules.pdf-renderer.retry-c76e1b' | webuiMessage: 'Retry' }}
+		</button>
+	</div>
+}
+@for (view of pdfViews(); track view.generation) {
+	<ngx-extended-pdf-viewer
+		[src]="view.data"
+		[height]="'100%'"
+		[language]="locale()"
+		[textLayer]="true"
+		[showFindButton]="true"
+		[handTool]="handTool === 'Y'"
+		[customToolbar]="customPdfViewerToolbar"
+		[zoom]="zoom"
+		[pageViewMode]="pageViewMode"
+		(currentZoomFactor)="zoomChanged($event)"
+		(pdfLoadingStarts)="pdfLoading($event, view.generation)"
+		(pdfLoadingFailed)="pdfLoadingFailed($event, view.generation)"
+		(pdfLoaded)="pdfLoaded($event, view.generation)"
+		(pageRendered)="pdfPageRendered($event, view.generation)"
+		(beforePrint)="beforePrint()"
+		(afterPrint)="afterPrint()"
+		(progress)="onPrint($event)"
+		[sidebarVisible]="sideBar"
+		[(page)]="currentPage"
+		[contextMenuAllowed]="true"
+		[findbarVisible]="findbar"
+	>
+	</ngx-extended-pdf-viewer>
+}
+
+<ng-template #customPdfViewerToolbar>
+	<div class="btn-toolbar p-2 justify-content-between bg-white" role="toolbar">
+		<div [class.hidden]="!showToolbar()" class="btn-group" role="group">
+			<button
+				btnCheckbox
+				[(ngModel)]="sideBar"
+				id="sideBar"
+				class="btn btn-pdf"
+				[tooltip]="
+					'app.modules.pdf-renderer.table-of-contents-9db724' | webuiMessage: 'Table of contents'
+				"
+				[attr.aria-label]="
+					'app.modules.pdf-renderer.table-of-contents-9db724' | webuiMessage: 'Table of contents'
+				"
+			>
+				<fa-icon [fixedWidth]="true" icon="book-open"></fa-icon>
+			</button>
+		</div>
+
+		<div [class.hidden]="!showToolbar()" class="btn-group" role="group">
+			<button
+				id="firstPage"
+				class="btn btn-pdf"
+				[tooltip]="'pdf.first' | webuiMessage: 'First page'"
+				[attr.aria-label]="'pdf.first' | webuiMessage: 'First page'"
+			>
+				<fa-icon [fixedWidth]="true" icon="fast-backward"></fa-icon>
+			</button>
+			<button
+				id="previous"
+				class="btn btn-pdf"
+				[tooltip]="'pdf.previous' | webuiMessage: 'Previous page'"
+				[attr.aria-label]="'pdf.previous' | webuiMessage: 'Previous page'"
+			>
+				<fa-icon [fixedWidth]="true" icon="backward"></fa-icon>
+			</button>
+			<div class="input-group">
+				<input
+					type="text"
+					class="form-control"
+					id="pageNumber"
+					[attr.aria-label]="'pdf.currentPage' | webuiMessage: 'Current page'"
+				/>
+				<div class="input-group-append d-flex">
+					<span class="input-group-text" id="numPages"></span>
+				</div>
+			</div>
+			<button
+				id="next"
+				class="btn btn-pdf"
+				[tooltip]="'pdf.next' | webuiMessage: 'Next page'"
+				[attr.aria-label]="'pdf.next' | webuiMessage: 'Next page'"
+			>
+				<fa-icon [fixedWidth]="true" icon="forward"></fa-icon>
+			</button>
+			<button
+				id="lastPage"
+				class="btn btn-pdf"
+				[tooltip]="'pdf.last' | webuiMessage: 'Last page'"
+				[attr.aria-label]="'pdf.last' | webuiMessage: 'Last page'"
+			>
+				<fa-icon [fixedWidth]="true" icon="fast-forward"></fa-icon>
+			</button>
+		</div>
+
+		<div class="btn-group" role="group" dropdown container="body">
+			<button
+				id="secondaryPresentationMode"
+				class="btn btn-pdf"
+				[tooltip]="'app.modules.pdf-renderer.fullscreen-d80e4d' | webuiMessage: 'Fullscreen'"
+				[attr.aria-label]="
+					'app.modules.pdf-renderer.fullscreen-d80e4d' | webuiMessage: 'Fullscreen'
+				"
+			>
+				<fa-icon [fixedWidth]="true" icon="expand"></fa-icon>
+			</button>
+
+			<button
+				dropdownToggle
+				class="btn btn-pdf dropdown-toggle"
+				[tooltip]="'app.modules.pdf-renderer.zoom-in-out-810965' | webuiMessage: 'Zoom in/out'"
+				role="group"
+				[attr.aria-label]="
+					'app.modules.pdf-renderer.zoom-in-out-810965' | webuiMessage: 'Zoom in/out'
+				"
+			>
+				<fa-icon [fixedWidth]="true" icon="magnifying-glass-plus"></fa-icon>
+			</button>
+
+			<ul *dropdownMenu class="dropdown-menu" role="menu">
+				<li role="menuitem">
+					<button (click)="zoom = 'auto'" class="dropdown-item" [class.active]="zoom === 'auto'">
+						{{ 'app.modules.pdf-renderer.auto-9fb3e3' | webuiMessage: 'Auto' }}
+					</button>
+				</li>
+				<li role="menuitem">
+					<button
+						(click)="zoom = 'page-actual'"
+						class="dropdown-item"
+						[class.active]="zoom === 'page-actual'"
+					>
+						{{ 'app.modules.pdf-renderer.actual-size-7daf66' | webuiMessage: 'Actual size' }}
+					</button>
+				</li>
+				<li role="menuitem">
+					<button
+						(click)="zoom = 'page-fit'"
+						class="dropdown-item"
+						[class.active]="zoom === 'page-fit'"
+					>
+						{{
+							'app.modules.pdf-renderer.fit-view-height-39b7a5' | webuiMessage: 'Fit view height'
+						}}
+					</button>
+				</li>
+				<li role="menuitem">
+					<button
+						(click)="zoom = 'page-width'"
+						class="dropdown-item"
+						[class.active]="zoom === 'page-width'"
+					>
+						{{ 'app.modules.pdf-renderer.fit-view-width-2d2e2d' | webuiMessage: 'Fit view width' }}
+					</button>
+				</li>
+				<li role="menuitem">
+					<button (click)="zoom = '50'" class="dropdown-item" [class.active]="zoom === '50'">
+						{{ percent(50) }}
+					</button>
+				</li>
+				<li role="menuitem">
+					<button (click)="zoom = '100'" class="dropdown-item" [class.active]="zoom === '100'">
+						{{ percent(100) }}
+					</button>
+				</li>
+				<li role="menuitem">
+					<button (click)="zoom = '125'" class="dropdown-item" [class.active]="zoom === '125'">
+						{{ percent(125) }}
+					</button>
+				</li>
+				<li role="menuitem">
+					<button (click)="zoom = '150'" class="dropdown-item" [class.active]="zoom === '150'">
+						{{ percent(150) }}
+					</button>
+				</li>
+				<li role="menuitem">
+					<button (click)="zoom = '200'" class="dropdown-item" [class.active]="zoom === '200'">
+						{{ percent(200) }}
+					</button>
+				</li>
+			</ul>
+		</div>
+
+		<!-- <div class="btn-group" btnRadioGroup [(ngModel)]="pageViewMode" role="group">
+				<label class="btn btn-pdf mb-0" btnRadio="multiple" tooltip="Multi page view">
+					<fa-icon [fixedWidth]="true" icon="layer-group"></fa-icon>
+				</button>
+				<label class="btn btn-pdf mb-0" btnRadio="infinite-scroll" tooltip="Infinite scroll">
+					<fa-icon [fixedWidth]="true" icon="scroll"></fa-icon>
+				</button>
+			</div> -->
+
+		<div [class.hidden]="!showToolbar()" class="btn-group" role="group">
+			<button
+				id="pageRotateCw"
+				class="btn btn-pdf"
+				[tooltip]="
+					'app.modules.pdf-renderer.rotate-clockwise-bd9080' | webuiMessage: 'Rotate clockwise'
+				"
+				[attr.aria-label]="
+					'app.modules.pdf-renderer.rotate-clockwise-bd9080' | webuiMessage: 'Rotate clockwise'
+				"
+			>
+				<fa-icon [fixedWidth]="true" icon="rotate-right"></fa-icon>
+			</button>
+			<button
+				id="pageRotateCcw"
+				class="btn btn-pdf"
+				[tooltip]="
+					'app.modules.pdf-renderer.rotate-counter-clockwise-123e89'
+						| webuiMessage: 'Rotate counter clockwise'
+				"
+				[attr.aria-label]="
+					'app.modules.pdf-renderer.rotate-counter-clockwise-123e89'
+						| webuiMessage: 'Rotate counter clockwise'
+				"
+			>
+				<fa-icon [fixedWidth]="true" icon="rotate-left"></fa-icon>
+			</button>
+		</div>
+
+		<div [class.hidden]="!showToolbar()" class="btn-group" btnRadioGroup [(ngModel)]="handTool">
+			<button
+				type="button"
+				class="btn btn-pdf mb-0"
+				btnRadio="Y"
+				[tooltip]="'app.modules.pdf-renderer.hand-tool-7bd658' | webuiMessage: 'Hand tool'"
+				[attr.aria-label]="'app.modules.pdf-renderer.hand-tool-7bd658' | webuiMessage: 'Hand tool'"
+			>
+				<fa-icon [fixedWidth]="true" icon="hand"></fa-icon>
+			</button>
+			<button
+				type="button"
+				class="btn btn-pdf mb-0"
+				btnRadio="N"
+				[tooltip]="'app.modules.pdf-renderer.select-text-4a8ba9' | webuiMessage: 'Select text'"
+				[attr.aria-label]="
+					'app.modules.pdf-renderer.select-text-4a8ba9' | webuiMessage: 'Select text'
+				"
+			>
+				<fa-icon [fixedWidth]="true" icon="i-cursor"></fa-icon>
+			</button>
+		</div>
+
+		<div [class.hidden]="!showToolbar()" class="btn-group" role="group">
+			<button
+				btnCheckbox
+				class="btn btn-pdf dropdown-toggle"
+				[tooltip]="
+					'app.modules.pdf-renderer.find-in-document-2c3d7a' | webuiMessage: 'Find in document...'
+				"
+				[(ngModel)]="findbar"
+				[attr.aria-label]="
+					'app.modules.pdf-renderer.find-in-document-2c3d7a' | webuiMessage: 'Find in document...'
+				"
+			>
+				<fa-icon [fixedWidth]="true" icon="magnifying-glass"></fa-icon>
+			</button>
+		</div>
+
+		<div [class.hidden]="!showToolbar()" class="btn-group" role="group">
+			<button
+				(click)="print()"
+				class="btn btn-pdf btn-print"
+				[style.--printProgress]="printProgress + '%'"
+				[tooltip]="
+					'app.modules.pdf-renderer.print-this-file-cd83da' | webuiMessage: 'Print this file'
+				"
+				[disabled]="printProgress > 1 && printProgress < 100"
+				[attr.aria-label]="
+					'app.modules.pdf-renderer.print-this-file-cd83da' | webuiMessage: 'Print this file'
+				"
+			>
+				<fa-icon [fixedWidth]="true" icon="print"></fa-icon>
+			</button>
+		</div>
+
+		<!-- <div *ngIf="!showToolbar()" class="btn-group" role="group">
+			<button id="secondaryOpenFile" class="btn btn-pdf" tooltip="Open a file">
+				<fa-icon [fixedWidth]="true" icon="file-arrow-up"></fa-icon>
+			</button>
+		</div> -->
+
+		<span class="flex-grow-1"></span>
+
+		<ng-content></ng-content>
+	</div>
+</ng-template>

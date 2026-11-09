@@ -1,0 +1,346 @@
+@import '../../../../../styles/_variables';
+
+:host {
+	display: block;
+	font-size: 13px;
+	color: var(--nuxeo-text-default);
+}
+
+.directory-landing {
+	padding: 16px;
+}
+
+.selection-navigation {
+	padding: 16px;
+}
+
+.card + .card,
+.card + .row {
+	margin-block-start: 1rem;
+}
+
+.card-body {
+	padding: 0;
+	overflow: auto;
+	max-height: 50vh;
+}
+
+.card-header {
+	text-transform: uppercase;
+	font-size: 0.85rem;
+	letter-spacing: 0.03em;
+}
+
+.list-group-item:first-child {
+	margin-block-start: 0 !important;
+}
+
+.list-group-item-action {
+	padding-block: 0.25rem;
+	padding-inline: 0.5rem 0.75rem;
+
+	> .btn .ng-fa-icon {
+		transition: transform 0.3s ease-in-out;
+	}
+
+	.user-group-members,
+	.user-groups {
+		max-height: 0;
+		opacity: 0;
+		pointer-events: none;
+		transition:
+			max-height 0.3s ease-in-out,
+			opacity 0.3s ease-in-out;
+		overflow: hidden;
+
+		.accordion-content {
+			padding-block: 0 0.35rem;
+			padding-inline: 0.8rem 0.7rem;
+		}
+
+		.badge {
+			margin-inline-end: 0.25rem;
+			position: relative;
+			overflow: hidden;
+
+			button {
+				position: absolute;
+				inset-inline-end: 0;
+				inset-block-start: 0;
+				inset-block-end: 0;
+				border: none;
+				color: #{$runtime-light};
+				border-inline-start: inherit;
+				background-color: inherit;
+
+				&:hover,
+				&:active {
+					background-color: #{$runtime-dark-dark-10};
+				}
+			}
+		}
+	}
+
+	&.expanded {
+		> .btn .ng-fa-icon {
+			transform: rotate(-90deg);
+		}
+
+		.user-group-members,
+		.user-groups {
+			max-height: 300px;
+			opacity: 1;
+			overflow: auto;
+			pointer-events: auto;
+		}
+	}
+
+	.btn-toggle {
+		font-size: 1rem;
+		box-shadow: none;
+		border: none;
+	}
+}
+
+.cdk-drag-preview {
+	box-shadow:
+		0 5px 5px -3px rgba(0, 0, 0, 0.2),
+		0 8px 10px 1px rgba(0, 0, 0, 0.14),
+		0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+	display: none;
+}
+
+.user-group-members .cdk-drag-placeholder {
+	display: inline-block;
+}
+
+.cdk-drop-list-dragging .no-data {
+	display: none;
+}
+
+.cdk-drop-list.cdk-drop-list-receiving {
+	border: 1px dashed var(--nuxeo-primary-color, #{$primary});
+	background-color: rgba(var(--nuxeo-primary-rgb, #{$primary-rgb}), 0.25);
+}
+
+.cdk-drop-list.cdk-drop-list-dragging {
+	border: 1px dashed #{$runtime-success};
+	background-color: var(--maretha-style-color-success-drop-background, rgba(39, 158, 112, 0.25));
+}
+
+.cdk-drop-list.cdk-drop-list-receiving,
+.cdk-drop-list.cdk-drop-list-dragging {
+	border-radius: 0.25rem;
+
+	.list-group-item-action {
+		background-color: transparent;
+		transition: none;
+	}
+}
+
+.cdk-drag {
+	position: absolute;
+	inset-block-start: 0;
+	inset-inline-start: 0;
+	inset-block-end: 0;
+	inset-inline-end: 0;
+	z-index: 100;
+	height: 50px;
+	/* the drop target is not recognized with setting a height */
+}
+
+.directory-toolbar {
+	display: flex;
+	align-items: flex-start;
+	gap: 13px;
+	margin-block-end: 16px;
+}
+.directory-search {
+	flex: 1;
+	min-width: 0;
+	padding: 16px;
+	background: var(--nuxeo-box);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+.directory-search input {
+	width: 100%;
+	padding: 5px 0 8px;
+	border: 0;
+	border-bottom: 2px solid var(--nuxeo-text-default);
+	border-radius: 0;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	font-size: 16px;
+	line-height: 24px;
+}
+.directory-search input::placeholder {
+	color: inherit;
+	opacity: 1;
+}
+.directory-search input:focus {
+	outline: none;
+	border-bottom: 2px solid var(--nuxeo-primary-color);
+}
+.new-menu {
+	flex: 0 0 130px;
+	margin-block-start: 15px;
+}
+.new-menu > button {
+	width: 100%;
+	min-height: 40px;
+	border-radius: 2px;
+	font-size: 13px;
+	font-weight: 600;
+}
+.new-menu nx-webui-icon {
+	--webui-icon-size: 16px;
+	vertical-align: middle;
+	margin-inline-end: 4px;
+}
+.directory-table {
+	padding: 16px;
+	background: var(--nuxeo-box);
+	color: var(--nuxeo-text-default);
+	overflow: auto;
+}
+.directory-table h2 {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 14px;
+	line-height: 16.25px;
+	font-weight: 700;
+	margin: 0 0 14px;
+	color: inherit;
+}
+.directory-table h2 nx-webui-icon {
+	--webui-icon-size: 16px;
+}
+.directory-table table {
+	width: 100%;
+	border: 1px solid var(--nuxeo-border);
+	border-collapse: collapse;
+	table-layout: fixed;
+	font-size: 13px;
+}
+.refresh-column {
+	width: 39px;
+}
+.directory-table th,
+.directory-table td {
+	padding: 12px;
+	text-align: start;
+	border-bottom: 1px solid var(--nuxeo-border);
+	overflow-wrap: anywhere;
+}
+.directory-table th {
+	height: 50px;
+	font-size: inherit;
+	font-weight: 400;
+	letter-spacing: normal;
+	text-transform: none;
+	color: inherit;
+	background: var(--nuxeo-box);
+}
+.directory-table th:last-child,
+.directory-table td:last-child {
+	padding: 0;
+}
+.sort-button,
+.refresh-button,
+.principal-action {
+	border: 0;
+	padding: 0;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+}
+.sort-button {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+}
+.sort-button nx-webui-icon,
+.refresh-button nx-webui-icon {
+	--webui-icon-size: 24px;
+}
+.sort-priority {
+	display: inline-grid;
+	place-items: center;
+	width: 14px;
+	height: 14px;
+	margin-inline-start: -8px;
+	border-radius: 50%;
+	font-size: 10px;
+	background: var(--nuxeo-text-default);
+	color: var(--nuxeo-box);
+}
+.directory-table tbody tr {
+	cursor: pointer;
+}
+.directory-table tbody tr:has(nx-user-tag) {
+	height: 52px;
+}
+.users-and-groups:not(.directory-landing) .directory-toolbar {
+	margin: 16px;
+}
+.sort-inactive {
+	opacity: 0.55;
+}
+.refresh-button {
+	width: 36px;
+	height: 40px;
+}
+.principal-action {
+	max-width: 100%;
+	border-radius: 16px;
+	text-align: start;
+}
+.principal-action:focus-visible,
+.sort-button:focus-visible,
+.refresh-button:focus-visible {
+	outline: 2px solid var(--nuxeo-primary-color);
+	outline-offset: 2px;
+}
+.directory-table .principal-tag {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	max-width: 100%;
+	border-radius: 16px;
+	background: var(--nuxeo-tag-background, rgba(0, 0, 0, 0.05));
+	color: var(--nuxeo-tag-text, inherit);
+	padding: 2px 8px;
+	font-size: 12px;
+	line-height: 18px;
+}
+.principal-tag nx-webui-icon {
+	--webui-icon-size: 16px;
+	flex-shrink: 0;
+}
+@media (max-width: 600px) {
+	.directory-toolbar {
+		flex-wrap: wrap;
+	}
+	.directory-search {
+		flex-basis: 100%;
+	}
+	.new-menu {
+		margin-block-start: 0;
+		margin-inline-start: auto;
+	}
+	.directory-table table {
+		min-width: 560px;
+	}
+}
+.inline-editor {
+	margin: 16px;
+}
+.search-paging {
+	display: flex;
+	gap: 24px;
+}

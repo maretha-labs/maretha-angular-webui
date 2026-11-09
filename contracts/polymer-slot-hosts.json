@@ -1,0 +1,892 @@
+{
+  "format": 1,
+  "polymerRevision": "e0ccb86615c692a3a60c557d363d4ce32f91c686",
+  "slots": [
+    {
+      "slot": "ADMINISTRATION_MENU",
+      "placement": "moved",
+      "polymer": "Left drawer, Administration panel",
+      "angular": "Settings page, menu beside the administration pages",
+      "note": "The menu renders in the settings page next to the pages it opens, not in a drawer panel.",
+      "hosts": ["app/modules/settings/settings.component.ts"],
+      "fields": [
+        {
+          "polymer": "actionContext",
+          "status": "dropped",
+          "note": "nuxeo-app's previous model, passed back to itself."
+        },
+        {
+          "polymer": "clipboard",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.clipboard`."
+        },
+        {
+          "polymer": "clipboardDocCount",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.clipboard().length`."
+        },
+        {
+          "polymer": "currentTask",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.currentTask`."
+        },
+        {
+          "polymer": "document",
+          "status": "mapped",
+          "angular": ["document"]
+        },
+        {
+          "polymer": "routeParams",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.route` and `query`."
+        },
+        {
+          "polymer": "taskCount",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.taskCount`."
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        },
+        {
+          "polymer": "userWorkspace",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.userWorkspace`, the workspace path."
+        }
+      ]
+    },
+    {
+      "slot": "ADMINISTRATION_PAGES",
+      "placement": "same",
+      "polymer": "Main content, administration page",
+      "angular": "Settings page content",
+      "hosts": ["app/modules/settings/settings.component.ts"],
+      "fields": [
+        {
+          "polymer": "routeParams",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.route` and `query`."
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        }
+      ]
+    },
+    {
+      "slot": "ANALYTICS_ITEMS",
+      "placement": "same",
+      "polymer": "Analytics administration page, tab bar",
+      "angular": "Analytics workspace, view list",
+      "hosts": ["app/modules/settings/components/analytics/analytics-workspace.component.ts"],
+      "fields": [
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        }
+      ]
+    },
+    {
+      "slot": "ANALYTICS_PAGES",
+      "placement": "same",
+      "polymer": "Analytics administration page, tab content",
+      "angular": "Analytics workspace content",
+      "hosts": ["app/modules/settings/components/analytics/analytics-workspace.component.ts"],
+      "fields": [
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        }
+      ]
+    },
+    {
+      "slot": "BLOB_ACTIONS",
+      "placement": "same",
+      "polymer": "Beside each blob in document view layouts",
+      "angular": "Beside the main file and the attachments in document views and editors",
+      "hosts": [
+        "app/modules/explorer/components/document-attachments/document-attachments.component.ts",
+        "app/modules/explorer/components/viewers/generic-non-folderish-viewer/generic-non-folderish-viewer.component.ts",
+        "app/modules/explorer/components/viewers/standard-content-layout.component.ts"
+      ],
+      "fields": [
+        {
+          "polymer": "blob",
+          "status": "mapped",
+          "angular": ["blob"]
+        },
+        {
+          "polymer": "document",
+          "status": "mapped",
+          "angular": ["document"]
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        },
+        {
+          "polymer": "xpath",
+          "status": "mapped",
+          "angular": ["xpath"]
+        }
+      ]
+    },
+    {
+      "slot": "COLLECTION_ACTIONS",
+      "placement": "same",
+      "polymer": "Selection toolbar of collection, favorites and Easyshare folder member lists",
+      "angular": "Selection toolbar of collection and favorites member lists",
+      "note": "Easyshare folders come from an add-on this repository does not ship.",
+      "hosts": [
+        "app/modules/explorer/components/document-toolbar/document-toolbar.component.ts",
+        "app/modules/explorer/components/viewers/picturebook-content-layout.component.ts"
+      ],
+      "fields": [
+        {
+          "polymer": "collection",
+          "status": "mapped",
+          "angular": ["collection"]
+        },
+        {
+          "polymer": "items",
+          "status": "mapped",
+          "angular": ["items"],
+          "note": "The host's loaded results, in display order."
+        },
+        {
+          "polymer": "selectedItems",
+          "status": "mapped",
+          "angular": ["selectedDocuments"]
+        },
+        {
+          "polymer": "selection",
+          "status": "mapped",
+          "angular": ["selectedDocuments", "allSelected", "queryScope", "queryExclusions"],
+          "note": "Polymer passes the results view when all matching results are selected; Angular sets `allSelected` and describes the query."
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        }
+      ]
+    },
+    {
+      "slot": "CREATE_POPUP_ITEMS",
+      "placement": "same",
+      "polymer": "Create dialog, tab list",
+      "angular": "Create dialog tab list, opened from the document toolbar or the global create button",
+      "hosts": [
+        "app/components/quick-search/destination-create-dialog.component.ts",
+        "app/modules/explorer/components/document-toolbar/create-popup.component.ts"
+      ],
+      "fields": [
+        {
+          "polymer": "i18n",
+          "status": "replaced",
+          "note": "Use `WebUiMessages` or the `webuiMessage` pipe."
+        },
+        {
+          "polymer": "parent",
+          "status": "mapped",
+          "angular": ["document"],
+          "note": "The folder the documents are created in."
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        }
+      ]
+    },
+    {
+      "slot": "CREATE_POPUP_PAGES",
+      "placement": "same",
+      "polymer": "Create dialog, tab content",
+      "angular": "Create dialog tab content, opened from the document toolbar or the global create button",
+      "hosts": [
+        "app/components/quick-search/destination-create-dialog.component.ts",
+        "app/modules/explorer/components/document-toolbar/create-popup.component.ts"
+      ],
+      "fields": [
+        {
+          "polymer": "i18n",
+          "status": "replaced",
+          "note": "Use `WebUiMessages` or the `webuiMessage` pipe."
+        },
+        {
+          "polymer": "parent",
+          "status": "mapped",
+          "angular": ["document"],
+          "note": "The folder the documents are created in."
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        }
+      ]
+    },
+    {
+      "slot": "DOCUMENT_ACTIONS",
+      "placement": "same",
+      "polymer": "Document page header, action bar",
+      "angular": "Document page header, action toolbar",
+      "hosts": [
+        "app/modules/explorer/components/viewers/document-actions-toolbar/document-actions-toolbar.component.ts"
+      ],
+      "fields": [
+        {
+          "polymer": "clipboard",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.clipboard`."
+        },
+        {
+          "polymer": "document",
+          "status": "mapped",
+          "angular": ["document"]
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        }
+      ]
+    },
+    {
+      "slot": "DOCUMENT_CREATE_ACTIONS",
+      "placement": "same",
+      "polymer": "Floating create button, shortcut tray on hover",
+      "angular": "Floating create button, shortcut tray on hover",
+      "note": "With `createButtonPlacement` set to `document-actions`, the create button sits in the document header and no host renders this slot.",
+      "hosts": ["app/components/quick-search/global-create.component.ts"],
+      "fields": [
+        {
+          "polymer": "hostVisible",
+          "status": "dropped",
+          "note": "The tray renders its contributions only while it is open."
+        },
+        {
+          "polymer": "subtypes",
+          "status": "mapped",
+          "angular": ["types"]
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        }
+      ]
+    },
+    {
+      "slot": "DOCUMENT_INFO_BAR",
+      "placement": "same",
+      "polymer": "Document page, info bar above the views",
+      "angular": "View tab, above the document content",
+      "hosts": ["app/modules/explorer/components/viewers/document-content-view.component.ts"],
+      "fields": [
+        {
+          "polymer": "document",
+          "status": "mapped",
+          "angular": ["document"]
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        }
+      ]
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_ITEMS",
+      "placement": "same",
+      "polymer": "Document page tab bar",
+      "angular": "Document page tab bar",
+      "hosts": [
+        "app/modules/explorer/components/viewers/generic-type-viewer/generic-type-viewer.component.ts"
+      ],
+      "fields": [
+        {
+          "polymer": "document",
+          "status": "mapped",
+          "angular": ["document"]
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        }
+      ]
+    },
+    {
+      "slot": "DOCUMENT_VIEWS_PAGES",
+      "placement": "same",
+      "polymer": "Document page tab content",
+      "angular": "Document page tab content",
+      "hosts": [
+        "app/modules/explorer/components/viewers/generic-type-viewer/generic-type-viewer.component.ts"
+      ],
+      "fields": [
+        {
+          "polymer": "document",
+          "status": "mapped",
+          "angular": ["document"]
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        }
+      ]
+    },
+    {
+      "slot": "DRAWER_ITEMS",
+      "placement": "same",
+      "polymer": "Left menu icon bar",
+      "angular": "Left sidebar icon bar",
+      "hosts": ["app/modules/shared/components/sidebar/sidebar.component.ts"],
+      "fields": [
+        {
+          "polymer": "actionContext",
+          "status": "dropped",
+          "note": "nuxeo-app's previous model, passed back to itself."
+        },
+        {
+          "polymer": "clipboard",
+          "status": "mapped",
+          "angular": ["clipboard"]
+        },
+        {
+          "polymer": "clipboardDocCount",
+          "status": "mapped",
+          "angular": ["clipboard"],
+          "note": "Use `clipboard.length`."
+        },
+        {
+          "polymer": "currentTask",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.currentTask`."
+        },
+        {
+          "polymer": "document",
+          "status": "mapped",
+          "angular": ["document"]
+        },
+        {
+          "polymer": "routeParams",
+          "status": "mapped",
+          "angular": ["route"],
+          "note": "The route path as a string, not parsed parameters."
+        },
+        {
+          "polymer": "taskCount",
+          "status": "mapped",
+          "angular": ["taskCount"]
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        },
+        {
+          "polymer": "userWorkspace",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.userWorkspace`, the workspace path."
+        }
+      ]
+    },
+    {
+      "slot": "DRAWER_PAGES",
+      "placement": "same",
+      "polymer": "Left drawer panel",
+      "angular": "Left sidebar drawer panel",
+      "hosts": ["app/modules/shared/components/sidebar/sidebar.component.ts"],
+      "fields": [
+        {
+          "polymer": "actionContext",
+          "status": "dropped",
+          "note": "nuxeo-app's previous model, passed back to itself."
+        },
+        {
+          "polymer": "clipboard",
+          "status": "mapped",
+          "angular": ["clipboard"]
+        },
+        {
+          "polymer": "clipboardDocCount",
+          "status": "mapped",
+          "angular": ["clipboard"],
+          "note": "Use `clipboard.length`."
+        },
+        {
+          "polymer": "currentTask",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.currentTask`."
+        },
+        {
+          "polymer": "document",
+          "status": "mapped",
+          "angular": ["document"]
+        },
+        {
+          "polymer": "routeParams",
+          "status": "mapped",
+          "angular": ["route"],
+          "note": "The route path as a string, not parsed parameters."
+        },
+        {
+          "polymer": "taskCount",
+          "status": "mapped",
+          "angular": ["taskCount"]
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        },
+        {
+          "polymer": "userWorkspace",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.userWorkspace`, the workspace path."
+        }
+      ]
+    },
+    {
+      "slot": "FILE_UPLOAD_ACTIONS",
+      "placement": "same",
+      "polymer": "Import dialog file chooser and blob dropzones in edit layouts",
+      "angular": "Import tab drop area of the create dialog, and blob and attachment upload fields in editors",
+      "note": "The Import tab leaves out the core choose-files action because its drop area already opens the file chooser.",
+      "hosts": [
+        "app/modules/explorer/components/document-toolbar/create-popup.component.ts",
+        "app/modules/shared/components/file-upload/file-upload.component.ts"
+      ],
+      "fields": [
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        }
+      ]
+    },
+    {
+      "slot": "PAGES",
+      "placement": "same",
+      "polymer": "Main content area",
+      "angular": "Main content area, `/page/:pageId` route",
+      "hosts": ["app/components/application-pages/application-page.component.ts"],
+      "fields": [
+        {
+          "polymer": "actionContext",
+          "status": "dropped",
+          "note": "nuxeo-app's previous model, passed back to itself."
+        },
+        {
+          "polymer": "clipboard",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.clipboard`."
+        },
+        {
+          "polymer": "clipboardDocCount",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.clipboard().length`."
+        },
+        {
+          "polymer": "currentTask",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.currentTask`."
+        },
+        {
+          "polymer": "document",
+          "status": "mapped",
+          "angular": ["document"]
+        },
+        {
+          "polymer": "routeParams",
+          "status": "mapped",
+          "angular": ["params", "query"]
+        },
+        {
+          "polymer": "taskCount",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.taskCount`."
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        },
+        {
+          "polymer": "userWorkspace",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.userWorkspace`, the workspace path."
+        }
+      ]
+    },
+    {
+      "slot": "PUBLISH_ITEMS",
+      "placement": "same",
+      "polymer": "Publish dialog, tab list",
+      "angular": "Publish dialog tab list for a document or a selection, and the document Publication view",
+      "note": "The Publication view also embeds the pair inline.",
+      "hosts": [
+        "app/modules/explorer/components/document-toolbar/selection-publish.component.ts",
+        "app/modules/explorer/components/viewers/document-actions-toolbar/standard-document-publish.component.ts",
+        "app/modules/explorer/components/viewers/document-publication-view.component.ts"
+      ],
+      "fields": [
+        {
+          "polymer": "document",
+          "status": "mapped",
+          "angular": ["document"]
+        },
+        {
+          "polymer": "documents",
+          "status": "mapped",
+          "angular": ["selectedDocuments"]
+        },
+        {
+          "polymer": "i18n",
+          "status": "replaced",
+          "note": "Use `WebUiMessages` or the `webuiMessage` pipe."
+        },
+        {
+          "polymer": "selection",
+          "status": "mapped",
+          "angular": ["selectedDocuments"]
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        }
+      ]
+    },
+    {
+      "slot": "PUBLISH_PAGES",
+      "placement": "same",
+      "polymer": "Publish dialog, tab content",
+      "angular": "Publish dialog tab content for a document or a selection, and the document Publication view",
+      "note": "The Publication view also embeds the pair inline.",
+      "hosts": [
+        "app/modules/explorer/components/document-toolbar/selection-publish.component.ts",
+        "app/modules/explorer/components/viewers/document-actions-toolbar/standard-document-publish.component.ts",
+        "app/modules/explorer/components/viewers/document-publication-view.component.ts"
+      ],
+      "fields": [
+        {
+          "polymer": "document",
+          "status": "mapped",
+          "angular": ["document"]
+        },
+        {
+          "polymer": "documents",
+          "status": "mapped",
+          "angular": ["selectedDocuments"]
+        },
+        {
+          "polymer": "i18n",
+          "status": "replaced",
+          "note": "Use `WebUiMessages` or the `webuiMessage` pipe."
+        },
+        {
+          "polymer": "selection",
+          "status": "mapped",
+          "angular": ["selectedDocuments"]
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        }
+      ]
+    },
+    {
+      "slot": "QUICK_SEARCH_ACTIONS",
+      "placement": "angular-only",
+      "polymer": null,
+      "angular": "Quick search dialog, action list",
+      "hosts": ["app/components/quick-search/quick-search.component.ts"],
+      "fields": []
+    },
+    {
+      "slot": "RESULTS_ACTIONS",
+      "placement": "same",
+      "polymer": "Results toolbar of folder content and search results",
+      "angular": "Toolbar of explorer folder listings, picturebook layouts and search results",
+      "hosts": [
+        "app/modules/explorer/components/document-toolbar/document-toolbar.component.ts",
+        "app/modules/explorer/components/viewers/picturebook-content-layout.component.ts",
+        "app/modules/search/components/default-search-results/default-search-results.component.ts",
+        "app/modules/search/components/repository-search/repository-search.component.ts"
+      ],
+      "fields": [
+        {
+          "polymer": "baseUrl",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.nuxeoUrl`."
+        },
+        {
+          "polymer": "columns",
+          "status": "mapped",
+          "angular": ["columns"],
+          "note": "Visible columns that show a document field; the document toolbar does not supply them."
+        },
+        {
+          "polymer": "displayMode",
+          "status": "mapped",
+          "angular": ["displayMode"],
+          "note": "The document toolbar omits it when no folder listing is shown."
+        },
+        {
+          "polymer": "document",
+          "status": "mapped",
+          "angular": ["document"]
+        },
+        {
+          "polymer": "items",
+          "status": "mapped",
+          "angular": ["items"],
+          "note": "The host's loaded results, in display order."
+        },
+        {
+          "polymer": "nxProvider",
+          "status": "mapped",
+          "angular": ["queryScope"],
+          "note": "The applied query rather than the provider element; omitted when the host cannot describe every active filter."
+        },
+        {
+          "polymer": "selectedItems",
+          "status": "mapped",
+          "angular": ["selectedDocuments"]
+        },
+        {
+          "polymer": "selection",
+          "status": "mapped",
+          "angular": ["selectedDocuments", "allSelected", "queryScope", "queryExclusions"],
+          "note": "Polymer passes the results view when all matching results are selected; Angular sets `allSelected` and describes the query."
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        }
+      ]
+    },
+    {
+      "slot": "RESULTS_SELECTION_ACTIONS",
+      "placement": "same",
+      "polymer": "Selection toolbar of folder content and search results",
+      "angular": "Selection toolbar of explorer folder listings, picturebook layouts and search results",
+      "hosts": [
+        "app/modules/explorer/components/document-toolbar/document-toolbar.component.ts",
+        "app/modules/explorer/components/viewers/picturebook-content-layout.component.ts",
+        "app/modules/search/components/default-search-results/default-search-results.component.ts",
+        "app/modules/search/components/repository-search/repository-search.component.ts"
+      ],
+      "fields": [
+        {
+          "polymer": "baseUrl",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.nuxeoUrl`."
+        },
+        {
+          "polymer": "columns",
+          "status": "mapped",
+          "angular": ["columns"],
+          "note": "Visible columns that show a document field; the document toolbar does not supply them."
+        },
+        {
+          "polymer": "displayMode",
+          "status": "mapped",
+          "angular": ["displayMode"],
+          "note": "The document toolbar omits it when no folder listing is shown."
+        },
+        {
+          "polymer": "document",
+          "status": "mapped",
+          "angular": ["document"]
+        },
+        {
+          "polymer": "items",
+          "status": "mapped",
+          "angular": ["items"],
+          "note": "The host's loaded results, in display order."
+        },
+        {
+          "polymer": "nxProvider",
+          "status": "mapped",
+          "angular": ["queryScope"],
+          "note": "The applied query rather than the provider element; omitted when the host cannot describe every active filter."
+        },
+        {
+          "polymer": "selectedItems",
+          "status": "mapped",
+          "angular": ["selectedDocuments"]
+        },
+        {
+          "polymer": "selection",
+          "status": "mapped",
+          "angular": ["selectedDocuments", "allSelected", "queryScope", "queryExclusions"],
+          "note": "Polymer passes the results view when all matching results are selected; Angular sets `allSelected` and describes the query."
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        }
+      ]
+    },
+    {
+      "slot": "SHELL_ACTIONS",
+      "placement": "angular-only",
+      "polymer": null,
+      "angular": "Application header actions",
+      "hosts": ["app/components/quick-search/shell-actions.component.ts"],
+      "fields": []
+    },
+    {
+      "slot": "THEMES",
+      "placement": "same",
+      "polymer": "Themes page",
+      "angular": "Themes page and the user menu theme picker",
+      "note": "The user menu also embeds the picker.",
+      "hosts": [
+        "app/components/application-pages/themes-page.component.ts",
+        "app/modules/shared/components/sidebar/user-menu/user-menu-row.component.ts"
+      ],
+      "fields": [
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        }
+      ]
+    },
+    {
+      "slot": "TRASH_RESULTS_SELECTION_ACTIONS",
+      "placement": "same",
+      "polymer": "Selection toolbar of a document's Trash view and the Trash search results",
+      "angular": "Selection toolbar of a document's Trash view and the Trash search results",
+      "hosts": [
+        "app/modules/explorer/components/document-toolbar/document-toolbar.component.ts",
+        "app/modules/explorer/components/viewers/document-trash-view.component.ts",
+        "app/modules/explorer/components/viewers/standard-document-trash-view.component.ts",
+        "app/modules/search/components/repository-search/repository-search.component.ts"
+      ],
+      "fields": [
+        {
+          "polymer": "baseUrl",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.nuxeoUrl`."
+        },
+        {
+          "polymer": "columns",
+          "status": "mapped",
+          "angular": ["columns"],
+          "note": "Visible columns that show a document field; the document toolbar does not supply them."
+        },
+        {
+          "polymer": "displayMode",
+          "status": "mapped",
+          "angular": ["displayMode"],
+          "note": "The document toolbar omits it when no folder listing is shown."
+        },
+        {
+          "polymer": "document",
+          "status": "mapped",
+          "angular": ["document"]
+        },
+        {
+          "polymer": "items",
+          "status": "mapped",
+          "angular": ["items"],
+          "note": "The host's loaded results, in display order."
+        },
+        {
+          "polymer": "nxProvider",
+          "status": "mapped",
+          "angular": ["queryScope"],
+          "note": "The applied query rather than the provider element; the trash views set it once loaded."
+        },
+        {
+          "polymer": "selectedItems",
+          "status": "mapped",
+          "angular": ["selectedDocuments"]
+        },
+        {
+          "polymer": "selection",
+          "status": "mapped",
+          "angular": ["selectedDocuments"],
+          "note": "No select-all-matching state."
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        }
+      ]
+    },
+    {
+      "slot": "USER_MENU",
+      "placement": "same",
+      "polymer": "Left drawer, profile panel",
+      "angular": "Left sidebar, profile panel",
+      "hosts": ["app/modules/shared/components/sidebar/sidebar.component.ts"],
+      "fields": [
+        {
+          "polymer": "actionContext",
+          "status": "dropped",
+          "note": "nuxeo-app's previous model, passed back to itself."
+        },
+        {
+          "polymer": "clipboard",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.clipboard`."
+        },
+        {
+          "polymer": "clipboardDocCount",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.clipboard().length`."
+        },
+        {
+          "polymer": "currentTask",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.currentTask`."
+        },
+        {
+          "polymer": "document",
+          "status": "mapped",
+          "angular": ["document"]
+        },
+        {
+          "polymer": "routeParams",
+          "status": "mapped",
+          "angular": ["route"],
+          "note": "The route path as a string, not parsed parameters."
+        },
+        {
+          "polymer": "taskCount",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.taskCount`."
+        },
+        {
+          "polymer": "user",
+          "status": "mapped",
+          "angular": ["user"]
+        },
+        {
+          "polymer": "userWorkspace",
+          "status": "replaced",
+          "note": "Use `WebUiAppState.userWorkspace`, the workspace path."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,308 @@
+@if (loadingActivities) {
+	<p role="status">
+		{{ 'app.modules.document-activity.loading-history-94523a' | webuiMessage: 'Loading history…' }}
+	</p>
+}
+@if (error) {
+	<p role="alert">
+		{{ error }}
+		<button type="button" (click)="retryActivity()">
+			{{ 'app.modules.document-activity.retry-7df2c7' | webuiMessage: 'Retry' }}
+		</button>
+	</p>
+}
+<cdk-virtual-scroll-viewport
+	itemSize="37"
+	minBufferPx="370"
+	maxBufferPx="740"
+	(scrolledIndexChange)="activityTableViewportScrolled()"
+>
+	<table class="table table-sm caption-top h-100">
+		<thead [style.top]="inverseOfTranslation">
+			<tr>
+				<th>
+					<button
+						class="btn btn-sm btn-link text-decoration-none"
+						[class.text-success]="appliedFilters.principalName"
+						(click)="userPickerPopover = !userPickerPopover"
+						[popover]="userPicker"
+						popoverTitle="Filter by user"
+						triggers=""
+						[nxClickOutside]="userPickerPopover"
+						(nxClickedOutside)="userPickerPopover = false"
+						nxClickOutsideDisabledWhenParentSelectorIs=".popover"
+						container="body"
+						containerClass="menu-item"
+						placement="bottom"
+						[isOpen]="userPickerPopover"
+						(onShown)="userPickerPopover = true"
+						(onHidden)="userPickerPopover = false"
+						[adaptivePosition]="false"
+					>
+						<span class="text-dark text-uppercase me-1">{{
+							'app.modules.document-activity.who-073bcd' | webuiMessage: 'Who'
+						}}</span>
+
+						<fa-icon
+							[icon]="appliedFilters.principalName ? 'filter-circle-xmark' : 'filter'"
+							size="sm"
+							[tooltip]="
+								'app.modules.document-activity.filter-events-by-author-ac9166'
+									| webuiMessage: 'Filter events by author'
+							"
+						>
+						</fa-icon>
+					</button>
+				</th>
+				<th>
+					<button
+						class="btn btn-sm btn-link text-decoration-none"
+						[class.text-success]="appliedFilters.startEventDate || appliedFilters.endEventDate"
+						(click)="dateRangePickerPickerPopover = !dateRangePickerPickerPopover"
+						[popover]="dateRangePicker"
+						popoverTitle="Filter by date"
+						triggers=""
+						[nxClickOutside]="dateRangePickerPickerPopover"
+						(nxClickedOutside)="dateRangePickerPickerPopover = false"
+						nxClickOutsideDisabledWhenParentSelectorIs=".popover"
+						container="body"
+						containerClass="menu-item"
+						placement="bottom"
+						[isOpen]="dateRangePickerPickerPopover"
+						[adaptivePosition]="false"
+						(onShown)="dateRangePickerPickerPopover = true"
+						(onHidden)="dateRangePickerPickerPopover = false"
+					>
+						<span class="text-dark text-uppercase me-1">{{
+							'app.modules.document-activity.when-08df18' | webuiMessage: 'When'
+						}}</span>
+
+						<fa-icon
+							size="sm"
+							[icon]="
+								appliedFilters.startEventDate || appliedFilters.endEventDate
+									? 'filter-circle-xmark'
+									: 'filter'
+							"
+							[tooltip]="
+								'app.modules.document-activity.filter-events-by-date-bc7b85'
+									| webuiMessage: 'Filter events by date'
+							"
+						>
+						</fa-icon>
+					</button>
+				</th>
+				<th>
+					<button
+						class="btn btn-sm btn-link text-decoration-none"
+						[class.text-success]="appliedFilters.eventId"
+						[adaptivePosition]="false"
+						(click)="auditEventPickerPopover = !auditEventPickerPopover"
+						[popover]="auditEventPicker"
+						popoverTitle="Filter by event type"
+						triggers=""
+						[nxClickOutside]="auditEventPickerPopover"
+						(nxClickedOutside)="auditEventPickerPopover = false"
+						nxClickOutsideDisabledWhenParentSelectorIs=".popover"
+						container="body"
+						containerClass="menu-item"
+						placement="bottom"
+						[isOpen]="auditEventPickerPopover"
+						(onShown)="auditEventPickerPopover = true"
+						(onHidden)="auditEventPickerPopover = false"
+					>
+						<span class="text-dark text-uppercase me-1">{{
+							'app.modules.document-activity.what-114333' | webuiMessage: 'What'
+						}}</span>
+
+						<fa-icon
+							[icon]="appliedFilters.eventId ? 'filter-circle-xmark' : 'filter'"
+							size="sm"
+							[tooltip]="
+								'app.modules.document-activity.filter-events-by-type-84f423'
+									| webuiMessage: 'Filter events by type'
+							"
+						>
+						</fa-icon>
+					</button>
+				</th>
+				<!-- <th class="text-end">State</th> -->
+			</tr>
+		</thead>
+		<tbody>
+			<tr *cdkVirtualFor="let auditEntry of documentActivity; trackBy: trackByFn">
+				<td class="text-nowrap">
+					<fa-icon icon="user" size="sm"></fa-icon>
+					<span class="text-wrap ms-1">{{ auditEntry.principalName }}</span>
+				</td>
+				<td>
+					<span [tooltip]="auditEntry.eventDate" [delay]="500" container="body">
+						{{ auditEntry.eventDate | timeago }}
+					</span>
+				</td>
+				<td>
+					{{ eventLabel(auditEntry) }}
+					@if (auditEntry.comment) {
+						<span class="me-1 opacity-75"> "{{ auditEntry.comment }}" </span>
+					}
+				</td>
+				<!-- <td class="text-end">{{ auditEntry.docLifeCycle }}</td> -->
+			</tr>
+		</tbody>
+	</table>
+</cdk-virtual-scroll-viewport>
+
+<div class="loading-spinner">
+	@if (loadingActivities) {
+		<fa-icon
+			[fixedWidth]="true"
+			class="spinner"
+			icon="spinner"
+			[fixedWidth]="true"
+			animation="spin-pulse"
+			size="lg"
+		></fa-icon>
+	}
+</div>
+
+<ng-template #userPicker>
+	<div class="mx-2 mt-2 d-flex">
+		<ng-select
+			[items]="(users$ | async) ?? []"
+			bindValue="id"
+			[loading]="loadingUsers"
+			[typeahead]="usersSearch$"
+			[nxSuggestionLimits]="userLimits()"
+			[clearable]="false"
+			[(ngModel)]="filters.principalName"
+			class="flex-grow-1"
+			[nxAutofocus]="true"
+			(focus)="fetchUsers($event)"
+			(change)="applyFilter('principalName')"
+		>
+			<ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+				<div class="ng-value-label">
+					<div class="text-capitalize">{{ item.displayLabel }}</div>
+					<small class="opacity-50">{{ item.id }}</small>
+				</div>
+			</ng-template>
+
+			<ng-template ng-label-tmp let-item="item">
+				<div class="ng-value-label">
+					<div class="text-capitalize">{{ item.displayLabel }}</div>
+					<small class="opacity-50">{{ item.id }}</small>
+				</div>
+			</ng-template>
+		</ng-select>
+
+		<div class="btn-group btn-group-sm" role="group">
+			@if (filters.principalName) {
+				<button
+					@horizontalInOutAnimation
+					(click)="clearFilter('principalName')"
+					class="btn btn-link text-dark ps-2-3 pe-1"
+					[tooltip]="
+						'app.modules.document-activity.clear-filter-fda57d' | webuiMessage: 'Clear filter'
+					"
+				>
+					<fa-icon [fixedWidth]="true" icon="eraser"></fa-icon>
+				</button>
+			}
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #dateRangePicker>
+	<div class="d-flex">
+		<div class="flex-grow-1 mx-2">
+			<input
+				type="text"
+				[attr.placeholder]="
+					'app.modules.document-activity.start-date-d95938' | webuiMessage: 'Start date'
+				"
+				class="form-control"
+				[bsValue]="filters.startEventDate"
+				bsDatepicker
+				container=".popover"
+				[maxDate]="filters.endEventDate || dateRangeMaxDate"
+				[bsConfig]="{
+					isAnimated: true,
+					adaptivePosition: true,
+					containerClass: 'slim-edge theme-dark-blue',
+				}"
+				(bsValueChange)="dateRangeMinDateChanged($event)"
+			/>
+		</div>
+		<div class="flex-grow-1 mx-2">
+			<input
+				type="text"
+				[attr.placeholder]="
+					'app.modules.document-activity.end-date-e7e8ee' | webuiMessage: 'End date'
+				"
+				class="form-control"
+				[bsValue]="filters.endEventDate"
+				bsDatepicker
+				container=".popover"
+				[maxDate]="dateRangeMaxDate"
+				[bsConfig]="{
+					isAnimated: true,
+					adaptivePosition: true,
+					containerClass: 'slim-edge theme-dark-blue',
+				}"
+				(bsValueChange)="dateRangeMaxDateChanged($event)"
+			/>
+		</div>
+		<div class="d-flex align-items-center me-2">
+			<div class="btn-group btn-group-sm" role="group">
+				@if (filters.endEventDate || filters.startEventDate) {
+					<button
+						@horizontalInOutAnimation
+						(click)="clearFilter('dateRange')"
+						class="btn btn-link text-dark"
+						[tooltip]="
+							'app.modules.document-activity.clear-filter-fda57d' | webuiMessage: 'Clear filter'
+						"
+					>
+						<fa-icon [fixedWidth]="true" icon="eraser"></fa-icon>
+					</button>
+				}
+			</div>
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #auditEventPicker>
+	<div class="mx-2 mt-2 d-flex">
+		<ng-select
+			[items]="eventTypes"
+			bindValue="id"
+			[nxAutofocus]="true"
+			[(ngModel)]="filters.eventId"
+			[clearable]="false"
+			class="flex-grow-1"
+			(change)="applyFilter('eventId')"
+		>
+			<ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+				<div class="ng-value-label">
+					<div class="text-capitalize">{{ eventTypeLabel(item) }}</div>
+					<small class="opacity-50">{{ item.id }}</small>
+				</div>
+			</ng-template>
+		</ng-select>
+
+		<div class="btn-group btn-group-sm" role="group">
+			@if (filters.eventId) {
+				<button
+					@horizontalInOutAnimation
+					(click)="clearFilter('eventId')"
+					class="btn btn-link text-dark ps-2-3 pe-1"
+					[tooltip]="
+						'app.modules.document-activity.clear-filter-fda57d' | webuiMessage: 'Clear filter'
+					"
+				>
+					<fa-icon [fixedWidth]="true" icon="eraser"></fa-icon>
+				</button>
+			}
+		</div>
+	</div>
+</ng-template>

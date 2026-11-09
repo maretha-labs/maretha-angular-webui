@@ -1,0 +1,14 @@
+<div class="square-box">
+	<div class="pie-wrapper">
+		<div class="pie" [class.over-fifty]="progress > 50">
+			<div class="left-side half-circle"></div>
+			<div class="right-side half-circle"></div>
+		</div>
+	</div>
+</div>
+
+<ng-container *ngTemplateOutlet="placeholderTemplate || defaultPlaceholder"></ng-container>
+
+<ng-template #defaultPlaceholder>
+	<fa-icon icon="plus-circle" class="me-1"></fa-icon>
+</ng-template>

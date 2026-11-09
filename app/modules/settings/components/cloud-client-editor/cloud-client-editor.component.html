@@ -1,0 +1,188 @@
+<div class="modal-header">
+	<h4 class="modal-title pull-left">
+		@if (add) {
+			<span>{{
+				'app.modules.cloud-client-editor.add-a-new-client-486978' | webuiMessage: 'Add a new client'
+			}}</span>
+		}
+		@if (!add) {
+			<span>{{
+				'app.modules.cloud-client-editor.edit-client-129f20' | webuiMessage: 'Edit client'
+			}}</span>
+		}
+	</h4>
+
+	<button
+		type="button"
+		class="close btn-close pull-right"
+		[attr.aria-label]="'app.modules.cloud-client-editor.close-16f491' | webuiMessage: 'Close'"
+		(click)="close()"
+	>
+		<span aria-hidden="true" class="visually-hidden">&times;</span>
+	</button>
+</div>
+
+@if (editorForm) {
+	<div class="modal-body" [formGroup]="editorForm">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-floating required mb-3">
+					<input
+						type="text"
+						class="form-control"
+						id="name"
+						[attr.placeholder]="
+							'app.modules.cloud-client-editor.name-bf5e9f' | webuiMessage: 'Name'
+						"
+						formControlName="name"
+						[nxAutofocus]="true"
+						[nxAutofocusDelay]="400"
+					/>
+					<label for="name">{{
+						'app.modules.cloud-client-editor.name-bf5e9f' | webuiMessage: 'Name'
+					}}</label>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="form-floating required mb-3">
+					<input
+						type="text"
+						class="form-control"
+						id="id"
+						[attr.placeholder]="
+							'app.modules.cloud-client-editor.client-id-57b4c5' | webuiMessage: 'Client Id'
+						"
+						formControlName="id"
+					/>
+					<label for="id">{{
+						'app.modules.cloud-client-editor.client-id-57b4c5' | webuiMessage: 'Client Id'
+					}}</label>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="form-floating mb-3">
+					<input
+						type="text"
+						class="form-control"
+						id="secret"
+						[attr.placeholder]="
+							'app.modules.cloud-client-editor.client-secret-620c32' | webuiMessage: 'Client secret'
+						"
+						formControlName="secret"
+					/>
+					<label for="secret">{{
+						'app.modules.cloud-client-editor.client-secret-620c32' | webuiMessage: 'Client secret'
+					}}</label>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="form-control required mb-3">
+					<label for="scopes">{{
+						'app.modules.cloud-client-editor.redirect-uris-4559af' | webuiMessage: 'Redirect URIs'
+					}}</label>
+					<ng-select
+						[items]="cloudClient?.redirectURIs || []"
+						id="scopes"
+						formControlName="redirectURIs"
+						[addTag]="true"
+						[multiple]="true"
+						[selectOnTab]="true"
+						[closeOnSelect]="false"
+						[attr.placeholder]="
+							'app.modules.cloud-client-editor.add-a-new-scope-64d8d1'
+								| webuiMessage: 'Add a new scope...'
+						"
+						[clearable]="true"
+						class="ng-select-sm ng-select-discreet"
+					>
+						<ng-template ng-multi-label-tmp let-scopes="items" let-clear="clear">
+							@for (scope of scopes | slice: 0 : 1; track scope) {
+								<div class="ng-value">
+									<span
+										[tooltip]="
+											'app.modules.cloud-client-editor.click-to-add-a-new-scope-15fcc8'
+												| webuiMessage: 'Click to add a new scope'
+										"
+										class="ng-value-label"
+									>
+										{{ $any(scope).label || scope }}
+									</span>
+									<span
+										(click)="clear(scope)"
+										[tooltip]="
+											'app.modules.cloud-client-editor.remove-this-scope-6796cc'
+												| webuiMessage: 'Remove this scope'
+										"
+										class="ng-value-icon right"
+										aria-hidden="true"
+										>×</span
+									>
+								</div>
+							}
+							@if (scopes.length > 1) {
+								<div class="ng-value">
+									<span class="ng-value-label">{{
+										'selection.more'
+											| webuiMessage: '{count, number} more…' : { count: scopes.length - 1 }
+									}}</span>
+								</div>
+							}
+						</ng-template>
+					</ng-select>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-check form-switch">
+					<input
+						id="isAutoGrant"
+						class="form-check-input"
+						type="checkbox"
+						role="switch"
+						formControlName="isAutoGrant"
+					/>
+					<label for="isAutoGrant">{{
+						'app.modules.cloud-client-editor.auto-grant-f26d14' | webuiMessage: 'Auto grant'
+					}}</label>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-check form-switch">
+					<input
+						id="isEnabled"
+						class="form-check-input"
+						type="checkbox"
+						role="switch"
+						formControlName="isEnabled"
+					/>
+					<label for="isEnabled">{{
+						'app.modules.cloud-client-editor.enabled-c0fb07' | webuiMessage: 'Enabled'
+					}}</label>
+				</div>
+			</div>
+		</div>
+	</div>
+}
+
+<div class="modal-footer flex-nowrap p-0">
+	<button
+		(click)="close()"
+		type="button"
+		class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"
+	>
+		{{
+			'app.modules.cloud-client-editor.close-without-saving-5decaa'
+				| webuiMessage: 'Close without saving'
+		}}
+	</button>
+
+	<button
+		(click)="saveChanges()"
+		type="button"
+		[disabled]="editorForm?.pristine || editorForm?.invalid"
+		class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0"
+	>
+		<strong>{{
+			'app.modules.cloud-client-editor.save-changes-403727' | webuiMessage: 'Save changes'
+		}}</strong>
+	</button>
+</div>

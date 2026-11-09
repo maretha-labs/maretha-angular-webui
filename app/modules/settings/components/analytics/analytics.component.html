@@ -1,0 +1,442 @@
+<div class="nx-analytics">
+	@if (loading) {
+		<div class="nx-analytics__loading">
+			<fa-icon icon="spinner" animation="spin" size="2x"></fa-icon>
+			<p class="mt-2 text-muted">
+				{{ 'app.modules.analytics.loading-analytics-c4c1b7' | webuiMessage: 'Loading analytics…' }}
+			</p>
+		</div>
+	}
+
+	@if (error) {
+		<p role="alert">{{ error }}</p>
+	}
+	@if (auditUnavailable) {
+		<p role="alert">
+			@if (section() === 'search' || section() === 'workflow') {
+				{{ 'analytics.unsupported' | webuiMessage:'{section, select, search {Search analytics require the server audit aggregation backend.} other {Workflow analytics require the server audit aggregation backend.}}
+				This server does not expose a supported aggregation API, so no metrics are shown.':
+				{section: (section())} }}
+			} @else {
+				{{
+					'app.modules.analytics.audit-analytics-are-unavailable-on-this-se-c56101'
+						| webuiMessage
+							: 'Audit analytics are unavailable on this server. Repository counts are shown below; audit\n				charts require a supported audit aggregation backend.'
+				}}
+			}
+		</p>
+	}
+	@if (section() === 'repository' || section() === 'search' || section() === 'workflow') {
+		<form class="nx-analytics__filters" (ngSubmit)="load()">
+			@if (section() === 'workflow') {
+				<!-- Stock nuxeo-select: paper-dropdown-menu with a paper-listbox, not the system menu. -->
+				<label [for]="workflowSelectId"
+					>{{ 'app.modules.analytics.workflow-6a6bab' | webuiMessage: 'Workflow' }}
+					<ng-select
+						class="nx-analytics__workflow"
+						name="workflow"
+						[labelForId]="workflowSelectId"
+						[items]="workflows"
+						bindValue="id"
+						[clearable]="false"
+						[searchable]="false"
+						[placeholder]="
+							workflows.length
+								? ''
+								: ('app.modules.analytics.no-workflow-model-is-available-c3da2f'
+									| webuiMessage: 'No workflow model is available')
+						"
+						[notFoundText]="
+							'app.modules.analytics.no-workflow-model-is-available-c3da2f'
+								| webuiMessage: 'No workflow model is available'
+						"
+						[(ngModel)]="workflow"
+						(change)="load()"
+					>
+						<ng-template ng-label-tmp let-item="item">{{ workflowLabel(item) }}</ng-template>
+						<ng-template ng-option-tmp let-item="item">{{ workflowLabel(item) }}</ng-template>
+					</ng-select></label
+				>
+			}
+			<label
+				>{{ 'app.modules.analytics.after-9d9e02' | webuiMessage: 'After' }}
+				<input name="startDate" type="date" [(ngModel)]="startDate" (change)="load()"
+			/></label>
+			<label
+				>{{ 'app.modules.analytics.before-7e5044' | webuiMessage: 'Before' }}
+				<input name="endDate" type="date" [(ngModel)]="endDate" (change)="load()"
+			/></label>
+		</form>
+
+		@if (!loading && !error && section() === 'search' && searchSummary; as summary) {
+			<div class="nx-analytics__metric-grid">
+				<nx-analytics-metric
+					kind="pie"
+					[heading]="
+						'searchAnalytics.callsPerPageProvider.heading' | webuiMessage: 'Calls per PageProvider'
+					"
+					[rows]="summary.providers"
+				/>
+				<nx-analytics-metric
+					kind="bar"
+					[heading]="'searchAnalytics.callsPerHour.heading' | webuiMessage: 'Calls per Hour'"
+					[rows]="hourRows()"
+				/>
+				<nx-analytics-metric
+					[heading]="'searchAnalytics.numberOfResults.heading' | webuiMessage: 'Number of Results'"
+					[rows]="summary.resultRanges"
+					[nameHeader]="'searchAnalytics.numberOfResults.range' | webuiMessage: 'Range'"
+					[valueHeader]="'searchAnalytics.numberOfResults.calls' | webuiMessage: 'Number of Calls'"
+				/>
+				<nx-analytics-metric
+					[heading]="
+						'searchAnalytics.mostPopularSearches.heading' | webuiMessage: 'Most Popular Searches'
+					"
+					[rows]="summary.popularTerms"
+					[nameHeader]="
+						'searchAnalytics.mostPopularSearches.searchTerm' | webuiMessage: 'Search Term'
+					"
+					[valueHeader]="'searchAnalytics.numberOfResults.calls' | webuiMessage: 'Number of Calls'"
+				/>
+				<nx-analytics-metric
+					[heading]="
+						'searchAnalytics.mostPopularSearches.numberOfPagesDisplayed.heading'
+							| webuiMessage: 'Number of Pages Displayed'
+					"
+					[rows]="summary.pageRanges"
+					[nameHeader]="'searchAnalytics.numberOfResults.range' | webuiMessage: 'Range'"
+					[valueHeader]="'searchAnalytics.numberOfResults.calls' | webuiMessage: 'Number of Calls'"
+				/>
+				<nx-analytics-metric
+					[heading]="'searchAnalytics.filtersUsed.heading' | webuiMessage: 'Filters Used'"
+					[rows]="summary.filters"
+					[nameHeader]="
+						'searchAnalytics.filtersUsed.numberOfFilters' | webuiMessage: 'Filters Used'
+					"
+					[valueHeader]="'searchAnalytics.numberOfResults.calls' | webuiMessage: 'Number of Calls'"
+				/>
+			</div>
+		}
+		@if (!loading && !error && section() === 'workflow' && workflowSummary; as summary) {
+			<div class="nx-analytics__metric-grid">
+				<section class="nx-analytics__chart-card">
+					<h2>
+						{{
+							'workflowAnalytics.averageWorkflowDuration.heading'
+								| webuiMessage: 'Average Workflow Duration'
+						}}
+					</h2>
+					<nx-webui-icon class="summary-icon" name="image:timer" />
+					<p class="nx-analytics__duration">
+						{{ durationLabel(summary.averageWorkflowDurationMs) }}
+					</p>
+				</section>
+				<nx-analytics-metric
+					kind="pie"
+					[heading]="
+						'workflowAnalytics.workflowInitiators.heading' | webuiMessage: 'Workflow Initiators'
+					"
+					[rows]="summary.initiators"
+				/>
+				<nx-analytics-metric
+					kind="bar"
+					[heading]="'workflowAnalytics.actionsPerUser.heading' | webuiMessage: 'Actions per User'"
+					[rows]="summary.actions"
+					[groups]="workflowActions()"
+				/>
+				<nx-analytics-metric
+					class="full-width"
+					[heading]="
+						'workflowAnalytics.averageTaskDurationPerUser.heading'
+							| webuiMessage: 'Average Task Duration per User'
+					"
+					[rows]="summary.taskDurations"
+					[duration]="true"
+					[tableHeight]="450"
+					[nameHeader]="'workflowAnalytics.averageTaskDurationPerUser.user' | webuiMessage: 'User'"
+					[valueHeader]="
+						'workflowAnalytics.averageTaskDurationPerUser.duration'
+							| webuiMessage: 'Average Duration'
+					"
+				/>
+			</div>
+		}
+		@if (!loading && !error && section() === 'repository' && repositorySummary; as summary) {
+			<div class="nx-analytics__metric-grid">
+				<nx-analytics-metric
+					[heading]="'repositoryAnalytics.topDownloads.heading' | webuiMessage: 'Top Downloads'"
+					[rows]="downloadRows()"
+					[nameHeader]="'repositoryAnalytics.topDownloads.file' | webuiMessage: 'File'"
+					[valueHeader]="'repositoryAnalytics.topDownloads.downloads' | webuiMessage: 'Downloads'"
+				/>
+				<section class="nx-analytics__chart-card">
+					<h2>{{ 'repositoryAnalytics.documents.heading' | webuiMessage: 'Documents' }}</h2>
+					<nx-webui-icon class="summary-icon" name="icons:description" />
+					<p class="nx-analytics__duration">{{ summary.documents | webuiNumber }}</p>
+				</section>
+				<nx-analytics-metric
+					kind="pie"
+					[heading]="'repositoryAnalytics.documentTypes.heading' | webuiMessage: 'Document Types'"
+					[rows]="summary.types"
+				/>
+				<nx-analytics-metric
+					kind="pie"
+					[heading]="
+						'repositoryAnalytics.topNCreators.heading' | webuiMessage: 'Top {0} Creators' : 10
+					"
+					[rows]="summary.creators"
+				/>
+				<nx-analytics-metric
+					kind="line"
+					[heading]="
+						'repositoryAnalytics.documentsCreatedPerWeek.heading'
+							| webuiMessage: 'Documents Created per Week'
+					"
+					[rows]="summary.created"
+				/>
+				<nx-analytics-metric
+					kind="line"
+					[heading]="
+						'repositoryAnalytics.documentsModifiedPerWeek.heading'
+							| webuiMessage: 'Documents Modified per Week'
+					"
+					[rows]="summary.modified"
+				/>
+				<nx-analytics-metric
+					kind="pie"
+					[heading]="
+						'repositoryAnalytics.filesByMimeType.heading' | webuiMessage: 'Files by Mime Type'
+					"
+					[rows]="repositoryMimeRows()"
+				/>
+			</div>
+		}
+	}
+
+	@if (section() === 'distribution') {
+		<section class="nx-analytics__chart-card">
+			<form class="nx-analytics__filters" (ngSubmit)="load()">
+				<nx-webui-icon name="icons:folder" /><label class="path-label"
+					>{{ 'app.modules.analytics.path-60f8fc' | webuiMessage: 'Path'
+					}}<input
+						name="distributionPath"
+						list="distribution-paths"
+						[(ngModel)]="distributionPath"
+						(focus)="suggestPaths()"
+						(change)="navigateDistribution(distributionPath)" /></label
+				><datalist id="distribution-paths">
+					@for (path of distributionPaths; track path) {
+						<option [value]="path"></option>
+					}</datalist
+				><button type="submit" class="btn btn-primary" [disabled]="loading">
+					{{ 'themes.apply' | webuiMessage: 'Apply' }}
+				</button>
+			</form>
+			<nav
+				class="distribution-breadcrumbs"
+				[attr.aria-label]="'distributionAnalytics.path' | webuiMessage: 'Distribution path'"
+			>
+				@for (parent of distributionParents(); track parent.path) {
+					<button type="button" class="btn btn-link" (click)="navigateDistribution(parent.path)">
+						{{ parent.name }} /
+					</button>
+				}
+			</nav>
+			@if (distributionGuard) {
+				<p role="alert">
+					{{
+						'distributionAnalytics.disabled.message'
+							| webuiMessage
+								: 'Distribution analytics is disabled because the current query would impact the quality of the service. Select a smaller path.'
+					}}
+				</p>
+			}
+			<div class="distribution-layout">
+				@if (!loading && !error && !distributionGuard) {
+					<nx-distribution-chart
+						[nodes]="distribution"
+						[path]="distributionPath"
+						(navigate)="navigateDistribution($event)"
+					/>
+				}
+				<fieldset>
+					<legend class="visually-hidden">
+						{{ 'distributionAnalytics.options' | webuiMessage: 'Distribution options' }}
+					</legend>
+					<label
+						><input
+							type="checkbox"
+							[(ngModel)]="distributionOptions.includeHidden"
+							(change)="load()"
+						/>{{
+							'documentDistributionChart.includeHidden' | webuiMessage: 'Include hidden documents'
+						}}</label
+					>
+					<label
+						><input
+							type="checkbox"
+							[(ngModel)]="distributionOptions.includeDeleted"
+							(change)="load()"
+						/>{{
+							'documentDistributionChart.includeDeleted' | webuiMessage: 'Include deleted documents'
+						}}</label
+					>
+					<label
+						><input
+							type="checkbox"
+							[(ngModel)]="distributionOptions.includeVersion"
+							(change)="load()"
+						/>{{
+							'documentDistributionChart.includeVersions' | webuiMessage: 'Include versions'
+						}}</label
+					>
+					<label
+						><input
+							type="checkbox"
+							[(ngModel)]="distributionOptions.onlyFolder"
+							(change)="load()"
+						/>{{ 'documentDistributionChart.onlyFolders' | webuiMessage: 'Only folders' }}</label
+					>
+				</fieldset>
+			</div>
+			@if (!loading && !error && !distributionGuard && !distribution.length) {
+				<p>
+					{{
+						'app.modules.analytics.no-documents-match-this-path-7d22d4'
+							| webuiMessage: 'No documents match this path.'
+					}}
+				</p>
+			}
+			<label class="depth-label"
+				><nx-webui-icon name="icons:track-changes" /><span
+					>{{ 'app.modules.analytics.depth-351c8c' | webuiMessage: 'Depth' }}
+					{{ distributionDepth }}</span
+				><input
+					name="distributionDepth"
+					type="range"
+					min="1"
+					max="20"
+					step="1"
+					[(ngModel)]="distributionDepth"
+					(change)="load()"
+			/></label>
+		</section>
+	}
+
+	@if (
+		!loading &&
+		!error &&
+		section() !== 'distribution' &&
+		section() !== 'search' &&
+		section() !== 'workflow' &&
+		section() !== 'repository'
+	) {
+		<!-- Stat cards -->
+		<div class="nx-analytics__stats">
+			<div class="nx-analytics__stat-card">
+				<div class="nx-analytics__stat-icon">
+					<fa-icon icon="file" [fixedWidth]="true"></fa-icon>
+				</div>
+				<div class="nx-analytics__stat-value">{{ totalDocuments | webuiNumber }}</div>
+				<div class="nx-analytics__stat-label">
+					{{ 'app.modules.analytics.total-documents-728507' | webuiMessage: 'Total Documents' }}
+				</div>
+			</div>
+
+			<div class="nx-analytics__stat-card">
+				<div class="nx-analytics__stat-icon">
+					<fa-icon icon="folder" [fixedWidth]="true"></fa-icon>
+				</div>
+				<div class="nx-analytics__stat-value">{{ totalFolders | webuiNumber }}</div>
+				<div class="nx-analytics__stat-label">
+					{{ 'app.modules.analytics.folders-2447c9' | webuiMessage: 'Folders' }}
+				</div>
+			</div>
+
+			<div class="nx-analytics__stat-card">
+				<div class="nx-analytics__stat-icon">
+					<fa-icon icon="users" [fixedWidth]="true"></fa-icon>
+				</div>
+				<div class="nx-analytics__stat-value">{{ totalUsers | webuiNumber }}</div>
+				<div class="nx-analytics__stat-label">
+					{{ 'app.modules.analytics.users-3444c6' | webuiMessage: 'Users' }}
+				</div>
+			</div>
+		</div>
+
+		<!-- Charts row: donut + line -->
+		<div class="nx-analytics__charts-row">
+			<div class="nx-analytics__chart-card">
+				<div class="nx-analytics__chart-title">
+					{{ 'repositoryAnalytics.documentTypes.heading' | webuiMessage: 'Document Types' }}
+				</div>
+				<div class="nx-analytics__chart-container">
+					<canvas
+						baseChart
+						[data]="docTypeChartData"
+						[options]="docTypeChartOptions"
+						type="doughnut"
+					>
+					</canvas>
+				</div>
+			</div>
+
+			@if (section() === 'repository') {
+				<div class="nx-analytics__chart-card">
+					<div class="nx-analytics__chart-title">
+						{{ 'repositoryAnalytics.filesByMimeType.heading' | webuiMessage: 'Files by Mime Type' }}
+					</div>
+					<div class="nx-analytics__chart-container">
+						<canvas
+							baseChart
+							[data]="mimeTypeChartData"
+							[options]="docTypeChartOptions"
+							type="doughnut"
+						></canvas>
+					</div>
+				</div>
+			}
+
+			@if (!auditUnavailable && section() !== 'distribution') {
+				<div class="nx-analytics__chart-card">
+					<div class="nx-analytics__chart-title">
+						{{
+							'app.modules.analytics.repository-activity-last-30-days-31a643'
+								| webuiMessage: 'Repository Activity — Last 30 Days'
+						}}
+					</div>
+					<div class="nx-analytics__chart-container">
+						<canvas
+							baseChart
+							[data]="activityChartData"
+							[options]="activityChartOptions"
+							type="line"
+						>
+						</canvas>
+					</div>
+				</div>
+			}
+		</div>
+
+		@if (!auditUnavailable && section() !== 'distribution') {
+			<!-- Top contributors bar chart -->
+			<div class="nx-analytics__chart-card">
+				<div class="nx-analytics__chart-title">
+					{{
+						'app.modules.analytics.top-contributors-last-90-days-9abdca'
+							| webuiMessage: 'Top Contributors — Last 90 Days'
+					}}
+				</div>
+				<div class="nx-analytics__chart-container nx-analytics__chart-container--contributors">
+					<canvas
+						baseChart
+						[data]="contributorsChartData"
+						[options]="contributorsChartOptions"
+						type="bar"
+					>
+					</canvas>
+				</div>
+			</div>
+		}
+	}
+</div>

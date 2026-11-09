@@ -1,0 +1,10 @@
+# Explicit entries stay owned even if the catch-all line changes later.
+*                           @maretha-labs/maintainers
+
+/.github/                   @maretha-labs/maintainers
+/LICENSE                    @maretha-labs/maintainers
+/NOTICE                     @maretha-labs/maintainers
+/docs/third-party/          @maretha-labs/maintainers
+/scripts/core-manifest.mjs  @maretha-labs/maintainers
+/custom/                    @maretha-labs/maintainers
+/nuxeo/                     @maretha-labs/maintainers

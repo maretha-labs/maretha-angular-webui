@@ -1,0 +1,94 @@
+<div [formGroup]="formGroup" class="row">
+	<div class="col-12 mb-3">
+		<nx-vocabulary
+			formControlName="dc:nature"
+			[id]="fieldIdPrefix + '-nature'"
+			[label]="'app.modules.standard-content-fields.nature-956217' | webuiMessage: 'Nature'"
+			[placeholder]="
+				'dublincoreEdit.directorySuggestion.placeholder' | webuiMessage: 'Select a value.'
+			"
+			directoryName="nature"
+			[dbl10n]="false"
+			entryTranslationPrefix="nature"
+		>
+		</nx-vocabulary>
+	</div>
+	<div class="col-12 mb-3">
+		<nx-vocabulary
+			formControlName="dc:subjects"
+			[id]="fieldIdPrefix + '-subjects'"
+			[label]="'app.modules.standard-content-fields.subjects-4d771b' | webuiMessage: 'Subjects'"
+			[placeholder]="
+				'dublincoreEdit.directorySuggestion.placeholder' | webuiMessage: 'Select a value.'
+			"
+			directoryName="l10nsubjects"
+			entryTranslationPrefix="subtopic"
+			groupTranslationPrefix="topic"
+			[multiple]="true"
+			[addTag]="true"
+			entryKeyTrim=""
+		>
+		</nx-vocabulary>
+	</div>
+	<div class="col-12 mb-3">
+		<nx-vocabulary
+			formControlName="dc:coverage"
+			[id]="fieldIdPrefix + '-coverage'"
+			[label]="'app.modules.standard-content-fields.coverage-745b7d' | webuiMessage: 'Coverage'"
+			[placeholder]="
+				'dublincoreEdit.directorySuggestion.placeholder' | webuiMessage: 'Select a value.'
+			"
+			directoryName="l10ncoverage"
+			entryTranslationPrefix="country"
+			groupTranslationPrefix="continent"
+		>
+		</nx-vocabulary>
+	</div>
+	<div class="col-12 mb-3 expiration-field">
+		<label class="field-label form-label" [for]="fieldIdPrefix + '-expired'">{{
+			'label.dublincore.expire' | webuiMessage: 'Expires'
+		}}</label>
+		<div class="date-control">
+			<input
+				#expirationPicker="bsDatepicker"
+				type="text"
+				class="form-control"
+				[id]="fieldIdPrefix + '-expired'"
+				[ngClass]="getValidationClassName('dc:expired')"
+				formControlName="dc:expired"
+				[attr.aria-invalid]="expirationInvalid ? 'true' : null"
+				[attr.aria-describedby]="expirationInvalid ? fieldIdPrefix + '-expired-error' : null"
+				[placeholder]="'widgets.datepicker.placeholder' | webuiMessage: 'mm/dd/yyyy'"
+				bsDatepicker
+				(onShown)="onCalendarShown(expirationPicker, calendarToggle)"
+				(onHidden)="onCalendarHidden()"
+				[bsConfig]="{ containerClass: 'slim-edge theme-dark-blue', dateInputFormat: 'L' }"
+			/>
+			<button
+				#calendarToggle
+				type="button"
+				class="calendar-toggle"
+				[attr.aria-label]="'widgets.datepicker.open' | webuiMessage: 'Open calendar'"
+				[disabled]="formGroup.controls['dc:expired'].disabled"
+				[attr.aria-expanded]="expirationPicker.isOpen"
+				(click)="expirationPicker.toggle()"
+			>
+				<svg
+					aria-hidden="true"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+				>
+					<rect x="4" y="5" width="16" height="16" rx="1" />
+					<path d="M8 2v6m8-6v6M4 11h16" />
+				</svg>
+			</button>
+		</div>
+		@if (expirationInvalid) {
+			<p [id]="fieldIdPrefix + '-expired-error'" role="alert">
+				{{ 'validation.date' | webuiMessage: 'Enter a valid date.' }}
+			</p>
+		}
+	</div>
+</div>

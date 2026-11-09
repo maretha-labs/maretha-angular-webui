@@ -1,0 +1,44 @@
+<form class="filters-card" (ngSubmit)="search().submit()">
+	<fieldset [disabled]="search().busy() || search().selectingQuery() || search().loading()">
+		<legend class="filters-card__heading">
+			<button
+				type="button"
+				class="filters-card__toggle"
+				[attr.aria-expanded]="search().filtersOpen()"
+				(click)="search().toggleFilters()"
+			>
+				<span class="filters-card__chevron" aria-hidden="true"></span>
+				{{ 'resultsView.filters.heading' | webuiMessage: 'Filters' }}
+			</button>
+		</legend>
+		@if (search().filtersOpen()) {
+			<label class="nxql-query">
+				<span class="nxql-query__label">{{
+					'nxqlSearch.query' | webuiMessage: 'NXQL Query (Ctrl+Enter to run)'
+				}}</span>
+				<span class="nxql-query__input">
+					<textarea
+						name="nxql"
+						[(ngModel)]="search().nxql"
+						rows="1"
+						cdkTextareaAutosize
+						cdkAutosizeMinRows="1"
+						cdkAutosizeMaxRows="10"
+						spellcheck="false"
+						[placeholder]="'nxqlSearch.query.placeholder' | webuiMessage: 'Enter a query'"
+						(input)="search().expandNxql($event)"
+						(keydown.control.enter)="search().runNxql($event)"
+					></textarea>
+				</span>
+			</label>
+			<div class="buttons buttons--nxql">
+				<button type="button" (click)="search().reset()">
+					{{ 'command.clear' | webuiMessage: 'Clear' }}
+				</button>
+				<button type="submit" class="button--primary">
+					{{ 'command.search' | webuiMessage: 'Search' }}
+				</button>
+			</div>
+		}
+	</fieldset>
+</form>

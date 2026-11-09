@@ -1,0 +1,95 @@
+@import '../../../../../styles/_variables';
+
+.viewer {
+	max-height: 50vh;
+	font-size: 12px;
+	overflow: auto;
+	display: block;
+}
+
+.overline {
+	text-decoration: overline;
+	position: relative;
+
+	&::before {
+		content: '↑';
+		position: absolute;
+		inset-block-end: 100%;
+		inset-inline-start: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+.underline {
+	text-decoration: underline;
+	position: relative;
+
+	&::before {
+		content: '↓';
+		position: absolute;
+		inset-block-start: 100%;
+		inset-inline-start: 50%;
+		transform: translateX(-50%);
+		line-height: 1;
+	}
+}
+
+.selected {
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset-block-start: 0;
+		inset-inline-start: 0;
+		inset-inline-end: 0;
+		inset-block-end: 0;
+		box-shadow: rgb(22 86 62) 0px 0px 0px 0.1rem inset;
+		border-radius: 0.5rem;
+		z-index: 1;
+		pointer-events: none;
+	}
+}
+
+.card .card-body {
+	padding: 0.75rem;
+	color: #{$runtime-dark};
+
+	.card-text {
+		line-height: 1.4;
+		white-space: pre-line;
+	}
+
+	ul {
+		max-height: 100px;
+		overflow-x: hidden;
+		overflow-y: auto;
+
+		li .text-overflow {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+}
+
+abbr {
+	border-block-end: 1px dotted;
+	cursor: help;
+}
+
+.media-container {
+	width: auto;
+
+	img {
+		aspect-ratio: 1.5;
+		object-fit: contain;
+		height: 100%;
+	}
+}
+
+.lh-2 {
+	line-height: 2;
+}

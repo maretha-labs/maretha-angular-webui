@@ -1,0 +1,6 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": { "outDir": "../../out-tsc/a11y", "types": [] },
+  "files": ["main.ts", "../../polyfills.ts"],
+  "include": ["../../**/*.d.ts"]
+}

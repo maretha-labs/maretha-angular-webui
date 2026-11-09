@@ -1,0 +1,72 @@
+@if (document) {
+	<div class="content">
+		<div class="display-modes">
+			<button
+				type="button"
+				class="btn btn-link"
+				[attr.aria-label]="'displayModeButton.display.grid' | webuiMessage: 'Switch to Grid View'"
+				[attr.title]="'displayModeButton.display.grid' | webuiMessage: 'Switch to Grid View'"
+				[disabled]="displayMode() === 'grid'"
+				(click)="setDisplayMode('grid')"
+			>
+				<nx-webui-icon name="nuxeo:view-thumbnails" />
+			</button>
+			<button
+				type="button"
+				class="btn btn-link"
+				[attr.aria-label]="'displayModeButton.display.table' | webuiMessage: 'Switch to Table View'"
+				[attr.title]="'displayModeButton.display.table' | webuiMessage: 'Switch to Table View'"
+				[disabled]="displayMode() === 'table'"
+				(click)="setDisplayMode('table')"
+			>
+				<nx-webui-icon name="nuxeo:view-list" />
+			</button>
+		</div>
+		<nx-results-projection
+			[mode]="displayMode()"
+			[rows]="documents ?? []"
+			[selection]="projectedSelection"
+			[columns]="resultColumns"
+			[contextEpoch]="documentsHash"
+			[loading]="loading"
+			[rowDisabled]="projectedRowDisabled"
+			(loadMore)="loadMore()"
+			hostId="generic-folderish"
+			(selectionChange)="projectedSelectionChange($event)"
+		>
+			<ng-template nxResultsTemplate="cell:title" let-row="row">
+				<nx-document-icon-and-title
+					[document]="row"
+					[disabled]="!$any(row).ng.canBrowse"
+					[compact]="true"
+				/>
+			</ng-template>
+			<ng-template nxResultsTemplate="cell:size" let-row="row">
+				{{ $any(row).ng?.attachment?.length | fileSize }}
+			</ng-template>
+			<ng-template nxResultsTemplate="cell:modified" let-row="row">
+				<span [tooltip]="$any(row).lastModified">{{
+					$any(row).lastModified | webuiDate: 'medium'
+				}}</span>
+			</ng-template>
+			<ng-template
+				nxResultsTemplate="item"
+				let-row="row"
+				let-selected="selected"
+				let-toggleSelection="toggleSelection"
+			>
+				<nx-document-grid-thumbnail
+					[document]="row"
+					[selected]="selected"
+					[selecting]="projectedSelection.length > 0"
+					[selectionDisabled]="projectedRowDisabled(row)"
+					[disabled]="projectedRowDisabled(row)"
+					(toggleSelection)="toggleSelection()"
+				/>
+			</ng-template>
+		</nx-results-projection>
+		@if (canLoadMore) {
+			<nx-load-more-button [loading]="loading" (more)="loadMore()" />
+		}
+	</div>
+}

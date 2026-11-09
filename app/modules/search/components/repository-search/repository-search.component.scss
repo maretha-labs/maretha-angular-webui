@@ -1,0 +1,314 @@
+@use '../../../explorer/components/document-toolbar/selection-toolbar' as *;
+@import '../../../explorer/components/document-toolbar/selection-action-group';
+:host {
+	display: block;
+	padding: 24px;
+	overflow: auto;
+	min-height: 0;
+}
+h1 {
+	font-size: 20px;
+	margin-bottom: 24px;
+}
+// Results only: filters live in each search's drawer; NXQL stacks its query above the results.
+.search-workspace {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 24px;
+}
+.search-workspace--inline {
+	grid-template-columns: minmax(0, 1fr);
+	--nx-results-projection-grid-height: min(60vh, 600px);
+}
+label {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin: 16px 0;
+}
+input,
+select,
+textarea {
+	color: var(--nuxeo-text-default);
+	background: var(--nuxeo-box);
+	border: 1px solid var(--nuxeo-border);
+	border-radius: 2px;
+	padding: 8px;
+	max-width: 100%;
+}
+.buttons {
+	display: flex;
+	gap: 8px;
+}
+button {
+	padding: 8px 16px;
+	color: var(--nuxeo-primary-color);
+	background: var(--nuxeo-box);
+	border: 1px solid var(--nuxeo-border);
+}
+.button--primary {
+	color: var(--nuxeo-box, #fff);
+	background: var(--nuxeo-primary-color);
+	border-color: var(--nuxeo-primary-color);
+}
+section {
+	overflow: auto;
+}
+.results-actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 8px;
+	margin-bottom: 12px;
+}
+.results-actions nx-webui-slot {
+	display: contents;
+}
+.results-toolbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin-bottom: 12px;
+}
+.results-toolbar__count {
+	margin: 0;
+	font-size: 14px;
+	font-weight: 600;
+}
+.result-controls {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+// Stock nuxeo-results: grid and list results start 16px under the sort bar.
+.sort-bar {
+	margin-bottom: 16px;
+}
+.results-toolbar__summary {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	min-width: 0;
+}
+// Stock nuxeo-quick-filters: grey pill, filled when active.
+.results-toolbar__summary .quick-filter {
+	border: 0;
+	border-radius: 2em;
+	padding: 10px 20px;
+	background: color-mix(in srgb, currentColor 8%, transparent);
+	color: var(--nuxeo-text-default, #333);
+	font-weight: 600;
+}
+.results-toolbar__summary .quick-filter[aria-pressed='true'] {
+	background: var(--nuxeo-primary-color, #06f);
+	color: var(--nuxeo-button-primary-text, #fff);
+}
+// Stock display-mode icons: flat, the current mode in the primary colour, others muted.
+.result-controls .mode-button {
+	border: 0;
+	padding: 6px;
+	background: transparent;
+	color: var(--nuxeo-text-default, #333);
+	opacity: 0.7;
+}
+.result-controls .mode-button:disabled {
+	color: var(--nuxeo-primary-color, #06f);
+	opacity: 1;
+}
+.result-controls .mode-group {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+}
+.document-path {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+}
+.document-path nx-webui-icon {
+	width: 16px;
+	height: 16px;
+}
+.contributor-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	max-width: 100%;
+}
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+	outline: 2px solid var(--nuxeo-primary-color);
+}
+@media (max-width: 800px) {
+	.results-toolbar {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+	.results-actions {
+		justify-content: flex-start;
+		flex-wrap: wrap;
+	}
+}
+
+.search-heading {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	gap: 16px;
+	padding-inline-end: 64px;
+	min-height: 54px;
+	margin-bottom: 16px;
+}
+.search-heading__actions {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+.search-heading h1 {
+	margin: 0;
+	font-size: 20px;
+}
+.result-controls button:has(nx-webui-icon) {
+	border: 0;
+	background: transparent;
+	padding: 8px;
+}
+.result-controls label {
+	margin: 0;
+	flex-direction: row;
+	align-items: center;
+}
+.saved-search-backdrop {
+	position: fixed;
+	inset: 0;
+	z-index: 1000;
+	background: #0006;
+	display: grid;
+	place-items: center;
+}
+.saved-search-dialog {
+	width: min(500px, calc(100vw - 32px));
+	padding: 24px;
+	background: var(--nuxeo-box, #fff);
+	box-shadow: 0 8px 32px #0004;
+}
+.saved-search-dialog .buttons {
+	justify-content: flex-end;
+}
+
+.result-item {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	position: relative;
+	padding: 12px;
+	border-bottom: 1px solid var(--nuxeo-border);
+}
+.result-item a {
+	display: inline-flex;
+	gap: 12px;
+	align-items: center;
+	min-width: 0;
+	flex: 1;
+}
+.result-item img {
+	width: 48px;
+	height: 48px;
+	object-fit: contain;
+}
+.result-item.result-item--selected {
+	box-shadow: inset 0 0 0 2px var(--nuxeo-primary-color);
+}
+.result-item__type {
+	color: var(--nuxeo-text-light);
+	font-size: 12px;
+}
+// Below 720px the shell's navigation toggle covers the top-left corner.
+@media (max-width: 720px) {
+	:host {
+		padding-top: 56px;
+	}
+}
+
+// ---- Expired and Assets: the stock nuxeo-results look ----
+// The same bar as the default search and folder views: fixed across the whole viewport.
+:host(.stock-results) .stock-selection {
+	@include selection-toolbar;
+}
+:host(.stock-results) .search-heading[inert] {
+	visibility: hidden;
+}
+// Default search view switcher: round 36px buttons, a primary ring on hover only; the current
+// mode shows in the primary colour without a ring.
+// Same as the default search: CSV 4px before the group, adjacent buttons, inactive icons at full
+// strength (measured on /search/default).
+:host(.stock-results) .result-controls {
+	gap: 4px;
+}
+:host(.stock-results) .result-controls .mode-group {
+	gap: 0;
+}
+:host(.stock-results) .result-controls .mode-button {
+	opacity: 1;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	padding: 0;
+	border-radius: 50%;
+	box-shadow: 0 0 0 1px transparent;
+	transition: box-shadow 0.12s;
+}
+:host(.stock-results) .result-controls .mode-button:not(:disabled):hover {
+	box-shadow: 0 0 0 1px var(--nuxeo-primary-color, #06c);
+	opacity: 1;
+}
+// Outlines paint above the thumbnail area, so the ring frames the whole card. Asset tiles draw
+// their own stock justified-grid frame.
+:host(.stock-results:not(.justified-grid)) .result-item--selected {
+	box-shadow: none;
+	outline: 2px solid var(--nuxeo-primary-color);
+	outline-offset: -2px;
+}
+:host(.stock-results) .result-thumbnail {
+	width: 32px;
+	height: 32px;
+	object-fit: contain;
+	margin-inline-end: 0.5rem;
+	vertical-align: middle;
+}
+
+:host(.stock-results) .plain-link {
+	color: var(--nuxeo-text-default, #333);
+	text-decoration: none;
+}
+:host(.stock-results) .plain-link:hover {
+	color: var(--nuxeo-primary-color);
+}
+// Stock trash table (nuxeo-trash-search-results): titles and paths wrap, here within two lines.
+:host(.nx-search--trash)
+	::ng-deep
+	:is([col-id='title'], [col-id='path'])
+	nx-ag-grid-projection-cell {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	white-space: normal;
+	line-height: 16px;
+}
+:host(.nx-search--trash) .plain-link,
+.result-path {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	overflow-wrap: anywhere;
+}

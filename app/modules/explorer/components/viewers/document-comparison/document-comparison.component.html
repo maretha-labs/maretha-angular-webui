@@ -1,0 +1,74 @@
+<div class="modal-header">
+	<h4 class="modal-title pull-left">
+		{{
+			'app.modules.document-comparison.document-comparison-b346d6'
+				| webuiMessage: 'Document comparison'
+		}}
+	</h4>
+	<button
+		type="button"
+		class="close btn-close pull-right"
+		[attr.aria-label]="'app.modules.document-comparison.close-49e1fc' | webuiMessage: 'Close'"
+		(click)="close()"
+	>
+		<span aria-hidden="true" class="visually-hidden">&times;</span>
+	</button>
+</div>
+<div class="modal-body">
+	<div class="table-responsive">
+		<table class="table table-sm table-hover mb-0 comparison-table">
+			<thead>
+				<tr btnRadioGroup [(ngModel)]="pivot">
+					<th scope="col">
+						{{ 'app.modules.document-comparison.property-c21545' | webuiMessage: 'Property' }}
+					</th>
+					@for (document of documents; track document['uid']) {
+						<th scope="col" [class.text-bg-primary]="pivot?.['uid'] === document['uid']">
+							<button
+								type="button"
+								[btnRadio]="document"
+								[attr.aria-label]="
+									'comparison.useBaseline'
+										| webuiMessage
+											: 'Use {name} as comparison baseline'
+											: { name: document['title'] }
+								"
+							>
+								<fa-icon
+									icon="thumbtack"
+									[size]="pivot?.['uid'] === document['uid'] ? 'lg' : 'xs'"
+								></fa-icon
+								>{{ document['title'] || document['uid'] }}
+							</button>
+						</th>
+					}
+				</tr>
+			</thead>
+			<tbody>
+				@for (property of propertiesToCompare; track property.name) {
+					<tr>
+						<th scope="row">
+							{{
+								property.labelKey
+									? (property.labelKey | webuiMessage: property.label)
+									: property.label
+							}}
+						</th>
+						@for (document of documents; track document['uid']) {
+							<td
+								[class.text-bg-primary]="pivot?.['uid'] === document['uid']"
+								[ngClass]="cell(document, property).changed ? 'different' : 'equal'"
+							>
+								<nx-comparison-value
+									[property]="property"
+									[cell]="cell(document, property)"
+									[document]="document"
+								></nx-comparison-value>
+							</td>
+						}
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>

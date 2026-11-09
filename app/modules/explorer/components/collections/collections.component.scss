@@ -1,0 +1,68 @@
+@use 'sass:color';
+@use 'sass:math';
+@use '../../../../../styles/_variables.scss';
+
+.list-group-container {
+	max-height: 50vh;
+	max-width: max(400px, 25vw);
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+h6 {
+	color: inherit;
+}
+
+.icon {
+	padding: 15px 1rem;
+
+	&:hover {
+		~ .no-overflow a {
+			color: #{variables.$runtime-primary-dark-15};
+		}
+	}
+}
+
+.faded {
+	opacity: 0.75;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.no-overflow {
+	overflow: hidden;
+	flex-grow: 1;
+
+	&:hover {
+		.faded {
+			opacity: 1;
+		}
+	}
+}
+
+.badge.rounded-pill {
+	transform: translate(0, -2px);
+	padding-block: 2px;
+	padding-inline: 3px 4px;
+	font-size: 0.5rem;
+	line-height: 0.9;
+	opacity: 0.75;
+}
+
+.list-group-container .btn {
+	padding-block: 1.125rem;
+	padding-inline: 0.5rem 0;
+
+	h6 {
+		position: relative;
+	}
+}
+
+@for $i from 1 through 20 {
+	.list-group .list-group-item:nth-child(#{$i}) .btn > .fa-layers {
+		color: color.adjust(
+			color.adjust(rgb(math.random(255), math.random(255), math.random(255)), $saturation: 20%),
+			$alpha: -0.2
+		);
+		filter: drop-shadow(0px 0px 1px color.adjust(variables.$dark, $alpha: -0.5));
+	}
+}

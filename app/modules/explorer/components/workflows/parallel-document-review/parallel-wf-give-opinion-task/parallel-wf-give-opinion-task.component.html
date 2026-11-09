@@ -1,0 +1,19 @@
+<div [formGroup]="formGroup" class="row">
+	<div class="col-12 mb-3">
+		<div class="form-floating">
+			<textarea
+				formControlName="initiatorComment"
+				class="form-control"
+				[ngClass]="getValidationClassName('initiatorComment')"
+				autosize
+				[nxAutofocus]="true"
+				[nxAutofocusDelay]="400"
+			>
+			</textarea>
+			<label for="initiatorComment">{{
+				'app.modules.parallel-wf-give-opinion-task.initiator-comment-b60a28'
+					| webuiMessage: 'Initiator comment'
+			}}</label>
+		</div>
+	</div>
+</div>

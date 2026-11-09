@@ -1,0 +1,925 @@
+{
+  "scope": "Source comparison performed during implementation; not independent native-speaker acceptance. Exact keys only; future English-equal additions require review.",
+  "unchanged": [
+    {
+      "key": "addToCollectionButton.dialog.collections",
+      "value": "Collections",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "addToCollectionButton.dialog.description",
+      "value": "Description",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "command.menu",
+      "value": "Menu",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "command.ok",
+      "value": "Ok",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "documentAclTable.actions",
+      "value": "Actions",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "documentAclTable.permanent",
+      "value": "Permanent",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "documentDistributionChart.document",
+      "value": "Document",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "documentDistributionChart.documents",
+      "value": "Documents",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "exportButton.imageToPDF",
+      "value": "PDF",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "exportButton.pdf",
+      "value": "PDF",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "exportButton.FullHD",
+      "value": "Full HD",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "popupPermission.permanent",
+      "value": "Permanent",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "tree.loadMore",
+      "value": "...",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "userGroupPermissions.permanent",
+      "value": "Permanent",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "videoViewLayout.conversions",
+      "value": "Conversions",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "videoViewLayout.format",
+      "value": "Format",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "activity.eventDocumentCategory",
+      "value": "Document",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "activity.eventWorkflowCategory",
+      "value": "Workflow",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "addToCollectionDocumentsButton.dialog.collections",
+      "value": "Collections",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "addToCollectionDocumentsButton.dialog.description",
+      "value": "Description",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "analytics.workflow",
+      "value": "Workflow",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "app.administration",
+      "value": "Administration",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "app.collections",
+      "value": "Collections",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "app.title.admin",
+      "value": "Administration",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "app.title.admin.aicore",
+      "value": "Intelligence",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "app.title.admin.audit",
+      "value": "Audit",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "app.title.collection",
+      "value": "Collection",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "app.title.collections",
+      "value": "Collections",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "app.title.drive",
+      "value": "Nuxeo Drive",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "app.user.drive",
+      "value": "Nuxeo Drive",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "audit.date",
+      "value": "Date",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "audit.document",
+      "value": "Document",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "audit.heading",
+      "value": "Audit",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "authenticationTokensManagement.application",
+      "value": "Application",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "browser.annotations",
+      "value": "Annotations",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "cloudProviderEdit.description",
+      "value": "Description",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "cloudProviders.description",
+      "value": "Description",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "collections.heading",
+      "value": "Collections",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "csv.import",
+      "value": "CSV",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "defaultSearch.collections",
+      "value": "Collections",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "defaultSearch.nature",
+      "value": "Nature",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "diffPage.versus",
+      "value": "Vs.",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "documentContentView.datatable.header.nature",
+      "value": "Nature",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "documentContentView.datatable.header.type",
+      "value": "Type",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "documentContentView.datatable.header.version",
+      "value": "Version",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "documentHistory.date",
+      "value": "Date",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "documentHistory.directive",
+      "value": "Directive",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "documentImportForm.type.label",
+      "value": "Type",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "documentInfo.publications",
+      "value": "Publications",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "documentInfo.version",
+      "value": "Version",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "documentPage.collections",
+      "value": "Collections",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "drivePage.heading",
+      "value": "Nuxeo Drive",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "eventCategory.document_review_approbation",
+      "value": "Relation",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "eventCategory.eventDocumentCategory",
+      "value": "Document",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.description",
+      "value": "Description",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.directories.continent.europe",
+      "value": "Europe",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Afghanistan",
+      "value": "Afghanistan",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Angola",
+      "value": "Angola",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Anguilla",
+      "value": "Anguilla",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Aruba",
+      "value": "Aruba",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Bahamas",
+      "value": "Bahamas",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Bangladesh",
+      "value": "Bangladesh",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Botswana",
+      "value": "Botswana",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Burkina_Faso",
+      "value": "Burkina Faso",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Burundi",
+      "value": "Burundi",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Canada",
+      "value": "Canada",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Costa_Rica",
+      "value": "Costa Rica",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Cuba",
+      "value": "Cuba",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Djibouti",
+      "value": "Djibouti",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.France",
+      "value": "France",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Gabon",
+      "value": "Gabon",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Ghana",
+      "value": "Ghana",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Gibraltar",
+      "value": "Gibraltar",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Guam",
+      "value": "Guam",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Guyana",
+      "value": "Guyana",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Honduras",
+      "value": "Honduras",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Hong_Kong",
+      "value": "Hong Kong",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Iran",
+      "value": "Iran",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Jersey",
+      "value": "Jersey",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Kazakhstan",
+      "value": "Kazakhstan",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Kenya",
+      "value": "Kenya",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Kiribati",
+      "value": "Kiribati",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Lesotho",
+      "value": "Lesotho",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Liechtenstein",
+      "value": "Liechtenstein",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Luxembourg",
+      "value": "Luxembourg",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Macao",
+      "value": "Macao",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Madagascar",
+      "value": "Madagascar",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Malawi",
+      "value": "Malawi",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Maldives",
+      "value": "Maldives",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Mali",
+      "value": "Mali",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Martinique",
+      "value": "Martinique",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Mayotte",
+      "value": "Mayotte",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Monaco",
+      "value": "Monaco",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Montserrat",
+      "value": "Montserrat",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Mozambique",
+      "value": "Mozambique",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Nauru",
+      "value": "Nauru",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Nicaragua",
+      "value": "Nicaragua",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Niger",
+      "value": "Niger",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Oman",
+      "value": "Oman",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Pakistan",
+      "value": "Pakistan",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Panama",
+      "value": "Panama",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Paraguay",
+      "value": "Paraguay",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Philippines",
+      "value": "Philippines",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Portugal",
+      "value": "Portugal",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Qatar",
+      "value": "Qatar",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Rwanda",
+      "value": "Rwanda",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Samoa",
+      "value": "Samoa",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Seychelles",
+      "value": "Seychelles",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Sierra_Leone",
+      "value": "Sierra Leone",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Sri_Lanka",
+      "value": "Sri Lanka",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Suriname",
+      "value": "Suriname",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Swaziland",
+      "value": "Swaziland",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Togo",
+      "value": "Togo",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Tonga",
+      "value": "Tonga",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Tuvalu",
+      "value": "Tuvalu",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Ukraine",
+      "value": "Ukraine",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Uruguay",
+      "value": "Uruguay",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Vanuatu",
+      "value": "Vanuatu",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.country.Zimbabwe",
+      "value": "Zimbabwe",
+      "reason": "Reviewed geographical proper name retains the same localized spelling; historical catalog identity is preserved."
+    },
+    {
+      "key": "label.directories.nature.article",
+      "value": "Article",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.directories.subtopic.architecture",
+      "value": "Architecture",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.directories.subtopic.information",
+      "value": "Information",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.directories.subtopic.religion",
+      "value": "Religion",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.directories.subtopic.collection",
+      "value": "Collection",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.directories.subtopic.sport",
+      "value": "Sport",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.directories.subtopic.transport",
+      "value": "Transport",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.directories.topic.art",
+      "value": "Art",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.document.type.audio",
+      "value": "Audio",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.document.type.collection",
+      "value": "Collection",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.document.type.collections",
+      "value": "Collections",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.document.type.note",
+      "value": "Note",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.document.type.section",
+      "value": "Section",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.document.type.threed",
+      "value": "3D",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "label.dublincore.description",
+      "value": "Description",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.dublincore.nature",
+      "value": "Nature",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.mail.folder.port",
+      "value": "Port",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.permissions.permanent",
+      "value": "Permanent",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.security.permission.version",
+      "value": "Version",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.type",
+      "value": "Type",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "label.version",
+      "value": "Version",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "liveconnectImportActions.box",
+      "value": "Box",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "liveconnectImportActions.dropbox",
+      "value": "Dropbox",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "liveconnectImportActions.googledrive",
+      "value": "Google Drive",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "liveconnectImportActions.onedrive",
+      "value": "OneDrive",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "mailfolder.sort.field.sending_date",
+      "value": "Date",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "mimetype.text/html",
+      "value": "HTML",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "mimetype.text/x-web-markdown",
+      "value": "Markdown",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "mimetype.text/xml",
+      "value": "XML",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "noteEditLayout.format",
+      "value": "Format",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "noteMetadataLayout.format",
+      "value": "Format",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "pageableWidget.version",
+      "value": "Version",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "pictureViewLayout.date",
+      "value": "Date",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "pictureViewLayout.description",
+      "value": "Description",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "pictureViewLayout.dimensions",
+      "value": "Dimensions",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "pictureViewLayout.exif",
+      "value": "EXIF",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "pictureViewLayout.format",
+      "value": "Format",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "pictureViewLayout.iptc",
+      "value": "IPTC",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "pictureViewLayout.iso",
+      "value": "ISO",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "pictureViewLayout.orientation",
+      "value": "Orientation",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "pictureViewLayout.source",
+      "value": "Source",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "publication.internal.options",
+      "value": "Options",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "recentDocumentsTable.type",
+      "value": "Type",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "renderTemplateButton.dialog.template.description",
+      "value": "Description",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "repositoryAnalytics.documents.heading",
+      "value": "Documents",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "searchResults.highlight.field.dc:description.fulltext",
+      "value": "Description",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "searchResults.highlight.field.note:note.fulltext",
+      "value": "Note",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "searchResults.sort.field.nature",
+      "value": "Nature",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "templateRenderingPage.parameters.source",
+      "value": "Source",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "templateRenderingPage.parameters.type",
+      "value": "Type",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "themes.default",
+      "value": "Nuxeo",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "themes.kawaii",
+      "value": "Kawaii",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "versions.version",
+      "value": "{0}.{1}",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "vocabularyManagement.edit.actions",
+      "value": "Actions",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "vocabularyManagement.edit.parent",
+      "value": "Parent",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "wf.parallelDocumentReview.NA",
+      "value": "N/A",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "wf.parallelDocumentReview.participants",
+      "value": "Participants",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "wf.serialDocumentReview.participants",
+      "value": "Participants",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "wf.serialDocumentReview.validation",
+      "value": "Validation",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "wf.serialDocumentReview.workflowType.validation",
+      "value": "Validation",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    },
+    {
+      "key": "wopiLink.excel.tooltip",
+      "value": "Microsoft Excel Online",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "wopiLink.powerpoint.tooltip",
+      "value": "Microsoft PowerPoint Online",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "wopiLink.wopitest.tooltip",
+      "value": "Microsoft WOPI Test",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "wopiLink.word.tooltip",
+      "value": "Microsoft Word Online",
+      "reason": "Reviewed product name, technical notation, file format, identifier or punctuation remains invariant."
+    },
+    {
+      "key": "sdk.bulk.nature",
+      "value": "Nature",
+      "reason": "Reviewed native-language word or established interface loanword with identical spelling."
+    }
+  ]
+}

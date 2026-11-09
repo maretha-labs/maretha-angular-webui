@@ -1,0 +1,228 @@
+.document-actions {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.document-actions__more {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	min-height: 36px;
+	padding: 7px 12px;
+	border: 1px solid var(--nuxeo-border, #dce0e5);
+	border-radius: 5px;
+	background: var(--nuxeo-box, #fff);
+	color: var(--nuxeo-text-default, #414458);
+	font: inherit;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 20px;
+	white-space: nowrap;
+
+	&::after {
+		content: '';
+		width: 6px;
+		height: 6px;
+		border-inline-end: 1.5px solid currentColor;
+		border-block-end: 1.5px solid currentColor;
+		transform: translateY(-2px) rotate(45deg);
+		opacity: 0.65;
+	}
+	&:hover,
+	&[aria-expanded='true'] {
+		background: var(--nuxeo-background, #f5f6f8);
+	}
+	&:focus-visible {
+		outline: 2px solid var(--nuxeo-primary-color, #0066ff);
+		outline-offset: 2px;
+	}
+}
+
+.document-actions__menu {
+	// Stock menu density: 24px full-strength glyphs, 14px labels on one line.
+	--webui-icon-size: 24px;
+	width: 256px;
+	max-width: calc(100vw - 24px);
+	max-height: min(75vh, 600px);
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	margin-block-start: 6px;
+	padding: 6px;
+	border: 1px solid var(--nuxeo-border, #dce0e5);
+	border-radius: 0;
+	background: var(--nuxeo-box, #fff);
+	color: var(--nuxeo-text-default, #414458);
+	box-shadow:
+		0 12px 32px rgb(20 28 45 / 14%),
+		0 2px 6px rgb(20 28 45 / 5%);
+	// The container receives focus on opening; individual controls retain a keyboard ring.
+	outline: none;
+}
+
+// Normalize only contribution entry buttons, leaving their forms and dialogs intact.
+.document-actions__menu ::ng-deep nx-contribution-outlet > * {
+	display: block;
+	width: 100%;
+}
+.document-actions__menu ::ng-deep nx-contribution-outlet > * > button,
+.document-actions__menu
+	::ng-deep
+	nx-contribution-outlet
+	> *
+	nx-selection-download
+	> button.selection-icon-action {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 12px;
+	width: 100%;
+	min-height: 40px;
+	margin: 0;
+	padding: 8px 12px;
+	border: 0;
+	border-radius: 4px;
+	background: transparent;
+	color: inherit;
+	box-shadow: none;
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	text-align: start;
+	text-decoration: none;
+	white-space: nowrap;
+	outline: none;
+
+	&:hover:not(:disabled) {
+		background: var(--nuxeo-background, #f3f5f8);
+	}
+	&:focus-visible {
+		background: var(--nuxeo-background, #f3f5f8);
+		outline: 2px solid var(--nuxeo-primary-color, #0066ff);
+		outline-offset: -2px;
+	}
+	&:disabled {
+		opacity: 0.45;
+		cursor: not-allowed;
+	}
+	&[data-command='trash'],
+	&[data-command='delete'] {
+		color: var(--bs-danger, #b42318);
+	}
+	> nx-webui-icon,
+	> fa-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 24px;
+		width: 24px;
+		height: 24px;
+		font-size: 20px;
+		line-height: 1;
+	}
+	> nx-webui-icon svg {
+		width: 24px;
+		height: 24px;
+	}
+	> fa-icon svg {
+		width: 24px;
+		height: 24px;
+	}
+	.document-info-label {
+		display: inline;
+	}
+}
+
+.document-actions__primary {
+	--webui-icon-size: 18px;
+	display: inline-flex;
+	align-items: center;
+}
+.document-actions__primary ::ng-deep nx-webui-slot {
+	gap: 6px;
+}
+.document-actions__primary ::ng-deep nx-contribution-outlet > * > button,
+.document-actions__primary
+	::ng-deep
+	nx-contribution-outlet
+	> *
+	nx-selection-download
+	> button.selection-icon-action {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	min-height: 36px;
+	padding: 7px 12px;
+	border: 1px solid var(--nuxeo-border, #dce0e5);
+	border-radius: 5px;
+	background: var(--nuxeo-box, #fff);
+	color: var(--nuxeo-text-default, #414458);
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 20px;
+	white-space: nowrap;
+	&:hover:not(:disabled) {
+		background: var(--nuxeo-background, #f3f5f8);
+	}
+	&:focus-visible {
+		outline: 2px solid var(--nuxeo-primary-color, #0066ff);
+		outline-offset: 2px;
+	}
+}
+
+.document-actions__primary {
+	--webui-icon-size: 20px;
+}
+.document-actions__primary ::ng-deep nx-contribution-outlet > * > button {
+	width: 36px;
+	height: 36px;
+	min-height: 36px;
+	border: 0;
+	padding: 8px;
+	background: transparent;
+}
+.document-actions__primary ::ng-deep .action-label {
+	display: none;
+}
+.document-actions__more {
+	width: 36px;
+	height: 36px;
+	border: 0;
+	padding: 0;
+	border-radius: 50%;
+	background: transparent;
+	font-size: 24px;
+}
+.document-actions__more::after {
+	display: none;
+}
+.document-actions__more[aria-expanded='true'] {
+	background: var(--nuxeo-border);
+}
+.document-actions__primary ::ng-deep button.document-create-button {
+	width: auto;
+	min-width: 92px;
+	padding: 8px 12px;
+	border-radius: 4px;
+	background: var(--nuxeo-primary-color);
+	color: #fff;
+	gap: 7px;
+}
+
+.document-actions__menu:has(dialog[open]) {
+	visibility: hidden;
+}
+.document-actions__menu ::ng-deep dialog[open] {
+	visibility: visible;
+}
+
+.document-actions__menu.has-dialog {
+	visibility: hidden;
+}
+.document-actions__menu.has-dialog ::ng-deep dialog[open] {
+	visibility: visible;
+}

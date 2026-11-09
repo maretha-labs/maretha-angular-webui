@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<component name="io.maretha.maretha-angular-webui.server.oauth-client">
+  <!-- Starts after the directories (order 97), so oauth2Clients is ready. -->
+  <require>org.nuxeo.ecm.platform.oauth.directoryContrib</require>
+  <implementation class="io.maretha.webui.server.OAuthClientRegistration" />
+</component>

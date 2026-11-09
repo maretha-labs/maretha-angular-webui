@@ -1,0 +1,160 @@
+.search-toggle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 60px;
+	height: 53px;
+	border: 0;
+	border-block-end: 1px solid var(--nuxeo-border);
+	border-inline-start: 1px solid var(--nuxeo-border);
+	color: var(--nuxeo-app-header, var(--nuxeo-text-default));
+	background: var(--nuxeo-app-header-background, var(--nuxeo-box));
+	cursor: pointer;
+	nx-webui-icon {
+		width: 20px;
+		height: 20px;
+	}
+}
+.search-toggle:hover,
+.search-toggle:focus-visible,
+.close {
+	background: var(--nuxeo-button-primary, var(--nuxeo-primary-color));
+	color: var(--nuxeo-button-primary-text, #fff);
+}
+dialog {
+	position: fixed;
+	inset: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	max-height: none;
+	border: 0;
+	padding: 0;
+	background: transparent;
+	color: var(--nuxeo-quicksearch-text, var(--nuxeo-text-default));
+	overflow: hidden;
+	&::backdrop {
+		background: var(--primary-text-color, #243238);
+		opacity: 0.8;
+	}
+}
+.search-bar {
+	height: 53px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--nuxeo-quicksearch-background, var(--nuxeo-box));
+	input {
+		width: 65%;
+		height: 28px;
+		border: 0;
+		border-bottom: 2px solid var(--nuxeo-primary-color);
+		background: transparent;
+		color: inherit;
+		font: inherit;
+		outline: none;
+		box-shadow: none;
+	}
+	.close {
+		position: absolute;
+		inset-inline-end: 0;
+		inset-block-start: 0;
+	}
+}
+.clear {
+	border: 0;
+	background: transparent;
+	color: inherit;
+	font-size: 24px;
+	padding: 4px 12px;
+	cursor: pointer;
+}
+.results {
+	width: 65%;
+	margin: 0.5em auto 3em;
+	padding: 0 2em;
+	height: calc(100% - 130px);
+	overflow: auto;
+	> p {
+		padding: 1em;
+		background: var(--nuxeo-quicksearch-background, var(--nuxeo-box));
+	}
+}
+.result {
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	width: 100%;
+	padding: 1em;
+	background: var(--nuxeo-quicksearch-background, var(--nuxeo-box));
+	color: inherit;
+	text-align: start;
+	border: 0;
+	border-top: 1px solid var(--nuxeo-border);
+	font: inherit;
+	cursor: pointer;
+	img,
+	nx-webui-icon {
+		width: 60px;
+		height: 60px;
+		flex: 0 0 60px;
+		object-fit: cover;
+	}
+	&:hover,
+	&:focus-visible {
+		outline: 2px solid var(--nuxeo-primary-color);
+		outline-offset: -2px;
+		background: var(--nuxeo-table-row-hover, var(--nuxeo-box));
+	}
+}
+.details {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	gap: 4px;
+}
+.label {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+small {
+	opacity: 0.7;
+	overflow-wrap: anywhere;
+}
+.highlight {
+	font-size: 0.85rem;
+	overflow-wrap: anywhere;
+}
+@media (max-width: 1024px) {
+	.search-bar {
+		justify-content: flex-start;
+		padding-inline: 16px 70px;
+		input {
+			flex: 1;
+			min-width: 0;
+			width: auto;
+		}
+	}
+	.results {
+		width: 100%;
+		padding: 1em;
+	}
+}
+
+input::-webkit-search-cancel-button {
+	display: none;
+}
+
+.highlight-field {
+	margin-inline-end: 8px;
+	opacity: 0.7;
+}
+.highlight em {
+	font-weight: 700;
+	color: var(--nuxeo-primary-color);
+	text-decoration: underline;
+	font-style: normal;
+}

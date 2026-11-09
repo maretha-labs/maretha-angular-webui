@@ -1,0 +1,144 @@
+@import '../../../../styles/variables';
+
+:host {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-height: 0;
+	min-width: 0;
+	position: relative;
+}
+
+.container {
+	position: relative;
+	z-index: 0;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-height: 0;
+	min-width: 0;
+	max-width: none;
+
+	> * {
+		flex: 1;
+		min-height: 0;
+		padding-bottom: 1rem;
+	}
+
+	.drag-container {
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+		&::after,
+		&::before {
+			content: '';
+			position: absolute;
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 0.2s ease-in-out;
+		}
+
+		&::after {
+			inset-block-start: -0.3rem;
+			inset-inline-start: -0.3rem;
+			inset-inline-end: -0.3rem;
+			inset-block-end: 0;
+			border-radius: 0.6rem;
+			background-color: rgba(var(--nuxeo-primary-rgb, #{$primary-rgb}), 0.1);
+		}
+
+		&::before {
+			inset-block-end: 50%;
+			inset-inline-start: 50%;
+			width: 90%;
+			transform: translate(-50%, 50%);
+			font-size: 3rem;
+			color: var(--nuxeo-primary-color, #{$primary});
+			text-shadow:
+				1px 1px 1px #{$runtime-white},
+				2px 2px 1px #{$runtime-white};
+			text-align: center;
+			z-index: 1;
+		}
+
+		&.file-over {
+			&::after {
+				border: 3px dashed var(--nuxeo-primary-color, #{$primary});
+				opacity: 1;
+			}
+
+			&::before {
+				content: attr(data-drag-message);
+				opacity: 1;
+			}
+
+			&.no-upload {
+				&::after {
+					border: 3px dashed #{$runtime-danger};
+					background-color: rgba(var(--maretha-style-color-danger-rgb, #{$danger-rgb}), 0.1);
+				}
+
+				&::before {
+					content: attr(data-no-drop-message);
+					color: #{$runtime-danger};
+				}
+			}
+		}
+
+		nx-generic-type-viewer {
+			flex-grow: 1;
+		}
+	}
+}
+
+.loading-spinner {
+	position: absolute;
+	inset-block-start: 50%;
+	inset-inline-start: 50%;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(255, 255, 255, 0.75);
+	font-size: 2rem;
+	z-index: 10;
+	pointer-events: auto;
+}
+
+.document-header {
+	flex: 0 0 auto;
+}
+.document-header--compact {
+	display: flex;
+	align-items: center;
+	min-height: 53px;
+	padding-inline: 16px 72px;
+	gap: 16px;
+	background: var(--nuxeo-box, #fff);
+	border-block-end: 1px solid var(--nuxeo-border);
+	nx-document-navigation-bar {
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+	nx-document-toolbar {
+		flex: 0 0 auto;
+		max-width: 65%;
+	}
+}
+@media (max-width: 720px) {
+	.document-header--compact {
+		padding-inline: 56px 68px;
+		gap: 8px;
+		nx-document-toolbar {
+			max-width: 55%;
+		}
+	}
+}
+
+// A selection bar spans the window over the header, rail and drawer (the stock selection
+// toolbar). While one is shown the content may not form its own stacking context, or the bar
+// would stay under them.
+:host ::ng-deep .container:has(.selection-toolbar) {
+	z-index: auto;
+}

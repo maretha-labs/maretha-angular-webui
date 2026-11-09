@@ -1,0 +1,434 @@
+<div class="modal-header">
+	<h4 class="modal-title pull-left">
+		@if (add) {
+			<span>{{
+				'app.modules.retention-rule-editor.add-a-new-retention-rule-85f53f'
+					| webuiMessage: 'Add a new retention rule'
+			}}</span>
+		}
+		@if (!add) {
+			<span>{{
+				'app.modules.retention-rule-editor.edit-retention-rule-9cf818'
+					| webuiMessage: 'Edit retention rule'
+			}}</span>
+		}
+	</h4>
+
+	<button
+		type="button"
+		class="close btn-close pull-right"
+		[attr.aria-label]="'app.modules.retention-rule-editor.close-346c5a' | webuiMessage: 'Close'"
+		(click)="close()"
+	>
+		<span aria-hidden="true" class="visually-hidden">&times;</span>
+	</button>
+</div>
+
+@if (editorForm) {
+	<div class="modal-body" [formGroup]="editorForm">
+		<div class="row">
+			<div class="col-sm-12 mb-3">
+				<div class="form-floating required">
+					<input
+						type="text"
+						class="form-control"
+						id="title"
+						[attr.placeholder]="
+							'app.modules.retention-rule-editor.title-8c52bc' | webuiMessage: 'Title'
+						"
+						formControlName="title"
+						[nxAutofocus]="true"
+						[nxAutofocusDelay]="400"
+					/>
+					<label for="title">{{
+						'app.modules.retention-rule-editor.title-8c52bc' | webuiMessage: 'Title'
+					}}</label>
+				</div>
+			</div>
+			<div class="col-sm-12 mb-3">
+				<div class="form-floating">
+					<textarea
+						class="form-control"
+						id="description"
+						[attr.placeholder]="
+							'app.modules.retention-rule-editor.description-f06eaf' | webuiMessage: 'Description'
+						"
+						formControlName="description"
+						rows="1"
+					></textarea>
+					<label for="description">{{
+						'app.modules.retention-rule-editor.description-f06eaf' | webuiMessage: 'Description'
+					}}</label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col mb-3">
+				<div class="form-control required">
+					<label for="docTypes">{{
+						'app.modules.retention-rule-editor.application-policy-e1a0d8'
+							| webuiMessage: 'Application policy'
+					}}</label>
+					<ng-select
+						[items]="applicationPolicies"
+						id="applicationPolicy"
+						class="ng-select-sm ng-select-discreet"
+						formControlName="applicationPolicy"
+						[clearable]="false"
+						bindLabel="label"
+						bindValue="key"
+					>
+					</ng-select>
+				</div>
+			</div>
+			@if (editorForm.get('applicationPolicy')?.value) {
+				@if (editorForm.get('applicationPolicy')?.value === 'auto') {
+					<div class="col-sm-8 mb-3">
+						<div class="form-floating required">
+							<input
+								type="text"
+								class="form-control"
+								id="expression"
+								[attr.placeholder]="
+									'app.modules.retention-rule-editor.expression-508e02' | webuiMessage: 'Expression'
+								"
+								formControlName="expression"
+								[nxAutofocus]="editorForm.get('applicationPolicy')?.value"
+								[nxAutofocusDelay]="100"
+								[tooltip]="
+									'app.modules.retention-rule-editor.ex-document-gettype-file-de981b'
+										| webuiMessage: 'Ex: Document.getType() == \'File\''
+								"
+							/>
+							<label for="expression">{{
+								'app.modules.retention-rule-editor.expression-508e02' | webuiMessage: 'Expression'
+							}}</label>
+						</div>
+					</div>
+				}
+				@if (editorForm.get('applicationPolicy')?.value === 'manual') {
+					<div class="col-sm-8 mb-3">
+						<div class="form-control required">
+							<label for="docTypes">{{
+								'app.modules.retention-rule-editor.document-types-affected-by-this-retention--5780de'
+									| webuiMessage: 'Document types affected by this retention rule'
+							}}</label>
+							<ng-select
+								[items]="docTypes"
+								[multiple]="true"
+								[closeOnSelect]="false"
+								formControlName="docTypes"
+								[nxAutofocus]="editorForm.get('applicationPolicy')?.value"
+								[nxAutofocusDelay]="100"
+								class="ng-select-sm ng-select-discreet"
+							>
+								<ng-template ng-multi-label-tmp let-types="items" let-clear="clear">
+									@for (docType of types | slice: 0 : 3; track docType) {
+										<div class="ng-value">
+											<span
+												[tooltip]="
+													'app.modules.retention-rule-editor.click-to-add-a-new-document-type-83877b'
+														| webuiMessage: 'Click to add a new document type'
+												"
+												class="ng-value-label"
+											>
+												{{ docType }}
+											</span>
+											<span
+												(click)="clear(docType)"
+												[tooltip]="
+													'app.modules.retention-rule-editor.remove-this-document-type-d37271'
+														| webuiMessage: 'Remove this document type'
+												"
+												class="ng-value-icon right"
+												aria-hidden="true"
+												>×</span
+											>
+										</div>
+									}
+									@if (types.length > 3) {
+										<div class="ng-value">
+											<span class="ng-value-label">{{
+												'selection.more'
+													| webuiMessage: '{count, number} more…' : { count: types.length - 3 }
+											}}</span>
+										</div>
+									}
+								</ng-template>
+							</ng-select>
+						</div>
+					</div>
+				}
+			}
+		</div>
+		@if (editorForm.get('applicationPolicy')?.value) {
+			<div class="row">
+				<div class="col mb-3">
+					<div class="form-control required">
+						<label for="docTypes">{{
+							'app.modules.retention-rule-editor.starting-point-policy-97ec77'
+								| webuiMessage: 'Starting point policy'
+						}}</label>
+						<ng-select
+							[items]="startingPointPolicies"
+							id="startingPointPolicy"
+							class="ng-select-sm ng-select-discreet"
+							formControlName="startingPointPolicy"
+							bindLabel="label"
+							bindValue="key"
+							[clearable]="false"
+						>
+						</ng-select>
+					</div>
+				</div>
+				@if (editorForm.get('startingPointPolicy')?.value) {
+					@if (editorForm.get('startingPointPolicy')?.value === 'immediate') {
+						<div class="col-sm-12 mb-3">
+							<p class="alert alert-info mb-0 small">
+								{{
+									'app.modules.retention-rule-editor.the-retention-period-starts-automatically--155c7e'
+										| webuiMessage
+											: 'The retention period starts automatically and synchronously when this retention\n								policy is applied to a document.'
+								}}
+							</p>
+						</div>
+					}
+					@if (editorForm.get('startingPointPolicy')?.value === 'event_based') {
+						<div class="col-sm-4 mb-3">
+							<div class="form-control required">
+								<label for="docTypes">{{
+									'app.modules.retention-rule-editor.starting-point-event-311383'
+										| webuiMessage: 'Starting point event'
+								}}</label>
+								<ng-select
+									[items]="(startingPointEvents$ | async) ?? []"
+									class="ng-select-sm ng-select-discreet"
+									formControlName="startingPointEvent"
+									[clearable]="false"
+									bindLabel="displayLabel"
+									bindValue="id"
+									[nxAutofocus]="editorForm.get('startingPointPolicy')?.value"
+									[nxAutofocusDelay]="100"
+								>
+								</ng-select>
+							</div>
+						</div>
+						<div class="col-sm-4 mb-3">
+							<div class="form-floating h-100 required">
+								<input
+									type="text"
+									class="form-control h-100"
+									id="startingPointValue"
+									[attr.placeholder]="
+										'app.modules.retention-rule-editor.event-input-25b40c'
+											| webuiMessage: 'Event input'
+									"
+									formControlName="startingPointValue"
+									[nxAutofocus]="editorForm.get('startingPointEvent')?.value"
+									[nxAutofocusDelay]="100"
+									[tooltip]="
+										'app.modules.retention-rule-editor.ex-document-gettype-file-de981b'
+											| webuiMessage: 'Ex: Document.getType() == \'File\''
+									"
+								/>
+								<label for="startingPointValue">{{
+									'app.modules.retention-rule-editor.event-input-25b40c'
+										| webuiMessage: 'Event input'
+								}}</label>
+							</div>
+						</div>
+					}
+					@if (editorForm.get('startingPointPolicy')?.value === 'metadata_based') {
+						<div class="col-sm-6 mb-3">
+							<div class="form-control required">
+								<label for="schemas">{{
+									'app.modules.retention-rule-editor.field-b67f12' | webuiMessage: 'Field'
+								}}</label>
+								<ng-select
+									[items]="dateFields"
+									[virtualScroll]="true"
+									id="schemas"
+									class="ng-select-sm ng-select-discreet"
+									[clearable]="false"
+									formControlName="metadataXPath"
+									[nxAutofocus]="editorForm.get('startingPointPolicy')?.value"
+									[nxAutofocusDelay]="100"
+									[tooltip]="
+										'app.modules.retention-rule-editor.the-specified-document-field-acts-as-the-r-361fdf'
+											| webuiMessage
+												: 'The specified document field acts as the retention period starting point'
+									"
+								>
+								</ng-select>
+							</div>
+						</div>
+					}
+				}
+			</div>
+		}
+		@if (editorForm.get('applicationPolicy')?.value) {
+			<div class="row">
+				<div class="col-sm-12 mb-3">
+					<div class="form-control">
+						<label for="schemas">{{
+							'app.modules.retention-rule-editor.end-actions-620f7a' | webuiMessage: 'End actions'
+						}}</label>
+						<ng-select
+							[items]="(endActions$ | async) ?? []"
+							bindLabel="displayLabel"
+							bindValue="id"
+							class="ng-select-sm ng-select-discreet"
+							formControlName="endActions"
+							[multiple]="true"
+							[closeOnSelect]="false"
+							[nxAutofocus]="
+								editorForm.get('startingPointPolicy')?.value === 'immediate' ||
+								editorForm.get('metadataXPath')?.value
+							"
+							[nxAutofocusDelay]="100"
+						>
+							<ng-template ng-multi-label-tmp let-endActions="items" let-clear="clear">
+								@for (endAction of endActions; track endAction) {
+									<div class="ng-value">
+										<span
+											[tooltip]="
+												'app.modules.retention-rule-editor.click-to-add-an-action-80cb71'
+													| webuiMessage: 'Click to add an action'
+											"
+											class="ng-value-label"
+										>
+											{{ endAction.displayLabel || endAction }}
+										</span>
+										<span
+											(click)="clear(endAction)"
+											[tooltip]="
+												'app.modules.retention-rule-editor.remove-this-action-351616'
+													| webuiMessage: 'Remove this action'
+											"
+											class="ng-value-icon right"
+											aria-hidden="true"
+											>×</span
+										>
+									</div>
+								}
+							</ng-template>
+						</ng-select>
+					</div>
+				</div>
+				<div class="col-sm-12 mb-3">
+					<div class="form-control">
+						<div class="row">
+							<div class="col">
+								<label for="durationYears">
+									{{
+										'app.modules.retention-rule-editor.duration-in-years-6e254e'
+											| webuiMessage: 'Duration in years:'
+									}}
+									<b>{{ editorForm.get('durationYears')?.value | webuiNumber }}</b>
+								</label>
+								<input
+									type="range"
+									id="durationYears"
+									class="form-range"
+									min="0"
+									max="50"
+									formControlName="durationYears"
+								/>
+							</div>
+							<div class="col">
+								<label for="durationYears">
+									{{
+										'app.modules.retention-rule-editor.duration-in-months-676771'
+											| webuiMessage: 'Duration in months:'
+									}}
+									<b>{{ editorForm.get('durationMonths')?.value | webuiNumber }}</b>
+								</label>
+								<input
+									type="range"
+									id="durationMonths"
+									class="form-range"
+									min="0"
+									max="12"
+									formControlName="durationMonths"
+								/>
+							</div>
+							<div class="col">
+								<label for="durationYears">
+									{{
+										'app.modules.retention-rule-editor.duration-in-days-68c14a'
+											| webuiMessage: 'Duration in days:'
+									}}
+									<b>{{ editorForm.get('durationDays')?.value | webuiNumber }}</b>
+								</label>
+								<input
+									type="range"
+									id="durationDays"
+									class="form-range"
+									min="0"
+									max="31"
+									formControlName="durationDays"
+								/>
+							</div>
+							<div class="col">
+								<label for="durationYears">
+									{{
+										'app.modules.retention-rule-editor.duration-in-seconds-5655eb'
+											| webuiMessage: 'Duration in seconds:'
+									}}
+									<b>{{ editorForm.get('durationMillis')?.value | webuiNumber }}</b>
+								</label>
+								<input
+									type="range"
+									id="durationMillis"
+									class="form-range"
+									min="0"
+									max="3600"
+									step="10"
+									formControlName="durationMillis"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="form-check form-switch">
+						<input
+							id="enabled"
+							class="form-check-input"
+							type="checkbox"
+							role="switch"
+							formControlName="enabled"
+						/>
+						<label for="enabled">{{
+							'app.modules.retention-rule-editor.enabled-d0f365' | webuiMessage: 'Enabled'
+						}}</label>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+}
+
+<div class="modal-footer flex-nowrap p-0">
+	<button
+		(click)="close()"
+		type="button"
+		class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"
+	>
+		{{
+			'app.modules.retention-rule-editor.close-without-saving-459436'
+				| webuiMessage: 'Close without saving'
+		}}
+	</button>
+
+	<button
+		(click)="saveChanges()"
+		type="button"
+		[disabled]="editorForm?.pristine || editorForm?.invalid"
+		class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0"
+	>
+		<strong>{{
+			'app.modules.retention-rule-editor.save-changes-02e866' | webuiMessage: 'Save changes'
+		}}</strong>
+	</button>
+</div>

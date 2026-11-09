@@ -1,0 +1,219 @@
+<table
+	role="grid"
+	[attr.aria-label]="caption()"
+	[attr.aria-describedby]="sortDescription() ? sortDescriptionId : null"
+>
+	<caption class="visually-hidden">
+		{{
+			caption()
+		}}
+	</caption>
+	<thead>
+		<tr>
+			@for (column of columns(); track column.id; let columnIndex = $index) {
+				<th
+					scope="col"
+					data-dashboard-cell
+					data-dashboard-detail="false"
+					data-dashboard-row="-1"
+					[attr.data-dashboard-column]="columnIndex"
+					[attr.aria-sort]="sortDirection(column.id)"
+					(keydown)="keyDown($event)"
+				>
+					<div class="column-heading">
+						<button
+							type="button"
+							data-dashboard-header-focus
+							[attr.tabindex]="tabIndex(-1, columnIndex)"
+							(focus)="focused(-1, columnIndex)"
+							class="sort-button"
+							[disabled]="context().loading"
+							(click)="sort(column.id, $event.shiftKey)"
+						>
+							{{ column.label }}<span aria-hidden="true">{{ sortSymbol(column.id) }}</span>
+						</button>
+						<details
+							class="column-filter"
+							[open]="filterOpen() === column.id"
+							(toggle)="filterToggled($event, column.id)"
+						>
+							<summary
+								tabindex="-1"
+								[attr.aria-label]="locale('ariaFilterMenuOpen') + ': ' + column.label"
+								[class.active]="filterActive(column.id)"
+							>
+								<nx-webui-icon name="icons:filter-list" />
+							</summary>
+							<div class="filter-panel">
+								@for (
+									condition of filter(column.id).conditions;
+									track $index;
+									let conditionIndex = $index
+								) {
+									@if (conditionIndex === 1) {
+										<select
+											[attr.aria-label]="locale('ariaAdvancedFilterBuilderJoinOperator')"
+											[attr.tabindex]="filterOpen() === column.id ? 0 : -1"
+											[disabled]="context().loading"
+											[value]="filter(column.id).join"
+											(change)="setJoin(column.id, $any($event.target).value)"
+										>
+											<option value="AND">{{ locale('andCondition') }}</option>
+											<option value="OR">{{ locale('orCondition') }}</option>
+										</select>
+									}
+									<select
+										[attr.aria-label]="locale('ariaFilteringOperator')"
+										[attr.tabindex]="filterOpen() === column.id ? 0 : -1"
+										[disabled]="context().loading"
+										[value]="condition.operator"
+										(change)="
+											setCondition(
+												column.id,
+												conditionIndex,
+												condition.value,
+												$any($event.target).value
+											)
+										"
+									>
+										@for (operator of operators; track operator) {
+											<option [value]="operator">{{ locale(operator) }}</option>
+										}
+									</select>
+									@if (condition.operator !== 'blank' && condition.operator !== 'notBlank') {
+										<input
+											type="text"
+											[attr.aria-label]="locale('ariaFilterValue')"
+											[attr.tabindex]="filterOpen() === column.id ? 0 : -1"
+											[disabled]="context().loading"
+											[value]="condition.value"
+											(input)="setCondition(column.id, conditionIndex, $any($event.target).value)"
+										/>
+									}
+								}
+								<button
+									type="button"
+									[attr.tabindex]="filterOpen() === column.id ? 0 : -1"
+									[disabled]="context().loading"
+									(click)="clearFilter(column.id)"
+								>
+									{{ locale('resetFilter') }}
+								</button>
+							</div>
+						</details>
+					</div>
+				</th>
+			}
+			@if (hasActions()) {
+				<th scope="col">
+					{{ 'results.actions' | webuiMessage: 'Actions' }}
+				</th>
+			}
+		</tr>
+	</thead>
+	<tbody>
+		@for (row of displayedRows(); track row.uid; let rowIndex = $index) {
+			<tr (click)="projection().rowClick($event, row)">
+				@for (column of columns(); track column.id; let columnIndex = $index) {
+					<td
+						role="gridcell"
+						data-dashboard-cell
+						data-dashboard-detail="false"
+						[attr.data-dashboard-row]="rowIndex"
+						[attr.data-dashboard-column]="columnIndex"
+						[attr.tabindex]="tabIndex(rowIndex, columnIndex)"
+						(focus)="focused(rowIndex, columnIndex)"
+						(keydown)="keyDown($event)"
+					>
+						@if (cellComponent(row, rowIndex, column); as component) {
+							<ng-container
+								*ngComponentOutlet="
+									component;
+									inputs: projection().componentInputs(rowContext(row, rowIndex, column))
+								"
+							/>
+						} @else {
+							<ng-container
+								*ngTemplateOutlet="
+									projection().cellTemplate(column);
+									context: rowContext(row, rowIndex, column)
+								"
+							/>
+							@if (!projection().cellTemplate(column)) {
+								{{ projection().value(row, column) }}
+							}
+						}
+					</td>
+				}
+				@if (hasActions()) {
+					<td
+						role="gridcell"
+						data-dashboard-cell
+						data-dashboard-detail="false"
+						[attr.data-dashboard-row]="rowIndex"
+						[attr.data-dashboard-column]="columns().length"
+						[attr.tabindex]="tabIndex(rowIndex, columns().length)"
+						(focus)="focused(rowIndex, columns().length)"
+						(keydown)="keyDown($event)"
+					>
+						@for (name of ['action', 'settings']; track name) {
+							@if (actionComponent($any(name), row, rowIndex); as component) {
+								<ng-container
+									*ngComponentOutlet="
+										component;
+										inputs: projection().componentInputs(rowContext(row, rowIndex))
+									"
+								/>
+							} @else {
+								<ng-container
+									*ngTemplateOutlet="
+										projection().template($any(name));
+										context: rowContext(row, rowIndex)
+									"
+								/>
+							}
+						}
+					</td>
+				}
+			</tr>
+			@if (projection().hasDetail(row, rowIndex)) {
+				<tr class="detail-row">
+					<td
+						role="gridcell"
+						data-dashboard-cell
+						data-dashboard-detail="true"
+						[attr.data-dashboard-row]="rowIndex"
+						data-dashboard-column="0"
+						[attr.colspan]="columnCount()"
+						[attr.tabindex]="tabIndex(rowIndex, 0, true)"
+						(focus)="focused(rowIndex, 0, true)"
+						(keydown)="keyDown($event)"
+					>
+						@if (projection().detailComponent(row, rowIndex); as component) {
+							<ng-container
+								*ngComponentOutlet="
+									component;
+									inputs: projection().componentInputs(rowContext(row, rowIndex))
+								"
+							/>
+						} @else {
+							<ng-container
+								*ngTemplateOutlet="
+									projection().detailTemplate();
+									context: rowContext(row, rowIndex)
+								"
+							/>
+						}
+					</td>
+				</tr>
+			}
+		} @empty {
+			<tr>
+				<td role="gridcell" [attr.colspan]="columnCount()">
+					<ng-container *ngTemplateOutlet="projection().template('empty'); context: context()" />
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+<p class="visually-hidden" [id]="sortDescriptionId">{{ sortDescription() }}</p>

@@ -1,0 +1,47 @@
+name: Feature request
+description: A capability for the core Web UI or its extension SDK.
+labels: ['needs-triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Triage confirms the request with the `confirmed:feature` label. Only then can a
+        `feat:` pull request that says `Closes #<issue>` pass the contribution gate. If your need fits in your
+        own `custom/` zone, the extension SDK may already cover it; ask in Discussions first.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What you are trying to do and what stops you today.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: The behaviour you want. Name the slot, layout mode or SDK API involved if you know it.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Stock Web UI parity
+        - Extension SDK or slots
+        - Layouts
+        - Build, packaging or deployment
+        - Documentation or agent guides
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Contribution
+      options:
+        - label: I would open the pull request once the issue is confirmed.
