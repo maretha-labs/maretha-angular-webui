@@ -91,7 +91,7 @@
   "dependencies": {
     "@ag-grid-community/locale": "36.2.0",
     "@angular/animations": "21.2.25",
-    "@angular/cdk": "^21.2.8",
+    "@angular/cdk": "^22.2.6",
     "@angular/cdk-experimental": "^21.2.8",
     "@angular/common": "21.2.25",
     "@angular/compiler": "21.2.25",
