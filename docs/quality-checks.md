@@ -113,8 +113,9 @@ MIT-licensed AG Grid Community packages only.
 
 `npm run release:core-manifest` writes `core.manifest.json`: the package version and
 the SHA-256 of every tracked file outside `custom/`, `migration/mapping.json` and
-`migration/polymer-source/`. `npm run verify:core-manifest` lists core files changed,
-removed or added since. Hashes cover raw bytes, so a checkout that converts line
+`migration/polymer-source/`, leaving `package.json`, `package-lock.json` and `.github/` unlocked so
+that dependency and workflow updates need no regeneration. `npm run verify:core-manifest` lists
+core files changed, removed or added since. Hashes cover raw bytes, so a checkout that converts line
 endings reports converted text files as changed.
 
 `npm run verify:slot-catalog` checks that `agent-guides/02-slot-catalog.md` is the rendering

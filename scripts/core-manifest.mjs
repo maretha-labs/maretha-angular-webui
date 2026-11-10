@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Writes core.manifest.json for a release: the package version and the SHA-256 of every
-// locked file, meaning every tracked file outside the customization zone.
+// locked file, meaning every tracked file outside the customization zone and the unlocked paths.
 // `--check` compares the working tree (tracked and untracked, not ignored) with it.
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -16,16 +16,25 @@ export const CUSTOMER_PATHS = Object.freeze([
 	'migration/polymer-source/',
 ]);
 
+/**
+ * Core paths the manifest leaves unlocked: the dependency declarations and the GitHub
+ * configuration, so dependency and workflow updates need no regeneration. Directories end with
+ * a slash.
+ */
+export const UNLOCKED_PATHS = Object.freeze(['.github/', 'package.json', 'package-lock.json']);
+
 // `git ls-files` can print far more than execFileSync's 1 MiB default, as for a large untracked tree.
 const GIT_OPTIONS = Object.freeze({ encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 });
 
-const customer = (file) =>
-	CUSTOMER_PATHS.some((entry) => (entry.endsWith('/') ? file.startsWith(entry) : file === entry));
+const matches = (paths) => (file) =>
+	paths.some((entry) => (entry.endsWith('/') ? file.startsWith(entry) : file === entry));
+const customer = matches(CUSTOMER_PATHS);
+const unlocked = matches(UNLOCKED_PATHS);
 
 export function lockedFiles(root, { untracked = false } = {}) {
 	const args = ['ls-files', '-z', ...(untracked ? ['-co', '--exclude-standard'] : [])];
 	return [...new Set(execFileSync('git', args, { ...GIT_OPTIONS, cwd: root }).split('\0'))]
-		.filter((file) => file && file !== MANIFEST && !customer(file))
+		.filter((file) => file && file !== MANIFEST && !customer(file) && !unlocked(file))
 		.sort();
 }
 

@@ -5,6 +5,14 @@ format. Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 released as tags `v<version>` on `main`. The SDK package `@maretha/webui-sdk` carries the same
 version; its own notes are in [app/extensions/CHANGELOG.md](app/extensions/CHANGELOG.md).
 
+## [Unreleased]
+
+### Changed
+
+- The core manifest no longer locks `package.json`, `package-lock.json` and `.github/`, so
+  dependency and workflow updates need no regeneration
+  ([docs/quality-checks.md](docs/quality-checks.md)).
+
 ## [1.0.0] - 2026-11-09
 
 First release.
@@ -80,4 +88,5 @@ Tested with:
 - Isolated execution workers for the automated pull-request review.
 - A Nuxeo Marketplace listing.
 
+[Unreleased]: https://github.com/maretha-labs/maretha-angular-webui/compare/v1.0.0...HEAD
 [1.0.0]: https://github.com/maretha-labs/maretha-angular-webui/releases/tag/v1.0.0

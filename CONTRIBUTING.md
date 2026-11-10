@@ -42,7 +42,8 @@ New issues are triaged within 14 days. New here? Issues labelled
 3. Run the upstream checks: `npm run verify:upstream`. It runs everything the public CI runs.
 4. Regenerate the core manifest as the **last** change, after staging your files by name:
    `npm run release:core-manifest`. Commit the regenerated `core.manifest.json`. CI recomputes
-   it and fails on any difference. Never edit it by hand.
+   it and fails on any difference. Never edit it by hand. A change limited to `package.json`,
+   `package-lock.json` or `.github/` leaves it unchanged.
 5. Sign off every commit (Developer Certificate of Origin): `git commit -s`. The DCO check
    fails on a commit without a `Signed-off-by` line matching its author. To fix that without
    rewriting history, push a follow-up commit, itself signed off, whose message contains one

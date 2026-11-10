@@ -15,11 +15,12 @@ Every tracked file is in the customization zone or in core. The customization zo
 <!-- /customer-paths -->
 
 Core is everything else: `app/`, `styles/`, `assets/`, `nuxeo/`, `scripts/`, `e2e/`, the
-configuration files and the documentation. `core.manifest.json` records the SHA-256 of every
-core file at the release. `npm run verify` recomputes them and lists every core file that was
-changed, removed or added, untracked files included. The manifest is a lockfile for a customized
-copy, not an approval mechanism: regenerating it with `npm run release:core-manifest` is the last
-step of an upstream change before its pull request, after review, and never a step of a
+configuration files and the documentation. `core.manifest.json` records the SHA-256 of every core
+file at the release, except `package.json`, `package-lock.json` and `.github/`, so dependency and
+workflow updates need no regeneration. `npm run verify` recomputes the hashes and lists every core
+file that was changed, removed or added, untracked files included. The manifest is a lockfile for a
+customized copy, not an approval mechanism: regenerating it with `npm run release:core-manifest` is
+the last step of an upstream change before its pull request, after review, and never a step of a
 customization.
 
 ## Inside custom/

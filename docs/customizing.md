@@ -32,11 +32,12 @@ Every tracked file is in the customization zone or in core. The zone:
 
 Core is everything else: `app/`, `styles/`, `assets/`, `nuxeo/`, `scripts/`, `e2e/`, the
 configuration files and the documentation. `core.manifest.json` records the SHA-256 of every core
-file at the release, and `npm run verify` lists every core file that was changed, removed or
-added, untracked files included. A core edit is lost at the next upgrade: the merge conflicts on
-it or reverts it, and `npm run verify` fails until it is undone. What cannot be done inside the
-zone is a gap to report upstream with the use case, not a reason to patch core. Details and the
-rules the lint enforces: [agent-guides/01-boundaries.md](../agent-guides/01-boundaries.md).
+file at the release, except `package.json`, `package-lock.json` and `.github/` (dependency and
+workflow updates need no regeneration), and `npm run verify` lists every core file that was changed,
+removed or added, untracked files included. A core edit is lost at the next upgrade: the merge
+conflicts on it or reverts it, and `npm run verify` fails until it is undone. What cannot be done
+inside the zone is a gap to report upstream with the use case, not a reason to patch core. Details
+and the rules the lint enforces: [agent-guides/01-boundaries.md](../agent-guides/01-boundaries.md).
 
 ## Generate
 

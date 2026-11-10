@@ -16,6 +16,8 @@ before(() => {
 	root = mkdtempSync(path.join(tmpdir(), 'core-manifest-'));
 	execFileSync('git', ['init', '-q'], { cwd: root });
 	write('package.json', '{ "version": "1.2.3" }');
+	write('package-lock.json', '{}');
+	write('.github/workflows/ci.yml', 'on: push\n');
 	write('app/core.ts', 'export const core = 1;\n');
 	write('custom/index.ts', 'export {};\n');
 	write('migration/mapping.json', '{}');
@@ -28,23 +30,26 @@ before(() => {
 after(() => rmSync(root, { recursive: true, force: true }));
 
 describe('core manifest', () => {
-	it('hashes every tracked file outside the customer zone', () => {
+	it('hashes every tracked file outside the customer zone and the unlocked paths', () => {
 		const manifest = createManifest(root);
 		assert.equal(manifest.version, '1.2.3');
 		assert.deepEqual(Object.keys(manifest.files), [
 			'.gitignore',
 			'app/core.ts',
 			'migration/inventory.json',
-			'package.json',
 		]);
 		assert.match(manifest.files['app/core.ts'], /^[0-9a-f]{64}$/);
 	});
 
-	it('ignores customer edits and reports changed, removed and added core files', () => {
+	it('ignores customer edits and unlocked paths, and reports changed, removed and added core files', () => {
 		const manifest = createManifest(root);
 		write('custom/index.ts', 'export const changed = true;\n');
 		write('custom/contributions/new.component.ts', 'export {};\n');
 		write('migration/mapping.json', '{ "items": [] }');
+		write('package.json', '{ "version": "1.2.4" }');
+		write('package-lock.json', '{ "lockfileVersion": 3 }');
+		write('.github/workflows/ci.yml', 'on: pull_request\n');
+		write('.github/dependabot.yml', 'version: 2\n');
 		assert.deepEqual(compareManifest(root, manifest), { changed: [], removed: [], added: [] });
 		write('app/core.ts', 'export const core = 2;\n');
 		unlinkSync(path.join(root, 'migration/inventory.json'));
