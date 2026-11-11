@@ -11,6 +11,37 @@ updates:
     commit-message:
       prefix: chore
       include: scope
+    # These packages publish a major for each Angular major and only install together,
+    # so their majors arrive in one Angular upgrade instead of one pull request each.
+    ignore:
+      - dependency-name: '@angular/*'
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@angular-devkit/*'
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@angular-builders/*'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'angular-eslint'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'ng-packagr'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'typescript'
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@fortawesome/angular-fontawesome'
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@ng-select/ng-select'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'ng2-charts'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'ngx-bootstrap'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'ngx-extended-pdf-viewer'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'ngx-markdown'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'ngx-toastr'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'ngx-translate-cut'
+        update-types: ['version-update:semver-major']
 
   - package-ecosystem: github-actions
     directory: /
