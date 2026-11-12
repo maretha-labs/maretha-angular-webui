@@ -33,6 +33,20 @@ if (
 run(process.execPath, [join(root, 'scripts/check-sdk-ids.mjs')], root);
 const directory = await prepareConsumer();
 const outcomes = {};
+const consumerManifest = join(directory, 'package.json');
+const fixtureManifest = JSON.parse(await readFile(consumerManifest, 'utf8'));
+/**
+ * The baseline builds with the Angular and TypeScript versions its peer range accepts, recorded
+ * as `consumer` in its manifest; the candidate builds with the example's own versions.
+ */
+async function pinConsumer(pins = {}) {
+	const manifest = structuredClone(fixtureManifest);
+	for (const section of ['dependencies', 'devDependencies'])
+		Object.assign(manifest[section], pins[section]);
+	await writeFile(consumerManifest, JSON.stringify(manifest, null, 2) + '\n');
+	await rm(join(directory, 'package-lock.json'), { force: true });
+	await rm(join(directory, 'node_modules'), { recursive: true, force: true });
+}
 try {
 	const rehearsalDirectory = join(directory, 'rehearsal');
 	await mkdir(rehearsalDirectory);
@@ -50,6 +64,7 @@ try {
 				strict: true,
 				skipLibCheck: true,
 				lib: ['ES2022', 'DOM'],
+				rootDir: 'rehearsal',
 				outDir: 'rehearsal-build',
 			},
 			files: ['rehearsal/client-extension.ts'],
@@ -71,6 +86,7 @@ console.log('Upgrade semantics passed:', process.argv[2]);
 		['candidate', values.archive ?? (await candidateArchive())],
 	]) {
 		console.log(`Checking ${revision} SDK and unchanged client extension...`);
+		await pinConsumer(revision === 'baseline' ? baseline.consumer : undefined);
 		const sdk = await installArchive(directory, archive);
 		if (revision === 'baseline' && sdk.version !== baseline.version)
 			throw new Error('The frozen SDK version does not match its manifest.');

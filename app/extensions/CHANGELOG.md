@@ -1,5 +1,14 @@
 # WebUI SDK release notes
 
+## Unreleased
+
+### Breaking change and migration
+
+The SDK is built with Angular 22 and its peer range is `@angular/* ^22.2.0`. An application
+on Angular 21 keeps the 1.x SDK; to take this version, move the application to Angular 22 and
+TypeScript 6 first (`ng update @angular/core@22 @angular/cli@22`), then update the SDK. The
+public API is unchanged.
+
 ## 1.0.0 — 2026-11-09
 
 This release changes the public result-projection contract: consumers that

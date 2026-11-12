@@ -1,6 +1,6 @@
 # Independent SDK consumer
 
-This Angular 21 app imports only `@maretha/webui-sdk`. It does not extend the runtime's TypeScript configuration or reference its source aliases. It demonstrates a client-owned assembly, an additional editable view, replacement, reversible hiding/reordering, retained drafts and an asynchronous departure guard. Its content is sample data, with no Nuxeo session.
+This Angular 22 app imports only `@maretha/webui-sdk`. It does not extend the runtime's TypeScript configuration or reference its source aliases. It demonstrates a client-owned assembly, an additional editable view, replacement, reversible hiding/reordering, retained drafts and an asynchronous departure guard. Its content is sample data, with no Nuxeo session.
 
 From the runtime repository:
 
