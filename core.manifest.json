@@ -1108,7 +1108,7 @@
     "e2e/a11y/save.e2e.ts": "b0ddb2a1cb9e8c018c623f04834473b03a4d208f9af67b084ba3071ad508b2db",
     "e2e/a11y/scan.ts": "f058722020a627007374ec03ad784832420ec3c1e0f14c8d3df9a2af4de809d0",
     "e2e/a11y/summarize.mjs": "0062ebb810619fb0cebf9290203ed2236db3ec7c4e69116f9b30c82aa59d8f83",
-    "e2e/a11y/theme-comparison.mjs": "181cac998c2063203e11c1d3c386a531bb63bbf72cace1e104194e01ee714c76",
+    "e2e/a11y/theme-comparison.mjs": "75bdec60a32488fe808a37b7646fe973952d1d91cd7ab1b4dd4678a8ca8a1552",
     "e2e/a11y/tsconfig.json": "81dad2491c9eb4f7f59caae369baa970d64579480e104f2fe6715d94d2205254",
     "e2e/compiled-search/default-search.e2e.ts": "6f1aa68c2965bdc4843ba837459d9c76cb08fce685a9f85614b8ace8285e935d",
     "e2e/compiled-search/example-card.component.ts": "f53dbb2e09a4a57923f9c3da403eee7431a5eeca15b6696091cfb47efa53c325",
