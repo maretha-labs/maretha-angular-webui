@@ -20,7 +20,7 @@ import {
 import { toSignal } from '@angular/core/rxjs-interop';
 import { AuthService } from 'app/helpers/auth.service';
 import { DocumentsManagerService } from 'app/modules/explorer/helpers/documents-manager.service';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { map, Subject, takeUntil } from 'rxjs';
 import { GenericFolderishViewerComponent } from '../generic-folderish-viewer/generic-folderish-viewer.component';
 
@@ -64,7 +64,7 @@ export class GenericTypeViewerComponent implements OnChanges, OnDestroy {
 		private readonly router: Router,
 		private readonly authService: AuthService,
 		private readonly documentsManagerService: DocumentsManagerService,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 		private readonly cdr: ChangeDetectorRef,
 		private readonly route: ActivatedRoute,
 	) {

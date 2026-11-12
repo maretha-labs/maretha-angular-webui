@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { WebUiMessages } from './webui-messages';
 import { LocalizedUiError } from './i18n/localized-state';
 import {
@@ -18,7 +18,7 @@ import {
 	layoutPropertyValue,
 } from './document-layout';
 
-@Component({ template: '' })
+@Component({ changeDetection: ChangeDetectionStrategy.Eager, template: '' })
 class ClientWidget {
 	context!: BulkLayoutContext;
 }

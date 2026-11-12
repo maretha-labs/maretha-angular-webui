@@ -5,7 +5,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 
 import { UserAndGroupEditorComponent } from './user-and-group-editor.component';
 import { AuthService } from 'app/helpers/auth.service';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 
 describe('UserAndGroupEditorComponent', () => {
 	let component: UserAndGroupEditorComponent;
@@ -50,7 +50,7 @@ describe('UserAndGroupEditorComponent', () => {
 		});
 		let saved: any;
 		component.save$.subscribe((value) => (saved = value));
-		const success = spyOn(TestBed.inject(ToastrService), 'success');
+		const success = spyOn(TestBed.inject(ToastService), 'success');
 		component.saveChanges();
 		const request = http.expectOne((value) => value.url.endsWith('/automation/User.Invite'));
 		expect(request.request.method).toBe('POST');

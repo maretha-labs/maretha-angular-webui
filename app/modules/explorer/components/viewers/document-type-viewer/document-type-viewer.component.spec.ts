@@ -1,5 +1,5 @@
 import { legacyTestProviders } from 'app/testing/legacy-test-providers';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideDocumentLayoutExtensions, type DocumentLayoutContext } from '@maretha/webui-sdk';
 import { provideDefaultDocumentLayouts } from '../../default-document-layouts';
@@ -28,6 +28,7 @@ describe('DocumentTypeViewerComponent', () => {
 
 @Component({
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template:
 		'<output>custom {{ document?.title }} {{ layoutContext?.document?.["title"] }}</output>',
 })
@@ -36,7 +37,11 @@ class CustomFileViewComponent {
 	@Input() layoutContext: DocumentLayoutContext | undefined;
 }
 
-@Component({ standalone: true, template: '<output>no context</output>' })
+@Component({
+	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '<output>no context</output>',
+})
 class NoContextViewComponent {
 	@Input() document: { title?: string } | undefined;
 }

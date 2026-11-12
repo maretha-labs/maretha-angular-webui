@@ -91,11 +91,11 @@ describe('PDF locale adapter', () => {
 			.and.returnValues(Promise.resolve(first), Promise.resolve(last));
 		const app = { l10n: initial, externalServices: { createL10n: factory } };
 		const adapter = new PdfLocaleAdapter();
-		const one = adapter.update(app, { set: jasmine.createSpy('set') }, '5.4.1105', root, 'fr');
+		const one = adapter.update(app, { set: jasmine.createSpy('set') }, '6.5.1524', root, 'fr');
 		await Promise.resolve();
 		await Promise.resolve();
 		await Promise.resolve();
-		const two = adapter.update(app, { set: jasmine.createSpy('set') }, '5.4.1105', root, 'ar');
+		const two = adapter.update(app, { set: jasmine.createSpy('set') }, '6.5.1524', root, 'ar');
 		ready();
 		expect((await one).applied).toBeFalse();
 		expect(await two).toEqual({ applied: true, directionDeferred: true });
@@ -115,7 +115,7 @@ describe('PDF locale adapter', () => {
 			await new PdfLocaleAdapter().update(
 				app,
 				{ set: jasmine.createSpy('set') },
-				'5.4.1105',
+				'6.5.1524',
 				root,
 				'fr',
 			),
@@ -129,7 +129,7 @@ describe('PDF locale adapter', () => {
 		const promise = adapter.update(
 			{ l10n: initial, externalServices: { createL10n } },
 			{ set: jasmine.createSpy('set') },
-			'5.4.1105',
+			'6.5.1524',
 			root,
 			'ro',
 		);
@@ -147,7 +147,7 @@ describe('PDF locale adapter', () => {
 				await new PdfLocaleAdapter().update(
 					app,
 					{ set: jasmine.createSpy('set') },
-					'5.4.1105',
+					'6.5.1524',
 					root,
 					'fr',
 				)
@@ -158,8 +158,8 @@ describe('PDF locale adapter', () => {
 		expect(next.destroy).toHaveBeenCalledTimes(1);
 	});
 	for (const [folder, version] of [
-		['assets', '5.4.1105'],
-		['bleeding-edge', '5.4.1106'],
+		['assets', '6.5.1524'],
+		['bleeding-edge', '6.5.1524'],
 	]) {
 		it(`refreshes bundled PDF.js ${version} Fluent catalogs for all seven locales through retained references`, async () => {
 			const previousFolder = pdfDefaultOptions.assetsFolder;
@@ -220,7 +220,7 @@ describe('PDF locale adapter', () => {
 					['es', 'Imprimir'],
 					['fr', 'Imprimer'],
 					['ar', 'اطبع'],
-					['ro', 'Listează'],
+					['ro', 'Printează'],
 					['pt-PT', 'Imprimir'],
 					['it', 'Stampa'],
 					['en-US', 'Print'],
@@ -247,7 +247,7 @@ describe('PDF locale adapter', () => {
 					runtime.GlobalWorkerOptions.workerSrc = previousWorker;
 				link.remove();
 				for (const link of priorLinks) document.head.append(link);
-				loader.ngOnDestroy();
+				loader.releaseViewer();
 				pdfDefaultOptions.assetsFolder = previousFolder;
 			}
 		}, 30_000);

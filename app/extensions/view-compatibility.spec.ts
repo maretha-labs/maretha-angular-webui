@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import {
 	defineDocumentViewVariants,
 	documentViewParameter,
 	resolveDocumentViews,
 } from './document-view';
 import { ExtensionRegistry } from './extension-registry.service';
-@Component({ template: '' })
+@Component({ changeDetection: ChangeDetectionStrategy.Eager, template: '' })
 class Page {}
 
 describe('Polymer view compatibility', () => {

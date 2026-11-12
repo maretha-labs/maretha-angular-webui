@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DocumentPaneResizeHandleComponent } from './document-pane-resize-handle.component';
@@ -7,6 +7,7 @@ const KEY = 'nuxeo.documentPage.sidePaneWidth';
 
 @Component({
 	imports: [DocumentPaneResizeHandleComponent],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<div
 		class="page-layout"
 		style="display:grid;width:1000px;gap:16px;grid-template-columns:minmax(0,1fr) var(--nx-document-side-width,320px)"

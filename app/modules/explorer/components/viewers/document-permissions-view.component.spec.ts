@@ -1,10 +1,11 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { DocumentViewContext } from '@maretha/webui-sdk';
 import { DocumentPermissionsViewComponent } from './document-permissions-view.component';
 
 @Component({
 	selector: 'nx-document-permissions',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: '<output>{{ document()?.uid }} {{ noEdit() }}</output>',
 })
 class PermissionsStub {

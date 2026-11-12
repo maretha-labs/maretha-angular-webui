@@ -1,5 +1,5 @@
 import { TestBed, fakeAsync, flushMicrotasks } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { Router } from '@angular/router';
 import { StandardVersionNoticeComponent } from './standard-version-notice.component';
@@ -101,7 +101,7 @@ describe('Scoped version information', () => {
 		const router = { navigateByUrl: jasmine.createSpy().and.resolveTo(true) };
 		TestBed.configureTestingModule({
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{ provide: Router, useValue: router },
 			],

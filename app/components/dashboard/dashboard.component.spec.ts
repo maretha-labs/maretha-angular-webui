@@ -1,6 +1,6 @@
 import { legacyTestProviders } from 'app/testing/legacy-test-providers';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { HttpTestingController } from '@angular/common/http/testing';
 import { Router } from '@angular/router';
 import { By } from '@angular/platform-browser';
@@ -25,6 +25,7 @@ import { DashboardDocumentTableComponent } from './dashboard-document-table.comp
 
 @Component({
 	selector: 'nx-dashboard-test-cell',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<span>{{ context().row.title }} / {{ context().column?.id }}</span>`,
 })
 class DashboardTestCell {
@@ -32,6 +33,7 @@ class DashboardTestCell {
 }
 @Component({
 	selector: 'nx-dashboard-test-default',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<p>Customer default projection</p>`,
 })
 class DashboardTestDefault {
@@ -39,6 +41,7 @@ class DashboardTestDefault {
 }
 @Component({
 	selector: 'nx-dashboard-test-action',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<button type="button" (click)="context().invokeAction('customer-action')">
 		Customer action
 	</button>`,
@@ -48,6 +51,7 @@ class DashboardTestAction {
 }
 @Component({
 	selector: 'nx-dashboard-test-detail',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<button type="button">{{ context().row.title }}</button>`,
 })
 class DashboardTestDetail {

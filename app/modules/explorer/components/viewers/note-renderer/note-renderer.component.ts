@@ -4,7 +4,7 @@ import { WebUiMessagePipe } from '@maretha/webui-sdk';
 import { Component, ElementRef, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { DocumentsManagerService } from 'app/modules/explorer/helpers/documents-manager.service';
 import { animations } from 'app/shared.constants';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
@@ -44,7 +44,7 @@ export class NoteRendererComponent implements OnInit {
 	constructor(
 		private readonly documentsManagerService: DocumentsManagerService,
 		private readonly elementRef: ElementRef,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 	) {}
 
 	// --------------------------------------------------------------------------------------------------

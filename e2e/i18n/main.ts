@@ -18,14 +18,13 @@ import {
 import pseudoCatalog from '../../dist/verification/i18n/pseudo.json';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
-import { HttpResponse, provideHttpClient, withInterceptors } from '@angular/common/http';
+import { HttpResponse, provideHttpClient, withInterceptors, withXhr } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
 import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 import { NgxTranslateCutModule } from 'ngx-translate-cut';
 import { TimeagoModule } from 'ngx-timeago';
-import { ToastrModule } from 'ngx-toastr';
 import { of, throwError } from 'rxjs';
 import {
 	NUXEO_ICONS,
@@ -137,6 +136,7 @@ bootstrapApplication(AppComponent, {
 		provideNoopAnimations(),
 		provideRouter([{ path: '**', component: FixturePage }]),
 		provideHttpClient(
+			withXhr(),
 			withInterceptors([
 				(request) => {
 					if (request.url.includes('/assets/') || request.url.startsWith('assets/'))
@@ -154,7 +154,6 @@ bootstrapApplication(AppComponent, {
 			TranslateModule.forRoot(),
 			NgxTranslateCutModule.forRoot({}),
 			TimeagoModule.forRoot(),
-			ToastrModule.forRoot(),
 			ModalModule,
 		),
 		provideWebUiIcons('maretha.polymer', NUXEO_ICONS),

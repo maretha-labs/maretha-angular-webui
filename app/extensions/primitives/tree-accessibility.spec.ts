@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NuxeoTreeComponent, NuxeoTreeNodeComponent } from './projection-primitives';
 import { WebUiLocale } from '../i18n/webui-locale';
 
 @Component({
 	imports: [NuxeoTreeComponent, NuxeoTreeNodeComponent],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<button id="outside" type="button">Outside</button>
 		<nx-tree label="Customer files">
 			@if (parentVisible) {

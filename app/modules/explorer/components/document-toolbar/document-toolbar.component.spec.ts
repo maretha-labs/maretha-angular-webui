@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { signal } from '@angular/core';
 import { ExtensionRegistry, WebUiLocale, WebUiMessages } from '@maretha/webui-sdk';
@@ -120,7 +120,7 @@ describe('DocumentToolbarComponent search action host', () => {
 		await TestBed.configureTestingModule({
 			imports: [DocumentToolbarComponent],
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				provideDefaultToolbar(),
 				{ provide: DocumentsManagerService, useValue: manager },

@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import {
@@ -9,7 +9,7 @@ import {
 describe('Quick search transport', () => {
 	it('uses the suggester contract, preserves result kinds and rejects foreign thumbnail URLs', () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const http = TestBed.inject(HttpTestingController);
 		let result: SearchSuggestion[] = [];

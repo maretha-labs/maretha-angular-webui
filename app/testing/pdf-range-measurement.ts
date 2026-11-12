@@ -376,6 +376,6 @@ export async function measurePdfRanges(
 		if (runtime && previousWorker !== undefined)
 			runtime.GlobalWorkerOptions.workerSrc = previousWorker;
 		pdfDefaultOptions.assetsFolder = previousFolder;
-		loader.ngOnDestroy();
+		loader.releaseViewer();
 	}
 }

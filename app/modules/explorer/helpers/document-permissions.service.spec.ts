@@ -2,7 +2,7 @@ import { WebUiMessages } from 'app/extensions/webui-messages';
 import { WebUiLocale } from 'app/extensions/i18n/webui-locale';
 import { loadWebUiCatalog } from 'app/helpers/webui-message-catalog';
 import { HttpTestingController } from '@angular/common/http/testing';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { legacyTestProviders } from 'app/testing/legacy-test-providers';
 import { TestBed } from '@angular/core/testing';
 
@@ -27,7 +27,7 @@ describe('DocumentPermissionsService', () => {
 			ar: await loadWebUiCatalog('ar'),
 		});
 		const locale = TestBed.inject(WebUiLocale);
-		const toast = spyOn(TestBed.inject(ToastrService), 'info');
+		const toast = spyOn(TestBed.inject(ToastService), 'info');
 		const http = TestBed.inject(HttpTestingController);
 		const email = 'customer{count}<b>@example.test';
 		service.addPermission('doc', 'Read', email, undefined, undefined, true).subscribe();

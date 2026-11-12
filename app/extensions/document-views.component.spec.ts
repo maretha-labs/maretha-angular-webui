@@ -1,6 +1,6 @@
 import { WebUiMessages } from './webui-messages';
 import { WebUiLocale } from './i18n/webui-locale';
-import { Component, DestroyRef, inject, input, Type } from '@angular/core';
+import { Component, DestroyRef, inject, input, Type, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { defineContribution } from './contribution';
 import {
@@ -15,7 +15,11 @@ import { ExtensionRegistry } from './extension-registry.service';
 
 let created = 0;
 let destroyed = 0;
-@Component({ standalone: true, template: '<p>Content {{context().document?.["uid"]}}</p>' })
+@Component({
+	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '<p>Content {{context().document?.["uid"]}}</p>',
+})
 class ContentPage {
 	readonly context = input.required<DocumentViewContext>();
 	constructor() {
@@ -25,7 +29,11 @@ class ContentPage {
 		});
 	}
 }
-@Component({ standalone: true, template: '<p>Contract {{context().document?.["uid"]}}</p>' })
+@Component({
+	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '<p>Contract {{context().document?.["uid"]}}</p>',
+})
 class ContractPage {
 	readonly context = input.required<DocumentViewContext>();
 }
@@ -33,6 +41,7 @@ class ContractPage {
 	selector: 'nx-viewport-test-page',
 	standalone: true,
 	template: '<div class="viewport-content">{{context().document?.["uid"]}}</div>',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	styles: `
 		:host {
 			display: block;

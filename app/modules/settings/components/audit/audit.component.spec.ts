@@ -5,7 +5,7 @@ import { DirectoryService } from '../../helpers/directory.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { provideRouter } from '@angular/router';
 import { POLYMER_MESSAGES, WebUiMessages } from '@maretha/webui-sdk';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { StandardDocumentHistoryViewComponent } from '../../../explorer/components/viewers/standard-document-history-view.component';
 import { AuditComponent } from './audit.component';
@@ -20,7 +20,7 @@ describe('AuditComponent', () => {
 		await TestBed.configureTestingModule({
 			imports: [AuditComponent, StandardDocumentHistoryViewComponent, TranslateModule.forRoot()],
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{
 					provide: AnalyticsService,

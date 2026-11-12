@@ -6,10 +6,10 @@ import { faBookmark, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { EMPTY, of, Subject } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { CompareVersionsActionComponent } from './compare-versions-action.component';
 import {
@@ -73,7 +73,7 @@ describe('DocumentActionsToolbarComponent extension integration', () => {
 				{ provide: Router, useValue: { events: EMPTY } },
 				{ provide: ActivatedRoute, useValue: { snapshot: { url: [] } } },
 				{ provide: BsModalService, useValue: modalService },
-				{ provide: ToastrService, useValue: {} },
+				{ provide: ToastService, useValue: {} },
 				{ provide: DocumentTrashService, useValue: {} },
 				{ provide: DocumentClipboardService, useValue: {} },
 				{ provide: DocumentAttachmentsService, useValue: {} },
@@ -275,14 +275,14 @@ describe('DocumentActionsToolbarComponent standard header', () => {
 			imports: [DocumentActionsToolbarComponent, TranslateModule.forRoot()],
 			providers: [
 				provideNoopAnimations(),
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				provideDefaultDocumentActions(),
 				{ provide: BreakpointObserver, useValue: { observe: () => of({ matches: false }) } },
 				{ provide: Router, useValue: { events: EMPTY } },
 				{ provide: ActivatedRoute, useValue: { snapshot: { url: [] } } },
 				{ provide: BsModalService, useValue: {} },
-				{ provide: ToastrService, useValue: {} },
+				{ provide: ToastService, useValue: {} },
 				{ provide: DocumentTrashService, useValue: {} },
 				{ provide: DocumentClipboardService, useValue: {} },
 				{ provide: DocumentAttachmentsService, useValue: {} },
@@ -344,7 +344,7 @@ describe('CompareVersionsActionComponent', () => {
 		TestBed.configureTestingModule({
 			imports: [CompareVersionsActionComponent],
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{ provide: Router, useValue: router },
 			],
@@ -437,7 +437,7 @@ describe('DocumentExportComponent, DocumentCommandComponent, and DocumentActions
 		TestBed.configureTestingModule({
 			imports: [DocumentActionsToolbarComponent],
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				provideDefaultDocumentActions(),
 				{ provide: ActivatedRoute, useValue: { snapshot: { url: [] } } },

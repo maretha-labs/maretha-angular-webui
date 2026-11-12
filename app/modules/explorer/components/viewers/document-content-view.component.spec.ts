@@ -1,4 +1,4 @@
-import { Component, Input, input, signal } from '@angular/core';
+import { Component, Input, input, signal, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
 	defineContribution,
@@ -16,6 +16,7 @@ import { DocumentContentViewComponent } from './document-content-view.component'
 
 @Component({
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template:
 		"<output>custom {{ scope?.document?.['uid'] }} {{ scope?.document?.['title'] }}</output>",
 })
@@ -23,12 +24,17 @@ class CustomFileViewComponent {
 	// eslint-disable-next-line @angular-eslint/no-input-rename -- verifies the documented legacy layoutContext alias.
 	@Input('layoutContext') scope?: DocumentLayoutContext;
 }
-@Component({ standalone: true, template: '<output>fallback {{ document?.uid }}</output>' })
+@Component({
+	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '<output>fallback {{ document?.uid }}</output>',
+})
 class FallbackViewComponent {
 	@Input() document: any;
 }
 @Component({
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template:
 		'<output>notice {{ context()?.document?.uid }} {{ context()?.loading }} {{ context()?.searchActive }}</output>',
 })

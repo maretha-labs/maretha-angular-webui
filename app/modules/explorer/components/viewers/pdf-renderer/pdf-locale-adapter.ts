@@ -1,5 +1,5 @@
 /** Version-checked bridge for PDF.js's retained localization objects; never reopens a PDF. */
-const supportedVersions = new Set(['5.4.1105', '5.4.1106']);
+const supportedVersions = new Set(['6.5.1524']);
 const methods = [
 	'getLanguage',
 	'getDirection',

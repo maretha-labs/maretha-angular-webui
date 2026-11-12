@@ -28,7 +28,7 @@ import {
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
 import { DocumentAttachmentsService } from 'app/modules/explorer/helpers/document-attachments.service';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import {
 	NatureSubjectsCoverageExpiration,
 	NatureSubjectsCoverageExpirationComponent,
@@ -112,7 +112,7 @@ export class BinaryEditorComponent implements OnInit, OnDestroy {
 		private readonly bsModalRef: BsModalRef,
 		private readonly fb: UntypedFormBuilder,
 		private readonly documentAttachmentsService: DocumentAttachmentsService,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 		private readonly cdr: ChangeDetectorRef,
 	) {}
 

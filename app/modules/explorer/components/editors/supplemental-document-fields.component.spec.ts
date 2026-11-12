@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input, signal, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import {
@@ -15,6 +15,7 @@ import { MetadataPolicyService } from '../../helpers/metadata-policy.service';
 @Component({
 	selector: 'nx-test-client-paragraph',
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template:
 		'<label>Client summary<textarea [value]="props().value" [disabled]="props().disabled" (input)="props().commit($any($event.target).value)"></textarea></label>',
 })

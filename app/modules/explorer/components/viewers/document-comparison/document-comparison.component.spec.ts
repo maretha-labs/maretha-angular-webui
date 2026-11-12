@@ -1,6 +1,6 @@
 import { legacyTestProviders, fixtureDocument } from 'app/testing/legacy-test-providers';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { WebUiMessages } from '@maretha/webui-sdk';
 import { Router, provideRouter } from '@angular/router';
@@ -51,7 +51,7 @@ describe('Comparison page source rendering', () => {
 	it('uses common schema order and date metadata, filters equal-content blobs, and labels checked-in versions', () => {
 		TestBed.configureTestingModule({
 			imports: [ComparisonPageComponent],
-			providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
 		}).overrideComponent(ComparisonPageComponent, { set: { template: '', imports: [] } });
 		const fixture = TestBed.createComponent(ComparisonPageComponent);
 		fixture.componentRef.setInput('context', {

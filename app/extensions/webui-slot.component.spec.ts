@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, input, Type } from '@angular/core';
+import { Component, DestroyRef, inject, input, Type, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { defineContribution } from './contribution';
@@ -12,6 +12,7 @@ let created = 0;
 let destroyed = 0;
 @Component({
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: '<button>{{label()}}:{{context().document?.["uid"]}}</button>',
 })
 class TestAction {
@@ -24,21 +25,37 @@ class TestAction {
 		});
 	}
 }
-@Component({ standalone: true, template: 'Invalid' })
+@Component({
+	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: 'Invalid',
+})
 class MissingContextAction {}
-@Component({ standalone: true, template: '{{fail()}}' })
+@Component({
+	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '{{fail()}}',
+})
 class BrokenTemplateAction {
 	readonly context = input.required<DocumentActionContext>();
 	fail(): never {
 		throw new Error('private template data');
 	}
 }
-@Component({ standalone: true, template: '{{extra()}}' })
+@Component({
+	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '{{extra()}}',
+})
 class RequiredInputAction {
 	readonly context = input.required<DocumentActionContext>();
 	readonly extra = input.required<string>();
 }
-@Component({ standalone: true, template: 'Client action' })
+@Component({
+	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: 'Client action',
+})
 class BrokenDestroyAction {
 	readonly context = input.required<DocumentActionContext>();
 	constructor() {

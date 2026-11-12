@@ -1,5 +1,5 @@
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { of } from 'rxjs';
 import { AuthService } from 'app/helpers/auth.service';
@@ -16,7 +16,7 @@ describe('DefaultWorkflowLayoutComponent', () => {
 		await TestBed.configureTestingModule({
 			imports: [DefaultWorkflowLayoutComponent],
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{ provide: AuthService, useValue: { userInfo: () => ({ id: 'reviewer' }) } },
 				{ provide: UsersAndGroupsFinderService, useValue: { find: () => of([]) } },

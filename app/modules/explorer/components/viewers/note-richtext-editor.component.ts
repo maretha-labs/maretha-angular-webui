@@ -1,4 +1,4 @@
-import { inject as injectUiMessages } from '@angular/core';
+import { inject as injectUiMessages, ChangeDetectionStrategy } from '@angular/core';
 import { WebUiMessages as RuntimeUiMessages } from '@maretha/webui-sdk';
 import { localizedText, messageText, MessageText } from 'app/helpers/localized-message';
 import { WebUiMessagePipe } from '@maretha/webui-sdk';
@@ -285,6 +285,9 @@ import {
 			(drop)="$event.preventDefault()"
 		></div>
 	`,
+	// The editor mutates its contenteditable host outside signals and inputs.
+	// eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
+	changeDetection: ChangeDetectionStrategy.Eager,
 	styles: `
 		:host {
 			display: block;

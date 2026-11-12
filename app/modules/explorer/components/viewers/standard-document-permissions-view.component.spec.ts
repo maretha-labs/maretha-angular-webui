@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { WebUiLocale, WebUiMessages } from '@maretha/webui-sdk';
@@ -24,7 +24,7 @@ describe('Standard document permissions', () => {
 	beforeEach(() =>
 		TestBed.configureTestingModule({
 			imports: [StandardDocumentPermissionsViewComponent],
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		}).overrideComponent(StandardDocumentPermissionsViewComponent, { set: { template: '' } }),
 	);
 	afterEach(() => TestBed.inject(HttpTestingController).verify());
@@ -463,7 +463,7 @@ describe('Standard document permissions', () => {
 		TestBed.resetTestingModule();
 		TestBed.configureTestingModule({
 			imports: [StandardDocumentPermissionsViewComponent],
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		}).overrideComponent(StandardDocumentPermissionsViewComponent, { set: { template: '' } });
 		const fixture = TestBed.createComponent(StandardDocumentPermissionsViewComponent);
 		fixture.componentRef.setInput('context', { document: document(), noEdit: false });

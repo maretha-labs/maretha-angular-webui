@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { WebUiMessages } from '@maretha/webui-sdk';
 import { MetadataPolicyService } from '../../helpers/metadata-policy.service';
@@ -10,7 +10,7 @@ describe('Folder and note locale boundaries', () => {
 	it('updates folder labels and number/boolean presentation while preserving customer fields and activity', () => {
 		TestBed.configureTestingModule({
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{
 					provide: MetadataPolicyService,
@@ -67,7 +67,7 @@ describe('Folder and note locale boundaries', () => {
 	});
 	it('updates note controls and retained errors without replacing the editable customer draft', () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const f = TestBed.createComponent(NoteRichtextEditorComponent);
 		f.componentRef.setInput('value', '<p>Customer draft {literal}</p>');

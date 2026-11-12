@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
@@ -10,7 +10,7 @@ import { SettingsModule } from './modules/settings/settings.module';
 import { SettingsGuardService } from './helpers/settings-guard.service';
 import { documentViewsNavigationGuard } from '@maretha/webui-sdk';
 
-@Component({ template: '' })
+@Component({ changeDetection: ChangeDetectionStrategy.Eager, template: '' })
 class RouteDestinationComponent {
 	constructor(readonly route: ActivatedRoute) {}
 }

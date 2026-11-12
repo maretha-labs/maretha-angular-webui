@@ -1,9 +1,9 @@
 import { NgComponentOutlet } from '@angular/common';
-import { Component, input, signal } from '@angular/core';
+import { Component, input, signal, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, convertToParamMap, ParamMap, Router } from '@angular/router';
 import { EMPTY, of, Subject, throwError } from 'rxjs';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { defineDocumentView, DocumentViewContext, ExtensionRegistry } from '@maretha/webui-sdk';
 import { AuthService } from 'app/helpers/auth.service';
 import { DocumentSearchService } from 'app/modules/search/helpers/document-search.service';
@@ -18,6 +18,7 @@ import { DocumentHistoryViewComponent } from '../document-history-view.component
 
 @Component({
 	selector: 'nx-test-type-renderer',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: 'Existing renderer {{document()["uid"]}}',
 })
 class TypeRenderer {
@@ -25,6 +26,7 @@ class TypeRenderer {
 }
 @Component({
 	selector: 'nx-generic-folderish-viewer',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: 'Folder results {{document()["uid"]}}',
 })
 class FolderRenderer {
@@ -32,6 +34,7 @@ class FolderRenderer {
 }
 @Component({
 	selector: 'nx-test-contract-view',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: 'Contract {{context().document?.["title"]}}',
 })
 class ContractView {
@@ -103,7 +106,7 @@ describe('GenericTypeViewerComponent paired view integration', () => {
 				{ provide: AuthService, useValue: { userInfo } },
 				{ provide: DocumentSearchService, useValue: { searchPaneVisibility: signal(false) } },
 				{ provide: DocumentsManagerService, useValue: manager },
-				{ provide: ToastrService, useValue: toastr },
+				{ provide: ToastService, useValue: toastr },
 				{ provide: DocumentViewerRegistryService, useValue: { getComponent: renderer } },
 			],
 		});

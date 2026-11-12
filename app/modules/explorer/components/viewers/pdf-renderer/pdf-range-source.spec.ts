@@ -4,6 +4,7 @@ import {
 	HttpHeaderResponse,
 	HttpHeaders,
 	provideHttpClient,
+	withXhr,
 } from '@angular/common/http';
 import {
 	HttpTestingController,
@@ -58,7 +59,7 @@ describe('PdfRangeSource', () => {
 
 	beforeEach(() => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		http = TestBed.inject(HttpTestingController);
 		client = TestBed.inject(HttpClient);

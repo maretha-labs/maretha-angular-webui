@@ -26,7 +26,7 @@ import {
 	ProgressBarEvent,
 	NgxExtendedPdfViewerModule,
 } from 'ngx-extended-pdf-viewer';
-import { ActiveToast, ToastrService } from 'ngx-toastr';
+import { ActiveToast, ToastService } from 'app/helpers/toast.service';
 import { Subscription } from 'rxjs';
 import { PdfRangeSource, PdfInitialData } from './pdf-range-source';
 import { PdfRangeBridge, PdfRangeTransport } from './pdf-range-bridge';
@@ -99,7 +99,7 @@ export class PdfRendererComponent implements OnChanges, OnDestroy {
 	handTool = 'Y';
 	pageViewMode: PageViewModeType = 'multiple';
 	readonly showToolbar = signal(false);
-	printProgressToastr: ActiveToast<any> | null = null;
+	printProgressToastr: ActiveToast | null = null;
 	printProgress = 0;
 	sideBar = false;
 	findbar = false;
@@ -107,7 +107,7 @@ export class PdfRendererComponent implements OnChanges, OnDestroy {
 
 	// --------------------------------------------------------------------------------------------------
 	constructor(
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 		private pdfService: NgxExtendedPdfViewerService,
 	) {
 		effect(() => {
@@ -141,14 +141,14 @@ export class PdfRendererComponent implements OnChanges, OnDestroy {
 	private refreshPrintToast(): void {
 		const toast = this.printProgressToastr;
 		if (!toast) return;
-		toast.message = this.messages.format(
-			'pdf.printing',
-			{ name: String(this.document?.ng?.attachment?.name || '') },
-			'Printing document “{name}”…',
+		toast.update(
+			this.messages.format(
+				'pdf.printing',
+				{ name: String(this.document?.ng?.attachment?.name || '') },
+				'Printing document “{name}”…',
+			),
+			this.messages.format('pdf.printTitle', {}, 'Print document'),
 		);
-		toast.title = this.messages.format('pdf.printTitle', {}, 'Print document');
-		Object.assign(toast.toastRef.componentInstance, { message: toast.message, title: toast.title });
-		toast.portal.changeDetectorRef.markForCheck();
 	}
 
 	// --------------------------------------------------------------------------------------------------

@@ -12,7 +12,7 @@ import {
 	Renderer2,
 	ChangeDetectionStrategy,
 } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { DocumentAttachmentsService } from '../../helpers/document-attachments.service';
 import { DragAndDropDirective } from '../../../../directives/drag-and-drop.directive';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -100,7 +100,7 @@ export class DocumentAttachmentsComponent implements OnInit {
 	// --------------------------------------------------------------------------------------------------
 	constructor(
 		private readonly documentAttachmentsService: DocumentAttachmentsService,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 		private readonly renderer: Renderer2,
 	) {}
 

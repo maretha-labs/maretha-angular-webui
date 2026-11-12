@@ -9,6 +9,12 @@ version; its own notes are in [app/extensions/CHANGELOG.md](app/extensions/CHANG
 
 ### Changed
 
+- The user interface is built with Angular 22 and TypeScript 6. The libraries that follow Angular
+  move with it: Angular CDK 22, ngx-bootstrap 22, ng-select 24, ngx-markdown 22, ngx-translate-cut
+  22, angular-fontawesome 5, ng2-charts 11 and ngx-extended-pdf-viewer 32, which brings PDF.js
+  6.5.
+- Notifications are rendered by the application's own `ToastService` and toast container;
+  `ngx-toastr` is no longer a dependency. Their appearance and timing are unchanged.
 - The core manifest no longer locks `package.json`, `package-lock.json` and `.github/`, so
   dependency and workflow updates need no regeneration
   ([docs/quality-checks.md](docs/quality-checks.md)).

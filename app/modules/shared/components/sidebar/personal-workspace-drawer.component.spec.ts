@@ -1,17 +1,21 @@
 import { Subject } from 'rxjs';
 import { FavoritesDrawerComponent } from './favorites-drawer.component';
 import { DocumentCollectionsService } from 'app/modules/explorer/helpers/document-collections.service';
-import { Component, input, signal } from '@angular/core';
+import { Component, input, signal, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { AuthService } from 'app/helpers/auth.service';
 import { PersonalWorkspaceService } from 'app/helpers/personal-workspace.service';
 import { DocumentsManagerService } from 'app/modules/explorer/helpers/documents-manager.service';
 import { PersonalWorkspaceDrawerComponent } from './personal-workspace-drawer.component';
 import { DocumentTreeComponent } from '../document-tree/document-tree.component';
-@Component({ selector: 'nx-document-tree', template: '' })
+@Component({
+	selector: 'nx-document-tree',
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '',
+})
 class TreeStub {
 	rootPath = input('');
 	repository = input('');
@@ -27,7 +31,7 @@ describe('Personal workspace drawer', () => {
 		TestBed.configureTestingModule({
 			imports: [PersonalWorkspaceDrawerComponent],
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{ provide: AuthService, useValue: { userInfo: user.asReadonly() } },
 				{ provide: DocumentsManagerService, useValue: { documentFetched: document.asReadonly() } },
@@ -117,7 +121,7 @@ describe('Favorites member drawer', () => {
 		TestBed.configureTestingModule({
 			imports: [FavoritesDrawerComponent],
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{
 					provide: DocumentCollectionsService,

@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, signal } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, signal, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { WebUiMessages } from '@maretha/webui-sdk';
 import { DrawerWidthPreferences } from 'app/helpers/drawer-width-preferences.service';
@@ -8,6 +8,7 @@ import { DrawerResizeHandleComponent } from './drawer-resize-handle.component';
 @Component({
 	imports: [DrawerResizeHandleComponent],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<nx-sidebar>
 		<nav id="nx-primary-navigation"></nav>
 		<section id="nx-sidebar-drawer"></section>

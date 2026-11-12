@@ -4,7 +4,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { AuthService } from 'app/helpers/auth.service';
 import { environment } from 'environments/environment';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { defer, EMPTY, finalize, forkJoin, Subject, tap } from 'rxjs';
 
 @Injectable({
@@ -76,7 +76,7 @@ export class DocumentClipboardService {
 	constructor(
 		private readonly authService: AuthService,
 		private readonly httpClient: HttpClient,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 	) {
 		authService.userInfoUpdated$.subscribe((x) => {
 			if (!x) return;

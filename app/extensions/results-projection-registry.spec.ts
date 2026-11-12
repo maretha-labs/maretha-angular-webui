@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { ResultsProjectionComponent } from './results-projection.component';
 import { ResultsProjectionContext } from './results-projection';
@@ -6,6 +6,7 @@ import { provideResultsProjections } from './results-projection-registry';
 
 @Component({
 	selector: 'nx-test-contract-card',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: '<article class="contract-card">{{ context.row.title }}</article>',
 })
 class ContractCardComponent {

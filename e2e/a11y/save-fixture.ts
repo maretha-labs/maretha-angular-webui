@@ -1,4 +1,4 @@
-import { Component, inject, Injectable, signal } from '@angular/core';
+import { Component, inject, Injectable, signal, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Subject, finalize } from 'rxjs';
 import { WebUiMessages } from '@maretha/webui-sdk';
@@ -52,6 +52,7 @@ class SaveFixtureRequests {
 		},
 		{ provide: DocumentsManagerService, useFactory: () => inject(SaveFixtureRequests).manager },
 	],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `
 		<section [attr.aria-label]="arabic ? 'اختبار حفظ محلي' : 'Local save fixture'">
 			@if (!closed()) {

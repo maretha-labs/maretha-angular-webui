@@ -1,5 +1,5 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { Component, Input, TemplateRef, signal } from '@angular/core';
+import { Component, Input, TemplateRef, signal, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { legacyTestProviders } from '../testing/legacy-test-providers';
@@ -7,6 +7,7 @@ import { DocumentContentRendererComponent } from './document-content-renderer.co
 
 @Component({
 	imports: [NgTemplateOutlet],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<p>{{ document?.title }}</p>
 		<ng-container *ngTemplateOutlet="mainContentTemplate" />`,
 })
@@ -18,6 +19,7 @@ class TestContentRenderer {
 
 @Component({
 	imports: [DocumentContentRendererComponent],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<ng-template #response><p>Saved interaction response</p></ng-template>
 		<nx-extension-document-content
 			[document]="document()"

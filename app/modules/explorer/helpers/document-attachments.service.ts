@@ -4,7 +4,7 @@ import { LocalizedUiError } from '@maretha/webui-sdk';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { effect, inject, Injectable, signal } from '@angular/core';
 import { environment } from 'environments/environment';
-import { ActiveToast, ToastrService } from 'ngx-toastr';
+import { ActiveToast, ToastService } from 'app/helpers/toast.service';
 import {
 	forkJoin,
 	catchError,
@@ -63,14 +63,14 @@ type UploadProgressFn = (progress: {
 })
 export class DocumentAttachmentsService {
 	private readonly messages = inject(WebUiMessages);
-	private readonly uploadToasts = signal<readonly ActiveToast<unknown>[]>([]);
+	private readonly uploadToasts = signal<readonly ActiveToast[]>([]);
 	private readonly apiUrl = `${environment.nuxeoUrl}/api/v1`;
 	private readonly delivery = inject(BlobDeliveryService);
 
 	// --------------------------------------------------------------------------------------------------
 	constructor(
 		private readonly httpClient: HttpClient,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 		private readonly documentsManagerService: DocumentsManagerService,
 	) {
 		effect(() => {

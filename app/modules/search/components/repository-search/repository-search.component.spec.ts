@@ -1,7 +1,13 @@
 import { WebUiMessages } from 'app/extensions/webui-messages';
 import { WebUiLocale } from 'app/extensions/i18n/webui-locale';
 import { loadWebUiCatalog } from 'app/helpers/webui-message-catalog';
-import { ChangeDetectorRef, Component, Input, signal } from '@angular/core';
+import {
+	ChangeDetectorRef,
+	Component,
+	Input,
+	signal,
+	ChangeDetectionStrategy,
+} from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { ActivatedRoute, convertToParamMap, Router } from '@angular/router';
 import { By } from '@angular/platform-browser';
@@ -33,12 +39,16 @@ import { ConfirmDialogService } from 'app/modules/shared/components/confirmation
 
 @Component({
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: '<span class="client-results-action">{{ context?.scope?.providerName }}</span>',
 })
 class ClientResultsActionComponent {
 	@Input() context: any;
 }
-@Component({ template: '<span class="client-picture">{{ context.row.title }}</span>' })
+@Component({
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '<span class="client-picture">{{ context.row.title }}</span>',
+})
 class ClientPictureCardComponent {
 	@Input({ required: true }) context!: ResultsProjectionContext;
 }

@@ -1,6 +1,6 @@
 import { WebUiMessages } from '@maretha/webui-sdk';
 import { LocalizedUiError } from '@maretha/webui-sdk';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { Subject, of, throwError } from 'rxjs';
 import { BlobDeliveryGrant, BlobDeliveryService } from 'app/helpers/blob-delivery.service';
@@ -8,6 +8,7 @@ import { StreamMediaDirective } from './stream-media.directive';
 
 @Component({
 	imports: [StreamMediaDirective],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template:
 		'<video [nxStreamMedia]="blob" [streamDocument]="document" (streamError)="error = $event"></video>',
 })

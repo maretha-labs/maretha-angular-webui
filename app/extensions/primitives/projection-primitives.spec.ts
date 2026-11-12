@@ -1,6 +1,6 @@
 import { WebUiLocale } from '../i18n/webui-locale';
 import { WebUiMessages } from '../webui-messages';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import {
@@ -38,6 +38,7 @@ import {
 		NuxeoVersionsListComponent,
 		NuxeoAclTableComponent,
 	],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `
 		<nx-page [value]="first"
 			><ng-template #header let-value>Header {{ value.name }}</ng-template

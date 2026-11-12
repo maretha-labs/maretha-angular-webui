@@ -1,6 +1,6 @@
 import { legacyTestProviders, fixtureDocument } from 'app/testing/legacy-test-providers';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { of } from 'rxjs';
 import { AutomationsService } from '../../helpers/automations.service';
 import { DocumentSnapshotsService } from '../../helpers/document-snapshots.service';
@@ -126,7 +126,7 @@ describe('Document info versions and updates', () => {
 	});
 	it('refreshes the document and reports the publication of a copy of this document only', () => {
 		const { component, info } = create();
-		const toastr = spyOn(TestBed.inject(ToastrService), 'success');
+		const toastr = spyOn(TestBed.inject(ToastService), 'success');
 		const automations = TestBed.inject(AutomationsService);
 		component.internalPublicationsPopover = true;
 		automations.documentPublished$.next({ documentUid: 'other', targetUid: 'section' });

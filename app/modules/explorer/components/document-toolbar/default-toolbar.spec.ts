@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import {
 	defineContribution,
@@ -20,6 +20,7 @@ import {
 
 const linkedFile = new File(['remote'], 'remote.txt', { type: 'text/plain' });
 @Component({
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: '<button type="button" class="link-source" (click)="link()">Remote</button>',
 })
 class LinkSourceAction {

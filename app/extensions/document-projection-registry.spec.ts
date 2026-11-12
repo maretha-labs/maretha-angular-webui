@@ -1,18 +1,18 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { DocumentProjectionRegistry } from './document-projection-registry';
 
-@Component({ standalone: true, template: '' })
+@Component({ standalone: true, changeDetection: ChangeDetectionStrategy.Eager, template: '' })
 class PublicContextProjection {
 	// eslint-disable-next-line @angular-eslint/no-input-rename -- verifies a public projectionContext alias is accepted.
 	@Input('projectionContext') context: unknown;
 }
-@Component({ standalone: true, template: '' })
+@Component({ standalone: true, changeDetection: ChangeDetectionStrategy.Eager, template: '' })
 class PrivateContextProjection {
 	// eslint-disable-next-line @angular-eslint/no-input-rename -- verifies a different public alias is rejected.
 	@Input('other') projectionContext: unknown;
 }
-@Component({ standalone: true, template: '' })
+@Component({ standalone: true, changeDetection: ChangeDetectionStrategy.Eager, template: '' })
 class NoContextProjection {}
 
 describe('DocumentProjectionRegistry', () => {

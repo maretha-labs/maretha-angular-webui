@@ -2,7 +2,7 @@ import { WebUiMessages } from '@maretha/webui-sdk';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { of, Subject, tap } from 'rxjs';
 
 @Injectable({
@@ -18,7 +18,7 @@ export class DocumentPermissionsService {
 	// --------------------------------------------------------------------------------------------------
 	constructor(
 		private readonly httpClient: HttpClient,
-		private readonly tostrService: ToastrService,
+		private readonly tostrService: ToastService,
 	) {}
 
 	// --------------------------------------------------------------------------------------------------

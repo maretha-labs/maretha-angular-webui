@@ -80,8 +80,8 @@ session cookies are not a substitute for the existing bearer-only application pa
 ## Viewer integration and lifecycle
 
 `PdfRangeBridge` uses the loader and `PDFDataRangeTransport` constructor from the installed
-`ngx-extended-pdf-viewer` 25.6.4 assets (PDF.js 5.4.1105, or the configured `bleeding-edge` build
-5.4.1106). Real-asset tests exercise range extraction, cancellation, and retained localization
+`ngx-extended-pdf-viewer` 32.0.1 assets (PDF.js 6.5.1524, in `assets` and in the configured
+`bleeding-edge` build). Real-asset tests exercise range extraction, cancellation, and retained localization
 with both exact builds. The locale adapter accepts those two tested versions and declines unknown
 versions. It does not import a second PDF.js bundle: PDF.js checks transport constructor identity.
 Unavailable viewer assets fail after 15 seconds

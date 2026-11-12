@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { QueryBulkActionService } from './query-bulk-action.service';
 
 describe('Query bulk action transport', () => {
 	it('submits the immutable provider scope to the public BAF operation with exclusions', () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const service = TestBed.inject(QueryBulkActionService);
 		const http = TestBed.inject(HttpTestingController);

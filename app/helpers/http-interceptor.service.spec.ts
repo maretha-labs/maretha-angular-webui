@@ -9,7 +9,7 @@ import {
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { environment } from 'environments/environment';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { defer, of, Subject, throwError } from 'rxjs';
 import { HttpInterceptorService, UNAUTHORIZED_IS_FORM_ERROR } from './http-interceptor.service';
 import { TokenService } from './token.service';
@@ -23,7 +23,7 @@ describe('HttpInterceptorService transport boundary', () => {
 		tokenUpdated$: Subject<string | null>;
 	};
 	let next: jasmine.SpyObj<HttpHandler>;
-	let toastr: jasmine.SpyObj<ToastrService>;
+	let toastr: jasmine.SpyObj<ToastService>;
 	let login: jasmine.Spy;
 	let errors: jasmine.Spy;
 	let requests: HttpRequest<unknown>[];
@@ -40,7 +40,7 @@ describe('HttpInterceptorService transport boundary', () => {
 			isAccessTokenValid: true,
 			tokenUpdated$: tokenUpdates,
 		};
-		toastr = jasmine.createSpyObj<ToastrService>('ToastrService', ['error']);
+		toastr = jasmine.createSpyObj<ToastService>('ToastService', ['error']);
 		next = jasmine.createSpyObj<HttpHandler>('HttpHandler', ['handle']);
 		errors = jasmine.createSpy('error');
 		requests = [];

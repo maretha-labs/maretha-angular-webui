@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { NuxeoActionsMenuComponent, NuxeoTooltipComponent } from './projection-primitives';
@@ -6,6 +6,7 @@ import { WebUiMessages } from '../webui-messages';
 
 @Component({
 	imports: [NuxeoActionsMenuComponent, NuxeoTooltipComponent],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: ` <button id="before" type="button">Before</button>
 		<nx-actions-menu [label]="label" [scope]="scope" [disabled]="disabled">
 			<ng-template #dropdown>

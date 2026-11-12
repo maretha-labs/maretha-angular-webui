@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { RepositorySearchService, DEFAULT_NXQL } from './repository-search.service';
 import { REPOSITORY_SEARCH, defineSearch } from './repository-search-definitions';
 describe('Repository search transport', () => {
 	beforeEach(() =>
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		}),
 	);
 	it('uses named providers, repository scope and only the supported aggregate filters', () => {

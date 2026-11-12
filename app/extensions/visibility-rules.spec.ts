@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideDefaultPages } from 'app/components/application-pages/default-pages';
 import { defineContribution, defineSlot, VisibilityRuleDefinition } from './contribution';
 import { ExtensionRegistry } from './extension-registry.service';
 
-@Component({ template: '' })
+@Component({ changeDetection: ChangeDetectionStrategy.Eager, template: '' })
 class RuleAction {}
 
 const slot = defineSlot(

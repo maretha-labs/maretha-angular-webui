@@ -8,12 +8,13 @@ import {
 	provideHttpClient,
 	withInterceptors,
 	withInterceptorsFromDi,
+	withXhr,
 } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { environment } from 'environments/environment';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { firstValueFrom, Subject, Subscription, toArray } from 'rxjs';
 import { HttpInterceptorService } from './http-interceptor.service';
 import { pdfRangeHttpContext, pdfRangeHttpInterceptor } from './pdf-range-http';
@@ -50,6 +51,7 @@ describe('PDF range Fetch transport', () => {
 		TestBed.configureTestingModule({
 			providers: [
 				provideHttpClient(
+					withXhr(),
 					withInterceptorsFromDi(),
 					withInterceptors([progress, pdfRangeHttpInterceptor]),
 				),
@@ -59,7 +61,7 @@ describe('PDF range Fetch transport', () => {
 				{ provide: HTTP_INTERCEPTORS, useExisting: HttpInterceptorService, multi: true },
 				{ provide: TokenService, useValue: tokens },
 				{ provide: Router, useValue: {} },
-				{ provide: ToastrService, useValue: { error: jasmine.createSpy('error') } },
+				{ provide: ToastService, useValue: { error: jasmine.createSpy('error') } },
 			],
 		});
 		http = TestBed.inject(HttpClient);

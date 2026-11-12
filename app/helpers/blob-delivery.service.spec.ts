@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed, fakeAsync, flushMicrotasks, tick } from '@angular/core/testing';
 import { environment } from 'environments/environment';
@@ -38,7 +38,7 @@ describe('Blob delivery grants', () => {
 		};
 		TestBed.configureTestingModule({
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{ provide: DOCUMENT, useValue: dom },
 			],

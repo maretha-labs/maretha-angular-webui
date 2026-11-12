@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
 import { PrincipalPageComponent } from './principal-page.component';
@@ -7,7 +7,7 @@ describe('Principal result pages', () => {
 	it('discards stale profiles, shows only named public fields and reports inaccessible principals', () => {
 		TestBed.configureTestingModule({
 			imports: [PrincipalPageComponent],
-			providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
 		});
 		const fixture = TestBed.createComponent(PrincipalPageComponent);
 		const http = TestBed.inject(HttpTestingController);

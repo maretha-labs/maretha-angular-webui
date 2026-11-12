@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input, signal, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
 import { AdministrationDrawerComponent } from './administration-drawer.component';
@@ -14,9 +14,10 @@ import {
 	definePairedView,
 	WebUiMessages,
 } from '@maretha/webui-sdk';
-@Component({ template: '' })
+@Component({ changeDetection: ChangeDetectionStrategy.Eager, template: '' })
 class PageStub {}
 @Component({
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<button
 		class="client-menu"
 		(click)="context().select()"

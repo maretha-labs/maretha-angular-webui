@@ -1,6 +1,6 @@
 import { WebUiLocale } from './i18n/webui-locale';
 import { WebUiMessages } from './webui-messages';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { AgGridAngular } from 'ag-grid-angular';
@@ -20,6 +20,7 @@ import {
 		ResultsProjectionTemplateDirective,
 		ResultsProjectionHostTemplateDirective,
 	],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `
 		<nx-results-projection
 			#one
@@ -68,7 +69,7 @@ class ProjectionHostComponent {
 	otherScope = 'two-scope';
 }
 
-@Component({ standalone: true, template: 'detail' })
+@Component({ standalone: true, changeDetection: ChangeDetectionStrategy.Eager, template: 'detail' })
 class RegisteredDetailProjection {}
 
 describe('ResultsProjectionComponent', () => {

@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { DocumentOrderService, planDocumentOrder } from './document-order.service';
@@ -45,7 +45,7 @@ describe('Document ordering', () => {
 	};
 	beforeEach(() => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		service = TestBed.inject(DocumentOrderService);
 		http = TestBed.inject(HttpTestingController);

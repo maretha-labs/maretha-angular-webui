@@ -1,13 +1,17 @@
-import { signal } from '@angular/core';
 import { WebUiMessages } from 'app/extensions/webui-messages';
 import { WebUiLocale } from 'app/extensions/i18n/webui-locale';
 import { loadWebUiCatalog } from 'app/helpers/webui-message-catalog';
 import { legacyTestProviders } from 'app/testing/legacy-test-providers';
 import { fakeAsync, flushMicrotasks, TestBed, tick } from '@angular/core/testing';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {
+	HTTP_INTERCEPTORS,
+	provideHttpClient,
+	withInterceptorsFromDi,
+	withXhr,
+} from '@angular/common/http';
 import { HttpInterceptorService } from 'app/helpers/http-interceptor.service';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { environment } from 'environments/environment';
 import { DocumentsManagerService } from './documents-manager.service';
 import { BlobDeliveryGrant, BlobDeliveryService } from 'app/helpers/blob-delivery.service';
@@ -21,7 +25,7 @@ import {
 describe('DocumentAttachmentsService upload integrity', () => {
 	let service: DocumentAttachmentsService;
 	let http: HttpTestingController;
-	let toast: ToastrService;
+	let toast: ToastService;
 	const url = environment.nuxeoUrl + '/api/v1/upload';
 	const file = (name = 'file.txt', body = 'body') => new File([body], name, { type: 'text/plain' });
 	beforeEach(() => {
@@ -30,7 +34,7 @@ describe('DocumentAttachmentsService upload integrity', () => {
 		});
 		service = TestBed.inject(DocumentAttachmentsService);
 		http = TestBed.inject(HttpTestingController);
-		toast = TestBed.inject(ToastrService);
+		toast = TestBed.inject(ToastService);
 		spyOn(toast, 'info').and.returnValue({ toastId: 7 } as any);
 		spyOn(toast, 'remove');
 		spyOn(toast, 'success');
@@ -77,19 +81,19 @@ describe('DocumentAttachmentsService upload integrity', () => {
 			ar: await loadWebUiCatalog('ar'),
 		});
 		const locale = TestBed.inject(WebUiLocale);
-		const originalState = { value: 'active', params: { easeTime: 300 } };
-		const component = { message: '', title: '', state: signal(originalState) };
+		const component = { message: '', title: '' };
 		(toast.info as jasmine.Spy).and.returnValue({
 			toastId: 8,
-			toastRef: { componentInstance: component },
+			update(message: string, title?: string) {
+				component.message = message;
+				if (title !== undefined) component.title = title;
+			},
 		});
 		locale.locale.set('es');
 		const subscription = service.uploadFiles([file()]).subscribe();
 		const request = http.expectOne(url);
 		TestBed.tick();
 		expect(component.message).toBe('Cargando archivos…');
-		expect(component.state()).toEqual(originalState);
-		expect(component.state()).not.toBe(originalState);
 		locale.locale.set('ar');
 		TestBed.tick();
 		expect(component.message).not.toBe('Cargando archivos…');
@@ -228,7 +232,7 @@ describe('DocumentAttachmentsService authenticated downloads', () => {
 		TestBed.configureTestingModule({
 			providers: [
 				...legacyTestProviders(),
-				provideHttpClient(withInterceptorsFromDi()),
+				provideHttpClient(withXhr(), withInterceptorsFromDi()),
 				provideHttpClientTesting(),
 				{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },
 				{ provide: DocumentsManagerService, useValue: {} },
@@ -236,8 +240,8 @@ describe('DocumentAttachmentsService authenticated downloads', () => {
 		});
 		service = TestBed.inject(DocumentAttachmentsService);
 		http = TestBed.inject(HttpTestingController);
-		spyOn(TestBed.inject(ToastrService), 'info');
-		spyOn(TestBed.inject(ToastrService), 'error');
+		spyOn(TestBed.inject(ToastService), 'info');
+		spyOn(TestBed.inject(ToastService), 'error');
 	});
 	afterEach(() => http.verify({ ignoreCancelled: true }));
 
@@ -277,7 +281,7 @@ describe('DocumentAttachmentsService authenticated downloads', () => {
 
 		http.expectOne(url).flush(null, { status: 403, statusText: 'Forbidden' });
 
-		expect(TestBed.inject(ToastrService).error).toHaveBeenCalled();
+		expect(TestBed.inject(ToastService).error).toHaveBeenCalled();
 		expect(click).not.toHaveBeenCalled();
 	});
 });
@@ -285,7 +289,7 @@ describe('DocumentAttachmentsService authenticated downloads', () => {
 describe('DocumentAttachmentsService native blob delivery', () => {
 	let service: DocumentAttachmentsService;
 	let delivery: jasmine.SpyObj<BlobDeliveryService>;
-	let toast: ToastrService;
+	let toast: ToastService;
 	const blob = { name: 'report.pdf', digest: 'abc123', 'mime-type': 'application/pdf' };
 	const model = { uid: 'document-id', repository: 'default', properties: { 'file:content': blob } };
 	const grant: BlobDeliveryGrant = {
@@ -309,7 +313,7 @@ describe('DocumentAttachmentsService native blob delivery', () => {
 			],
 		});
 		service = TestBed.inject(DocumentAttachmentsService);
-		toast = TestBed.inject(ToastrService);
+		toast = TestBed.inject(ToastService);
 		spyOn(toast, 'info');
 		spyOn(toast, 'error');
 	});
@@ -393,7 +397,7 @@ describe('DocumentAttachmentsService native blob delivery', () => {
 describe('DocumentAttachmentsService exports, batches and attachment operations', () => {
 	let service: DocumentAttachmentsService;
 	let http: HttpTestingController;
-	let toast: ToastrService;
+	let toast: ToastService;
 	let manager: { reloadDocument: jasmine.Spy };
 	const api = environment.nuxeoUrl + '/api/v1';
 	const automation = environment.nuxeoUrl + '/site/automation';
@@ -410,7 +414,7 @@ describe('DocumentAttachmentsService exports, batches and attachment operations'
 		});
 		service = TestBed.inject(DocumentAttachmentsService);
 		http = TestBed.inject(HttpTestingController);
-		toast = TestBed.inject(ToastrService);
+		toast = TestBed.inject(ToastService);
 		spyOn(toast, 'info').and.returnValue({ toastId: 11 } as any);
 		spyOn(toast, 'remove');
 		spyOn(toast, 'success');
@@ -646,7 +650,7 @@ describe('DocumentAttachmentsService grant revocation failures', () => {
 			],
 		});
 		const service = TestBed.inject(DocumentAttachmentsService);
-		const toast = TestBed.inject(ToastrService);
+		const toast = TestBed.inject(ToastService);
 		spyOn(toast, 'error');
 		spyOn(HTMLAnchorElement.prototype, 'click').and.throwError('Blocked');
 		const blob = { name: 'report.pdf', digest: 'abc123', 'mime-type': 'application/pdf' };

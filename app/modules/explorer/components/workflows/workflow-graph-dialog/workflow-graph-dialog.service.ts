@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { WebUiMessages } from '@maretha/webui-sdk';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { firstValueFrom } from 'rxjs';
 import { WorkflowsService } from 'app/helpers/workflows.service';
 import {
@@ -14,7 +14,7 @@ import {
 export class WorkflowGraphDialogService {
 	private readonly workflows = inject(WorkflowsService);
 	private readonly modal = inject(BsModalService);
-	private readonly toastr = inject(ToastrService);
+	private readonly toastr = inject(ToastService);
 	private readonly messages = inject(WebUiMessages);
 
 	async show(workflowInstanceId: string): Promise<void> {

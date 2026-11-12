@@ -284,7 +284,10 @@
 													<b>
 														{{
 															'documentInfo.documentSnapshots'
-																| translate: { value: document.ng.snapshots?.length }
+																| translate
+																	: {
+																			value: document.ng.snapshots?.length,
+																	  }
 																| translateCut: 0
 														}}
 													</b>
@@ -417,7 +420,9 @@
 													{{
 														'documentInfo.documentPublications'
 															| translate
-																: { value: document.contextParameters?.publications?.resultsCount }
+																: {
+																		value: document.contextParameters?.publications?.resultsCount,
+																  }
 															| translateCut: 1
 													}}
 												</div>

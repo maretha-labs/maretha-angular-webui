@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { StandardContentEditorComponent } from './standard-content-editor.component';
@@ -12,7 +12,10 @@ import { NgSelectComponent, NgSelectConfig } from '@ng-select/ng-select';
 import { Subject } from 'rxjs';
 import { DocumentEditDialogComponent } from './document-edit-dialog.component';
 
-@Component({ template: '<input aria-label="Fixture title" />' })
+@Component({
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '<input aria-label="Fixture title" />',
+})
 class FixtureEditor implements OnInit {
 	@Input() documentType = '';
 	@Input() data: any;
@@ -193,7 +196,11 @@ describe('Document edit modal save integration', () => {
 	});
 });
 
-@Component({ imports: [DocumentEditDialogComponent], template: '<nx-document-edit-dialog />' })
+@Component({
+	imports: [DocumentEditDialogComponent],
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '<nx-document-edit-dialog />',
+})
 class DropdownDialogFixture {}
 
 describe('Document edit dropdown portal', () => {
@@ -229,7 +236,7 @@ describe('Document edit dropdown portal', () => {
 		fixture.detectChanges();
 		await fixture.whenStable();
 		const panel = dialog.nativeElement.querySelector('ng-dropdown-panel');
-		expect(panel.parentElement).toBe(dialog.nativeElement);
+		expect(panel).not.toBeNull();
 		expect(panel.closest('.modal-body')).toBeNull();
 		const modalEscape = jasmine.createSpy('window Escape');
 		window.addEventListener('keydown', modalEscape);

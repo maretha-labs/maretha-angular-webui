@@ -20,7 +20,7 @@ import {
 import { Router } from '@angular/router';
 import { DocumentCollectionsService } from 'app/modules/explorer/helpers/document-collections.service';
 import { animations } from 'app/shared.constants';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { catchError, map, of, Subject, switchMap, takeUntil, throwError } from 'rxjs';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgTemplateOutlet } from '@angular/common';
@@ -65,7 +65,7 @@ export class CollectionsComponent implements OnDestroy {
 		@Inject('collectionSelected') @Optional() public callback: any,
 		private readonly fb: UntypedFormBuilder,
 		private readonly documentCollectionsService: DocumentCollectionsService,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 		private readonly router: Router,
 		private readonly cdr: ChangeDetectorRef,
 	) {

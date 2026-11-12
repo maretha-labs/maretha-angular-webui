@@ -1,6 +1,6 @@
 import { legacyTestProviders, fixtureDocument } from 'app/testing/legacy-test-providers';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { DocumentProjectionRegistry } from '@maretha/webui-sdk';
 
 import { DocumentVersionsComponent } from './document-snapshots.component';
@@ -10,6 +10,7 @@ import { of } from 'rxjs';
 
 @Component({
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: '<output>version projection {{ projectionContext?.document?.uid }}</output>',
 })
 class VersionProjection {

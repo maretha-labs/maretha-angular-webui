@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { signal } from '@angular/core';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { AuthService } from 'app/helpers/auth.service';
 import { environment } from 'environments/environment';
@@ -63,7 +63,7 @@ describe('Metadata access rules', () => {
 		const userInfo = signal<any>({ isAdministrator: false });
 		TestBed.configureTestingModule({
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{ provide: AuthService, useValue: { userInfo } },
 			],
@@ -123,7 +123,7 @@ describe('MetadataPolicyService loading, access checks and preferences', () => {
 		userInfo = signal<any>({ id: 'mary', isAdministrator: false, groups: ['editors'] });
 		TestBed.configureTestingModule({
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{ provide: AuthService, useValue: { userInfo } },
 			],

@@ -30,7 +30,7 @@ import { AutofocusDirective } from '../../../../directives/autofocus.directive';
 import { UsersAndGroupsPickerComponent } from '../../../shared/components/users-and-groups-picker/users-and-groups-picker.component';
 import { UserInvitationService } from '../../helpers/user-invitation.service';
 import { AuthService } from 'app/helpers/auth.service';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 
 export type UserEditorResult = (User | UserGroup) & { invited?: boolean };
 
@@ -94,7 +94,7 @@ export class UserAndGroupEditorComponent implements OnInit, OnDestroy {
 	}
 	private readonly invitations = inject(UserInvitationService);
 	private readonly auth = inject(AuthService);
-	private readonly toastr = inject(ToastrService);
+	private readonly toastr = inject(ToastService);
 	private savedAndClosing = false;
 	private readonly destroy$ = new Subject<void>();
 

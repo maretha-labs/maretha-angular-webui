@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of, Subject, throwError } from 'rxjs';
 import { DirectoryLayoutContext, provideDirectoryLayouts } from '@maretha/webui-sdk';
@@ -8,6 +8,7 @@ import { ConfirmDialogService } from 'app/modules/shared/components/confirmation
 
 @Component({
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<section data-testid="custom-directory-layout">
 		Custom directory editor <button (click)="commit()">Commit custom entry</button>
 	</section>`,

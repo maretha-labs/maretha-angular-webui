@@ -1,10 +1,14 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { defineContribution } from './contribution';
 import { ExtensionRegistry } from './extension-registry.service';
 import { POLYMER_SLOTS } from './slots';
 import { USER_MENU_SLOT, UserMenuContext } from './user-menu';
 
-@Component({ standalone: true, template: '{{context().user?.displayName}}' })
+@Component({
+	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '{{context().user?.displayName}}',
+})
 class TestUserMenuItem {
 	readonly context = input.required<UserMenuContext>();
 }

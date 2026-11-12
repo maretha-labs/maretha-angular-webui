@@ -126,12 +126,27 @@ async function buildFixture(build) {
 	await fs.mkdir(build.source);
 	await run('git', ['archive', '--format=tar', '--output', archive, build.commit], root, log);
 	await run('tar', ['-xf', archive, '-C', build.source], root, log);
-	await fs.symlink(
-		path.join(root, 'node_modules'),
-		path.join(build.source, 'node_modules'),
-		'junction',
-	);
-	const cli = path.join(path.dirname(require.resolve('@angular/cli/package.json')), 'bin/ng.js');
+	// A commit with another lockfile builds with its own dependencies: the checkout's packages
+	// cannot compile it once a dependency major separates the two.
+	const lock = (file) =>
+		fs.readFile(file).then((bytes) => createHash('sha256').update(bytes).digest('hex'));
+	const sameLock =
+		(await lock(path.join(build.source, 'package-lock.json'))) ===
+		(await lock(path.join(root, 'package-lock.json')));
+	if (sameLock)
+		await fs.symlink(
+			path.join(root, 'node_modules'),
+			path.join(build.source, 'node_modules'),
+			'junction',
+		);
+	else
+		await run(
+			process.platform === 'win32' ? 'npm.cmd' : 'npm',
+			['ci', '--ignore-scripts', '--no-audit', '--no-fund'],
+			build.source,
+			log,
+		);
+	const cli = path.join(build.source, 'node_modules/@angular/cli/bin/ng.js');
 	await run(
 		process.execPath,
 		[cli, 'build', '--configuration', 'a11y', '--output-path', build.folder, '--progress=false'],

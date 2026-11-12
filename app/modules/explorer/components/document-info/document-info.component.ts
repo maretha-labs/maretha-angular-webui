@@ -15,7 +15,7 @@ import { DocumentsManagerService } from '../../helpers/documents-manager.service
 import { animations } from 'app/shared.constants';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { RetentionRulePickerComponent } from 'app/modules/settings/components/retention-rule-picker/retention-rule-picker.component';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { DocumentAttachmentsService } from '../../helpers/document-attachments.service';
 import { DocumentSnapshotsService } from '../../helpers/document-snapshots.service';
 import { filter, forkJoin, map, Subject, takeUntil } from 'rxjs';
@@ -99,7 +99,7 @@ export class DocumentInfoComponent implements OnInit, OnDestroy {
 		private readonly documentsSnapshotsService: DocumentSnapshotsService,
 		private readonly automationsService: AutomationsService,
 		private readonly modalService: BsModalService,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 		private readonly authService: AuthService,
 		private readonly router: Router,
 		public injector: Injector,

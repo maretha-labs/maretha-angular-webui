@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { AgGridAngular } from 'ag-grid-angular';
@@ -13,6 +13,7 @@ import { REPOSITORY_SEARCH } from '../../helpers/repository-search-definitions';
 import { DefaultSearchResultsComponent } from './default-search-results.component';
 
 @Component({
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template:
 		'<button class="custom-default-row" (click)="context().toggleSelection()">{{ context().searchId }}: {{ context().row.title }}</button>',
 })
@@ -20,12 +21,18 @@ class CustomDefaultRowComponent {
 	readonly context = input.required<ResultsProjectionContext>();
 }
 
-@Component({ template: '<span class="custom-default-cell">{{ context().value }}</span>' })
+@Component({
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '<span class="custom-default-cell">{{ context().value }}</span>',
+})
 class CustomDefaultCellComponent {
 	readonly context = input.required<ResultsProjectionContext>();
 }
 
-@Component({ template: '<span class="custom-default-header">Custom {{ label }}</span>' })
+@Component({
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '<span class="custom-default-header">Custom {{ label }}</span>',
+})
 class CustomDefaultHeaderComponent {
 	label = '';
 	agInit(params: { displayName: string }): void {
