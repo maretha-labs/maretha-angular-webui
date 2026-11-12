@@ -10,7 +10,7 @@ your copy: a fork of a public repository is always public, and GitHub shares Git
 a fork and the repository it came from.
 
 ```sh
-git clone --branch v1.0.0 https://github.com/maretha-labs/maretha-angular-webui.git my-webui
+git clone --branch v2.0.0 https://github.com/maretha-labs/maretha-angular-webui.git my-webui
 cd my-webui
 git switch -c main
 git remote rename origin upstream

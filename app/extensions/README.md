@@ -2,7 +2,7 @@
 
 This directory builds the **`@maretha/webui-sdk`** Angular 22 package. Import from `@maretha/webui-sdk`. The repository maps that public name to this source during development; external consumers install the partial-compiled package and need no source aliases. This is an initial local package, not a published release or an independently installable plugin system.
 
-Run `npm run pack:sdk` to produce `dist/maretha-webui-sdk-1.0.0.tgz`. See the [SDK release notes and migration instructions](CHANGELOG.md) before upgrading. The [independent consumer example](../../examples/client-webui/README.md) verifies an isolated production build, including Angular linking and registry identity. SDK and host must share their Angular peer dependencies and the same package instance.
+Run `npm run pack:sdk` to produce `dist/maretha-webui-sdk-2.0.0.tgz`. See the [SDK release notes and migration instructions](CHANGELOG.md) before upgrading. The [independent consumer example](../../examples/client-webui/README.md) verifies an isolated production build, including Angular linking and registry identity. SDK and host must share their Angular peer dependencies and the same package instance.
 
 All 24 baseline named slot families now have connected hosts. This means clients can target each family; complete source-default behavior and every host occurrence still require parity qualification. [Polymer slot parity](../../docs/polymer-parity.md) maps every Polymer default contribution to its Angular IDs or records it as a gap, and lists the non-slot customizations (searches, workflow task layouts, themes, page providers, custom elements) with migration guidance.
 

@@ -33,6 +33,9 @@ document the migration in [`app/extensions/CHANGELOG.md`](../app/extensions/CHAN
 under the next version, and mark **Public SDK API** in the pull request template. Package the release notes with the SDK and
 verify the resulting tarball.
 
+Version `2.0.0` requires Angular 22: the peer range is `@angular/* ^22.2.0` and the public API
+is unchanged. Existing `^1.0.0` consumers do not select it automatically.
+
 Version `1.0.0` adds a required `activateRow` callback to
 `ResultsProjectionContext`. Context-producing custom hosts and test fixtures
 must supply it; consumers of contexts supplied by the stock projection host

@@ -10,7 +10,7 @@
   <groupId>io.maretha</groupId>
   <artifactId>maretha-angular-webui-parent</artifactId>
   <!-- Keep in step with package.json; scripts/nuxeo-package.mjs checks it. -->
-  <version>1.0.0</version>
+  <version>2.0.0</version>
   <packaging>pom</packaging>
   <name>Maretha Angular Web UI</name>
 

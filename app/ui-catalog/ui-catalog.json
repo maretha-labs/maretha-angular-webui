@@ -1,8 +1,8 @@
 {
   "format": "maretha.ui-contribution-catalog",
   "formatVersion": 1,
-  "runtimeVersion": "1.0.0",
-  "sdkVersion": "1.0.0",
+  "runtimeVersion": "2.0.0",
+  "sdkVersion": "2.0.0",
   "coverage": {
     "status": "default-contributions",
     "statement": "Canonical default registrations are checked against the application registry. Client extensions, actual host occurrences and complete settings documentation are not included."

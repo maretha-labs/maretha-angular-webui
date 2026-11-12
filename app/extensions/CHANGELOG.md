@@ -1,6 +1,6 @@
 # WebUI SDK release notes
 
-## Unreleased
+## 2.0.0 — 2026-11-12
 
 ### Breaking change and migration
 

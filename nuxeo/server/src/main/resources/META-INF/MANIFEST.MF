@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Maretha Angular Web UI server
 Bundle-SymbolicName: io.maretha.maretha-angular-webui.server;singleton=t
  rue
-Bundle-Version: 1.0.0
+Bundle-Version: 2.0.0
 Bundle-Vendor: io.maretha
 Bundle-ActivationPolicy: lazy
 Nuxeo-Component: OSGI-INF/delivery.xml,OSGI-INF/bulk-delivery.xml,OSGI-I

@@ -7,6 +7,8 @@ version; its own notes are in [app/extensions/CHANGELOG.md](app/extensions/CHANG
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-11-12
+
 ### Changed
 
 - The user interface is built with Angular 22 and TypeScript 6. The libraries that follow Angular
@@ -97,5 +99,6 @@ Tested with:
 - Isolated execution workers for the automated pull-request review.
 - A Nuxeo Marketplace listing.
 
-[Unreleased]: https://github.com/maretha-labs/maretha-angular-webui/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/maretha-labs/maretha-angular-webui/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/maretha-labs/maretha-angular-webui/releases/tag/v2.0.0
 [1.0.0]: https://github.com/maretha-labs/maretha-angular-webui/releases/tag/v1.0.0
