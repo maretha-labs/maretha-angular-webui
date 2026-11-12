@@ -68,7 +68,7 @@ hand-edited manifest fails the same way.
   "startedAt": "...",
   "finishedAt": "...",
   "node": "v24.18.0",
-  "versions": { "app": "1.0.0", "sdk": "1.0.0", "manifest": "1.0.0" },
+  "versions": { "app": "2.0.0", "sdk": "2.0.0", "manifest": "2.0.0" },
   "tree": { "commit": "<sha>", "dirty": true, "fingerprint": "<sha256>" },
   "checks": [{ "id": "core-manifest", "command": "...", "status": "pass", "durationMs": 0 }]
 }

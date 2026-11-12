@@ -44,14 +44,14 @@ The [changelog](CHANGELOG.md) has the full list, the limitations and what is not
 Clone the release tag, build the Nuxeo package (Node, JDK 21 and Maven 3.9) and install it:
 
 ```sh
-git clone --branch v1.0.0 https://github.com/maretha-labs/maretha-angular-webui.git
+git clone --branch v2.0.0 https://github.com/maretha-labs/maretha-angular-webui.git
 cd maretha-angular-webui
 npm ci
 npm run package:nuxeo
 ```
 
 With Nuxeo stopped, run
-`nuxeoctl mp-install dist/nuxeo/maretha-angular-webui-package-1.0.0.zip --accept=true`, set
+`nuxeoctl mp-install dist/nuxeo/maretha-angular-webui-package-2.0.0.zip --accept=true`, set
 `nuxeo.url` in `nuxeo.conf`, start Nuxeo and open `https://<host>/nuxeo/ng/`. Requirements,
 configuration, upgrade and rollback: [nuxeo/README.md](nuxeo/README.md).
 

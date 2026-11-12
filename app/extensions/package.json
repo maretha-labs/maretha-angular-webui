@@ -1,6 +1,6 @@
 {
   "name": "@maretha/webui-sdk",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Angular 21 contribution contracts, registry and hosts for Maretha WebUI",
   "license": "Apache-2.0 AND BSD-3-Clause",
   "repository": {
