@@ -98,7 +98,6 @@
     "@angular/core": "21.2.25",
     "@angular/forms": "21.2.25",
     "@angular/platform-browser": "21.2.25",
-    "@angular/platform-browser-dynamic": "21.2.25",
     "@angular/router": "21.2.25",
     "@babel/runtime": "^7.22.15",
     "@fortawesome/angular-fontawesome": "^4.0.0",
@@ -139,7 +138,6 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@angular-builders/custom-webpack": "^21.0.3",
     "@angular-devkit/build-angular": "^21.2.8",
     "@angular/cli": "^21.2.8",
     "@angular/compiler-cli": "21.2.25",
@@ -169,7 +167,7 @@
     "prettier": "^3.8.3",
     "spdx-expression-parse": "4.0.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "8.56.1",
+    "typescript-eslint": "8.72.2",
     "webpack": "^5.100.2",
     "zone.js": "^0.15.1"
   },
