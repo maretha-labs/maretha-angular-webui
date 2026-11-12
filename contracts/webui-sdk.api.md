@@ -17,11 +17,11 @@ Review changes to this report before updating it. Generated from the built packa
     }
   },
   "peerDependencies": {
-    "@angular/common": "^21.2.0",
-    "@angular/cdk": "^21.2.0",
-    "@angular/core": "^21.2.0",
-    "@angular/forms": "^21.2.0",
-    "@angular/router": "^21.2.0",
+    "@angular/common": "^22.2.0",
+    "@angular/cdk": "^22.2.0",
+    "@angular/core": "^22.2.0",
+    "@angular/forms": "^22.2.0",
+    "@angular/router": "^22.2.0",
     "ag-grid-angular": "^36.2.0",
     "ag-grid-community": "^36.2.0",
     "rxjs": "^7.5.0"
