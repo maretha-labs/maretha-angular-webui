@@ -1,4 +1,4 @@
-import { Component, ErrorHandler, input, Type } from '@angular/core';
+import { Component, ErrorHandler, input, Type, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ResultsProjectionComponent } from './results-projection.component';
 import { ResultsProjectionContext } from './results-projection';
@@ -6,6 +6,7 @@ import { ResultsProjectionRegistry } from './results-projection-registry';
 
 @Component({
 	selector: 'nx-test-search-card',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<article class="search-card">
 		{{ context().searchId }}: {{ context().row.title }}
 		<button class="select" (click)="context().toggleSelection()">Select</button>
@@ -18,6 +19,7 @@ class SearchCardComponent {
 
 @Component({
 	selector: 'nx-test-search-cell',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: '<span class="search-cell">{{ context().column?.id }}: {{ context().value }}</span>',
 })
 class SearchCellComponent {
@@ -26,6 +28,7 @@ class SearchCellComponent {
 
 @Component({
 	selector: 'nx-test-registered-cell',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: '<span class="addon-cell">Add-on</span>',
 })
 class RegisteredCellComponent {

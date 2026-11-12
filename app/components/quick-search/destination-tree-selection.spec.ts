@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input, signal, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import {
@@ -26,7 +26,7 @@ const folder = (uid: string, path = `/${uid}`) => ({
 	repository: 'default',
 	facets: ['Folderish'],
 });
-@Component({ template: '<p>Creation draft</p>' })
+@Component({ changeDetection: ChangeDetectionStrategy.Eager, template: '<p>Creation draft</p>' })
 class CreationPage {
 	readonly context = input.required<DocumentCreateContext>();
 }

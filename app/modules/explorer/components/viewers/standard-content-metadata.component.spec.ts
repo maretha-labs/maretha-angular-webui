@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input, signal, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import {
 	DocumentTypeMetadata,
@@ -18,6 +18,7 @@ import { ConfirmDialogService } from 'app/modules/shared/components/confirmation
 @Component({
 	selector: 'nx-test-metadata-paragraph',
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template:
 		'<label>Document summary<textarea [value]="props().value" [disabled]="props().disabled" (input)="props().commit($any($event.target).value)"></textarea></label>',
 })

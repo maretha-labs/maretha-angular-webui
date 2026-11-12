@@ -94,6 +94,11 @@ module.exports = defineConfig([
 		rules: { 'maretha/custom-boundaries': 'error', 'maretha/no-credential-default': 'error' },
 	},
 	{
+		// Test hosts keep eager change detection: their specs assert on it.
+		files: ['**/*.spec.ts', 'e2e/**/*.ts'],
+		rules: { '@angular-eslint/prefer-on-push-component-change-detection': 'off' },
+	},
+	{
 		// Scripts, browser checks and the contribution gate are JavaScript modules; only the
 		// credential rule applies.
 		files: ['scripts/**/*.{mjs,cjs}', 'e2e/**/*.mjs', '.github/**/*.mjs'],

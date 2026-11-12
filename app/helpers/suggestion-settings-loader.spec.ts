@@ -1,4 +1,4 @@
-import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { SuggestionSettings } from '@maretha/webui-sdk';
@@ -9,7 +9,7 @@ describe('Suggestion settings loader', () => {
 	let settings: SuggestionSettings;
 	beforeEach(() => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		http = TestBed.inject(HttpTestingController);
 		settings = TestBed.inject(SuggestionSettings);

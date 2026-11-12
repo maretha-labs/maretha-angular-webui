@@ -32,8 +32,8 @@
     },
     {
       "name": "PDF.js viewer resources",
-      "origin": "ngx-extended-pdf-viewer 25.6.4, bleeding-edge/ (PDF.js 5.4.1106), copied to /bleeding-edge/ by angular.json",
-      "version": "25.6.4",
+      "origin": "ngx-extended-pdf-viewer 32.0.1, bleeding-edge/ (PDF.js 6.5.1524), copied to /bleeding-edge/ by angular.json",
+      "version": "32.0.1",
       "license": "Apache-2.0 AND BSD-2-Clause AND BSD-3-Clause AND MIT AND OFL-1.1 AND MPL-2.0",
       "notice": "Licence files ship next to the resources: cmaps/LICENSE and standard_fonts/LICENSE_FOXIT (BSD-3-Clause), standard_fonts/LICENSE_LIBERATION (OFL-1.1), wasm/LICENSE_OPENJPEG, wasm/LICENSE_PDFJS_OPENJPEG and wasm/LICENSE_PDFJS_QCMS (BSD-2-Clause), wasm/LICENSE_QCMS (MIT). Viewer and worker scripts carry the Apache-2.0 header; locale/*/viewer.ftl carry the MPL-2.0 header.",
       "attribution": "Kept in the shipped licence files and file headers; unmodified",
@@ -94,7 +94,7 @@
       "origin": "https://github.com/scttcper/ngx-toastr, toastr-bs4-alert.scss (diffed against the copy in ngx-toastr 19.1.0 as locked), restyled for this UI: Sass modules, logical properties and this theme's variables. The four status icons are the Font Awesome paths that stylesheet embeds, kept with its source comments",
       "version": "ngx-toastr 19.1.0",
       "license": "MIT",
-      "notice": "3rdpartylicenses.txt in the production build (ngx-toastr)",
+      "notice": "assets/LICENSE-ngx-toastr.txt (LICENSE in ngx-toastr 19.1.0)",
       "attribution": "Copyright (c) Scott Cooper",
       "files": ["styles/toastr.scss"]
     }

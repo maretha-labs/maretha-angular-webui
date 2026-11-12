@@ -1,4 +1,4 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, forwardRef, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DocumentViewsComponent, WebUiMessages } from '@maretha/webui-sdk';
@@ -9,6 +9,7 @@ import { StandardDocumentPublishComponent } from './standard-document-publish.co
 @Component({
 	selector: 'nx-paired-views',
 	template: '',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	providers: [
 		{ provide: DocumentViewsComponent, useExisting: forwardRef(() => GuardedPublishView) },
 	],

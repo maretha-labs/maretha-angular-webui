@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { WebUiMessages } from '@maretha/webui-sdk';
@@ -18,7 +18,7 @@ describe('Authorized application page', () => {
 	beforeEach(() => {
 		TestBed.configureTestingModule({
 			imports: [UserAuthorizedAppsPageComponent],
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		http = TestBed.inject(HttpTestingController);
 		fixture = TestBed.createComponent(UserAuthorizedAppsPageComponent);
@@ -108,7 +108,7 @@ describe('Cloud account page', () => {
 	beforeEach(() => {
 		TestBed.configureTestingModule({
 			imports: [UserCloudServicesPageComponent],
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		http = TestBed.inject(HttpTestingController);
 		fixture = TestBed.createComponent(UserCloudServicesPageComponent);

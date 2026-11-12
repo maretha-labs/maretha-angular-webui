@@ -1,14 +1,13 @@
 import { NgxTranslateCutModule } from 'ngx-translate-cut';
 import { TimeagoModule } from 'ngx-timeago';
 import { importProvidersFrom, inject, provideEnvironmentInitializer, signal } from '@angular/core';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@ngx-translate/core';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
-import { ToastrModule } from 'ngx-toastr';
 import { of } from 'rxjs';
 import { registerApplicationIcons } from '../application-icons';
 import { TokenService } from '../helpers/token.service';
@@ -16,14 +15,13 @@ import { TokenService } from '../helpers/token.service';
 export function legacyTestProviders() {
 	return [
 		provideRouter([]),
-		provideHttpClient(),
+		provideHttpClient(withXhr()),
 		provideHttpClientTesting(),
 		provideNoopAnimations(),
 		importProvidersFrom(
 			TranslateModule.forRoot(),
 			NgxTranslateCutModule.forRoot({}),
 			TimeagoModule.forRoot(),
-			ToastrModule.forRoot(),
 			ModalModule,
 		),
 		BsModalRef,

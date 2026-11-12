@@ -1,6 +1,6 @@
 import { signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { Router } from '@angular/router';
 import { of, Subject, throwError } from 'rxjs';
@@ -41,7 +41,7 @@ describe('Clipboard drawer actions', () => {
 		TestBed.configureTestingModule({
 			imports: [ClipboardDrawerComponent],
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{ provide: DocumentClipboardService, useValue: clipboard },
 				{ provide: DocumentsManagerService, useValue: manager },

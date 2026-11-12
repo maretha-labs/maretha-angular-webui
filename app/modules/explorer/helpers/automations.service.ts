@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, Injector, inject, signal, effect } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { environment } from 'environments/environment';
-import { ActiveToast, ToastrService } from 'ngx-toastr';
+import { ActiveToast, ToastService } from 'app/helpers/toast.service';
 import { catchError, delay, EMPTY, expand, last, of, Subject, switchMap, tap } from 'rxjs';
 
 @Injectable({
@@ -13,7 +13,7 @@ import { catchError, delay, EMPTY, expand, last, of, Subject, switchMap, tap } f
 export class AutomationsService {
 	private readonly messages = inject(WebUiMessages);
 	private readonly progressNotifications = signal<
-		readonly { toast: ActiveToast<any>; operation: string; progress: number }[]
+		readonly { toast: ActiveToast; operation: string; progress: number }[]
 	>([]);
 	private apiUrl = `${environment.nuxeoUrl}/api/v1`;
 
@@ -26,7 +26,7 @@ export class AutomationsService {
 	// --------------------------------------------------------------------------------------------------
 	constructor(
 		private readonly httpClient: HttpClient,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 	) {
 		effect(() => {
 			for (const entry of this.progressNotifications()) {
@@ -58,7 +58,7 @@ export class AutomationsService {
 		}
 	}
 
-	private progressToast(operation: string, progress: number): ActiveToast<any> {
+	private progressToast(operation: string, progress: number): ActiveToast {
 		const toast = this.toastrService.info(
 			this.messages.format(
 				'app.services.automations.progress',
@@ -75,7 +75,7 @@ export class AutomationsService {
 		this.progressNotifications.update((entries) => [...entries, { toast, operation, progress }]);
 		return toast;
 	}
-	private removeProgressToast(toast: ActiveToast<any>): void {
+	private removeProgressToast(toast: ActiveToast): void {
 		this.progressNotifications.update((entries) =>
 			entries.filter((entry) => entry.toast !== toast),
 		);
@@ -334,7 +334,7 @@ export class AutomationsService {
 	}
 
 	// --------------------------------------------------------------------------------------------------
-	private getBulkActionStatus(commandId: string, toastr: ActiveToast<any>) {
+	private getBulkActionStatus(commandId: string, toastr: ActiveToast) {
 		const query$ = this.httpClient.get(`${this.apiUrl}/bulk/${commandId}`);
 
 		return query$.pipe(
@@ -350,10 +350,12 @@ export class AutomationsService {
 							: entry,
 					),
 				);
-				toastr.toastRef.componentInstance.message = this.messages.format(
-					'app.services.automations.progress',
-					{ progress: x.total ? x.processed / x.total : 0 },
-					'Progress: {progress, number, percent}…',
+				toastr.update(
+					this.messages.format(
+						'app.services.automations.progress',
+						{ progress: x.total ? x.processed / x.total : 0 },
+						'Progress: {progress, number, percent}…',
+					),
 				);
 			}),
 			delay(1000),

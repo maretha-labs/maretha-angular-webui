@@ -8,7 +8,7 @@ import { HttpTestingController } from '@angular/common/http/testing';
 import { WebUiMessages } from 'app/extensions/webui-messages';
 import { WebUiLocale } from 'app/extensions/i18n/webui-locale';
 import { loadWebUiCatalog } from 'app/helpers/webui-message-catalog';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 
 import { DocumentsManagerService } from './documents-manager.service';
 import { DocumentCollectionsService } from './document-collections.service';
@@ -185,7 +185,7 @@ describe('DocumentsManagerService', () => {
 			es: await loadWebUiCatalog('es'),
 		});
 		TestBed.inject(WebUiLocale).locale.set('es');
-		const toast = spyOn(TestBed.inject(ToastrService), 'info');
+		const toast = spyOn(TestBed.inject(ToastService), 'info');
 		const http = TestBed.inject(HttpTestingController);
 		const document = {
 			uid: 'owned-document',

@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { WebUiLocale } from '@maretha/webui-sdk';
 import { DocumentActivityService } from './document-activity.service';
@@ -7,7 +7,7 @@ import { DocumentActivityService } from './document-activity.service';
 describe('DocumentActivityService locale refresh', () => {
 	it('cancels stale localized vocabulary responses and retains literal server labels', () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const locale = TestBed.inject(WebUiLocale);
 		locale.setLocale('es');

@@ -222,7 +222,10 @@
 											'picture.depth'
 												| webuiMessage
 													: '{colorSpace} · {depth, number} bit'
-													: { colorSpace: picture.info?.colorSpace, depth: picture.info?.depth }
+													: {
+															colorSpace: picture.info?.colorSpace,
+															depth: picture.info?.depth,
+													  }
 										}}</small>
 									</td>
 									<td>{{ picture.content?.length | fileSize: 1 }}</td>
@@ -294,7 +297,9 @@
 										}}</small>
 									</td>
 
-									<td>{{ document.ng?.attachment?.length | fileSize: 1 }}</td>
+									<td>
+										{{ document.ng?.attachment?.length | fileSize: 1 }}
+									</td>
 									<td>
 										<button
 											type="button"

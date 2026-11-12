@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { NgSelectComponent } from '@ng-select/ng-select';
@@ -11,6 +11,7 @@ import { legacyTestProviders } from '../testing/legacy-test-providers';
 
 @Component({
 	imports: [SharedModule],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<ng-select [items]="items" /><ng-select
 			[items]="items"
 			notFoundText="Customer wording"

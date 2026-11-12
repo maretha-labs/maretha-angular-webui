@@ -1,10 +1,10 @@
 import { legacyTestProviders } from 'app/testing/legacy-test-providers';
 import { TestBed } from '@angular/core/testing';
 import { signal } from '@angular/core';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { AuthService } from 'app/helpers/auth.service';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { WebUiMessages } from 'app/extensions/webui-messages';
 import { WebUiLocale } from 'app/extensions/i18n/webui-locale';
 import { loadWebUiCatalog } from 'app/helpers/webui-message-catalog';
@@ -31,7 +31,7 @@ describe('DocumentClipboardService', () => {
 			ar: await loadWebUiCatalog('ar'),
 		});
 		const locale = TestBed.inject(WebUiLocale);
-		const toast = spyOn(TestBed.inject(ToastrService), 'success');
+		const toast = spyOn(TestBed.inject(ToastService), 'success');
 		const http = TestBed.inject(HttpTestingController);
 		locale.locale.set('es');
 		service.copyTo(['one', 'two'], 'destination').subscribe();
@@ -62,14 +62,14 @@ describe('Drawer clipboard transport', () => {
 		user = signal({ id: 'alice' });
 		TestBed.configureTestingModule({
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{
 					provide: AuthService,
 					useValue: { userInfo: user, userInfoUpdated$: { subscribe: () => undefined } },
 				},
 				{
-					provide: ToastrService,
+					provide: ToastService,
 					useValue: { success: () => undefined, error: () => undefined, warning: () => undefined },
 				},
 			],

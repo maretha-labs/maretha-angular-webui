@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import {
@@ -13,7 +13,7 @@ import { mimeTypeLabel } from './mime-type-labels';
 describe('Analytics transport', () => {
 	beforeEach(() =>
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		}),
 	);
 	it('limits repository charts to ten buckets within the selected creation dates', () => {

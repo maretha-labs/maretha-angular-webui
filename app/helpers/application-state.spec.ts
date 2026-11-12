@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
 import { WebUiAppState } from '@maretha/webui-sdk';
@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 import { PersonalWorkspaceService } from './personal-workspace.service';
 import { WorkflowInboxService } from './workflow-inbox.service';
 
-@Component({ template: '' })
+@Component({ changeDetection: ChangeDetectionStrategy.Eager, template: '' })
 class Blank {}
 
 describe('provideApplicationState', () => {

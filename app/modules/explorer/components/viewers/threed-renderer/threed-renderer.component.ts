@@ -12,7 +12,7 @@ import {
 	HostListener,
 	ChangeDetectionStrategy,
 } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import '@google/model-viewer';
 import { LegacyGltfRenderer } from 'app/modules/explorer/helpers/legacy-gltf-renderer';
 import { LazyCacheService } from 'app/helpers/lazy-cache.service';
@@ -88,7 +88,7 @@ export class ThreedRendererComponent {
 	// --------------------------------------------------------------------------------------------------
 	constructor(
 		private readonly elementRef: ElementRef,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 		private readonly lazyCacheService: LazyCacheService,
 	) {}
 

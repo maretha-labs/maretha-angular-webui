@@ -1,4 +1,11 @@
-import { Component, Input, effect, inject, viewChild } from '@angular/core';
+import {
+	Component,
+	Input,
+	effect,
+	inject,
+	viewChild,
+	ChangeDetectionStrategy,
+} from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import {
 	DOCUMENT_IMPORT_DRAFT,
@@ -16,6 +23,7 @@ import { DocumentImportHostComponent } from './document-import-host.component';
 
 @Component({
 	selector: 'nx-test-import-layout',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: '<span class="layout">{{ draft.file.name }}</span>',
 })
 class TestImportLayoutComponent {
@@ -31,6 +39,7 @@ class TestImportLayoutComponent {
 @Component({
 	selector: 'nx-test-schema-import-layout',
 	imports: [SchemaLayoutComponent],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<nx-schema-layout
 		[layout]="layout"
 		[parentId]="parentId()"

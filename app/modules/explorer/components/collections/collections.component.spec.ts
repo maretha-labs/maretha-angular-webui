@@ -1,7 +1,7 @@
 import { legacyTestProviders, fixtureDocument } from 'app/testing/legacy-test-providers';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { config, of, throwError } from 'rxjs';
 import { documentUrl } from 'app/helpers/document-route';
 import { DocumentCollectionsService } from 'app/modules/explorer/helpers/document-collections.service';
@@ -132,7 +132,7 @@ describe('Collections popover behaviour', () => {
 		const unhandled = jasmine.createSpy('unhandled');
 		const previous = config.onUnhandledError;
 		config.onUnhandledError = unhandled;
-		const toastr = spyOn(TestBed.inject(ToastrService), 'error');
+		const toastr = spyOn(TestBed.inject(ToastService), 'error');
 		const create = spyOn(service, 'createCollection').and.returnValue(of({ uid: 'created' }));
 		const add = spyOn(service, 'addToCollection').and.returnValue(
 			throwError(() => new Error('denied')) as never,

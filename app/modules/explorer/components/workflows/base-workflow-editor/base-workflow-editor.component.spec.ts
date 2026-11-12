@@ -1,13 +1,13 @@
-import { ChangeDetectorRef, Component, Input } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpErrorResponse, provideHttpClient } from '@angular/common/http';
+import { HttpErrorResponse, provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { Subject, of, throwError } from 'rxjs';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { TranslateService } from '@ngx-translate/core';
 import { UsersAndGroupsFinderService } from 'app/helpers/users-and-groups-finder.service';
 import { WorkflowsService } from 'app/helpers/workflows.service';
@@ -23,6 +23,7 @@ import { BaseWorkflowEditorComponent, WorkflowTaskIntent } from './base-workflow
 @Component({
 	selector: 'nx-test-workflow-layout',
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: '<p>Custom workflow host</p>',
 })
 class CustomWorkflowLayoutComponent {
@@ -38,7 +39,7 @@ describe('BaseWorkflowEditorComponent', () => {
 					{
 						getUsersAndGroups: () => of({ users: [], groups: [] }),
 					} as unknown as UsersAndGroupsFinderService,
-					{ error: jasmine.createSpy('error') } as unknown as ToastrService,
+					{ error: jasmine.createSpy('error') } as unknown as ToastService,
 					{
 						getTask: () => of({}),
 						getWorkflow: () => of({}),
@@ -111,7 +112,7 @@ describe('BaseWorkflowEditorComponent', () => {
 					provide: UsersAndGroupsFinderService,
 					useValue: { getUsersAndGroups: () => of({ users: [], groups: [] }) },
 				},
-				{ provide: ToastrService, useValue: { error: () => undefined } },
+				{ provide: ToastService, useValue: { error: () => undefined } },
 				{
 					provide: TranslateService,
 					useValue: {
@@ -152,14 +153,14 @@ describe('BaseWorkflowEditorComponent', () => {
 		await TestBed.configureTestingModule({
 			imports: [BaseWorkflowEditorComponent, TranslateModule.forRoot()],
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{ provide: BsModalRef, useValue: { hide: () => undefined } },
 				{
 					provide: UsersAndGroupsFinderService,
 					useValue: { find: () => of([]), getUsersAndGroups: () => of({ users: [], groups: [] }) },
 				},
-				{ provide: ToastrService, useValue: { error: () => undefined } },
+				{ provide: ToastService, useValue: { error: () => undefined } },
 				{
 					provide: WorkflowsService,
 					useValue: { getTask: () => of({}), getWorkflow: () => of({}) },
@@ -194,14 +195,14 @@ describe('BaseWorkflowEditorComponent', () => {
 		await TestBed.configureTestingModule({
 			imports: [BaseWorkflowEditorComponent, TranslateModule.forRoot()],
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{ provide: BsModalRef, useValue: { hide: () => undefined } },
 				{
 					provide: UsersAndGroupsFinderService,
 					useValue: { find: () => of([]), getUsersAndGroups: () => of({ users: [], groups: [] }) },
 				},
-				{ provide: ToastrService, useValue: { error: () => undefined } },
+				{ provide: ToastService, useValue: { error: () => undefined } },
 				{
 					provide: WorkflowsService,
 					useValue: { getTask: () => of({}), getWorkflow: () => of({}) },

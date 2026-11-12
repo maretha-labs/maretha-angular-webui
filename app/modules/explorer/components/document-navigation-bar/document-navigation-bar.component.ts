@@ -31,7 +31,7 @@ import { DocumentTrashService } from '../../helpers/document-trash.service';
 import { DocumentAttachmentsService } from '../../helpers/document-attachments.service';
 import { DocumentClipboardService } from '../../helpers/document-clipboard.service';
 import { ClipboardComponent } from '../clipboard/clipboard.component';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { AutofocusDirective } from '../../../../directives/autofocus.directive';
@@ -156,7 +156,7 @@ export class DocumentNavigationBarComponent implements AfterViewInit, OnDestroy 
 		private readonly documentClipboardService: DocumentClipboardService,
 		private readonly automationsService: AutomationsService,
 		private readonly layoutService: LayoutService,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 		private readonly cdr: ChangeDetectorRef,
 		private readonly layouts: DocumentLayoutRegistry,
 	) {

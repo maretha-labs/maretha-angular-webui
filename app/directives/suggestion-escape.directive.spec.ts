@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
@@ -7,6 +7,7 @@ import { SuggestionEscapeDirective } from './suggestion-escape.directive';
 
 @Component({
 	imports: [FormsModule, NgSelectComponent, SuggestionEscapeDirective],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<div>
 		<ng-select
 			nxSuggestionEscape

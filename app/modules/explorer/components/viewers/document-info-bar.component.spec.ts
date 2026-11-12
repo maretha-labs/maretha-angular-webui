@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { WebUiMessages } from '@maretha/webui-sdk';
 import { legacyTestProviders } from 'app/testing/legacy-test-providers';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { of, Subject, throwError } from 'rxjs';
 import { DocumentTrashService } from '../../helpers/document-trash.service';
 import { DocumentsManagerService } from '../../helpers/documents-manager.service';
@@ -14,14 +14,14 @@ describe('Document notices', () => {
 			purgeDocuments: jasmine.createSpy('purge').and.returnValue(of({})),
 		};
 		const manager = { reloadDocument: jasmine.createSpy('reload').and.returnValue(of({})) };
-		const toastr = jasmine.createSpyObj<ToastrService>('ToastrService', ['error']);
+		const toastr = jasmine.createSpyObj<ToastService>('ToastService', ['error']);
 		TestBed.configureTestingModule({
 			imports: [DocumentInfoBarComponent],
 			providers: [
 				...legacyTestProviders(),
 				{ provide: DocumentTrashService, useValue: trash },
 				{ provide: DocumentsManagerService, useValue: manager },
-				{ provide: ToastrService, useValue: toastr },
+				{ provide: ToastService, useValue: toastr },
 			],
 		});
 		const fixture = TestBed.createComponent(DocumentInfoBarComponent);

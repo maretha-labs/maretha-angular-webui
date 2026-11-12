@@ -1,16 +1,8 @@
-import {
-	Component,
-	OnInit,
-	Renderer2,
-	ViewChild,
-	ChangeDetectionStrategy,
-	inject,
-	effect,
-} from '@angular/core';
+import { Component, Renderer2, ChangeDetectionStrategy, inject, effect } from '@angular/core';
 import { ShellActionsComponent } from './components/quick-search/shell-actions.component';
 import { WebUiLocale, WebUiMessagePipe } from '@maretha/webui-sdk';
 import { WebUiTranslationBridge } from './helpers/webui-translation-bridge.service';
-import { ToastContainerDirective, ToastrService } from 'ngx-toastr';
+import { ToastContainerComponent } from './components/toasts/toast-container.component';
 import { AuthService } from './helpers/auth.service';
 import { SidebarService } from './helpers/sidebar.service';
 import { DrawerWidthPreferences } from './helpers/drawer-width-preferences.service';
@@ -37,14 +29,13 @@ import { RouterOutlet } from '@angular/router';
 		NgProgressHttp,
 		NgProgressRouter,
 		RouterOutlet,
+		ToastContainerComponent,
 	],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 	private readonly locale = inject(WebUiLocale);
 	private readonly translations = inject(WebUiTranslationBridge);
-	@ViewChild(ToastContainerDirective, { static: true })
-	toastContainer: ToastContainerDirective | undefined;
 
 	readonly drawerOpen = this.sidebarService.drawerOpen;
 	readonly activeTab = this.sidebarService.activeTab;
@@ -52,7 +43,6 @@ export class AppComponent implements OnInit {
 
 	constructor(
 		private readonly authService: AuthService,
-		private readonly toastrService: ToastrService,
 		private readonly sidebarService: SidebarService,
 		private readonly renderer: Renderer2,
 	) {
@@ -87,10 +77,5 @@ export class AppComponent implements OnInit {
 			const rtlStylesheet = document.head.querySelector('#bootstrap_rtl');
 			if (rtlStylesheet) document.head.removeChild(rtlStylesheet);
 		}
-	}
-
-	// --------------------------------------------------------------------------------------------------
-	ngOnInit(): void {
-		this.toastrService.overlayContainer = this.toastContainer;
 	}
 }

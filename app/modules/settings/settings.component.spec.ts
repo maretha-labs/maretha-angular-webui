@@ -1,5 +1,5 @@
 import { legacyTestProviders } from 'app/testing/legacy-test-providers';
-import { Component, input, signal } from '@angular/core';
+import { Component, input, signal, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import {
 	definePairedView,
@@ -12,7 +12,10 @@ import { SettingsComponent } from './settings.component';
 import { AuthService } from 'app/helpers/auth.service';
 import { SidebarService } from 'app/helpers/sidebar.service';
 const pageHeight = signal(100);
-@Component({ template: '<div [style.height.px]="height()">Administration page</div>' })
+@Component({
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '<div [style.height.px]="height()">Administration page</div>',
+})
 class PageStub {
 	readonly context = input.required<AdministrationContext>();
 	readonly height = pageHeight;

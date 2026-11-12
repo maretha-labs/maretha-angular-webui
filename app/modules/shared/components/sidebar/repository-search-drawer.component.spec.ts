@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input, signal, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { AssetsSearchQueueService } from 'app/modules/search/helpers/assets-search-queue.service';
@@ -8,15 +8,27 @@ import { RepositorySearchComponent } from 'app/modules/search/components/reposit
 import { RepositorySearchDrawerComponent } from './repository-search-drawer.component';
 import { REPOSITORY_SEARCH } from 'app/modules/search/helpers/repository-search-definitions';
 
-@Component({ selector: 'nx-assets-search-queue', template: 'Queue' })
+@Component({
+	selector: 'nx-assets-search-queue',
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: 'Queue',
+})
 class QueueProbe {}
-@Component({ selector: 'nx-repository-search', template: 'Filters' })
+@Component({
+	selector: 'nx-repository-search',
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: 'Filters',
+})
 class HostProbe {
 	definition = input<unknown>();
 	context = input<unknown>();
 	drawerOnly = input(false);
 }
-@Component({ selector: 'nx-assets-search-filters', template: 'Shared filters' })
+@Component({
+	selector: 'nx-assets-search-filters',
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: 'Shared filters',
+})
 class FiltersProbe {
 	search = input<unknown>();
 }

@@ -1,5 +1,5 @@
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { of } from 'rxjs';
@@ -15,7 +15,7 @@ describe('Add to Collection draft', () => {
 		TestBed.configureTestingModule({
 			imports: [AddToCollectionDialogComponent],
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{ provide: BsModalRef, useValue: { hide } },
 				{

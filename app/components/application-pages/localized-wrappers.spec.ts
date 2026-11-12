@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import {
@@ -11,7 +11,11 @@ import { ThemesPageComponent } from './themes-page.component';
 import { provideDefaultThemes } from 'app/modules/shared/components/sidebar/user-menu/default-themes';
 import { AnalyticsWorkspaceComponent } from 'app/modules/settings/components/analytics/analytics-workspace.component';
 
-@Component({ selector: 'nx-paired-views', template: '' })
+@Component({
+	selector: 'nx-paired-views',
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '',
+})
 class PairedViewsProbe {
 	readonly itemSlot = input('');
 	readonly pageSlot = input('');

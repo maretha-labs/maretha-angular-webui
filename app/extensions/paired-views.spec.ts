@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { definePairedView, DocumentViewContext } from './document-view';
@@ -6,7 +6,7 @@ import { DocumentViewsComponent } from './document-views.component';
 import { ExtensionRegistry } from './extension-registry.service';
 import { PUBLISH_ITEMS_SLOT, PUBLISH_PAGES_SLOT } from './publishing';
 
-@Component({ template: 'Publish draft' })
+@Component({ changeDetection: ChangeDetectionStrategy.Eager, template: 'Publish draft' })
 class PublishPage {
 	readonly context = input.required<DocumentViewContext>();
 	readonly canDeactivate = jasmine.createSpy().and.resolveTo(false);

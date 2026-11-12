@@ -1,11 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { BaseEditorComponent } from '../modules/explorer/components/editors/base-editor/base-editor.component';
 import { fixtureDocument, legacyTestProviders } from '../testing/legacy-test-providers';
 
 @Component({
 	imports: [BaseEditorComponent],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<nx-base-editor
 		[editorForm]="form"
 		[parentDocument]="parent"

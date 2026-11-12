@@ -1,4 +1,4 @@
-import { Component, Input, signal, WritableSignal } from '@angular/core';
+import { Component, Input, signal, WritableSignal, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { AgGridAngular } from 'ag-grid-angular';
@@ -26,6 +26,7 @@ import { fixtureDocument, legacyTestProviders } from 'app/testing/legacy-test-pr
 
 @Component({
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: '<span class="folderish-client">{{ context?.row?.uid }}</span>',
 })
 class FolderishClientProjection {

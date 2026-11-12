@@ -1,7 +1,7 @@
 import { DocumentCreationError } from './document-creation-error';
 import { of, throwError } from 'rxjs';
 import { TestBed } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { CreationParentService, allowsCreateType } from './creation-parent.service';
 import { legacyTestProviders } from 'app/testing/legacy-test-providers';
@@ -22,7 +22,7 @@ const parent = {
 describe('Creation destinations', () => {
 	it('preserves exact default repository path and ID endpoints for omitted and explicit arguments', () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const http = TestBed.inject(HttpTestingController);
 		const service = TestBed.inject(CreationParentService);
@@ -36,7 +36,7 @@ describe('Creation destinations', () => {
 	});
 	it('encodes nondefault repositories and document locations while keeping type configuration global', () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const http = TestBed.inject(HttpTestingController);
 		const service = TestBed.inject(CreationParentService);
@@ -61,7 +61,7 @@ describe('Creation destinations', () => {
 	});
 	it('encodes paths, loads schema-based type options and excludes hidden types', () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const http = TestBed.inject(HttpTestingController);
 		let result: any;
@@ -78,7 +78,7 @@ describe('Creation destinations', () => {
 	});
 	it('offers Note from files while leaving other non-blob types out of the import picker', () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const http = TestBed.inject(HttpTestingController);
 		let result: any;
@@ -111,7 +111,7 @@ describe('Creation destinations', () => {
 	});
 	it('treats question marks and fragments in repository names as encoded path data', () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const http = TestBed.inject(HttpTestingController);
 		TestBed.inject(CreationParentService).read('/Folder?#One').subscribe();
@@ -232,7 +232,7 @@ describe('Creation destinations', () => {
 	});
 	it('rejects relative creation destinations locally with a retained message identity', () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		let error: any;
 		try {

@@ -35,6 +35,7 @@ import {
 	provideHttpClient,
 	withInterceptors,
 	withInterceptorsFromDi,
+	withXhr,
 } from '@angular/common/http';
 import { pdfRangeHttpInterceptor } from './app/helpers/pdf-range-http';
 import { provideApplicationState } from './app/helpers/application-state';
@@ -82,6 +83,7 @@ export const appConfig: ApplicationConfig = {
 		provideZoneChangeDetection(),
 		FetchBackend,
 		provideHttpClient(
+			withXhr(),
 			withInterceptorsFromDi(),
 			withInterceptors([progressInterceptor, pdfRangeHttpInterceptor]),
 		),

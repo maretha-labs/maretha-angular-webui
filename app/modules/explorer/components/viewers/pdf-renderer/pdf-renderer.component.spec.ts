@@ -1,11 +1,16 @@
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { PdfLocaleAdapter } from './pdf-locale-adapter';
 import { TemplateRef } from '@angular/core';
 import { WebUiMessages } from '@maretha/webui-sdk';
 import { legacyTestProviders, fixtureDocument } from 'app/testing/legacy-test-providers';
 import { ComponentFixture, fakeAsync, flushMicrotasks, tick, TestBed } from '@angular/core/testing';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {
+	HTTP_INTERCEPTORS,
+	provideHttpClient,
+	withInterceptorsFromDi,
+	withXhr,
+} from '@angular/common/http';
 import { HttpInterceptorService } from 'app/helpers/http-interceptor.service';
 import { TokenService } from 'app/helpers/token.service';
 import { environment } from 'environments/environment';
@@ -39,7 +44,7 @@ describe('PdfRendererComponent', () => {
 		await TestBed.configureTestingModule({
 			providers: [
 				...legacyTestProviders(),
-				provideHttpClient(withInterceptorsFromDi()),
+				provideHttpClient(withXhr(), withInterceptorsFromDi()),
 				provideHttpClientTesting(),
 				{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },
 				{ provide: PdfRangeBridge, useValue: bridge },
@@ -124,10 +129,12 @@ describe('PdfRendererComponent', () => {
 			toastId: 42,
 			message: '',
 			title: '',
-			toastRef: { componentInstance: {} },
-			portal: { changeDetectorRef: { markForCheck: jasmine.createSpy('mark') } },
+			update(message: string, title?: string) {
+				toast.message = message;
+				if (title !== undefined) toast.title = title;
+			},
 		};
-		const toastr = TestBed.inject(ToastrService);
+		const toastr = TestBed.inject(ToastService);
 		const info = spyOn(toastr, 'info').and.returnValue(toast);
 		const remove = spyOn(toastr, 'remove');
 		const print = spyOn((component as any).pdfService, 'print');
@@ -164,7 +171,7 @@ describe('PdfRendererComponent', () => {
 	}));
 	it('suppresses stale loading events and cancels queued print UI after destruction', fakeAsync(() => {
 		const loading = spyOn(component.loading, 'emit');
-		const info = spyOn(TestBed.inject(ToastrService), 'info');
+		const info = spyOn(TestBed.inject(ToastService), 'info');
 		component.pdfLoading(null, -1);
 		expect(loading).not.toHaveBeenCalled();
 		component.pdfLoading(null);
@@ -368,6 +375,14 @@ describe('PdfRendererComponent', () => {
 		component.pdfLoadingFailed(null, oldGeneration);
 		expect(pending.cancelled).toBeFalse();
 		expect(component.error()).toBe('');
+		const shown = component.pdfData();
+		(component as any).displayPdf(
+			null,
+			{ complete: true, bytes: new Uint8Array([9]) },
+			oldGeneration,
+		);
+		tick();
+		expect(component.pdfData()).toBe(shown);
 		pending.flush(new Uint8Array([2]).buffer, { headers: { 'Content-Length': '1' } });
 		component.pdfLoaded(null, oldGeneration);
 		expect(component.showToolbar()).toBeFalse();
@@ -413,7 +428,7 @@ describe('PdfRendererComponent', () => {
 	});
 
 	it('does not announce a print once the viewer is gone before the toast is due', fakeAsync(() => {
-		const info = spyOn(TestBed.inject(ToastrService), 'info');
+		const info = spyOn(TestBed.inject(ToastService), 'info');
 		// A repeated print request leaves the first announcement timer running past destruction.
 		component.beforePrint();
 		component.beforePrint();

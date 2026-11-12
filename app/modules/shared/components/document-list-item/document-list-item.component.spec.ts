@@ -2,7 +2,7 @@ import { of } from 'rxjs';
 import { DocumentCollectionsService } from 'app/modules/explorer/helpers/document-collections.service';
 import { DocumentAttachmentsService } from 'app/modules/explorer/helpers/document-attachments.service';
 import { FavoriteChanges } from 'app/modules/explorer/helpers/favorite-changes.service';
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import {
@@ -16,7 +16,10 @@ import { REPOSITORY_SEARCH } from 'app/modules/search/helpers/repository-search-
 import { searchViewComponents } from 'app/modules/search/helpers/search-view-components';
 import { DocumentListItemComponent } from './document-list-item.component';
 
-@Component({ template: 'Override {{ context().row.title }}' })
+@Component({
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: 'Override {{ context().row.title }}',
+})
 class CustomTrashListItem {
 	readonly context = input.required<ResultsProjectionContext>();
 }

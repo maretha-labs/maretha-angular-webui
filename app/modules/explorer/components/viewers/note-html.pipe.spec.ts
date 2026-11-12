@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { WebUiMessages } from '@maretha/webui-sdk';
 import { TestBed } from '@angular/core/testing';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -6,6 +6,7 @@ import { NoteContentLocaleDirective, noteVideoUrl, sanitizeNoteHtml } from './no
 
 @Component({
 	imports: [NoteContentLocaleDirective],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<div nxNoteContentLocale>
 		<iframe title="Embedded video" data-nx-note-default-title="true" sandbox></iframe
 		><iframe title="Customer video" sandbox></iframe>

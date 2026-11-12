@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { WebUiLocale, WebUiMessages } from '@maretha/webui-sdk';
 import {
@@ -15,7 +15,7 @@ describe('Comparison metadata resolution', () => {
 		({ name: 'custom', kind, directoryName }) as ComparisonProperty;
 	beforeEach(() => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		service = TestBed.inject(DocumentComparisonResolverService);
 		http = TestBed.inject(HttpTestingController);

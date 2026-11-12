@@ -2,7 +2,7 @@ import { WebUiMessages } from '@maretha/webui-sdk';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { defer, finalize, Observable, Subject, tap } from 'rxjs';
 import { LayoutService } from './layout.service';
 
@@ -24,7 +24,7 @@ export class DocumentTrashService {
 	constructor(
 		private readonly layoutService: LayoutService,
 		private readonly httpClient: HttpClient,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 	) {}
 
 	// --------------------------------------------------------------------------------------------------

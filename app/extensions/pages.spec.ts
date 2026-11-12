@@ -1,10 +1,13 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { definePage, PageContext, WebUiPageComponent } from './pages';
 import { ExtensionRegistry } from './extension-registry.service';
 import { ViewNavigation } from './view-navigation';
-@Component({ template: 'Client page {{context().params["id"]}}' })
+@Component({
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: 'Client page {{context().params["id"]}}',
+})
 class ClientPage {
 	readonly context = input.required<PageContext>();
 	readonly canDeactivate = jasmine.createSpy().and.resolveTo(false);

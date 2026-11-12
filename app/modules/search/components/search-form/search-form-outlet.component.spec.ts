@@ -1,14 +1,17 @@
-import { Component, input, type Type } from '@angular/core';
+import { Component, input, type Type, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { REPOSITORY_SEARCH } from '../../helpers/repository-search-definitions';
 import { SearchFormOutletComponent } from './search-form-outlet.component';
 
-@Component({ template: '<button (click)="search().submit()">{{ search().text }}</button>' })
+@Component({
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '<button (click)="search().submit()">{{ search().text }}</button>',
+})
 class CustomFormComponent {
 	readonly search = input.required<{ text: string; submit: () => void }>();
 }
 
-@Component({ template: '<span>Other form</span>' })
+@Component({ changeDetection: ChangeDetectionStrategy.Eager, template: '<span>Other form</span>' })
 class OtherFormComponent {}
 
 describe('Per-search form outlet', () => {

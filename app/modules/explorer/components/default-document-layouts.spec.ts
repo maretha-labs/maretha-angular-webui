@@ -10,7 +10,7 @@ import {
 import { DefaultDocumentMetadataLayoutComponent } from './default-document-metadata-layout.component';
 import { DocumentLayoutRegistry, documentLayoutContext } from '@maretha/webui-sdk';
 import { fakeAsync, flushMicrotasks, TestBed, tick } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { Subject, of, throwError } from 'rxjs';
 import { signal } from '@angular/core';
@@ -216,7 +216,7 @@ describe('scoped folderish provider state', () => {
 		manager = { documentInfo: null, documents: [], documentsUpdated$: new Subject<any[]>() };
 		TestBed.configureTestingModule({
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{ provide: DocumentsManagerService, useValue: manager },
 				{
@@ -697,7 +697,7 @@ describe('scoped Audio, Video and Note state', () => {
 		TestBed.configureTestingModule({
 			imports: [StandardContentLayoutComponent, StandardContentMetadataComponent],
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{ provide: DocumentsManagerService, useValue: manager },
 				{ provide: DocumentLayoutGatewayService, useValue: gateway },
@@ -1019,7 +1019,7 @@ describe('scoped Audio, Video and Note state', () => {
 		TestBed.configureTestingModule({
 			imports: [DocumentDetailsPanelComponent],
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{ provide: DocumentsManagerService, useValue: manager },
 				{ provide: DocumentLayoutGatewayService, useValue: gateway },

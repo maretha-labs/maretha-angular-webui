@@ -4,7 +4,7 @@ import {
 	WebUiLocale,
 	provideDocumentFieldExtensions,
 } from '@maretha/webui-sdk';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { DocumentLayoutGatewayService } from './document-layout-gateway.service';
@@ -13,7 +13,7 @@ describe('Nuxeo layout transport', () => {
 	it('loads dynamic facet definitions only for attached registered document fields', async () => {
 		TestBed.configureTestingModule({
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				provideDocumentFieldExtensions({
 					id: 'test.ai',
@@ -61,7 +61,7 @@ describe('Nuxeo layout transport', () => {
 	});
 	it('rejects unsafe writes with localizable identities before sending transport and handles absent directory metadata', async () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const gateway = TestBed.inject(DocumentLayoutGatewayService);
 		const messages = TestBed.inject(WebUiMessages);
@@ -94,7 +94,7 @@ describe('Nuxeo layout transport', () => {
 
 	it('cancels directory transport on unsubscribe and prefers localized labels', () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const gateway = TestBed.inject(DocumentLayoutGatewayService);
 		const http = TestBed.inject(HttpTestingController);
@@ -140,7 +140,7 @@ describe('Nuxeo layout transport', () => {
 	});
 	it('selects regional and language directory labels while preserving saved IDs', async () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const gateway = TestBed.inject(DocumentLayoutGatewayService);
 		const http = TestBed.inject(HttpTestingController);
@@ -178,7 +178,7 @@ describe('Nuxeo layout transport', () => {
 	});
 	it('resolves document references without recursively subscribing and cancels on unsubscribe', () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const gateway = TestBed.inject(DocumentLayoutGatewayService);
 		const http = TestBed.inject(HttpTestingController);
@@ -206,7 +206,7 @@ describe('Nuxeo layout transport', () => {
 	});
 	it('sends optimistic locking information and preserves the server response', async () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const gateway = TestBed.inject(DocumentLayoutGatewayService);
 		const http = TestBed.inject(HttpTestingController);
@@ -229,7 +229,7 @@ describe('Nuxeo layout transport', () => {
 	});
 	it('updates an explicit repository only when the scoped caller opts in', async () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const gateway = TestBed.inject(DocumentLayoutGatewayService);
 		const http = TestBed.inject(HttpTestingController);
@@ -244,7 +244,7 @@ describe('Nuxeo layout transport', () => {
 	});
 	it('uploads a blob as a Nuxeo batch descriptor instead of serializing file contents', async () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const gateway = TestBed.inject(DocumentLayoutGatewayService);
 		const http = TestBed.inject(HttpTestingController);
@@ -269,7 +269,7 @@ describe('Nuxeo layout transport', () => {
 	});
 	it('reads the Nuxeo directory entries envelope and bounds lookup paging', async () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const gateway = TestBed.inject(DocumentLayoutGatewayService);
 		const http = TestBed.inject(HttpTestingController);
@@ -296,7 +296,7 @@ describe('Nuxeo layout transport', () => {
 	});
 	it('continues through directory pages so a later matching entry is reachable', async () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const gateway = TestBed.inject(DocumentLayoutGatewayService);
 		const http = TestBed.inject(HttpTestingController);
@@ -330,7 +330,7 @@ describe('Nuxeo layout transport', () => {
 	});
 	it('keeps server-computed hierarchy values and absolute localized labels for directory controls', async () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const gateway = TestBed.inject(DocumentLayoutGatewayService);
 		const http = TestBed.inject(HttpTestingController);
@@ -364,7 +364,7 @@ describe('Nuxeo layout transport', () => {
 	});
 	it('loads complete bounded bulk choices through the Nuxeo hierarchy suggestion contract', async () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const gateway = TestBed.inject(DocumentLayoutGatewayService);
 		const http = TestBed.inject(HttpTestingController);
@@ -397,7 +397,7 @@ describe('Nuxeo layout transport', () => {
 	});
 	it('fails closed when the non-paginated suggestion operation reaches its bulk choice limit', async () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const gateway = TestBed.inject(DocumentLayoutGatewayService);
 		const http = TestBed.inject(HttpTestingController);
@@ -411,7 +411,7 @@ describe('Nuxeo layout transport', () => {
 	});
 	it('rejects a repeated directory page instead of looping or reporting no matches', async () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const gateway = TestBed.inject(DocumentLayoutGatewayService);
 		const http = TestBed.inject(HttpTestingController);
@@ -443,7 +443,7 @@ describe('Nuxeo layout transport', () => {
 	});
 	it('deletes an allocated upload batch when the file transfer fails', async () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const gateway = TestBed.inject(DocumentLayoutGatewayService);
 		const http = TestBed.inject(HttpTestingController);

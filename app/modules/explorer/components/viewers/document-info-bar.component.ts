@@ -8,7 +8,7 @@ import {
 } from '@maretha/webui-sdk';
 import { hasPermission } from 'app/extensions/document-permissions';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { firstValueFrom } from 'rxjs';
 import { DocumentTrashService } from '../../helpers/document-trash.service';
 import { DocumentsManagerService } from '../../helpers/documents-manager.service';
@@ -183,7 +183,7 @@ export class DocumentInfoBarComponent {
 	private readonly trash = inject(DocumentTrashService);
 	private readonly manager = inject(DocumentsManagerService);
 	private readonly messages = inject(WebUiMessages);
-	private readonly toastr = inject(ToastrService);
+	private readonly toastr = inject(ToastService);
 
 	/** Stock nuxeo-untrash-document-button, then the app reloads the document. */
 	async untrash(): Promise<void> {

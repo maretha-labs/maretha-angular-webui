@@ -4,7 +4,7 @@ import { ChangeDetectorRef, Component, OnDestroy, ChangeDetectionStrategy } from
 import { filter, Subject, takeUntil } from 'rxjs';
 import { DocumentsManagerService } from '../helpers/documents-manager.service';
 import { DocumentSearchService } from 'app/modules/search/helpers/document-search.service';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { DestinationCreateDialogComponent } from 'app/components/quick-search/destination-create-dialog.component';
 import { NavigationEnd, Router } from '@angular/router';
@@ -50,7 +50,7 @@ export class ExplorerComponent implements OnDestroy {
 	constructor(
 		private readonly documentsManagerService: DocumentsManagerService,
 		private readonly documentSearchService: DocumentSearchService,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 		private readonly modalService: BsModalService,
 		private readonly router: Router,
 		private readonly cdr: ChangeDetectorRef,

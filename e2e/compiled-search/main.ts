@@ -5,7 +5,7 @@ import {
 	provideZoneChangeDetection,
 	signal,
 } from '@angular/core';
-import { HttpResponse, provideHttpClient, withInterceptors } from '@angular/common/http';
+import { HttpResponse, provideHttpClient, withInterceptors, withXhr } from '@angular/common/http';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
@@ -13,7 +13,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
 import { NgxTranslateCutModule } from 'ngx-translate-cut';
 import { TimeagoModule } from 'ngx-timeago';
-import { ToastrModule } from 'ngx-toastr';
 import { of, throwError } from 'rxjs';
 import {
 	NUXEO_ICONS,
@@ -57,10 +56,10 @@ bootstrapApplication(AppComponent, {
 			TranslateModule.forRoot(),
 			NgxTranslateCutModule.forRoot({}),
 			TimeagoModule.forRoot(),
-			ToastrModule.forRoot(),
 			ModalModule,
 		),
 		provideHttpClient(
+			withXhr(),
 			withInterceptors([
 				(request, next) => {
 					const svgPrefix = 'data:image/svg+xml;charset=utf-8,';

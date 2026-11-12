@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, Input, signal, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DocumentLayoutContext, DocumentLayoutRegistry, WebUiLocale } from '@maretha/webui-sdk';
 import { fixtureDocument, legacyTestProviders } from 'app/testing/legacy-test-providers';
@@ -8,6 +8,7 @@ import { MetadataPolicyService } from '../../helpers/metadata-policy.service';
 
 @Component({
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: "<output>override {{ scope?.document?.['title'] }}</output>",
 })
 class OverrideMetadataComponent {

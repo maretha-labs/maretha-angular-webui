@@ -1,7 +1,12 @@
 import { legacyTestProviders, fixtureDocument } from 'app/testing/legacy-test-providers';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {
+	HTTP_INTERCEPTORS,
+	provideHttpClient,
+	withInterceptorsFromDi,
+	withXhr,
+} from '@angular/common/http';
 import { HttpInterceptorService } from 'app/helpers/http-interceptor.service';
 import { environment } from 'environments/environment';
 import { EMPTY } from 'rxjs';
@@ -19,7 +24,7 @@ describe('ImageRendererComponent', () => {
 		await TestBed.configureTestingModule({
 			providers: [
 				...legacyTestProviders(),
-				provideHttpClient(withInterceptorsFromDi()),
+				provideHttpClient(withXhr(), withInterceptorsFromDi()),
 				provideHttpClientTesting(),
 				{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },
 				{

@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { WebUiLocale, WebUiMessages } from '@maretha/webui-sdk';
@@ -29,7 +29,7 @@ describe('Standard document publications', () => {
 		TestBed.configureTestingModule({
 			imports: [StandardDocumentPublicationViewComponent],
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{ provide: AutomationsService, useValue: { documentPublished$: new Subject() } },
 			],

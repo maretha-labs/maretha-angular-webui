@@ -1,6 +1,6 @@
 import { WebUiMessages } from '@maretha/webui-sdk';
 import { provideRouter } from '@angular/router';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { Subject } from 'rxjs';
@@ -27,7 +27,7 @@ describe('Publication view', () => {
 			imports: [DocumentPublicationViewComponent],
 			providers: [
 				provideRouter([]),
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{ provide: AutomationsService, useValue: { documentPublished$: new Subject() } },
 			],
@@ -156,7 +156,7 @@ describe('Publication view', () => {
 			imports: [DocumentPublicationViewComponent],
 			providers: [
 				provideRouter([]),
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				{ provide: AutomationsService, useValue: { documentPublished$: new Subject() } },
 			],

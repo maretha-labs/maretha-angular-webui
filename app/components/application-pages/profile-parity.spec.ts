@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
@@ -97,7 +97,7 @@ describe('Read-only account permission tables', () => {
 	it('keeps every local ACE, excludes inherited ACLs, links documents and pages the stock query', () => {
 		TestBed.configureTestingModule({
 			imports: [ProfilePermissionsComponent],
-			providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting(), provideRouter([])],
 		});
 		const fixture = TestBed.createComponent(ProfilePermissionsComponent);
 		fixture.componentRef.setInput('entity', 'fixture-account');
@@ -159,7 +159,7 @@ describe('Read-only account permission tables', () => {
 		TestBed.configureTestingModule({
 			imports: [ProfilePageComponent],
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
 				provideRouter([]),
 				{ provide: AuthService, useValue: { userInfo } },

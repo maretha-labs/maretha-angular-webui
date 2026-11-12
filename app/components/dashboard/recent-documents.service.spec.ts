@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { RecentDocumentsService } from './recent-documents.service';
@@ -6,7 +6,7 @@ import { RecentDocumentsService } from './recent-documents.service';
 describe('Recently viewed documents', () => {
 	it('rechecks visibility by repository, preserves actual view timestamps and omits inaccessible documents', () => {
 		TestBed.configureTestingModule({
-			providers: [provideHttpClient(), provideHttpClientTesting()],
+			providers: [provideHttpClient(withXhr()), provideHttpClientTesting()],
 		});
 		const http = TestBed.inject(HttpTestingController);
 		const history = [

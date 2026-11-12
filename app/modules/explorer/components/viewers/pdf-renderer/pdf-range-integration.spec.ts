@@ -59,8 +59,8 @@ function multiChunkPdf(contentPadding = 0): Uint8Array {
 
 describe('Installed PDF.js range integration', () => {
 	for (const [folder, version] of [
-		['assets', '5.4.1105'],
-		['bleeding-edge', '5.4.1106'],
+		['assets', '6.5.1524'],
+		['bleeding-edge', '6.5.1524'],
 	]) {
 		it(`extracts PDF.js ${version} through the real transport and aborts it when the loading task is destroyed`, async () => {
 			TestBed.configureTestingModule({});
@@ -155,7 +155,7 @@ describe('Installed PDF.js range integration', () => {
 				if (runtime && previousWorker !== undefined)
 					runtime.GlobalWorkerOptions.workerSrc = previousWorker;
 				pdfDefaultOptions.assetsFolder = previousFolder;
-				loader.ngOnDestroy();
+				loader.releaseViewer();
 			}
 		}, 30_000);
 	}

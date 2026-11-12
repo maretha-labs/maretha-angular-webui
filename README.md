@@ -4,7 +4,7 @@
 [![Licence](https://img.shields.io/badge/licence-Apache--2.0-blue.svg)](LICENSE)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/maretha-labs/maretha-angular-webui/badge)](https://scorecard.dev/viewer/?uri=github.com/maretha-labs/maretha-angular-webui)
 
-An Angular 21 user interface for Nuxeo LTS 2025 that behaves like the stock Nuxeo Web UI.
+An Angular 22 user interface for Nuxeo LTS 2025 that behaves like the stock Nuxeo Web UI.
 Customize it in one writable zone, through the extension SDK `@maretha/webui-sdk` and with
 instructions written for coding agents; a hash lock keeps the core untouched. Upgrade by merging
 the next release tag.

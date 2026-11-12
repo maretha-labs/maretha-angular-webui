@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { selectionToolbarShortcut } from './selection-toolbar-shortcut';
 
 @Component({
 	selector: 'nx-test-selection-bar',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<p><button type="button" class="outside">Outside</button></p>
 		<div class="bar">
 			<span class="hint"></span><button type="button" class="first">Clear</button>

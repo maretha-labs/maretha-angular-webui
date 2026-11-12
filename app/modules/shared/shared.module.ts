@@ -29,8 +29,6 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 
-import { ToastrModule } from 'ngx-toastr';
-
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxTranslateCutModule } from 'ngx-translate-cut';
 
@@ -80,14 +78,6 @@ import { FooterComponent } from './components/footer/footer.component';
 		DragDropModule,
 		FontAwesomeModule,
 		TranslateModule,
-		ToastrModule.forRoot({
-			timeOut: 3000,
-			positionClass: 'inline',
-			preventDuplicates: true,
-			enableHtml: true,
-			// progressAnimation: 'decreasing',
-			// progressBar: true
-		}),
 		NgxJsonViewerModule,
 		NgxDocViewerModule,
 		BsDropdownModule,
@@ -152,7 +142,6 @@ import { FooterComponent } from './components/footer/footer.component';
 		AlertModule,
 		TabsModule,
 		TranslateModule,
-		ToastrModule,
 		NgxJsonViewerModule,
 		NgxDocViewerModule,
 		InputDialogComponent,

@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { of, throwError } from 'rxjs';
 import { WorkflowsService } from 'app/helpers/workflows.service';
 import { legacyTestProviders } from 'app/testing/legacy-test-providers';
@@ -53,7 +53,7 @@ describe('WorkflowGraphDialogService', () => {
 			providers: [...legacyTestProviders(), { provide: WorkflowsService, useValue: workflows }],
 		});
 		const show = spyOn(TestBed.inject(BsModalService), 'show').and.returnValue({} as BsModalRef);
-		const error = spyOn(TestBed.inject(ToastrService), 'error');
+		const error = spyOn(TestBed.inject(ToastService), 'error');
 		const service = TestBed.inject(WorkflowGraphDialogService);
 		await service.show('wf-1');
 		expect(workflows.getWorkflowGraph).toHaveBeenCalledOnceWith('wf-1');

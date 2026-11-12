@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { defineContribution, defineSlot, WebUiExtension } from './contribution';
 import { ExtensionRegistry } from './extension-registry.service';
 import { DOCUMENT_ACTIONS_SLOT, POLYMER_SLOTS } from './slots';
 
-@Component({ template: '', standalone: true })
+@Component({ template: '', changeDetection: ChangeDetectionStrategy.Eager, standalone: true })
 class FirstAction {}
-@Component({ template: '', standalone: true })
+@Component({ template: '', changeDetection: ChangeDetectionStrategy.Eager, standalone: true })
 class ReplacementAction {}
 
 describe('ExtensionRegistry', () => {

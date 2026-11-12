@@ -1,6 +1,6 @@
 # Agent instructions
 
-Maretha Angular Web UI: an Angular 21 user interface for Nuxeo LTS 2025 with the extension SDK
+Maretha Angular Web UI: an Angular 22 user interface for Nuxeo LTS 2025 with the extension SDK
 `@maretha/webui-sdk`. This file is the complete instruction set for coding agents here; the
 tool-specific files only point to it. Decide first which of the two jobs you are doing.
 

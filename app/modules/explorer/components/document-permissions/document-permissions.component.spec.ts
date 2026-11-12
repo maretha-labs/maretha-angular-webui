@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { DocumentProjectionRegistry } from '@maretha/webui-sdk';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import {
@@ -14,11 +14,12 @@ import {
 	faUsers,
 } from '@fortawesome/free-solid-svg-icons';
 import { TranslateModule } from '@ngx-translate/core';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { DocumentPermissionsComponent } from './document-permissions.component';
 
 @Component({
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: '<output>acl extension {{ projectionContext?.document?.uid }}</output>',
 })
 class AclProjection {
@@ -36,9 +37,9 @@ describe('DocumentPermissionsComponent', () => {
 		TestBed.configureTestingModule({
 			imports: [DocumentPermissionsComponent, TranslateModule.forRoot()],
 			providers: [
-				provideHttpClient(),
+				provideHttpClient(withXhr()),
 				provideHttpClientTesting(),
-				{ provide: ToastrService, useValue: { info: jasmine.createSpy() } },
+				{ provide: ToastService, useValue: { info: jasmine.createSpy() } },
 			],
 		});
 		TestBed.inject(FaIconLibrary).addIcons(

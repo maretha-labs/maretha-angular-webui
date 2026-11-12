@@ -2,7 +2,7 @@ import { WebUiMessages } from '@maretha/webui-sdk';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { environment } from 'environments/environment';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import {
 	catchError,
 	combineLatest,
@@ -50,7 +50,7 @@ export class DocumentCollectionsService {
 	// --------------------------------------------------------------------------------------------------
 	constructor(
 		private readonly httpClient: HttpClient,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 		private readonly layoutService: LayoutService,
 		private readonly automationsService: AutomationsService,
 		private readonly documentEnhancerService: DocumentEnhancerService,

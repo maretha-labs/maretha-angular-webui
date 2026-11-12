@@ -1,5 +1,5 @@
 import { legacyTestProviders, fixtureDocument } from 'app/testing/legacy-test-providers';
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
 	DOCUMENT_LAYOUT_HOST,
@@ -44,6 +44,7 @@ describe('DocumentTypeEditorComponent', () => {
 
 @Component({
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: '<output>custom-file-editor {{ layoutContext?.documentType }}</output>',
 })
 class CustomFileEditorComponent {
@@ -51,16 +52,24 @@ class CustomFileEditorComponent {
 	@Input() documentType: string | undefined;
 }
 
-@Component({ standalone: true, template: '' })
+@Component({ standalone: true, changeDetection: ChangeDetectionStrategy.Eager, template: '' })
 class HostedContractLayoutComponent {
 	@Input() layoutContext: DocumentLayoutContext | undefined;
 	readonly host = inject(DOCUMENT_LAYOUT_HOST);
 }
 
-@Component({ standalone: true, template: '<output>invalid custom editor</output>' })
+@Component({
+	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '<output>invalid custom editor</output>',
+})
 class InvalidCustomFileEditorComponent {}
 
-@Component({ standalone: true, template: '<output>alias {{ scope?.documentType }}</output>' })
+@Component({
+	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '<output>alias {{ scope?.documentType }}</output>',
+})
 class AliasedCustomFileEditorComponent {
 	// eslint-disable-next-line @angular-eslint/no-input-rename -- verifies the documented legacy layoutContext alias.
 	@Input('layoutContext') scope: DocumentLayoutContext | undefined;

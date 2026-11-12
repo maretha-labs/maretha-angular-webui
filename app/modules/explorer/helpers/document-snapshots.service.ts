@@ -2,7 +2,7 @@ import { WebUiMessages } from '@maretha/webui-sdk';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { Subject, of, map, catchError, throwError, switchMap, tap } from 'rxjs';
 import { DocumentEnhancerService } from './document-enhancer.service';
 import { DocumentsManagerService } from './documents-manager.service';
@@ -22,7 +22,7 @@ export class DocumentSnapshotsService {
 	// --------------------------------------------------------------------------------------------------
 	constructor(
 		private readonly httpClient: HttpClient,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 		private readonly documentsManagerService: DocumentsManagerService,
 		private readonly documentEnhancerService: DocumentEnhancerService,
 	) {}

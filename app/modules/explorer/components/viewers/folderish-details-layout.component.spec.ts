@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DocumentLayoutContext } from '@maretha/webui-sdk';
@@ -8,18 +8,30 @@ import { FolderishDetailsLayoutComponent } from './folderish-details-layout.comp
 import { FolderishDetailsPanelComponent } from './folderish-details-panel.component';
 import { PictureBookContentLayoutComponent } from './picturebook-content-layout.component';
 
-@Component({ selector: 'nx-picturebook-content-layout', template: 'Scoped folder results' })
+@Component({
+	selector: 'nx-picturebook-content-layout',
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: 'Scoped folder results',
+})
 class ScopedResults {
 	readonly document = input<any>();
 	readonly noEdit = input(false);
 	readonly layoutContext = input<DocumentLayoutContext>();
 	readonly contentLabel = input('');
 }
-@Component({ selector: 'nx-generic-folderish-viewer', template: 'Generic custom results' })
+@Component({
+	selector: 'nx-generic-folderish-viewer',
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: 'Generic custom results',
+})
 class GenericResults {
 	readonly document = input<any>();
 }
-@Component({ selector: 'nx-folderish-details-panel', template: 'Details' })
+@Component({
+	selector: 'nx-folderish-details-panel',
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: 'Details',
+})
 class Details {
 	readonly document = input<any>();
 	readonly noEdit = input(false);

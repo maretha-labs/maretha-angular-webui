@@ -19,7 +19,7 @@ import { UsersAndGroupsFinderService } from 'app/helpers/users-and-groups-finder
 import { WorkflowsService } from 'app/helpers/workflows.service';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { catchError, EMPTY, Observable, of, pipe, Subject, takeUntil, tap, throwError } from 'rxjs';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -101,7 +101,7 @@ export class BaseWorkflowEditorComponent implements OnInit, OnChanges, OnDestroy
 	constructor(
 		private readonly bsModalRef: BsModalRef,
 		private readonly usersAndGroupsFinderService: UsersAndGroupsFinderService,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 		private readonly workflowsService: WorkflowsService,
 		private readonly cdr: ChangeDetectorRef,
 		private readonly viewNavigation: ViewNavigation,

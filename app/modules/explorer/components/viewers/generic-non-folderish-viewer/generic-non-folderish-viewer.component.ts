@@ -23,7 +23,7 @@ import {
 import { animations } from 'app/shared.constants';
 import { firstValueFrom, Subject, takeUntil } from 'rxjs';
 import { LinkTarget, pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { DocumentsManagerService } from '../../../helpers/documents-manager.service';
 import { DocumentAttachmentsService } from 'app/modules/explorer/helpers/document-attachments.service';
 import { DocumentSnapshotsService } from 'app/modules/explorer/helpers/document-snapshots.service';
@@ -150,7 +150,7 @@ export class GenericNonFolderishViewerComponent implements OnDestroy {
 		private readonly documentsManagerService: DocumentsManagerService,
 		private readonly documentAttachmentsService: DocumentAttachmentsService,
 		private readonly documentSnapshotsService: DocumentSnapshotsService,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 		public injector: Injector,
 		private readonly elementRef: ElementRef,
 		private readonly cdr: ChangeDetectorRef,

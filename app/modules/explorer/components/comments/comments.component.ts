@@ -18,7 +18,7 @@ import {
 import { DocumentsManagerService } from 'app/modules/explorer/helpers/documents-manager.service';
 import { AuthService } from 'app/helpers/auth.service';
 import { UnescapePipe } from 'app/pipes/unescape.pipe';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { Subject } from 'rxjs';
 import { NgTemplateOutlet, NgClass } from '@angular/common';
 import { AutofocusDirective } from '../../../../directives/autofocus.directive';
@@ -74,7 +74,7 @@ export class CommentsComponent implements OnDestroy {
 		private readonly fb: UntypedFormBuilder,
 		private readonly unescapePipe: UnescapePipe,
 		private readonly authService: AuthService,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 		private readonly cdr: ChangeDetectorRef,
 	) {
 		this.form = this.fb.group({

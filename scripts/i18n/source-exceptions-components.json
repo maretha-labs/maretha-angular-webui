@@ -1171,6 +1171,42 @@
       "ownership": "technical-token",
       "reason": "This exact template argument selects a field/property or formatting style; it is not rendered as text itself.",
       "maximum": 2
+    },
+    {
+      "id": "4c1c074356ed8097",
+      "file": "app/components/toasts/toast-container.component.ts",
+      "kind": "typescript-string",
+      "text": ":host { display: contents; }",
+      "ownership": "technical-token",
+      "reason": "Component stylesheet: the host adds no box of its own so the toasts keep the layout of their container. It is CSS, never shown as text.",
+      "maximum": 1
+    },
+    {
+      "id": "f044d2d8f0713c23",
+      "file": "app/components/toasts/toast-container.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ toast.title }}",
+      "ownership": "localized-fallback",
+      "reason": "Renders the title a caller passed to ToastService; callers localize it through the message catalog before the call, and the container shows it verbatim.",
+      "maximum": 1
+    },
+    {
+      "id": "69bbfdd236c66e83",
+      "file": "app/components/toasts/toast-container.component.ts",
+      "kind": "dynamic-template",
+      "text": "{{ toast.message }}",
+      "ownership": "localized-fallback",
+      "reason": "Renders the message a caller passed to ToastService; callers localize it through the message catalog before the call, and the container shows it verbatim.",
+      "maximum": 1
+    },
+    {
+      "id": "cefac04434906e8e",
+      "file": "app/components/toasts/toast-container.component.ts",
+      "kind": "typescript-string",
+      "text": "opacity ${TOAST_EASE_TIME}ms ease-in",
+      "ownership": "technical-token",
+      "reason": "CSS transition value bound to the toast element's style; never shown as text.",
+      "maximum": 1
     }
   ]
 }

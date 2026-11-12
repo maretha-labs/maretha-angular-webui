@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { SuggestionLimits } from '@maretha/webui-sdk';
 import { NgSelectComponent } from '@ng-select/ng-select';
@@ -7,6 +7,7 @@ import { SuggestionLimitsDirective } from './suggestion-limits.directive';
 
 @Component({
 	imports: [NgSelectComponent, SuggestionLimitsDirective],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<ng-select [items]="[]" [typeahead]="terms" [nxSuggestionLimits]="limits()" />`,
 })
 class HostComponent {

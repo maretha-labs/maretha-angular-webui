@@ -41,7 +41,7 @@ import {
 	SearchCollection,
 } from 'app/modules/search/helpers/document-search.service';
 import { animations } from 'app/shared.constants';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import {
 	EMPTY,
 	debounceTime,
@@ -202,7 +202,7 @@ export class SearchComponent implements OnDestroy {
 	constructor(
 		private readonly fb: UntypedFormBuilder,
 		private readonly documentSearchService: DocumentSearchService,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 		private readonly translateService: TranslateService,
 		private readonly documentsManagerService: DocumentsManagerService,
 		private readonly router: Router,

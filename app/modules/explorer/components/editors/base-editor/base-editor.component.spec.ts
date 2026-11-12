@@ -2,7 +2,7 @@ import { DocumentCreationError } from '../../../helpers/document-creation-error'
 import { DocumentAttachmentsService } from '../../../helpers/document-attachments.service';
 import { Subject, of, throwError } from 'rxjs';
 import { DocumentsManagerService } from '../../../helpers/documents-manager.service';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { legacyTestProviders, fixtureDocument } from 'app/testing/legacy-test-providers';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
@@ -90,7 +90,7 @@ describe('Legacy editor departure and save recovery', () => {
 		const create = spyOn(TestBed.inject(DocumentsManagerService), 'createDocument').and.returnValue(
 			request,
 		);
-		const toast = spyOn(TestBed.inject(ToastrService), 'error');
+		const toast = spyOn(TestBed.inject(ToastService), 'error');
 		const saved = spyOn(editor.save, 'emit');
 		editor.saveChanges();
 		expect(editor.working).toBeTrue();
@@ -422,7 +422,7 @@ describe('BaseEditor persistent announcements', () => {
 	});
 	it('retains server validation detail as text in the single inline alert', () => {
 		const h = setup();
-		const toast = spyOn(TestBed.inject(ToastrService), 'error');
+		const toast = spyOn(TestBed.inject(ToastService), 'error');
 		h.editor.saveChanges();
 		h.update.error({
 			error: {

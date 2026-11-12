@@ -1,6 +1,5 @@
-import { signal } from '@angular/core';
 import { WebUiLocale, WebUiMessages } from '@maretha/webui-sdk';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { legacyTestProviders } from 'app/testing/legacy-test-providers';
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { HttpTestingController } from '@angular/common/http/testing';
@@ -38,9 +37,15 @@ describe('AutomationsService', () => {
 		TestBed.inject(HttpTestingController).expectNone(() => true);
 	});
 	it('keeps progress notifications localized and removes them when the native bulk operation completes', fakeAsync(() => {
-		const component = { message: '', title: '', state: signal({ value: 'active' }) };
-		const toast = { toastId: 42, toastRef: { componentInstance: component } };
-		const toastr = TestBed.inject(ToastrService);
+		const component = { message: '', title: '' };
+		const toast = {
+			toastId: 42,
+			update(message: string, title?: string) {
+				component.message = message;
+				if (title !== undefined) component.title = title;
+			},
+		};
+		const toastr = TestBed.inject(ToastService);
 		spyOn(toastr, 'info').and.returnValue(toast as any);
 		const remove = spyOn(toastr, 'remove');
 		TestBed.inject(WebUiMessages).register('progress-test', {

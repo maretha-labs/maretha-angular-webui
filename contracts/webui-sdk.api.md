@@ -32,39 +32,36 @@ Review changes to this report before updating it. Generated from the built packa
 ## TypeScript declarations
 
 ```typescript
-import * as _angular_core from '@angular/core';
+import * as i0 from '@angular/core';
 import {
-  Type,
-  EnvironmentProviders,
-  PipeTransform,
-  OnChanges,
-  SimpleChanges,
-  InjectionToken,
-  Provider,
-  Signal,
-  WritableSignal,
-  OnDestroy,
-  TemplateRef,
   AfterViewInit,
   ElementRef,
+  EnvironmentProviders,
+  InjectionToken,
+  OnChanges,
+  OnDestroy,
+  PipeTransform,
+  Provider,
+  Signal,
+  SimpleChanges,
   StaticProvider,
+  TemplateRef,
+  Type,
+  WritableSignal,
 } from '@angular/core';
-import * as _maretha_webui_sdk from '@maretha/webui-sdk';
 import { CanActivateFn } from '@angular/router';
-import * as ag_stack from 'ag-stack';
-import * as ag_grid_community from 'ag-grid-community';
 import {
-  ICellRendererParams,
-  IHeaderParams,
-  SelectionChangedEvent,
-  SortChangedEvent,
+  BodyScrollEndEvent,
+  ColDef,
   ColumnMovedEvent,
   ColumnResizedEvent,
   GridReadyEvent,
+  ICellRendererParams,
+  IHeaderParams,
   Module,
-  ColDef,
   RowClickedEvent,
-  BodyScrollEndEvent,
+  SelectionChangedEvent,
+  SortChangedEvent,
 } from 'ag-grid-community';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
 import { OperatorFunction } from 'rxjs';
@@ -150,11 +147,11 @@ interface SlotResolution {
   readonly items: readonly ResolvedContribution[];
   readonly diagnostics: readonly ExtensionDiagnostic[];
 }
-declare function defineSlot<C>(
+export declare function defineSlot<C>(
   name: string,
   isContext: (value: unknown) => value is C,
 ): SlotDefinition<C>;
-declare function defineContribution<C>(
+export declare function defineContribution<C>(
   slot: SlotDefinition<C>,
   definition: ContributionDefinition<C>,
 ): ContributionRegistration;
@@ -163,11 +160,11 @@ interface RegistrySnapshot {
   readonly contributions: readonly ResolvedContribution[];
   readonly diagnostics: readonly ExtensionDiagnostic[];
 }
-declare class ExtensionRegistry {
+export declare class ExtensionRegistry {
   private layers;
   private layerOrder;
   private readonly state;
-  readonly snapshot: _angular_core.Signal<RegistrySnapshot>;
+  readonly snapshot: import('@angular/core').Signal<RegistrySnapshot>;
   visibilityRuleIds(): readonly string[];
   isVisibilityRuleRegistered(id: string): boolean;
   register(extension: WebUiExtension): () => void;
@@ -177,16 +174,16 @@ declare class ExtensionRegistry {
   private diagnostic;
   private validateId;
   private validateNumber;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<ExtensionRegistry, never>;
-  static ɵprov: _angular_core.ɵɵInjectableDeclaration<ExtensionRegistry>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<ExtensionRegistry, never>;
+  static ɵprov: i0.ɵɵInjectableDeclaration<any>;
 }
-declare function provideWebUiExtensions(
+export declare function provideWebUiExtensions(
   ...extensions: readonly WebUiExtension[]
 ): EnvironmentProviders;
 type WebUiMessageValues = Readonly<
   Record<string, boolean | Date | null | number | string | undefined>
 >;
-declare function formatWebUiMessage(
+export declare function formatWebUiMessage(
   message: string,
   values: WebUiMessageValues,
   locale: string,
@@ -214,8 +211,8 @@ interface UserMenuContext extends ApplicationContext {
   readonly changeLanguage: (key: string) => void;
   readonly signOut: () => void;
 }
-declare const USER_MENU_SLOT: _maretha_webui_sdk.SlotDefinition<UserMenuContext>;
-declare const POLYMER_SLOTS: Readonly<{
+export declare const USER_MENU_SLOT: import('@maretha/webui-sdk').SlotDefinition<UserMenuContext>;
+export declare const POLYMER_SLOTS: Readonly<{
   readonly DRAWER_ITEMS: 'DRAWER_ITEMS';
   readonly DRAWER_PAGES: 'DRAWER_PAGES';
   readonly PAGES: 'PAGES';
@@ -250,22 +247,26 @@ interface DocumentActionContext {
   readonly reportMessage?: (key: string, fallback: string, values?: WebUiMessageValues) => void;
   readonly standardHeaderActions?: boolean;
 }
-declare const DOCUMENT_ACTIONS_SLOT: _maretha_webui_sdk.SlotDefinition<DocumentActionContext>;
-declare class WebUiSlotComponent {
-  readonly name: _angular_core.InputSignal<string>;
-  readonly context: _angular_core.InputSignal<unknown>;
+export declare const DOCUMENT_ACTIONS_SLOT: import('@maretha/webui-sdk').SlotDefinition<DocumentActionContext>;
+export declare class WebUiSlotComponent {
+  readonly name: import('@angular/core').InputSignal<string>;
+  readonly context: import('@angular/core').InputSignal<unknown>;
   private readonly user;
-  readonly slotContext: _angular_core.Signal<unknown>;
-  readonly layout: _angular_core.InputSignal<'inline' | 'stack'>;
-  readonly includeIds: _angular_core.InputSignal<null | readonly string[]>;
-  readonly excludeIds: _angular_core.InputSignal<readonly string[]>;
+  readonly slotContext: import('@angular/core').Signal<unknown>;
+  readonly layout: import('@angular/core').InputSignal<'inline' | 'stack'>;
+  readonly includeIds: import('@angular/core').InputSignal<null | readonly string[]>;
+  readonly excludeIds: import('@angular/core').InputSignal<readonly string[]>;
   private readonly registry;
-  readonly resolution: _angular_core.Signal<_maretha_webui_sdk.SlotResolution>;
-  readonly visibleItems: _angular_core.Signal<_maretha_webui_sdk.ResolvedContribution[]>;
+  readonly resolution: import('@angular/core').Signal<import('@maretha/webui-sdk').SlotResolution>;
+  readonly visibleItems: import('@angular/core').Signal<
+    import('@maretha/webui-sdk').ResolvedContribution[]
+  >;
   private readonly outlets;
-  readonly diagnostics: _angular_core.Signal<_maretha_webui_sdk.ExtensionDiagnostic[]>;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<WebUiSlotComponent, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  readonly diagnostics: import('@angular/core').Signal<
+    import('@maretha/webui-sdk').ExtensionDiagnostic[]
+  >;
+  static ɵfac: i0.ɵɵFactoryDeclaration<WebUiSlotComponent, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     WebUiSlotComponent,
     'nx-webui-slot',
     never,
@@ -304,25 +305,25 @@ declare class WebUiSlotComponent {
   >;
 }
 type WebUiMessageCatalog = Readonly<Record<string, Readonly<Record<string, string>>>>;
-declare class WebUiMessages {
-  readonly locale: _angular_core.WritableSignal<string>;
+export declare class WebUiMessages {
+  readonly locale: import('@angular/core').WritableSignal<string>;
   private readonly layers;
   private readonly catalog;
   text(key: string | undefined, fallback: string, locale?: string): string;
   format(key: string, values?: WebUiMessageValues, fallback?: string, locale?: string): string;
   register(owner: string, catalog: WebUiMessageCatalog, priority?: number): () => void;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<WebUiMessages, never>;
-  static ɵprov: _angular_core.ɵɵInjectableDeclaration<WebUiMessages>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<WebUiMessages, never>;
+  static ɵprov: i0.ɵɵInjectableDeclaration<any>;
 }
-declare function provideWebUiMessages(
+export declare function provideWebUiMessages(
   owner: string,
   catalog: WebUiMessageCatalog,
-): _angular_core.EnvironmentProviders;
-declare class WebUiMessagePipe implements PipeTransform {
+): import('@angular/core').EnvironmentProviders;
+export declare class WebUiMessagePipe implements PipeTransform {
   private readonly messages;
   transform(key: string, fallback?: string, ...values: readonly unknown[]): string;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<WebUiMessagePipe, never>;
-  static ɵpipe: _angular_core.ɵɵPipeDeclaration<WebUiMessagePipe, 'webuiMessage', true>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<WebUiMessagePipe, never>;
+  static ɵpipe: i0.ɵɵPipeDeclaration<WebUiMessagePipe, 'webuiMessage', true>;
 }
 type DocumentViewContext = DocumentActionContext;
 interface DocumentViewItemContext extends DocumentViewContext {
@@ -337,16 +338,16 @@ interface DocumentViewChange {
   readonly viewId: null | string;
   readonly replaceUrl: boolean;
 }
-declare const DOCUMENT_VIEWS_ITEMS_SLOT: SlotDefinition<DocumentActionContext>;
-declare const DOCUMENT_VIEWS_PAGES_SLOT: SlotDefinition<DocumentActionContext>;
-declare class DocumentViewTabComponent {
-  readonly context: _angular_core.InputSignal<DocumentViewItemContext>;
-  readonly label: _angular_core.InputSignal<string>;
-  readonly labelKey: _angular_core.InputSignal<string | undefined>;
-  readonly icon: _angular_core.InputSignal<string | undefined>;
+export declare const DOCUMENT_VIEWS_ITEMS_SLOT: SlotDefinition<DocumentActionContext>;
+export declare const DOCUMENT_VIEWS_PAGES_SLOT: SlotDefinition<DocumentActionContext>;
+export declare class DocumentViewTabComponent {
+  readonly context: import('@angular/core').InputSignal<DocumentViewItemContext>;
+  readonly label: import('@angular/core').InputSignal<string>;
+  readonly labelKey: import('@angular/core').InputSignal<string | undefined>;
+  readonly icon: import('@angular/core').InputSignal<string | undefined>;
   readonly messages: WebUiMessages;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<DocumentViewTabComponent, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<DocumentViewTabComponent, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     DocumentViewTabComponent,
     'nx-document-view-tab',
     never,
@@ -385,10 +386,10 @@ type DocumentViewDefinition = ContributionDefinition<DocumentViewContext> & {
   readonly labelKey?: string;
   readonly icon?: string;
 };
-declare function defineDocumentView(
+export declare function defineDocumentView(
   definition: DocumentViewDefinition,
 ): readonly ContributionRegistration[];
-declare function definePairedView<C extends DocumentViewContext>(
+export declare function definePairedView<C extends DocumentViewContext>(
   slots: {
     items: SlotDefinition<C>;
     pages: SlotDefinition<C>;
@@ -401,7 +402,7 @@ interface ResolvedDocumentView {
   readonly item: ResolvedContribution;
   readonly page: ResolvedContribution;
 }
-declare function resolveDocumentViews<C extends DocumentViewContext>(
+export declare function resolveDocumentViews<C extends DocumentViewContext>(
   registry: ExtensionRegistry,
   context: C,
   slots?: {
@@ -413,14 +414,16 @@ declare function resolveDocumentViews<C extends DocumentViewContext>(
   diagnostics: readonly ExtensionDiagnostic[];
 };
 type DocumentViewVariant = ContributionDefinition<DocumentViewContext>;
-declare function defineDocumentViewVariants(
+export declare function defineDocumentViewVariants(
   definition: Pick<
     DocumentViewDefinition,
     'icon' | 'id' | 'label' | 'labelKey' | 'order' | 'viewId'
   >,
   variants: readonly DocumentViewVariant[],
 ): readonly ContributionRegistration[];
-declare function documentViewParameter(params: { get(name: string): null | string }): null | string;
+export declare function documentViewParameter(params: {
+  get(name: string): null | string;
+}): null | string;
 interface ViewDeparture {
   readonly reason: 'navigation' | 'tab';
   readonly nextViewId: null | string;
@@ -430,40 +433,44 @@ interface GuardedView {
   canDeactivate(departure: ViewDeparture): boolean | Promise<boolean>;
   hasPendingChanges?(): boolean;
 }
-declare class ViewNavigation {
+export declare class ViewNavigation {
   private readonly guards;
   private lastNavigation?;
   register(guard: (url: string) => Promise<boolean>): () => void;
   canNavigate(url: string, navigationId: number): Promise<boolean>;
   canLeave(url: string): Promise<boolean>;
   private check;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<ViewNavigation, never>;
-  static ɵprov: _angular_core.ɵɵInjectableDeclaration<ViewNavigation>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<ViewNavigation, never>;
+  static ɵprov: i0.ɵɵInjectableDeclaration<any>;
 }
-declare const documentViewsNavigationGuard: CanActivateFn;
-declare class DocumentViewsComponent implements OnChanges {
+export declare const documentViewsNavigationGuard: CanActivateFn;
+export declare class DocumentViewsComponent implements OnChanges {
   private readonly messages;
   private readonly locale;
   private labelProvided;
   ngOnChanges(changes: SimpleChanges): void;
   effectiveLabel(): string;
-  readonly context: _angular_core.InputSignal<_maretha_webui_sdk.DocumentActionContext>;
+  readonly context: import('@angular/core').InputSignal<
+    import('@maretha/webui-sdk').DocumentActionContext
+  >;
   private readonly user;
-  readonly slotContext: _angular_core.Signal<_maretha_webui_sdk.DocumentActionContext>;
-  readonly itemSlot: _angular_core.InputSignal<string>;
-  readonly pageSlot: _angular_core.InputSignal<string>;
-  readonly label: _angular_core.InputSignal<string>;
-  readonly orientation: _angular_core.InputSignal<'horizontal' | 'vertical'>;
-  readonly presentation: _angular_core.InputSignal<'administration' | 'default'>;
-  readonly navigationParameter: _angular_core.InputSignal<string>;
-  readonly navigationVisible: _angular_core.InputSignal<boolean>;
-  readonly selectedView: _angular_core.ModelSignal<null | string>;
-  readonly navigationPath: _angular_core.InputSignal<null | string>;
-  readonly viewChange: _angular_core.OutputEmitterRef<DocumentViewChange>;
-  readonly pending: _angular_core.WritableSignal<boolean>;
-  readonly departureMessage: _maretha_webui_sdk.LocalizedState<null>;
+  readonly slotContext: import('@angular/core').Signal<
+    import('@maretha/webui-sdk').DocumentActionContext
+  >;
+  readonly itemSlot: import('@angular/core').InputSignal<string>;
+  readonly pageSlot: import('@angular/core').InputSignal<string>;
+  readonly label: import('@angular/core').InputSignal<string>;
+  readonly orientation: import('@angular/core').InputSignal<'horizontal' | 'vertical'>;
+  readonly presentation: import('@angular/core').InputSignal<'administration' | 'default'>;
+  readonly navigationParameter: import('@angular/core').InputSignal<string>;
+  readonly navigationVisible: import('@angular/core').InputSignal<boolean>;
+  readonly selectedView: import('@angular/core').ModelSignal<null | string>;
+  readonly navigationPath: import('@angular/core').InputSignal<null | string>;
+  readonly viewChange: import('@angular/core').OutputEmitterRef<DocumentViewChange>;
+  readonly pending: import('@angular/core').WritableSignal<boolean>;
+  readonly departureMessage: import('@maretha/webui-sdk').LocalizedState<null>;
   private readonly guardViewId;
-  readonly visibleViewId: _angular_core.Signal<null | string>;
+  readonly visibleViewId: import('@angular/core').Signal<null | string>;
   private readonly injector;
   private readonly registry;
   private readonly element;
@@ -476,31 +483,31 @@ declare class DocumentViewsComponent implements OnChanges {
   private approved?;
   private readonly hostId;
   private readonly outlets;
-  readonly resolution: _angular_core.Signal<{
+  readonly resolution: import('@angular/core').Signal<{
     views: readonly ResolvedDocumentView[];
-    diagnostics: readonly _maretha_webui_sdk.ExtensionDiagnostic[];
+    diagnostics: readonly import('@maretha/webui-sdk').ExtensionDiagnostic[];
   }>;
-  readonly scope: _angular_core.Signal<string>;
-  readonly active: _angular_core.Signal<null | ResolvedDocumentView>;
-  readonly activeLabel: _angular_core.Signal<string>;
-  readonly pages: _angular_core.Signal<
+  readonly scope: import('@angular/core').Signal<string>;
+  readonly active: import('@angular/core').Signal<null | ResolvedDocumentView>;
+  readonly activeLabel: import('@angular/core').Signal<string>;
+  readonly pages: import('@angular/core').Signal<
     {
       renderKey: string;
       viewId: string;
-      item: _maretha_webui_sdk.ResolvedContribution;
-      page: _maretha_webui_sdk.ResolvedContribution;
+      item: import('@maretha/webui-sdk').ResolvedContribution;
+      page: import('@maretha/webui-sdk').ResolvedContribution;
     }[]
   >;
-  protected readonly panels: _angular_core.Signal<
+  protected readonly panels: import('@angular/core').Signal<
     {
       renderKey: string;
       mounted: boolean;
       viewId: string;
-      item: _maretha_webui_sdk.ResolvedContribution;
-      page: _maretha_webui_sdk.ResolvedContribution;
+      item: import('@maretha/webui-sdk').ResolvedContribution;
+      page: import('@maretha/webui-sdk').ResolvedContribution;
     }[]
   >;
-  readonly tabs: _angular_core.Signal<
+  readonly tabs: import('@angular/core').Signal<
     {
       context: {
         viewId: string;
@@ -511,22 +518,24 @@ declare class DocumentViewsComponent implements OnChanges {
         select: () => void;
         document: null | Readonly<Record<string, unknown>>;
         noEdit: boolean;
-        user?: _maretha_webui_sdk.ApplicationUser | null;
+        user?: import('@maretha/webui-sdk').ApplicationUser | null;
         collection?: null | Readonly<Record<string, unknown>>;
         refreshDocument?: () => void;
         reportMessage?: (
           key: string,
           fallback: string,
-          values?: _maretha_webui_sdk.WebUiMessageValues,
+          values?: import('@maretha/webui-sdk').WebUiMessageValues,
         ) => void;
         standardHeaderActions?: boolean;
       };
       viewId: string;
-      item: _maretha_webui_sdk.ResolvedContribution;
-      page: _maretha_webui_sdk.ResolvedContribution;
+      item: import('@maretha/webui-sdk').ResolvedContribution;
+      page: import('@maretha/webui-sdk').ResolvedContribution;
     }[]
   >;
-  readonly diagnostics: _angular_core.Signal<_maretha_webui_sdk.ExtensionDiagnostic[]>;
+  readonly diagnostics: import('@angular/core').Signal<
+    import('@maretha/webui-sdk').ExtensionDiagnostic[]
+  >;
   constructor();
   select(viewId: string): Promise<boolean>;
   private change;
@@ -539,8 +548,8 @@ declare class DocumentViewsComponent implements OnChanges {
   tabId(viewId: string): string;
   panelId(viewId: string): string;
   private focus;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<DocumentViewsComponent, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<DocumentViewsComponent, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     DocumentViewsComponent,
     'nx-document-views, nx-paired-views',
     never,
@@ -606,8 +615,8 @@ declare class DocumentViewsComponent implements OnChanges {
     never
   >;
 }
-type WorkflowLayoutMode = 'abandon' | 'delegate' | 'process' | 'reassign';
-interface WorkflowTask {
+export type WorkflowLayoutMode = 'abandon' | 'delegate' | 'process' | 'reassign';
+export interface WorkflowTask {
   readonly id: string;
   readonly name: string;
   readonly variables?: Readonly<Record<string, unknown>>;
@@ -619,12 +628,12 @@ interface WorkflowTask {
     };
   };
 }
-interface WorkflowTaskAction {
+export interface WorkflowTaskAction {
   readonly name: string;
   readonly label?: string;
   readonly validate?: boolean;
 }
-interface WorkflowLayoutContext {
+export interface WorkflowLayoutContext {
   readonly document: Readonly<Record<string, unknown>>;
   readonly task: WorkflowTask;
   readonly taskKey: string;
@@ -636,15 +645,15 @@ interface WorkflowLayoutContext {
   readonly errors: Readonly<Record<string, string>>;
   readonly commit: (variables: Readonly<Record<string, unknown>>) => void;
 }
-interface WorkflowLayout {
+export interface WorkflowLayout {
   readonly id: string;
   readonly taskKey: string;
   readonly component: Type<unknown>;
   readonly priority?: number;
 }
-declare const WORKFLOW_LAYOUTS: InjectionToken<readonly WorkflowLayout[]>;
-declare function provideWorkflowLayout(layout: WorkflowLayout): Provider;
-declare abstract class WebUiAppState {
+export declare const WORKFLOW_LAYOUTS: InjectionToken<readonly WorkflowLayout[]>;
+export declare function provideWorkflowLayout(layout: WorkflowLayout): Provider;
+export declare abstract class WebUiAppState {
   abstract readonly user: Signal<ApplicationUser | null>;
   abstract readonly locale: Signal<string>;
   abstract readonly route: Signal<string>;
@@ -654,10 +663,10 @@ declare abstract class WebUiAppState {
   abstract readonly currentTask: Signal<null | WorkflowTask>;
   abstract readonly userWorkspace: Signal<null | string>;
   abstract readonly nuxeoUrl: string;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<WebUiAppState, never>;
-  static ɵprov: _angular_core.ɵɵInjectableDeclaration<WebUiAppState>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<WebUiAppState, never>;
+  static ɵprov: i0.ɵɵInjectableDeclaration<any>;
 }
-declare const SUPPORTED_WEB_UI_LOCALES: readonly [
+export declare const SUPPORTED_WEB_UI_LOCALES: readonly [
   {
     readonly key: 'en-US';
     readonly label: 'English';
@@ -695,20 +704,20 @@ declare const SUPPORTED_WEB_UI_LOCALES: readonly [
   },
 ];
 type SupportedWebUiLocale = (typeof SUPPORTED_WEB_UI_LOCALES)[number]['key'];
-declare function normalizeWebUiLocale(value: unknown): SupportedWebUiLocale | undefined;
-declare class WebUiLocale {
+export declare function normalizeWebUiLocale(value: unknown): SupportedWebUiLocale | undefined;
+export declare class WebUiLocale {
   private readonly document;
   private initialized;
-  readonly locale: _angular_core.WritableSignal<string>;
-  readonly direction: _angular_core.Signal<'ltr' | 'rtl'>;
+  readonly locale: import('@angular/core').WritableSignal<string>;
+  readonly direction: import('@angular/core').Signal<'ltr' | 'rtl'>;
   constructor();
   initialize(): void;
   setLocale(value: string): void;
   private initialLocale;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<WebUiLocale, never>;
-  static ɵprov: _angular_core.ɵɵInjectableDeclaration<WebUiLocale>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<WebUiLocale, never>;
+  static ɵprov: i0.ɵɵInjectableDeclaration<any>;
 }
-declare class WebUiDatePipe implements PipeTransform {
+export declare class WebUiDatePipe implements PipeTransform {
   private readonly locale;
   private readonly formatter;
   transform(
@@ -717,10 +726,10 @@ declare class WebUiDatePipe implements PipeTransform {
     timezone?: string,
     locale?: string,
   ): null | string;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<WebUiDatePipe, never>;
-  static ɵpipe: _angular_core.ɵɵPipeDeclaration<WebUiDatePipe, 'webuiDate', true>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<WebUiDatePipe, never>;
+  static ɵpipe: i0.ɵɵPipeDeclaration<WebUiDatePipe, 'webuiDate', true>;
 }
-declare class WebUiNumberPipe implements PipeTransform {
+export declare class WebUiNumberPipe implements PipeTransform {
   private readonly locale;
   private readonly formatter;
   transform(
@@ -728,10 +737,10 @@ declare class WebUiNumberPipe implements PipeTransform {
     digitsInfo?: string,
     locale?: string,
   ): null | string;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<WebUiNumberPipe, never>;
-  static ɵpipe: _angular_core.ɵɵPipeDeclaration<WebUiNumberPipe, 'webuiNumber', true>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<WebUiNumberPipe, never>;
+  static ɵpipe: i0.ɵɵPipeDeclaration<WebUiNumberPipe, 'webuiNumber', true>;
 }
-declare class WebUiCurrencyPipe implements PipeTransform {
+export declare class WebUiCurrencyPipe implements PipeTransform {
   private readonly locale;
   private readonly formatter;
   transform(
@@ -741,10 +750,10 @@ declare class WebUiCurrencyPipe implements PipeTransform {
     digitsInfo?: string,
     locale?: string,
   ): null | string;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<WebUiCurrencyPipe, never>;
-  static ɵpipe: _angular_core.ɵɵPipeDeclaration<WebUiCurrencyPipe, 'webuiCurrency', true>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<WebUiCurrencyPipe, never>;
+  static ɵpipe: i0.ɵɵPipeDeclaration<WebUiCurrencyPipe, 'webuiCurrency', true>;
 }
-declare class WebUiPercentPipe implements PipeTransform {
+export declare class WebUiPercentPipe implements PipeTransform {
   private readonly locale;
   private readonly formatter;
   transform(
@@ -752,10 +761,10 @@ declare class WebUiPercentPipe implements PipeTransform {
     digitsInfo?: string,
     locale?: string,
   ): null | string;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<WebUiPercentPipe, never>;
-  static ɵpipe: _angular_core.ɵɵPipeDeclaration<WebUiPercentPipe, 'webuiPercent', true>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<WebUiPercentPipe, never>;
+  static ɵpipe: i0.ɵɵPipeDeclaration<WebUiPercentPipe, 'webuiPercent', true>;
 }
-declare class LocalizedUiError extends Error {
+export declare class LocalizedUiError extends Error {
   readonly key: string;
   readonly fallback: string;
   readonly values: WebUiMessageValues;
@@ -765,7 +774,7 @@ type LocalizedState<T extends null | string> = WritableSignal<string | T> & {
   setMessage(key: string, fallback: string, values?: WebUiMessageValues): void;
   setError(error: unknown, key: string, fallback: string): void;
 };
-declare function localizedState<T extends null | string>(initial: T): LocalizedState<T>;
+export declare function localizedState<T extends null | string>(initial: T): LocalizedState<T>;
 interface WebUiSvgNode {
   readonly tag: string;
   readonly attributes?: Readonly<Record<string, string>>;
@@ -776,26 +785,26 @@ interface WebUiIcon {
   readonly viewBox: string;
   readonly nodes: readonly WebUiSvgNode[];
 }
-declare class WebUiIcons {
+export declare class WebUiIcons {
   private readonly layers;
-  readonly catalog: _angular_core.Signal<Readonly<Record<string, WebUiIcon>>>;
+  readonly catalog: import('@angular/core').Signal<Readonly<Record<string, WebUiIcon>>>;
   register(owner: string, icons: Readonly<Record<string, WebUiIcon>>): () => void;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<WebUiIcons, never>;
-  static ɵprov: _angular_core.ɵɵInjectableDeclaration<WebUiIcons>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<WebUiIcons, never>;
+  static ɵprov: i0.ɵɵInjectableDeclaration<any>;
 }
-declare function provideWebUiIcons(
+export declare function provideWebUiIcons(
   owner: string,
   icons: Readonly<Record<string, WebUiIcon>>,
-): _angular_core.EnvironmentProviders;
-declare class WebUiIconComponent {
-  readonly name: _angular_core.InputSignal<string>;
-  readonly label: _angular_core.InputSignal<string>;
+): import('@angular/core').EnvironmentProviders;
+export declare class WebUiIconComponent {
+  readonly name: import('@angular/core').InputSignal<string>;
+  readonly label: import('@angular/core').InputSignal<string>;
   private readonly icons;
-  readonly icon: _angular_core.Signal<undefined | WebUiIcon>;
+  readonly icon: import('@angular/core').Signal<undefined | WebUiIcon>;
   private readonly svg;
   constructor();
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<WebUiIconComponent, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<WebUiIconComponent, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     WebUiIconComponent,
     'nx-webui-icon',
     never,
@@ -818,15 +827,17 @@ declare class WebUiIconComponent {
     never
   >;
 }
-declare const NUXEO_ICONS: Readonly<Record<string, WebUiIcon>>;
-declare const POLYMER_THEME_TOKENS: Readonly<Record<string, Readonly<Record<string, string>>>>;
-declare const POLYMER_MESSAGES: Readonly<Record<string, Readonly<Record<string, string>>>>;
+export declare const NUXEO_ICONS: Readonly<Record<string, WebUiIcon>>;
+export declare const POLYMER_THEME_TOKENS: Readonly<
+  Record<string, Readonly<Record<string, string>>>
+>;
+export declare const POLYMER_MESSAGES: Readonly<Record<string, Readonly<Record<string, string>>>>;
 interface WebUiThemeContext {
   readonly selected: string;
   readonly select: (id: string) => void;
   readonly user?: ApplicationUser | null;
 }
-declare const THEMES_SLOT: _maretha_webui_sdk.SlotDefinition<WebUiThemeContext>;
+export declare const THEMES_SLOT: import('@maretha/webui-sdk').SlotDefinition<WebUiThemeContext>;
 interface WebUiThemeDefinition {
   readonly id: string;
   readonly label: string;
@@ -834,10 +845,10 @@ interface WebUiThemeDefinition {
   readonly tokens: Readonly<Record<string, string>>;
   readonly order?: number;
 }
-declare function defineWebUiTheme(
+export declare function defineWebUiTheme(
   theme: WebUiThemeDefinition,
-): _maretha_webui_sdk.ContributionRegistration;
-declare class WebUiThemes {
+): import('@maretha/webui-sdk').ContributionRegistration;
+export declare class WebUiThemes {
   private readonly registry;
   private readonly user;
   private readonly document;
@@ -845,22 +856,22 @@ declare class WebUiThemes {
   private readonly requested;
   private readonly originals;
   private readonly applied;
-  readonly context: _angular_core.Signal<WebUiThemeContext>;
-  readonly choices: _angular_core.Signal<readonly ResolvedContribution[]>;
-  readonly selected: _angular_core.Signal<ResolvedContribution | undefined>;
+  readonly context: import('@angular/core').Signal<WebUiThemeContext>;
+  readonly choices: import('@angular/core').Signal<readonly ResolvedContribution[]>;
+  readonly selected: import('@angular/core').Signal<ResolvedContribution | undefined>;
   constructor();
   activate(): void;
   select(id: string): void;
   private restore;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<WebUiThemes, never>;
-  static ɵprov: _angular_core.ɵɵInjectableDeclaration<WebUiThemes>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<WebUiThemes, never>;
+  static ɵprov: i0.ɵɵInjectableDeclaration<any>;
 }
-declare function provideWebUiThemeApplication(): _angular_core.EnvironmentProviders;
-declare class WebUiThemePickerComponent {
+export declare function provideWebUiThemeApplication(): import('@angular/core').EnvironmentProviders;
+export declare class WebUiThemePickerComponent {
   readonly themes: WebUiThemes;
-  readonly context: _angular_core.Signal<WebUiThemeContext>;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<WebUiThemePickerComponent, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  readonly context: import('@angular/core').Signal<WebUiThemeContext>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<WebUiThemePickerComponent, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     WebUiThemePickerComponent,
     'nx-webui-theme-picker',
     never,
@@ -872,8 +883,8 @@ declare class WebUiThemePickerComponent {
     never
   >;
 }
-type LayoutMode = 'create' | 'edit' | 'import' | 'metadata' | 'view';
-type SchemaFieldType =
+export type LayoutMode = 'create' | 'edit' | 'import' | 'metadata' | 'view';
+export type SchemaFieldType =
   | 'blob'
   | 'boolean'
   | 'complex'
@@ -884,7 +895,7 @@ type SchemaFieldType =
   | 'long'
   | 'reference'
   | 'string';
-interface LayoutField {
+export interface LayoutField {
   readonly property: string;
   readonly label: string;
   readonly labelKey?: string;
@@ -896,7 +907,7 @@ interface LayoutField {
   readonly widget?: string;
   readonly directoryName?: string;
 }
-interface DocumentLayout {
+export interface DocumentLayout {
   readonly id: string;
   readonly documentType: string;
   readonly preserveSchemaConstraints?: boolean;
@@ -909,7 +920,7 @@ interface DocumentLayout {
     readonly columns?: 1 | 2 | 3;
   }[];
 }
-interface SchemaFieldMetadata {
+export interface SchemaFieldMetadata {
   readonly type?: string;
   readonly fields?: Readonly<Record<string, SchemaFieldMetadata | string>>;
   readonly constraints?: readonly unknown[];
@@ -921,17 +932,17 @@ interface SchemaFieldMetadata {
   readonly maxLength?: number;
   readonly directoryName?: string;
 }
-interface SchemaMetadata {
+export interface SchemaMetadata {
   readonly name: string;
   readonly prefix?: string;
   readonly '@prefix'?: string;
   readonly fields: Readonly<Record<string, SchemaFieldMetadata | string>>;
 }
-interface DocumentTypeMetadata {
+export interface DocumentTypeMetadata {
   readonly name: string;
   readonly schemas: readonly SchemaMetadata[];
 }
-interface LayoutDocument {
+export interface LayoutDocument {
   readonly uid: string;
   readonly type: string;
   readonly changeToken?: string;
@@ -940,7 +951,7 @@ interface LayoutDocument {
     readonly permissions?: readonly string[];
   };
 }
-interface BlobValue {
+export interface BlobValue {
   readonly 'upload-batch'?: string;
   readonly 'upload-fileId'?: string;
   readonly name?: string;
@@ -950,11 +961,11 @@ interface BlobValue {
   readonly data?: string;
   readonly downloadUrl?: string;
 }
-interface ReferenceValue {
+export interface ReferenceValue {
   readonly id: string;
   readonly label?: string;
 }
-interface DocumentLayoutGateway {
+export interface DocumentLayoutGateway {
   readType(type: string): Promise<DocumentTypeMetadata>;
   read(uid: string): Promise<LayoutDocument>;
   update(
@@ -972,14 +983,14 @@ interface DocumentLayoutGateway {
   resolveReference?(field: ResolvedLayoutField, value: string): Promise<null | ReferenceValue>;
   searchReferences?(field: ResolvedLayoutField, query: string): Promise<readonly ReferenceValue[]>;
 }
-declare const DOCUMENT_LAYOUT_GATEWAY: InjectionToken<DocumentLayoutGateway>;
-interface ResolvedLayoutField extends LayoutField {
+export declare const DOCUMENT_LAYOUT_GATEWAY: InjectionToken<DocumentLayoutGateway>;
+export interface ResolvedLayoutField extends LayoutField {
   readonly type: SchemaFieldType;
   readonly multiple: boolean;
   readonly itemType?: SchemaFieldType;
   readonly fields?: Readonly<Record<string, SchemaFieldMetadata | string>>;
 }
-interface WidgetProps {
+export interface WidgetProps {
   readonly field: ResolvedLayoutField;
   readonly value: unknown;
   readonly disabled: boolean;
@@ -995,18 +1006,18 @@ interface WidgetProps {
     query: string,
   ) => Promise<readonly ReferenceValue[]>;
 }
-interface DocumentLayoutWidget {
+export interface DocumentLayoutWidget {
   readonly id: string;
   readonly component: Type<unknown>;
 }
-declare const DOCUMENT_LAYOUT_WIDGETS: InjectionToken<readonly DocumentLayoutWidget[]>;
-declare function provideDocumentLayoutWidget(widget: DocumentLayoutWidget): Provider;
-declare function resolveLayoutFields(
+export declare const DOCUMENT_LAYOUT_WIDGETS: InjectionToken<readonly DocumentLayoutWidget[]>;
+export declare function provideDocumentLayoutWidget(widget: DocumentLayoutWidget): Provider;
+export declare function resolveLayoutFields(
   layout: DocumentLayout,
   metadata: DocumentTypeMetadata,
 ): readonly ResolvedLayoutField[];
-declare function cloneLayoutValue<T>(value: T): T;
-declare function layoutFieldError(
+export declare function cloneLayoutValue<T>(value: T): T;
+export declare function layoutFieldError(
   field: ResolvedLayoutField,
   value: unknown,
   format?: (
@@ -1015,16 +1026,16 @@ declare function layoutFieldError(
     fallback: string,
   ) => string,
 ): null | string;
-declare function layoutPropertyValue(field: ResolvedLayoutField, value: unknown): unknown;
-type DocumentLayoutMode = 'create' | 'edit' | 'import' | 'metadata' | 'view';
-interface DocumentLayoutContext {
+export declare function layoutPropertyValue(field: ResolvedLayoutField, value: unknown): unknown;
+export type DocumentLayoutMode = 'create' | 'edit' | 'import' | 'metadata' | 'view';
+export interface DocumentLayoutContext {
   readonly documentType: null | string;
   readonly mode: DocumentLayoutMode;
   readonly document: null | Readonly<Record<string, unknown>>;
   readonly parentDocument: null | Readonly<Record<string, unknown>>;
   readonly noEdit: boolean;
 }
-interface DocumentLayoutDefinition {
+export interface DocumentLayoutDefinition {
   readonly id: string;
   readonly documentType?: string;
   readonly mode: DocumentLayoutMode;
@@ -1034,54 +1045,54 @@ interface DocumentLayoutDefinition {
   readonly disabled?: boolean;
   readonly when?: (context: DocumentLayoutContext) => boolean;
 }
-interface DocumentLayoutOverride {
+export interface DocumentLayoutOverride {
   readonly id: string;
   readonly disabled?: boolean;
   readonly priority?: number;
 }
-interface DocumentLayoutExtension {
+export interface DocumentLayoutExtension {
   readonly id: string;
   readonly layouts?: readonly DocumentLayoutDefinition[];
   readonly overrides?: readonly DocumentLayoutOverride[];
 }
-interface ResolvedDocumentLayout extends DocumentLayoutDefinition {
+export interface ResolvedDocumentLayout extends DocumentLayoutDefinition {
   readonly extensionId: string;
   readonly priority: number;
   readonly disabled: boolean;
 }
-declare function documentLayoutContext(input: {
+export declare function documentLayoutContext(input: {
   documentType?: unknown;
   mode: DocumentLayoutMode;
   document?: unknown;
   parentDocument?: unknown;
   noEdit?: boolean;
 }): DocumentLayoutContext;
-declare class DocumentLayoutRegistry {
+export declare class DocumentLayoutRegistry {
   private readonly layers;
   private readonly revisionState;
-  readonly revision: _angular_core.Signal<number>;
+  readonly revision: import('@angular/core').Signal<number>;
   register(extension: DocumentLayoutExtension): () => void;
   resolve(context: DocumentLayoutContext): ResolvedDocumentLayout | undefined;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<DocumentLayoutRegistry, never>;
-  static ɵprov: _angular_core.ɵɵInjectableDeclaration<DocumentLayoutRegistry>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<DocumentLayoutRegistry, never>;
+  static ɵprov: i0.ɵɵInjectableDeclaration<any>;
 }
-declare function provideDocumentLayoutExtensions(
+export declare function provideDocumentLayoutExtensions(
   ...extensions: readonly DocumentLayoutExtension[]
 ): EnvironmentProviders;
-interface DocumentLayoutHost {
+export interface DocumentLayoutHost {
   complete(documents: readonly LayoutDocument[]): void;
   cancel(): void;
 }
-declare const DOCUMENT_LAYOUT_HOST: InjectionToken<DocumentLayoutHost>;
-interface DocumentImportDraft {
+export declare const DOCUMENT_LAYOUT_HOST: InjectionToken<DocumentLayoutHost>;
+export interface DocumentImportDraft {
   readonly file: File;
   readonly properties: Readonly<Record<string, unknown>>;
   update(properties: Readonly<Record<string, unknown>>): void;
   setValid(valid: boolean): void;
 }
-declare const DOCUMENT_IMPORT_DRAFT: InjectionToken<DocumentImportDraft>;
+export declare const DOCUMENT_IMPORT_DRAFT: InjectionToken<DocumentImportDraft>;
 type NuxeoFilterDocument = null | Readonly<Record<string, unknown>> | undefined;
-declare const NUXEO_FILTERS: Readonly<{
+export declare const NUXEO_FILTERS: Readonly<{
   isFavorite: (doc: NuxeoFilterDocument) => boolean;
   isSubscribed: (doc: NuxeoFilterDocument) => boolean;
   isCollectionMember: (doc: NuxeoFilterDocument) => boolean;
@@ -1132,11 +1143,11 @@ interface NuxeoFilterConditions {
     filters: NuxeoFilters,
   ) => boolean;
 }
-declare function nuxeoFilter(
+export declare function nuxeoFilter(
   conditions: NuxeoFilterConditions,
 ): (context: NuxeoFilterContext) => boolean;
-declare function gridLocale(messages: WebUiMessages): Record<string, string>;
-interface DirectoryLayoutContext {
+export declare function gridLocale(messages: WebUiMessages): Record<string, string>;
+export interface DirectoryLayoutContext {
   readonly directory: {
     readonly name: string;
     readonly schema: string;
@@ -1159,31 +1170,33 @@ interface DirectoryLayoutContext {
   }) => boolean;
   readonly cancel: () => boolean;
 }
-interface DirectoryLayoutComponent {
+export interface DirectoryLayoutComponent {
   context: DirectoryLayoutContext;
 }
-interface DirectoryLayoutRegistration {
+export interface DirectoryLayoutRegistration {
   readonly schema: string;
   readonly component: Type<DirectoryLayoutComponent>;
 }
-declare const DIRECTORY_LAYOUTS: InjectionToken<readonly DirectoryLayoutRegistration[]>;
-declare function provideDirectoryLayouts(...layouts: DirectoryLayoutRegistration[]): {
+export declare const DIRECTORY_LAYOUTS: InjectionToken<readonly DirectoryLayoutRegistration[]>;
+export declare function provideDirectoryLayouts(...layouts: DirectoryLayoutRegistration[]): {
   provide: InjectionToken<readonly DirectoryLayoutRegistration[]>;
   useValue: DirectoryLayoutRegistration[];
   multi: boolean;
 };
-declare class SchemaLayoutComponent implements GuardedView {
-  readonly layout: _angular_core.InputSignal<DocumentLayout>;
-  readonly documentId: _angular_core.InputSignal<string | undefined>;
-  readonly parentId: _angular_core.InputSignal<string | undefined>;
-  readonly name: _angular_core.InputSignal<string>;
-  readonly mode: _angular_core.InputSignal<LayoutMode>;
-  readonly noEdit: _angular_core.InputSignal<boolean>;
-  readonly draftOnly: _angular_core.InputSignal<boolean>;
-  readonly initialValues: _angular_core.InputSignal<Readonly<Record<string, unknown>>>;
-  readonly valueChanged: _angular_core.OutputEmitterRef<Readonly<Record<string, unknown>>>;
+export declare class SchemaLayoutComponent implements GuardedView {
+  readonly layout: import('@angular/core').InputSignal<DocumentLayout>;
+  readonly documentId: import('@angular/core').InputSignal<string | undefined>;
+  readonly parentId: import('@angular/core').InputSignal<string | undefined>;
+  readonly name: import('@angular/core').InputSignal<string>;
+  readonly mode: import('@angular/core').InputSignal<LayoutMode>;
+  readonly noEdit: import('@angular/core').InputSignal<boolean>;
+  readonly draftOnly: import('@angular/core').InputSignal<boolean>;
+  readonly initialValues: import('@angular/core').InputSignal<Readonly<Record<string, unknown>>>;
+  readonly valueChanged: import('@angular/core').OutputEmitterRef<
+    Readonly<Record<string, unknown>>
+  >;
   private disposed;
-  readonly saved: _angular_core.OutputEmitterRef<LayoutDocument>;
+  readonly saved: import('@angular/core').OutputEmitterRef<LayoutDocument>;
   private readonly messages;
   private readonly gateway;
   private readonly widgets;
@@ -1200,14 +1213,14 @@ declare class SchemaLayoutComponent implements GuardedView {
   readonly loading: WritableSignal<boolean>;
   readonly saving: WritableSignal<boolean>;
   readonly ready: WritableSignal<boolean>;
-  readonly error: _maretha_webui_sdk.LocalizedState<''>;
-  readonly status: _maretha_webui_sdk.LocalizedState<''>;
+  readonly error: import('@maretha/webui-sdk').LocalizedState<''>;
+  readonly status: import('@maretha/webui-sdk').LocalizedState<''>;
   readonly document: WritableSignal<LayoutDocument | null>;
   readonly fields: WritableSignal<readonly ResolvedLayoutField[]>;
   readonly values: WritableSignal<Readonly<Record<string, unknown>>>;
   private readonly vocabularyLabels;
   private readonly vocabularyRequests;
-  readonly sections: _angular_core.Signal<
+  readonly sections: import('@angular/core').Signal<
     | {
         fields: ResolvedLayoutField[];
         id: string;
@@ -1231,8 +1244,8 @@ declare class SchemaLayoutComponent implements GuardedView {
   readonly uploading: WritableSignal<Readonly<Record<string, readonly string[]>>>;
   readonly dirty: WritableSignal<boolean>;
   private readonly revision;
-  readonly invalid: _angular_core.Signal<boolean>;
-  readonly readOnly: _angular_core.Signal<boolean>;
+  readonly invalid: import('@angular/core').Signal<boolean>;
+  readonly readOnly: import('@angular/core').Signal<boolean>;
   constructor();
   private load;
   reload(): Promise<void>;
@@ -1269,8 +1282,8 @@ declare class SchemaLayoutComponent implements GuardedView {
   private isBatchProtected;
   private collectBatchIds;
   private releaseBlob;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<SchemaLayoutComponent, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<SchemaLayoutComponent, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     SchemaLayoutComponent,
     'nx-schema-layout',
     never,
@@ -1326,25 +1339,25 @@ declare class SchemaLayoutComponent implements GuardedView {
     never
   >;
 }
-declare class SchemaFieldComponent implements OnDestroy {
+export declare class SchemaFieldComponent implements OnDestroy {
   private readonly messages;
   private readonly element;
-  readonly props: _angular_core.InputSignal<WidgetProps>;
-  readonly options: _angular_core.WritableSignal<
+  readonly props: import('@angular/core').InputSignal<WidgetProps>;
+  readonly options: import('@angular/core').WritableSignal<
     readonly {
       id: string;
       label?: string;
     }[]
   >;
-  readonly lookupLoading: _angular_core.WritableSignal<boolean>;
-  readonly lookupError: _maretha_webui_sdk.LocalizedState<''>;
-  readonly lookupComplete: _angular_core.WritableSignal<boolean>;
-  readonly lookupHint: _angular_core.WritableSignal<string>;
+  readonly lookupLoading: import('@angular/core').WritableSignal<boolean>;
+  readonly lookupError: import('@maretha/webui-sdk').LocalizedState<''>;
+  readonly lookupComplete: import('@angular/core').WritableSignal<boolean>;
+  readonly lookupHint: import('@angular/core').WritableSignal<string>;
   private readonly suggestionSettings;
   private readonly suggestionScope;
-  readonly limits: _angular_core.Signal<_maretha_webui_sdk.SuggestionLimits>;
-  readonly query: _angular_core.WritableSignal<string>;
-  readonly directoryOpen: _angular_core.WritableSignal<boolean>;
+  readonly limits: import('@angular/core').Signal<import('@maretha/webui-sdk').SuggestionLimits>;
+  readonly query: import('@angular/core').WritableSignal<string>;
+  readonly directoryOpen: import('@angular/core').WritableSignal<boolean>;
   private readonly directoryLabels;
   private directoryLabelScope?;
   private lookupGeneration;
@@ -1397,8 +1410,8 @@ declare class SchemaFieldComponent implements OnDestroy {
   private sameList;
   private cancelLookup;
   private lookupToken;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<SchemaFieldComponent, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<SchemaFieldComponent, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     SchemaFieldComponent,
     'nx-schema-field',
     never,
@@ -1416,14 +1429,14 @@ declare class SchemaFieldComponent implements OnDestroy {
     never
   >;
 }
-interface ResultsProjectionRow {
+export interface ResultsProjectionRow {
   readonly uid: string;
   readonly title?: string;
   readonly type?: string;
   readonly properties?: Readonly<Record<string, unknown>>;
   readonly [key: string]: unknown;
 }
-interface ResultsProjectionColumn<R extends ResultsProjectionRow = ResultsProjectionRow> {
+export interface ResultsProjectionColumn<R extends ResultsProjectionRow = ResultsProjectionRow> {
   readonly id: string;
   readonly label: string;
   readonly labelKey?: string;
@@ -1436,11 +1449,11 @@ interface ResultsProjectionColumn<R extends ResultsProjectionRow = ResultsProjec
   readonly headerComponent?: Type<unknown>;
   readonly headerComponentParams?: Readonly<Record<string, unknown>>;
 }
-interface ResultsColumnLayout {
+export interface ResultsColumnLayout {
   readonly id: string;
   readonly width?: number;
 }
-interface ResultsProjectionContext<R extends ResultsProjectionRow = ResultsProjectionRow> {
+export interface ResultsProjectionContext<R extends ResultsProjectionRow = ResultsProjectionRow> {
   readonly searchId?: string;
   readonly row: R;
   readonly index: number;
@@ -1457,7 +1470,9 @@ interface ResultsProjectionContext<R extends ResultsProjectionRow = ResultsProje
   readonly activateRow: () => void;
   readonly invokeAction: (action: string, argument?: unknown) => void;
 }
-interface ResultsProjectionHostContext<R extends ResultsProjectionRow = ResultsProjectionRow> {
+export interface ResultsProjectionHostContext<
+  R extends ResultsProjectionRow = ResultsProjectionRow,
+> {
   readonly searchId?: string;
   readonly rows: readonly R[];
   readonly selection: ReadonlySet<string>;
@@ -1469,7 +1484,7 @@ interface ResultsProjectionHostContext<R extends ResultsProjectionRow = ResultsP
   readonly clearSelection: () => void;
   readonly invokeAction: (action: string, argument?: unknown) => void;
 }
-type ResultsProjectionTemplateName =
+export type ResultsProjectionTemplateName =
   | 'action'
   | 'actions'
   | 'cell'
@@ -1484,19 +1499,19 @@ type ResultsProjectionTemplateName =
   | 'selectiontoolbar'
   | 'settings'
   | `cell:${string}`;
-type ResultsProjectionRowTemplateName = Exclude<
+export type ResultsProjectionRowTemplateName = Exclude<
   ResultsProjectionTemplateName,
   'actions' | 'default' | 'empty' | 'form' | 'selectionActions' | 'selectiontoolbar'
 >;
-type ResultsProjectionHostTemplateName = Extract<
+export type ResultsProjectionHostTemplateName = Extract<
   ResultsProjectionTemplateName,
   'actions' | 'default' | 'empty' | 'form' | 'selectionActions' | 'selectiontoolbar'
 >;
-type ResultsProjectionComponentLoader = () => Promise<Type<unknown>>;
-type ResultsProjectionComponents = Readonly<
+export type ResultsProjectionComponentLoader = () => Promise<Type<unknown>>;
+export type ResultsProjectionComponents = Readonly<
   Partial<Record<'cell' | 'item' | `cell:${string}`, ResultsProjectionComponentLoader>>
 >;
-declare class ResultsProjectionTemplateDirective<
+export declare class ResultsProjectionTemplateDirective<
   R extends ResultsProjectionRow = ResultsProjectionRow,
 > {
   readonly template: TemplateRef<ResultsProjectionContext<R>>;
@@ -1506,8 +1521,8 @@ declare class ResultsProjectionTemplateDirective<
     _dir: ResultsProjectionTemplateDirective<R>,
     _context: unknown,
   ): _context is ResultsProjectionContext<R>;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<ResultsProjectionTemplateDirective<any>, never>;
-  static ɵdir: _angular_core.ɵɵDirectiveDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<ResultsProjectionTemplateDirective<any>, never>;
+  static ɵdir: i0.ɵɵDirectiveDeclaration<
     ResultsProjectionTemplateDirective<any>,
     'ng-template[nxResultsTemplate]',
     never,
@@ -1524,7 +1539,7 @@ declare class ResultsProjectionTemplateDirective<
     never
   >;
 }
-declare class ResultsProjectionHostTemplateDirective<
+export declare class ResultsProjectionHostTemplateDirective<
   R extends ResultsProjectionRow = ResultsProjectionRow,
 > {
   readonly template: TemplateRef<ResultsProjectionHostContext<R>>;
@@ -1534,11 +1549,8 @@ declare class ResultsProjectionHostTemplateDirective<
     _dir: ResultsProjectionHostTemplateDirective<R>,
     _context: unknown,
   ): _context is ResultsProjectionHostContext<R>;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<
-    ResultsProjectionHostTemplateDirective<any>,
-    never
-  >;
-  static ɵdir: _angular_core.ɵɵDirectiveDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<ResultsProjectionHostTemplateDirective<any>, never>;
+  static ɵdir: i0.ɵɵDirectiveDeclaration<
     ResultsProjectionHostTemplateDirective<any>,
     'ng-template[nxResultsHostTemplate]',
     never,
@@ -1573,10 +1585,10 @@ declare abstract class ProjectionCell<
   get column(): ResultsProjectionColumn<R>;
   context(
     column?: ResultsProjectionColumn<R> | undefined,
-  ): _maretha_webui_sdk.ResultsProjectionContext<R>;
+  ): import('@maretha/webui-sdk').ResultsProjectionContext<R>;
   component(name: string): null | Type<unknown>;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<ProjectionCell<any>, never>;
-  static ɵdir: _angular_core.ɵɵDirectiveDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<ProjectionCell<any>, never>;
+  static ɵdir: i0.ɵɵDirectiveDeclaration<
     ProjectionCell<any>,
     never,
     never,
@@ -1593,11 +1605,11 @@ declare abstract class ProjectionCell<
     never
   >;
 }
-declare class AgGridProjectionCellComponent<
+export declare class AgGridProjectionCellComponent<
   R extends ResultsProjectionRow = ResultsProjectionRow,
 > extends ProjectionCell<R> {
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<AgGridProjectionCellComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<AgGridProjectionCellComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     AgGridProjectionCellComponent<any>,
     'nx-ag-grid-projection-cell',
     never,
@@ -1609,11 +1621,11 @@ declare class AgGridProjectionCellComponent<
     never
   >;
 }
-declare class AgGridProjectionCheckboxComponent<
+export declare class AgGridProjectionCheckboxComponent<
   R extends ResultsProjectionRow = ResultsProjectionRow,
 > extends ProjectionCell<R> {
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<AgGridProjectionCheckboxComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<AgGridProjectionCheckboxComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     AgGridProjectionCheckboxComponent<any>,
     'nx-ag-grid-projection-checkbox',
     never,
@@ -1625,7 +1637,7 @@ declare class AgGridProjectionCheckboxComponent<
     never
   >;
 }
-declare class AgGridProjectionSelectAllComponent<
+export declare class AgGridProjectionSelectAllComponent<
   R extends ResultsProjectionRow = ResultsProjectionRow,
 > {
   private readonly changeDetector;
@@ -1644,8 +1656,8 @@ declare class AgGridProjectionSelectAllComponent<
   ): boolean;
   readonly isRowSelected: (row: R) => boolean;
   get host(): ResultsProjectionComponent<R>;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<AgGridProjectionSelectAllComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<AgGridProjectionSelectAllComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     AgGridProjectionSelectAllComponent<any>,
     'nx-ag-grid-projection-select-all',
     never,
@@ -1657,7 +1669,7 @@ declare class AgGridProjectionSelectAllComponent<
     never
   >;
 }
-declare class AgGridProjectionColumnSettingsComponent<
+export declare class AgGridProjectionColumnSettingsComponent<
   R extends ResultsProjectionRow = ResultsProjectionRow,
 > implements OnDestroy {
   private readonly changeDetector;
@@ -1679,11 +1691,8 @@ declare class AgGridProjectionColumnSettingsComponent<
   ): boolean;
   ngOnDestroy(): void;
   open(event: Event): void;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<
-    AgGridProjectionColumnSettingsComponent<any>,
-    never
-  >;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<AgGridProjectionColumnSettingsComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     AgGridProjectionColumnSettingsComponent<any>,
     'nx-ag-grid-projection-column-settings',
     never,
@@ -1695,11 +1704,11 @@ declare class AgGridProjectionColumnSettingsComponent<
     never
   >;
 }
-declare class AgGridProjectionActionsComponent<
+export declare class AgGridProjectionActionsComponent<
   R extends ResultsProjectionRow = ResultsProjectionRow,
 > extends ProjectionCell<R> {
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<AgGridProjectionActionsComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<AgGridProjectionActionsComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     AgGridProjectionActionsComponent<any>,
     'nx-ag-grid-projection-actions',
     never,
@@ -1711,7 +1720,7 @@ declare class AgGridProjectionActionsComponent<
     never
   >;
 }
-declare class AgGridProjectionFullWidthComponent<
+export declare class AgGridProjectionFullWidthComponent<
   R extends ResultsProjectionRow = ResultsProjectionRow,
 >
   extends ProjectionCell<R>
@@ -1723,8 +1732,8 @@ declare class AgGridProjectionFullWidthComponent<
   ngOnDestroy(): void;
   cellComponent(column: ResultsProjectionColumn<R>): null | Type<unknown>;
   cellGridColumns(): string;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<AgGridProjectionFullWidthComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<AgGridProjectionFullWidthComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     AgGridProjectionFullWidthComponent<any>,
     'nx-ag-grid-projection-full-width',
     never,
@@ -1737,35 +1746,39 @@ declare class AgGridProjectionFullWidthComponent<
   >;
 }
 type ResultsProjectionMode = 'grid' | 'list' | 'table';
-declare class ResultsProjectionComponent<R extends ResultsProjectionRow = ResultsProjectionRow> {
-  readonly rows: _angular_core.InputSignal<readonly R[]>;
-  readonly selection: _angular_core.InputSignal<readonly string[]>;
-  readonly mode: _angular_core.InputSignal<ResultsProjectionMode>;
-  readonly virtualized: _angular_core.InputSignal<boolean>;
-  readonly remoteSort: _angular_core.InputSignal<boolean>;
-  readonly sortChange: _angular_core.OutputEmitterRef<{
+export declare class ResultsProjectionComponent<
+  R extends ResultsProjectionRow = ResultsProjectionRow,
+> {
+  readonly rows: import('@angular/core').InputSignal<readonly R[]>;
+  readonly selection: import('@angular/core').InputSignal<readonly string[]>;
+  readonly mode: import('@angular/core').InputSignal<ResultsProjectionMode>;
+  readonly virtualized: import('@angular/core').InputSignal<boolean>;
+  readonly remoteSort: import('@angular/core').InputSignal<boolean>;
+  readonly sortChange: import('@angular/core').OutputEmitterRef<{
     columnId: string;
     direction: 'asc' | 'desc' | null;
   }>;
-  readonly columns: _angular_core.InputSignal<readonly ResultsProjectionColumn<R>[]>;
-  readonly rowActivation: _angular_core.InputSignal<boolean>;
-  readonly rowActivationDisabled: _angular_core.InputSignal<boolean>;
-  readonly rowActivated: _angular_core.OutputEmitterRef<R>;
-  readonly columnLayoutEnabled: _angular_core.InputSignal<boolean>;
-  readonly columnLayoutChange: _angular_core.OutputEmitterRef<readonly ResultsColumnLayout[]>;
-  readonly columnChooser: _angular_core.InputSignal<boolean>;
-  readonly columnChooserOpen: _angular_core.OutputEmitterRef<HTMLElement>;
-  readonly readOnly: _angular_core.InputSignal<boolean>;
-  readonly selectionEnabled: _angular_core.InputSignal<boolean>;
-  readonly loading: _angular_core.InputSignal<boolean>;
-  readonly pageScroll: _angular_core.InputSignal<boolean>;
-  readonly tableHeaderHeight: _angular_core.InputSignal<number>;
-  readonly tableRowHeight: _angular_core.InputSignal<number>;
-  readonly selectionColumnWidth: _angular_core.InputSignal<number>;
-  readonly scope: _angular_core.InputSignal<unknown>;
-  readonly hostId: _angular_core.InputSignal<string>;
-  readonly searchId: _angular_core.InputSignal<string | undefined>;
-  readonly components: _angular_core.InputSignal<
+  readonly columns: import('@angular/core').InputSignal<readonly ResultsProjectionColumn<R>[]>;
+  readonly rowActivation: import('@angular/core').InputSignal<boolean>;
+  readonly rowActivationDisabled: import('@angular/core').InputSignal<boolean>;
+  readonly rowActivated: import('@angular/core').OutputEmitterRef<R>;
+  readonly columnLayoutEnabled: import('@angular/core').InputSignal<boolean>;
+  readonly columnLayoutChange: import('@angular/core').OutputEmitterRef<
+    readonly ResultsColumnLayout[]
+  >;
+  readonly columnChooser: import('@angular/core').InputSignal<boolean>;
+  readonly columnChooserOpen: import('@angular/core').OutputEmitterRef<HTMLElement>;
+  readonly readOnly: import('@angular/core').InputSignal<boolean>;
+  readonly selectionEnabled: import('@angular/core').InputSignal<boolean>;
+  readonly loading: import('@angular/core').InputSignal<boolean>;
+  readonly pageScroll: import('@angular/core').InputSignal<boolean>;
+  readonly tableHeaderHeight: import('@angular/core').InputSignal<number>;
+  readonly tableRowHeight: import('@angular/core').InputSignal<number>;
+  readonly selectionColumnWidth: import('@angular/core').InputSignal<number>;
+  readonly scope: import('@angular/core').InputSignal<unknown>;
+  readonly hostId: import('@angular/core').InputSignal<string>;
+  readonly searchId: import('@angular/core').InputSignal<string | undefined>;
+  readonly components: import('@angular/core').InputSignal<
     Readonly<Partial<Record<'cell' | 'item' | `cell:${string}`, ResultsProjectionComponentLoader>>>
   >;
   private readonly loadedComponents;
@@ -1773,11 +1786,11 @@ declare class ResultsProjectionComponent<R extends ResultsProjectionRow = Result
   private readonly componentTasks;
   private readonly componentErrors;
   private readonly loadComponents;
-  readonly contextEpoch: _angular_core.InputSignal<number>;
-  readonly rowDisabled: _angular_core.InputSignal<(row: R) => boolean>;
-  readonly selectionChange: _angular_core.OutputEmitterRef<readonly string[]>;
-  readonly loadMore: _angular_core.OutputEmitterRef<void>;
-  readonly action: _angular_core.OutputEmitterRef<{
+  readonly contextEpoch: import('@angular/core').InputSignal<number>;
+  readonly rowDisabled: import('@angular/core').InputSignal<(row: R) => boolean>;
+  readonly selectionChange: import('@angular/core').OutputEmitterRef<readonly string[]>;
+  readonly loadMore: import('@angular/core').OutputEmitterRef<void>;
+  readonly action: import('@angular/core').OutputEmitterRef<{
     readonly action: string;
     readonly row?: R;
     readonly argument?: unknown;
@@ -1786,15 +1799,15 @@ declare class ResultsProjectionComponent<R extends ResultsProjectionRow = Result
   private readonly hostTemplates;
   readonly locale: WebUiLocale;
   private readonly messages;
-  readonly gridMessages: _angular_core.Signal<Record<string, string>>;
+  readonly gridMessages: import('@angular/core').Signal<Record<string, string>>;
   private readonly registry;
   private readonly paging;
-  readonly visibleColumns: _angular_core.Signal<ResultsProjectionColumn<R>[]>;
+  readonly visibleColumns: import('@angular/core').Signal<ResultsProjectionColumn<R>[]>;
   private readonly agApi;
-  readonly gridViews: _angular_core.Signal<
+  readonly gridViews: import('@angular/core').Signal<
     {
       language: string;
-      state: ag_grid_community.GridState | undefined;
+      state: import('ag-grid-community').GridState | undefined;
     }[]
   >;
   readonly agSelectionOptions: {
@@ -1804,14 +1817,14 @@ declare class ResultsProjectionComponent<R extends ResultsProjectionRow = Result
     enableClickSelection: false;
     isRowSelectable: (node: { data?: R }) => boolean;
   };
-  readonly agHeight: _angular_core.Signal<string>;
+  readonly agHeight: import('@angular/core').Signal<string>;
   agSelectionChanged(event: SelectionChangedEvent<R>): void;
   onSortChanged(event: SortChangedEvent<R>): void;
   onColumnLayoutChanged(event: ColumnMovedEvent<R> | ColumnResizedEvent<R>): void;
   onGridReady(event: GridReadyEvent<R>): void;
   private readonly syncGridSelection;
   readonly agGridModules: Module[];
-  readonly agTheme: ag_stack.Theme<ag_grid_community.ThemeDefaultParams>;
+  readonly agTheme: import('ag-stack').Theme<import('ag-grid-community').ThemeDefaultParams>;
   private bottomReached;
   private bottomKey;
   readonly agRowId: (params: { data: R }) => string;
@@ -1824,10 +1837,10 @@ declare class ResultsProjectionComponent<R extends ResultsProjectionRow = Result
   readonly agFullWidthRendererParams: {
     host: ResultsProjectionComponent<R>;
   };
-  readonly agRows: _angular_core.Signal<R[]>;
-  readonly agColumns: _angular_core.Signal<ColDef<R, any>[]>;
-  readonly selected: _angular_core.Signal<Set<string>>;
-  readonly allSelected: _angular_core.Signal<boolean>;
+  readonly agRows: import('@angular/core').Signal<R[]>;
+  readonly agColumns: import('@angular/core').Signal<ColDef<R, any>[]>;
+  readonly selected: import('@angular/core').Signal<Set<string>>;
+  readonly allSelected: import('@angular/core').Signal<boolean>;
   readonly trackByRow: (_index: number, row: R) => string;
   private hasActions;
   hasRowActions(row: R, index: number): boolean;
@@ -1869,8 +1882,8 @@ declare class ResultsProjectionComponent<R extends ResultsProjectionRow = Result
     column?: ResultsProjectionColumn<R>,
   ): ResultsProjectionContext<R>;
   hostContext(): ResultsProjectionHostContext<R>;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<ResultsProjectionComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<ResultsProjectionComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     ResultsProjectionComponent<any>,
     'nx-results-projection',
     never,
@@ -2006,18 +2019,18 @@ declare class ResultsProjectionComponent<R extends ResultsProjectionRow = Result
     never
   >;
 }
-interface ResultsQueryScope {
+export interface ResultsQueryScope {
   readonly repository: string;
   readonly providerName: string;
   readonly queryParams: readonly string[];
   readonly namedParameters: Readonly<Record<string, string>>;
 }
-interface ResultsColumn {
+export interface ResultsColumn {
   readonly field: string;
   readonly label: string;
   readonly labelKey?: string;
 }
-interface ResultsToolbarContext extends ResultsSelectionContext {
+export interface ResultsToolbarContext extends ResultsSelectionContext {
   readonly queryToken?: number;
   readonly routeToken?: number;
   readonly queryExclusions?: readonly string[];
@@ -2031,10 +2044,10 @@ interface ResultsToolbarContext extends ResultsSelectionContext {
   }[];
   readonly execute: (command: string, argument?: string) => Promise<void>;
 }
-declare const RESULTS_ACTIONS_SLOT: _maretha_webui_sdk.SlotDefinition<ResultsToolbarContext>;
-declare const RESULTS_SELECTION_ACTIONS_SLOT: _maretha_webui_sdk.SlotDefinition<ResultsToolbarContext>;
-declare const COLLECTION_ACTIONS_SLOT: _maretha_webui_sdk.SlotDefinition<ResultsToolbarContext>;
-interface DocumentCreateContext extends DocumentActionContext {
+export declare const RESULTS_ACTIONS_SLOT: import('@maretha/webui-sdk').SlotDefinition<ResultsToolbarContext>;
+export declare const RESULTS_SELECTION_ACTIONS_SLOT: import('@maretha/webui-sdk').SlotDefinition<ResultsToolbarContext>;
+export declare const COLLECTION_ACTIONS_SLOT: import('@maretha/webui-sdk').SlotDefinition<ResultsToolbarContext>;
+export interface DocumentCreateContext extends DocumentActionContext {
   readonly destinationPicker?: boolean;
   readonly busy?: boolean;
   readonly selectedFiles?: readonly File[];
@@ -2050,9 +2063,9 @@ interface DocumentCreateContext extends DocumentActionContext {
   readonly importSelection?: (files: readonly File[]) => void;
   readonly open: () => void;
 }
-declare const DOCUMENT_CREATE_ACTIONS_SLOT: _maretha_webui_sdk.SlotDefinition<DocumentCreateContext>;
-declare const CREATE_POPUP_ITEMS_SLOT: _maretha_webui_sdk.SlotDefinition<DocumentCreateContext>;
-declare const CREATE_POPUP_PAGES_SLOT: _maretha_webui_sdk.SlotDefinition<DocumentCreateContext>;
+export declare const DOCUMENT_CREATE_ACTIONS_SLOT: import('@maretha/webui-sdk').SlotDefinition<DocumentCreateContext>;
+export declare const CREATE_POPUP_ITEMS_SLOT: import('@maretha/webui-sdk').SlotDefinition<DocumentCreateContext>;
+export declare const CREATE_POPUP_PAGES_SLOT: import('@maretha/webui-sdk').SlotDefinition<DocumentCreateContext>;
 interface ResultsSelectionContext extends DocumentActionContext {
   readonly selectedDocuments: readonly Readonly<Record<string, unknown>>[];
   readonly items?: readonly Readonly<Record<string, unknown>>[];
@@ -2064,26 +2077,26 @@ interface ResultsSelectionContext extends DocumentActionContext {
   readonly refresh: (removedIds?: readonly string[]) => Promise<void>;
   readonly reportError: (message: string) => void;
 }
-declare const TRASH_RESULTS_SELECTION_ACTIONS_SLOT: _maretha_webui_sdk.SlotDefinition<ResultsSelectionContext>;
-interface DocumentInfoBarContext extends DocumentActionContext {
+export declare const TRASH_RESULTS_SELECTION_ACTIONS_SLOT: import('@maretha/webui-sdk').SlotDefinition<ResultsSelectionContext>;
+export interface DocumentInfoBarContext extends DocumentActionContext {
   readonly loading: boolean;
   readonly searchActive: boolean;
 }
-declare const DOCUMENT_INFO_BAR_SLOT: _maretha_webui_sdk.SlotDefinition<DocumentInfoBarContext>;
-interface PublishContext extends DocumentActionContext {
+export declare const DOCUMENT_INFO_BAR_SLOT: import('@maretha/webui-sdk').SlotDefinition<DocumentInfoBarContext>;
+export interface PublishContext extends DocumentActionContext {
   readonly selectedDocuments?: readonly Readonly<Record<string, unknown>>[];
 }
-declare const PUBLISH_ITEMS_SLOT: _maretha_webui_sdk.SlotDefinition<PublishContext>;
-declare const PUBLISH_PAGES_SLOT: _maretha_webui_sdk.SlotDefinition<PublishContext>;
-interface AdministrationContext extends DocumentActionContext {
+export declare const PUBLISH_ITEMS_SLOT: import('@maretha/webui-sdk').SlotDefinition<PublishContext>;
+export declare const PUBLISH_PAGES_SLOT: import('@maretha/webui-sdk').SlotDefinition<PublishContext>;
+export interface AdministrationContext extends DocumentActionContext {
   readonly user: ApplicationUser | null;
   readonly features: {
     readonly retention: boolean;
   };
 }
-declare const ADMINISTRATION_MENU_SLOT: _maretha_webui_sdk.SlotDefinition<AdministrationContext>;
-declare const ADMINISTRATION_PAGES_SLOT: _maretha_webui_sdk.SlotDefinition<AdministrationContext>;
-interface DrawerContext extends ApplicationContext, DocumentActionContext {
+export declare const ADMINISTRATION_MENU_SLOT: import('@maretha/webui-sdk').SlotDefinition<AdministrationContext>;
+export declare const ADMINISTRATION_PAGES_SLOT: import('@maretha/webui-sdk').SlotDefinition<AdministrationContext>;
+export interface DrawerContext extends ApplicationContext, DocumentActionContext {
   readonly user: ApplicationUser | null;
   readonly activeKey: null | string;
   readonly opened: boolean;
@@ -2098,19 +2111,19 @@ interface DrawerContext extends ApplicationContext, DocumentActionContext {
   readonly clearHistory: () => void;
   readonly clearClipboard: () => void;
 }
-declare const DRAWER_ITEMS_SLOT: _maretha_webui_sdk.SlotDefinition<DrawerContext>;
-declare const DRAWER_PAGES_SLOT: _maretha_webui_sdk.SlotDefinition<DrawerContext>;
-declare class DrawerItemComponent {
-  readonly context: _angular_core.InputSignal<DrawerContext>;
-  readonly pageId: _angular_core.InputSignal<string>;
-  readonly label: _angular_core.InputSignal<string>;
-  readonly labelKey: _angular_core.InputSignal<string | undefined>;
-  readonly icon: _angular_core.InputSignal<string>;
-  readonly route: _angular_core.InputSignal<string | undefined>;
+export declare const DRAWER_ITEMS_SLOT: import('@maretha/webui-sdk').SlotDefinition<DrawerContext>;
+export declare const DRAWER_PAGES_SLOT: import('@maretha/webui-sdk').SlotDefinition<DrawerContext>;
+export declare class DrawerItemComponent {
+  readonly context: import('@angular/core').InputSignal<DrawerContext>;
+  readonly pageId: import('@angular/core').InputSignal<string>;
+  readonly label: import('@angular/core').InputSignal<string>;
+  readonly labelKey: import('@angular/core').InputSignal<string | undefined>;
+  readonly icon: import('@angular/core').InputSignal<string>;
+  readonly route: import('@angular/core').InputSignal<string | undefined>;
   readonly messages: WebUiMessages;
   activate(): void;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<DrawerItemComponent, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<DrawerItemComponent, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     DrawerItemComponent,
     'nx-drawer-item',
     never,
@@ -2153,10 +2166,10 @@ declare class DrawerItemComponent {
     never
   >;
 }
-declare class ContributionOutletComponent {
-  readonly contribution: _angular_core.InputSignal<ResolvedContribution>;
-  readonly context: _angular_core.InputSignal<unknown>;
-  readonly diagnostic: _angular_core.WritableSignal<ExtensionDiagnostic | null>;
+export declare class ContributionOutletComponent {
+  readonly contribution: import('@angular/core').InputSignal<ResolvedContribution>;
+  readonly context: import('@angular/core').InputSignal<unknown>;
+  readonly diagnostic: import('@angular/core').WritableSignal<ExtensionDiagnostic | null>;
   private readonly outlet;
   private readonly tasks;
   private readonly rendered;
@@ -2166,8 +2179,8 @@ declare class ContributionOutletComponent {
   hasPendingChanges(): boolean;
   private destroy;
   private fail;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<ContributionOutletComponent, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<ContributionOutletComponent, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     ContributionOutletComponent,
     'nx-contribution-outlet',
     never,
@@ -2190,29 +2203,35 @@ declare class ContributionOutletComponent {
     never
   >;
 }
-declare const ANALYTICS_ITEMS_SLOT: _maretha_webui_sdk.SlotDefinition<_maretha_webui_sdk.AdministrationContext>;
-declare const ANALYTICS_PAGES_SLOT: _maretha_webui_sdk.SlotDefinition<_maretha_webui_sdk.AdministrationContext>;
-interface PageContext extends ApplicationContext, DocumentActionContext {
+export declare const ANALYTICS_ITEMS_SLOT: import('@maretha/webui-sdk').SlotDefinition<
+  import('@maretha/webui-sdk').AdministrationContext
+>;
+export declare const ANALYTICS_PAGES_SLOT: import('@maretha/webui-sdk').SlotDefinition<
+  import('@maretha/webui-sdk').AdministrationContext
+>;
+export interface PageContext extends ApplicationContext, DocumentActionContext {
   readonly user: ApplicationUser | null;
   readonly pageId: string;
   readonly params: Readonly<Record<string, string>>;
   readonly query: Readonly<Record<string, string>>;
 }
-declare const PAGES_SLOT: _maretha_webui_sdk.SlotDefinition<PageContext>;
-declare function definePage(
+export declare const PAGES_SLOT: import('@maretha/webui-sdk').SlotDefinition<PageContext>;
+export declare function definePage(
   definition: ContributionDefinition<PageContext> & {
     pageId: string;
   },
-): _maretha_webui_sdk.ContributionRegistration;
-declare class WebUiPageComponent {
-  readonly context: _angular_core.InputSignal<PageContext>;
+): import('@maretha/webui-sdk').ContributionRegistration;
+export declare class WebUiPageComponent {
+  readonly context: import('@angular/core').InputSignal<PageContext>;
   private readonly registry;
   private readonly outlet;
-  readonly resolution: _angular_core.Signal<_maretha_webui_sdk.SlotResolution>;
-  readonly page: _angular_core.Signal<_maretha_webui_sdk.ResolvedContribution | null>;
+  readonly resolution: import('@angular/core').Signal<import('@maretha/webui-sdk').SlotResolution>;
+  readonly page: import('@angular/core').Signal<
+    import('@maretha/webui-sdk').ResolvedContribution | null
+  >;
   constructor();
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<WebUiPageComponent, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<WebUiPageComponent, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     WebUiPageComponent,
     'nx-webui-page',
     never,
@@ -2230,7 +2249,7 @@ declare class WebUiPageComponent {
     never
   >;
 }
-interface BlobActionContext extends DocumentActionContext {
+export interface BlobActionContext extends DocumentActionContext {
   readonly blob: Readonly<Record<string, unknown>>;
   readonly xpath: string;
   readonly draft: boolean;
@@ -2239,8 +2258,8 @@ interface BlobActionContext extends DocumentActionContext {
   readonly replace?: (file: File) => void;
   readonly remove?: () => void;
 }
-declare const BLOB_ACTIONS_SLOT: _maretha_webui_sdk.SlotDefinition<BlobActionContext>;
-interface FileUploadContext {
+export declare const BLOB_ACTIONS_SLOT: import('@maretha/webui-sdk').SlotDefinition<BlobActionContext>;
+export interface FileUploadContext {
   readonly disabled: boolean;
   readonly multiple: boolean;
   readonly allowedMimeTypes: readonly string[];
@@ -2251,13 +2270,13 @@ interface FileUploadContext {
   readonly user?: ApplicationUser | null;
   readonly addFiles?: (files: readonly File[]) => void;
 }
-declare const FILE_UPLOAD_ACTIONS_SLOT: _maretha_webui_sdk.SlotDefinition<FileUploadContext>;
-declare class ChooseFilesActionComponent {
-  readonly context: _angular_core.InputSignal<FileUploadContext>;
+export declare const FILE_UPLOAD_ACTIONS_SLOT: import('@maretha/webui-sdk').SlotDefinition<FileUploadContext>;
+export declare class ChooseFilesActionComponent {
+  readonly context: import('@angular/core').InputSignal<FileUploadContext>;
   readonly messages: WebUiMessages;
   choose(): void;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<ChooseFilesActionComponent, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<ChooseFilesActionComponent, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     ChooseFilesActionComponent,
     'nx-choose-files-action',
     never,
@@ -2275,28 +2294,28 @@ declare class ChooseFilesActionComponent {
     never
   >;
 }
-interface ShellActionContext extends ApplicationContext {
+export interface ShellActionContext extends ApplicationContext {
   readonly navigate: (url: string) => Promise<boolean>;
 }
-interface QuickSearchContext extends ShellActionContext {
+export interface QuickSearchContext extends ShellActionContext {
   readonly searchTerm: string;
   readonly close: () => void;
 }
-declare const SHELL_ACTIONS_SLOT: _maretha_webui_sdk.SlotDefinition<ShellActionContext>;
-declare const QUICK_SEARCH_ACTIONS_SLOT: _maretha_webui_sdk.SlotDefinition<QuickSearchContext>;
-declare class QuickSearchCommandComponent {
-  readonly context: _angular_core.InputSignal<QuickSearchContext>;
-  readonly label: _angular_core.InputSignal<string>;
-  readonly icon: _angular_core.InputSignal<string>;
-  readonly run: _angular_core.InputSignal<
+export declare const SHELL_ACTIONS_SLOT: import('@maretha/webui-sdk').SlotDefinition<ShellActionContext>;
+export declare const QUICK_SEARCH_ACTIONS_SLOT: import('@maretha/webui-sdk').SlotDefinition<QuickSearchContext>;
+export declare class QuickSearchCommandComponent {
+  readonly context: import('@angular/core').InputSignal<QuickSearchContext>;
+  readonly label: import('@angular/core').InputSignal<string>;
+  readonly icon: import('@angular/core').InputSignal<string>;
+  readonly run: import('@angular/core').InputSignal<
     (context: QuickSearchContext) => boolean | Promise<boolean | void> | void
   >;
-  readonly busy: _angular_core.WritableSignal<boolean>;
-  readonly focused: _angular_core.WritableSignal<boolean>;
-  readonly error: _maretha_webui_sdk.LocalizedState<''>;
+  readonly busy: import('@angular/core').WritableSignal<boolean>;
+  readonly focused: import('@angular/core').WritableSignal<boolean>;
+  readonly error: import('@maretha/webui-sdk').LocalizedState<''>;
   execute(): Promise<void>;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<QuickSearchCommandComponent, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<QuickSearchCommandComponent, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     QuickSearchCommandComponent,
     'nx-quick-search-command',
     never,
@@ -2329,7 +2348,7 @@ declare class QuickSearchCommandComponent {
     never
   >;
 }
-type ComparisonValueKind =
+export type ComparisonValueKind =
   | 'blob'
   | 'date'
   | 'default'
@@ -2339,7 +2358,7 @@ type ComparisonValueKind =
   | 'document[]'
   | 'user'
   | 'user[]';
-interface ComparisonValueContext {
+export interface ComparisonValueContext {
   readonly property: string;
   readonly label: string;
   readonly kind: ComparisonValueKind;
@@ -2349,28 +2368,28 @@ interface ComparisonValueContext {
   readonly missing: boolean;
   readonly document: Readonly<Record<string, unknown>>;
 }
-interface ComparisonLayout {
+export interface ComparisonLayout {
   readonly id: string;
   readonly component: Type<unknown>;
   readonly property?: string;
   readonly type?: ComparisonValueKind;
 }
-declare const COMPARISON_LAYOUTS: InjectionToken<readonly ComparisonLayout[]>;
-declare function provideComparisonLayout(layout: ComparisonLayout): Provider;
-declare function resolveComparisonLayout(
+export declare const COMPARISON_LAYOUTS: InjectionToken<readonly ComparisonLayout[]>;
+export declare function provideComparisonLayout(layout: ComparisonLayout): Provider;
+export declare function resolveComparisonLayout(
   layouts: readonly ComparisonLayout[],
   property: string,
   kind: ComparisonValueKind,
 ): ComparisonLayout | undefined;
-interface ProjectionContext<T = unknown, H = unknown> {
+export interface ProjectionContext<T = unknown, H = unknown> {
   readonly $implicit: T;
   readonly host: H;
 }
-interface ActionsMenuContext<T> extends ProjectionContext<T, NuxeoActionsMenuComponent<T>> {
+export interface ActionsMenuContext<T> extends ProjectionContext<T, NuxeoActionsMenuComponent<T>> {
   readonly close: () => void;
   readonly isCurrentScope: () => boolean;
 }
-interface TreeNodeContext<T> extends ProjectionContext<T, NuxeoTreeNodeComponent<T>> {
+export interface TreeNodeContext<T> extends ProjectionContext<T, NuxeoTreeNodeComponent<T>> {
   readonly item: T;
   readonly depth: number;
   readonly opened: boolean;
@@ -2378,21 +2397,21 @@ interface TreeNodeContext<T> extends ProjectionContext<T, NuxeoTreeNodeComponent
   readonly toggle: () => void;
   readonly select: () => void;
 }
-type BulkUpdateMode = 'addValues' | 'keep' | 'remove' | 'replace';
-declare class NuxeoPageComponent<T = unknown> {
-  readonly value: _angular_core.InputSignal<T>;
-  readonly header: _angular_core.Signal<
+export type BulkUpdateMode = 'addValues' | 'keep' | 'remove' | 'replace';
+export declare class NuxeoPageComponent<T = unknown> {
+  readonly value: import('@angular/core').InputSignal<T>;
+  readonly header: import('@angular/core').Signal<
     TemplateRef<ProjectionContext<T, NuxeoPageComponent<T>>> | undefined
   >;
-  readonly tabs: _angular_core.Signal<
+  readonly tabs: import('@angular/core').Signal<
     TemplateRef<ProjectionContext<T, NuxeoPageComponent<T>>> | undefined
   >;
-  readonly body: _angular_core.Signal<
+  readonly body: import('@angular/core').Signal<
     TemplateRef<ProjectionContext<T, NuxeoPageComponent<T>>> | undefined
   >;
   context: () => ProjectionContext<T, NuxeoPageComponent<T>>;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<NuxeoPageComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<NuxeoPageComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     NuxeoPageComponent<any>,
     'nx-page',
     never,
@@ -2410,18 +2429,18 @@ declare class NuxeoPageComponent<T = unknown> {
     never
   >;
 }
-declare class NuxeoCardComponent<T = unknown> {
-  readonly heading: _angular_core.InputSignal<string>;
-  readonly collapsible: _angular_core.InputSignalWithTransform<boolean, unknown>;
-  readonly opened: _angular_core.ModelSignal<boolean>;
-  readonly content: _angular_core.Signal<
+export declare class NuxeoCardComponent<T = unknown> {
+  readonly heading: import('@angular/core').InputSignal<string>;
+  readonly collapsible: import('@angular/core').InputSignalWithTransform<boolean, unknown>;
+  readonly opened: import('@angular/core').ModelSignal<boolean>;
+  readonly content: import('@angular/core').Signal<
     TemplateRef<ProjectionContext<T, NuxeoCardComponent<T>>> | undefined
   >;
-  readonly value: _angular_core.InputSignal<T>;
+  readonly value: import('@angular/core').InputSignal<T>;
   context: () => ProjectionContext<T, NuxeoCardComponent<T>>;
   toggle(): void;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<NuxeoCardComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<NuxeoCardComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     NuxeoCardComponent<any>,
     'nx-card',
     never,
@@ -2456,23 +2475,23 @@ declare class NuxeoCardComponent<T = unknown> {
     never
   >;
 }
-declare class NuxeoDialogComponent<T = unknown> implements OnChanges {
+export declare class NuxeoDialogComponent<T = unknown> implements OnChanges {
   private readonly messages;
   private labelProvided;
   ngOnChanges(changes: SimpleChanges): void;
   effectiveLabel(): string;
-  readonly label: _angular_core.InputSignal<string>;
-  readonly value: _angular_core.InputSignal<T>;
-  readonly content: _angular_core.Signal<
+  readonly label: import('@angular/core').InputSignal<string>;
+  readonly value: import('@angular/core').InputSignal<T>;
+  readonly content: import('@angular/core').Signal<
     TemplateRef<ProjectionContext<T, NuxeoDialogComponent<T>>> | undefined
   >;
-  readonly dialog: _angular_core.Signal<ElementRef<HTMLDialogElement>>;
-  readonly closed: _angular_core.OutputEmitterRef<void>;
+  readonly dialog: import('@angular/core').Signal<ElementRef<HTMLDialogElement>>;
+  readonly closed: import('@angular/core').OutputEmitterRef<void>;
   context: () => ProjectionContext<T, NuxeoDialogComponent<T>>;
   open(): void;
   close(): void;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<NuxeoDialogComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<NuxeoDialogComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     NuxeoDialogComponent<any>,
     'nx-dialog',
     never,
@@ -2497,25 +2516,25 @@ declare class NuxeoDialogComponent<T = unknown> implements OnChanges {
     never
   >;
 }
-declare class NuxeoConfirmButtonComponent<T = unknown> implements OnChanges {
+export declare class NuxeoConfirmButtonComponent<T = unknown> implements OnChanges {
   private readonly messages;
   private readonly providedLabels;
   effectiveTitle(): string;
   effectiveConfirm(): string;
   effectiveDismiss(): string;
-  readonly value: _angular_core.InputSignal<T>;
-  readonly scope: _angular_core.InputSignal<unknown>;
-  readonly dialogTitle: _angular_core.InputSignal<string>;
-  readonly dialogConfirm: _angular_core.InputSignal<string>;
-  readonly dialogDismiss: _angular_core.InputSignal<string>;
-  readonly disabled: _angular_core.InputSignalWithTransform<boolean, unknown>;
-  readonly busy: _angular_core.InputSignalWithTransform<boolean, unknown>;
-  readonly trigger: _angular_core.Signal<
+  readonly value: import('@angular/core').InputSignal<T>;
+  readonly scope: import('@angular/core').InputSignal<unknown>;
+  readonly dialogTitle: import('@angular/core').InputSignal<string>;
+  readonly dialogConfirm: import('@angular/core').InputSignal<string>;
+  readonly dialogDismiss: import('@angular/core').InputSignal<string>;
+  readonly disabled: import('@angular/core').InputSignalWithTransform<boolean, unknown>;
+  readonly busy: import('@angular/core').InputSignalWithTransform<boolean, unknown>;
+  readonly trigger: import('@angular/core').Signal<
     TemplateRef<ProjectionContext<T, NuxeoConfirmButtonComponent<T>>> | undefined
   >;
-  readonly dialog: _angular_core.Signal<NuxeoDialogComponent<T>>;
-  readonly confirm: _angular_core.OutputEmitterRef<T>;
-  readonly dismiss: _angular_core.OutputEmitterRef<T>;
+  readonly dialog: import('@angular/core').Signal<NuxeoDialogComponent<T>>;
+  readonly confirm: import('@angular/core').OutputEmitterRef<T>;
+  readonly dismiss: import('@angular/core').OutputEmitterRef<T>;
   private scopeVersion;
   private target;
   private confirming;
@@ -2524,8 +2543,8 @@ declare class NuxeoConfirmButtonComponent<T = unknown> implements OnChanges {
   openDialog(): void;
   confirmDialog(): void;
   onClosed(): void;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<NuxeoConfirmButtonComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<NuxeoConfirmButtonComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     NuxeoConfirmButtonComponent<any>,
     'nx-confirm-button',
     never,
@@ -2576,24 +2595,24 @@ declare class NuxeoConfirmButtonComponent<T = unknown> implements OnChanges {
     never
   >;
 }
-declare class NuxeoPopupConfirmComponent<T = unknown> implements OnChanges {
+export declare class NuxeoPopupConfirmComponent<T = unknown> implements OnChanges {
   private readonly messages;
   private messageProvided;
   ngOnChanges(changes: SimpleChanges): void;
   effectiveMessage(): string;
-  readonly value: _angular_core.InputSignal<T>;
-  readonly scope: _angular_core.InputSignal<unknown>;
-  readonly message: _angular_core.InputSignal<string>;
-  readonly disabled: _angular_core.InputSignalWithTransform<boolean, unknown>;
-  readonly busy: _angular_core.InputSignalWithTransform<boolean, unknown>;
-  readonly projectedTrigger: _angular_core.Signal<
+  readonly value: import('@angular/core').InputSignal<T>;
+  readonly scope: import('@angular/core').InputSignal<unknown>;
+  readonly message: import('@angular/core').InputSignal<string>;
+  readonly disabled: import('@angular/core').InputSignalWithTransform<boolean, unknown>;
+  readonly busy: import('@angular/core').InputSignalWithTransform<boolean, unknown>;
+  readonly projectedTrigger: import('@angular/core').Signal<
     TemplateRef<ProjectionContext<T, NuxeoPopupConfirmComponent<T>>> | undefined
   >;
-  readonly confirmed: _angular_core.OutputEmitterRef<T>;
-  readonly dismissed: _angular_core.OutputEmitterRef<T>;
+  readonly confirmed: import('@angular/core').OutputEmitterRef<T>;
+  readonly dismissed: import('@angular/core').OutputEmitterRef<T>;
   context: () => ProjectionContext<T, NuxeoPopupConfirmComponent<T>>;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<NuxeoPopupConfirmComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<NuxeoPopupConfirmComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     NuxeoPopupConfirmComponent<any>,
     'nx-popup-confirm',
     never,
@@ -2634,20 +2653,20 @@ declare class NuxeoPopupConfirmComponent<T = unknown> implements OnChanges {
     never
   >;
 }
-declare class NuxeoSelectComponent<T extends string = string> {
-  readonly label: _angular_core.InputSignal<string>;
-  readonly value: _angular_core.ModelSignal<T>;
-  readonly disabled: _angular_core.InputSignalWithTransform<boolean, unknown>;
-  readonly required: _angular_core.InputSignalWithTransform<boolean, unknown>;
-  readonly options: _angular_core.Signal<
+export declare class NuxeoSelectComponent<T extends string = string> {
+  readonly label: import('@angular/core').InputSignal<string>;
+  readonly value: import('@angular/core').ModelSignal<T>;
+  readonly disabled: import('@angular/core').InputSignalWithTransform<boolean, unknown>;
+  readonly required: import('@angular/core').InputSignalWithTransform<boolean, unknown>;
+  readonly options: import('@angular/core').Signal<
     TemplateRef<ProjectionContext<T, NuxeoSelectComponent<T>>> | undefined
   >;
-  readonly changed: _angular_core.OutputEmitterRef<T>;
+  readonly changed: import('@angular/core').OutputEmitterRef<T>;
   context: () => ProjectionContext<T, NuxeoSelectComponent<T>>;
   change(value: T): boolean;
   validate(): boolean;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<NuxeoSelectComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<NuxeoSelectComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     NuxeoSelectComponent<any>,
     'nx-select',
     never,
@@ -2683,14 +2702,14 @@ declare class NuxeoSelectComponent<T extends string = string> {
     never
   >;
 }
-declare class NuxeoTagComponent<T = unknown> {
-  readonly value: _angular_core.InputSignal<T>;
-  readonly content: _angular_core.Signal<
+export declare class NuxeoTagComponent<T = unknown> {
+  readonly value: import('@angular/core').InputSignal<T>;
+  readonly content: import('@angular/core').Signal<
     TemplateRef<ProjectionContext<T, NuxeoTagComponent<T>>> | undefined
   >;
   context: () => ProjectionContext<T, NuxeoTagComponent<T>>;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<NuxeoTagComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<NuxeoTagComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     NuxeoTagComponent<any>,
     'nx-tag',
     never,
@@ -2708,21 +2727,21 @@ declare class NuxeoTagComponent<T = unknown> {
     never
   >;
 }
-declare class NuxeoTooltipComponent<T = unknown> {
+export declare class NuxeoTooltipComponent<T = unknown> {
   private describedTarget?;
   private descriptionAdded;
   private hovered;
   constructor();
   private removeDescription;
-  readonly value: _angular_core.InputSignal<T>;
-  readonly trigger: _angular_core.Signal<
+  readonly value: import('@angular/core').InputSignal<T>;
+  readonly trigger: import('@angular/core').Signal<
     TemplateRef<ProjectionContext<T, NuxeoTooltipComponent<T>>> | undefined
   >;
-  readonly content: _angular_core.Signal<
+  readonly content: import('@angular/core').Signal<
     TemplateRef<ProjectionContext<T, NuxeoTooltipComponent<T>>> | undefined
   >;
-  readonly anchor: _angular_core.Signal<ElementRef<HTMLElement>>;
-  readonly visible: _angular_core.ModelSignal<boolean>;
+  readonly anchor: import('@angular/core').Signal<ElementRef<HTMLElement>>;
+  readonly visible: import('@angular/core').ModelSignal<boolean>;
   readonly id: string;
   context: () => ProjectionContext<T, NuxeoTooltipComponent<T>>;
   show(): void;
@@ -2732,8 +2751,8 @@ declare class NuxeoTooltipComponent<T = unknown> {
   onFocusIn(event: FocusEvent): void;
   onFocusOut(event: FocusEvent): void;
   onKeydown(event: KeyboardEvent): void;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<NuxeoTooltipComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<NuxeoTooltipComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     NuxeoTooltipComponent<any>,
     'nx-tooltip',
     never,
@@ -2758,18 +2777,18 @@ declare class NuxeoTooltipComponent<T = unknown> {
     never
   >;
 }
-declare class NuxeoActionsMenuComponent<T = unknown> implements OnChanges {
+export declare class NuxeoActionsMenuComponent<T = unknown> implements OnChanges {
   private readonly messages;
-  protected readonly accessibleLabel: _angular_core.Signal<string>;
-  readonly label: _angular_core.InputSignal<string>;
-  readonly value: _angular_core.InputSignal<T>;
-  readonly scope: _angular_core.InputSignal<unknown>;
-  readonly disabled: _angular_core.InputSignalWithTransform<boolean, unknown>;
-  readonly open: _angular_core.ModelSignal<boolean>;
-  readonly content: _angular_core.Signal<TemplateRef<ActionsMenuContext<T>> | undefined>;
-  readonly dropdown: _angular_core.Signal<TemplateRef<ActionsMenuContext<T>> | undefined>;
-  readonly trigger: _angular_core.Signal<ElementRef<HTMLButtonElement> | undefined>;
-  readonly menu: _angular_core.Signal<ElementRef<HTMLElement> | undefined>;
+  protected readonly accessibleLabel: import('@angular/core').Signal<string>;
+  readonly label: import('@angular/core').InputSignal<string>;
+  readonly value: import('@angular/core').InputSignal<T>;
+  readonly scope: import('@angular/core').InputSignal<unknown>;
+  readonly disabled: import('@angular/core').InputSignalWithTransform<boolean, unknown>;
+  readonly open: import('@angular/core').ModelSignal<boolean>;
+  readonly content: import('@angular/core').Signal<TemplateRef<ActionsMenuContext<T>> | undefined>;
+  readonly dropdown: import('@angular/core').Signal<TemplateRef<ActionsMenuContext<T>> | undefined>;
+  readonly trigger: import('@angular/core').Signal<ElementRef<HTMLButtonElement> | undefined>;
+  readonly menu: import('@angular/core').Signal<ElementRef<HTMLElement> | undefined>;
   private readonly element;
   private readonly destroyRef;
   private readonly injector;
@@ -2788,8 +2807,8 @@ declare class NuxeoActionsMenuComponent<T = unknown> implements OnChanges {
   private prepareMenuItems;
   private menuItems;
   private focusMenuItem;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<NuxeoActionsMenuComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<NuxeoActionsMenuComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     NuxeoActionsMenuComponent<any>,
     'nx-actions-menu',
     never,
@@ -2829,17 +2848,17 @@ declare class NuxeoActionsMenuComponent<T = unknown> implements OnChanges {
     never
   >;
 }
-declare class NuxeoTreeNodeComponent<T = unknown> {
+export declare class NuxeoTreeNodeComponent<T = unknown> {
   private readonly locale;
   protected readonly labelId: string;
-  readonly item: _angular_core.InputSignal<T>;
-  readonly scope: _angular_core.InputSignal<unknown>;
-  readonly depth: _angular_core.InputSignal<number>;
-  readonly isLeaf: _angular_core.InputSignalWithTransform<boolean, unknown>;
-  readonly opened: _angular_core.ModelSignal<boolean>;
-  readonly selectedItem: _angular_core.ModelSignal<null | T>;
-  readonly content: _angular_core.Signal<TemplateRef<TreeNodeContext<T>> | undefined>;
-  readonly selected: _angular_core.OutputEmitterRef<T>;
+  readonly item: import('@angular/core').InputSignal<T>;
+  readonly scope: import('@angular/core').InputSignal<unknown>;
+  readonly depth: import('@angular/core').InputSignal<number>;
+  readonly isLeaf: import('@angular/core').InputSignalWithTransform<boolean, unknown>;
+  readonly opened: import('@angular/core').ModelSignal<boolean>;
+  readonly selectedItem: import('@angular/core').ModelSignal<null | T>;
+  readonly content: import('@angular/core').Signal<TemplateRef<TreeNodeContext<T>> | undefined>;
+  readonly selected: import('@angular/core').OutputEmitterRef<T>;
   toggle(): void;
   select(): void;
   isSelected(): boolean;
@@ -2847,8 +2866,8 @@ declare class NuxeoTreeNodeComponent<T = unknown> {
   onNodeClick(event: MouseEvent): void;
   onKeydown(event: KeyboardEvent): void;
   context: () => TreeNodeContext<T>;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<NuxeoTreeNodeComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<NuxeoTreeNodeComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     NuxeoTreeNodeComponent<any>,
     'nx-tree-node',
     never,
@@ -2895,8 +2914,8 @@ declare class NuxeoTreeNodeComponent<T = unknown> {
     never
   >;
 }
-declare class NuxeoTreeComponent {
-  readonly label: _angular_core.InputSignal<string>;
+export declare class NuxeoTreeComponent {
+  readonly label: import('@angular/core').InputSignal<string>;
   protected readonly messages: WebUiMessages;
   private readonly locale;
   private readonly element;
@@ -2914,8 +2933,8 @@ declare class NuxeoTreeComponent {
   protected onFocus(event: FocusEvent): void;
   protected onBlur(event: FocusEvent): void;
   protected onKeydown(event: KeyboardEvent): void;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<NuxeoTreeComponent, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<NuxeoTreeComponent, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     NuxeoTreeComponent,
     'nx-tree',
     never,
@@ -2933,26 +2952,26 @@ declare class NuxeoTreeComponent {
     never
   >;
 }
-declare class NuxeoBulkWidgetComponent<T = unknown> {
+export declare class NuxeoBulkWidgetComponent<T = unknown> {
   private readonly messages;
-  readonly label: _angular_core.InputSignal<string>;
-  readonly value: _angular_core.InputSignal<T>;
-  readonly required: _angular_core.InputSignalWithTransform<boolean, unknown>;
-  readonly multivalued: _angular_core.InputSignalWithTransform<boolean, unknown>;
-  readonly mode: _angular_core.ModelSignal<BulkUpdateMode>;
-  readonly message: _angular_core.InputSignal<string>;
-  readonly error: _angular_core.InputSignalWithTransform<boolean, unknown>;
-  readonly content: _angular_core.Signal<
+  readonly label: import('@angular/core').InputSignal<string>;
+  readonly value: import('@angular/core').InputSignal<T>;
+  readonly required: import('@angular/core').InputSignalWithTransform<boolean, unknown>;
+  readonly multivalued: import('@angular/core').InputSignalWithTransform<boolean, unknown>;
+  readonly mode: import('@angular/core').ModelSignal<BulkUpdateMode>;
+  readonly message: import('@angular/core').InputSignal<string>;
+  readonly error: import('@angular/core').InputSignalWithTransform<boolean, unknown>;
+  readonly content: import('@angular/core').Signal<
     TemplateRef<ProjectionContext<T, NuxeoBulkWidgetComponent<T>>> | undefined
   >;
-  readonly modeChanged: _angular_core.OutputEmitterRef<BulkUpdateMode>;
+  readonly modeChanged: import('@angular/core').OutputEmitterRef<BulkUpdateMode>;
   context: () => ProjectionContext<T, NuxeoBulkWidgetComponent<T>>;
   isModeAllowed(mode: string): mode is BulkUpdateMode;
   setMode(mode: string): boolean;
   validate(): boolean;
   effectiveMessage(): string;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<NuxeoBulkWidgetComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<NuxeoBulkWidgetComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     NuxeoBulkWidgetComponent<any>,
     'nx-bulk-widget',
     never,
@@ -3003,17 +3022,17 @@ declare class NuxeoBulkWidgetComponent<T = unknown> {
     never
   >;
 }
-declare class NuxeoVersionsListComponent<T = unknown> {
-  readonly value: _angular_core.InputSignal<T>;
-  readonly items: _angular_core.Signal<
+export declare class NuxeoVersionsListComponent<T = unknown> {
+  readonly value: import('@angular/core').InputSignal<T>;
+  readonly items: import('@angular/core').Signal<
     TemplateRef<ProjectionContext<T, NuxeoVersionsListComponent<T>>> | undefined
   >;
-  readonly actions: _angular_core.Signal<
+  readonly actions: import('@angular/core').Signal<
     TemplateRef<ProjectionContext<T, NuxeoVersionsListComponent<T>>> | undefined
   >;
   context: () => ProjectionContext<T, NuxeoVersionsListComponent<T>>;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<NuxeoVersionsListComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<NuxeoVersionsListComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     NuxeoVersionsListComponent<any>,
     'nx-versions-list',
     never,
@@ -3031,15 +3050,15 @@ declare class NuxeoVersionsListComponent<T = unknown> {
     never
   >;
 }
-declare class NuxeoAclTableComponent<T = unknown> {
-  readonly value: _angular_core.InputSignal<T>;
-  readonly empty: _angular_core.InputSignalWithTransform<boolean, unknown>;
-  readonly emptyResult: _angular_core.Signal<
+export declare class NuxeoAclTableComponent<T = unknown> {
+  readonly value: import('@angular/core').InputSignal<T>;
+  readonly empty: import('@angular/core').InputSignalWithTransform<boolean, unknown>;
+  readonly emptyResult: import('@angular/core').Signal<
     TemplateRef<ProjectionContext<T, NuxeoAclTableComponent<T>>> | undefined
   >;
   context: () => ProjectionContext<T, NuxeoAclTableComponent<T>>;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<NuxeoAclTableComponent<any>, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<NuxeoAclTableComponent<any>, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     NuxeoAclTableComponent<any>,
     'nx-acl-table',
     never,
@@ -3062,7 +3081,7 @@ declare class NuxeoAclTableComponent<T = unknown> {
     never
   >;
 }
-interface BulkFieldChange {
+export interface BulkFieldChange {
   readonly property: string;
   readonly mode: BulkUpdateMode;
   readonly value?: unknown;
@@ -3074,7 +3093,7 @@ declare const bulkValidationMessages: {
   readonly 'add-scalar': 'Cannot add values to scalar property: {property}';
   readonly 'add-values-list': 'Use a list value for addValues: {property}';
 };
-declare class BulkValidationError extends Error {
+export declare class BulkValidationError extends Error {
   readonly code: keyof typeof bulkValidationMessages;
   readonly parameters: Readonly<Record<string, string>>;
   readonly messageKey: string;
@@ -3084,27 +3103,27 @@ declare class BulkValidationError extends Error {
     parameters: Readonly<Record<string, string>>,
   );
 }
-interface BulkLayoutContext {
+export interface BulkLayoutContext {
   readonly documents: readonly Readonly<Record<string, unknown>>[];
   readonly changes: readonly BulkFieldChange[];
   readonly commit: (changes: readonly BulkFieldChange[]) => void;
 }
-interface BulkLayoutComponent {
+export interface BulkLayoutComponent {
   context: BulkLayoutContext;
 }
-interface BulkLayoutRegistration {
+export interface BulkLayoutRegistration {
   readonly name: string;
   readonly component: Type<BulkLayoutComponent>;
 }
-declare const BULK_LAYOUTS: InjectionToken<readonly BulkLayoutRegistration[]>;
-declare function provideBulkLayouts(...layouts: BulkLayoutRegistration[]): Provider[];
-declare class BulkLayoutResolver {
+export declare const BULK_LAYOUTS: InjectionToken<readonly BulkLayoutRegistration[]>;
+export declare function provideBulkLayouts(...layouts: BulkLayoutRegistration[]): Provider[];
+export declare class BulkLayoutResolver {
   private readonly layouts;
   resolve(name?: string): BulkLayoutRegistration | undefined;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<BulkLayoutResolver, never>;
-  static ɵprov: _angular_core.ɵɵInjectableDeclaration<BulkLayoutResolver>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<BulkLayoutResolver, never>;
+  static ɵprov: i0.ɵɵInjectableDeclaration<any>;
 }
-declare function buildBulkDocumentChanges(
+export declare function buildBulkDocumentChanges(
   documents: readonly Readonly<Record<string, any>>[],
   changes: readonly BulkFieldChange[],
 ): {
@@ -3112,7 +3131,7 @@ declare function buildBulkDocumentChanges(
   changeToken: any;
   properties: Record<string, unknown>;
 }[];
-declare class DefaultBulkLayoutComponent {
+export declare class DefaultBulkLayoutComponent {
   private readonly messages;
   context: BulkLayoutContext;
   options: Record<
@@ -3136,8 +3155,8 @@ declare class DefaultBulkLayoutComponent {
   fieldError(field: (typeof this.fields)[number]): string;
   fieldLabel(field: (typeof this.fields)[number]): string;
   private emit;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<DefaultBulkLayoutComponent, never>;
-  static ɵcmp: _angular_core.ɵɵComponentDeclaration<
+  static ɵfac: i0.ɵɵFactoryDeclaration<DefaultBulkLayoutComponent, never>;
+  static ɵcmp: i0.ɵɵComponentDeclaration<
     DefaultBulkLayoutComponent,
     'nx-default-bulk-layout',
     never,
@@ -3158,64 +3177,64 @@ declare class DefaultBulkLayoutComponent {
     never
   >;
 }
-interface ResultsPagingOptions {
+export interface ResultsPagingOptions {
   readonly scrollPagingEnabled?: boolean;
 }
-declare const RESULTS_PAGING_OPTIONS: InjectionToken<ResultsPagingOptions>;
-declare class ResultsPagingSettings {
+export declare const RESULTS_PAGING_OPTIONS: InjectionToken<ResultsPagingOptions>;
+export declare class ResultsPagingSettings {
   private readonly enabled;
-  readonly scrollPagingEnabled: _angular_core.Signal<boolean>;
+  readonly scrollPagingEnabled: import('@angular/core').Signal<boolean>;
   apply(options?: null | ResultsPagingOptions): void;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<ResultsPagingSettings, never>;
-  static ɵprov: _angular_core.ɵɵInjectableDeclaration<ResultsPagingSettings>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<ResultsPagingSettings, never>;
+  static ɵprov: i0.ɵɵInjectableDeclaration<any>;
 }
-type SuggestionWidget = 'directory' | 'document' | 'tag' | 'user';
-interface SuggestionLimitsConfig {
+export type SuggestionWidget = 'directory' | 'document' | 'tag' | 'user';
+export interface SuggestionLimitsConfig {
   readonly minChars?: number;
   readonly pauseMs?: number;
 }
-interface SuggestionRules extends SuggestionLimitsConfig {
+export interface SuggestionRules extends SuggestionLimitsConfig {
   readonly widgets?: Readonly<Partial<Record<SuggestionWidget, SuggestionLimitsConfig>>>;
   readonly fields?: Readonly<Record<string, SuggestionLimitsConfig>>;
 }
-interface SuggestionConfig extends SuggestionRules {
+export interface SuggestionConfig extends SuggestionRules {
   readonly layouts?: Readonly<Record<string, SuggestionRules>>;
 }
-interface SuggestionLimits {
+export interface SuggestionLimits {
   readonly minChars: number;
   readonly pauseMs: number;
 }
-interface SuggestionTarget {
+export interface SuggestionTarget {
   readonly widget: SuggestionWidget;
   readonly layout?: null | string;
   readonly field?: null | string;
 }
-declare const DEFAULT_SUGGESTION_CONFIG: SuggestionConfig;
-declare const SUGGESTION_OPTIONS: InjectionToken<SuggestionConfig>;
-declare class SuggestionSettings {
+export declare const DEFAULT_SUGGESTION_CONFIG: SuggestionConfig;
+export declare const SUGGESTION_OPTIONS: InjectionToken<SuggestionConfig>;
+export declare class SuggestionSettings {
   private readonly config;
   readonly current: Signal<SuggestionConfig>;
   apply(config: unknown): boolean;
   resolve(target: SuggestionTarget): SuggestionLimits;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<SuggestionSettings, never>;
-  static ɵprov: _angular_core.ɵɵInjectableDeclaration<SuggestionSettings>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<SuggestionSettings, never>;
+  static ɵprov: i0.ɵɵInjectableDeclaration<any>;
 }
-declare class SuggestionScope {
-  readonly layout: _angular_core.WritableSignal<null | string>;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<SuggestionScope, never>;
-  static ɵprov: _angular_core.ɵɵInjectableDeclaration<SuggestionScope>;
+export declare class SuggestionScope {
+  readonly layout: import('@angular/core').WritableSignal<null | string>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<SuggestionScope, never>;
+  static ɵprov: i0.ɵɵInjectableDeclaration<any>;
 }
-declare function provideSuggestionScope(layout?: null | string): StaticProvider;
-declare function suggestionLimits(
+export declare function provideSuggestionScope(layout?: null | string): StaticProvider;
+export declare function suggestionLimits(
   widget: (() => SuggestionWidget) | SuggestionWidget,
   field?: () => null | string | undefined,
 ): Signal<SuggestionLimits>;
-declare function suggestionTerms(
+export declare function suggestionTerms(
   limits: () => SuggestionLimits,
 ): OperatorFunction<null | string | undefined, null | string>;
-declare function suggestionMinCharsText(messages: WebUiMessages, minChars: number): string;
-declare function normalizeSuggestionConfig(value: unknown): null | SuggestionConfig;
-interface ResultsProjectionDefinition {
+export declare function suggestionMinCharsText(messages: WebUiMessages, minChars: number): string;
+export declare function normalizeSuggestionConfig(value: unknown): null | SuggestionConfig;
+export interface ResultsProjectionDefinition {
   readonly id: string;
   readonly hostId?: string;
   readonly searchId?: string;
@@ -3226,7 +3245,7 @@ interface ResultsProjectionDefinition {
   readonly disabled?: boolean;
   readonly when?: (context: unknown) => boolean;
 }
-declare class ResultsProjectionRegistry {
+export declare class ResultsProjectionRegistry {
   private readonly definitions;
   private order;
   register(definition: ResultsProjectionDefinition): () => void;
@@ -3237,19 +3256,19 @@ declare class ResultsProjectionRegistry {
     context: unknown,
     searchId?: string,
   ): null | Type<unknown>;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<ResultsProjectionRegistry, never>;
-  static ɵprov: _angular_core.ɵɵInjectableDeclaration<ResultsProjectionRegistry>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<ResultsProjectionRegistry, never>;
+  static ɵprov: i0.ɵɵInjectableDeclaration<any>;
 }
-declare function provideResultsProjections(
+export declare function provideResultsProjections(
   ...definitions: readonly ResultsProjectionDefinition[]
 ): EnvironmentProviders;
-type DocumentProjectionName = 'acl.emptyResult' | 'versions.actions' | 'versions.items';
-interface DocumentProjectionContext {
+export type DocumentProjectionName = 'acl.emptyResult' | 'versions.actions' | 'versions.items';
+export interface DocumentProjectionContext {
   readonly document: null | Readonly<Record<string, unknown>>;
   readonly noEdit: boolean;
   readonly value?: unknown;
 }
-interface DocumentProjection {
+export interface DocumentProjection {
   readonly id: string;
   readonly name: DocumentProjectionName;
   readonly component?: Type<unknown>;
@@ -3257,45 +3276,45 @@ interface DocumentProjection {
   readonly priority?: number;
   readonly when?: (context: DocumentProjectionContext) => boolean;
 }
-interface ResolvedDocumentProjection {
+export interface ResolvedDocumentProjection {
   readonly component?: Type<unknown>;
   readonly disabled: boolean;
 }
-declare function documentProjectionContext(
+export declare function documentProjectionContext(
   context: DocumentProjectionContext,
 ): DocumentProjectionContext;
-declare class DocumentProjectionRegistry {
+export declare class DocumentProjectionRegistry {
   private readonly entries;
   private readonly revisionState;
-  readonly revision: _angular_core.Signal<number>;
+  readonly revision: import('@angular/core').Signal<number>;
   register(entry: DocumentProjection): () => void;
   resolve(
     name: DocumentProjectionName,
     raw: DocumentProjectionContext,
   ): ResolvedDocumentProjection | undefined;
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<DocumentProjectionRegistry, never>;
-  static ɵprov: _angular_core.ɵɵInjectableDeclaration<DocumentProjectionRegistry>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<DocumentProjectionRegistry, never>;
+  static ɵprov: i0.ɵɵInjectableDeclaration<any>;
 }
-interface DocumentFieldExtension {
+export interface DocumentFieldExtension {
   readonly id: string;
   readonly documentTypes?: readonly string[];
   readonly modes?: readonly DocumentLayoutMode[];
   readonly schema: string;
   readonly fields: readonly LayoutField[];
 }
-declare function provideDocumentFieldExtensions(
+export declare function provideDocumentFieldExtensions(
   ...definitions: DocumentFieldExtension[]
 ): EnvironmentProviders;
-declare class DocumentFieldExtensionRegistry {
+export declare class DocumentFieldExtensionRegistry {
   private readonly definitions;
   candidates(context: DocumentLayoutContext): readonly DocumentFieldExtension[];
   attached(context: DocumentLayoutContext): readonly DocumentFieldExtension[];
   fields(context: DocumentLayoutContext): readonly LayoutField[];
-  static ɵfac: _angular_core.ɵɵFactoryDeclaration<DocumentFieldExtensionRegistry, never>;
-  static ɵprov: _angular_core.ɵɵInjectableDeclaration<DocumentFieldExtensionRegistry>;
+  static ɵfac: i0.ɵɵFactoryDeclaration<DocumentFieldExtensionRegistry, never>;
+  static ɵprov: i0.ɵɵInjectableDeclaration<any>;
 }
-declare const DOCUMENT_CONTENT_RENDERER: InjectionToken<Type<unknown>>;
-interface ResultsCommandGateway {
+export declare const DOCUMENT_CONTENT_RENDERER: InjectionToken<Type<unknown>>;
+export interface ResultsCommandGateway {
   available(context: ResultsSelectionContext): readonly string[];
   execute(
     command: string,
@@ -3303,14 +3322,14 @@ interface ResultsCommandGateway {
     current: () => boolean,
   ): Promise<readonly string[]>;
 }
-declare const RESULTS_COMMAND_GATEWAY: InjectionToken<ResultsCommandGateway>;
-interface SavedSearchDefinition {
+export declare const RESULTS_COMMAND_GATEWAY: InjectionToken<ResultsCommandGateway>;
+export interface SavedSearchDefinition {
   readonly id: string;
   readonly title: string;
   readonly params: Readonly<Record<string, unknown>>;
   readonly query?: string;
 }
-interface SavedSearchGateway {
+export interface SavedSearchGateway {
   list(providerName: string): Promise<readonly SavedSearchDefinition[]>;
   save(
     providerName: string,
@@ -3327,253 +3346,33 @@ interface SavedSearchGateway {
   permissions(id: string): Promise<readonly string[]>;
   share(id: string, principal: string, notify?: boolean): Promise<void>;
 }
-declare const SAVED_SEARCH_GATEWAY: InjectionToken<SavedSearchGateway>;
-export {
-  ADMINISTRATION_MENU_SLOT,
-  ADMINISTRATION_PAGES_SLOT,
-  ANALYTICS_ITEMS_SLOT,
-  ANALYTICS_PAGES_SLOT,
-  AgGridProjectionActionsComponent,
-  AgGridProjectionCellComponent,
-  AgGridProjectionCheckboxComponent,
-  AgGridProjectionColumnSettingsComponent,
-  AgGridProjectionFullWidthComponent,
-  AgGridProjectionSelectAllComponent,
-  BLOB_ACTIONS_SLOT,
-  BULK_LAYOUTS,
-  BulkLayoutResolver,
-  BulkValidationError,
-  COLLECTION_ACTIONS_SLOT,
-  COMPARISON_LAYOUTS,
-  CREATE_POPUP_ITEMS_SLOT,
-  CREATE_POPUP_PAGES_SLOT,
-  ChooseFilesActionComponent,
-  ContributionOutletComponent,
-  DEFAULT_SUGGESTION_CONFIG,
-  DIRECTORY_LAYOUTS,
-  DOCUMENT_ACTIONS_SLOT,
-  DOCUMENT_CONTENT_RENDERER,
-  DOCUMENT_CREATE_ACTIONS_SLOT,
-  DOCUMENT_IMPORT_DRAFT,
-  DOCUMENT_INFO_BAR_SLOT,
-  DOCUMENT_LAYOUT_GATEWAY,
-  DOCUMENT_LAYOUT_HOST,
-  DOCUMENT_LAYOUT_WIDGETS,
-  DOCUMENT_VIEWS_ITEMS_SLOT,
-  DOCUMENT_VIEWS_PAGES_SLOT,
-  DRAWER_ITEMS_SLOT,
-  DRAWER_PAGES_SLOT,
-  DefaultBulkLayoutComponent,
-  DocumentFieldExtensionRegistry,
-  DocumentLayoutRegistry,
-  DocumentProjectionRegistry,
-  DocumentViewTabComponent,
-  DocumentViewsComponent,
-  DrawerItemComponent,
-  ExtensionRegistry,
-  FILE_UPLOAD_ACTIONS_SLOT,
-  LocalizedUiError,
-  NUXEO_FILTERS,
-  NUXEO_ICONS,
-  NuxeoAclTableComponent,
-  NuxeoActionsMenuComponent,
-  NuxeoBulkWidgetComponent,
-  NuxeoCardComponent,
-  NuxeoConfirmButtonComponent,
-  NuxeoDialogComponent,
-  NuxeoPageComponent,
-  NuxeoPopupConfirmComponent,
-  NuxeoSelectComponent,
-  NuxeoTagComponent,
-  NuxeoTooltipComponent,
-  NuxeoTreeComponent,
-  NuxeoTreeNodeComponent,
-  NuxeoVersionsListComponent,
-  PAGES_SLOT,
-  POLYMER_MESSAGES,
-  POLYMER_SLOTS,
-  POLYMER_THEME_TOKENS,
-  PUBLISH_ITEMS_SLOT,
-  PUBLISH_PAGES_SLOT,
-  QUICK_SEARCH_ACTIONS_SLOT,
-  QuickSearchCommandComponent,
-  RESULTS_ACTIONS_SLOT,
-  RESULTS_COMMAND_GATEWAY,
-  RESULTS_PAGING_OPTIONS,
-  RESULTS_SELECTION_ACTIONS_SLOT,
-  ResultsPagingSettings,
-  ResultsProjectionComponent,
-  ResultsProjectionHostTemplateDirective,
-  ResultsProjectionRegistry,
-  ResultsProjectionTemplateDirective,
-  SAVED_SEARCH_GATEWAY,
-  SHELL_ACTIONS_SLOT,
-  SUGGESTION_OPTIONS,
-  SUPPORTED_WEB_UI_LOCALES,
-  SchemaFieldComponent,
-  SchemaLayoutComponent,
-  SuggestionScope,
-  SuggestionSettings,
-  THEMES_SLOT,
-  TRASH_RESULTS_SELECTION_ACTIONS_SLOT,
-  USER_MENU_SLOT,
-  ViewNavigation,
-  WORKFLOW_LAYOUTS,
-  WebUiAppState,
-  WebUiCurrencyPipe,
-  WebUiDatePipe,
-  WebUiIconComponent,
-  WebUiIcons,
-  WebUiLocale,
-  WebUiMessagePipe,
-  WebUiMessages,
-  WebUiNumberPipe,
-  WebUiPageComponent,
-  WebUiPercentPipe,
-  WebUiSlotComponent,
-  WebUiThemePickerComponent,
-  WebUiThemes,
-  buildBulkDocumentChanges,
-  cloneLayoutValue,
-  defineContribution,
-  defineDocumentView,
-  defineDocumentViewVariants,
-  definePage,
-  definePairedView,
-  defineSlot,
-  defineWebUiTheme,
-  documentLayoutContext,
-  documentProjectionContext,
-  documentViewParameter,
-  documentViewsNavigationGuard,
-  formatWebUiMessage,
-  gridLocale,
-  layoutFieldError,
-  layoutPropertyValue,
-  localizedState,
-  normalizeSuggestionConfig,
-  normalizeWebUiLocale,
-  nuxeoFilter,
-  provideBulkLayouts,
-  provideComparisonLayout,
-  provideDirectoryLayouts,
-  provideDocumentFieldExtensions,
-  provideDocumentLayoutExtensions,
-  provideDocumentLayoutWidget,
-  provideResultsProjections,
-  provideSuggestionScope,
-  provideWebUiExtensions,
-  provideWebUiIcons,
-  provideWebUiMessages,
-  provideWebUiThemeApplication,
-  provideWorkflowLayout,
-  resolveComparisonLayout,
-  resolveDocumentViews,
-  resolveLayoutFields,
-  suggestionLimits,
-  suggestionMinCharsText,
-  suggestionTerms,
-};
+export declare const SAVED_SEARCH_GATEWAY: InjectionToken<SavedSearchGateway>;
 export type {
-  ActionsMenuContext,
-  AdministrationContext,
   ApplicationContext,
   ApplicationUser,
-  BlobActionContext,
-  BlobValue,
-  BulkFieldChange,
-  BulkLayoutComponent,
-  BulkLayoutContext,
-  BulkLayoutRegistration,
-  BulkUpdateMode,
-  ComparisonLayout,
-  ComparisonValueContext,
-  ComparisonValueKind,
   ContributionDefinition,
   ContributionOverride,
   ContributionRegistration,
-  DirectoryLayoutComponent,
-  DirectoryLayoutContext,
-  DirectoryLayoutRegistration,
   DocumentActionContext,
-  DocumentCreateContext,
-  DocumentFieldExtension,
-  DocumentImportDraft,
-  DocumentInfoBarContext,
-  DocumentLayout,
-  DocumentLayoutContext,
-  DocumentLayoutDefinition,
-  DocumentLayoutExtension,
-  DocumentLayoutGateway,
-  DocumentLayoutHost,
-  DocumentLayoutMode,
-  DocumentLayoutOverride,
-  DocumentLayoutWidget,
-  DocumentProjection,
-  DocumentProjectionContext,
-  DocumentProjectionName,
-  DocumentTypeMetadata,
   DocumentViewChange,
   DocumentViewContext,
   DocumentViewDefinition,
   DocumentViewItemContext,
   DocumentViewVariant,
-  DrawerContext,
   ExtensionDiagnostic,
-  FileUploadContext,
   GuardedView,
-  LayoutDocument,
-  LayoutField,
-  LayoutMode,
   LocalizedState,
   NuxeoFilterConditions,
   NuxeoFilterContext,
   NuxeoFilterDocument,
   NuxeoFilters,
-  PageContext,
-  ProjectionContext,
-  PublishContext,
-  QuickSearchContext,
-  ReferenceValue,
   ResolvedContribution,
-  ResolvedDocumentLayout,
-  ResolvedDocumentProjection,
   ResolvedDocumentView,
-  ResolvedLayoutField,
-  ResultsColumn,
-  ResultsColumnLayout,
-  ResultsCommandGateway,
-  ResultsPagingOptions,
-  ResultsProjectionColumn,
-  ResultsProjectionComponentLoader,
-  ResultsProjectionComponents,
-  ResultsProjectionContext,
-  ResultsProjectionDefinition,
-  ResultsProjectionHostContext,
-  ResultsProjectionHostTemplateName,
   ResultsProjectionMode,
-  ResultsProjectionRow,
-  ResultsProjectionRowTemplateName,
-  ResultsProjectionTemplateName,
-  ResultsQueryScope,
   ResultsSelectionContext,
-  ResultsToolbarContext,
-  SavedSearchDefinition,
-  SavedSearchGateway,
-  SchemaFieldMetadata,
-  SchemaFieldType,
-  SchemaMetadata,
-  ShellActionContext,
   SlotDefinition,
   SlotResolution,
-  SuggestionConfig,
-  SuggestionLimits,
-  SuggestionLimitsConfig,
-  SuggestionRules,
-  SuggestionTarget,
-  SuggestionWidget,
   SupportedWebUiLocale,
-  TreeNodeContext,
   UserMenuContext,
   UserMenuLanguage,
   ViewDeparture,
@@ -3585,11 +3384,5 @@ export type {
   WebUiSvgNode,
   WebUiThemeContext,
   WebUiThemeDefinition,
-  WidgetProps,
-  WorkflowLayout,
-  WorkflowLayoutContext,
-  WorkflowLayoutMode,
-  WorkflowTask,
-  WorkflowTaskAction,
 };
 ```

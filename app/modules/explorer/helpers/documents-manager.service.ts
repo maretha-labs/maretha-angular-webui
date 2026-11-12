@@ -17,7 +17,7 @@ import { AuthService } from 'app/helpers/auth.service';
 import { TokenService } from 'app/helpers/token.service';
 import { UserInfo } from 'app/models/user-info';
 import { environment } from 'environments/environment';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import {
 	filter,
 	map,
@@ -102,7 +102,7 @@ export class DocumentsManagerService {
 		private readonly documentTrashService: DocumentTrashService,
 		private readonly documentClipboardService: DocumentClipboardService,
 		private readonly tokenService: TokenService,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 		private readonly authService: AuthService,
 		private readonly documentEnhancerService: DocumentEnhancerService,
 	) {

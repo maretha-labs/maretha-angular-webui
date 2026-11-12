@@ -8,7 +8,7 @@ import {
 	ViewNavigation,
 	WebUiLocale,
 } from '@maretha/webui-sdk';
-import { Component, input, signal } from '@angular/core';
+import { Component, input, signal, ChangeDetectionStrategy } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
@@ -29,7 +29,7 @@ import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { TranslateModule } from '@ngx-translate/core';
 import { BehaviorSubject, EMPTY, NEVER, of } from 'rxjs';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import {
 	defineContribution,
 	ExtensionRegistry,
@@ -49,11 +49,16 @@ import { SearchQueueService } from 'app/modules/search/helpers/search-queue.serv
 import { SidebarComponent } from './sidebar.component';
 import { provideDefaultUserMenu } from './user-menu/default-user-menu';
 
-@Component({ selector: 'nx-menu-route-test', template: '' })
+@Component({
+	selector: 'nx-menu-route-test',
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: '',
+})
 class RoutePage {}
 
 @Component({
 	selector: 'nx-menu-context-test',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `<button type="button" (click)="clicks = clicks + 1">
 		{{ context().user?.displayName }}|{{ context().locale }}|{{ context().route }}|{{
 			context().document?.['uid']
@@ -66,6 +71,7 @@ class ContextEntry {
 }
 
 @Component({
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template:
 		'Client drawer content {{context().activeKey}}<input aria-label="Client draft" [value]="draft" (input)="draft = $any($event.target).value" />',
 })
@@ -181,7 +187,7 @@ describe('Sidebar USER_MENU integration', () => {
 					useValue: search,
 				},
 				{ provide: SearchQueueService, useValue: queue },
-				{ provide: ToastrService, useValue: { success: jasmine.createSpy('success') } },
+				{ provide: ToastService, useValue: { success: jasmine.createSpy('success') } },
 				{
 					provide: DocumentsManagerService,
 					useValue: {

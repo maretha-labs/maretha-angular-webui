@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavigationStart, Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -7,6 +7,7 @@ import { RailTooltipDirective } from './rail-tooltip.directive';
 
 @Component({
 	imports: [RailTooltipDirective],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: `
 		<span id="customer-help">Existing description</span>
 		@if (showFirst) {

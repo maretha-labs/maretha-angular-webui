@@ -1,5 +1,5 @@
 import { WebUiMessages } from '@maretha/webui-sdk';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpTestingController } from '@angular/common/http/testing';
 import { provideComparisonLayout, ComparisonValueContext } from '@maretha/webui-sdk';
@@ -10,6 +10,7 @@ import { ComparisonProperty } from '../../../helpers/document-comparison.service
 @Component({
 	standalone: true,
 	selector: 'nx-custom-comparison',
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: '<span>custom {{ context.value }}</span>',
 })
 class CustomComparisonComponent {

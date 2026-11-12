@@ -1,7 +1,7 @@
 // The condition cases are ported from Nuxeo Elements `ui/test/nuxeo-filter.test.js`
 // (©2023 Hyland Software, Inc. and its affiliates, Apache License 2.0). Each Polymer
 // fixture's `ok` / `notok` element becomes an expected `true` / `false`.
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { defineContribution } from './contribution';
 import { ExtensionRegistry } from './extension-registry.service';
 import { NUXEO_FILTERS, nuxeoFilter, NuxeoFilterConditions } from './nuxeo-filter';
@@ -14,7 +14,7 @@ const run = (cases: readonly Case[], user?: unknown) =>
 	);
 const expected = (cases: readonly Case[]) => cases.map((item) => item[2]);
 
-@Component({ template: '', standalone: true })
+@Component({ template: '', changeDetection: ChangeDetectionStrategy.Eager, standalone: true })
 class Action {}
 
 describe('nuxeoFilter (ported nuxeo-filter cases)', () => {

@@ -1,4 +1,4 @@
-import { Component, input, Signal, signal } from '@angular/core';
+import { Component, input, Signal, signal, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { defineContribution } from './contribution';
 import { WebUiAppState, withSharedSlotModel } from './app-state';
@@ -17,12 +17,20 @@ const member: ApplicationUser = {
 	groups: ['members'],
 };
 
-@Component({ standalone: true, template: 'Members {{context().user?.id}}' })
+@Component({
+	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: 'Members {{context().user?.id}}',
+})
 class MembersAction {
 	readonly context = input.required<DocumentActionContext>();
 }
 
-@Component({ standalone: true, template: 'Members page {{context().user?.id}}' })
+@Component({
+	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
+	template: 'Members page {{context().user?.id}}',
+})
 class MembersPage {
 	readonly context = input.required<DocumentViewContext>();
 }

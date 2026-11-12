@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed, fakeAsync, flushMicrotasks } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import {
@@ -17,6 +17,7 @@ import { BulkEditorService } from './bulk-editor.service';
 @Component({
 	selector: 'nx-client-bulk-layout',
 	standalone: true,
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template: '<p>Client bulk layout</p>',
 })
 class ClientBulkLayoutComponent {

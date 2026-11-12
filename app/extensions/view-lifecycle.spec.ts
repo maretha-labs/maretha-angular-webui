@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, signal } from '@angular/core';
+import { Component, computed, inject, input, signal, ChangeDetectionStrategy } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationCancel, provideRouter, Router } from '@angular/router';
@@ -11,6 +11,7 @@ import { ExtensionRegistry } from './extension-registry.service';
 import { documentViewsNavigationGuard, ViewDeparture, ViewNavigation } from './view-navigation';
 
 @Component({
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template:
 		'<input aria-label="Draft" [value]="draft()" (input)="draft.set($any($event.target).value)" />',
 })
@@ -22,7 +23,7 @@ class EditorPage {
 		return !!this.draft();
 	}
 }
-@Component({ template: '<p>Read-only page</p>' })
+@Component({ changeDetection: ChangeDetectionStrategy.Eager, template: '<p>Read-only page</p>' })
 class ReadPage {
 	readonly context = input.required<DocumentViewContext>();
 }
@@ -256,6 +257,7 @@ describe('Document view lifecycle', () => {
 
 @Component({
 	imports: [DocumentViewsComponent],
+	changeDetection: ChangeDetectionStrategy.Eager,
 	template:
 		'<nx-document-views [context]="context()" [navigationPath]="path()" [selectedView]="selected()" />',
 })
@@ -268,7 +270,7 @@ class RouteHost {
 	readonly path = computed(() => `/doc/${this.id()}`);
 	readonly context = computed(() => ({ document: { uid: this.id() }, noEdit: false }));
 }
-@Component({ template: 'Other page' })
+@Component({ changeDetection: ChangeDetectionStrategy.Eager, template: 'Other page' })
 class OtherPage {}
 
 describe('Document view router guards', () => {

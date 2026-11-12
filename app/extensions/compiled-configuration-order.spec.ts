@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { defineContribution, defineSlot, WebUiExtension } from './contribution';
 import { ExtensionRegistry } from './extension-registry.service';
 import { provideWebUiExtensions } from './provide-webui-extensions';
 
-@Component({ template: '' })
+@Component({ changeDetection: ChangeDetectionStrategy.Eager, template: '' })
 class DefaultAction {}
 
-@Component({ template: '' })
+@Component({ changeDetection: ChangeDetectionStrategy.Eager, template: '' })
 class ClientAction {}
 
 const slot = defineSlot(

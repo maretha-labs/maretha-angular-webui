@@ -11,7 +11,7 @@ import {
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'environments/environment';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from 'app/helpers/toast.service';
 import { catchError, filter, mergeMap, Observable, retry, take, throwError, timer } from 'rxjs';
 import { TokenService } from './token.service';
 
@@ -33,7 +33,7 @@ export class HttpInterceptorService implements HttpInterceptor {
 	constructor(
 		private readonly tokenService: TokenService,
 		private readonly router: Router,
-		private readonly toastrService: ToastrService,
+		private readonly toastrService: ToastService,
 	) {}
 
 	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
