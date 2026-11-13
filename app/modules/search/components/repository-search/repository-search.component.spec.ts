@@ -1864,10 +1864,12 @@ describe('Repository search workbench', () => {
 		dialog.querySelector<HTMLButtonElement>('.search-column-chooser__close')!.click();
 		await new Promise((resolve) => setTimeout(resolve, 20));
 		expect(dialog.open).toBeFalse();
-		// The column changes rebuilt the grid header: focus returns to the gear that exists now.
-		expect(document.activeElement).toBe(
-			f.nativeElement.querySelector('.nx-results-projection__settings-button'),
-		);
+		// The column changes rebuilt the grid header: focus returns to the gear that exists now,
+		// once the rebuilt header has rendered.
+		const gear = () => f.nativeElement.querySelector('.nx-results-projection__settings-button');
+		for (let attempt = 0; attempt < 50 && document.activeElement !== gear(); attempt++)
+			await new Promise((resolve) => setTimeout(resolve, 20));
+		expect(document.activeElement).toBe(gear());
 		expect(search.search.calls.count()).toBe(requested);
 	});
 	it('opens the assets queue with an applied snapshot, leaving unsubmitted filters out', async () => {
