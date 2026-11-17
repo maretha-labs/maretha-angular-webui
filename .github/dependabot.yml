@@ -38,8 +38,6 @@ updates:
         update-types: ['version-update:semver-major']
       - dependency-name: 'ngx-markdown'
         update-types: ['version-update:semver-major']
-      - dependency-name: 'ngx-toastr'
-        update-types: ['version-update:semver-major']
       - dependency-name: 'ngx-translate-cut'
         update-types: ['version-update:semver-major']
       # three follows the range @google/model-viewer accepts, and katex the range ngx-markdown

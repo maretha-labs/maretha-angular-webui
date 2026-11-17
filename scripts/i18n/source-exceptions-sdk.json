@@ -804,10 +804,10 @@
       "maximum": 1
     },
     {
-      "id": "7b2d1e9cbb71904f",
+      "id": "e5d84dc0cdf0aa03",
       "file": "app/extensions/package.json",
       "kind": "typescript-ui-field",
-      "text": "Angular 21 contribution contracts, registry and hosts for Maretha WebUI",
+      "text": "Angular 22 contribution contracts, registry and hosts for Maretha WebUI",
       "ownership": "catalogue-metadata",
       "reason": "This package.json description documents the distributable SDK for package tooling; it is not shipped as a rendered application label.",
       "maximum": 1

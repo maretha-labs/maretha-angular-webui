@@ -35,8 +35,8 @@ The [changelog](CHANGELOG.md) has the full list, the limitations and what is not
 | Component           | Version                                                  |
 | ------------------- | -------------------------------------------------------- |
 | Nuxeo               | LTS 2025, target platform `[2025.0,2026.0)`              |
-| Node                | 24.18.0 (`.nvmrc`); `engines` accepts 22.12+ or any 24.x |
-| Angular             | 21.2                                                     |
+| Node                | 24.18.0 (`.nvmrc`); `engines` accepts 22.22.3+ or 24.15+ |
+| Angular             | 22.2                                                     |
 | Server bundle build | JDK 21, Maven 3.9                                        |
 
 ## Quick start
