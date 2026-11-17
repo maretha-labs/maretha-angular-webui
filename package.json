@@ -163,7 +163,7 @@
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.1",
     "karma-jasmine": "~4.0.0",
-    "karma-jasmine-html-reporter": "~1.7.0",
+    "karma-jasmine-html-reporter": "~2.3.0",
     "lint-staged": "^16.4.0",
     "ng-packagr": "22.2.6",
     "prettier": "^3.8.3",
