@@ -42,6 +42,18 @@ updates:
         update-types: ['version-update:semver-major']
       - dependency-name: 'ngx-translate-cut'
         update-types: ['version-update:semver-major']
+      # three follows the range @google/model-viewer accepts, and katex the range ngx-markdown
+      # accepts: a newer version does not install. They move together with those packages.
+      - dependency-name: 'three'
+      - dependency-name: '@types/three'
+      - dependency-name: 'katex'
+        versions: ['>=0.19.0']
+      # A Prettier release can reformat files; it is taken on its own with the reformatting.
+      - dependency-name: 'prettier'
+      # axe 4.14 reports label-content-name-mismatch on tree items with children; the scanner
+      # moves once the trees are reviewed against it.
+      - dependency-name: '@axe-core/playwright'
+        versions: ['>=4.14.0']
 
   - package-ecosystem: github-actions
     directory: /
