@@ -9,7 +9,7 @@
   `npx playwright install chromium` installs one on a fresh machine
   ([testing.md](testing.md#browsers)).
 - `npm ci` once per checkout. It installs the locked dependencies and, through `prepare`, the Git
-  hooks in `.husky/`: every commit runs lint-staged and the typecheck.
+  hooks in `.husky/`: every commit runs lint-staged.
 
 ## Development server
 

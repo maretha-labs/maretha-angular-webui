@@ -8,7 +8,7 @@ GitHub App. This page is its contract for pull requests.
 - **Advisory only.** It posts a single comment review and a `maretha-review` check run. It
   never approves, never requests changes, never merges, and has no admin or bypass rights.
   `maretha-review` is not a required check.
-- **Review still decides.** CODEOWNERS approval and every required check apply exactly
+- **Review still decides.** CODEOWNERS approval and the required checks apply exactly
   as without the agent. You do not have to act on its comments; a review may ask you to.
 
 ## When it runs

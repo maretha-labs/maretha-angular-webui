@@ -2,7 +2,8 @@
 
 ## What every pull request checks
 
-The required check **Accessibility scans and keyboard paths** runs on every pull request:
+The check **Accessibility scans and keyboard paths** runs on every pull request and reports its
+result there; it does not block a merge:
 
 - **Automated scans** with axe (WCAG 2.0, 2.1 and 2.2 level A and AA rules, plus best
   practices) and IBM Equal Access, across the declared language and theme states.

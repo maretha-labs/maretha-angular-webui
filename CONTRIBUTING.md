@@ -74,8 +74,13 @@ merging. See
 - An automated review agent may comment. It is advisory: it never approves, blocks or
   merges, and its comments are not requirements. See
   [.github/review-agent.md](.github/review-agent.md).
-- With write access, a pull request merges on green required checks alone; otherwise it also
+- Two checks are required to merge: the `Runtime checks` job and DCO. The accessibility,
+  language, compiled-search, CodeQL and dependency-review jobs run on every pull request and
+  report without blocking.
+- With write access, a pull request merges on the required checks alone; otherwise it also
   needs one approval.
+- The coverage ratchet, transfer budgets, licence inventory, release identity and SDK upgrade
+  rehearsal run when a release is prepared (`npm run verify:release`), not on a pull request.
 - How work is decided, merged and released: [GOVERNANCE.md](GOVERNANCE.md).
 
 ## Licensing

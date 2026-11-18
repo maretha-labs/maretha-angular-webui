@@ -28,7 +28,7 @@ Each item is caught by a check, a lint rule or the next upgrade. Doing it anyway
 - Commit a hand-edited `core.manifest.json`, or regenerate it before staging the rest of the
   change.
 - Lower a coverage floor, add a coverage-ignore directive or widen a coverage exclusion;
-  `npm run verify:coverage` fails and compares against the base commit in CI.
+  `npm run verify:coverage` fails when a release is prepared.
 - Rename, remove or re-pair a default contribution without the compatibility review that
   `npm run verify:sdk-ids` asks for; change the SDK surface without regenerating
   `contracts/webui-sdk.api.md`.

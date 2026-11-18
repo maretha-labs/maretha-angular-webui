@@ -7,12 +7,12 @@ right after the first push to `main`, with:
 gh api -X POST repos/maretha-labs/maretha-angular-webui/rulesets --input <file>.json
 ```
 
-| File                  | Target         | Bypass             | Purpose                                                                                                |
-| --------------------- | -------------- | ------------------ | ------------------------------------------------------------------------------------------------------ |
-| `main-a-checks.json`  | default branch | `maintainers` team | PR required, the `Runtime checks` job and DCO, linear history, no force-push, no deletion.             |
-| `main-b-review.json`  | default branch | `maintainers` team | One approval, CODEOWNERS review, stale approvals dismissed. The `maintainers` team bypasses only this. |
-| `tags-create.json`    | `refs/tags/v*` | `maintainers` team | Only the `maintainers` team creates release tags.                                                      |
-| `tags-immutable.json` | `refs/tags/v*` | none               | No one moves or deletes a published tag.                                                               |
+| File                  | Target         | Bypass             | Purpose                                                                                           |
+| --------------------- | -------------- | ------------------ | ------------------------------------------------------------------------------------------------- |
+| `main-a-checks.json`  | default branch | `maintainers` team | PR required, the `Runtime checks` job and DCO, linear history, no force-push, no deletion.        |
+| `main-b-review.json`  | default branch | `maintainers` team | One approval, CODEOWNERS review, stale approvals dismissed. The `maintainers` team bypasses this. |
+| `tags-create.json`    | `refs/tags/v*` | `maintainers` team | Only the `maintainers` team creates release tags.                                                 |
+| `tags-immutable.json` | `refs/tags/v*` | none               | No one moves or deletes a published tag.                                                          |
 
 Before applying:
 

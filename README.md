@@ -100,8 +100,8 @@ mode.
 
 ## Project
 
-- [CONTRIBUTING.md](CONTRIBUTING.md): how to send a change; product changes need a confirmed
-  issue.
+- [CONTRIBUTING.md](CONTRIBUTING.md): how to send a change. Two checks are required to merge: the
+  `Runtime checks` job and the DCO sign-off; the other checks report without blocking.
 - [GOVERNANCE.md](GOVERNANCE.md): who decides and how.
 - [SUPPORT.md](SUPPORT.md): questions, bugs and paid help.
 - [ACCESSIBILITY.md](ACCESSIBILITY.md): what is tested and how to report a barrier.

@@ -138,7 +138,7 @@ JavaScript sources, the workflows themselves (expression injection into `run:` s
 the Java server module, on pull requests, pushes to `main` and weekly. Both need GitHub
 Advanced Security on a private repository, where the code-scanning and dependency-graph
 APIs otherwise return 403, so both skip on a private copy and run on the public repository. Dependabot alerts are a
-repository setting; Dependabot pull requests are not enabled.
+repository setting. Dependabot opens a pull request for a security update only; other versions move by hand.
 
 ## Polymer parity
 
