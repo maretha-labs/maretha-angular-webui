@@ -1013,7 +1013,7 @@
     "app/modules/shared/components/users-and-groups-picker/users-and-groups-picker.component.scss": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "app/modules/shared/components/users-and-groups-picker/users-and-groups-picker.component.spec.ts": "7fcfdd1838e007983f5b34039f6705de99775337c51275f96914daab45406d96",
     "app/modules/shared/components/users-and-groups-picker/users-and-groups-picker.component.ts": "31fa80c9650da02fcd015f3db23536b8d6a0e6cd58495ca36eb9c8d239d99ae9",
-    "app/modules/shared/shared.module.ts": "5562930fcaf22ce1125497ec27b9a29c0460c6491f3e685a2b9f7362cb0de8c9",
+    "app/modules/shared/shared.module.ts": "4fe15e6dbe3a8a37173458ee42ad8784c1cdb766eb00d39ead5ce5ab98174612",
     "app/pipes/duration.pipe.spec.ts": "cd01491d28e2815d72a72ccb0085563a708944d3bd79a96bb7419965a201e537",
     "app/pipes/duration.pipe.ts": "7cf03302e85b2ef26993be8044412eea60ff05004d7e7492ada7dd0a5296bfea",
     "app/pipes/file-size.pipe.spec.ts": "faabaf2f7024938acd715f7da7ec8e0dd6536eea1e33bec6fa6c6b7dd014661d",
