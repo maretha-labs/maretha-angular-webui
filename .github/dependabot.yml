@@ -51,6 +51,12 @@ updates:
         update-types: ['version-update:semver-major']
       - dependency-name: '@types/jasmine'
         update-types: ['version-update:semver-major']
+      # @ngx-translate/core 18 removes TranslateModule; the major moves with the application code.
+      - dependency-name: '@ngx-translate/core'
+        update-types: ['version-update:semver-major']
+      # The SDK pins intl-messageformat exactly; its major moves with an SDK release.
+      - dependency-name: 'intl-messageformat'
+        update-types: ['version-update:semver-major']
       # A Prettier release can reformat files; it is taken on its own with the reformatting.
       - dependency-name: 'prettier'
       # axe 4.14 reports label-content-name-mismatch on tree items with children; the scanner
