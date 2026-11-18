@@ -46,6 +46,11 @@ updates:
       - dependency-name: '@types/three'
       - dependency-name: 'katex'
         versions: ['>=0.19.0']
+      # karma-jasmine runs jasmine-core 4, and the typings describe the Jasmine that runs.
+      - dependency-name: 'jasmine-core'
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@types/jasmine'
+        update-types: ['version-update:semver-major']
       # A Prettier release can reformat files; it is taken on its own with the reformatting.
       - dependency-name: 'prettier'
       # axe 4.14 reports label-content-name-mismatch on tree items with children; the scanner
