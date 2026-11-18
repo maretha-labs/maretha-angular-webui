@@ -4,7 +4,8 @@ updates:
     directory: /
     schedule:
       interval: weekly
-    open-pull-requests-limit: 5
+    # No version-update pull requests; a security update still opens one.
+    open-pull-requests-limit: 0
     groups:
       npm-minor-and-patch:
         update-types: ['minor', 'patch']
@@ -68,6 +69,7 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    open-pull-requests-limit: 0
     groups:
       actions:
         patterns: ['*']
