@@ -2,8 +2,8 @@
 
 ## Prerequisites
 
-- Node 24.18.0, the version in `.nvmrc` (`nvm use`); `engines` in `package.json` accepts 22.12
-  and later 22.x, or any 24.x. npm comes with Node.
+- Node 24.18.0, the version in `.nvmrc` (`nvm use`); `engines` in `package.json` accepts 22.22.3
+  and later 22.x, or 24.15 and later 24.x. npm comes with Node.
 - JDK 21 and Maven 3.9, only to build the Nuxeo server bundle (`npm run package:nuxeo`).
 - A Chromium-family browser for the unit and browser tests; `CHROME_BIN` selects one, and
   `npx playwright install chromium` installs one on a fresh machine
