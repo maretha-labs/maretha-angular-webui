@@ -46,9 +46,6 @@ jobs:
       - name: Install locked dependencies
         run: npm ci
 
-      - name: Core manifest
-        run: npm run verify:core-manifest
-
       - name: Lint
         run: npm run lint
 

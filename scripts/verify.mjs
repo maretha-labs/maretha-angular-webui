@@ -24,8 +24,8 @@ const UPSTREAM = Object.freeze(['upstream', 'release']);
  * Every check, in run order. `modes` lists the modes that run it; `command` is the step exactly
  * as .github/workflows/ci.yml runs it (verify.test.mjs keeps the two lists equal); `skip()`
  * returns why a check cannot run here, recorded as not-run. The core manifest is the first
- * customization check (a core edit is the usual failure) and the last upstream check (core may
- * change; the manifest is regenerated as the last step).
+ * customization check (a core edit is the usual failure) and a release check (the manifest
+ * is regenerated when a release is prepared; a pull request leaves it alone).
  */
 export const CHECKS = Object.freeze([
 	{ id: 'core-manifest', command: 'npm run verify:core-manifest', modes: ['customization'] },
@@ -105,7 +105,7 @@ export const CHECKS = Object.freeze([
 				: 'needs THEME_COMPARISON_BASE_SHA, the pull request base commit; CI sets it',
 	},
 	{ id: 'i18n-browser', command: 'npm run test:i18n', modes: UPSTREAM },
-	{ id: 'core-manifest', command: 'npm run verify:core-manifest', modes: UPSTREAM },
+	{ id: 'core-manifest', command: 'npm run verify:core-manifest', modes: ['release'] },
 	{ id: 'release-artifacts', command: 'npm run verify:release-artifacts', modes: ['release'] },
 	{ id: 'release-files', command: 'npm run release:files', modes: ['release'] },
 ]);

@@ -54,9 +54,8 @@ checks, the compiled-search, accessibility and language browser suites, and the 
 guard. Several checks first prove that they catch a planted defect; a passing run that proved
 nothing is a failure.
 
-Then stage your files by name and run `npm run release:core-manifest` as the last change;
-commit `core.manifest.json` with them. CI recomputes it and fails on any difference. A
-hand-edited manifest fails the same way.
+Then stage your files by name. Leave `core.manifest.json` alone: it is regenerated when a
+release is prepared, and `npm run verify` compares a customized copy with the release it started from.
 
 ## The report
 

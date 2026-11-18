@@ -41,8 +41,7 @@ empty starter and examples go under `examples/`.
 
 1. Make the change with its tests. Without write access, product changes need a confirmed issue (`CONTRIBUTING.md`).
 2. `npm run verify:upstream`: every public CI check, in CI order, stopping at the first failure.
-3. Stage files by name, then `npm run release:core-manifest` last; commit `core.manifest.json`
-   with them. CI recomputes it. Two core pull requests: rebase, regenerate, commit.
+3. Stage files by name. Leave `core.manifest.json` alone: a release regenerates it.
 4. Sign off each commit (`git commit -s`); Conventional Commits title matching the route.
 
 ## Where each question is answered
