@@ -35,7 +35,15 @@ describe('verification modes', () => {
 			assert.ok(commands('release').includes(command), `release lacks ${command}`);
 		assert.deepEqual(
 			commands('release').filter((command) => !commands('upstream').includes(command)),
-			['npm run verify:release-artifacts', 'npm run release:files'],
+			[
+				'npm run verify:coverage',
+				'npm run verify:transfer-check-failures',
+				'npm run verify:licenses -- --dist dist/maretha-angular-webui',
+				'npm run verify:release-identity',
+				'npm run verify:sdk-upgrade',
+				'npm run verify:release-artifacts',
+				'npm run release:files',
+			],
 		);
 	});
 

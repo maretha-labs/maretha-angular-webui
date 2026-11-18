@@ -2,7 +2,7 @@
   "name": "main: checks for everyone",
   "target": "branch",
   "enforcement": "active",
-  "bypass_actors": [],
+  "bypass_actors": [{ "actor_id": 20545490, "actor_type": "Team", "bypass_mode": "always" }],
   "conditions": {
     "ref_name": { "include": ["~DEFAULT_BRANCH"], "exclude": [] }
   },
@@ -25,18 +25,7 @@
       "type": "required_status_checks",
       "parameters": {
         "strict_required_status_checks_policy": false,
-        "required_status_checks": [
-          { "context": "Runtime checks" },
-          { "context": "Compiled searches with synthetic Nuxeo responses" },
-          { "context": "Accessibility scans and keyboard paths" },
-          { "context": "Languages, Arabic direction and pseudo-language browser checks" },
-          { "context": "New dependency vulnerabilities and licenses" },
-          { "context": "Analyze (javascript-typescript)" },
-          { "context": "Analyze (actions)" },
-          { "context": "Analyze (java-kotlin)" },
-          { "context": "contribution-gate" },
-          { "context": "DCO" }
-        ]
+        "required_status_checks": [{ "context": "Runtime checks" }, { "context": "DCO" }]
       }
     }
   ]

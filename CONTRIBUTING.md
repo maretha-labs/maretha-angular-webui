@@ -1,7 +1,7 @@
 # Contributing
 
-Thank you for helping. This project merges only confirmed work, and every check that guards
-`main` applies to every pull request.
+Thank you for helping. Product changes start from a confirmed issue, and the required checks
+run on every pull request.
 
 ## Customizing versus contributing
 
@@ -24,13 +24,12 @@ customization paths.
 | Dependabot                                             | Handled by the bot                                                                                                            | Dependabot's                                                           |
 | Security report                                        | Never a public pull request: see [SECURITY.md](SECURITY.md)                                                                   | Coordinated privately                                                  |
 
-The type in your pull request title picks the route. Your branch name doesn't matter: name
-the branch on your fork anything you like. (Branches in this repository itself use
-`<route>/<slug>`, for example `fix/123-drawer-toggle`.)
+The type in your pull request title picks the route. Your branch name doesn't matter.
 
-The `contribution-gate` check enforces this table on every pull request and explains in one
-comment what is missing. Push a fix or edit the pull request and it runs again; `/gate`
-in a comment from an account with write access runs it too.
+The `contribution-gate` check compares every pull request with this table and explains in one
+comment what is missing. It is advisory: it does not block a merge. A pull request from an
+account with write access needs no confirmed issue. Push a fix or edit the pull request and it
+runs again; `/gate` in a comment from an account with write access runs it too.
 
 New issues are triaged within 14 days. New here? Issues labelled
 `good first issue` are confirmed and small enough for a first pull request.

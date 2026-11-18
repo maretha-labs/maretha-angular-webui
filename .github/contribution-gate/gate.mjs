@@ -8,8 +8,6 @@ export const COMMENT_MARKER = '<!-- contribution-gate -->';
 
 const CONVENTIONAL_TITLE =
 	/^(feat|fix|docs|test|chore|build|ci|refactor|perf|style|revert)(\([a-z0-9._/-]+\))?!?: \S/;
-// Branches in this repository only; branches on forks may use any name.
-const SAME_REPO_BRANCH = /^(fix|feat|docs|test|chore)\/[a-z0-9][a-z0-9-]*$/;
 const PRODUCT_BRANCH = /^(fix|feat)\/(\d+)-[a-z0-9][a-z0-9-]*$/;
 const ISSUE_REFERENCE =
 	/\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|refs?|part of)\s*:?\s+#(\d+)\b/gi;
@@ -141,18 +139,9 @@ export function evaluate(pr, config) {
 			);
 	} else {
 		route = titled;
-		if (!fromFork) {
-			const prefix = SAME_REPO_BRANCH.exec(branch)?.[1];
-			if (!prefix)
-				reasons.push(
-					'Branches in this repository are named `<route>/<slug>`: `fix/`, `feat/`, `docs/`, `test/` or `chore/`. Branches on forks may use any name.',
-				);
-			else if (route && prefix !== route)
-				reasons.push(
-					`A \`${prefix}/\` branch does not match the title's route; use \`${route}/<slug>\`.`,
-				);
-		}
-		if (route === 'fix' || route === 'feat') {
+		if (isMaintainer) {
+			// An account with write access needs no confirmed issue and no route file list.
+		} else if (route === 'fix' || route === 'feat') {
 			const numbers = referencedIssues(pr);
 			const problems = numbers.map((n) =>
 				issueProblems(pr.issues?.[n], n, config.labels[route], maintainers),

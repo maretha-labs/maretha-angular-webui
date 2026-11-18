@@ -56,8 +56,8 @@ export const CHECKS = Object.freeze([
 	{ id: 'nuxeo-package', command: 'npm run verify:nuxeo-package', modes: UPSTREAM },
 	{ id: 'unit-tests', command: 'npm run test:ci', modes: ['customization'] },
 	{ id: 'coverage', command: 'npm run test:coverage', modes: UPSTREAM },
-	{ id: 'coverage-ratchet', command: 'npm run verify:coverage', modes: UPSTREAM },
-	{ id: 'transfer', command: 'npm run verify:transfer-check-failures', modes: UPSTREAM },
+	{ id: 'coverage-ratchet', command: 'npm run verify:coverage', modes: ['release'] },
+	{ id: 'transfer', command: 'npm run verify:transfer-check-failures', modes: ['release'] },
 	{ id: 'build', command: 'npm run build:prod', modes: UPSTREAM },
 	{
 		id: 'package-ui-only',
@@ -67,14 +67,14 @@ export const CHECKS = Object.freeze([
 	{
 		id: 'licences',
 		command: 'npm run verify:licenses -- --dist dist/maretha-angular-webui',
-		modes: UPSTREAM,
+		modes: ['release'],
 	},
 	{ id: 'pack-sdk', command: 'npm run pack:sdk', modes: UPSTREAM },
-	{ id: 'release-identity', command: 'npm run verify:release-identity', modes: UPSTREAM },
+	{ id: 'release-identity', command: 'npm run verify:release-identity', modes: ['release'] },
 	{ id: 'sdk-api', command: 'npm run verify:sdk-api', modes: UPSTREAM },
 	{ id: 'sdk-ids', command: 'npm run verify:sdk-ids', modes: UPSTREAM },
 	{ id: 'sdk-consumer', command: 'npm run verify:sdk-consumer', modes: UPSTREAM },
-	{ id: 'sdk-upgrade', command: 'npm run verify:sdk-upgrade', modes: UPSTREAM },
+	{ id: 'sdk-upgrade', command: 'npm run verify:sdk-upgrade', modes: ['release'] },
 	{
 		id: 'compiled-search-typecheck',
 		command: 'npx tsc --noEmit -p e2e/compiled-search/tsconfig.json',

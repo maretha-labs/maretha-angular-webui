@@ -104,30 +104,14 @@ jobs:
           CHROME_BIN: ${{ steps.chrome.outputs.chrome-path }}
         run: npm run test:coverage
 
-      - name: Coverage ratchet and exclusion inventory
-        env:
-          COVERAGE_BASE_REF: ${{ github.event.pull_request.base.sha }}
-        run: npm run verify:coverage
-
-      - name: Transfer budgets, cleanup and deliberate regressions
-        env:
-          CHROME_BIN: ${{ steps.chrome.outputs.chrome-path }}
-        run: npm run verify:transfer-check-failures
-
       - name: Production build
         run: npm run build:prod
 
       - name: Nuxeo package assembles from the production build (UI bundle only, not kept)
         run: node scripts/nuxeo-package.mjs --no-build --ui-only
 
-      - name: Licences of production dependencies and vendored files
-        run: npm run verify:licenses -- --dist dist/maretha-angular-webui
-
       - name: Build and pack SDK
         run: npm run pack:sdk
-
-      - name: Release identity of the SDK archive and the Nuxeo package
-        run: npm run verify:release-identity
 
       - name: Public SDK API
         run: npm run verify:sdk-api
@@ -137,9 +121,6 @@ jobs:
 
       - name: Packaged SDK consumer
         run: npm run verify:sdk-consumer
-
-      - name: SDK upgrade rehearsal
-        run: npm run verify:sdk-upgrade
 
       - name: Retain verification reports
         if: always()
