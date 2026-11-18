@@ -42,7 +42,6 @@ import { NgSelectModule } from '@ng-select/ng-select';
 // https://github.com/FortAwesome/angular-fontawesome/blob/master/docs/upgrading/0.4.0-0.5.0.md
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { AutosizeModule } from 'ngx-autosize';
-import { NgxDocViewerModule } from 'ngx-doc-viewer';
 import { AutofocusDirective } from 'app/directives/autofocus.directive';
 import { LazyLoadDirective } from 'app/directives/lazy-load.directive';
 import { HttpInterceptorService } from 'app/helpers/http-interceptor.service';
@@ -79,7 +78,6 @@ import { FooterComponent } from './components/footer/footer.component';
 		FontAwesomeModule,
 		TranslateModule,
 		NgxJsonViewerModule,
-		NgxDocViewerModule,
 		BsDropdownModule,
 		PopoverModule,
 		TooltipModule,
@@ -143,7 +141,6 @@ import { FooterComponent } from './components/footer/footer.component';
 		TabsModule,
 		TranslateModule,
 		NgxJsonViewerModule,
-		NgxDocViewerModule,
 		InputDialogComponent,
 		ConfirmationDialogComponent,
 		AutofocusDirective,
