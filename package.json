@@ -164,7 +164,7 @@
     "lint-staged": "^16.4.0",
     "ng-packagr": "22.2.6",
     "prettier": "^3.8.3",
-    "spdx-expression-parse": "4.0.0",
+    "spdx-expression-parse": "5.0.0",
     "typescript": "~6.0.3",
     "typescript-eslint": "8.72.2",
     "webpack": "^5.112.2",
