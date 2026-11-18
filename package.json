@@ -166,7 +166,7 @@
     "prettier": "^3.8.3",
     "spdx-expression-parse": "4.0.0",
     "typescript": "~6.0.3",
-    "typescript-eslint": "8.72.2",
+    "typescript-eslint": "8.73.0",
     "webpack": "^5.112.2",
     "zone.js": "^0.16.3"
   },
