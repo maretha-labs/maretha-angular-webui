@@ -97,23 +97,27 @@ Packaging and release
 
 ## CI
 
-`.github/workflows/ci.yml` runs on every pull request, on demand and on `v*` tags, on
+`.github/workflows/ci.yml` runs on every pull request, on pushes to `main`, on demand and on `v*` tags, on
 GitHub-hosted runners with the Node version from `.nvmrc`, forks included:
 
 | Job                                                            | What it runs                                                                                                                                                                             |
 | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Runtime checks                                                 | The static checks through the SDK upgrade rehearsal, in the order `npm run verify:upstream` uses                                                                                         |
+| Runtime checks                                                 | The static checks through the packaged SDK consumer, in the order `npm run verify:upstream` uses                                                                                         |
 | Compiled searches with synthetic Nuxeo responses               | `test:e2e:compiled-search` and the production exclusion guard                                                                                                                            |
 | Accessibility scans and keyboard paths                         | `test:a11y`, its guards and, on pull requests, the theme comparison                                                                                                                      |
 | Languages, Arabic direction and pseudo-language browser checks | `test:i18n`                                                                                                                                                                              |
 | Release files and attestation                                  | On a `v*` tag only: `npm run verify:release`, then `dist/release/` (SDK archive, `core.manifest.json`, `sha256sums`) as the `release-files` artifact with a build-provenance attestation |
+
+`verify:coverage`, `verify:transfer-check-failures`, `verify:licenses`, `verify:release-identity` and
+`verify:sdk-upgrade` run in `npm run verify:release` only, when a release is prepared. Required to
+merge: the `Runtime checks` job and DCO; the other jobs report without blocking.
 
 Alongside it, `codeql.yml` scans the TypeScript and JavaScript sources, the workflows and the
 Java server module on pull requests, pushes to `main` and weekly, and `dependency-review.yml`
 fails a pull request that adds a dependency with a known moderate-or-higher vulnerability or an
 AG Grid or AG Charts Enterprise package. `contribution-gate.yml` evaluates every pull request
 against the routes in [CONTRIBUTING.md](../CONTRIBUTING.md) and publishes the
-`contribution-gate` check from the base branch's code; `scorecard.yml` runs OpenSSF Scorecard
+`contribution-gate` check from the base branch's code, as advice that does not block a merge; `scorecard.yml` runs OpenSSF Scorecard
 weekly for the README badge. CI does not compile the Nuxeo server bundle: its Java tests run
 inside `npm run package:nuxeo`, which runs before a server change merges. The local Nuxeo
 harness under `e2e/nuxeo/` runs outside CI on a dedicated runner.

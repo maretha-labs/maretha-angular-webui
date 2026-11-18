@@ -7,7 +7,8 @@ Routes and requirements: CONTRIBUTING.md. In short:
 - the title follows Conventional Commits and becomes the squash commit message; every commit is
   signed off (`git commit -s`);
 - `core.manifest.json` is regenerated last with `npm run release:core-manifest`, never edited.
-Branches on forks may have any name. The `contribution-gate` check explains anything missing.
+Any branch name works. The `contribution-gate` check explains anything missing; it is advisory.
+Required to merge: the `Runtime checks` job and DCO. With write access no confirmed issue is needed.
 -->
 
 Closes #

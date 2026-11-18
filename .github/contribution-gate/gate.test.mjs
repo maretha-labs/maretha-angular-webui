@@ -138,16 +138,19 @@ describe('branch names', () => {
 		}
 	});
 
-	it('requires <route>/<slug> for branches in this repository', () => {
-		const own = (overrides) => evaluate(pr({ fromFork: false, ...overrides }), config);
-		assert.equal(own({ branch: 'fix/drawer-toggle' }).conclusion, 'success');
-		assert.equal(own({ branch: 'fix/42-drawer-toggle', body: '' }).conclusion, 'success');
-		fails(own({ branch: 'patch-1' }), /named `<route>\/<slug>`/);
-		fails(own({ branch: 'docs/drawer-toggle' }), /use `fix\/<slug>`/);
+	it('accepts any branch name in this repository', () => {
+		for (const branch of ['patch-1', 'ci/run-on-main', 'docs/drawer-toggle', 'fix/drawer-toggle']) {
+			const result = evaluate(pr({ fromFork: false, branch }), config);
+			assert.equal(result.conclusion, 'success', `${branch}: ${result.reasons.join('\n')}`);
+		}
 	});
 
-	it('treats a missing fromFork as a branch in this repository', () => {
-		fails(evaluate(pr({ fromFork: undefined }), config), /named `<route>\/<slug>`/);
+	it('asks no confirmed issue and no route file list of an account with write access', () => {
+		const result = evaluate(
+			pr({ author: 'maintainer-one', body: '', changedFiles: [{ path: 'app/app.component.ts' }] }),
+			{ ...config, maintainers: ['maintainer-one'] },
+		);
+		assert.equal(result.conclusion, 'success', result.reasons.join('\n'));
 	});
 
 	it('never echoes the branch name', () => {

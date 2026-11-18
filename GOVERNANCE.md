@@ -5,10 +5,12 @@ Maretha maintains this project through the `@maretha-labs/maintainers` team.
 ## How work is decided
 
 - **What gets built:** an issue is confirmed with the `confirmed:bug` or `confirmed:feature`
-  label, applied by the team after triage. Only confirmed product work is merged. See
+  label, applied by the team after triage. Product work from outside the team starts from a
+  confirmed issue. See
   [CONTRIBUTING.md](CONTRIBUTING.md).
-- **What gets merged:** every required check passes for every pull request. A pull request from
-  outside the team also needs one approval; one from the team merges on green checks alone.
+- **What gets merged:** the two required checks pass for every pull request: the `Runtime checks`
+  job and DCO. The other checks report without blocking. A pull request from outside the team
+  also needs one approval; one from the team merges on the required checks alone.
 - **What gets released:** the team tags releases after reviewing the candidate on a Nuxeo
   installation. See [docs/releasing.md](docs/releasing.md).
 - **Disagreements:** consensus is sought in the issue or pull request. If there is none,

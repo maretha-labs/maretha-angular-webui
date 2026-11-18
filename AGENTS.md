@@ -39,7 +39,7 @@ tag, then `npm run verify`.
 You change core in a fork for a pull request. Any tracked file may change; `custom/` stays the
 empty starter and examples go under `examples/`.
 
-1. Make the change with its tests. Product changes need a confirmed issue (`CONTRIBUTING.md`).
+1. Make the change with its tests. Without write access, product changes need a confirmed issue (`CONTRIBUTING.md`).
 2. `npm run verify:upstream`: every public CI check, in CI order, stopping at the first failure.
 3. Stage files by name, then `npm run release:core-manifest` last; commit `core.manifest.json`
    with them. CI recomputes it. Two core pull requests: rebase, regenerate, commit.

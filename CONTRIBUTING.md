@@ -1,7 +1,7 @@
 # Contributing
 
-Thank you for helping. This project merges only confirmed work, and every check that guards
-`main` applies to every pull request.
+Thank you for helping. Product changes start from a confirmed issue, and the required checks
+run on every pull request.
 
 ## Customizing versus contributing
 
@@ -24,13 +24,12 @@ customization paths.
 | Dependabot                                             | Handled by the bot                                                                                                            | Dependabot's                                                           |
 | Security report                                        | Never a public pull request: see [SECURITY.md](SECURITY.md)                                                                   | Coordinated privately                                                  |
 
-The type in your pull request title picks the route. Your branch name doesn't matter: name
-the branch on your fork anything you like. (Branches in this repository itself use
-`<route>/<slug>`, for example `fix/123-drawer-toggle`.)
+The type in your pull request title picks the route. Your branch name doesn't matter.
 
-The `contribution-gate` check enforces this table on every pull request and explains in one
-comment what is missing. Push a fix or edit the pull request and it runs again; `/gate`
-in a comment from an account with write access runs it too.
+The `contribution-gate` check compares every pull request with this table and explains in one
+comment what is missing. It is advisory: it does not block a merge. A pull request from an
+account with write access needs no confirmed issue. Push a fix or edit the pull request and it
+runs again; `/gate` in a comment from an account with write access runs it too.
 
 New issues are triaged within 14 days. New here? Issues labelled
 `good first issue` are confirmed and small enough for a first pull request.
@@ -75,8 +74,13 @@ merging. See
 - An automated review agent may comment. It is advisory: it never approves, blocks or
   merges, and its comments are not requirements. See
   [.github/review-agent.md](.github/review-agent.md).
-- With write access, a pull request merges on green required checks alone; otherwise it also
+- Two checks are required to merge: the `Runtime checks` job and DCO. The accessibility,
+  language, compiled-search, CodeQL and dependency-review jobs run on every pull request and
+  report without blocking.
+- With write access, a pull request merges on the required checks alone; otherwise it also
   needs one approval.
+- The coverage ratchet, transfer budgets, licence inventory, release identity and SDK upgrade
+  rehearsal run when a release is prepared (`npm run verify:release`), not on a pull request.
 - How work is decided, merged and released: [GOVERNANCE.md](GOVERNANCE.md).
 
 ## Licensing

@@ -8,7 +8,7 @@ not yet a confirmed bug or feature. Search first; someone may have asked already
 ## Bugs and feature requests
 
 Open an issue with the bug or feature form. Triage confirms it with the
-`confirmed:bug` or `confirmed:feature` label; only confirmed work is merged. See
+`confirmed:bug` or `confirmed:feature` label, and a pull request for it is welcome from then on. See
 [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Security problems
