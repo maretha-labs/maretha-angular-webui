@@ -39,10 +39,7 @@ New issues are triaged within 14 days. New here? Issues labelled
 1. Fork the repository and create a branch from `main`. Any name works.
 2. Make the change. Keep it to one concern.
 3. Run the upstream checks: `npm run verify:upstream`. It runs everything the public CI runs.
-4. Regenerate the core manifest as the **last** change, after staging your files by name:
-   `npm run release:core-manifest`. Commit the regenerated `core.manifest.json`. CI recomputes
-   it and fails on any difference. Never edit it by hand. A change limited to `package.json`,
-   `package-lock.json` or `.github/` leaves it unchanged.
+4. Leave `core.manifest.json` alone: it is regenerated when a release is prepared.
 5. Sign off every commit (Developer Certificate of Origin): `git commit -s`. The DCO check
    fails on a commit without a `Signed-off-by` line matching its author. To fix that without
    rewriting history, push a follow-up commit, itself signed off, whose message contains one
@@ -54,12 +51,6 @@ New issues are triaged within 14 days. New here? Issues labelled
    the description (`Closes #123`) and fill in the template.
 
 Pull requests are squash-merged; the title becomes the commit message.
-
-### When the manifest conflicts
-
-Concurrent pull requests that touch core files both change `core.manifest.json`. Do not
-resolve that conflict by hand: rebase on `main`, run `npm run release:core-manifest` again,
-commit, push.
 
 ### Server bundle changes
 

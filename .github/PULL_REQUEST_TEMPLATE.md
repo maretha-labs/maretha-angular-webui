@@ -6,7 +6,7 @@ Routes and requirements: CONTRIBUTING.md. In short:
   confirmed issue when product files change;
 - the title follows Conventional Commits and becomes the squash commit message; every commit is
   signed off (`git commit -s`);
-- `core.manifest.json` is regenerated last with `npm run release:core-manifest`, never edited.
+- `core.manifest.json` stays as it is; a release regenerates it.
 Any branch name works. The `contribution-gate` check explains anything missing; it is advisory.
 Required to merge: the `Runtime checks` job and DCO. With write access no confirmed issue is needed.
 -->

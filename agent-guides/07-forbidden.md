@@ -25,8 +25,7 @@ Each item is caught by a check, a lint rule or the next upgrade. Doing it anyway
 ## Contributing upstream
 
 - Put a customization in `custom/`. Examples go under `examples/`.
-- Commit a hand-edited `core.manifest.json`, or regenerate it before staging the rest of the
-  change.
+- Commit a changed `core.manifest.json`; a release regenerates it.
 - Lower a coverage floor, add a coverage-ignore directive or widen a coverage exclusion;
   `npm run verify:coverage` fails when a release is prepared.
 - Rename, remove or re-pair a default contribution without the compatibility review that

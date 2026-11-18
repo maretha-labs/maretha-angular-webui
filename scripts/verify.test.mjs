@@ -29,7 +29,7 @@ describe('verification modes', () => {
 	it('are customization, upstream and release, each including the one before it', () => {
 		assert.deepEqual(MODES, ['customization', 'upstream', 'release']);
 		for (const command of commands('customization'))
-			if (command !== 'npm run test:ci')
+			if (command !== 'npm run test:ci' && command !== 'npm run verify:core-manifest')
 				assert.ok(commands('upstream').includes(command), `upstream lacks ${command}`);
 		for (const command of commands('upstream'))
 			assert.ok(commands('release').includes(command), `release lacks ${command}`);
@@ -41,20 +41,22 @@ describe('verification modes', () => {
 				'npm run verify:licenses -- --dist dist/maretha-angular-webui',
 				'npm run verify:release-identity',
 				'npm run verify:sdk-upgrade',
+				'npm run verify:core-manifest',
 				'npm run verify:release-artifacts',
 				'npm run release:files',
 			],
 		);
 	});
 
-	it('check the core manifest first in the customization mode and last in the upstream mode', () => {
+	it('check the core manifest first in the customization mode and in the release mode', () => {
 		const customer = checksFor('customization').map((check) => check.id);
 		assert.equal(customer[0], 'core-manifest');
 		assert.equal(customer.at(-1), 'unit-tests');
 		assert.equal(customer.filter((id) => id === 'core-manifest').length, 1);
 		const upstream = checksFor('upstream').map((check) => check.id);
-		assert.equal(upstream.at(-1), 'core-manifest');
-		assert.equal(upstream.filter((id) => id === 'core-manifest').length, 1);
+		assert.ok(!upstream.includes('core-manifest'), 'a pull request leaves the manifest alone');
+		const release = checksFor('release').map((check) => check.id);
+		assert.equal(release.filter((id) => id === 'core-manifest').length, 1);
 		assert.ok(!upstream.includes('unit-tests'), 'coverage runs the suite for contributors');
 	});
 
