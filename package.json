@@ -161,7 +161,7 @@
     "karma-coverage": "~2.2.1",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.3.0",
-    "lint-staged": "^16.4.0",
+    "lint-staged": "^17.6.1",
     "ng-packagr": "22.2.6",
     "prettier": "^3.8.3",
     "spdx-expression-parse": "4.0.0",
