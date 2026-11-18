@@ -143,7 +143,7 @@
     "@eslint/js": "^10.0.1",
     "@playwright/test": "1.65.1",
     "@types/jasmine": "~4.6.0",
-    "@types/marked": "^4.0.8",
+    "@types/marked": "^6.0.0",
     "@types/node": "^12.11.1",
     "@types/three": "^0.163.0",
     "accessibility-checker-engine": "4.0.35",
